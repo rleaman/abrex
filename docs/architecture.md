@@ -33,7 +33,7 @@ abbr-resolution/
   experiments/
     runs/                # ignored/generated
   src/
-    abbr_resolver/
+    abrex/
       domain/
         models.py
         protocols.py

@@ -11,4 +11,7 @@ repos:
     rev: v1.15.0
     hooks:
       - id: mypy
-
+        additional_dependencies:
+          - pydantic>=2.10,<3
+          - PyYAML>=6.0,<7
+          - types-PyYAML>=6.0,<7

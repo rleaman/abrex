@@ -23,6 +23,12 @@ Run the full test gate with coverage:
 python -m ruff format --check src tests; python -m ruff check src tests; python -m mypy; python -m pytest --cov --cov-report=term-missing
 ```
 
+Resolve configuration layers and print the deterministic result:
+
+```console
+python -m abrex config resolve configs/base.yaml
+```
+
 Pre-commit runs the formatting, lint, and type checks locally:
 
 ```console

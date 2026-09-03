@@ -9,7 +9,7 @@ Create the initial Python repository skeleton and quality toolchain without impl
 Create:
 
 - `pyproject.toml`;
-- `src/abbr_resolver/` package;
+- `src/abrex/` package;
 - test directories;
 - `configs/` hierarchy;
 - `docs/decisions/` with an ADR template;
@@ -39,7 +39,7 @@ Adopt Python 3.13 unless a concrete dependency prevents it.
 ## Acceptance criteria
 
 1. Fresh environment installation succeeds.
-2. Importing `abbr_resolver` succeeds.
+2. Importing `abrex` succeeds.
 3. Fast quality gate passes.
 4. At least one trivial unit test proves package/test discovery.
 5. README documents install, lint, typecheck, and test commands.

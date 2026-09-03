@@ -18,6 +18,12 @@ The final resolved configuration must be validated into typed models and saved w
 
 Avoid a configuration system so magical that it becomes difficult to determine the actual value of a setting. Prefer transparent merge semantics and a `config resolve` command that prints the final configuration.
 
+Layers are merged in the order supplied to the loader: mappings are merged
+recursively, while lists and scalar values are replaced by the later layer.
+Environment expansion is explicit: `${VARIABLE}` expands inside a string and
+`!env VARIABLE` expands a whole YAML scalar. Missing variables are
+configuration errors; ordinary strings are not modified.
+
 ## Registry-backed component spec
 
 Use a common shape:
@@ -42,6 +48,28 @@ reporters:
 
 The application composition layer resolves `type` against the appropriate registry and validates `params` against the implementation's configuration model or factory signature.
 
+For example, a test or application can define a local registry and compose a
+component without global import scanning:
+
+```python
+from pydantic import BaseModel
+
+from abrex.config import ComponentSpec, create_component
+from abrex.registry import Registry
+
+
+class ToyParams(BaseModel):
+    greeting: str
+
+
+components = Registry[str]("components")
+components.register("toy", lambda greeting: greeting, config_model=ToyParams)
+result = create_component(
+    ComponentSpec(type="toy", params={"greeting": "hello"}), components
+)
+assert result == "hello"
+```
+
 ## Registry keys
 
 Registry keys are public API. Prefer short, descriptive, lowercase snake_case keys such as:
@@ -58,7 +86,8 @@ Do not use Python import paths as the normal user-facing identifier.
 
 ## Configuration validation
 
-Use typed models. Pydantic v2 is acceptable if adopted consistently; otherwise dataclasses plus an explicit validation layer are acceptable. Do not mix multiple configuration-validation paradigms without need.
+Use Pydantic v2 models consistently for configuration validation. Do not mix
+multiple configuration-validation paradigms without need.
 
 Validation errors must be actionable and include the configuration path where possible.
 
