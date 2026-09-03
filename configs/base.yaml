@@ -1,0 +1,9 @@
+# Project-level defaults. Component-specific configuration is added by later tasks.
+project:
+  name: abrex
+  seed: 20260903
+
+runtime:
+  strict: true
+  log_level: INFO
+
