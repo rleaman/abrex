@@ -1,0 +1,40 @@
+project:
+  name: abrex
+  seed: 20260903
+
+runtime:
+  strict: true
+  log_level: INFO
+
+corpus:
+  type: canonical_jsonl
+  params:
+    path: data/processed/example.jsonl
+
+resolver:
+  type: ab3p
+  params:
+    executable: ${AB3P_EXECUTABLE}
+
+matching:
+  type: exact_pair
+  params: {}
+
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+
+reporters:
+  - type: json
+    params:
+      pretty: true
+  - type: html_error_report
+    params:
+      context_chars: 120
+
+output:
+  root: experiments/runs
+  save_predictions: true
+  save_match_records: true
+  save_resolved_config: true
