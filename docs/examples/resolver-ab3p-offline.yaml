@@ -1,0 +1,9 @@
+# Windows/offline replay. No Ab3P executable is needed.
+resolver:
+  type: ab3p
+  params:
+    backend: cache_only
+    cache:
+      path: artifacts/ab3p-cache
+      read: true
+      write: false

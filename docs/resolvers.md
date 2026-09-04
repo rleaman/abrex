@@ -40,3 +40,45 @@ automatically, while library callers can pass `dataset_fingerprint` to
 evaluation can verify that fingerprint against the intended canonical build.
 The artifact can also be fingerprinted and read back with
 `read_prediction_artifact`.
+
+## Ab3P baseline
+
+`ab3p` is an optional registry resolver for the original external Ab3P
+executable; Ab3P is not an ABREX or build-time dependency. Use
+`backend: subprocess` with an explicitly configured executable on Linux to
+populate a portable cache, or use `backend: cache_only` on Windows/offline
+machines. Native Windows execution is neither supported nor required.
+
+The cache stores the canonical document ID and SHA-256, exact UTF-8 input,
+raw stdout/stderr, exit status, adapter/cache schema, and execution
+provenance. Its key is based on document content, exact input, adapter
+version, backend, and installation label—not absolute paths. Consequently a
+cache directory can be copied between systems. Changed content, schema,
+semantic configuration, or a missing entry is an explicit cache miss; it is
+never an empty successful result. Successful zero-output Ab3P runs are cached
+and replayed as legitimate zero predictions. Cached stdout goes through the
+same parser and canonical span reconstruction code as live output.
+
+Example Linux configuration:
+
+```yaml
+resolver:
+  type: ab3p
+  params:
+    backend: subprocess
+    executable: /opt/ab3p/identify_abbr
+    timeout_seconds: 60
+    cache:
+      path: artifacts/ab3p-cache
+      read: true
+      write: true
+    installation_label: nlm-linux-ab3p
+```
+
+Copy `artifacts/ab3p-cache` to the Windows checkout and change only the
+backend to `cache_only` (retaining the cache path and installation label).
+Cache population uses the existing resolver command, for example
+`abrex resolver run docs/examples/resolver-ab3p-cache.yaml --input
+data/processed/benchmark.jsonl --output artifacts/ab3p-predictions.jsonl`.
+Live integration tests are intentionally separate and should be enabled only
+when an executable is configured; ordinary tests do not require Ab3P.

@@ -1,5 +1,17 @@
 """Interchangeable abbreviation resolvers and prediction artifacts."""
 
+from abrex.resolvers.adapters.ab3p import (
+    AB3P_ADAPTER_VERSION,
+    Ab3PCacheConfig,
+    Ab3PMappingError,
+    Ab3PParseError,
+    Ab3PResolverConfig,
+    ParsedAbbreviation,
+    build_ab3p_input,
+    parse_ab3p_output,
+    reconstruct_predictions,
+)
+from abrex.resolvers.adapters.ab3p_resolver import Ab3PResolver
 from abrex.resolvers.base import (
     ExecutionErrorPolicy,
     PredictionDiagnostic,
@@ -40,6 +52,12 @@ from abrex.resolvers.validation import validate_predictions
 
 __all__ = [
     "ExecutionErrorPolicy",
+    "AB3P_ADAPTER_VERSION",
+    "Ab3PCacheConfig",
+    "Ab3PMappingError",
+    "Ab3PParseError",
+    "Ab3PResolver",
+    "Ab3PResolverConfig",
     "PREDICTION_SCHEMA_VERSION",
     "PredictionArtifact",
     "PredictionDiagnostic",
@@ -47,6 +65,7 @@ __all__ = [
     "PredictionSerializationError",
     "PredictionValidationError",
     "PredictionValidationMode",
+    "ParsedAbbreviation",
     "PredictionValidationResult",
     "RESOLVERS",
     "Resolver",
@@ -71,4 +90,7 @@ __all__ = [
     "validate_predictions",
     "write_prediction_artifact",
     "write_predictions",
+    "build_ab3p_input",
+    "parse_ab3p_output",
+    "reconstruct_predictions",
 ]

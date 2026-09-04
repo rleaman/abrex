@@ -14,7 +14,12 @@ corpus:
 resolver:
   type: ab3p
   params:
+    backend: subprocess
     executable: ${AB3P_EXECUTABLE}
+    cache:
+      path: artifacts/ab3p-cache
+      read: true
+      write: true
 
 matching:
   type: exact_pair

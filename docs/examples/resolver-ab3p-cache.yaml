@@ -1,0 +1,12 @@
+# Linux cache population (Ab3P is an external, pre-installed executable).
+resolver:
+  type: ab3p
+  params:
+    backend: subprocess
+    executable: ${AB3P_EXECUTABLE}
+    timeout_seconds: 60
+    cache:
+      path: artifacts/ab3p-cache
+      read: true
+      write: true
+    installation_label: nlm-linux-ab3p
