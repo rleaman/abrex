@@ -1,0 +1,14 @@
+project:
+  name: corpus-fixture
+  seed: 20260904
+
+corpus:
+  adapter:
+    type: fixture
+    params: {}
+  source:
+    identifier: embedded-fixture
+  normalizers:
+    - type: trim_captured_text
+      params: {}
+  strict: false

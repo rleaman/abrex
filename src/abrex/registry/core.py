@@ -162,3 +162,8 @@ class Registry[T]:
         """Return all canonical keys and explicit aliases in stable order."""
 
         return tuple(sorted(self._components))
+
+    def __contains__(self, key: object) -> bool:
+        """Return whether ``key`` is registered, including explicit aliases."""
+
+        return key in self._components

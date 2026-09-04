@@ -11,10 +11,24 @@ python -m pip install --upgrade pip
 python -m pip install --editable ".[dev]"
 ```
 
-Run the fast quality gate (format check, lint, type check, and unit/contract tests):
+Run the fast quality gate (format check, lint, type check, and unit/contract tests)
+from the same Python environment used to install the project:
 
 ```console
 python -m ruff format --check src tests; python -m ruff check src tests; python -m mypy; python -m pytest tests/unit tests/contract
+```
+
+On Windows, an unactivated environment can use the interpreter explicitly:
+
+```console
+.\env313\Scripts\python.exe -m mypy
+```
+
+The development tool versions are pinned to the versions used by the
+pre-commit hooks. Reinstall the development extra after changing environments:
+
+```console
+python -m pip install --editable ".[dev]"
 ```
 
 Run the full test gate with coverage:

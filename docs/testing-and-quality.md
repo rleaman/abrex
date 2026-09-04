@@ -9,6 +9,12 @@ The exact commands may differ by tooling, but provide a single documented comman
 - type checking;
 - fast unit and contract tests.
 
+The repository pins mypy and Ruff to the versions used by the pre-commit hooks.
+Run all checks through the same interpreter that installed the development
+extra, for example `python -m mypy` rather than an unrelated global `mypy`
+executable. On Windows, use `.\env313\Scripts\python.exe -m mypy` when the
+environment is not activated.
+
 A second full gate may include integration/regression tests and coverage.
 
 ## Target tooling
