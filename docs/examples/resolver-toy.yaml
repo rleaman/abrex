@@ -1,0 +1,6 @@
+# Resolver-only configuration fragment. Merge this with a project/corpus
+# configuration when running a resolver execution.
+resolver:
+  type: toy
+  params:
+    confidence: 1.0

@@ -1,0 +1,74 @@
+"""Interchangeable abbreviation resolvers and prediction artifacts."""
+
+from abrex.resolvers.base import (
+    ExecutionErrorPolicy,
+    PredictionDiagnostic,
+    PredictionRecord,
+    PredictionValidationError,
+    PredictionValidationMode,
+    PredictionValidationResult,
+    Resolver,
+    ResolverError,
+    ResolverExecutionError,
+    ResolverMetadata,
+    ResolverRunResult,
+    attach_resolver_metadata,
+)
+from abrex.resolvers.config import (
+    ResolverConfig,
+    create_resolver_executor,
+    resolver_config_from_resolved,
+)
+from abrex.resolvers.execution import ResolverExecutor
+from abrex.resolvers.registry import RESOLVERS, register_builtin_components
+from abrex.resolvers.serialization import (
+    PREDICTION_SCHEMA_VERSION,
+    PredictionArtifact,
+    PredictionSerializationError,
+    fingerprint_prediction_artifact,
+    prediction_artifact_from_run,
+    prediction_record_from_dict,
+    prediction_record_to_dict,
+    read_prediction_artifact,
+    read_predictions,
+    serialize_prediction_artifact,
+    serialize_predictions,
+    write_prediction_artifact,
+    write_predictions,
+)
+from abrex.resolvers.validation import validate_predictions
+
+__all__ = [
+    "ExecutionErrorPolicy",
+    "PREDICTION_SCHEMA_VERSION",
+    "PredictionArtifact",
+    "PredictionDiagnostic",
+    "PredictionRecord",
+    "PredictionSerializationError",
+    "PredictionValidationError",
+    "PredictionValidationMode",
+    "PredictionValidationResult",
+    "RESOLVERS",
+    "Resolver",
+    "ResolverConfig",
+    "ResolverError",
+    "ResolverExecutionError",
+    "ResolverExecutor",
+    "ResolverMetadata",
+    "ResolverRunResult",
+    "attach_resolver_metadata",
+    "create_resolver_executor",
+    "fingerprint_prediction_artifact",
+    "prediction_artifact_from_run",
+    "prediction_record_from_dict",
+    "prediction_record_to_dict",
+    "read_prediction_artifact",
+    "read_predictions",
+    "register_builtin_components",
+    "resolver_config_from_resolved",
+    "serialize_prediction_artifact",
+    "serialize_predictions",
+    "validate_predictions",
+    "write_prediction_artifact",
+    "write_predictions",
+]

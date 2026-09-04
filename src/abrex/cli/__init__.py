@@ -18,9 +18,17 @@ from abrex.corpora import (
     CorpusError,
     corpus_config_from_resolved,
     create_corpus_pipeline,
+    read_canonical_jsonl,
     write_canonical_dataset,
 )
 from abrex.registry import RegistryError
+from abrex.resolvers import (
+    PredictionSerializationError,
+    ResolverError,
+    create_resolver_executor,
+    resolver_config_from_resolved,
+    write_prediction_artifact,
+)
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -51,6 +59,18 @@ def _build_parser() -> argparse.ArgumentParser:
     build.add_argument(
         "--manifest", type=Path, help="manifest path (defaults beside JSONL output)"
     )
+    resolver = commands.add_parser("resolver", help="resolver execution commands")
+    resolver_commands = resolver.add_subparsers(dest="resolver_command", required=True)
+    run = resolver_commands.add_parser(
+        "run", help="run a configured resolver over canonical documents"
+    )
+    run.add_argument(
+        "paths", nargs="+", type=Path, help="YAML layers in precedence order"
+    )
+    run.add_argument("--input", required=True, type=Path, help="canonical JSONL input")
+    run.add_argument(
+        "--output", required=True, type=Path, help="prediction JSONL output"
+    )
     return parser
 
 
@@ -72,14 +92,14 @@ def main(argv: Sequence[str] | None = None) -> int:
         try:
             config = load_resolved_config(args.paths)
             corpus_config = corpus_config_from_resolved(config)
-            result = create_corpus_pipeline(corpus_config).build(
+            corpus_result = create_corpus_pipeline(corpus_config).build(
                 corpus_config.source.to_resource()
             )
             config_fingerprint = hashlib.sha256(
                 serialize_resolved_config(config, format="json").encode("utf-8")
             ).hexdigest()
             manifest = write_canonical_dataset(
-                result,
+                corpus_result,
                 args.output,
                 manifest_path=args.manifest,
                 mode="strict" if corpus_config.strict else "permissive",
@@ -91,6 +111,32 @@ def main(argv: Sequence[str] | None = None) -> int:
             CorpusError,
             CanonicalSerializationError,
             RegistryError,
+            ValueError,
+        ) as error:
+            print(f"error: {error}", file=sys.stderr)
+            return 2
+        return 0
+    if args.command == "resolver" and args.resolver_command == "run":
+        try:
+            config = load_resolved_config(args.paths)
+            resolver_config = resolver_config_from_resolved(config)
+            executor = create_resolver_executor(resolver_config)
+            records = read_canonical_jsonl(args.input)
+            resolver_result = executor.resolve_documents(
+                tuple(record.document for record in records)
+            )
+            fingerprint = write_prediction_artifact(resolver_result, args.output)
+            sys.stdout.write(
+                f'{{"fingerprint":"{fingerprint}","record_count":'
+                f"{len(resolver_result.records)},"
+                f'"resolver":"{resolver_result.resolver.key}"}}\n'
+            )
+        except (
+            ConfigError,
+            CanonicalSerializationError,
+            PredictionSerializationError,
+            RegistryError,
+            ResolverError,
             ValueError,
         ) as error:
             print(f"error: {error}", file=sys.stderr)
