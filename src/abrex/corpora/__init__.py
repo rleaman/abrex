@@ -1,6 +1,11 @@
 """Extensible corpus adapters and canonical-record normalization."""
 
-from abrex.corpora.adapters import FixtureCorpusAdapter
+from abrex.corpora.adapters import (
+    BioCCorpusAdapter,
+    DelimitedPairCorpusAdapter,
+    FixtureCorpusAdapter,
+    SDUAcronymIdentificationAdapter,
+)
 from abrex.corpora.base import (
     CorpusAdapter,
     CorpusAdapterError,
@@ -61,6 +66,7 @@ from abrex.corpora.validation import (
 __all__ = [
     "AdapterDiagnostic",
     "CANONICAL_SCHEMA_VERSION",
+    "BioCCorpusAdapter",
     "CanonicalSerializationError",
     "CanonicalValidationError",
     "CanonicalValidator",
@@ -75,6 +81,7 @@ __all__ = [
     "DiagnosticsCollector",
     "DiagnosticsSummary",
     "DatasetManifest",
+    "DelimitedPairCorpusAdapter",
     "FixtureCorpusAdapter",
     "IdentityNormalization",
     "NORMALIZERS",
@@ -84,6 +91,7 @@ __all__ = [
     "ParsedSourceRecord",
     "SourceResource",
     "SourceResourceConfig",
+    "SDUAcronymIdentificationAdapter",
     "TrimCapturedText",
     "MANIFEST_SCHEMA_VERSION",
     "ValidationIssue",

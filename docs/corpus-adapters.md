@@ -55,3 +55,22 @@ The command writes a sibling manifest containing adapter/normalizer identity,
 source and configuration fingerprints where available, deterministic record
 counts, and all observed, repaired, dropped, ambiguous, and unscoreable
 validation events. See `docs/canonical-artifacts.md` for the read/verify API.
+
+## Historical source formats (T011)
+
+Historical adapters are offline readers: source files must be downloaded and
+licensed by the user. `schwartz_hearst`, `schwartz_hearst_badrex`,
+`ab3p_corpus`, `medstract`, and `bioadi` read BioC XML or JSON. BioC
+annotation locations are document character offsets; `ShortForm`/`LongForm`
+entities are paired through BioC relation nodes, with deterministic fallback
+pairing by entity order when no relations are present. The corrected
+`medstract_badrex` key reads tab-separated pair rows. Its two-column form
+requires an explicit `document_template` because the source has no document
+text or offsets.
+
+`sdu_aaai21_ai` and `sdu_aaai22_ai` read the shared-task JSON array format
+(`id`, `tokens`, `labels`) and convert `B-long`/`I-long` and
+`B-short`/`I-short` labels into spans in the configured token-separator
+representation. No source files or licensed examples are redistributed.
+Separate registry keys ensure corrected data cannot replace an original
+artifact.
