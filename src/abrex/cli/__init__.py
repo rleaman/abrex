@@ -30,6 +30,12 @@ from abrex.resolvers import (
     resolver_config_from_resolved,
     write_prediction_artifact,
 )
+from abrex.tools.download_datasets import (
+    DownloadError,
+    download_datasets,
+    load_download_config,
+    results_to_json,
+)
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -72,6 +78,12 @@ def _build_parser() -> argparse.ArgumentParser:
     run.add_argument(
         "--output", required=True, type=Path, help="prediction JSONL output"
     )
+    datasets = commands.add_parser("datasets", help="historical dataset utilities")
+    dataset_commands = datasets.add_subparsers(dest="datasets_command", required=True)
+    download = dataset_commands.add_parser(
+        "download", help="download configured dataset sources"
+    )
+    download.add_argument("config", type=Path, help="YAML download manifest")
     return parser
 
 
@@ -86,6 +98,14 @@ def main(argv: Sequence[str] | None = None) -> int:
                 serialize_resolved_config(config, format=args.output_format)
             )
         except ConfigError as error:
+            print(f"error: {error}", file=sys.stderr)
+            return 2
+        return 0
+    if args.command == "datasets" and args.datasets_command == "download":
+        try:
+            results = download_datasets(load_download_config(args.config))
+            sys.stdout.write(results_to_json(results))
+        except DownloadError as error:
             print(f"error: {error}", file=sys.stderr)
             return 2
         return 0

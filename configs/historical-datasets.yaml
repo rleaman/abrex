@@ -1,0 +1,54 @@
+# Offline source acquisition manifest.
+# Run: python -m abrex datasets download configs/historical-datasets.yaml
+downloads:
+  user_agent: abrex-historical-datasets/1.0 (research; contact project owner)
+  timeout_seconds: 120
+  retries: 4
+  retry_delay_seconds: 3
+  polite_delay_seconds: 2
+  overwrite: false
+  datasets:
+    - name: schwartz_hearst_bioc_archive
+      url: https://downloads.sourceforge.net/project/bioc/SH-BioC.zip
+      destination: data/raw/historical/schwartz_hearst
+      extract: true
+    - name: ab3p_bioc_archive
+      url: https://downloads.sourceforge.net/project/bioc/Ab3P-BioC.zip
+      destination: data/raw/historical/ab3p_corpus
+      extract: true
+    - name: bioadi_bioc_archive
+      url: https://downloads.sourceforge.net/project/bioc/BioADI-BioC.zip
+      destination: data/raw/historical/bioadi
+      extract: true
+    - name: medstract_bioc_archive
+      url: https://downloads.sourceforge.net/project/bioc/MEDSTRACT.zip
+      destination: data/raw/historical/medstract
+      extract: true
+    - name: schwartz_hearst_badrex_xml
+      url: https://github.com/philgooch/BADREX-Biomedical-Abbreviation-Expander/raw/master/yeast_abbrev_labeled.xml
+      destination: data/raw/historical/schwartz_hearst_badrex/yeast_abbrev_labeled.xml
+    - name: medstract_badrex_pairs
+      url: https://github.com/philgooch/BADREX-Biomedical-Abbreviation-Expander/raw/master/medstract_corrected_pairs.txt
+      destination: data/raw/historical/medstract_badrex/medstract_corrected_pairs.txt
+    - name: sdu_aaai21_ai_train
+      url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-1-AI/master/dataset/train.json
+      destination: data/raw/historical/sdu_aaai21_ai/train.json
+    - name: sdu_aaai21_ai_dev
+      url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-1-AI/master/dataset/dev.json
+      destination: data/raw/historical/sdu_aaai21_ai/dev.json
+    - name: sdu_aaai21_ai_test
+      url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-1-AI/master/dataset/test.json
+      destination: data/raw/historical/sdu_aaai21_ai/test.json
+    - name: sdu_aaai21_ad_train
+      url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-2-AD/master/dataset/train.json
+      destination: data/raw/historical/sdu_aaai21_ad/train.json
+    - name: sdu_aaai21_ad_dev
+      url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-2-AD/master/dataset/dev.json
+      destination: data/raw/historical/sdu_aaai21_ad/dev.json
+    - name: sdu_aaai21_ad_dictionary
+      url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-2-AD/master/dataset/diction.json
+      destination: data/raw/historical/sdu_aaai21_ad/diction.json
+    - name: sdu_aaai22_repository
+      url: https://github.com/dipteshkanojia/PR-AAAI22-SDU-ST1-AE/archive/refs/heads/master.zip
+      destination: data/raw/historical/sdu_aaai22
+      extract: true

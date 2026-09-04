@@ -51,6 +51,22 @@ Resolve configuration layers and print the deterministic result:
 python -m abrex config resolve configs/base.yaml
 ```
 
+## Historical datasets
+
+Download the user-managed historical corpus sources listed in the YAML
+manifest with:
+
+```console
+python -m abrex datasets download configs/historical-datasets.yaml
+```
+
+The downloader uses polite sequential requests, retries transient failures,
+writes atomically, verifies configured checksums, safely extracts archives,
+and records a `.download.json` provenance file for each completed source.
+Downloaded files are placed under `data/raw/historical/` for use with the T011
+corpus adapters. See `docs/historical-downloads.md` for source-format and
+licensing details.
+
 Pre-commit runs the formatting, lint, and type checks locally:
 
 ```console
