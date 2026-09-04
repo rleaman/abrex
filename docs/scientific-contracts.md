@@ -60,3 +60,19 @@ Aggregate metrics should retain per-document match outcomes so confidence interv
 ## 10. Bootstrap/confidence intervals
 
 Do not bake one inferential procedure into the core evaluator. Statistical uncertainty should be a downstream metric/analysis plugin operating on document-level evaluation records.
+
+## 11. T006 exact evaluation defaults
+
+The initial evaluator provides the named `exact_pair` policy. A pair is
+scoreable only when both annotations have short-form and long-form spans; the
+document ID and both half-open spans must then be equal. Incomplete annotations
+are retained in detailed results as `unscoreable` outcomes and are excluded
+from TP/FP/FN counts. This is an explicit initial policy, not an inference
+about how every corpus should treat partial annotations.
+
+Duplicate annotations are retained. Exact duplicate predictions beyond the
+one-to-one matches are reported as false positives, and duplicate gold
+annotations beyond the matches are reported as false negatives. Pair-level
+precision, recall, and F1 use micro counts. The default `zero_division: zero`
+reports `0.0` when a metric denominator is zero; a configured `raise` mode is
+available for runs that require an empty denominator to fail.
