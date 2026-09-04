@@ -21,8 +21,16 @@ python -m ruff format --check src tests; python -m ruff check src tests; python 
 On Windows, an unactivated environment can use the interpreter explicitly:
 
 ```console
+.\env313\Scripts\python.exe -m ruff format --check src tests
+.\env313\Scripts\python.exe -m ruff check src tests
 .\env313\Scripts\python.exe -m mypy
+.\env313\Scripts\python.exe -m pytest tests/unit tests/contract
 ```
+
+The configured mypy scope is the full repository source and test tree, and
+pre-commit runs that same scope. If its cache is read-only, set
+`PRE_COMMIT_HOME` to a writable user-local directory before installing hooks;
+see `docs/testing-and-quality.md`.
 
 The development tool versions are pinned to the versions used by the
 pre-commit hooks. Reinstall the development extra after changing environments:

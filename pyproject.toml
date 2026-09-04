@@ -46,7 +46,7 @@ indent-style = "space"
 [tool.mypy]
 python_version = "3.13"
 strict = true
-packages = ["abrex"]
+files = ["src", "tests"]
 mypy_path = "src"
 warn_unreachable = true
 

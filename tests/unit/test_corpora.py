@@ -79,7 +79,8 @@ def test_fixture_rejects_filesystem_resources_and_strict_build_exposes_summary()
     pipeline = create_corpus_pipeline(config)
     with pytest.raises(CorpusBuildError, match="had errors") as error:
         pipeline.build(config.source.to_resource())
-    assert error.value.diagnostics.to_dict()["by_action"]["dropped"] == 2
+    summary = error.value.diagnostics.to_dict()
+    assert cast(dict[str, int], summary["by_action"])["dropped"] == 2
 
 
 def test_yaml_resolved_corpus_section_is_typed_at_composition_boundary() -> None:

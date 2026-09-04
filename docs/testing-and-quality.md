@@ -15,6 +15,39 @@ extra, for example `python -m mypy` rather than an unrelated global `mypy`
 executable. On Windows, use `.\env313\Scripts\python.exe -m mypy` when the
 environment is not activated.
 
+## Environment consistency
+
+Run repository checks through the same Python environment that installed the
+development extra. On Windows, either activate `env313` first or use the
+explicit interpreter form for every command:
+
+```powershell
+.\env313\Scripts\python.exe -m pip install --editable ".[dev]"
+.\env313\Scripts\python.exe -m ruff format --check src tests
+.\env313\Scripts\python.exe -m ruff check src tests
+.\env313\Scripts\python.exe -m mypy
+.\env313\Scripts\python.exe -m pytest tests/unit tests/contract
+```
+
+The repository mypy configuration intentionally checks both `src` and
+`tests`. The pre-commit mypy hook uses `pass_filenames: false` so a commit
+containing only a subset of files cannot pass while the full repository fails.
+After Ruff applies an automatic fix, inspect `git status` and stage the changed
+files before committing.
+
+If pre-commit reports that its SQLite cache is read-only, configure its cache
+under a user-writable directory and rerun installation/checks. For example:
+
+```powershell
+$env:PRE_COMMIT_HOME = "$env:LOCALAPPDATA\pre-commit"
+New-Item -ItemType Directory -Force $env:PRE_COMMIT_HOME | Out-Null
+python -m pre_commit install --install-hooks
+python -m pre_commit run --all-files
+```
+
+This cache setting is machine-local and should not be committed. The project
+quality gate itself does not depend on pre-commit's cache location.
+
 A second full gate may include integration/regression tests and coverage.
 
 ## Target tooling

@@ -40,3 +40,18 @@ Validate the resolved section with `CorpusConfig`, then pass it to
 `create_corpus_pipeline`. Production code should inject local registries when
 embedding the framework or testing a plugin; the default registries provide
 the `fixture`, `identity`, and `trim_captured_text` components.
+
+## Canonical artifact output
+
+T004 adds the versioned JSONL artifact boundary. A build can be run directly
+from the YAML composition above:
+
+```console
+python -m abrex corpus build docs/examples/corpus-fixture.yaml \
+  --output data/processed/fixture.jsonl
+```
+
+The command writes a sibling manifest containing adapter/normalizer identity,
+source and configuration fingerprints where available, deterministic record
+counts, and all observed, repaired, dropped, ambiguous, and unscoreable
+validation events. See `docs/canonical-artifacts.md` for the read/verify API.

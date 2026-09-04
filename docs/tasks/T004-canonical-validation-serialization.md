@@ -36,3 +36,6 @@ Golden canonical JSONL fixture, round-trip tests, fingerprint stability tests, v
 ## Acceptance criteria
 
 Running the corpus build command twice on unchanged inputs/config produces byte-stable or semantically stable canonical artifacts with the same fingerprint and explicit validation summaries.
+
+The public artifact API and command-line workflow are documented in
+`docs/canonical-artifacts.md`.
