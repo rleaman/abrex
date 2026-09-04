@@ -30,7 +30,12 @@ from abrex.evaluation import (
     evaluation_config_from_resolved,
 )
 from abrex.registry import Registry
-from abrex.resolvers import PredictionRecord
+from abrex.resolvers import (
+    PredictionArtifact,
+    PredictionRecord,
+    ResolverExecutor,
+    ResolverMetadata,
+)
 
 
 def annotation(
@@ -303,20 +308,76 @@ class CountingMetric:
         return MetricResult("counting", (("documents", len(tuple(documents))),))
 
 
-def test_evaluator_is_order_invariant_and_handles_documents_on_one_side() -> None:
+class FailingResolver:
+    identity = "failing"
+    version = "test"
+
+    def resolve(self, document: Document) -> Iterable[AbbreviationDefinition]:
+        raise RuntimeError("resolver failed")
+
+
+def test_evaluator_requires_exact_gold_document_coverage() -> None:
     document = Document("doc", "text")
     gold = CorpusRecord(document, (annotation("doc", (0, 1), (1, 2)),))
     pred = PredictionRecord("other", (annotation("other", (0, 1), (1, 2)),))
     evaluator = Evaluator(ExactPairMatchingPolicy(), (PairPRFMetric(),))
-    result = evaluator.evaluate((gold,), (pred,))
-    assert [record.document_id for record in result.documents] == ["doc", "other"]
-    assert result.metric("pair_prf").tp == 0
-    assert result.metric("pair_prf").fp == 1
-    assert result.metric("pair_prf").fn == 1
-    assert result == evaluator.evaluate_records((gold,), (pred,))
+    with pytest.raises(EvaluationError, match="coverage mismatch"):
+        evaluator.evaluate((gold,), (pred,))
 
-    reversed_result = evaluator.evaluate((gold,), tuple(reversed((pred,))))
-    assert result == reversed_result
+    with pytest.raises(EvaluationError, match="missing prediction records"):
+        evaluator.evaluate((gold,), ())
+
+
+def test_explicit_empty_prediction_record_is_scored_and_execution_failure_is_not() -> (
+    None
+):
+    document = Document("doc", "text")
+    gold = CorpusRecord(document, (annotation("doc", (0, 1), (1, 2)),))
+    evaluator = Evaluator(ExactPairMatchingPolicy(), (PairPRFMetric(),))
+    empty = PredictionRecord("doc")
+    result = evaluator.evaluate((gold,), (empty,))
+    assert len(result.documents) == 1
+    assert result.documents[0].predictions == ()
+    assert result.documents[0].fn == 1
+    assert result.metric("pair_prf").fn == 1
+
+    from abrex.resolvers import PredictionDiagnostic
+
+    failed = PredictionRecord(
+        "doc",
+        diagnostics=(
+            PredictionDiagnostic(
+                "error",
+                "RESOLVER_EXECUTION_FAILED",
+                "resolver failed",
+                "doc",
+                action="dropped",
+            ),
+        ),
+    )
+    with pytest.raises(EvaluationError, match="execution failure"):
+        evaluator.evaluate((gold,), (failed,))
+
+    run = ResolverExecutor(FailingResolver()).resolve_documents(
+        (document,), error_policy="collect"
+    )
+    with pytest.raises(EvaluationError, match="execution failures"):
+        evaluator.evaluate((gold,), run)
+
+    artifact = PredictionArtifact(
+        ResolverMetadata("toy", "1"), (empty,), dataset_fingerprint="a" * 64
+    )
+    assert (
+        evaluator.evaluate((gold,), artifact, expected_dataset_fingerprint="a" * 64)
+        .documents[0]
+        .fn
+        == 1
+    )
+    with pytest.raises(EvaluationError, match="does not identify"):
+        evaluator.evaluate((gold,), (empty,), expected_dataset_fingerprint="a" * 64)
+    with pytest.raises(EvaluationError, match="does not match"):
+        evaluator.evaluate((gold,), artifact, expected_dataset_fingerprint="b" * 64)
+    assert evaluator.evaluate_records((gold,), (empty,)) == result
 
 
 def test_evaluator_rejects_bad_inputs_and_supports_structural_records() -> None:
@@ -396,7 +457,9 @@ def test_yaml_composition_uses_builtin_and_injected_registries() -> None:
         matching_registry=matching,
         metric_registry=metrics,
     )
-    result = custom.evaluate((CorpusRecord(Document("doc", "text")),), ())
+    result = custom.evaluate(
+        (CorpusRecord(Document("doc", "text")),), (PredictionRecord("doc"),)
+    )
     assert result.matching_policy == "toy_policy"
     assert result.metric("counting").value("documents") == 1
 

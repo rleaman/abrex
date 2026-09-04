@@ -40,3 +40,14 @@ and `f1`. Its default zero-denominator behavior is an explicit `0.0`; set
 The evaluator returns immutable per-document `DocumentEvaluation` records and
 an immutable `EvaluationResult` containing detailed `MatchOutcome` values.
 This preserves the inputs needed by later reporters and uncertainty plugins.
+
+Evaluation is driven by the gold document set. Every gold document must have
+exactly one prediction record; an omitted record is a coverage error, and an
+unknown or duplicate prediction document ID is rejected. A resolver that
+successfully found no pairs must therefore emit an explicit empty
+`PredictionRecord`, which is scored normally. Resolver execution failures are
+diagnosed and are never treated as empty predictions.
+
+When evaluating a `PredictionArtifact`, pass
+`expected_dataset_fingerprint` to verify that it was generated from the same
+canonical dataset build.

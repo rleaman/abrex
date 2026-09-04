@@ -359,13 +359,17 @@ def test_prediction_artifact_is_distinct_deterministic_and_round_trips(
         Document("doc-a", "ABC means alpha"),
     )
     result = ResolverExecutor(DuplicateResolver()).resolve_documents(documents)
-    artifact = PredictionArtifact.from_run(result)
+    dataset_fingerprint = "a" * 64
+    artifact = PredictionArtifact.from_run(
+        result, dataset_fingerprint=dataset_fingerprint
+    )
     serialized = serialize_prediction_artifact(artifact)
     assert serialized == serialize_prediction_artifact(
         PredictionArtifact.from_run(
             ResolverExecutor(DuplicateResolver()).resolve_documents(
                 tuple(reversed(documents))
-            )
+            ),
+            dataset_fingerprint=dataset_fingerprint,
         )
     )
     assert PREDICTION_SCHEMA_VERSION in serialized
@@ -375,9 +379,68 @@ def test_prediction_artifact_is_distinct_deterministic_and_round_trips(
     path = tmp_path / "predictions.jsonl"
     assert write_prediction_artifact(artifact, path)
     loaded = read_prediction_artifact(
-        path, documents={doc.id: doc for doc in documents}
+        path,
+        documents={doc.id: doc for doc in documents},
+        expected_dataset_fingerprint=dataset_fingerprint,
     )
     assert loaded == artifact
+    assert artifact.dataset_fingerprint == dataset_fingerprint
+    with pytest.raises(PredictionSerializationError, match="does not match"):
+        read_prediction_artifact(path, expected_dataset_fingerprint="b" * 64)
+    with pytest.raises(PredictionSerializationError, match="Expected dataset"):
+        read_prediction_artifact(path, expected_dataset_fingerprint="bad")
+    with pytest.raises(ValueError, match="dataset_fingerprint"):
+        PredictionArtifact(ResolverMetadata("toy", "1"), (), dataset_fingerprint="bad")
+    with pytest.raises(PredictionSerializationError, match="does not match"):
+        write_prediction_artifact(artifact, path, dataset_fingerprint="b" * 64)
+    bare_path = tmp_path / "bare-fingerprint.jsonl"
+    write_prediction_artifact(
+        PredictionArtifact(ResolverMetadata("toy", "1"), (PredictionRecord("doc"),)),
+        bare_path,
+        dataset_fingerprint="c" * 64,
+    )
+    assert read_prediction_artifact(bare_path).dataset_fingerprint == "c" * 64
+
+    malformed = json.loads(artifact.to_json().splitlines()[0])
+    malformed["dataset_fingerprint"] = 1
+    malformed_path = tmp_path / "bad-fingerprint-type.jsonl"
+    malformed_path.write_text(json.dumps(malformed) + "\n", encoding="utf-8")
+    with pytest.raises(PredictionSerializationError, match="Invalid dataset"):
+        read_prediction_artifact(malformed_path)
+    malformed["dataset_fingerprint"] = "bad"
+    malformed_path.write_text(json.dumps(malformed) + "\n", encoding="utf-8")
+    with pytest.raises(PredictionSerializationError, match="Invalid dataset"):
+        read_prediction_artifact(malformed_path)
+    inconsistent_fingerprint = artifact.to_json() + artifact.to_json().replace(
+        '"dataset_fingerprint":"' + dataset_fingerprint,
+        '"dataset_fingerprint":"' + "b" * 64,
+        1,
+    )
+    inconsistent_fingerprint_path = tmp_path / "inconsistent-fingerprint.jsonl"
+    inconsistent_fingerprint_path.write_text(inconsistent_fingerprint, encoding="utf-8")
+    with pytest.raises(PredictionSerializationError, match="Inconsistent dataset"):
+        read_prediction_artifact(inconsistent_fingerprint_path)
+
+
+def test_prediction_artifact_rejects_duplicate_and_missing_document_records(
+    tmp_path: Path,
+) -> None:
+    record = PredictionRecord("doc-1")
+    with pytest.raises(PredictionSerializationError, match="duplicate document"):
+        PredictionArtifact(ResolverMetadata("toy", "1"), (record, record))
+
+    artifact_path = tmp_path / "partial.jsonl"
+    write_prediction_artifact(
+        PredictionArtifact(ResolverMetadata("toy", "1"), (record,)), artifact_path
+    )
+    with pytest.raises(PredictionSerializationError, match="missing records"):
+        read_prediction_artifact(
+            artifact_path,
+            documents={
+                "doc-1": Document("doc-1", "text"),
+                "doc-2": Document("doc-2", "text"),
+            },
+        )
 
 
 def test_prediction_artifact_rejects_empty_and_invalid_input(tmp_path: Path) -> None:
@@ -605,6 +668,7 @@ def test_prediction_serialization_handles_metadata_diagnostics_and_bad_inputs(
         == 0
     )
     assert cli_output.is_file()
+    assert read_prediction_artifact(cli_output).dataset_fingerprint is not None
     assert (
         main(
             [

@@ -38,6 +38,7 @@ class PredictionArtifact:
     resolver: ResolverMetadata
     records: tuple[PredictionRecord, ...]
     schema_version: str = PREDICTION_SCHEMA_VERSION
+    dataset_fingerprint: str | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.resolver, ResolverMetadata):
@@ -50,9 +51,23 @@ class PredictionArtifact:
             raise ValueError(
                 f"Unsupported prediction schema version: {self.schema_version!r}"
             )
+        if self.dataset_fingerprint is not None and not _is_sha256(
+            self.dataset_fingerprint
+        ):
+            raise ValueError("dataset_fingerprint must be a SHA-256 hexadecimal digest")
+        document_ids = [record.document_id for record in self.records]
+        if len(set(document_ids)) != len(document_ids):
+            raise PredictionSerializationError(
+                "Prediction artifact contains duplicate document IDs"
+            )
 
     @classmethod
-    def from_run(cls, result: ResolverRunResult) -> PredictionArtifact:
+    def from_run(
+        cls,
+        result: ResolverRunResult,
+        *,
+        dataset_fingerprint: str | None = None,
+    ) -> PredictionArtifact:
         """Create an artifact value from an executor result."""
 
         records = tuple(
@@ -67,7 +82,11 @@ class PredictionArtifact:
                 key=_record_sort_key,
             )
         )
-        return cls(result.resolver, records)
+        return cls(
+            result.resolver,
+            records,
+            dataset_fingerprint=dataset_fingerprint,
+        )
 
     def to_json(self) -> str:
         """Return deterministic newline-delimited prediction records."""
@@ -76,13 +95,16 @@ class PredictionArtifact:
 
 
 def prediction_record_to_dict(
-    record: PredictionRecord, resolver: ResolverMetadata
+    record: PredictionRecord,
+    resolver: ResolverMetadata,
+    *,
+    dataset_fingerprint: str | None = None,
 ) -> dict[str, object]:
     """Convert one prediction record to its versioned artifact mapping."""
 
     if not isinstance(record, PredictionRecord):
         raise TypeError("record must be a PredictionRecord")
-    return {
+    result: dict[str, object] = {
         "schema_version": PREDICTION_SCHEMA_VERSION,
         "resolver": {
             "key": resolver.key,
@@ -96,6 +118,9 @@ def prediction_record_to_dict(
         ],
         "diagnostics": [diagnostic.to_dict() for diagnostic in record.diagnostics],
     }
+    if dataset_fingerprint is not None:
+        result["dataset_fingerprint"] = dataset_fingerprint
+    return result
 
 
 def prediction_record_from_dict(
@@ -157,27 +182,52 @@ def serialize_prediction_artifact(artifact: PredictionArtifact) -> str:
         raise TypeError("artifact must be a PredictionArtifact")
     ordered = sorted(artifact.records, key=_record_sort_key)
     return "".join(
-        _json_line(prediction_record_to_dict(record, artifact.resolver))
+        _json_line(
+            prediction_record_to_dict(
+                record,
+                artifact.resolver,
+                dataset_fingerprint=artifact.dataset_fingerprint,
+            )
+        )
         for record in ordered
     )
 
 
-def prediction_artifact_from_run(result: ResolverRunResult) -> PredictionArtifact:
+def prediction_artifact_from_run(
+    result: ResolverRunResult, *, dataset_fingerprint: str | None = None
+) -> PredictionArtifact:
     """Convert executor output into the serializable prediction artifact."""
 
-    return PredictionArtifact.from_run(result)
+    return PredictionArtifact.from_run(result, dataset_fingerprint=dataset_fingerprint)
 
 
 def write_prediction_artifact(
-    artifact_or_result: PredictionArtifact | ResolverRunResult, path: Path
+    artifact_or_result: PredictionArtifact | ResolverRunResult,
+    path: Path,
+    *,
+    dataset_fingerprint: str | None = None,
 ) -> str:
     """Write a prediction JSONL artifact and return its SHA-256 fingerprint."""
 
     artifact = (
         artifact_or_result
         if isinstance(artifact_or_result, PredictionArtifact)
-        else PredictionArtifact.from_run(artifact_or_result)
+        else PredictionArtifact.from_run(
+            artifact_or_result, dataset_fingerprint=dataset_fingerprint
+        )
     )
+    if (
+        isinstance(artifact_or_result, PredictionArtifact)
+        and dataset_fingerprint is not None
+    ):
+        if (
+            artifact.dataset_fingerprint is not None
+            and artifact.dataset_fingerprint != dataset_fingerprint
+        ):
+            raise PredictionSerializationError(
+                "Supplied dataset fingerprint does not match the prediction artifact"
+            )
+        artifact = replace(artifact, dataset_fingerprint=dataset_fingerprint)
     content = serialize_prediction_artifact(artifact)
     try:
         with path.open("w", encoding="utf-8", newline="\n") as stream:
@@ -190,7 +240,10 @@ def write_prediction_artifact(
 
 
 def read_prediction_artifact(
-    path: Path, *, documents: Mapping[str, Document] | None = None
+    path: Path,
+    *,
+    documents: Mapping[str, Document] | None = None,
+    expected_dataset_fingerprint: str | None = None,
 ) -> PredictionArtifact:
     """Read a prediction artifact and optionally validate spans against documents."""
 
@@ -205,6 +258,8 @@ def read_prediction_artifact(
         raise PredictionSerializationError("Prediction artifact must contain a record")
     parsed: list[PredictionRecord] = []
     resolver: ResolverMetadata | None = None
+    dataset_fingerprint: str | None = None
+    fingerprint_seen = False
     for line_number, line in enumerate(lines, start=1):
         if not line.strip():
             raise PredictionSerializationError(
@@ -223,11 +278,30 @@ def read_prediction_artifact(
         line_resolver, record = prediction_record_from_dict(
             cast(Mapping[str, object], data), line_number=line_number
         )
+        try:
+            line_fingerprint = _optional_string(
+                cast(Mapping[str, object], data), "dataset_fingerprint"
+            )
+        except TypeError as error:
+            raise PredictionSerializationError(
+                f"Invalid dataset fingerprint at line {line_number}: {error}"
+            ) from error
+        if line_fingerprint is not None and not _is_sha256(line_fingerprint):
+            raise PredictionSerializationError(
+                f"Invalid dataset fingerprint at line {line_number}"
+            )
         if resolver is None:
             resolver = line_resolver
         elif resolver != line_resolver:
             raise PredictionSerializationError(
                 f"Inconsistent resolver metadata at line {line_number}"
+            )
+        if not fingerprint_seen:
+            dataset_fingerprint = line_fingerprint
+            fingerprint_seen = True
+        elif dataset_fingerprint != line_fingerprint:
+            raise PredictionSerializationError(
+                f"Inconsistent dataset fingerprint at line {line_number}"
             )
         if documents is not None:
             document = documents.get(record.document_id)
@@ -244,7 +318,29 @@ def read_prediction_artifact(
                     ) from error
         parsed.append(record)
     assert resolver is not None
-    return PredictionArtifact(resolver, tuple(parsed))
+    if expected_dataset_fingerprint is not None:
+        if not _is_sha256(expected_dataset_fingerprint):
+            raise PredictionSerializationError(
+                "Expected dataset fingerprint must be a SHA-256 hexadecimal digest"
+            )
+        if dataset_fingerprint != expected_dataset_fingerprint:
+            raise PredictionSerializationError(
+                "Prediction artifact dataset fingerprint does not match the "
+                "expected canonical dataset fingerprint"
+            )
+    if documents is not None:
+        prediction_ids = {record.document_id for record in parsed}
+        missing = sorted(set(documents) - prediction_ids)
+        if missing:
+            raise PredictionSerializationError(
+                f"Prediction artifact is missing records for canonical documents: "
+                f"{missing!r}"
+            )
+    return PredictionArtifact(
+        resolver,
+        tuple(parsed),
+        dataset_fingerprint=dataset_fingerprint,
+    )
 
 
 def fingerprint_prediction_artifact(artifact: PredictionArtifact) -> str:
@@ -260,19 +356,31 @@ def serialize_predictions(artifact: PredictionArtifact) -> str:
 
 
 def write_predictions(
-    artifact_or_result: PredictionArtifact | ResolverRunResult, path: Path
+    artifact_or_result: PredictionArtifact | ResolverRunResult,
+    path: Path,
+    *,
+    dataset_fingerprint: str | None = None,
 ) -> str:
     """Short alias for :func:`write_prediction_artifact`."""
 
-    return write_prediction_artifact(artifact_or_result, path)
+    return write_prediction_artifact(
+        artifact_or_result, path, dataset_fingerprint=dataset_fingerprint
+    )
 
 
 def read_predictions(
-    path: Path, *, documents: Mapping[str, Document] | None = None
+    path: Path,
+    *,
+    documents: Mapping[str, Document] | None = None,
+    expected_dataset_fingerprint: str | None = None,
 ) -> PredictionArtifact:
     """Short alias for :func:`read_prediction_artifact`."""
 
-    return read_prediction_artifact(path, documents=documents)
+    return read_prediction_artifact(
+        path,
+        documents=documents,
+        expected_dataset_fingerprint=expected_dataset_fingerprint,
+    )
 
 
 def _definition_to_dict(annotation: AbbreviationDefinition) -> dict[str, object]:
@@ -448,6 +556,14 @@ def _json_line(data: Mapping[str, object]) -> str:
 
 def _fingerprint(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+def _is_sha256(value: str) -> bool:
+    return (
+        isinstance(value, str)
+        and len(value) == 64
+        and all(character in "0123456789abcdef" for character in value)
+    )
 
 
 def _mapping_value(data: object, field_name: str) -> Mapping[str, object]:

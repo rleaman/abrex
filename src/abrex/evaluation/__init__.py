@@ -19,6 +19,7 @@ from abrex.evaluation.config import (
 from abrex.evaluation.evaluator import (
     EvaluationService,
     Evaluator,
+    PredictionBatchLike,
     PredictionRecordLike,
 )
 from abrex.evaluation.matching import (
@@ -63,6 +64,7 @@ __all__ = [
     "PairPRF",
     "PairPRFConfig",
     "PairPRFMetric",
+    "PredictionBatchLike",
     "PredictionRecordLike",
     "ZeroDivisionHandling",
     "create_evaluator",

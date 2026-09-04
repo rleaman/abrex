@@ -33,5 +33,10 @@ are structured as `ResolverExecutionError`; batch callers may explicitly use
 Prediction output is serialized separately from canonical gold data as
 deterministic `predictions-v1` JSONL. Each line contains resolver metadata,
 the document/record identifier, predictions, and diagnostics, but no
-`gold_annotations` field. The artifact can be fingerprinted and read back with
+`gold_annotations` field. A prediction artifact can carry the canonical
+dataset fingerprint used to generate it; the resolver CLI records this
+automatically, while library callers can pass `dataset_fingerprint` to
+`PredictionArtifact.from_run` or `write_prediction_artifact`. Readback and
+evaluation can verify that fingerprint against the intended canonical build.
+The artifact can also be fingerprinted and read back with
 `read_prediction_artifact`.

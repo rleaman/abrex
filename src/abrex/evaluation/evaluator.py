@@ -26,6 +26,14 @@ class PredictionRecordLike(Protocol):
     def predictions(self) -> tuple[AbbreviationDefinition, ...]: ...
 
 
+@runtime_checkable
+class PredictionBatchLike(Protocol):
+    """Minimal batch/artifact boundary accepted by the evaluator."""
+
+    @property
+    def records(self) -> tuple[PredictionRecordLike, ...]: ...
+
+
 class Evaluator:
     """Apply one matching policy and an ordered set of metric plugins."""
 
@@ -56,13 +64,52 @@ class Evaluator:
     def evaluate(
         self,
         gold_records: Iterable[CorpusRecord],
-        prediction_records: Iterable[PredictionRecordLike],
+        prediction_records: Iterable[PredictionRecordLike] | PredictionBatchLike,
+        *,
+        expected_dataset_fingerprint: str | None = None,
     ) -> EvaluationResult:
-        """Evaluate all documents in the deterministic union of both inputs."""
+        """Evaluate exactly the gold document set.
+
+        A successful empty prediction set is represented by a prediction record
+        whose ``predictions`` tuple is empty.  Omitting that record is a coverage
+        error, as is supplying a record for an unknown document.  Batch and
+        artifact objects are accepted through their ``records`` attribute so
+        execution and dataset-identity metadata cannot be accidentally dropped.
+        """
 
         gold_by_document = _index_gold_records(gold_records)
-        predictions_by_document = _index_prediction_records(prediction_records)
-        document_ids = sorted(set(gold_by_document) | set(predictions_by_document))
+        source, source_fingerprint, execution_errors = _prediction_source(
+            prediction_records
+        )
+        if expected_dataset_fingerprint is not None:
+            if source_fingerprint is None:
+                raise EvaluationError(
+                    "Prediction source does not identify a canonical dataset "
+                    "fingerprint"
+                )
+            if source_fingerprint != expected_dataset_fingerprint:
+                raise EvaluationError(
+                    "Prediction artifact dataset fingerprint does not match the "
+                    "expected canonical dataset fingerprint"
+                )
+        if execution_errors:
+            raise EvaluationError(
+                "Prediction source contains resolver execution failures; "
+                "an execution failure is not a legitimate empty prediction set"
+            )
+        predictions_by_document = _index_prediction_records(source)
+        missing = sorted(set(gold_by_document) - set(predictions_by_document))
+        unknown = sorted(set(predictions_by_document) - set(gold_by_document))
+        if missing or unknown:
+            details: list[str] = []
+            if missing:
+                details.append(f"missing prediction records for {missing!r}")
+            if unknown:
+                details.append(f"unknown prediction document IDs {unknown!r}")
+            raise EvaluationError(
+                "Prediction document coverage mismatch: " + "; ".join(details)
+            )
+        document_ids = sorted(gold_by_document)
         documents: list[DocumentEvaluation] = []
         for document_id in document_ids:
             gold = (
@@ -86,11 +133,30 @@ class Evaluator:
     def evaluate_records(
         self,
         gold_records: Iterable[CorpusRecord],
-        prediction_records: Iterable[PredictionRecordLike],
+        prediction_records: Iterable[PredictionRecordLike] | PredictionBatchLike,
+        *,
+        expected_dataset_fingerprint: str | None = None,
     ) -> EvaluationResult:
         """Explicit alias for callers that prefer record-oriented naming."""
 
-        return self.evaluate(gold_records, prediction_records)
+        return self.evaluate(
+            gold_records,
+            prediction_records,
+            expected_dataset_fingerprint=expected_dataset_fingerprint,
+        )
+
+
+def _prediction_source(
+    source: Iterable[PredictionRecordLike] | PredictionBatchLike,
+) -> tuple[Iterable[PredictionRecordLike], str | None, bool]:
+    """Extract records while retaining optional batch/artifact metadata."""
+
+    if isinstance(source, PredictionBatchLike):
+        records = source.records
+        fingerprint = getattr(source, "dataset_fingerprint", None)
+        execution_errors = bool(getattr(source, "execution_errors", ()))
+        return records, fingerprint, execution_errors
+    return source, None, False
 
 
 EvaluationService = Evaluator
@@ -126,8 +192,22 @@ def _index_prediction_records(
             raise EvaluationError(
                 f"Prediction record {document_id!r} contains another document ID"
             )
+        diagnostics = getattr(record, "diagnostics", ())
+        if any(
+            getattr(diagnostic, "code", None) == "RESOLVER_EXECUTION_FAILED"
+            for diagnostic in diagnostics
+        ):
+            raise EvaluationError(
+                f"Prediction record {document_id!r} reports a resolver execution "
+                "failure; it cannot be scored as an empty prediction set"
+            )
         indexed[document_id] = record.predictions
     return indexed
 
 
-__all__ = ["EvaluationService", "Evaluator", "PredictionRecordLike"]
+__all__ = [
+    "EvaluationService",
+    "Evaluator",
+    "PredictionBatchLike",
+    "PredictionRecordLike",
+]

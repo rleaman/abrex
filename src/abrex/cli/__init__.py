@@ -18,6 +18,7 @@ from abrex.corpora import (
     CorpusError,
     corpus_config_from_resolved,
     create_corpus_pipeline,
+    fingerprint_records,
     read_canonical_jsonl,
     write_canonical_dataset,
 )
@@ -125,7 +126,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             resolver_result = executor.resolve_documents(
                 tuple(record.document for record in records)
             )
-            fingerprint = write_prediction_artifact(resolver_result, args.output)
+            dataset_fingerprint = fingerprint_records(records)
+            fingerprint = write_prediction_artifact(
+                resolver_result,
+                args.output,
+                dataset_fingerprint=dataset_fingerprint,
+            )
             sys.stdout.write(
                 f'{{"fingerprint":"{fingerprint}","record_count":'
                 f"{len(resolver_result.records)},"
