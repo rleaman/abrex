@@ -12,6 +12,11 @@ from abrex.resolvers.adapters.ab3p import (
     reconstruct_predictions,
 )
 from abrex.resolvers.adapters.ab3p_resolver import Ab3PResolver
+from abrex.resolvers.adapters.schwartz_hearst import (
+    SCHWARTZ_HEARST_VERSION,
+    SchwartzHearstResolver,
+    SchwartzHearstResolverConfig,
+)
 from abrex.resolvers.base import (
     ExecutionErrorPolicy,
     PredictionDiagnostic,
@@ -57,6 +62,9 @@ __all__ = [
     "Ab3PMappingError",
     "Ab3PParseError",
     "Ab3PResolver",
+    "SCHWARTZ_HEARST_VERSION",
+    "SchwartzHearstResolver",
+    "SchwartzHearstResolverConfig",
     "Ab3PResolverConfig",
     "PREDICTION_SCHEMA_VERSION",
     "PredictionArtifact",

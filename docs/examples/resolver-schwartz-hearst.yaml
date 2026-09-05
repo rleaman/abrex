@@ -1,0 +1,8 @@
+# Resolver-only configuration fragment.
+resolver:
+  type: schwartz_hearst
+  params:
+    minimum_short_form_length: 2
+    max_long_form_words: null
+    ignore_non_alphanumeric: true
+    case_sensitive: false

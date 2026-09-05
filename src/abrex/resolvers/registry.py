@@ -13,12 +13,22 @@ def register_builtin_components() -> None:
 
     from abrex.resolvers.adapters.ab3p import Ab3PResolverConfig
     from abrex.resolvers.adapters.ab3p_resolver import Ab3PResolver
+    from abrex.resolvers.adapters.schwartz_hearst import (
+        SchwartzHearstResolver,
+        SchwartzHearstResolverConfig,
+    )
     from abrex.resolvers.adapters.toy import ToyResolver, ToyResolverConfig
 
     if "toy" not in RESOLVERS:
         RESOLVERS.register("toy", ToyResolver, config_model=ToyResolverConfig)
     if "ab3p" not in RESOLVERS:
         RESOLVERS.register("ab3p", Ab3PResolver, config_model=Ab3PResolverConfig)
+    if "schwartz_hearst" not in RESOLVERS:
+        RESOLVERS.register(
+            "schwartz_hearst",
+            SchwartzHearstResolver,
+            config_model=SchwartzHearstResolverConfig,
+        )
 
 
 register_builtin_components()

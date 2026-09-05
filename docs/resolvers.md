@@ -82,3 +82,31 @@ Cache population uses the existing resolver command, for example
 data/processed/benchmark.jsonl --output artifacts/ab3p-predictions.jsonl`.
 Live integration tests are intentionally separate and should be enabled only
 when an executable is configured; ordinary tests do not require Ab3P.
+
+## Schwartz--Hearst baseline
+
+`schwartz_hearst` is a dependency-free implementation of the published
+Schwartz--Hearst backwards character-alignment heuristic. It scans canonical
+text for `long form (SHORT)` constructions, ignores non-alphanumeric
+characters by default, and returns spans in the unchanged document coordinate
+space. `max_long_form_words` defaults to the original `2 * len(short) - 1`
+candidate window; `minimum_short_form_length`, `ignore_non_alphanumeric`, and
+`case_sensitive` are explicit configuration parameters. The baseline supports
+parenthetical short forms after their long forms only. Reverse-order and
+nested-parenthesis constructions are intentionally not accepted, and no
+deduplication or evaluator-specific policy is applied.
+
+The source algorithm is Schwartz and Hearst, “A Simple Algorithm for
+Identifying Abbreviation Definitions in Biomedical Text,” *Pacific Symposium
+on Biocomputing* 8 (2003), 451–462:
+<https://pubmed.ncbi.nlm.nih.gov/12603049/>.
+
+```yaml
+resolver:
+  type: schwartz_hearst
+  params:
+    minimum_short_form_length: 2
+    max_long_form_words: null
+    ignore_non_alphanumeric: true
+    case_sensitive: false
+```
