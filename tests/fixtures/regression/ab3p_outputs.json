@@ -1,0 +1,8 @@
+{
+  "reg-boundary": "The tumor necrosis factor (TNF) was measured.\n TNF|The tumor necrosis factor|0.60\n",
+  "reg-false-parenthetical": "The samples (n = 3) were pooled; α-actin was used.\n",
+  "reg-multiple": "Interleukin-6 (IL-6) and gamma-aminobutyric acid (GABA) are measured.\n IL-6|Interleukin-6|0.80\n GABA|gamma-aminobutyric acid|0.70\n",
+  "reg-nested": "Poly(ADP-ribose) polymerase (PARP) is active.\n PARP|Poly(ADP-ribose) polymerase|0.88\n",
+  "reg-reverse": "TNF (tumor necrosis factor) is elevated.\n",
+  "reg-standard": "Tumor necrosis factor (TNF) is elevated.\n TNF|Tumor necrosis factor|0.95\n"
+}
