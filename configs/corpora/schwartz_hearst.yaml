@@ -1,0 +1,19 @@
+project:
+  name: historical-schwartz-hearst
+
+corpus:
+  adapter:
+    type: schwartz_hearst
+    params: {}
+  source:
+    identifier: schwartz_hearst
+    location: data/raw/historical/schwartz_hearst/SH_bioc_gold.xml
+    format: xml
+  normalizers:
+    - type: identity
+      params: {}
+  strict: false
+  output:
+    directory: data/processed/schwartz_hearst
+    jsonl: canonical.jsonl
+    manifest: manifest.json

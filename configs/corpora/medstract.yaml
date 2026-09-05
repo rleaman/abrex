@@ -1,0 +1,19 @@
+project:
+  name: historical-medstract
+
+corpus:
+  adapter:
+    type: medstract
+    params: {}
+  source:
+    identifier: medstract
+    location: data/raw/historical/medstract/medstract_bioc_gold.xml
+    format: xml
+  normalizers:
+    - type: identity
+      params: {}
+  strict: false
+  output:
+    directory: data/processed/medstract
+    jsonl: canonical.jsonl
+    manifest: manifest.json

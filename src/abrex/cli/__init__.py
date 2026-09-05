@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import json
 import sys
 from collections.abc import Sequence
 from pathlib import Path
@@ -16,9 +17,11 @@ from abrex.config import (
 from abrex.corpora import (
     CanonicalSerializationError,
     CorpusError,
+    DatasetManifest,
     corpus_config_from_resolved,
     create_corpus_pipeline,
     fingerprint_records,
+    load_corpus_build_groups,
     read_canonical_jsonl,
     write_canonical_dataset,
 )
@@ -58,13 +61,24 @@ def _build_parser() -> argparse.ArgumentParser:
         "build", help="build and serialize a canonical corpus artifact"
     )
     build.add_argument(
-        "paths", nargs="+", type=Path, help="YAML layers in precedence order"
+        "paths", nargs="*", type=Path, help="YAML layers in precedence order"
     )
+    build.add_argument("--config", type=Path, help="one corpus YAML configuration")
     build.add_argument(
-        "--output", required=True, type=Path, help="canonical JSONL path"
+        "--output", type=Path, help="canonical JSONL path (overrides YAML output)"
     )
     build.add_argument(
         "--manifest", type=Path, help="manifest path (defaults beside JSONL output)"
+    )
+    build_all = corpus_commands.add_parser(
+        "build-all", help="build every corpus configuration in a named group"
+    )
+    build_all.add_argument("--group", required=True, help="configured group name")
+    build_all.add_argument(
+        "--groups-config",
+        type=Path,
+        default=Path("configs/corpus-groups.yaml"),
+        help="YAML group manifest",
     )
     resolver = commands.add_parser("resolver", help="resolver execution commands")
     resolver_commands = resolver.add_subparsers(dest="resolver_command", required=True)
@@ -111,22 +125,35 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
     if args.command == "corpus" and args.corpus_command == "build":
         try:
-            config = load_resolved_config(args.paths)
-            corpus_config = corpus_config_from_resolved(config)
-            corpus_result = create_corpus_pipeline(corpus_config).build(
-                corpus_config.source.to_resource()
-            )
-            config_fingerprint = hashlib.sha256(
-                serialize_resolved_config(config, format="json").encode("utf-8")
-            ).hexdigest()
-            manifest = write_canonical_dataset(
-                corpus_result,
-                args.output,
-                manifest_path=args.manifest,
-                mode="strict" if corpus_config.strict else "permissive",
-                config_fingerprint=config_fingerprint,
-            )
+            config_paths = _select_corpus_config_paths(args.config, args.paths)
+            manifest = _build_corpus(config_paths, args.output, args.manifest)
             sys.stdout.write(manifest.to_json())
+        except (
+            ConfigError,
+            CorpusError,
+            CanonicalSerializationError,
+            RegistryError,
+            ValueError,
+        ) as error:
+            print(f"error: {error}", file=sys.stderr)
+            return 2
+        return 0
+    if args.command == "corpus" and args.corpus_command == "build-all":
+        try:
+            groups = load_corpus_build_groups(args.groups_config)
+            manifests = [
+                _build_corpus((config_path,), None, None)
+                for config_path in groups.paths_for(args.group)
+            ]
+            sys.stdout.write(
+                json.dumps(
+                    [manifest.to_dict() for manifest in manifests],
+                    ensure_ascii=False,
+                    indent=2,
+                    sort_keys=True,
+                )
+                + "\n"
+            )
         except (
             ConfigError,
             CorpusError,
@@ -169,6 +196,50 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 2
         return 0
     raise AssertionError("argparse accepted an unsupported command")  # pragma: no cover
+
+
+def _select_corpus_config_paths(
+    config: Path | None, paths: Sequence[Path]
+) -> tuple[Path, ...]:
+    """Combine the explicit ``--config`` shorthand with optional YAML layers."""
+
+    selected = ((config,) if config is not None else ()) + tuple(paths)
+    if not selected:
+        raise ConfigError("corpus build requires --config or at least one YAML path")
+    return selected
+
+
+def _build_corpus(
+    config_paths: Sequence[Path], output: Path | None, manifest_path: Path | None
+) -> DatasetManifest:
+    """Run the generic configured corpus pipeline and canonical serializer."""
+
+    config = load_resolved_config(config_paths)
+    corpus_config = corpus_config_from_resolved(config)
+    corpus_result = create_corpus_pipeline(corpus_config).build(
+        corpus_config.source.to_resource()
+    )
+    config_fingerprint = hashlib.sha256(
+        serialize_resolved_config(config, format="json").encode("utf-8")
+    ).hexdigest()
+    configured_output = corpus_config.output
+    if output is None:
+        if configured_output is None:
+            raise ConfigError(
+                "corpus configuration must declare output when --output is omitted"
+            )
+        output = configured_output.jsonl_path
+        manifest_path = manifest_path or configured_output.manifest_path
+    output.parent.mkdir(parents=True, exist_ok=True)
+    if manifest_path is not None:
+        manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    return write_canonical_dataset(
+        corpus_result,
+        output,
+        manifest_path=manifest_path,
+        mode="strict" if corpus_config.strict else "permissive",
+        config_fingerprint=config_fingerprint,
+    )
 
 
 __all__ = ["main"]
