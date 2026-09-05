@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import re
 from collections.abc import Mapping, Sequence
@@ -15,6 +16,8 @@ from pydantic import ValidationError
 from abrex.config.models import ResolvedConfig
 
 _ENV_PATTERN = re.compile(r"\$\{([A-Za-z_][A-Za-z0-9_]*)\}")
+
+logger = logging.getLogger(__name__)
 
 
 class ConfigError(ValueError):
@@ -82,6 +85,7 @@ def _interpolate(value: Any, environment: Mapping[str, str], path: str) -> Any:
 def load_config_layer(path: Path) -> dict[str, Any]:
     """Load one YAML mapping and report file/line context on failure."""
 
+    logger.debug("Reading configuration layer: %s", path)
     try:
         with path.open("r", encoding="utf-8") as stream:
             loaded = yaml.load(stream, Loader=_SafeConfigLoader)
@@ -129,12 +133,15 @@ def load_resolved_config(
 
     if not paths:
         raise ConfigError("At least one configuration path is required")
+    logger.info("Loading %d configuration layer(s)", len(paths))
     merged = merge_config_layers(tuple(load_config_layer(path) for path in paths))
     expanded = _interpolate(
         merged, environment if environment is not None else os.environ, ""
     )
     try:
-        return ResolvedConfig.model_validate(expanded)
+        resolved = ResolvedConfig.model_validate(expanded)
+        logger.debug("Resolved configuration keys: %s", sorted(expanded))
+        return resolved
     except ValidationError as error:
         raise ConfigError(f"Invalid resolved configuration: {error}") from error
 

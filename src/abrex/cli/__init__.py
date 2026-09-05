@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import logging
 import sys
 from collections.abc import Sequence
 from pathlib import Path
@@ -26,6 +27,7 @@ from abrex.corpora import (
     write_canonical_dataset,
 )
 from abrex.experiments import ExperimentError, run_experiment
+from abrex.logging import configure_logging
 from abrex.registry import RegistryError
 from abrex.resolvers import (
     PredictionSerializationError,
@@ -41,9 +43,21 @@ from abrex.tools.download_datasets import (
     results_to_json,
 )
 
+logger = logging.getLogger(__name__)
+
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="abrex")
+    verbosity = parser.add_mutually_exclusive_group()
+    verbosity.add_argument(
+        "--quiet", action="store_true", help="show warnings and errors only"
+    )
+    verbosity.add_argument(
+        "--verbose", action="store_true", help="show normal operational progress"
+    )
+    verbosity.add_argument(
+        "--debug", action="store_true", help="enable diagnostic logging"
+    )
     commands = parser.add_subparsers(dest="command", required=True)
     config = commands.add_parser("config", help="configuration commands")
     config_commands = config.add_subparsers(dest="config_command", required=True)
@@ -122,26 +136,39 @@ def main(argv: Sequence[str] | None = None) -> int:
     """Run the CLI and return a process exit code."""
 
     args = _build_parser().parse_args(argv)
+    level = (
+        logging.WARNING
+        if args.quiet
+        else (logging.DEBUG if args.debug else logging.INFO)
+    )
+    configure_logging(level)
+    logger.debug("Parsed CLI command: %s", args.command)
     if args.command == "config" and args.config_command == "resolve":
         try:
+            logger.info(
+                "Loading and resolving configuration: %s",
+                ", ".join(map(str, args.paths)),
+            )
             config = load_resolved_config(args.paths)
             sys.stdout.write(
                 serialize_resolved_config(config, format=args.output_format)
             )
         except ConfigError as error:
-            print(f"error: {error}", file=sys.stderr)
+            logger.error("error: configuration resolution failed: %s", error)
             return 2
         return 0
     if args.command == "datasets" and args.datasets_command == "download":
         try:
+            logger.info("Loading dataset download configuration: %s", args.config)
             results = download_datasets(load_download_config(args.config))
             sys.stdout.write(results_to_json(results))
         except DownloadError as error:
-            print(f"error: {error}", file=sys.stderr)
+            logger.error("error: dataset download failed: %s", error)
             return 2
         return 0
     if args.command == "experiment" and args.experiment_command == "run":
         try:
+            logger.info("Starting experiment run")
             result = run_experiment(
                 tuple(args.paths),
                 output_root=args.output_root,
@@ -169,7 +196,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             ResolverError,
             ValueError,
         ) as error:
-            print(f"error: {error}", file=sys.stderr)
+            logger.error("error: experiment failed: %s", error)
             return 2
         return 0
     if args.command == "corpus" and args.corpus_command == "build":
@@ -184,7 +211,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             RegistryError,
             ValueError,
         ) as error:
-            print(f"error: {error}", file=sys.stderr)
+            logger.error("error: corpus build failed: %s", error)
             return 2
         return 0
     if args.command == "corpus" and args.corpus_command == "build-all":
@@ -210,11 +237,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             RegistryError,
             ValueError,
         ) as error:
-            print(f"error: {error}", file=sys.stderr)
+            logger.error("error: corpus group build failed: %s", error)
             return 2
         return 0
     if args.command == "resolver" and args.resolver_command == "run":
         try:
+            logger.info(
+                "Loading resolver configuration: %s", ", ".join(map(str, args.paths))
+            )
             config = load_resolved_config(args.paths)
             resolver_config = resolver_config_from_resolved(config)
             executor = create_resolver_executor(resolver_config)
@@ -241,7 +271,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             ResolverError,
             ValueError,
         ) as error:
-            print(f"error: {error}", file=sys.stderr)
+            logger.error("error: resolver run failed: %s", error)
             return 2
         return 0
     raise AssertionError("argparse accepted an unsupported command")  # pragma: no cover
@@ -263,11 +293,15 @@ def _build_corpus(
 ) -> DatasetManifest:
     """Run the generic configured corpus pipeline and canonical serializer."""
 
+    logger.info("Loading corpus configuration: %s", ", ".join(map(str, config_paths)))
     config = load_resolved_config(config_paths)
     corpus_config = corpus_config_from_resolved(config)
+    logger.info("Starting corpus build with adapter %s", corpus_config.adapter.type)
+    logger.info("Reading raw source")
     corpus_result = create_corpus_pipeline(corpus_config).build(
         corpus_config.source.to_resource()
     )
+    logger.info("Parsed and normalized %d records", len(corpus_result.records))
     config_fingerprint = hashlib.sha256(
         serialize_resolved_config(config, format="json").encode("utf-8")
     ).hexdigest()
@@ -282,13 +316,20 @@ def _build_corpus(
     output.parent.mkdir(parents=True, exist_ok=True)
     if manifest_path is not None:
         manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    return write_canonical_dataset(
+    manifest = write_canonical_dataset(
         corpus_result,
         output,
         manifest_path=manifest_path,
         mode="strict" if corpus_config.strict else "permissive",
         config_fingerprint=config_fingerprint,
     )
+    logger.info(
+        "Wrote canonical artifact %s (%d records); dataset fingerprint: %s",
+        output,
+        manifest.record_count,
+        manifest.fingerprint,
+    )
+    return manifest
 
 
 __all__ = ["main"]

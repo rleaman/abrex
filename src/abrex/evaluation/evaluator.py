@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterable
 from typing import Protocol, runtime_checkable
 
@@ -13,6 +14,8 @@ from abrex.evaluation.base import (
     MatchingPolicy,
     Metric,
 )
+
+logger = logging.getLogger(__name__)
 
 
 @runtime_checkable
@@ -77,6 +80,7 @@ class Evaluator:
         execution and dataset-identity metadata cannot be accidentally dropped.
         """
 
+        logger.info("Starting evaluation with %s", self.matching_policy_key)
         gold_by_document = _index_gold_records(gold_records)
         source, source_fingerprint, execution_errors = _prediction_source(
             prediction_records
@@ -123,12 +127,14 @@ class Evaluator:
         metric_results = tuple(
             metric.compute(document_results) for metric in self.metrics
         )
-        return EvaluationResult(
+        result = EvaluationResult(
             self.matching_policy_key,
             self.matching_policy_version,
             document_results,
             metric_results,
         )
+        logger.info("Evaluation complete: %d documents", len(document_results))
+        return result
 
     def evaluate_records(
         self,

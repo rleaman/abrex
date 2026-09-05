@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import importlib.metadata
 import json
+import logging
 import platform
 import subprocess
 import sys
@@ -32,6 +33,8 @@ from abrex.resolvers import (
     write_prediction_artifact,
 )
 from abrex.resolvers.execution import ResolverExecutor
+
+logger = logging.getLogger(__name__)
 
 
 class ExperimentError(ValueError):
@@ -65,11 +68,14 @@ def run_experiment(
     considered a valid cache without passing artifact and span validation.
     """
 
+    logger.info("Loading experiment configuration")
     config = load_resolved_config(config_paths)
     records, manifest = _load_corpus(config)
+    logger.info("Loaded corpus %s: %d records", manifest.dataset_id, len(records))
     corpus_fingerprint = fingerprint_records(records)
     resolver_config = resolver_config_from_resolved(config)
     resolver_executor = create_resolver_executor(resolver_config)
+    logger.info("Selected resolver %s", resolver_executor.metadata.key)
     resolver_config_json = _component_json(resolver_config)
     cache_key = _sha256(
         json.dumps(
@@ -106,6 +112,7 @@ def run_experiment(
         if candidate is not None and candidate.resolver == resolver_executor.metadata:
             artifact = candidate
             reused = True
+            logger.info("Prediction cache hit: %s", prediction_path)
         else:
             artifact = _run_resolver(
                 resolver_executor,
@@ -115,6 +122,7 @@ def run_experiment(
                 corpus_fingerprint,
             )
     else:
+        logger.info("Prediction cache miss; running resolver")
         artifact = _run_resolver(
             resolver_executor,
             documents,
@@ -145,6 +153,7 @@ def run_experiment(
         ),
     )
     report_paths = _write_reports(config, context, run_directory)
+    logger.info("Wrote %d report artifact(s) to %s", len(report_paths), run_directory)
     evaluation_text = _evaluation_text(context)
     evaluation_path = run_directory / "evaluation.json"
     _write_text(evaluation_path, evaluation_text)
@@ -171,7 +180,7 @@ def run_experiment(
         manifest_path,
         json.dumps(run_manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
     )
-    return ExperimentResult(
+    result = ExperimentResult(
         run_directory,
         manifest_path,
         prediction_path,
@@ -181,6 +190,8 @@ def run_experiment(
         evaluation_fingerprint,
         reused,
     )
+    logger.info("Experiment complete: %s", result.run_directory)
+    return result
 
 
 def _load_corpus(

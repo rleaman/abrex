@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import shutil
 import tarfile
 import time
@@ -22,6 +23,8 @@ from pathlib import Path, PurePosixPath
 from pydantic import BaseModel, ConfigDict, Field
 
 from abrex.config import load_config_layer
+
+logger = logging.getLogger(__name__)
 
 
 class DownloadError(RuntimeError):
@@ -68,6 +71,7 @@ class DownloadedDataset:
 def load_download_config(path: Path) -> DatasetDownloadsConfig:
     """Load and validate the top-level ``downloads`` YAML section."""
 
+    logger.info("Loading dataset download configuration: %s", path)
     raw = load_config_layer(path)
     section = raw.get("downloads")
     if not isinstance(section, dict):
@@ -83,17 +87,20 @@ def load_download_config(path: Path) -> DatasetDownloadsConfig:
 def download_datasets(config: DatasetDownloadsConfig) -> tuple[DownloadedDataset, ...]:
     """Download configured sources sequentially and write a provenance manifest."""
 
+    logger.info("Starting download of %d dataset source(s)", len(config.datasets))
     results: list[DownloadedDataset] = []
     for index, dataset in enumerate(config.datasets):
         if index:
             time.sleep(config.polite_delay_seconds)
         results.append(_download_one(dataset, config))
+    logger.info("Dataset download complete: %d source(s)", len(results))
     return tuple(results)
 
 
 def _download_one(
     dataset: DatasetDownloadConfig, config: DatasetDownloadsConfig
 ) -> DownloadedDataset:
+    logger.info("Downloading dataset %s", dataset.name)
     destination = dataset.destination
     if dataset.extract:
         archive = destination.with_suffix(destination.suffix + ".download")
@@ -130,6 +137,9 @@ def _download_one(
         dataset.name, dataset.url, output_path, digest, dataset.extract
     )
     _write_manifest(result)
+    logger.info(
+        "Downloaded %s to %s (sha256=%s)", result.name, result.path, result.sha256
+    )
     return result
 
 

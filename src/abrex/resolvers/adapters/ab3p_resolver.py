@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterable
 from typing import TYPE_CHECKING
 
@@ -15,6 +16,8 @@ from abrex.resolvers.adapters.ab3p import (
 
 if TYPE_CHECKING:
     from abrex.infrastructure.ab3p import Ab3PRawResult
+
+logger = logging.getLogger(__name__)
 
 
 class Ab3PResolver:
@@ -44,6 +47,7 @@ class Ab3PResolver:
                 assert self.cache is not None
                 return self.cache.read(document, config)
             except Ab3PCacheMiss:
+                logger.warning("Ab3P cache miss for document %s", document.document_id)
                 if config.backend == "cache_only":
                     raise
         if config.backend == "cache_only":
@@ -54,6 +58,7 @@ class Ab3PResolver:
         if config.cache and config.cache.write:
             assert self.cache is not None
             self.cache.write(document, config, result)
+        logger.debug("Ab3P acquisition complete for document %s", document.document_id)
         return result
 
 

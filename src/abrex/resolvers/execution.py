@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterable
 
 from abrex.domain import Document
@@ -17,6 +18,8 @@ from abrex.resolvers.base import (
     ResolverRunResult,
 )
 from abrex.resolvers.validation import validate_predictions
+
+logger = logging.getLogger(__name__)
 
 
 class ResolverExecutor:
@@ -81,6 +84,7 @@ class ResolverExecutor:
         """Resolve a batch, optionally collecting structured execution errors."""
 
         selected_error_policy = error_policy or self.error_policy
+        logger.info("Running resolver %s over a document batch", self.metadata.key)
         if selected_error_policy not in ("raise", "collect"):
             raise ValueError(
                 f"Unsupported execution error policy: {selected_error_policy!r}"
@@ -119,6 +123,12 @@ class ResolverExecutor:
                     if selected_error_policy == "raise":
                         raise
                     errors.append(execution_error)
+                    logger.error(
+                        "Resolver %s failed for document %s: %s",
+                        self.metadata.key,
+                        document.document_id,
+                        execution_error,
+                    )
                     records.append(_execution_error_record(document, execution_error))
         except PredictionValidationError:
             raise
@@ -132,6 +142,12 @@ class ResolverExecutor:
                 phase="input",
                 cause=error,
             ) from error
+        logger.info(
+            "Resolver %s completed: %d records, %d failures",
+            self.metadata.key,
+            len(records),
+            len(errors),
+        )
         return ResolverRunResult(self.metadata, tuple(records), tuple(errors))
 
     def resolve_batch(

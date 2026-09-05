@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from pathlib import Path
@@ -28,6 +29,8 @@ from abrex.domain import (
 
 CANONICAL_SCHEMA_VERSION = "canonical-v1"
 MANIFEST_SCHEMA_VERSION = "manifest-v1"
+
+logger = logging.getLogger(__name__)
 
 
 class CanonicalSerializationError(ValueError):
@@ -306,6 +309,7 @@ def write_canonical_dataset(
 ) -> DatasetManifest:
     """Validate a build result, write JSONL, and write its manifest."""
 
+    logger.info("Validating canonical corpus before writing %s", path)
     validation = CanonicalValidator().validate(
         build_result.records, mode=mode, diagnostics=build_result.diagnostics
     )
@@ -325,6 +329,17 @@ def write_canonical_dataset(
         raise CanonicalSerializationError(
             f"Unable to write dataset manifest {output_manifest}: {error}"
         ) from error
+    logger.info(
+        "Wrote canonical artifact %s and manifest %s; fingerprint=%s records=%d",
+        path,
+        output_manifest,
+        manifest.fingerprint,
+        manifest.record_count,
+    )
+    if validation.summary.total:
+        logger.warning(
+            "Canonical artifact has %d validation diagnostics", validation.summary.total
+        )
     return manifest
 
 

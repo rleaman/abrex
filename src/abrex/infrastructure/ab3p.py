@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import os
 import platform
 import subprocess
@@ -21,6 +22,8 @@ from abrex.resolvers.adapters.ab3p import (
 )
 
 CACHE_SCHEMA_VERSION = "ab3p-cache-v1"
+
+logger = logging.getLogger(__name__)
 
 
 class Ab3PExecutionError(RuntimeError):
@@ -63,6 +66,7 @@ class Ab3PCache:
 
     def read(self, document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
         key = cache_key(document, config)
+        logger.debug("Reading Ab3P cache key=%s document=%s", key, document.document_id)
         try:
             data = json.loads((self.path / f"{key}.json").read_text(encoding="utf-8"))
         except (OSError, UnicodeError, json.JSONDecodeError) as error:
@@ -99,6 +103,7 @@ class Ab3PCache:
         self, document: Document, config: Ab3PResolverConfig, result: Ab3PRawResult
     ) -> Path:
         key = cache_key(document, config)
+        logger.debug("Writing Ab3P cache key=%s document=%s", key, document.document_id)
         input_text = build_ab3p_input(document)
         data = {
             "schema_version": CACHE_SCHEMA_VERSION,
@@ -138,13 +143,16 @@ def run_ab3p(document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
     if not config.executable:
         raise Ab3PExecutionError("Ab3P subprocess backend requires executable")
     input_text = build_ab3p_input(document)
+    logger.info("Starting Ab3P resolver for %s", document.document_id)
     try:
         with tempfile.TemporaryDirectory(prefix="abrex-ab3p-") as directory:
             input_path = Path(directory) / "input.txt"
             input_path.write_bytes(input_text.encode("utf-8"))
             try:
+                argv = [config.executable, os.fspath(input_path)]
+                logger.debug("Ab3P executable=%s argv=%s", config.executable, argv)
                 completed = subprocess.run(
-                    [config.executable, os.fspath(input_path)],
+                    argv,
                     shell=False,
                     capture_output=True,
                     text=True,
@@ -175,10 +183,21 @@ def run_ab3p(document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
         executable_sha256=executable_digest,
     )
     if completed.returncode != 0:
+        logger.error(
+            "Ab3P exited with status %d for %s",
+            completed.returncode,
+            document.document_id,
+        )
+        stderr = completed.stderr.strip()
+        if len(stderr) > 500:
+            stderr = stderr[:500] + "..."
         raise Ab3PExecutionError(
             f"Ab3P exited with status {completed.returncode} for "
-            f"{document.document_id!r}: {completed.stderr.strip()}"
+            f"{document.document_id!r}: {stderr}"
         )
+    logger.info("Ab3P completed for %s", document.document_id)
+    if result.stderr:
+        logger.debug("Ab3P stderr for %s: %.500s", document.document_id, result.stderr)
     return result
 
 

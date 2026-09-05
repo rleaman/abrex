@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
@@ -16,6 +17,8 @@ from abrex.domain import (
     SourceTextSpan,
     TextSpan,
 )
+
+logger = logging.getLogger(__name__)
 
 
 class CorpusError(ValueError):
@@ -271,6 +274,14 @@ class CorpusPipeline:
     def build(self, resource: SourceResource) -> CorpusBuildResult:
         """Build valid records, diagnosing expected dirty-source failures."""
 
+        logger.info(
+            "Building corpus source %s with adapter %s",
+            resource.identifier,
+            self.adapter.identity,
+        )
+        logger.debug(
+            "Source resource: location=%s format=%s", resource.location, resource.format
+        )
         collector = DiagnosticsCollector()
         try:
             source_records = tuple(self.adapter.parse(resource, collector))
@@ -315,6 +326,21 @@ class CorpusPipeline:
                 )
 
         summary = collector.summary()
+        logger.info(
+            "Corpus build parsed %d records and retained %d",
+            len(source_records),
+            len(ordered),
+        )
+        for diagnostic in summary.diagnostics:
+            if diagnostic.severity == "error":
+                logger.error(
+                    "Corpus diagnostic %s: %s", diagnostic.code, diagnostic.message
+                )
+            elif diagnostic.severity == "warning":
+                logger.warning(
+                    "Corpus diagnostic %s: %s", diagnostic.code, diagnostic.message
+                )
+        logger.info("Corpus validation complete: %d diagnostics", summary.total)
         if self.strict and any(
             item.severity == "error" for item in summary.diagnostics
         ):

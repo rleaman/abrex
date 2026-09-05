@@ -67,6 +67,20 @@ python -m abrex datasets download configs/historical-datasets.yaml
 The downloader uses polite sequential requests, retries transient failures,
 writes atomically, verifies configured checksums, safely extracts archives,
 and records a `.download.json` provenance file for each completed source.
+
+### Command-line logging
+
+ABREX commands emit concise operational logs at `INFO` level by default. Logs
+go to stderr, so JSON/YAML/TSV command output remains clean on stdout. Use
+`--quiet` for warnings and errors only, `--verbose` for the normal operational
+view, or `--debug` for low-level diagnostics such as resolved paths, cache keys,
+and bounded subprocess details.
+
+Log levels have these meanings: `ERROR` requires attention; `WARNING` reports
+a degraded, skipped, repaired, incomplete, or potentially problematic event;
+`INFO` reports high-level milestones; and `DEBUG` reports developer-oriented
+diagnostics. Logging does not participate in scientific artifacts or their
+fingerprints.
 Downloaded files are placed under `data/raw/historical/` for use with the T011
 corpus adapters. See `docs/historical-downloads.md` for source-format and
 licensing details.
