@@ -45,6 +45,10 @@ Run the full test gate with coverage:
 python -m ruff format --check src tests; python -m ruff check src tests; python -m mypy; python -m pytest --cov --cov-report=term-missing
 ```
 
+The `pytest` portion is what actually runs the tests; Ruff and mypy only
+check formatting, lint, and types. To run the tests alone, use
+`python -m pytest` (or `.\env313\Scripts\python.exe -m pytest` on Windows).
+
 Resolve configuration layers and print the deterministic result:
 
 ```console
@@ -66,6 +70,25 @@ and records a `.download.json` provenance file for each completed source.
 Downloaded files are placed under `data/raw/historical/` for use with the T011
 corpus adapters. See `docs/historical-downloads.md` for source-format and
 licensing details.
+
+Build the locally available historical corpora through the shared canonical
+pipeline with `abrex corpus build --config`:
+
+```console
+abrex corpus build --config configs/corpora/ab3p.yaml
+abrex corpus build --config configs/corpora/bioadi.yaml
+abrex corpus build --config configs/corpora/medstract.yaml
+abrex corpus build --config configs/corpora/schwartz_hearst.yaml
+```
+
+Or build the configuration-driven historical group:
+
+```console
+abrex corpus build-all --group historical
+```
+
+See [historical build documentation](docs/historical-builds.md) for the
+download -> build -> resolve -> evaluate workflow and unavailable variants.
 
 Pre-commit runs the formatting, lint, and type checks locally:
 

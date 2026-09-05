@@ -21,10 +21,14 @@ from abrex.corpora.base import (
     map_source_record,
 )
 from abrex.corpora.config import (
+    CorpusBuildGroupConfig,
+    CorpusBuildGroupsConfig,
     CorpusConfig,
+    CorpusOutputConfig,
     SourceResourceConfig,
     corpus_config_from_resolved,
     create_corpus_pipeline,
+    load_corpus_build_groups,
 )
 from abrex.corpora.diagnostics import (
     AdapterDiagnostic,
@@ -73,9 +77,12 @@ __all__ = [
     "CorpusAdapter",
     "CorpusAdapterError",
     "CorpusBuildError",
+    "CorpusBuildGroupConfig",
+    "CorpusBuildGroupsConfig",
     "CorpusBuildResult",
     "CorpusConfig",
     "CorpusError",
+    "CorpusOutputConfig",
     "CorpusPipeline",
     "CORPUS_ADAPTERS",
     "DiagnosticsCollector",
@@ -103,6 +110,7 @@ __all__ = [
     "build_dataset_manifest",
     "corpus_config_from_resolved",
     "create_corpus_pipeline",
+    "load_corpus_build_groups",
     "fingerprint_file",
     "fingerprint_records",
     "map_source_record",

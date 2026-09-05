@@ -1,0 +1,8 @@
+# Configuration-driven corpus build groups. Paths are repository-relative.
+groups:
+  historical:
+    configs:
+      - configs/corpora/ab3p.yaml
+      - configs/corpora/bioadi.yaml
+      - configs/corpora/medstract.yaml
+      - configs/corpora/schwartz_hearst.yaml

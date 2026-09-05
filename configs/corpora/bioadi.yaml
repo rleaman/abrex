@@ -1,0 +1,19 @@
+project:
+  name: historical-bioadi
+
+corpus:
+  adapter:
+    type: bioadi
+    params: {}
+  source:
+    identifier: bioadi
+    location: data/raw/historical/bioadi/bioadi_bioc_gold.xml
+    format: xml
+  normalizers:
+    - type: identity
+      params: {}
+  strict: false
+  output:
+    directory: data/processed/bioadi
+    jsonl: canonical.jsonl
+    manifest: manifest.json

@@ -21,6 +21,10 @@ whole because it does not publish a stable single-file release. The resulting
 files remain user-managed source material; inspect the extracted layout and
 pass the appropriate file to the T011 adapter configuration.
 
+Downloading only acquires raw files; it never normalizes or builds a corpus.
+After acquisition, use the runnable configurations and commands in
+[historical-builds.md](historical-builds.md).
+
 The URLs in the manifest were resolved from the project references in
 `docs/notes-for-later.md`: BioC's `SH-BioC.zip`, `Ab3P-BioC.zip`,
 `BioADI-BioC.zip`, and `MEDSTRACT.zip`; the two BADREX corrected files; the

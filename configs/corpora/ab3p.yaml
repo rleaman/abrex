@@ -1,0 +1,19 @@
+project:
+  name: historical-ab3p
+
+corpus:
+  adapter:
+    type: ab3p_corpus
+    params: {}
+  source:
+    identifier: ab3p_corpus
+    location: data/raw/historical/ab3p_corpus/Ab3P_bioc_gold.xml
+    format: xml
+  normalizers:
+    - type: identity
+      params: {}
+  strict: false
+  output:
+    directory: data/processed/ab3p_corpus
+    jsonl: canonical.jsonl
+    manifest: manifest.json
