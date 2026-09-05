@@ -1,0 +1,66 @@
+{
+  "adapter": {
+    "identity": "fixture",
+    "version": "1"
+  },
+  "annotation_count": 2,
+  "config_fingerprint": "7d811010e8439fabde80ca43b6707e500453b89e6a510d84d658e9c470091cd5",
+  "dataset_id": "embedded-fixture",
+  "fingerprint": "d72b69ec7c97c79f018eb303e4cefc3822c719631a9f83c4a37e6716be3696e4",
+  "manifest_version": "manifest-v1",
+  "normalizers": [
+    "trim_captured_text"
+  ],
+  "record_count": 2,
+  "schema_version": "canonical-v1",
+  "source": {
+    "fingerprint": null,
+    "format": null,
+    "identifier": "embedded-fixture"
+  },
+  "validation": {
+    "by_action": {
+      "ambiguous": 0,
+      "dropped": 1,
+      "observed": 1,
+      "repaired": 1,
+      "unscoreable": 0
+    },
+    "by_severity": {
+      "error": 1,
+      "info": 1,
+      "warning": 1
+    },
+    "diagnostics": [
+      {
+        "action": "observed",
+        "code": "FIXTURE_SOURCE_SELECTED",
+        "location": "source",
+        "message": "Using the embedded fixture source",
+        "record_id": "embedded-fixture",
+        "severity": "info"
+      },
+      {
+        "action": "dropped",
+        "code": "RECORD_DROPPED",
+        "location": "record",
+        "message": "Span [0, 46) exceeds text length 45",
+        "record_id": "malformed-1",
+        "severity": "error"
+      },
+      {
+        "action": "repaired",
+        "annotation_id": "repairable-ann-1",
+        "code": "CAPTURED_TEXT_TRIMMED",
+        "location": "short_form_text",
+        "message": "Trimmed edge whitespace from short_form_text",
+        "record_id": "repairable-1",
+        "severity": "warning"
+      }
+    ],
+    "records_dropped": 1,
+    "records_kept": 2,
+    "records_seen": 3,
+    "total": 3
+  }
+}

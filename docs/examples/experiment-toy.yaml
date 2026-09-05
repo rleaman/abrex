@@ -1,0 +1,32 @@
+project:
+  name: toy-experiment
+  seed: 20260905
+
+corpus:
+  type: canonical_jsonl
+  params:
+    path: docs/examples/experiment-corpus.jsonl
+    manifest_path: docs/examples/experiment-corpus.manifest.json
+
+resolver:
+  type: toy
+  params:
+    confidence: 1.0
+
+matching:
+  type: exact_pair
+  params: {}
+
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+
+reporters:
+  - type: json
+    params: {}
+
+output:
+  root: experiments/runs
+  reuse_cached_predictions: true

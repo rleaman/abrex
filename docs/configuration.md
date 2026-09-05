@@ -104,3 +104,18 @@ A top-level experiment seed should exist even before learned models are introduc
 ## Example base configuration
 
 See `docs/examples/base.yaml`.
+
+## Experiment runner
+
+An experiment configuration uses `corpus.params.path` to point at an existing
+canonical JSONL artifact, then selects resolver, matching, metrics, and
+reporters through their registries. Run one with:
+
+```console
+python -m abrex experiment run docs/examples/experiment-toy.yaml
+```
+
+Set `output.reuse_cached_predictions: true` to reuse only a validated,
+content-addressed prediction artifact. The runner writes a reproducibility
+manifest, evaluation artifact, predictions, and configured reports beneath the
+content-addressed run directory.

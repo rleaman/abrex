@@ -25,6 +25,7 @@ from abrex.corpora import (
     read_canonical_jsonl,
     write_canonical_dataset,
 )
+from abrex.experiments import ExperimentError, run_experiment
 from abrex.registry import RegistryError
 from abrex.resolvers import (
     PredictionSerializationError,
@@ -98,6 +99,22 @@ def _build_parser() -> argparse.ArgumentParser:
         "download", help="download configured dataset sources"
     )
     download.add_argument("config", type=Path, help="YAML download manifest")
+    experiment = commands.add_parser(
+        "experiment", help="declarative experiment commands"
+    )
+    experiment_commands = experiment.add_subparsers(
+        dest="experiment_command", required=True
+    )
+    experiment_run = experiment_commands.add_parser(
+        "run", help="run a configured experiment"
+    )
+    experiment_run.add_argument(
+        "paths", nargs="+", type=Path, help="YAML layers in precedence order"
+    )
+    experiment_run.add_argument("--output-root", type=Path, help="override output.root")
+    experiment_run.add_argument(
+        "--reuse-cache", action="store_true", help="reuse a validated prediction cache"
+    )
     return parser
 
 
@@ -120,6 +137,38 @@ def main(argv: Sequence[str] | None = None) -> int:
             results = download_datasets(load_download_config(args.config))
             sys.stdout.write(results_to_json(results))
         except DownloadError as error:
+            print(f"error: {error}", file=sys.stderr)
+            return 2
+        return 0
+    if args.command == "experiment" and args.experiment_command == "run":
+        try:
+            result = run_experiment(
+                tuple(args.paths),
+                output_root=args.output_root,
+                reuse_cached_predictions=True if args.reuse_cache else None,
+            )
+            sys.stdout.write(
+                json.dumps(
+                    {
+                        "run_directory": str(result.run_directory),
+                        "manifest": str(result.manifest_path),
+                        "prediction_fingerprint": result.prediction_fingerprint,
+                        "evaluation_fingerprint": result.evaluation_fingerprint,
+                        "reused_predictions": result.reused_predictions,
+                    },
+                    sort_keys=True,
+                )
+                + "\n"
+            )
+        except (
+            ConfigError,
+            ExperimentError,
+            CanonicalSerializationError,
+            PredictionSerializationError,
+            RegistryError,
+            ResolverError,
+            ValueError,
+        ) as error:
             print(f"error: {error}", file=sys.stderr)
             return 2
         return 0
