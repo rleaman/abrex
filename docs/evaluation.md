@@ -51,3 +51,24 @@ diagnosed and are never treated as empty predictions.
 When evaluating a `PredictionArtifact`, pass
 `expected_dataset_fingerprint` to verify that it was generated from the same
 canonical dataset build.
+
+## Reporting
+
+`abrex.reporting.ReportContext` packages an immutable evaluation result with
+run metadata, configuration identity, and optional canonical documents. The
+`json`, `error_table`, and `html_error_report` registry components render the
+same stored match outcomes; reporting does not rerun resolution or matching.
+Configure them with a list such as:
+
+```yaml
+reporting:
+  reporters:
+    - type: json
+    - type: html_error_report
+      params:
+        context_chars: 120
+```
+
+Stratification dimensions are explicit hooks. A dimension returning `None`
+for an outcome excludes it from that dimension; no corpus, positional, or
+parenthetical classifier is inferred by the framework.

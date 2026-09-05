@@ -62,6 +62,10 @@ abbr-resolution/
         metrics.py
         evaluator.py
       reporting/
+        base.py
+        config.py
+        registry.py
+        reporters.py
       experiments/
       infrastructure/
         filesystem.py
@@ -99,6 +103,13 @@ predictions + gold
     -> Metrics
     -> Reporters
 ```
+
+Reporters consume an immutable `ReportContext` containing the existing
+`EvaluationResult`, run/configuration identity, optional canonical documents,
+and explicit stratification hooks. They never invoke a resolver or recompute
+matching. The built-in `json`, `error_table` (TSV by default; CSV is an
+explicit alias), and `html_error_report` reporters are selected through the
+reporter registry.
 
 ## 4. Domain interfaces
 
