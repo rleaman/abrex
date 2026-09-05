@@ -98,3 +98,14 @@ python -m pre_commit run --all-files
 ```
 
 Task completion notes are stored under `docs/tasks/completed/` and record changes, verification commands, and unresolved issues. Scientific behavior is intentionally deferred to the numbered tasks that define it.
+
+# Local workspace cleanup
+
+OneDrive can leave Python and pytest temporary artifacts behind when a process or sync operation holds a file open. The repository includes a conservative cleanup helper:
+
+```powershell
+.\scripts\Cleanup-Workspace.ps1
+.\scripts\Cleanup-Workspace.ps1 -DeleteSafe
+```
+
+The first command is audit-only. The second removes only generated caches and test/coverage output classified as `SafeToDelete`. It writes a timestamped JSON report. Project data (`data/`) and Python environments (`env313/`, `.venv/`, `venv/`, `env/`) are reported as `ReviewBeforeDelete`, never removed automatically; tracked files are protected as well. A failed deletion is retained in the report with its exception details.
