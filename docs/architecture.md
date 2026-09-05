@@ -127,6 +127,13 @@ Consumes canonical documents and returns predictions. Resolver output must not d
 
 Optional lower-level extension point. Produces candidate short-form/long-form pairs or spans without necessarily accepting them as final definitions.
 
+### FeatureExtractor
+
+Consumes one canonical document and candidate and emits deterministic named
+numeric values. Feature sets compose extractors into an inspectable schema and
+matrix for candidate scoring or error analysis. Feature extraction has no
+access to gold annotations or evaluator state.
+
 ### MatchingPolicy
 
 Defines how gold and predicted definitions are paired for scoring. Exact and relaxed matching should be separate implementations/configurations rather than conditionals embedded in a monolithic evaluator.

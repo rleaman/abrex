@@ -108,8 +108,11 @@ See `docs/examples/base.yaml`.
 ## Experiment runner
 
 An experiment configuration uses `corpus.params.path` to point at an existing
-canonical JSONL artifact, then selects resolver, matching, metrics, and
-reporters through their registries. Run one with:
+canonical JSONL artifact, then selects resolver, matching, metrics, reporters,
+and optionally feature extractors through their registries. The `features`
+section is retained in the resolved configuration and can be composed with
+`create_feature_set`; see `docs/features.md` and
+`docs/examples/features.yaml`. Run one with:
 
 ```console
 python -m abrex experiment run docs/examples/experiment-toy.yaml

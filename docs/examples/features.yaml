@@ -1,0 +1,22 @@
+# Feature-set fragment. Merge this section into an experiment configuration.
+features:
+  extractors:
+    - type: character_alignment
+      params:
+        case_sensitive: false
+        ignore_non_alphanumeric: true
+    - type: token_counts
+      params: {}
+    - type: capitalization
+      params: {}
+    - type: digit_punctuation
+      params: {}
+    - type: length_relationship
+      params: {}
+    - type: position_direction
+      params: {}
+    - type: lexical_cues
+      params:
+        cues: ["abbreviated as", "also known as", "defined as"]
+    - type: parenthetical_metadata
+      params: {}

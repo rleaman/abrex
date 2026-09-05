@@ -1,0 +1,71 @@
+"""Registry-driven, inspectable candidate feature extraction."""
+
+from abrex.features.base import (
+    FEATURE_SCHEMA_VERSION,
+    FeatureColumn,
+    FeatureExtractor,
+    FeatureExtractorMetadata,
+    FeatureMatrix,
+    FeatureRow,
+    FeatureSchema,
+    FeatureSet,
+)
+from abrex.features.extractors import (
+    BUILTIN_FEATURE_VERSION,
+    CapitalizationConfig,
+    CapitalizationFeatureExtractor,
+    CharacterAlignmentConfig,
+    CharacterAlignmentFeatureExtractor,
+    DigitPunctuationFeatureExtractor,
+    LengthRelationshipFeatureExtractor,
+    LexicalCueConfig,
+    LexicalCueFeatureExtractor,
+    ParentheticalMetadataConfig,
+    ParentheticalMetadataFeatureExtractor,
+    PositionDirectionFeatureExtractor,
+    TokenCountConfig,
+    TokenCountFeatureExtractor,
+)
+from abrex.features.pipeline import (
+    ConfiguredFeatureSet,
+    FeatureSetConfig,
+    create_feature_set,
+    feature_set_config_from_resolved,
+)
+from abrex.features.registry import (
+    EXTRACTORS,
+    FEATURE_EXTRACTORS,
+    register_builtin_components,
+)
+
+__all__ = [
+    "BUILTIN_FEATURE_VERSION",
+    "EXTRACTORS",
+    "FEATURE_EXTRACTORS",
+    "FEATURE_SCHEMA_VERSION",
+    "CapitalizationConfig",
+    "CapitalizationFeatureExtractor",
+    "CharacterAlignmentConfig",
+    "CharacterAlignmentFeatureExtractor",
+    "ConfiguredFeatureSet",
+    "DigitPunctuationFeatureExtractor",
+    "FeatureColumn",
+    "FeatureExtractor",
+    "FeatureExtractorMetadata",
+    "FeatureMatrix",
+    "FeatureRow",
+    "FeatureSchema",
+    "FeatureSet",
+    "FeatureSetConfig",
+    "LengthRelationshipFeatureExtractor",
+    "LexicalCueConfig",
+    "LexicalCueFeatureExtractor",
+    "ParentheticalMetadataConfig",
+    "ParentheticalMetadataFeatureExtractor",
+    "PositionDirectionFeatureExtractor",
+    "TokenCountConfig",
+    "TokenCountFeatureExtractor",
+    "create_feature_set",
+    "feature_set_config_from_resolved",
+    "register_builtin_components",
+]
