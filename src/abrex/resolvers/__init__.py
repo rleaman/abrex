@@ -12,6 +12,11 @@ from abrex.resolvers.adapters.ab3p import (
     reconstruct_predictions,
 )
 from abrex.resolvers.adapters.ab3p_resolver import Ab3PResolver
+from abrex.resolvers.adapters.learned import (
+    LEARNED_SCORER_RESOLVER_VERSION,
+    LearnedScorerResolver,
+    LearnedScorerResolverConfig,
+)
 from abrex.resolvers.adapters.schwartz_hearst import (
     SCHWARTZ_HEARST_VERSION,
     SchwartzHearstResolver,
@@ -62,6 +67,9 @@ __all__ = [
     "Ab3PMappingError",
     "Ab3PParseError",
     "Ab3PResolver",
+    "LEARNED_SCORER_RESOLVER_VERSION",
+    "LearnedScorerResolver",
+    "LearnedScorerResolverConfig",
     "SCHWARTZ_HEARST_VERSION",
     "SchwartzHearstResolver",
     "SchwartzHearstResolverConfig",

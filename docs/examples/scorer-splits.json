@@ -1,0 +1,6 @@
+{
+  "schema_version": "scorer-splits-v1",
+  "train": ["doc-train-1", "doc-train-2"],
+  "dev": ["doc-dev-1"],
+  "test": ["doc-test-1"]
+}

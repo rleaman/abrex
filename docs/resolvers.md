@@ -17,6 +17,16 @@ resolver:
     confidence: 1.0
 ```
 
+## Learned scorer adapter
+
+`learned_scorer` hosts a persisted T015 scorer behind the same resolver
+contract. Its parameters select a candidate pipeline, feature set, scorer
+configuration, and model artifact path. It generates candidates and features
+per canonical document, applies the explicitly configured calibration and
+selection hooks, and returns ordinary `AbbreviationDefinition` predictions.
+The adapter performs inference only; training labels, split manifests, and
+model fitting remain explicit application steps.
+
 `create_resolver_executor` validates parameters, records the registry key and
 implementation version, and returns a `ResolverExecutor`. The executor has
 single-document (`resolve_document`) and batch (`resolve_documents` or

@@ -20,8 +20,9 @@ case where only one is available.
 Resolver-only information belongs in `PredictionMetadata`, which is attached
 through the separate `prediction` field. The optional `confidence` value is a
 finite number in `[0, 1]`; arbitrary finite resolver scores use `score` and are
-not interpreted by the domain model. Gold/source fields remain independent of
-these prediction fields.
+not interpreted by the domain model. Learned-scoring predictions may also
+retain model-artifact and feature-configuration fingerprints. Gold/source
+fields remain independent of these prediction fields.
 
 `CorpusRecord` groups one canonical `Document` with its gold definitions for
 downstream evaluation. It does not define duplicate handling, partial-annotation

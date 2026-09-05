@@ -1,0 +1,14 @@
+# Merge this section into an experiment configuration after registering a
+# project-specific scorer implementation.
+scorer:
+  type: project_scorer
+  params: {}
+  calibration:
+    type: identity
+    params: {}
+  selection:
+    type: fixed
+    params:
+      value: 0.5
+  seed: 20260905
+  feature_config_fingerprint: replace-with-resolved-feature-config-fingerprint

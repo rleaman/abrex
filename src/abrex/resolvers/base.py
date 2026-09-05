@@ -236,6 +236,12 @@ def attach_resolver_metadata(
         score=current.score if current is not None else None,
         component=metadata.key,
         component_version=metadata.implementation_version,
+        model_artifact_fingerprint=(
+            current.model_artifact_fingerprint if current is not None else None
+        ),
+        feature_config_fingerprint=(
+            current.feature_config_fingerprint if current is not None else None
+        ),
     )
     return replace(prediction, prediction=prediction_metadata)
 

@@ -57,6 +57,7 @@ abbr-resolution/
         learned/
       candidates/
       features/
+      scorers/
       evaluation/
         matching.py
         metrics.py
@@ -133,6 +134,14 @@ Consumes one canonical document and candidate and emits deterministic named
 numeric values. Feature sets compose extractors into an inspectable schema and
 matrix for candidate scoring or error analysis. Feature extraction has no
 access to gold annotations or evaluator state.
+
+### Scorer
+
+Consumes a T014 feature matrix and caller-supplied labels during fitting, then
+returns one finite score per candidate row. Calibration and selection are
+separate registry-backed hooks. Scorer artifact persistence records model and
+feature identities; converting selected candidates to predictions preserves the
+existing resolver contract.
 
 ### MatchingPolicy
 

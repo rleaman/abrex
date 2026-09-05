@@ -13,6 +13,10 @@ def register_builtin_components() -> None:
 
     from abrex.resolvers.adapters.ab3p import Ab3PResolverConfig
     from abrex.resolvers.adapters.ab3p_resolver import Ab3PResolver
+    from abrex.resolvers.adapters.learned import (
+        LearnedScorerResolverConfig,
+        create_learned_scorer_resolver,
+    )
     from abrex.resolvers.adapters.schwartz_hearst import (
         SchwartzHearstResolver,
         SchwartzHearstResolverConfig,
@@ -28,6 +32,12 @@ def register_builtin_components() -> None:
             "schwartz_hearst",
             SchwartzHearstResolver,
             config_model=SchwartzHearstResolverConfig,
+        )
+    if "learned_scorer" not in RESOLVERS:
+        RESOLVERS.register(
+            "learned_scorer",
+            create_learned_scorer_resolver,
+            config_model=LearnedScorerResolverConfig,
         )
 
 

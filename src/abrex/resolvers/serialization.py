@@ -501,12 +501,17 @@ def _prediction_to_dict(
 ) -> dict[str, object] | None:
     if prediction is None:
         return None
-    return {
+    result: dict[str, object] = {
         "confidence": prediction.confidence,
         "score": prediction.score,
         "component": prediction.component,
         "component_version": prediction.component_version,
     }
+    if prediction.model_artifact_fingerprint is not None:
+        result["model_artifact_fingerprint"] = prediction.model_artifact_fingerprint
+    if prediction.feature_config_fingerprint is not None:
+        result["feature_config_fingerprint"] = prediction.feature_config_fingerprint
+    return result
 
 
 def _prediction_from_dict(data: object) -> PredictionMetadata | None:
@@ -518,6 +523,12 @@ def _prediction_from_dict(data: object) -> PredictionMetadata | None:
         score=_optional_float(mapping, "score"),
         component=_optional_string(mapping, "component"),
         component_version=_optional_string(mapping, "component_version"),
+        model_artifact_fingerprint=_optional_string(
+            mapping, "model_artifact_fingerprint"
+        ),
+        feature_config_fingerprint=_optional_string(
+            mapping, "feature_config_fingerprint"
+        ),
     )
 
 

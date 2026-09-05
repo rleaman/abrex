@@ -222,6 +222,8 @@ class PredictionMetadata:
     score: float | None = None
     component: str | None = None
     component_version: str | None = None
+    model_artifact_fingerprint: str | None = None
+    feature_config_fingerprint: str | None = None
 
     def __post_init__(self) -> None:
         if self.confidence is not None:
@@ -236,8 +238,13 @@ class PredictionMetadata:
                 raise TypeError("score must be a real number or None")
             if not math.isfinite(self.score):
                 raise ValueError("score must be finite")
-        _require_optional_text(self.component, "component")
-        _require_optional_text(self.component_version, "component_version")
+        for field_name in (
+            "component",
+            "component_version",
+            "model_artifact_fingerprint",
+            "feature_config_fingerprint",
+        ):
+            _require_optional_text(getattr(self, field_name), field_name)
 
 
 @dataclass(frozen=True, slots=True)
