@@ -1,0 +1,13 @@
+# T016 local article integration example. The article file is already local;
+# this configuration performs no network retrieval.
+resolver:
+  type: toy
+  params:
+    confidence: 0.8
+
+literature:
+  segmentation:
+    type: sections
+    params:
+      include_empty_sections: true
+

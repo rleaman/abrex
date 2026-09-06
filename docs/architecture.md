@@ -50,6 +50,12 @@ abbr-resolution/
         validation.py
         serialization.py
         adapters/
+      literature/
+        models.py
+        segmenters.py
+        service.py
+        mapping.py
+        io.py
       resolvers/
         base.py
         adapters/
@@ -161,6 +167,9 @@ Consumes evaluation/experiment results and renders JSON, TSV/CSV, HTML, Markdown
 - `corpora`, `resolvers`, `evaluation`, and `features` may depend on `domain` and shared config/registry abstractions.
 - `evaluation` must not import concrete resolver implementations.
 - corpus adapters must not import evaluator implementations.
+- literature adapters may compose local source-article models with the
+  resolver executor, but must not import NCBI retrieval clients or evaluator
+  implementations.
 - CLI may import application-level services but contains no parsing/evaluation science.
 - infrastructure dependencies such as subprocess invocation stay behind narrow adapters.
 

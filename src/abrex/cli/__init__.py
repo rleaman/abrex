@@ -27,6 +27,13 @@ from abrex.corpora import (
     write_canonical_dataset,
 )
 from abrex.experiments import ExperimentError, run_experiment
+from abrex.literature import (
+    ArticleError,
+    ArticleSerializationError,
+    create_article_resolution_service,
+    read_article_json,
+    serialize_article_resolution,
+)
 from abrex.logging import configure_logging
 from abrex.registry import RegistryError
 from abrex.resolvers import (
@@ -129,6 +136,21 @@ def _build_parser() -> argparse.ArgumentParser:
     experiment_run.add_argument(
         "--reuse-cache", action="store_true", help="reuse a validated prediction cache"
     )
+    article = commands.add_parser(
+        "article", help="resolve locally available PubMed/PMC article data"
+    )
+    article_commands = article.add_subparsers(dest="article_command", required=True)
+    article_resolve = article_commands.add_parser(
+        "resolve", help="segment and resolve one local article JSON document"
+    )
+    article_resolve.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="YAML layers selecting resolver and segmentation",
+    )
+    article_resolve.add_argument("--input", required=True, type=Path)
+    article_resolve.add_argument("--output", type=Path)
     return parser
 
 
@@ -197,6 +219,40 @@ def main(argv: Sequence[str] | None = None) -> int:
             ValueError,
         ) as error:
             logger.error("error: experiment failed: %s", error)
+            return 2
+        return 0
+    if args.command == "article" and args.article_command == "resolve":
+        try:
+            config = load_resolved_config(tuple(args.paths))
+            service = create_article_resolution_service(config)
+            article_result = service.resolve(read_article_json(args.input))
+            serialized = serialize_article_resolution(article_result)
+            if args.output is None:
+                sys.stdout.write(serialized)
+            else:
+                args.output.parent.mkdir(parents=True, exist_ok=True)
+                args.output.write_text(serialized, encoding="utf-8", newline="\n")
+                sys.stdout.write(
+                    json.dumps(
+                        {
+                            "article_id": article_result.article_id,
+                            "entity_count": len(article_result.entities),
+                            "output": str(args.output),
+                        },
+                        sort_keys=True,
+                    )
+                    + "\n"
+                )
+        except (
+            ConfigError,
+            ArticleError,
+            ArticleSerializationError,
+            OSError,
+            RegistryError,
+            ResolverError,
+            ValueError,
+        ) as error:
+            logger.error("error: article resolution failed: %s", error)
             return 2
         return 0
     if args.command == "corpus" and args.corpus_command == "build":

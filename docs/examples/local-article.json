@@ -1,0 +1,18 @@
+{
+  "article_id": "synthetic-pmc-1",
+  "pmid": "12345",
+  "pmcid": "PMC12345",
+  "title": "Synthetic local article",
+  "sections": [
+    {
+      "section_id": "abstract",
+      "title": "Abstract",
+      "text": "Background only."
+    },
+    {
+      "section_id": "body",
+      "title": "Body",
+      "text": "Tumor necrosis factor (TNF) was measured."
+    }
+  ]
+}

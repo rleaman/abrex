@@ -55,6 +55,18 @@ Resolve configuration layers and print the deterministic result:
 python -m abrex config resolve configs/base.yaml
 ```
 
+Resolve a locally available PubMed/PMC article with an explicit segmentation
+policy; this command performs no network retrieval:
+
+```console
+python -m abrex article resolve docs/examples/article-resolution.yaml \
+  --input docs/examples/local-article.json \
+  --output data/article-resolution.json
+```
+
+See [local article integration](docs/literature-integration.md) for the input
+shape, provenance contract, and downstream entity mapping.
+
 ## Historical datasets
 
 Download the user-managed historical corpus sources listed in the YAML
