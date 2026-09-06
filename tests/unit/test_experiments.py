@@ -40,3 +40,45 @@ def test_invalid_prediction_cache_is_recomputed(tmp_path: Path) -> None:
 
     assert second.reused_predictions is False
     assert second.prediction_fingerprint == first.prediction_fingerprint
+
+
+def test_prediction_cache_is_shared_but_experiment_runs_are_distinct(
+    tmp_path: Path,
+) -> None:
+    first_config = tmp_path / "first.yaml"
+    first_config.write_text(
+        Path("docs/examples/experiment-toy.yaml").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+    second_config = tmp_path / "second.yaml"
+    second_config.write_text(
+        first_config.read_text(encoding="utf-8").replace(
+            "  reuse_cached_predictions: true",
+            "  save_predictions: true\n  reuse_cached_predictions: true",
+        ),
+        encoding="utf-8",
+    )
+
+    first = run_experiment(
+        (first_config,),
+        output_root=tmp_path / "artifacts",
+        reuse_cached_predictions=True,
+    )
+    second = run_experiment(
+        (second_config,),
+        output_root=tmp_path / "artifacts",
+        reuse_cached_predictions=True,
+    )
+
+    assert second.reused_predictions is True
+    assert first.prediction_path == second.prediction_path
+    assert first.run_directory != second.run_directory
+    assert first.run_directory.parent.name == "runs"
+    assert first.prediction_path.parent.parent.name == "predictions"
+    first_manifest = json.loads(first.manifest_path.read_text(encoding="utf-8"))
+    second_manifest = json.loads(second.manifest_path.read_text(encoding="utf-8"))
+    assert (
+        first_manifest["predictions"]["cache_key"]
+        == second_manifest["predictions"]["cache_key"]
+    )
+    assert first_manifest["run"]["key"] != second_manifest["run"]["key"]

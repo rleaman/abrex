@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -56,8 +56,17 @@ class CorpusOutputConfig(BaseModel):
     @field_validator("jsonl", "manifest")
     @classmethod
     def _require_relative_filename(cls, value: str) -> str:
-        path = Path(value)
-        if not value.strip() or path.is_absolute() or ".." in path.parts:
+        posix_path = PurePosixPath(value)
+        windows_path = PureWindowsPath(value)
+        if (
+            not value.strip()
+            or posix_path.is_absolute()
+            or windows_path.is_absolute()
+            or windows_path.drive
+            or windows_path.root
+            or ".." in posix_path.parts
+            or ".." in windows_path.parts
+        ):
             raise ValueError("artifact names must be non-empty relative paths")
         return value
 

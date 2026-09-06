@@ -34,6 +34,34 @@ def test_window_rejects_unrelated_prefix_and_reverse_order() -> None:
     assert tuple(SchwartzHearstResolver().resolve(Document("d3", "a (AB)"))) == ()
 
 
+def test_first_short_form_character_must_start_a_long_form_word() -> None:
+    assert (
+        tuple(SchwartzHearstResolver().resolve(Document("d1", "zz alpha beta (AB)")))[
+            0
+        ].long_form_text
+        == "alpha beta"
+    )
+    assert (
+        tuple(SchwartzHearstResolver().resolve(Document("d2", "xalpha beta (AB)")))
+        == ()
+    )
+
+
+def test_default_window_uses_original_schwartz_hearst_bound() -> None:
+    document = Document("d1", "one two three four (OF)")
+    prediction = tuple(SchwartzHearstResolver().resolve(document))
+    assert len(prediction) == 1
+    assert prediction[0].long_form_text == "one two three four"
+    assert (
+        tuple(
+            SchwartzHearstResolver().resolve(
+                Document("d2", "one two three four five (OF)")
+            )
+        )
+        == ()
+    )
+
+
 def test_explicit_configuration_controls_matching() -> None:
     document = Document("d1", "alpha beta (AB)")
     assert tuple(SchwartzHearstResolver(max_long_form_words=1).resolve(document)) == ()

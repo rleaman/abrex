@@ -62,9 +62,12 @@ machines. Native Windows execution is neither supported nor required.
 The cache stores the canonical document ID and SHA-256, exact UTF-8 input,
 raw stdout/stderr, exit status, adapter/cache schema, and execution
 provenance. Its key is based on document content, exact input, adapter
-version, backend, and installation label—not absolute paths. Consequently a
-cache directory can be copied between systems. Changed content, schema,
-semantic configuration, or a missing entry is an explicit cache miss; it is
+version, and an explicit installation identity (`installation_label` or
+`executable_sha256`)—not the backend or any absolute path. Excluding the
+backend allows a subprocess-populated cache to be consumed by `cache_only`.
+Consequently a cache directory can be copied between systems. Changed
+content, schema, semantic configuration, incompatible provenance, or a
+missing identity/entry is an explicit cache miss; it is
 never an empty successful result. Successful zero-output Ab3P runs are cached
 and replayed as legitimate zero predictions. Cached stdout goes through the
 same parser and canonical span reconstruction code as live output.
@@ -93,23 +96,34 @@ data/processed/benchmark.jsonl --output artifacts/ab3p-predictions.jsonl`.
 Live integration tests are intentionally separate and should be enabled only
 when an executable is configured; ordinary tests do not require Ab3P.
 
+Cache identity correction: the backend is intentionally excluded from the
+cache key so a live subprocess cache can be read by `cache_only`. A cache
+identity is mandatory and is supplied by `installation_label` or
+`executable_sha256`; omitted identity cannot read or write a cache.
+
 ## Schwartz--Hearst baseline
 
 `schwartz_hearst` is a dependency-free implementation of the published
 Schwartz--Hearst backwards character-alignment heuristic. It scans canonical
 text for `long form (SHORT)` constructions, ignores non-alphanumeric
 characters by default, and returns spans in the unchanged document coordinate
-space. `max_long_form_words` defaults to the original `2 * len(short) - 1`
-candidate window; `minimum_short_form_length`, `ignore_non_alphanumeric`, and
-`case_sensitive` are explicit configuration parameters. The baseline supports
-parenthetical short forms after their long forms only. Reverse-order and
-nested-parenthesis constructions are intentionally not accepted, and no
-deduplication or evaluator-specific policy is applied.
+space. `max_long_form_words` defaults to
+`min(len(short) + 5, 2 * len(short))`; `minimum_short_form_length`,
+`ignore_non_alphanumeric`, and `case_sensitive` are explicit configuration
+parameters. The baseline supports parenthetical short forms after their long
+forms only. Reverse-order and nested-parenthesis constructions are
+intentionally not accepted, and no deduplication or evaluator-specific policy
+is applied.
 
 The source algorithm is Schwartz and Hearst, “A Simple Algorithm for
 Identifying Abbreviation Definitions in Biomedical Text,” *Pacific Symposium
 on Biocomputing* 8 (2003), 451–462:
 <https://pubmed.ncbi.nlm.nih.gov/12603049/>.
+
+The default candidate window is the published
+`min(len(short) + 5, 2 * len(short))` word bound, and the first short-form
+character must match a long-form word initial. These constraints are enforced
+before a canonical span is emitted.
 
 ```yaml
 resolver:

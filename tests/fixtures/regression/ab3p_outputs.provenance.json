@@ -1,0 +1,11 @@
+{
+  "schema_version": "ab3p-fixture-provenance-v1",
+  "fixture": "ab3p_outputs.json",
+  "source_kind": "curated_synthetic_output",
+  "executable": null,
+  "resolved_executable": null,
+  "executable_sha256": null,
+  "installation_label": null,
+  "generated_at_utc": null,
+  "notes": "The development environment did not have a Linux Ab3P executable. These small outputs are explicitly curated parser/reconstruction fixtures, not claims of a live binary run. Regenerate with the benchmark Ab3P installation before using them as a scientific performance baseline."
+}

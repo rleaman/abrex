@@ -5,11 +5,18 @@
 - Added the typed `abrex.experiments` application service and the thin
   `abrex experiment run` CLI command.
 - Added content-addressed prediction caching protected by canonical corpus
-  fingerprint, resolver configuration, and resolver version, with artifact,
+  fingerprint, resolver configuration/version, and resolver-owned external
+  artifact identities (including learned-model SHA-256), with artifact,
   document-span, metadata, and dataset-fingerprint validation on reuse.
+- Separated prediction cache directories (`predictions/<key>`) from experiment
+  run directories (`runs/<key>`), so evaluation and reporting configuration
+  changes cannot overwrite another run's reproducibility artifacts.
 - Added deterministic evaluation/report artifacts and a `run-manifest-v1`
   manifest containing timestamps, Git state, resolved configuration, corpus,
   resolver, environment/package snapshot, seed, and artifact fingerprints.
+- Prediction artifacts live under `predictions/<prediction-key>`, while each
+  fully configured experiment lives under `runs/<experiment-key>`. The latter
+  includes evaluation/reporting configuration and references the former.
 - Added a checked-in end-to-end toy experiment YAML and configuration docs.
 
 ## Verification

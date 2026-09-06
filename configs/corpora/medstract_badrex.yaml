@@ -1,0 +1,20 @@
+project:
+  name: historical-medstract-badrex
+
+corpus:
+  adapter:
+    type: medstract_badrex
+    params:
+      document_template: "{long} ({short})"
+  source:
+    identifier: medstract_badrex
+    location: data/raw/historical/medstract_badrex/medstract_corrected_pairs.txt
+    format: tsv
+  normalizers:
+    - type: identity
+      params: {}
+  strict: false
+  output:
+    directory: data/processed/medstract_badrex
+    jsonl: canonical.jsonl
+    manifest: manifest.json

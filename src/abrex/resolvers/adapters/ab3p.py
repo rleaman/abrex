@@ -130,6 +130,7 @@ class Ab3PResolverConfig(BaseModel):
     timeout_seconds: float = Field(default=60.0, gt=0)
     cache: Ab3PCacheConfig | None = None
     installation_label: str | None = None
+    executable_sha256: str | None = Field(default=None, pattern=r"^[0-9a-fA-F]{64}$")
 
     @model_validator(mode="after")
     def validate_backend(self) -> Ab3PResolverConfig:

@@ -119,6 +119,8 @@ python -m abrex experiment run docs/examples/experiment-toy.yaml
 ```
 
 Set `output.reuse_cached_predictions: true` to reuse only a validated,
-content-addressed prediction artifact. The runner writes a reproducibility
-manifest, evaluation artifact, predictions, and configured reports beneath the
-content-addressed run directory.
+content-addressed prediction artifact. Prediction caches are stored under
+`output.root/predictions/<prediction-key>`. Reproducibility manifests,
+evaluation artifacts, and configured reports are stored separately under
+`output.root/runs/<experiment-key>`, whose identity includes the complete
+resolved experiment configuration.

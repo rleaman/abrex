@@ -32,10 +32,17 @@ def test_every_committed_historical_config_loads_and_resolves() -> None:
             "bioadi",
             "medstract",
             "schwartz_hearst",
+            "schwartz_hearst_badrex",
+            "medstract_badrex",
+            "sdu_aaai21_ai",
+            "sdu_aaai21_ad",
+            "sdu_aaai22_ai",
         }
         assert corpus.source.location is not None
         assert not corpus.source.location.is_absolute()
-        assert corpus.source.location.is_file()
+        # Raw historical sources are user-managed and intentionally absent
+        # from a fresh checkout.  Build tests use committed synthetic fixtures.
+        assert corpus.source.location.parts[:2] == ("data", "raw")
         assert corpus.normalizers
         assert corpus.strict is False
         assert corpus.output is not None
@@ -51,6 +58,11 @@ def test_historical_group_is_configuration_driven() -> None:
         Path("configs/corpora/bioadi.yaml"),
         Path("configs/corpora/medstract.yaml"),
         Path("configs/corpora/schwartz_hearst.yaml"),
+        Path("configs/corpora/schwartz_hearst_badrex.yaml"),
+        Path("configs/corpora/medstract_badrex.yaml"),
+        Path("configs/corpora/sdu_aaai21_ai.yaml"),
+        Path("configs/corpora/sdu_aaai21_ad.yaml"),
+        Path("configs/corpora/sdu_aaai22_ai.yaml"),
     )
     with pytest.raises(ConfigError, match="available groups"):
         groups.paths_for("missing")

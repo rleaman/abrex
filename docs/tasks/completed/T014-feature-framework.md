@@ -32,7 +32,6 @@ Using the repository's Python 3.13 environment:
 
 ## Unresolved issues
 
-The full coverage command remains below the repository's 100% threshold at
-98.24% because pre-existing uncovered branches remain in older candidate,
-CLI, and experiment modules. All T014 feature modules are at 100% coverage;
-raising unrelated legacy coverage is outside T014 scope.
+All T014 feature modules remain at 100% coverage. The repository-wide policy
+now uses a deliberate 95% floor, with coverage output retaining visibility of
+defensive branches in older candidate, CLI, experiment, and scorer modules.

@@ -18,6 +18,8 @@ def register_builtin_components() -> None:
     from abrex.corpora.adapters.historical import (
         BioCCorpusAdapter,
         DelimitedPairCorpusAdapter,
+        SDUAcronymDisambiguationAdapter,
+        SDUAcronymExtractionAdapter,
         SDUAcronymIdentificationAdapter,
     )
     from abrex.corpora.normalization import IdentityNormalization, TrimCapturedText
@@ -38,7 +40,10 @@ def register_builtin_components() -> None:
         "sdu_aaai21_ai": lambda: SDUAcronymIdentificationAdapter(
             dataset_variant="sdu_aaai21_ai"
         ),
-        "sdu_aaai22_ai": lambda: SDUAcronymIdentificationAdapter(
+        "sdu_aaai21_ad": lambda: SDUAcronymDisambiguationAdapter(
+            dataset_variant="sdu_aaai21_ad"
+        ),
+        "sdu_aaai22_ai": lambda: SDUAcronymExtractionAdapter(
             dataset_variant="sdu_aaai22_ai"
         ),
     }

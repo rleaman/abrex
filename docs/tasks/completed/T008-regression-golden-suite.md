@@ -6,9 +6,12 @@
   reverse parenthetical order, nested parentheses, hyphenated/digit forms,
   multiple definitions, a boundary-sensitive long form, a false-positive
   parenthetical, and Unicode biomedical text.
-- Added reviewed Ab3P raw output and deterministic `predictions-v1` golden
-  artifacts, including an explicit empty prediction record where Ab3P finds
-  no pair.
+- Added explicitly identified curated Ab3P-shaped raw output and deterministic
+  `predictions-v1` golden artifacts, including an explicit empty prediction
+  record for the reverse-order case.
+- Added `ab3p_outputs.provenance.json`. It records that these are synthetic
+  parser/reconstruction fixtures because no Linux Ab3P executable was
+  available; it does not misrepresent them as a live scientific baseline.
 - Added a regression suite that checks canonical record semantics, Ab3P
   parsing and span reconstruction, and exact pair outcomes/metrics.
 
@@ -19,6 +22,8 @@
 
 ## Unresolved issues
 
-Ab3P behavior for reverse-order definitions remains represented by the reviewed
-empty baseline output; no new scientific matching or boundary policy was
-introduced.
+Before using this fixture as a scientific Ab3P performance baseline, regenerate
+`ab3p_outputs.json` with the intended Linux executable and fill in its resolved
+path, SHA-256, installation identity, and UTC generation timestamp. The
+regression fixture remains useful for parser and span-reconstruction tests in
+the meantime.

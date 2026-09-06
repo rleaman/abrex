@@ -14,6 +14,8 @@ from abrex.corpora import (
     CorpusConfig,
     DelimitedPairCorpusAdapter,
     DiagnosticsCollector,
+    SDUAcronymDisambiguationAdapter,
+    SDUAcronymExtractionAdapter,
     SDUAcronymIdentificationAdapter,
     SourceResourceConfig,
     create_corpus_pipeline,
@@ -51,6 +53,71 @@ def test_sdu_bio_labels_reconstruct_auditable_spans() -> None:
         SDUAcronymIdentificationAdapter(dataset_variant="sdu_aaai21_ai").identity
         == "sdu_aaai21_ai"
     )
+
+
+def test_sdu_ad_preserves_expansion_without_inventing_a_long_form_offset(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "ad.json"
+    path.write_text(
+        json.dumps(
+            [
+                {
+                    "id": "ad-1",
+                    "tokens": ["CNN", "is", "common"],
+                    "acronym": 0,
+                    "expansion": "Cable News Network",
+                }
+            ]
+        ),
+        encoding="utf-8",
+    )
+    source = SourceResourceConfig(identifier="ad", location=path)
+    config = CorpusConfig(adapter=ComponentSpec(type="sdu_aaai21_ad"), source=source)
+    annotation = (
+        create_corpus_pipeline(config)
+        .build(source.to_resource())
+        .records[0]
+        .gold_annotations[0]
+    )
+    assert annotation.short_form_text == "CNN"
+    assert annotation.long_form is None
+    assert annotation.long_form_text == "Cable News Network"
+    assert annotation.provenance is not None
+    assert annotation.provenance.transformation_notes
+    assert SDUAcronymDisambiguationAdapter().identity == "sdu_aaai21_ad"
+
+
+def test_sdu_aaai22_ranges_are_converted_from_inclusive_coordinates(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "ae.json"
+    path.write_text(
+        json.dumps(
+            [
+                {
+                    "id": "ae-1",
+                    "text": "Tumor necrosis factor (TNF)",
+                    "acronyms": [[23, 25]],
+                    "long-forms": [[0, 20]],
+                }
+            ]
+        ),
+        encoding="utf-8",
+    )
+    source = SourceResourceConfig(identifier="ae", location=path)
+    config = CorpusConfig(adapter=ComponentSpec(type="sdu_aaai22_ai"), source=source)
+    annotation = (
+        create_corpus_pipeline(config)
+        .build(source.to_resource())
+        .records[0]
+        .gold_annotations[0]
+    )
+    assert annotation.short_form_text == "TNF"
+    assert annotation.long_form_text == "Tumor necrosis factor"
+    assert annotation.short_form is not None and annotation.short_form.end == 26
+    assert annotation.long_form is not None and annotation.long_form.end == 21
+    assert SDUAcronymExtractionAdapter().identity == "sdu_aaai22_ai"
 
 
 def test_pair_correction_requires_explicit_reconstruction_template() -> None:

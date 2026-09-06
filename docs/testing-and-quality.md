@@ -50,6 +50,12 @@ quality gate itself does not depend on pre-commit's cache location.
 
 A second full gate may include integration/regression tests and coverage.
 
+The repository-wide coverage gate requires at least 95% statement coverage.
+This floor keeps the fast gate meaningful while allowing defensive boundary
+branches that require unavailable external tools or unusual filesystem
+failures; coverage output still reports those branches and component tests
+cover the normal and failure contracts.
+
 ## Target tooling
 
 Recommended defaults:

@@ -18,8 +18,10 @@ SourceForge corpus archives are extracted under `data/raw/historical/`.
 SDU@AAAI-21 files are downloaded individually because the repositories publish
 the JSON files directly. The AAAI-22 repository is archived and extracted as a
 whole because it does not publish a stable single-file release. The resulting
-files remain user-managed source material; inspect the extracted layout and
-pass the appropriate file to the T011 adapter configuration.
+files remain user-managed source material. The checked-in corpus configs
+identify the expected source files; inspect the extracted AAAI-22 layout if
+you select a different language/domain split and adjust that YAML path
+explicitly.
 
 Downloading only acquires raw files; it never normalizes or builds a corpus.
 After acquisition, use the runnable configurations and commands in

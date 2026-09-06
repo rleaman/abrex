@@ -71,7 +71,11 @@ class SchwartzHearstResolver:
             return None
         max_words = self.config.max_long_form_words
         if max_words is None:
-            max_words = 2 * len(short_text) - 1
+            # Schwartz--Hearst bounds the candidate by both character length
+            # and token count.  The latter is deliberately a word window,
+            # not an arbitrary character slice, so returned spans remain
+            # aligned to complete source words.
+            max_words = min(len(short_text) + 5, 2 * len(short_text))
         candidate_words = words[-max_words:]
         candidate_start = candidate_words[0].start()
         candidate_end = candidate_words[-1].end()
@@ -102,10 +106,14 @@ def _align_short_form(
         return None
     normalized_long = _normalized_characters(long_form, long_indexes, case_sensitive)
     normalized_short = _normalized_characters(short_form, short_indexes, case_sensitive)
+    word_starts = {word.start() for word in re.finditer(r"[A-Za-z0-9]+", long_form)}
     position = len(normalized_long) - 1
     matched: list[int] = []
-    for short_character in reversed(normalized_short):
-        while position >= 0 and normalized_long[position] != short_character:
+    for short_position, short_character in reversed(tuple(enumerate(normalized_short))):
+        while position >= 0 and (
+            normalized_long[position] != short_character
+            or (short_position == 0 and long_indexes[position] not in word_starts)
+        ):
             position -= 1
         if position < 0:
             return None

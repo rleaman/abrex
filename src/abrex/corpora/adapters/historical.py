@@ -133,6 +133,113 @@ class SDUAcronymIdentificationAdapter:
         )
 
 
+class SDUAcronymDisambiguationAdapter:
+    """Read SDU@AAAI-21 AD rows with an acronym index and expansion text.
+
+    AD examples do not necessarily contain the expansion in the sentence.
+    The canonical representation therefore stores the acronym span and the
+    expansion as source text without inventing a long-form document offset.
+    """
+
+    def __init__(
+        self, *, dataset_variant: str = "sdu_aaai21_ad", token_separator: str = " "
+    ) -> None:
+        if not dataset_variant.strip():
+            raise ValueError("dataset_variant must not be empty")
+        if not token_separator:
+            raise ValueError("token_separator must not be empty")
+        self.dataset_variant = dataset_variant
+        self.token_separator = token_separator
+
+    @property
+    def identity(self) -> str:
+        return self.dataset_variant
+
+    version = "1"
+
+    def parse(
+        self, resource: SourceResource, diagnostics: DiagnosticsCollector
+    ) -> Iterable[ParsedSourceRecord]:
+        raw = _load_json_array(resource, "SDU AD")
+        result: list[ParsedSourceRecord] = []
+        for index, item in enumerate(raw):
+            if not isinstance(item, dict):
+                diagnostics.add(
+                    "error",
+                    "SDU_AD_ROW_INVALID",
+                    "Expected an object",
+                    action="dropped",
+                    record_id=str(index),
+                )
+                continue
+            result.append(
+                _sdu_disambiguation_record(
+                    item, str(index), self.dataset_variant, self.token_separator
+                )
+            )
+        return result
+
+    def map_record(self, source_record: ParsedSourceRecord) -> CorpusRecord:
+        record = map_source_record(
+            source_record, adapter_identity=self.identity, adapter_version=self.version
+        )
+        note = "source expansion has no document span; preserved as text"
+        return replace(
+            record,
+            gold_annotations=tuple(
+                replace(
+                    annotation,
+                    provenance=replace(
+                        annotation.provenance,
+                        transformation_notes=(note,),
+                    ),
+                )
+                for annotation in record.gold_annotations
+                if annotation.provenance is not None
+            ),
+        )
+
+
+class SDUAcronymExtractionAdapter:
+    """Read SDU@AAAI-22 AE JSON with inclusive character ranges."""
+
+    def __init__(self, *, dataset_variant: str = "sdu_aaai22_ai") -> None:
+        if not dataset_variant.strip():
+            raise ValueError("dataset_variant must not be empty")
+        self.dataset_variant = dataset_variant
+
+    @property
+    def identity(self) -> str:
+        return self.dataset_variant
+
+    version = "1"
+
+    def parse(
+        self, resource: SourceResource, diagnostics: DiagnosticsCollector
+    ) -> Iterable[ParsedSourceRecord]:
+        raw = _load_json_array(resource, "SDU AE")
+        result: list[ParsedSourceRecord] = []
+        for index, item in enumerate(raw):
+            if not isinstance(item, dict):
+                diagnostics.add(
+                    "error",
+                    "SDU_AE_ROW_INVALID",
+                    "Expected an object",
+                    action="dropped",
+                    record_id=str(index),
+                )
+                continue
+            result.append(
+                _sdu_extraction_record(item, str(index), self.dataset_variant)
+            )
+        return result
+
+    def map_record(self, source_record: ParsedSourceRecord) -> CorpusRecord:
+        return map_source_record(
+            source_record, adapter_identity=self.identity, adapter_version=self.version
+        )
+
+
 class DelimitedPairCorpusAdapter:
     """Read explicit tab-separated pair rows used by corrected corpora.
 
@@ -209,6 +316,103 @@ class DelimitedPairCorpusAdapter:
                 if annotation.provenance is not None
             ),
         )
+
+
+def _load_json_array(resource: SourceResource, label: str) -> list[object]:
+    path = _require_path(resource)
+    try:
+        with path.open(encoding="utf-8") as stream:
+            raw: object = json.load(stream)
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        raise CorpusAdapterError(
+            f"Unable to parse {label} source {path}: {error}"
+        ) from error
+    if not isinstance(raw, list):
+        raise CorpusAdapterError(f"{label} source must be a JSON array")
+    return raw
+
+
+def _sdu_disambiguation_record(
+    item: Mapping[str, Any], fallback: str, variant: str, separator: str
+) -> ParsedSourceRecord:
+    tokens = item.get("tokens")
+    acronym = item.get("acronym")
+    expansion = item.get("expansion")
+    if (
+        not isinstance(tokens, list)
+        or any(not isinstance(token, str) for token in tokens)
+        or isinstance(acronym, bool)
+        or not isinstance(acronym, int)
+        or not 0 <= acronym < len(tokens)
+        or not isinstance(expansion, str)
+        or not expansion.strip()
+    ):
+        raise CorpusAdapterError(
+            "SDU AD row requires string tokens, a valid acronym index, and expansion"
+        )
+    text = separator.join(tokens)
+    short_start = _token_start(tokens, acronym, separator)
+    annotation = ParsedSourceAnnotation(
+        "sdu-ad-0",
+        SourceTextSpan(
+            short_start, short_start + len(tokens[acronym]), tokens[acronym]
+        ),
+        SourceTextSpan(text=expansion),
+    )
+    identifier = str(item.get("id") or fallback)
+    return ParsedSourceRecord(identifier, identifier, text, (annotation,), variant)
+
+
+def _sdu_extraction_record(
+    item: Mapping[str, Any], fallback: str, variant: str
+) -> ParsedSourceRecord:
+    text = item.get("text")
+    acronyms = item.get("acronyms")
+    long_forms = item.get("long-forms", item.get("long_forms"))
+    if (
+        not isinstance(text, str)
+        or not isinstance(acronyms, list)
+        or not isinstance(long_forms, list)
+        or len(acronyms) != len(long_forms)
+    ):
+        raise CorpusAdapterError(
+            "SDU AE row requires text and equal-length acronym/long-form arrays"
+        )
+    annotations = tuple(
+        ParsedSourceAnnotation(
+            f"sdu-ae-{index}",
+            _inclusive_source_span(acronym, text, "acronym"),
+            _inclusive_source_span(long_form, text, "long-form"),
+        )
+        for index, (acronym, long_form) in enumerate(
+            zip(acronyms, long_forms, strict=True)
+        )
+    )
+    identifier = str(item.get("id") or fallback)
+    return ParsedSourceRecord(identifier, identifier, text, annotations, variant)
+
+
+def _token_start(tokens: list[object], index: int, separator: str) -> int:
+    return sum(
+        len(token) + len(separator)
+        for token in tokens[:index]
+        if isinstance(token, str)
+    )
+
+
+def _inclusive_source_span(value: object, text: str, label: str) -> SourceTextSpan:
+    if (
+        not isinstance(value, list | tuple)
+        or len(value) != 2
+        or any(isinstance(item, bool) or not isinstance(item, int) for item in value)
+    ):
+        raise CorpusAdapterError(f"SDU AE {label} range must contain two integers")
+    start, inclusive_end = value
+    assert isinstance(start, int) and isinstance(inclusive_end, int)
+    if start < 0 or inclusive_end < start or inclusive_end >= len(text):
+        raise CorpusAdapterError(f"SDU AE {label} range is outside document text")
+    end = inclusive_end + 1
+    return SourceTextSpan(start, end, text[start:end])
 
 
 def _require_path(resource: SourceResource) -> Path:
@@ -516,5 +720,7 @@ def _pair_record(
 __all__ = [
     "BioCCorpusAdapter",
     "DelimitedPairCorpusAdapter",
+    "SDUAcronymDisambiguationAdapter",
+    "SDUAcronymExtractionAdapter",
     "SDUAcronymIdentificationAdapter",
 ]

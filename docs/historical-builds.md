@@ -11,6 +11,11 @@ abrex corpus build --config configs/corpora/ab3p.yaml
 abrex corpus build --config configs/corpora/bioadi.yaml
 abrex corpus build --config configs/corpora/medstract.yaml
 abrex corpus build --config configs/corpora/schwartz_hearst.yaml
+abrex corpus build --config configs/corpora/schwartz_hearst_badrex.yaml
+abrex corpus build --config configs/corpora/medstract_badrex.yaml
+abrex corpus build --config configs/corpora/sdu_aaai21_ai.yaml
+abrex corpus build --config configs/corpora/sdu_aaai21_ad.yaml
+abrex corpus build --config configs/corpora/sdu_aaai22_ai.yaml
 ```
 
 Each command uses the shared adapter, normalization, validation, and T004
@@ -37,8 +42,11 @@ download historical data
     -> evaluate
 ```
 
-The currently available local sources are Ab3P, BIOADI, MEDSTRACT, and
-Schwartz & Hearst/BioText. Corrected BADREX sources and SDU shared-task files
-are listed by the download manifest but are not configured until their source
-files are present locally; this avoids committing configurations that cannot
-run.
+The raw sources remain user-managed and are not committed. The checked-in
+configurations cover the original BioC corpora, both BADREX variants, SDU@AAAI-21
+AI/AD, and SDU@AAAI-22 AE. A build is expected to fail clearly until its
+corresponding downloaded source is present.
+
+SDU@AAAI-21 AD preserves the expansion as text when it is not present in the
+sentence, so it does not fabricate a document span. SDU@AAAI-22 AE converts
+the source's inclusive character endpoints to ABREX half-open spans.

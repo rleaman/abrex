@@ -1,0 +1,21 @@
+project:
+  name: historical-sdu-aaai21-ad
+
+corpus:
+  adapter:
+    type: sdu_aaai21_ad
+    params: {}
+  source:
+    identifier: sdu_aaai21_ad_train
+    location: data/raw/historical/sdu_aaai21_ad/train.json
+    format: json
+    metadata:
+      dictionary: data/raw/historical/sdu_aaai21_ad/diction.json
+  normalizers:
+    - type: identity
+      params: {}
+  strict: false
+  output:
+    directory: data/processed/sdu_aaai21_ad
+    jsonl: canonical.jsonl
+    manifest: manifest.json

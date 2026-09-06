@@ -7,3 +7,5 @@ resolver:
       path: artifacts/ab3p-cache
       read: true
       write: false
+    # Must match the immutable identity used when the cache was populated.
+    installation_label: nlm-linux-ab3p

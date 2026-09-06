@@ -14,6 +14,9 @@
 - Added the YAML-selectable `learned_scorer` resolver adapter, which hosts a
   persisted scorer through the existing resolver executor and prediction
   artifact path.
+- Exposed the persisted model SHA-256 as resolver cache identity so an
+  overwritten model artifact cannot reuse predictions produced by an older
+  model at the same path.
 - Extended optional resolver prediction metadata and versioned serialization
   to retain model-artifact and feature-configuration fingerprints while
   preserving existing artifact output when those fields are absent.
@@ -27,8 +30,8 @@
 - `env313\\Scripts\\python.exe -m pytest tests/unit tests/contract` — 143 passed.
 - Full `env313\\Scripts\\python.exe -m pytest` — 146 passed.
 - `env313\\Scripts\\python.exe -m pytest --cov --cov-report=term-missing` —
-  all 146 tests passed, but the repository's existing `fail-under=100` coverage
-  gate remains unmet at 96.51%; uncovered legacy branches and new defensive
+  all 146 tests passed, but the repository's then-existing `fail-under=100`
+  coverage gate was unmet at 96.51%; uncovered legacy branches and new defensive
   error branches are listed by Coverage and are not scientific failures.
 
 ## Unresolved issues
@@ -37,3 +40,7 @@ No scientific scorer or label policy is selected by T015. A project-specific
 follow-up must register the intended model, label construction, optimization
 target, split rationale, calibration method, and threshold/ranking policy
 before reporting scientific results.
+
+The historical coverage snapshot above predates the repository-wide policy
+correction; the current declared floor is 95%, and the full current suite
+passes that floor.

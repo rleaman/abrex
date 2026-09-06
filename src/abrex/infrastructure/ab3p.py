@@ -21,7 +21,7 @@ from abrex.resolvers.adapters.ab3p import (
     build_ab3p_input,
 )
 
-CACHE_SCHEMA_VERSION = "ab3p-cache-v1"
+CACHE_SCHEMA_VERSION = "ab3p-cache-v2"
 
 logger = logging.getLogger(__name__)
 
@@ -48,12 +48,17 @@ class Ab3PRawResult:
 def cache_key(document: Document, config: Ab3PResolverConfig) -> str:
     """Return a path-independent key for document and semantic invocation data."""
 
+    if not _has_cache_identity(config):
+        raise ValueError(
+            "Ab3P cache identity requires installation_label or executable_sha256"
+        )
     payload = {
         "adapter": AB3P_ADAPTER_VERSION,
         "document_id": document.document_id,
         "document_sha256": _sha256(document.text.encode("utf-8")),
         "input_sha256": _sha256(build_ab3p_input(document).encode("utf-8")),
         "installation_label": config.installation_label,
+        "executable_sha256": config.executable_sha256,
     }
     return _sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode())
 
@@ -65,6 +70,10 @@ class Ab3PCache:
         self.path = Path(path)
 
     def read(self, document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
+        if not _has_cache_identity(config):
+            raise Ab3PCacheMiss(
+                "Ab3P cache access requires installation_label or executable_sha256"
+            )
         key = cache_key(document, config)
         logger.debug("Reading Ab3P cache key=%s document=%s", key, document.document_id)
         try:
@@ -79,6 +88,7 @@ class Ab3PCache:
             or data.get("schema_version") != CACHE_SCHEMA_VERSION
             or data.get("cache_key") != key
             or data.get("document_id") != document.document_id
+            or data.get("document_sha256") != _sha256(document.text.encode("utf-8"))
             or data.get("input_text") != expected_input
             or data.get("input_sha256") != _sha256(expected_input.encode("utf-8"))
         ):
@@ -90,18 +100,59 @@ class Ab3PCache:
             raise Ab3PCacheMiss(
                 f"Incompatible Ab3P cache entry for {document.document_id!r}"
             )
+        if provenance.get("installation_label") != config.installation_label:
+            raise Ab3PCacheMiss(
+                f"Incompatible Ab3P provenance for {document.document_id!r}"
+            )
+        if (
+            config.executable_sha256 is not None
+            and provenance.get("executable_sha256") != config.executable_sha256
+        ):
+            raise Ab3PCacheMiss(
+                f"Incompatible Ab3P executable for {document.document_id!r}"
+            )
+        try:
+            stdout = data["stdout"]
+            stderr = data["stderr"]
+            exit_status = data["exit_status"]
+            timed_out = data["timed_out"]
+        except KeyError as error:
+            raise Ab3PCacheMiss(
+                f"Incomplete Ab3P cache entry for {document.document_id!r}"
+            ) from error
+        if (
+            not isinstance(stdout, str)
+            or not isinstance(stderr, str)
+            or isinstance(exit_status, bool)
+            or not isinstance(exit_status, int)
+            or not isinstance(timed_out, bool)
+        ):
+            raise Ab3PCacheMiss(
+                f"Invalid Ab3P cache entry for {document.document_id!r}"
+            )
         digest = provenance.get("executable_sha256")
         return Ab3PRawResult(
-            str(data["stdout"]),
-            str(data["stderr"]),
-            int(data["exit_status"]),
-            bool(data["timed_out"]),
+            stdout,
+            stderr,
+            exit_status,
+            timed_out,
             str(digest) if digest else None,
         )
 
     def write(
         self, document: Document, config: Ab3PResolverConfig, result: Ab3PRawResult
     ) -> Path:
+        if not _has_cache_identity(config):
+            raise Ab3PCacheMiss(
+                "Ab3P cache writes require installation_label or executable_sha256"
+            )
+        if (
+            config.executable_sha256 is not None
+            and result.executable_sha256 != config.executable_sha256
+        ):
+            raise Ab3PCacheMiss(
+                "Live Ab3P executable fingerprint does not match configuration"
+            )
         key = cache_key(document, config)
         logger.debug("Writing Ab3P cache key=%s document=%s", key, document.document_id)
         input_text = build_ab3p_input(document)
@@ -124,6 +175,10 @@ class Ab3PCache:
                 ],
                 "executable_sha256": result.executable_sha256,
                 "installation_label": config.installation_label,
+                "cache_identity": {
+                    "installation_label": config.installation_label,
+                    "executable_sha256": config.executable_sha256,
+                },
                 "platform": platform.platform(),
                 "created_at": datetime.now(UTC).isoformat(),
             },
@@ -203,6 +258,10 @@ def run_ab3p(document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
 
 def _sha256(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
+
+
+def _has_cache_identity(config: Ab3PResolverConfig) -> bool:
+    return bool(config.installation_label or config.executable_sha256)
 
 
 __all__ = [

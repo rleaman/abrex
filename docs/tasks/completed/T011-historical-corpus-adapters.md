@@ -20,7 +20,7 @@
 - mypy: passed (`55` source files).
 - Unit/contract gate: passed (`88 passed`) with elevated filesystem access.
 - Coverage run: `88 passed`, but repository coverage was `96.73%` and did not
-  meet the configured 100% threshold because the new historical parser's
+  meet the then-configured 100% threshold because the new historical parser's
   defensive/error branches are not yet exhaustively covered.
 
 ## Unresolved issues
@@ -102,7 +102,9 @@ The following complete historical source sets were present under
 The checked-in download manifest also supports corrected BADREX sources
 (`schwartz_hearst_badrex` and `medstract_badrex`) and SDU shared-task sources
 (`sdu_aaai21_ai`, `sdu_aaai21_ad`, and `sdu_aaai22`), but their source files
-were absent locally. No non-runnable configurations were added for them.
+were absent locally. The corrective follow-up now provides explicit configs for
+all of these variants; they remain intentionally non-buildable until the
+corresponding user-managed source files are downloaded.
 
 ### Processed artifact verification
 
@@ -154,3 +156,12 @@ download historical data
     -> run resolver
     -> evaluate
 ```
+
+## Corrective follow-up
+
+The repository now also registers `sdu_aaai21_ad` with a dedicated
+acronym-index/expansion adapter and `sdu_aaai22_ai` with a dedicated
+inclusive-range extraction adapter. Runnable repository-relative configs and
+the `historical` build group include these variants plus the BADREX corrected
+sources. Their raw files remain intentionally uncommitted; the ordinary unit
+config test validates paths without requiring private downloads.

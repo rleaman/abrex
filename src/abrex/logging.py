@@ -4,9 +4,27 @@ from __future__ import annotations
 
 import logging
 import sys
-from typing import Final
+from typing import Final, TextIO
 
 DEFAULT_LOG_FORMAT: Final[str] = "%(asctime)s %(levelname)s %(name)s %(message)s"
+
+
+class _DynamicStderrHandler(logging.StreamHandler[TextIO]):
+    """Stream handler that resolves stderr at emit time.
+
+    Test runners, notebooks, and embedders commonly replace ``sys.stderr``
+    for a bounded lifetime.  A normal ``StreamHandler`` retains that object
+    and can later write to a closed capture stream.
+    """
+
+    def emit(self, record: logging.LogRecord) -> None:
+        stream = sys.stderr
+        try:
+            message = self.format(record)
+            stream.write(message + self.terminator)
+            stream.flush()
+        except (OSError, ValueError):
+            self.handleError(record)
 
 
 def configure_logging(
@@ -32,12 +50,8 @@ def configure_logging(
         None,
     )
     if handler is None:
-        handler = logging.StreamHandler(sys.stderr)
+        handler = _DynamicStderrHandler(sys.stderr)
         handler._abrex_handler = True  # type: ignore[attr-defined]
         root_logger.addHandler(handler)
-    elif isinstance(handler, logging.StreamHandler):
-        # Pytest and embedding applications may replace stderr between calls.
-        # Keep the one application handler attached to the current stream.
-        handler.stream = sys.stderr
     handler.setLevel(level)
     handler.setFormatter(logging.Formatter(log_format))

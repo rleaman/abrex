@@ -23,9 +23,10 @@
 ## Scientific/platform notes
 
 Cache identity uses canonical document ID/content and exact input fingerprints,
-adapter/cache version, backend, and installation label; absolute executable
+adapter/cache version and explicit installation identity; absolute executable
 paths are not identity inputs. Provenance records configured executable,
-optional installation label, executable SHA-256 when readable, platform, and
+installation label or executable SHA-256, plus executable SHA-256 when
+readable, platform, and
 creation time. Repeated surface forms with more than one valid long/short
 placement are reported as ambiguous rather than assigned arbitrarily. Native
 Windows execution remains intentionally unsupported; cache replay has no such

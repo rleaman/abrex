@@ -37,6 +37,11 @@ def test_ab3p_golden_predictions_match_reviewed_artifact() -> None:
     records = read_canonical_jsonl(FIXTURES / "canonical_gold.jsonl")
     documents = {record.document.document_id: record.document for record in records}
     outputs = json.loads((FIXTURES / "ab3p_outputs.json").read_text(encoding="utf-8"))
+    provenance = json.loads(
+        (FIXTURES / "ab3p_outputs.provenance.json").read_text(encoding="utf-8")
+    )
+    assert provenance["fixture"] == "ab3p_outputs.json"
+    assert provenance["source_kind"] == "curated_synthetic_output"
     expected = read_prediction_artifact(
         FIXTURES / "expected_predictions.jsonl", documents=documents
     )

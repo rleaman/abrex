@@ -114,6 +114,35 @@ def test_cache_round_trip_is_portable_and_identity_is_explicit(tmp_path: Path) -
         cache.read(document, offline_config)
 
 
+def test_cache_requires_an_explicit_installation_identity(tmp_path: Path) -> None:
+    document = Document("d1", "text")
+    config = _config(tmp_path)
+    with pytest.raises(ValueError, match="cache identity"):
+        cache_key(document, config)
+    with pytest.raises(Ab3PCacheMiss, match="installation_label"):
+        Ab3PCache(tmp_path).read(document, config)
+
+
+def test_configured_executable_digest_is_part_of_cache_compatibility(
+    tmp_path: Path,
+) -> None:
+    document = Document("d1", "text")
+    digest = "a" * 64
+    config = Ab3PResolverConfig(
+        backend="cache_only",
+        executable_sha256=digest,
+        cache=Ab3PCacheConfig(path=str(tmp_path), read=True, write=True),
+    )
+    cache = Ab3PCache(tmp_path)
+    cache.write(
+        document, config, Ab3PRawResult("text\n", "", 0, executable_sha256=digest)
+    )
+    assert cache.read(document, config).executable_sha256 == digest
+    mismatched = config.model_copy(update={"executable_sha256": "b" * 64})
+    with pytest.raises(Ab3PCacheMiss):
+        cache.read(document, mismatched)
+
+
 def test_cache_only_resolver_replays_same_parser_path_and_misses(
     tmp_path: Path,
 ) -> None:
@@ -236,6 +265,7 @@ def test_resolver_cache_then_subprocess_miss_is_live(
     config = {
         "backend": "cache_then_subprocess",
         "executable": "ab3p",
+        "installation_label": "test-ab3p",
         "cache": {"path": str(tmp_path), "read": True, "write": False},
     }
     monkeypatch.setattr(

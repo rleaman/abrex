@@ -77,21 +77,40 @@ def run_experiment(
     resolver_executor = create_resolver_executor(resolver_config)
     logger.info("Selected resolver %s", resolver_executor.metadata.key)
     resolver_config_json = _component_json(resolver_config)
-    cache_key = _sha256(
+    resolver_cache_identity = _resolver_cache_identity(resolver_executor)
+    prediction_cache_key = _sha256(
         json.dumps(
             {
                 "corpus_fingerprint": corpus_fingerprint,
                 "resolver": resolver_config_json,
                 "resolver_version": resolver_executor.metadata.version,
+                "resolver_cache_identity": resolver_cache_identity,
             },
             sort_keys=True,
             separators=(",", ":"),
         ).encode()
     )
     root = output_root or _output_root(config)
-    run_directory = root / cache_key
+    prediction_directory = root / "predictions" / prediction_cache_key
+    prediction_directory.mkdir(parents=True, exist_ok=True)
+    prediction_path = prediction_directory / "predictions.jsonl"
+    resolved_config_json = serialize_resolved_config(config, format="json")
+    config_fingerprint = _sha256(resolved_config_json.encode())
+    experiment_key = _sha256(
+        json.dumps(
+            {
+                "schema_version": "experiment-run-v1",
+                "resolved_config": json.loads(resolved_config_json),
+                "config_fingerprint": config_fingerprint,
+                "corpus_fingerprint": corpus_fingerprint,
+                "prediction_cache_key": prediction_cache_key,
+            },
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode()
+    )
+    run_directory = root / "runs" / experiment_key
     run_directory.mkdir(parents=True, exist_ok=True)
-    prediction_path = run_directory / "predictions.jsonl"
     reuse = (
         _reuse_setting(config)
         if reuse_cached_predictions is None
@@ -167,13 +186,14 @@ def run_experiment(
         resolver_executor.metadata.key,
         resolver_executor.metadata.version,
         resolver_config_json,
+        resolver_cache_identity,
         prediction_path,
         prediction_fingerprint,
         evaluation_path,
         evaluation_fingerprint,
-        config_fingerprint=_sha256(
-            serialize_resolved_config(config, format="json").encode()
-        ),
+        config_fingerprint=config_fingerprint,
+        prediction_cache_key=prediction_cache_key,
+        experiment_key=experiment_key,
         reused=reused,
     )
     _write_text(
@@ -256,6 +276,23 @@ def _component_json(component: object) -> str:
     return json.dumps(component, sort_keys=True, separators=(",", ":"))
 
 
+def _resolver_cache_identity(resolver_executor: ResolverExecutor) -> object:
+    """Return resolver-owned identities for external prediction inputs."""
+
+    identity = getattr(resolver_executor.resolver, "cache_identity", None)
+    if callable(identity):
+        identity = identity()
+    if identity is None:
+        return None
+    try:
+        json.dumps(identity, sort_keys=True, separators=(",", ":"))
+    except (TypeError, ValueError) as error:
+        raise ExperimentError(
+            f"Resolver cache identity must be JSON serializable: {error}"
+        ) from error
+    return identity
+
+
 def _write_reports(
     config: ResolvedConfig, context: ReportContext, directory: Path
 ) -> tuple[Path, ...]:
@@ -286,16 +323,20 @@ def _run_manifest(
     resolver_key: str,
     resolver_version: str,
     resolver_config: str,
+    resolver_cache_identity: object,
     prediction_path: Path,
     prediction_fingerprint: str,
     evaluation_path: Path,
     evaluation_fingerprint: str,
     *,
     config_fingerprint: str,
+    prediction_cache_key: str,
+    experiment_key: str,
     reused: bool,
 ) -> dict[str, object]:
     return {
         "schema_version": "run-manifest-v1",
+        "run": {"key": experiment_key},
         "timestamp_utc": datetime.now(UTC).isoformat(),
         "git": _git_metadata(),
         "config_paths": [str(path) for path in config_paths],
@@ -310,9 +351,11 @@ def _run_manifest(
             "key": resolver_key,
             "version": resolver_version,
             "config": json.loads(resolver_config),
+            "cache_identity": resolver_cache_identity,
         },
         "environment": _environment_snapshot(),
         "predictions": {
+            "cache_key": prediction_cache_key,
             "path": str(prediction_path),
             "fingerprint": prediction_fingerprint,
             "reused": reused,

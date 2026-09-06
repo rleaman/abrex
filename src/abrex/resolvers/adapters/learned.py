@@ -88,6 +88,12 @@ class LearnedScorerResolver:
         self._executor: ScorerExecutor = configured_executor
         self._model_fingerprint = artifact.model_fingerprint
 
+    @property
+    def cache_identity(self) -> dict[str, str]:
+        """Return external artifact identity used by prediction caching."""
+
+        return {"model_sha256": self._model_fingerprint}
+
     def resolve(self, document: Document) -> tuple[AbbreviationDefinition, ...]:
         """Resolve one document through the candidate/feature/scorer boundaries."""
 

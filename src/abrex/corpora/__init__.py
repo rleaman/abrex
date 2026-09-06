@@ -4,6 +4,8 @@ from abrex.corpora.adapters import (
     BioCCorpusAdapter,
     DelimitedPairCorpusAdapter,
     FixtureCorpusAdapter,
+    SDUAcronymDisambiguationAdapter,
+    SDUAcronymExtractionAdapter,
     SDUAcronymIdentificationAdapter,
 )
 from abrex.corpora.base import (
@@ -98,6 +100,8 @@ __all__ = [
     "ParsedSourceRecord",
     "SourceResource",
     "SourceResourceConfig",
+    "SDUAcronymDisambiguationAdapter",
+    "SDUAcronymExtractionAdapter",
     "SDUAcronymIdentificationAdapter",
     "TrimCapturedText",
     "MANIFEST_SCHEMA_VERSION",

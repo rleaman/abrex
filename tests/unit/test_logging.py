@@ -2,6 +2,7 @@
 
 import logging
 from contextlib import suppress
+from io import StringIO
 from pathlib import Path
 
 import pytest
@@ -24,6 +25,19 @@ def test_configure_logging_is_idempotent_and_uses_stderr() -> None:
     ]
     assert len(handlers) == 1
     assert handlers[0].stream is not None
+
+
+def test_persistent_handler_follows_replaced_stderr(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    first = StringIO()
+    monkeypatch.setattr("sys.stderr", first)
+    configure_logging(logging.INFO)
+    first.close()
+    second = StringIO()
+    monkeypatch.setattr("sys.stderr", second)
+    logging.getLogger("lifecycle-test").warning("still writable")
+    assert "still writable" in second.getvalue()
 
 
 def test_debug_cli_emits_diagnostics_without_polluting_stdout(
