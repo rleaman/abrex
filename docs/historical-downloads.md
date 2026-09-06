@@ -16,11 +16,13 @@ gets a `.download.json` record containing its URL and digest.
 
 SourceForge corpus archives are extracted under `data/raw/historical/`.
 SDU@AAAI-21 files are downloaded individually because the repositories publish
-the JSON files directly. The AAAI-22 repository is archived and extracted as a
-whole because it does not publish a stable single-file release. The resulting
-files remain user-managed source material. The checked-in corpus configs
-identify the expected source files; inspect the extracted AAAI-22 layout if
-you select a different language/domain split and adjust that YAML path
+the JSON files directly. The official SDU@AAAI-22 AE repository is downloaded
+from its `main` branch and extracted as a whole because it does not publish a
+stable single-file release. The SDU download strips GitHub's repository root
+directory, so the checked-in English scientific training config expects
+`data/english/scientific/train.json` beneath `data/raw/historical/sdu_aaai22/`.
+The resulting files remain user-managed source material; inspect the extracted
+layout if you select another language/domain split and adjust that YAML path
 explicitly.
 
 Downloading only acquires raw files; it never normalizes or builds a corpus.

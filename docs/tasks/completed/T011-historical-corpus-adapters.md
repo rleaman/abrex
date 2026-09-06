@@ -160,8 +160,8 @@ download historical data
 ## Corrective follow-up
 
 The repository now also registers `sdu_aaai21_ad` with a dedicated
-acronym-index/expansion adapter and `sdu_aaai22_ai` with a dedicated
-inclusive-range extraction adapter. Runnable repository-relative configs and
+acronym-index/expansion adapter and `sdu_aaai22_ae` with a dedicated
+half-open-range extraction adapter. Runnable repository-relative configs and
 the `historical` build group include these variants plus the BADREX corrected
 sources. Their raw files remain intentionally uncommitted; the ordinary unit
 config test validates paths without requiring private downloads.

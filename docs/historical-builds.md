@@ -15,7 +15,7 @@ abrex corpus build --config configs/corpora/schwartz_hearst_badrex.yaml
 abrex corpus build --config configs/corpora/medstract_badrex.yaml
 abrex corpus build --config configs/corpora/sdu_aaai21_ai.yaml
 abrex corpus build --config configs/corpora/sdu_aaai21_ad.yaml
-abrex corpus build --config configs/corpora/sdu_aaai22_ai.yaml
+abrex corpus build --config configs/corpora/sdu_aaai22_ae.yaml
 ```
 
 Each command uses the shared adapter, normalization, validation, and T004

@@ -17,6 +17,7 @@ import time
 import urllib.error
 import urllib.request
 import zipfile
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
@@ -40,6 +41,7 @@ class DatasetDownloadConfig(BaseModel):
     url: str = Field(min_length=1)
     destination: Path
     extract: bool = False
+    strip_top_level_directory: bool = False
     sha256: str | None = Field(default=None, pattern=r"^[0-9a-fA-F]{64}$")
 
 
@@ -124,7 +126,11 @@ def _download_one(
             shutil.rmtree(extraction)
         extraction.mkdir(parents=True)
         try:
-            _extract_archive(temporary, extraction)
+            _extract_archive(
+                temporary,
+                extraction,
+                strip_top_level_directory=dataset.strip_top_level_directory,
+            )
             extraction.replace(target)
         except (OSError, ValueError, zipfile.BadZipFile, tarfile.TarError) as error:
             raise DownloadError(f"Unable to extract {dataset.name}: {error}") from error
@@ -166,20 +172,43 @@ def _retrieve(url: str, destination: Path, config: DatasetDownloadsConfig) -> No
     raise DownloadError(f"Unable to download {url!r}: {last_error}") from last_error
 
 
-def _extract_archive(archive: Path, destination: Path) -> None:
+def _extract_archive(
+    archive: Path,
+    destination: Path,
+    *,
+    strip_top_level_directory: bool = False,
+) -> None:
     if zipfile.is_zipfile(archive):
-        _extract_zip(archive, destination)
+        _extract_zip(
+            archive,
+            destination,
+            strip_top_level_directory=strip_top_level_directory,
+        )
         return
     if tarfile.is_tarfile(archive):
-        _extract_tar(archive, destination)
+        _extract_tar(
+            archive,
+            destination,
+            strip_top_level_directory=strip_top_level_directory,
+        )
         return
     raise ValueError("download is not a supported ZIP or TAR archive")
 
 
-def _extract_zip(archive: Path, destination: Path) -> None:
+def _extract_zip(
+    archive: Path,
+    destination: Path,
+    *,
+    strip_top_level_directory: bool = False,
+) -> None:
     with zipfile.ZipFile(archive) as source:
+        root = _top_level_directory(
+            (member.filename for member in source.infolist()),
+            strip=strip_top_level_directory,
+        )
         for member in source.infolist():
-            target = _safe_member(destination, member.filename)
+            name = _strip_top_level_directory(member.filename, root)
+            target = _safe_member(destination, name)
             if member.is_dir():
                 target.mkdir(parents=True, exist_ok=True)
             else:
@@ -191,10 +220,20 @@ def _extract_zip(archive: Path, destination: Path) -> None:
                     shutil.copyfileobj(input_stream, output_stream)
 
 
-def _extract_tar(archive: Path, destination: Path) -> None:
+def _extract_tar(
+    archive: Path,
+    destination: Path,
+    *,
+    strip_top_level_directory: bool = False,
+) -> None:
     with tarfile.open(archive) as source:
+        root = _top_level_directory(
+            (member.name for member in source.getmembers()),
+            strip=strip_top_level_directory,
+        )
         for member in source.getmembers():
-            target = _safe_member(destination, member.name)
+            name = _strip_top_level_directory(member.name, root)
+            target = _safe_member(destination, name)
             if member.isdir():
                 target.mkdir(parents=True, exist_ok=True)
             elif member.isfile():
@@ -204,6 +243,38 @@ def _extract_tar(archive: Path, destination: Path) -> None:
                     raise ValueError(f"Unable to read archive member {member.name!r}")
                 with input_stream, target.open("wb") as output_stream:
                     shutil.copyfileobj(input_stream, output_stream)
+
+
+def _top_level_directory(names: Iterable[str], *, strip: bool) -> str | None:
+    """Validate and return the sole archive root when root stripping is enabled."""
+
+    if not strip:
+        return None
+    roots: set[str] = set()
+    for name in names:
+        path = PurePosixPath(name)
+        if path.is_absolute() or ".." in path.parts or not path.parts:
+            raise ValueError(f"unsafe archive member path: {name!r}")
+        roots.add(path.parts[0])
+    if len(roots) != 1:
+        raise ValueError("cannot strip top-level directory from a multi-root archive")
+    return next(iter(roots))
+
+
+def _strip_top_level_directory(member_name: str, root: str | None) -> str:
+    """Remove one validated GitHub-style archive directory, if requested."""
+
+    if root is None:
+        return member_name
+    path = PurePosixPath(member_name)
+    if path.is_absolute() or ".." in path.parts or not path.parts:
+        raise ValueError(f"unsafe archive member path: {member_name!r}")
+    if path.parts[0] != root:
+        raise ValueError(
+            f"archive member is outside top-level directory: {member_name!r}"
+        )
+    relative = path.parts[1:]
+    return "/".join(relative) if relative else "."
 
 
 def _safe_member(destination: Path, member_name: str) -> Path:

@@ -205,6 +205,31 @@ def test_archive_extractors_and_safe_paths(
     with pytest.raises(ValueError, match="unsafe"):
         downloads._safe_member(cast(Any, EscapingPath()), "file.txt")
 
+    flattened_zip = tmp_path / "github-style.zip"
+    with zipfile.ZipFile(flattened_zip, "w") as archive:
+        archive.writestr("repository-main/", "")
+        archive.writestr("repository-main/data/train.json", "rows")
+    flattened_destination = tmp_path / "flattened-output"
+    flattened_destination.mkdir()
+    downloads._extract_archive(
+        flattened_zip,
+        flattened_destination,
+        strip_top_level_directory=True,
+    )
+    assert (flattened_destination / "data/train.json").read_text() == "rows"
+    assert not (flattened_destination / "repository-main").exists()
+
+    multi_root = tmp_path / "multi-root.zip"
+    with zipfile.ZipFile(multi_root, "w") as archive:
+        archive.writestr("one/file.txt", "one")
+        archive.writestr("two/file.txt", "two")
+    with pytest.raises(ValueError, match="multi-root"):
+        downloads._extract_archive(
+            multi_root,
+            tmp_path / "multi-root-output",
+            strip_top_level_directory=True,
+        )
+
     class EmptyTar:
         def __enter__(self) -> EmptyTar:
             return self

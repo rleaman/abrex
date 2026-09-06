@@ -34,7 +34,7 @@ def test_every_committed_historical_config_loads_and_resolves() -> None:
             "schwartz_hearst",
             "sdu_aaai21_ai",
             "sdu_aaai21_ad",
-            "sdu_aaai22_ai",
+            "sdu_aaai22_ae",
         }
         assert corpus.source.location is not None
         assert not corpus.source.location.is_absolute()
@@ -58,7 +58,7 @@ def test_historical_group_is_configuration_driven() -> None:
         Path("configs/corpora/schwartz_hearst.yaml"),
         Path("configs/corpora/sdu_aaai21_ai.yaml"),
         Path("configs/corpora/sdu_aaai21_ad.yaml"),
-        Path("configs/corpora/sdu_aaai22_ai.yaml"),
+        Path("configs/corpora/sdu_aaai22_ae.yaml"),
     )
     with pytest.raises(ConfigError, match="available groups"):
         groups.paths_for("missing")
