@@ -120,28 +120,6 @@ def test_sdu_aaai22_ranges_are_converted_from_inclusive_coordinates(
     assert SDUAcronymExtractionAdapter().identity == "sdu_aaai22_ai"
 
 
-def test_pair_correction_requires_explicit_reconstruction_template() -> None:
-    path = Path("tests/fixtures/historical_pairs.txt")
-    config = CorpusConfig(
-        adapter=ComponentSpec(
-            type="medstract_badrex", params={"document_template": "{long} ({short})"}
-        ),
-        source=SourceResourceConfig(identifier="corrected", location=path),
-    )
-    result = create_corpus_pipeline(config).build(config.source.to_resource())
-    assert len(result.records) == 1
-    assert result.records[0].gold_annotations[0].provenance is not None
-    assert (
-        result.records[0].gold_annotations[0].provenance.adapter_identity
-        == "medstract_badrex"
-    )
-    assert BioCCorpusAdapter(dataset_variant="bioadi").identity == "bioadi"
-    assert (
-        DelimitedPairCorpusAdapter(dataset_variant="medstract_badrex").identity
-        == "medstract_badrex"
-    )
-
-
 def test_historical_adapters_reject_invalid_configuration_and_sources(
     tmp_path: Path,
 ) -> None:
@@ -366,8 +344,11 @@ def test_historical_xml_pair_and_sdu_malformed_inputs(
     six_fields = tmp_path / "six-fields.txt"
     six_fields.write_text("id\tLong (S)\t6\t7\t0\t4\n", encoding="utf-8")
     source = SourceResourceConfig(identifier="six", location=six_fields)
-    config = CorpusConfig(adapter=ComponentSpec(type="medstract_badrex"), source=source)
-    assert create_corpus_pipeline(config).build(source.to_resource()).records
+    assert tuple(
+        DelimitedPairCorpusAdapter(dataset_variant="corrected").parse(
+            source.to_resource(), DiagnosticsCollector()
+        )
+    )
 
 
 def test_pair_adapter_reports_two_column_rows_without_reconstruction_template(

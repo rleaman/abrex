@@ -6,8 +6,6 @@ groups:
       - configs/corpora/bioadi.yaml
       - configs/corpora/medstract.yaml
       - configs/corpora/schwartz_hearst.yaml
-      - configs/corpora/schwartz_hearst_badrex.yaml
-      - configs/corpora/medstract_badrex.yaml
       - configs/corpora/sdu_aaai21_ai.yaml
       - configs/corpora/sdu_aaai21_ad.yaml
       - configs/corpora/sdu_aaai22_ai.yaml

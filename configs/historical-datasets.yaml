@@ -24,12 +24,6 @@ downloads:
       url: https://downloads.sourceforge.net/project/bioc/MEDSTRACT.zip
       destination: data/raw/historical/medstract
       extract: true
-    - name: schwartz_hearst_badrex_xml
-      url: https://github.com/philgooch/BADREX-Biomedical-Abbreviation-Expander/raw/master/yeast_abbrev_labeled.xml
-      destination: data/raw/historical/schwartz_hearst_badrex/yeast_abbrev_labeled.xml
-    - name: medstract_badrex_pairs
-      url: https://github.com/philgooch/BADREX-Biomedical-Abbreviation-Expander/raw/master/medstract_corrected_pairs.txt
-      destination: data/raw/historical/medstract_badrex/medstract_corrected_pairs.txt
     - name: sdu_aaai21_ai_train
       url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-1-AI/master/dataset/train.json
       destination: data/raw/historical/sdu_aaai21_ai/train.json

@@ -17,7 +17,6 @@ def register_builtin_components() -> None:
     from abrex.corpora.adapters.fixture import FixtureCorpusAdapter
     from abrex.corpora.adapters.historical import (
         BioCCorpusAdapter,
-        DelimitedPairCorpusAdapter,
         SDUAcronymDisambiguationAdapter,
         SDUAcronymExtractionAdapter,
         SDUAcronymIdentificationAdapter,
@@ -28,15 +27,9 @@ def register_builtin_components() -> None:
         CORPUS_ADAPTERS.register("fixture", FixtureCorpusAdapter)
     historical: dict[str, Callable[..., CorpusAdapter]] = {
         "schwartz_hearst": lambda: BioCCorpusAdapter(dataset_variant="schwartz_hearst"),
-        "schwartz_hearst_badrex": lambda: BioCCorpusAdapter(
-            dataset_variant="schwartz_hearst_badrex"
-        ),
         "ab3p_corpus": lambda: BioCCorpusAdapter(dataset_variant="ab3p_corpus"),
         "bioadi": lambda: BioCCorpusAdapter(dataset_variant="bioadi"),
         "medstract": lambda: BioCCorpusAdapter(dataset_variant="medstract"),
-        "medstract_badrex": lambda document_template=None: DelimitedPairCorpusAdapter(
-            dataset_variant="medstract_badrex", document_template=document_template
-        ),
         "sdu_aaai21_ai": lambda: SDUAcronymIdentificationAdapter(
             dataset_variant="sdu_aaai21_ai"
         ),
