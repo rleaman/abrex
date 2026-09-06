@@ -1,4 +1,4 @@
-"""Registry-driven exact evaluation and pair-level metrics."""
+"""Registry-driven exact evaluation and pair/span-level metrics."""
 
 from abrex.evaluation.base import (
     DocumentEvaluation,
@@ -26,6 +26,9 @@ from abrex.evaluation.matching import (
     ExactPairConfig,
     ExactPairMatchingPolicy,
     ExactPairPolicy,
+    ExactSpanConfig,
+    ExactSpanMatchingPolicy,
+    ExactSpanPolicy,
     IncompleteHandling,
 )
 from abrex.evaluation.metrics import (
@@ -33,6 +36,9 @@ from abrex.evaluation.metrics import (
     PairPRF,
     PairPRFConfig,
     PairPRFMetric,
+    SpanPRF,
+    SpanPRFConfig,
+    SpanPRFMetric,
     ZeroDivisionHandling,
 )
 from abrex.evaluation.registry import (
@@ -50,6 +56,9 @@ __all__ = [
     "ExactPairConfig",
     "ExactPairMatchingPolicy",
     "ExactPairPolicy",
+    "ExactSpanConfig",
+    "ExactSpanMatchingPolicy",
+    "ExactSpanPolicy",
     "Evaluator",
     "IncompleteHandling",
     "MATCHING_POLICIES",
@@ -64,6 +73,9 @@ __all__ = [
     "PairPRF",
     "PairPRFConfig",
     "PairPRFMetric",
+    "SpanPRF",
+    "SpanPRFConfig",
+    "SpanPRFMetric",
     "PredictionBatchLike",
     "PredictionRecordLike",
     "ZeroDivisionHandling",

@@ -1,9 +1,10 @@
 """Adapters for the user-supplied historical abbreviation corpora.
 
-The adapters deliberately do not download data.  BioC sources are parsed as
-documents, passages, annotations, and relations; SDU JSON sources are parsed
-as token-level BIO labels.  The latter necessarily reconstructs character
-offsets from tokens and records that fact in provenance.
+The adapters deliberately do not download data. BioC sources are parsed as
+documents, passages, annotations, and relations. SDU@AAAI-21 sources use
+token-level BIO labels and therefore reconstruct character offsets from
+tokens; SDU@AAAI-22 sources provide independent half-open acronym and
+long-form character spans.
 """
 
 from __future__ import annotations
@@ -201,7 +202,13 @@ class SDUAcronymDisambiguationAdapter:
 
 
 class SDUAcronymExtractionAdapter:
-    """Read SDU@AAAI-22 AE JSON with inclusive character ranges."""
+    """Read SDU@AAAI-22 AE JSON with independent half-open span lists.
+
+    The source stores acronym and long-form annotations as separate lists; it
+    does not define a pairing between the two lists.  Each source span is
+    therefore represented as its own canonical definition, with only the
+    corresponding form populated.  No pairing is inferred from list order.
+    """
 
     def __init__(self, *, dataset_variant: str = "sdu_aaai22_ai") -> None:
         if not dataset_variant.strip():
@@ -212,7 +219,7 @@ class SDUAcronymExtractionAdapter:
     def identity(self) -> str:
         return self.dataset_variant
 
-    version = "1"
+    version = "2"
 
     def parse(
         self, resource: SourceResource, diagnostics: DiagnosticsCollector
@@ -229,14 +236,38 @@ class SDUAcronymExtractionAdapter:
                     record_id=str(index),
                 )
                 continue
-            result.append(
-                _sdu_extraction_record(item, str(index), self.dataset_variant)
-            )
+            try:
+                result.append(
+                    _sdu_extraction_record(item, str(index), self.dataset_variant)
+                )
+            except CorpusAdapterError as error:
+                diagnostics.add(
+                    "error",
+                    "SDU_AE_ROW_INVALID",
+                    str(error),
+                    action="dropped",
+                    record_id=_source_identifier(item, str(index)),
+                )
         return result
 
     def map_record(self, source_record: ParsedSourceRecord) -> CorpusRecord:
-        return map_source_record(
+        record = map_source_record(
             source_record, adapter_identity=self.identity, adapter_version=self.version
+        )
+        note = "source acronym and long-form spans preserved independently"
+        return replace(
+            record,
+            gold_annotations=tuple(
+                replace(
+                    annotation,
+                    provenance=replace(
+                        annotation.provenance,
+                        transformation_notes=(note,),
+                    ),
+                )
+                for annotation in record.gold_annotations
+                if annotation.provenance is not None
+            ),
         )
 
 
@@ -367,28 +398,35 @@ def _sdu_extraction_record(
     item: Mapping[str, Any], fallback: str, variant: str
 ) -> ParsedSourceRecord:
     text = item.get("text")
-    acronyms = item.get("acronyms")
-    long_forms = item.get("long-forms", item.get("long_forms"))
+    acronyms = item.get("acronyms", [])
+    long_forms = item.get("long-forms", item.get("long_forms", []))
     if (
         not isinstance(text, str)
         or not isinstance(acronyms, list)
         or not isinstance(long_forms, list)
-        or len(acronyms) != len(long_forms)
     ):
         raise CorpusAdapterError(
-            "SDU AE row requires text and equal-length acronym/long-form arrays"
+            "SDU AE row requires text and acronym/long-form arrays"
         )
     annotations = tuple(
-        ParsedSourceAnnotation(
-            f"sdu-ae-{index}",
-            _inclusive_source_span(acronym, text, "acronym"),
-            _inclusive_source_span(long_form, text, "long-form"),
-        )
-        for index, (acronym, long_form) in enumerate(
-            zip(acronyms, long_forms, strict=True)
-        )
+        [
+            ParsedSourceAnnotation(
+                f"sdu-ae-short-{index}",
+                _half_open_source_span(acronym, text, "acronym"),
+                None,
+            )
+            for index, acronym in enumerate(acronyms)
+        ]
+        + [
+            ParsedSourceAnnotation(
+                f"sdu-ae-long-{index}",
+                None,
+                _half_open_source_span(long_form, text, "long-form"),
+            )
+            for index, long_form in enumerate(long_forms)
+        ]
     )
-    identifier = str(item.get("id") or fallback)
+    identifier = _source_identifier(item, fallback)
     return ParsedSourceRecord(identifier, identifier, text, annotations, variant)
 
 
@@ -400,19 +438,28 @@ def _token_start(tokens: list[object], index: int, separator: str) -> int:
     )
 
 
-def _inclusive_source_span(value: object, text: str, label: str) -> SourceTextSpan:
+def _half_open_source_span(value: object, text: str, label: str) -> SourceTextSpan:
     if (
         not isinstance(value, list | tuple)
         or len(value) != 2
         or any(isinstance(item, bool) or not isinstance(item, int) for item in value)
     ):
         raise CorpusAdapterError(f"SDU AE {label} range must contain two integers")
-    start, inclusive_end = value
-    assert isinstance(start, int) and isinstance(inclusive_end, int)
-    if start < 0 or inclusive_end < start or inclusive_end >= len(text):
+    start, end = value
+    assert isinstance(start, int) and isinstance(end, int)
+    if start < 0 or end < start or end > len(text):
         raise CorpusAdapterError(f"SDU AE {label} range is outside document text")
-    end = inclusive_end + 1
     return SourceTextSpan(start, end, text[start:end])
+
+
+def _source_identifier(item: Mapping[str, Any], fallback: str) -> str:
+    """Return either SDU identifier spelling while preserving source IDs."""
+
+    for key in ("id", "ID"):
+        value = item.get(key)
+        if value is not None and str(value).strip():
+            return str(value)
+    return fallback
 
 
 def _require_path(resource: SourceResource) -> Path:

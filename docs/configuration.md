@@ -77,8 +77,10 @@ Registry keys are public API. Prefer short, descriptive, lowercase snake_case ke
 - `ab3p`
 - `schwartz_hearst`
 - `exact_pair`
+- `exact_span`
 - `relaxed_boundary`
 - `pair_prf`
+- `span_prf`
 - `json`
 - `html_error_report`
 

@@ -68,9 +68,13 @@ pairing by entity order when no relations are present. The corrected
 requires an explicit `document_template` because the source has no document
 text or offsets.
 
-`sdu_aaai21_ai` and `sdu_aaai22_ai` read the shared-task JSON array format
-(`id`, `tokens`, `labels`) and convert `B-long`/`I-long` and
-`B-short`/`I-short` labels into spans in the configured token-separator
-representation. No source files or licensed examples are redistributed.
+`sdu_aaai21_ai` reads the shared-task JSON array format (`id`, `tokens`,
+`labels`) and converts `B-long`/`I-long` and `B-short`/`I-short` labels into
+spans in the configured token-separator representation. `sdu_aaai22_ai` reads
+`text`, independent `acronyms` and `long-forms` span lists, and the source
+`ID`; its source coordinates are half-open. Each source span remains a
+single-form canonical annotation, so no acronym/long-form pairing is inferred.
+Use `exact_span` with `span_prf` when evaluating this source. No source files
+or licensed examples are redistributed.
 Separate registry keys ensure corrected data cannot replace an original
 artifact.

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from collections.abc import Iterable
+from dataclasses import replace
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict
@@ -145,6 +146,195 @@ class ExactPairMatchingPolicy:
 ExactPairPolicy = ExactPairMatchingPolicy
 
 
+class ExactSpanConfig(BaseModel):
+    """Configuration for independent exact short/long span matching."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    include_short: bool = True
+    include_long: bool = True
+
+
+class ExactSpanMatchingPolicy:
+    """Match short and long spans independently and exactly.
+
+    This policy is intended for sources such as SDU@AAAI-22 AE whose acronym
+    and long-form lists are independent and do not establish pair relations.
+    Paired annotations are projected into one single-form annotation per
+    populated side; no relationship between the two sides is inferred.
+    """
+
+    identity = "exact_span"
+    version = "1"
+
+    def __init__(self, include_short: bool = True, include_long: bool = True) -> None:
+        config = ExactSpanConfig(include_short=include_short, include_long=include_long)
+        if not config.include_short and not config.include_long:
+            raise ValueError("At least one independent span kind must be included")
+        self.include_short = config.include_short
+        self.include_long = config.include_long
+
+    def match(
+        self,
+        document_id: str,
+        gold_annotations: Iterable[AbbreviationDefinition],
+        predictions: Iterable[AbbreviationDefinition],
+    ) -> DocumentEvaluation:
+        """Return deterministic one-to-one matches for each independent span."""
+
+        if not isinstance(document_id, str) or not document_id.strip():
+            raise ValueError("document_id must be a non-empty string")
+        gold = tuple(gold_annotations)
+        predicted = tuple(predictions)
+        _validate_annotations(document_id, gold, "gold_annotations")
+        _validate_annotations(document_id, predicted, "predictions")
+        ordered_gold = tuple(
+            sorted(
+                _project_spans(
+                    gold,
+                    include_short=self.include_short,
+                    include_long=self.include_long,
+                ),
+                key=_definition_sort_key,
+            )
+        )
+        ordered_predictions = tuple(
+            sorted(
+                _project_spans(
+                    predicted,
+                    include_short=self.include_short,
+                    include_long=self.include_long,
+                ),
+                key=_definition_sort_key,
+            )
+        )
+        gold_groups: dict[
+            tuple[object, ...], list[tuple[int, AbbreviationDefinition]]
+        ] = defaultdict(list)
+        prediction_groups: dict[
+            tuple[object, ...], list[tuple[int, AbbreviationDefinition]]
+        ] = defaultdict(list)
+        outcomes: list[MatchOutcome] = []
+
+        for index, annotation in enumerate(ordered_gold):
+            key = _span_match_key(annotation)
+            if key is None:
+                outcomes.append(
+                    MatchOutcome(
+                        document_id,
+                        "unscoreable",
+                        gold=annotation,
+                        gold_index=index,
+                    )
+                )
+            else:
+                gold_groups[key].append((index, annotation))
+        for index, annotation in enumerate(ordered_predictions):
+            key = _span_match_key(annotation)
+            if key is None:
+                outcomes.append(
+                    MatchOutcome(
+                        document_id,
+                        "unscoreable",
+                        prediction=annotation,
+                        prediction_index=index,
+                    )
+                )
+            else:
+                prediction_groups[key].append((index, annotation))
+
+        for key in sorted(set(gold_groups) | set(prediction_groups), key=repr):
+            gold_group = gold_groups.get(key, [])
+            prediction_group = prediction_groups.get(key, [])
+            common = min(len(gold_group), len(prediction_group))
+            outcomes.extend(
+                MatchOutcome(
+                    document_id,
+                    "tp",
+                    gold=gold_group[index][1],
+                    prediction=prediction_group[index][1],
+                    gold_index=gold_group[index][0],
+                    prediction_index=prediction_group[index][0],
+                )
+                for index in range(common)
+            )
+            outcomes.extend(
+                MatchOutcome(
+                    document_id,
+                    "fn",
+                    gold=gold_group[index][1],
+                    gold_index=gold_group[index][0],
+                )
+                for index in range(common, len(gold_group))
+            )
+            outcomes.extend(
+                MatchOutcome(
+                    document_id,
+                    "fp",
+                    prediction=prediction_group[index][1],
+                    prediction_index=prediction_group[index][0],
+                )
+                for index in range(common, len(prediction_group))
+            )
+
+        return DocumentEvaluation(
+            document_id,
+            gold_annotations=ordered_gold,
+            predictions=ordered_predictions,
+            outcomes=tuple(sorted(outcomes, key=_outcome_sort_key)),
+        )
+
+
+ExactSpanPolicy = ExactSpanMatchingPolicy
+
+
+def _project_spans(
+    annotations: tuple[AbbreviationDefinition, ...],
+    *,
+    include_short: bool,
+    include_long: bool,
+) -> tuple[AbbreviationDefinition, ...]:
+    projected: list[AbbreviationDefinition] = []
+    for annotation in annotations:
+        if include_short and annotation.short_form is not None:
+            projected.append(
+                replace(
+                    annotation,
+                    long_form=None,
+                    long_form_text=None,
+                )
+            )
+        if include_long and annotation.long_form is not None:
+            projected.append(
+                replace(
+                    annotation,
+                    short_form=None,
+                    short_form_text=None,
+                )
+            )
+        if annotation.short_form is None and annotation.long_form is None:
+            projected.append(annotation)
+    return tuple(projected)
+
+
+def _span_match_key(
+    annotation: AbbreviationDefinition,
+) -> tuple[object, ...] | None:
+    if annotation.short_form is not None and annotation.long_form is None:
+        return (
+            annotation.document_id,
+            "short",
+            _span_key(annotation.short_form),
+        )
+    if annotation.long_form is not None and annotation.short_form is None:
+        return (
+            annotation.document_id,
+            "long",
+            _span_key(annotation.long_form),
+        )
+    return None
+
+
 def _validate_annotations(
     document_id: str,
     annotations: tuple[AbbreviationDefinition, ...],
@@ -177,10 +367,10 @@ def _definition_sort_key(
 ) -> tuple[object, ...]:
     return (
         annotation.document_id,
-        _span_key(annotation.short_form),
-        _span_key(annotation.long_form),
-        annotation.short_form_text,
-        annotation.long_form_text,
+        repr(_span_key(annotation.short_form)),
+        repr(_span_key(annotation.long_form)),
+        repr(annotation.short_form_text),
+        repr(annotation.long_form_text),
         repr(annotation.provenance),
         repr(annotation.prediction),
     )

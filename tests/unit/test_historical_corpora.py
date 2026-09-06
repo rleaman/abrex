@@ -88,18 +88,22 @@ def test_sdu_ad_preserves_expansion_without_inventing_a_long_form_offset(
     assert SDUAcronymDisambiguationAdapter().identity == "sdu_aaai21_ad"
 
 
-def test_sdu_aaai22_ranges_are_converted_from_inclusive_coordinates(
+def test_sdu_aaai22_preserves_independent_half_open_spans_and_source_id(
     tmp_path: Path,
 ) -> None:
+    text = "Alpha (A) and Beta (B)"
     path = tmp_path / "ae.json"
     path.write_text(
         json.dumps(
             [
                 {
-                    "id": "ae-1",
-                    "text": "Tumor necrosis factor (TNF)",
-                    "acronyms": [[23, 25]],
-                    "long-forms": [[0, 20]],
+                    "ID": "source-1",
+                    "text": text,
+                    "acronyms": [
+                        [text.index("A"), text.index("A") + 1],
+                        [text.index("B"), text.index("B") + 1],
+                    ],
+                    "long-forms": [[0, 5]],
                 }
             ]
         ),
@@ -107,17 +111,56 @@ def test_sdu_aaai22_ranges_are_converted_from_inclusive_coordinates(
     )
     source = SourceResourceConfig(identifier="ae", location=path)
     config = CorpusConfig(adapter=ComponentSpec(type="sdu_aaai22_ai"), source=source)
-    annotation = (
-        create_corpus_pipeline(config)
-        .build(source.to_resource())
-        .records[0]
-        .gold_annotations[0]
+    annotation = create_corpus_pipeline(config).build(source.to_resource()).records[0]
+    assert annotation.document.document_id == "source-1"
+    assert [item.short_form_text for item in annotation.gold_annotations] == [
+        "A",
+        "B",
+        None,
+    ]
+    assert [item.long_form_text for item in annotation.gold_annotations] == [
+        None,
+        None,
+        "Alpha",
+    ]
+    assert annotation.gold_annotations[0].short_form is not None
+    assert annotation.gold_annotations[0].short_form.end == text.index("A") + 1
+    assert annotation.gold_annotations[2].long_form is not None
+    assert annotation.gold_annotations[2].long_form.end == 5
+    assert all(
+        item.provenance is not None
+        and item.provenance.transformation_notes
+        == ("source acronym and long-form spans preserved independently",)
+        for item in annotation.gold_annotations
     )
-    assert annotation.short_form_text == "TNF"
-    assert annotation.long_form_text == "Tumor necrosis factor"
-    assert annotation.short_form is not None and annotation.short_form.end == 26
-    assert annotation.long_form is not None and annotation.long_form.end == 21
     assert SDUAcronymExtractionAdapter().identity == "sdu_aaai22_ai"
+
+
+def test_sdu_aaai22_drops_invalid_rows_with_diagnostics(tmp_path: Path) -> None:
+    path = tmp_path / "ae-invalid.json"
+    path.write_text(
+        json.dumps(
+            [
+                {
+                    "ID": "bad",
+                    "text": "Alpha (A)",
+                    "acronyms": [[7, 12]],
+                    "long-forms": [],
+                }
+            ]
+        ),
+        encoding="utf-8",
+    )
+    collector = DiagnosticsCollector()
+    records = tuple(
+        SDUAcronymExtractionAdapter().parse(
+            SourceResourceConfig(identifier="ae", location=path).to_resource(),
+            collector,
+        )
+    )
+    assert records == ()
+    assert collector.diagnostics[0].record_id == "bad"
+    assert collector.diagnostics[0].code == "SDU_AE_ROW_INVALID"
 
 
 def test_historical_adapters_reject_invalid_configuration_and_sources(

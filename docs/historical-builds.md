@@ -48,5 +48,9 @@ AI/AD, and SDU@AAAI-22 AE. A build is expected to fail clearly until its
 corresponding downloaded source is present.
 
 SDU@AAAI-21 AD preserves the expansion as text when it is not present in the
-sentence, so it does not fabricate a document span. SDU@AAAI-22 AE converts
-the source's inclusive character endpoints to ABREX half-open spans.
+sentence, so it does not fabricate a document span. SDU@AAAI-22 AE passes the
+source's half-open character endpoints directly to ABREX half-open spans. Its
+acronym and long-form lists are independent, so the adapter preserves each
+span separately and does not infer pairings from list order. Use the
+`exact_span`/`span_prf` evaluation components for this corpus; `exact_pair`
+cannot score its intentionally unpaired source annotations.

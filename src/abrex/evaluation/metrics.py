@@ -80,10 +80,30 @@ class PairPRFMetric:
 PairPRF = PairPRFMetric
 
 
+class SpanPRFConfig(PairPRFConfig):
+    """Configuration for independent short/long span precision and recall."""
+
+
+class SpanPRFMetric(PairPRFMetric):
+    """Compute precision, recall, and F1 over independent span outcomes.
+
+    Use with :class:`~abrex.evaluation.matching.ExactSpanMatchingPolicy`.
+    The resulting counts are span counts, not abbreviation-pair counts.
+    """
+
+    identity = "span_prf"
+
+
+SpanPRF = SpanPRFMetric
+
+
 __all__ = [
     "MetricError",
     "PairPRF",
     "PairPRFConfig",
     "PairPRFMetric",
+    "SpanPRF",
+    "SpanPRFConfig",
+    "SpanPRFMetric",
     "ZeroDivisionHandling",
 ]

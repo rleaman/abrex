@@ -19,6 +19,7 @@ from abrex.evaluation import (
     EvaluationResult,
     Evaluator,
     ExactPairMatchingPolicy,
+    ExactSpanMatchingPolicy,
     MatchingPolicy,
     MatchOutcome,
     Metric,
@@ -26,6 +27,7 @@ from abrex.evaluation import (
     MetricResult,
     PairPRFMetric,
     PredictionRecordLike,
+    SpanPRFMetric,
     create_evaluator,
     evaluation_config_from_resolved,
 )
@@ -139,6 +141,23 @@ def test_incomplete_annotations_are_explicitly_unscoreable() -> None:
     assert result.tp == result.fp == result.fn == 0
     assert any(outcome.gold is not None for outcome in result.outcomes)
     assert any(outcome.prediction is not None for outcome in result.outcomes)
+
+
+def test_exact_span_matches_independent_forms_without_inferencing_pairs() -> None:
+    gold = (
+        annotation("doc", (0, 2), None),
+        annotation("doc", None, (3, 8)),
+    )
+    paired_prediction = annotation("doc", (0, 2), (3, 8))
+    result = ExactSpanMatchingPolicy().match("doc", gold, (paired_prediction,))
+    assert len(result.gold_annotations) == 2
+    assert len(result.predictions) == 2
+    assert result.tp == 2
+    assert result.fp == result.fn == 0
+    assert SpanPRFMetric().compute((result,)).value("f1") == pytest.approx(1.0)
+
+    with pytest.raises(ValueError, match="At least one"):
+        ExactSpanMatchingPolicy(include_short=False, include_long=False)
 
 
 def test_exact_pair_rejects_bad_inputs_and_config_is_explicit() -> None:
@@ -426,8 +445,18 @@ def test_yaml_composition_uses_builtin_and_injected_registries() -> None:
     )
     assert nested.metrics == (ComponentSpec(type="pair_prf"),)
     assert create_evaluator(direct).matching_policy.identity == "exact_pair"
-    assert MATCHING_POLICIES.keys() == ("exact_pair",)
-    assert METRICS.keys() == ("pair_prf",)
+    span_evaluator = create_evaluator(
+        EvaluationConfig.model_validate(
+            {
+                "matching": {"type": "exact_span", "params": {}},
+                "metrics": [{"type": "span_prf", "params": {}}],
+            }
+        )
+    )
+    assert span_evaluator.matching_policy.identity == "exact_span"
+    assert span_evaluator.metrics[0].identity == "span_prf"
+    assert MATCHING_POLICIES.keys() == ("exact_pair", "exact_span")
+    assert METRICS.keys() == ("pair_prf", "span_prf")
     with pytest.raises(ValueError, match="does not contain matching"):
         evaluation_config_from_resolved(ResolvedConfig.model_validate({}))
     with pytest.raises(ValueError, match="section must be a mapping"):

@@ -22,6 +22,26 @@ metrics:
       zero_division: zero
 ```
 
+For corpora whose acronym and long-form spans are supplied independently, such
+as SDU@AAAI-22 AE, use the span-level policy and metric instead:
+
+```yaml
+matching:
+  type: exact_span
+  params: {}
+
+metrics:
+  - type: span_prf
+    params:
+      averaging: micro
+      zero_division: zero
+```
+
+`exact_span` projects each populated side of an annotation into an independent
+single-form span and matches short and long spans separately. It never infers
+a relationship from source list order. `span_prf` reports span counts, whereas
+`pair_prf` reports complete abbreviation-pair counts.
+
 Use `evaluation_config_from_resolved` and `create_evaluator` at the
 application-composition boundary. Callers embedding the package should pass
 local `Registry` instances to both functions when registering custom plugins.

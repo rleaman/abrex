@@ -7,7 +7,7 @@ corpus:
     params: {}
   source:
     identifier: sdu_aaai22_ai_english_scientific_train
-    location: data/raw/historical/sdu_aaai22/data/English/Scientific/train.json
+    location: data/raw/historical/sdu_aaai22/PR-AAAI22-SDU-ST1-AE-main/data/english/scientific/train.json
     format: json
   normalizers:
     - type: identity
