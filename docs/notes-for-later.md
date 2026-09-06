@@ -2,7 +2,7 @@
 
 ## Datasets:
 - The SDU@AAAI-21 datasets at https://github.com/amirveyseh/AAAI-21-SDU-shared-task-1-AI and https://github.com/amirveyseh/AAAI-21-SDU-shared-task-2-AD.
-- The SDU@AAAI-22 dataset at https://github.com/dipteshkanojia/PR-AAAI22-SDU-ST1-AE/
+- The official SDU@AAAI-22 AE dataset at https://github.com/amirveyseh/AAAI-22-SDU-shared-task-1-AE/
 - BIOADI corpus at http://sourceforge.net/projects/bioc/files/BioADI-BioC.zip/download
 - The Schwartz & Hearst / BioText corpus at http://sourceforge.net/projects/bioc/files/SH-BioC.zip/download and a version corrected for BADREX at https://github.com/downloads/philgooch/BADREX-Biomedical-Abbreviation-Expander/yeast_abbrev_labeled.xml.
 - The Ab3P corpus at http://sourceforge.net/projects/bioc/files/Ab3P-BioC.zip/download

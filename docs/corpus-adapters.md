@@ -70,10 +70,12 @@ text or offsets.
 
 `sdu_aaai21_ai` reads the shared-task JSON array format (`id`, `tokens`,
 `labels`) and converts `B-long`/`I-long` and `B-short`/`I-short` labels into
-spans in the configured token-separator representation. `sdu_aaai22_ai` reads
-`text`, independent `acronyms` and `long-forms` span lists, and the source
-`ID`; its source coordinates are half-open. Each source span remains a
+spans in the configured token-separator representation. `sdu_aaai22_ae` reads
+`text`, independent `acronyms` and `long-forms` span lists, and the official
+uppercase source `ID`; its source coordinates are half-open. Each source span remains a
 single-form canonical annotation, so no acronym/long-form pairing is inferred.
+This contract follows the fields read and independently scored by the
+[official SDU@AAAI-22 AE scorer](https://github.com/amirveyseh/AAAI-22-SDU-shared-task-1-AE/blob/main/scorer.py).
 Use `exact_span` with `span_prf` when evaluating this source. No source files
 or licensed examples are redistributed.
 Separate registry keys ensure corrected data cannot replace an original

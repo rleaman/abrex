@@ -1,0 +1,19 @@
+project:
+  name: historical-sdu-aaai22-ae
+
+corpus:
+  adapter:
+    type: sdu_aaai22_ae
+    params: {}
+  source:
+    identifier: sdu_aaai22_ae_english_scientific_train
+    location: data/raw/historical/sdu_aaai22/AAAI-22-SDU-shared-task-1-AE-main/data/english/scientific/train.json
+    format: json
+  normalizers:
+    - type: identity
+      params: {}
+  strict: false
+  output:
+    directory: data/processed/sdu_aaai22_ae
+    jsonl: canonical.jsonl
+    manifest: manifest.json

@@ -43,6 +43,6 @@ downloads:
       url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-2-AD/master/dataset/diction.json
       destination: data/raw/historical/sdu_aaai21_ad/diction.json
     - name: sdu_aaai22_repository
-      url: https://github.com/dipteshkanojia/PR-AAAI22-SDU-ST1-AE/archive/refs/heads/master.zip
+      url: https://github.com/amirveyseh/AAAI-22-SDU-shared-task-1-AE/archive/refs/heads/main.zip
       destination: data/raw/historical/sdu_aaai22
       extract: true

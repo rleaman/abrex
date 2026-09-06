@@ -210,7 +210,7 @@ class SDUAcronymExtractionAdapter:
     corresponding form populated.  No pairing is inferred from list order.
     """
 
-    def __init__(self, *, dataset_variant: str = "sdu_aaai22_ai") -> None:
+    def __init__(self, *, dataset_variant: str = "sdu_aaai22_ae") -> None:
         if not dataset_variant.strip():
             raise ValueError("dataset_variant must not be empty")
         self.dataset_variant = dataset_variant
@@ -397,16 +397,19 @@ def _sdu_disambiguation_record(
 def _sdu_extraction_record(
     item: Mapping[str, Any], fallback: str, variant: str
 ) -> ParsedSourceRecord:
+    identifier = item.get("ID")
     text = item.get("text")
     acronyms = item.get("acronyms", [])
     long_forms = item.get("long-forms", item.get("long_forms", []))
     if (
-        not isinstance(text, str)
+        not isinstance(identifier, str)
+        or not identifier.strip()
+        or not isinstance(text, str)
         or not isinstance(acronyms, list)
         or not isinstance(long_forms, list)
     ):
         raise CorpusAdapterError(
-            "SDU AE row requires text and acronym/long-form arrays"
+            "SDU AE row requires a non-empty ID, text, and acronym/long-form arrays"
         )
     annotations = tuple(
         [
@@ -426,8 +429,10 @@ def _sdu_extraction_record(
             for index, long_form in enumerate(long_forms)
         ]
     )
-    identifier = _source_identifier(item, fallback)
-    return ParsedSourceRecord(identifier, identifier, text, annotations, variant)
+    source_identifier = str(identifier)
+    return ParsedSourceRecord(
+        source_identifier, source_identifier, text, annotations, variant
+    )
 
 
 def _token_start(tokens: list[object], index: int, separator: str) -> int:
@@ -453,12 +458,11 @@ def _half_open_source_span(value: object, text: str, label: str) -> SourceTextSp
 
 
 def _source_identifier(item: Mapping[str, Any], fallback: str) -> str:
-    """Return either SDU identifier spelling while preserving source IDs."""
+    """Return the official uppercase SDU AE identifier for diagnostics."""
 
-    for key in ("id", "ID"):
-        value = item.get(key)
-        if value is not None and str(value).strip():
-            return str(value)
+    value = item.get("ID")
+    if value is not None and str(value).strip():
+        return str(value)
     return fallback
 
 

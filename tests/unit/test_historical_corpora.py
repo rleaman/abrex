@@ -110,7 +110,7 @@ def test_sdu_aaai22_preserves_independent_half_open_spans_and_source_id(
         encoding="utf-8",
     )
     source = SourceResourceConfig(identifier="ae", location=path)
-    config = CorpusConfig(adapter=ComponentSpec(type="sdu_aaai22_ai"), source=source)
+    config = CorpusConfig(adapter=ComponentSpec(type="sdu_aaai22_ae"), source=source)
     annotation = create_corpus_pipeline(config).build(source.to_resource()).records[0]
     assert annotation.document.document_id == "source-1"
     assert [item.short_form_text for item in annotation.gold_annotations] == [
@@ -133,7 +133,34 @@ def test_sdu_aaai22_preserves_independent_half_open_spans_and_source_id(
         == ("source acronym and long-form spans preserved independently",)
         for item in annotation.gold_annotations
     )
-    assert SDUAcronymExtractionAdapter().identity == "sdu_aaai22_ai"
+    assert SDUAcronymExtractionAdapter().identity == "sdu_aaai22_ae"
+
+
+def test_sdu_aaai22_requires_official_uppercase_id(tmp_path: Path) -> None:
+    path = tmp_path / "ae-lowercase-id.json"
+    path.write_text(
+        json.dumps(
+            [
+                {
+                    "id": "not-the-official-field",
+                    "text": "Alpha (A)",
+                    "acronyms": [[7, 8]],
+                    "long-forms": [[0, 5]],
+                }
+            ]
+        ),
+        encoding="utf-8",
+    )
+    collector = DiagnosticsCollector()
+    records = tuple(
+        SDUAcronymExtractionAdapter().parse(
+            SourceResourceConfig(identifier="ae", location=path).to_resource(),
+            collector,
+        )
+    )
+    assert records == ()
+    assert collector.diagnostics[0].code == "SDU_AE_ROW_INVALID"
+    assert "non-empty ID" in collector.diagnostics[0].message
 
 
 def test_sdu_aaai22_drops_invalid_rows_with_diagnostics(tmp_path: Path) -> None:

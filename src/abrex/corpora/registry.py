@@ -36,8 +36,8 @@ def register_builtin_components() -> None:
         "sdu_aaai21_ad": lambda: SDUAcronymDisambiguationAdapter(
             dataset_variant="sdu_aaai21_ad"
         ),
-        "sdu_aaai22_ai": lambda: SDUAcronymExtractionAdapter(
-            dataset_variant="sdu_aaai22_ai"
+        "sdu_aaai22_ae": lambda: SDUAcronymExtractionAdapter(
+            dataset_variant="sdu_aaai22_ae"
         ),
     }
     for key, factory in historical.items():
