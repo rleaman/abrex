@@ -19,7 +19,7 @@ Dependencies mean the relevant accepted artifacts exist, not merely that a compl
 1. Create a corpus inventory with source version/hash, annotation unit, relation availability, coordinate convention, official split, licensing/source status and eligible metric. Restore available raw sources through existing acquisition/build paths; report unavailable variants.
 2. Add regression cases for BioC order-based fallback pairing, unequal SF/LF counts, dangling relations, multiple locations, duplicate IDs and unpaired entities. Replace undocumented inference/loss with explicit source-specific policies and counted diagnostics.
 3. Audit BioC JSON annotation-text overlay into document text. Preserve source text by default; any justified repair needs a named transformation, mapping/provenance and a new fingerprint. Compare XML/JSON semantics on equivalent fixtures.
-4. Check SDU AI/AE independent spans and SDU AD text-only expansions. Keep their tasks distinct from local pair extraction. Correct stale BADREX references without recreating unavailable datasets.
+4. Check SDU AI/AE independent spans and SDU AD text-only expansions. Keep their tasks distinct from local pair extraction. Record the BADREX-corrected variants as excluded under the [settled availability decision](../badrex-availability.md); do not repeat source discovery, URL checks or missing-config investigation for them.
 5. Produce a small source-to-canonical inspection report and update scientific contracts with implemented policy names; unresolved source ambiguities remain explicit.
 
 ## Acceptance criteria
@@ -46,4 +46,3 @@ No data/ directory existed during planning. Unavailable sources must be recorded
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T019-audit-and-repair-corpus-semantics.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

@@ -2,6 +2,15 @@
 
 These instructions apply to all work in this repository unless a task explicitly overrides them.
 
+## Settled resource decisions
+
+The BADREX-corrected `schwartz_hearst_badrex` and `medstract_badrex` corpora
+are unavailable and excluded. Do not recheck their URLs, search for copies,
+recreate configs or raise their absence as a blocker in routine work. Follow
+[the recorded decision](docs/badrex-availability.md); reopen only on a user
+request, a newly supplied source or concrete new evidence encountered during
+assigned work. Historical completion notes do not override this decision.
+
 ## 1. Architectural style
 
 Use a modular monolith with strong internal boundaries. Maximize cohesion and minimize coupling.

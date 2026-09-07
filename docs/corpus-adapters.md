@@ -59,14 +59,15 @@ validation events. See `docs/canonical-artifacts.md` for the read/verify API.
 ## Historical source formats (T011)
 
 Historical adapters are offline readers: source files must be downloaded and
-licensed by the user. `schwartz_hearst`, `schwartz_hearst_badrex`,
+licensed by the user. `schwartz_hearst`,
 `ab3p_corpus`, `medstract`, and `bioadi` read BioC XML or JSON. BioC
 annotation locations are document character offsets; `ShortForm`/`LongForm`
 entities are paired through BioC relation nodes, with deterministic fallback
-pairing by entity order when no relations are present. The corrected
-`medstract_badrex` key reads tab-separated pair rows. Its two-column form
-requires an explicit `document_template` because the source has no document
-text or offsets.
+pairing by entity order when no relations are present.
+
+The BADREX-corrected Schwartz & Hearst and MEDSTRACT variants are unavailable
+and are not registered. Follow the [settled availability decision](badrex-availability.md);
+their absence does not require investigation during routine work.
 
 `sdu_aaai21_ai` reads the shared-task JSON array format (`id`, `tokens`,
 `labels`) and converts `B-long`/`I-long` and `B-short`/`I-short` labels into
@@ -78,5 +79,5 @@ This contract follows the fields read and independently scored by the
 [official SDU@AAAI-22 AE scorer](https://github.com/amirveyseh/AAAI-22-SDU-shared-task-1-AE/blob/main/scorer.py).
 Use `exact_span` with `span_prf` when evaluating this source. No source files
 or licensed examples are redistributed.
-Separate registry keys ensure corrected data cannot replace an original
-artifact.
+Any future corrected variants must use separate registry keys so they cannot
+replace an original artifact.

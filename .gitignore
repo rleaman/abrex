@@ -1,5 +1,6 @@
 # Data folders stay local
 data/
+.artifacts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -4,9 +4,9 @@
 - The SDU@AAAI-21 datasets at https://github.com/amirveyseh/AAAI-21-SDU-shared-task-1-AI and https://github.com/amirveyseh/AAAI-21-SDU-shared-task-2-AD.
 - The official SDU@AAAI-22 AE dataset at https://github.com/amirveyseh/AAAI-22-SDU-shared-task-1-AE/
 - BIOADI corpus at http://sourceforge.net/projects/bioc/files/BioADI-BioC.zip/download
-- The Schwartz & Hearst / BioText corpus at http://sourceforge.net/projects/bioc/files/SH-BioC.zip/download and a version corrected for BADREX at https://github.com/downloads/philgooch/BADREX-Biomedical-Abbreviation-Expander/yeast_abbrev_labeled.xml.
+- The Schwartz & Hearst / BioText corpus at http://sourceforge.net/projects/bioc/files/SH-BioC.zip/download.
 - The Ab3P corpus at http://sourceforge.net/projects/bioc/files/Ab3P-BioC.zip/download
-- The MEDSTRACT corpus at http://sourceforge.net/projects/bioc/files/MEDSTRACT.zip/download and a version corrected for BADREX at https://github.com/downloads/philgooch/BADREX-Biomedical-Abbreviation-Expander/medstract_corrected_pairs.txt.
+- The MEDSTRACT corpus at http://sourceforge.net/projects/bioc/files/MEDSTRACT.zip/download.
 
 ## Systems:
 - Ab3P at https://bioc.sourceforge.net/, specifically one of the many tools distributed in http://sourceforge.net/projects/bioc/files/BioC_C%2B%2B_1.1.tar/download
@@ -20,6 +20,14 @@
 
 
 ## Unavailable:
+The BADREX-corrected Schwartz & Hearst and MEDSTRACT variants are excluded;
+do not repeat availability investigations during routine work. See the
+[settled availability decision](badrex-availability.md). Historical source URLs,
+retained only for provenance:
+
+- https://github.com/downloads/philgooch/BADREX-Biomedical-Abbreviation-Expander/yeast_abbrev_labeled.xml
+- https://github.com/downloads/philgooch/BADREX-Biomedical-Abbreviation-Expander/medstract_corrected_pairs.txt
+
 BioAbbreviate corpus in the recent BioAbbreviate paper (https://hal.science/hal-05637071/) says it is available on GitHub (https://github.com/mouhebmhd/BioAbbreviate-A-Biomedical-Dataset-for-Abbreviation-Expansion-and-Disambiguation-), but the repo only has a README
 
 ## PLODv2 error analysis

@@ -1,0 +1,218 @@
+{
+  "artifacts": [
+    {
+      "path": "identify_abbr",
+      "role": "executable",
+      "sha256": "aeb426ef45de4a92cbfc486c49495b222a119a489de620aa0a1f4c05a6a849ac",
+      "size_bytes": 1476912
+    },
+    {
+      "path": "lib/libAb3P.a",
+      "role": "static-library",
+      "sha256": "fcb7dbb19bd0e7253e3481561ebb70849c788ff716d796ec003c78b542658fea",
+      "size_bytes": 2827836
+    },
+    {
+      "path": "lib/libText.a",
+      "role": "static-library",
+      "sha256": "80695b19be41d7513b8a6bfcacee098005dcb96bca5bda12cc671f32804db864",
+      "size_bytes": 638916
+    },
+    {
+      "path": "WordData/Ab3P_prec.dat",
+      "role": "semantic-resource",
+      "sha256": "77903769069451f67095b8aa677ac19b4074e86cf165519c3cd1cb02734db5c3",
+      "size_bytes": 4050
+    },
+    {
+      "path": "WordData/Lf1chSf",
+      "role": "semantic-resource",
+      "sha256": "93322990b04d6b5027e4d6e2b6a3da91ee76ed1d1b9b170ce8a5cc48e8084651",
+      "size_bytes": 48126
+    },
+    {
+      "path": "WordData/SingTermFreq.dat",
+      "role": "semantic-resource",
+      "sha256": "fd3c1828787c49f419001806b47e2c92a9a11ce0e75f5445d560f1b1d90ca398",
+      "size_bytes": 30991015
+    },
+    {
+      "path": "WordData/stop",
+      "role": "semantic-resource",
+      "sha256": "e559d1d43fdac74bff2156a1850feb759c538aa402a655ed02e6ac9c31ade795",
+      "size_bytes": 1870
+    },
+    {
+      "path": "WordData/cshset_wrdset3.ad",
+      "role": "semantic-resource",
+      "sha256": "e22c10a0167d18b8e51880d0c27faba72a7dfef5db92f4ce6d79c9343102909f",
+      "size_bytes": 757744
+    },
+    {
+      "path": "WordData/cshset_wrdset3.ct",
+      "role": "semantic-resource",
+      "sha256": "5115e385f26cf3f6604c6466370623cd945612926bf68fadd2580ff4df4ef78e",
+      "size_bytes": 757744
+    },
+    {
+      "path": "WordData/cshset_wrdset3.ha",
+      "role": "semantic-resource",
+      "sha256": "db41d58f4700006d30a253337090de078329cfe93302b5dbc4d6deae29abe042",
+      "size_bytes": 4194312
+    },
+    {
+      "path": "WordData/cshset_wrdset3.nm",
+      "role": "semantic-resource",
+      "sha256": "1409301bded2b3409497d07dc3dcb98479fd1c9ed33eb303feea8d4f0501cf2c",
+      "size_bytes": 20
+    },
+    {
+      "path": "WordData/cshset_wrdset3.str",
+      "role": "semantic-resource",
+      "sha256": "bce90e866a84d73a5d8042cc60fc3f5a15e20c6b2412b705c72af4f1b87a0a34",
+      "size_bytes": 918071
+    },
+    {
+      "path": "WordData/hshset_Lf1chSf.ad",
+      "role": "semantic-resource",
+      "sha256": "c55e035d9696584d055770990da9ee8a57726fe2c291ac57c05b52706eff1982",
+      "size_bytes": 39928
+    },
+    {
+      "path": "WordData/hshset_Lf1chSf.ha",
+      "role": "semantic-resource",
+      "sha256": "ff36b6d73c7f101e9aec6482b2a67bf54dd9880236d11ddab8357f5f0ae49ff6",
+      "size_bytes": 262152
+    },
+    {
+      "path": "WordData/hshset_Lf1chSf.nm",
+      "role": "semantic-resource",
+      "sha256": "a6d5e779074d59726d1d1a239a21d5f5747c231a6e7e719a4588ddfc6756bcf7",
+      "size_bytes": 17
+    },
+    {
+      "path": "WordData/hshset_Lf1chSf.str",
+      "role": "semantic-resource",
+      "sha256": "06253f41bc68b0405aa0c569eb5568acf668d64d7ce5afa6257f25a16e33f45c",
+      "size_bytes": 48126
+    },
+    {
+      "path": "WordData/hshset_stop.ad",
+      "role": "semantic-resource",
+      "sha256": "7900309a83869974797fb0cfdb29ece403d01e65a4f7bd8b698d843dd3b7da25",
+      "size_bytes": 2504
+    },
+    {
+      "path": "WordData/hshset_stop.ha",
+      "role": "semantic-resource",
+      "sha256": "fead5f6fb6d39b1bd75b658f0671c11f40dead472db667cfda913c0073fe5185",
+      "size_bytes": 16392
+    },
+    {
+      "path": "WordData/hshset_stop.nm",
+      "role": "semantic-resource",
+      "sha256": "0e4c3856e68573648ae1093eadb6fa673bfa6dbae8f5f0c32b381f41b20a70ba",
+      "size_bytes": 14
+    },
+    {
+      "path": "WordData/hshset_stop.str",
+      "role": "semantic-resource",
+      "sha256": "9ba0fd757ac13258e078999dbca2ad501b9514703b2d8709469849633622f61b",
+      "size_bytes": 1870
+    }
+  ],
+  "compatibility_repairs": {
+    "line_endings": [
+      "path_Ab3P",
+      "WordData/Ab3P_prec.dat",
+      "WordData/Lf1chSf",
+      "WordData/SingTermFreq.dat",
+      "WordData/stop"
+    ],
+    "modern_gcc": [
+      "lib/AbbrvE.h"
+    ]
+  },
+  "installation": {
+    "architecture": "x86_64",
+    "build_flags": {
+      "Ab3P": "-g",
+      "NCBITextLib": "-std=c++11 -gdwarf-2",
+      "debug_prefix_map": "/ab3p-build"
+    },
+    "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "make": "GNU Make 4.3",
+    "make_commands": [
+      {
+        "argv": [
+          "make"
+        ],
+        "cwd": "NCBITextLib/lib"
+      },
+      {
+        "argv": [
+          "make",
+          "NCBITEXTLIB=../NCBITextLib",
+          "all"
+        ],
+        "cwd": "Ab3P"
+      }
+    ],
+    "name": "NLM Ab3P supplied source build",
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3"
+  },
+  "notices": [
+    "Ab3P/README.md: Public Domain Notice",
+    "NCBITextLib/README.md: Public Domain Notice"
+  ],
+  "prepared_source_tree_sha256": {
+    "Ab3P": "f395a9ad4af124da62031dc7b93117f6a70744e1fbcc17528e074ac605d175a7",
+    "NCBITextLib": "0daf987fd943a223d0225898b0694af8f135a877427a2e7f4b188acc58d53e56"
+  },
+  "schema_version": "ab3p-installation-v1",
+  "sources": {
+    "Ab3P": {
+      "git_commit": "41130cddfcba1449ba612905d4a51274f8f565a8",
+      "git_tree": "15ca7c33badc8f3193be7a44ba6374def652ef77",
+      "source_tree_sha256": "ccf0dce36088fa888dfed18e498292fcd2f12c34aec0ea9be7007642a2e59594"
+    },
+    "NCBITextLib": {
+      "git_commit": "e5ac0d4e0572970911f36099995e4170a12a85e7",
+      "git_tree": "9ddfe4421d9c3a8a2ed6607f2d59102b9b53a50e",
+      "source_tree_sha256": "0daf987fd943a223d0225898b0694af8f135a877427a2e7f4b188acc58d53e56"
+    }
+  },
+  "verification": {
+    "missing_resource": {
+      "exit_status": 1,
+      "status": "failed-as-expected",
+      "stdout": "verification/missing-resource.stdout.txt"
+    },
+    "nonascii_multiline_smoke": {
+      "definition_count": 2,
+      "exit_status": 0,
+      "input": "verification/nonascii-multiline.input.txt",
+      "stdout": "verification/nonascii-multiline.stdout.txt"
+    },
+    "other_working_directory": {
+      "exit_status": 0,
+      "path_file": "verification/other-working-directory/path_Ab3P",
+      "status": "passed",
+      "stdout": "verification/other-working-directory.stdout.txt"
+    },
+    "upstream_make_test": {
+      "command": [
+        "make",
+        "test"
+      ],
+      "exit_status": 0,
+      "status": "passed"
+    }
+  },
+  "windows_execution": {
+    "cache_export": "Copy raw ABREX cache files from the Linux checkout for Windows cache_only replay.",
+    "native_windows_binary": false,
+    "supported_path": "wsl.exe -d Ubuntu -- Linux command path"
+  }
+}

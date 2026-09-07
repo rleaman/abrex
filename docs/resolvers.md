@@ -96,6 +96,16 @@ data/processed/benchmark.jsonl --output artifacts/ab3p-predictions.jsonl`.
 Live integration tests are intentionally separate and should be enabled only
 when an executable is configured; ordinary tests do not require Ab3P.
 
+The reproducible supplied-source build is documented in
+[`docs/development-environments.md`](development-environments.md), with its
+verified executable, library, and WordData identities in
+[`docs/artifacts/ab3p-installation-manifest.json`](artifacts/ab3p-installation-manifest.json).
+The upstream executable reads `path_Ab3P` from its current working directory;
+an invocation from another directory must provide that file with a Linux path
+to `WordData`, or change into the installation directory first. The verified
+build requires Ubuntu/WSL execution and does not provide a native Windows
+binary.
+
 Cache identity correction: the backend is intentionally excluded from the
 cache key so a live subprocess cache can be read by `cache_only`. A cache
 identity is mandatory and is supplied by `installation_label` or
