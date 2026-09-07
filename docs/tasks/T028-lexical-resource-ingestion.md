@@ -16,7 +16,7 @@ Dependencies mean the relevant accepted artifacts exist, not merely that a compl
 
 ## Implementation steps
 
-1. Define typed source adapters and a resource query protocol. First support streaming gzip JSON shaped as {SF: {LF: count}} from handoff/abbr_frequency_2024.json.gz, plus local TSV/JSONL; use a deterministic SQLite-backed implementation and preserve raw forms, normalization policy and source hash.
+1. Define typed source adapters and a resource query protocol. First support streaming gzip JSON shaped as {SF: {LF: count}} from data/raw/resources/abbr_frequency_2024.json.gz, plus local TSV/JSONL; use a deterministic SQLite-backed implementation and preserve raw forms, normalization policy and source hash.
 2. Import the supplied 2024 frequency file using bounded-memory iteration; it is about 133.6 MB compressed. Its inspected structure provides aggregate SF/LF counts, without article links. Keep count units explicitly unknown until the extraction provenance is supplied; do not call these document counts.
 3. Expose exact-variant lookup, ambiguity, count summaries and source filtering. Do not invent article IDs, document frequency or corpus prevalence from aggregate counts.
 4. Allow local terminology/dictionary exports via the same interface, preserving source concept IDs and senses. Produce a resource audit with malformed/merged/unknown-count diagnostics. Actual external-source discovery, acquisition and format-specific ingestion are assigned to [T046](T046-external-dictionary-acquisition.md), beginning with ADAM; a generic importer does not complete that work.
@@ -37,7 +37,7 @@ No automatic UMLS acquisition, forced LF collapse, or global-sense fallback. Res
 
 ## Inputs and possible blockers
 
-The user supplied handoff/abbr_frequency_2024.json.gz. Its extraction run identity, count unit, document/year inclusion and duplicate handling still need provenance; absent fields must remain unknown. Substantial work CPU/GPU resources are available later, but first validate a local pilot.
+The user supplied data/raw/resources/abbr_frequency_2024.json.gz. Its extraction run identity, count unit, document/year inclusion and duplicate handling still need provenance; absent fields must remain unknown. Substantial work CPU/GPU resources are available later, but first validate a local pilot.
 
 ## Deliverables and completion note
 

@@ -4,7 +4,7 @@ Updated September 7, 2026. This register separates candidate resources from file
 
 | Resource | Why it is on the list | Current acquisition status | Next action |
 | --- | --- | --- | --- |
-| 2024 abbreviation frequency JSON | User-supplied literature-derived evidence | Present and structurally inspected; aggregate counts without article links | T028 streaming ingestion and provenance clarification |
+| 2024 abbreviation frequency JSON | User-supplied literature-derived evidence | Present at data/raw/resources/abbr_frequency_2024.json.gz (Git-ignored); structurally inspected, aggregate counts without article links | T028 streaming ingestion and provenance clarification |
 | ADAM | Explicit user suggestion; external MEDLINE abbreviation resource | Not acquired; supplied landing page returned 502 through the planning browser | T046 investigate official bulk endpoint or supplied copy; preserve source version and variant grouping |
 | ALLIE | Original idea and CSV row 6 | Official landing and download directory opened; files not acquired | T046 select/version an official extract and verify fields and terms |
 | Acromine | CSV rows 7 and 16 | Official REST documentation opened; actual access/query behavior unverified | T046 verify access and preserve counts/variants; no assumed bulk export |

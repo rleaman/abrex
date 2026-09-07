@@ -1,0 +1,26 @@
+My opinion is that abbreviation resolution is: 
+- Not solved: while we have many tools to resolve abbreviations in scientific text, all of them have limitations and *none* of them "just work." 
+- Solvable: we have significantly more computational approaches available now than before; the problem should be almost trivial, but it isn't. 
+- Worth solving: as the performance (accuracy/precision/recall) of steps in a pipeline asymptotically approaches 1.0, the overall error rate is increasingly driven by the lowest performing step. 
+- Unlikely to be solved cheaply with just more LLM power: reasonably powerful LLMs could not "solve" abbreviation resolution on their own. So it seems likely that if LLMs will solve it, it will take super powerful ones, which will not be cheap. This means that any lightweight information extraction or text processing will still need lighter-weight methods. 
+
+The issue: working on this task will *definitely* not get any research support from colleagues. But if a tool "magically" appeared, it would make a lot of people very pleased. 
+
+So here is my (half-baked) idea: 
+
+We have several sources of potential abbreviation pairs, all of which are noisy. These fall into several types: 
+1. Abbreviation datasets which annotate abbreviations in real text. These include the Ab3P set, the AAAI-21-SDU-shared-task datasets, BioAbbreviate, and others. These can be used to train any trainable method. 
+2. Strong older tools, usually based on pattern matching, like Schwartz & Hearst implementations and Ab3P. These are fairly reliable, but don't catch everything. 
+3. Tools that can be used to support a primary method. These include the span-based methods (BERT, flair) like BLAR, PLODv2, etc. This also includes LLM-based methods. 
+4. Abbreviation dictionaries: datasets which gather known long form / short form lists from the literature. ALLIE is one of these, but I found many more. If we find a short form / long form near one another in a paper, there is a good chance that is an abbreviation definition. If there is a common contextual pattern across many such instances, that likely points to a reusable rule. 
+5. Terminologies: resources like the UMLS and others often list common abbreviations for terms. As with abbreviation dictionaries, if we find these near one another in a paper, it may be an abbreviation definition. In addition, we can often guess what authors might use as the abbreviated form for a full term just by looking at it: that's how Schwartz & Hearst works. 
+6. The literature itself. Authors have strong incentives to define their abbreviations. So there should be a lot of signal in the literature. This could be leveraged for pattern induction, or for approaches like "given an abbreviation with its textual context, find similar textual content which defines that abbreviation." 
+
+Note how these essentially fall into three groups: approaches that can identify abbreviations in text, lists of known abbreviation pairs, and the literature itself. What I'm envisioning is a little like co-training: each of these are representations of the same phenomenon. Specifically I want to apply these approaches large-scale in a way that they can de-noise each other. The existing tools and lexicons (abbreviation dictionaries & terminologies) can be applied to find potential abbreviation pairs in the literature. We can then look across many potential abbreviation pair instances to find and induce new contextual patterns, either explicitly (regex) or implicitly (as semisupervised training data for learning models). This would be especially important for identifying abbreviations in figures and abbreviation tables from the full text - one area that Ab3P fails miserably. The potential abbreviation pairs found also form a new (noisy) abbreviation dictionary. Then we iterate. 
+
+At the end, if this works, we would have three contributions: 
+1. A substantial portion of the literature which has been tagged for abbreviation pairs and can be used for training a model. 
+2. A substantially expanded dictionary of abbreviation pairs, along with how frequently they appear, and (perhaps) in what subsets of the literature. 
+3. Better approaches to identify abbreviations in text.
+
+And here is the other goal: to accomplish all of this with a minimal effort from me: all substantial work should be performed by agentic systems. 

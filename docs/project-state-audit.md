@@ -68,7 +68,7 @@ These are confirmed implementation paths with unmeasured real-data impact. They 
 
 ## The supplied 2024 frequency resource
 
-During planning the user supplied [abbr_frequency_2024.json.gz](../handoff/abbr_frequency_2024.json.gz) and confirmed substantial CPU/GPU resources at work, with small pilots preferred now.
+During planning the user supplied [abbr_frequency_2024.json.gz](../data/raw/resources/abbr_frequency_2024.json.gz) and confirmed substantial CPU/GPU resources at work, with small pilots preferred now.
 
 A bounded-memory traversal of the complete gzip JSON found a top-level mapping `SF -> {LF: integer count}`:
 
