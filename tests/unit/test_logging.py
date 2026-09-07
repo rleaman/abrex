@@ -75,6 +75,7 @@ def test_ab3p_cache_miss_is_a_warning(caplog: pytest.LogCaptureFixture) -> None:
         **{
             "backend": "cache_only",
             "cache": {"path": "not-a-cache", "read": True, "write": False},
+            "executable_sha256": "a" * 64,
         }
     )
 

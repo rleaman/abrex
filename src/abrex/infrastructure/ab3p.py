@@ -17,11 +17,13 @@ from pathlib import Path
 from abrex.domain import Document
 from abrex.resolvers.adapters.ab3p import (
     AB3P_ADAPTER_VERSION,
+    AB3P_WRAPPER_VERSION,
     Ab3PResolverConfig,
     build_ab3p_input,
 )
 
-CACHE_SCHEMA_VERSION = "ab3p-cache-v2"
+CACHE_SCHEMA_VERSION = "ab3p-cache-v3"
+INSTALLATION_MANIFEST_SCHEMA_VERSION = "ab3p-installation-v1"
 
 logger = logging.getLogger(__name__)
 
@@ -34,6 +36,10 @@ class Ab3PCacheMiss(LookupError):
     """No compatible cached execution exists."""
 
 
+class Ab3PInstallationError(RuntimeError):
+    """The configured Ab3P installation manifest or runtime is invalid."""
+
+
 @dataclass(frozen=True, slots=True)
 class Ab3PRawResult:
     """Raw execution evidence used identically by live and cached paths."""
@@ -43,22 +49,119 @@ class Ab3PRawResult:
     exit_status: int
     timed_out: bool = False
     executable_sha256: str | None = None
+    cache_identity: dict[str, str] | None = None
+
+
+def installation_identity(
+    config: Ab3PResolverConfig, *, require_runtime: bool
+) -> dict[str, str]:
+    """Resolve and verify the configured installation without changing cwd."""
+
+    installation = config.installation
+    if installation is None:
+        if not config.executable_sha256:
+            raise Ab3PInstallationError(
+                "Ab3P installation identity requires the T018 manifest and root"
+            )
+        return {
+            "schema_version": "ab3p-identity-v1",
+            "adapter_version": AB3P_ADAPTER_VERSION,
+            "wrapper_version": AB3P_WRAPPER_VERSION,
+            "executable_sha256": config.executable_sha256.lower(),
+            "resource_sha256": "unverified",
+        }
+    manifest_path = Path(installation.manifest)
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        raise Ab3PInstallationError(
+            f"Unable to read Ab3P installation manifest {manifest_path}: {error}"
+        ) from error
+    if (
+        not isinstance(manifest, dict)
+        or manifest.get("schema_version") != INSTALLATION_MANIFEST_SCHEMA_VERSION
+        or not isinstance(manifest.get("artifacts"), list)
+    ):
+        raise Ab3PInstallationError(
+            f"Incompatible Ab3P installation manifest {manifest_path}"
+        )
+    artifacts = manifest["artifacts"]
+    executable_digest: str | None = None
+    resource_digests: list[tuple[str, str]] = []
+    resource_root = Path(installation.resource_directory)
+    for artifact in artifacts:
+        if not isinstance(artifact, dict):
+            raise Ab3PInstallationError("Ab3P installation artifact must be an object")
+        relative_path = artifact.get("path")
+        digest = artifact.get("sha256")
+        role = artifact.get("role")
+        if not isinstance(relative_path, str) or not isinstance(digest, str):
+            raise Ab3PInstallationError("Ab3P installation artifact is incomplete")
+        relative = Path(relative_path)
+        if relative.is_absolute() or ".." in relative.parts:
+            raise Ab3PInstallationError(
+                f"Ab3P installation artifact path escapes its root: {relative_path!r}"
+            )
+        if role == "executable" and relative_path == installation.executable:
+            executable_digest = digest.lower()
+        if role == "semantic-resource":
+            if relative.parts[: len(resource_root.parts)] != resource_root.parts:
+                raise Ab3PInstallationError(
+                    f"Ab3P resource is outside resource_directory: {relative_path!r}"
+                )
+            resource_digests.append((relative_path, digest.lower()))
+    if executable_digest is None or not resource_digests:
+        raise Ab3PInstallationError(
+            "Ab3P installation manifest lacks executable or semantic resources"
+        )
+    root = Path(installation.root) if installation.root else None
+    executable_path = root / installation.executable if root else None
+    if require_runtime:
+        if root is None:
+            raise Ab3PInstallationError(
+                "Live Ab3P execution requires installation.root"
+            )
+        _verify_artifact(executable_path, executable_digest, "executable")
+        for relative_path, digest in resource_digests:
+            _verify_artifact(root / relative_path, digest, "semantic resource")
+        if not (root / "path_Ab3P").is_file():
+            raise Ab3PInstallationError(
+                f"Ab3P installation is missing path_Ab3P under {root}"
+            )
+    return {
+        "schema_version": "ab3p-identity-v1",
+        "adapter_version": AB3P_ADAPTER_VERSION,
+        "wrapper_version": AB3P_WRAPPER_VERSION,
+        "manifest_sha256": _sha256(manifest_path.read_bytes()),
+        "executable_sha256": executable_digest,
+        "resource_sha256": _sha256(
+            json.dumps(resource_digests, separators=(",", ":")).encode("utf-8")
+        ),
+    }
+
+
+def runtime_paths(config: Ab3PResolverConfig) -> tuple[Path, Path]:
+    """Return verified executable and working-directory paths for live Ab3P."""
+
+    if config.installation is None or config.installation.root is None:
+        raise Ab3PInstallationError(
+            "Live Ab3P execution requires installation.manifest and installation.root"
+        )
+    installation_identity(config, require_runtime=True)
+    root = Path(config.installation.root)
+    return root / config.installation.executable, root
 
 
 def cache_key(document: Document, config: Ab3PResolverConfig) -> str:
     """Return a path-independent key for document and semantic invocation data."""
 
-    if not _has_cache_identity(config):
-        raise ValueError(
-            "Ab3P cache identity requires installation_label or executable_sha256"
-        )
+    identity = installation_identity(config, require_runtime=False)
     payload = {
         "adapter": AB3P_ADAPTER_VERSION,
         "document_id": document.document_id,
         "document_sha256": _sha256(document.text.encode("utf-8")),
         "input_sha256": _sha256(build_ab3p_input(document).encode("utf-8")),
-        "installation_label": config.installation_label,
-        "executable_sha256": config.executable_sha256,
+        "cache_identity": identity,
     }
     return _sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode())
 
@@ -70,10 +173,14 @@ class Ab3PCache:
         self.path = Path(path)
 
     def read(self, document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
-        if not _has_cache_identity(config):
-            raise Ab3PCacheMiss(
-                "Ab3P cache access requires installation_label or executable_sha256"
+        try:
+            expected_identity = installation_identity(
+                config, require_runtime=config.backend != "cache_only"
             )
+        except Ab3PInstallationError as error:
+            raise Ab3PCacheMiss(
+                f"Ab3P cache identity is unavailable: {error}"
+            ) from error
         key = cache_key(document, config)
         logger.debug("Reading Ab3P cache key=%s document=%s", key, document.document_id)
         try:
@@ -91,7 +198,13 @@ class Ab3PCache:
             or data.get("document_sha256") != _sha256(document.text.encode("utf-8"))
             or data.get("input_text") != expected_input
             or data.get("input_sha256") != _sha256(expected_input.encode("utf-8"))
+            or data.get("cache_identity") != expected_identity
         ):
+            if isinstance(data, dict) and data.get("schema_version") == "ab3p-cache-v2":
+                raise Ab3PCacheMiss(
+                    "Legacy label-only Ab3P cache entries are incompatible; "
+                    "rebuild them"
+                )
             raise Ab3PCacheMiss(
                 f"Incompatible Ab3P cache entry for {document.document_id!r}"
             )
@@ -100,16 +213,9 @@ class Ab3PCache:
             raise Ab3PCacheMiss(
                 f"Incompatible Ab3P cache entry for {document.document_id!r}"
             )
-        if provenance.get("installation_label") != config.installation_label:
+        if provenance.get("cache_identity") != expected_identity:
             raise Ab3PCacheMiss(
-                f"Incompatible Ab3P provenance for {document.document_id!r}"
-            )
-        if (
-            config.executable_sha256 is not None
-            and provenance.get("executable_sha256") != config.executable_sha256
-        ):
-            raise Ab3PCacheMiss(
-                f"Incompatible Ab3P executable for {document.document_id!r}"
+                f"Incompatible Ab3P installation for {document.document_id!r}"
             )
         try:
             stdout = data["stdout"]
@@ -137,21 +243,26 @@ class Ab3PCache:
             exit_status,
             timed_out,
             str(digest) if digest else None,
+            expected_identity,
         )
 
     def write(
         self, document: Document, config: Ab3PResolverConfig, result: Ab3PRawResult
     ) -> Path:
-        if not _has_cache_identity(config):
-            raise Ab3PCacheMiss(
-                "Ab3P cache writes require installation_label or executable_sha256"
+        try:
+            expected_identity = installation_identity(
+                config, require_runtime=config.backend != "cache_only"
             )
+        except Ab3PInstallationError as error:
+            raise Ab3PCacheMiss(
+                f"Ab3P cache identity is unavailable: {error}"
+            ) from error
         if (
-            config.executable_sha256 is not None
-            and result.executable_sha256 != config.executable_sha256
+            result.cache_identity is not None
+            and result.cache_identity != expected_identity
         ):
             raise Ab3PCacheMiss(
-                "Live Ab3P executable fingerprint does not match configuration"
+                "Live Ab3P installation fingerprint does not match configuration"
             )
         key = cache_key(document, config)
         logger.debug("Writing Ab3P cache key=%s document=%s", key, document.document_id)
@@ -167,6 +278,7 @@ class Ab3PCache:
             "stderr": result.stderr,
             "exit_status": result.exit_status,
             "timed_out": result.timed_out,
+            "cache_identity": expected_identity,
             "provenance": {
                 "configured_executable": config.executable,
                 "invocation_arguments": [
@@ -175,10 +287,7 @@ class Ab3PCache:
                 ],
                 "executable_sha256": result.executable_sha256,
                 "installation_label": config.installation_label,
-                "cache_identity": {
-                    "installation_label": config.installation_label,
-                    "executable_sha256": config.executable_sha256,
-                },
+                "cache_identity": expected_identity,
                 "platform": platform.platform(),
                 "created_at": datetime.now(UTC).isoformat(),
             },
@@ -195,8 +304,25 @@ class Ab3PCache:
 def run_ab3p(document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
     """Run a configured executable without shell interpolation."""
 
-    if not config.executable:
-        raise Ab3PExecutionError("Ab3P subprocess backend requires executable")
+    try:
+        executable, working_directory = runtime_paths(config)
+        identity = installation_identity(config, require_runtime=True)
+    except Ab3PInstallationError as error:
+        if config.installation is not None:
+            raise Ab3PExecutionError(f"Invalid Ab3P installation: {error}") from error
+        if not config.executable:
+            raise Ab3PExecutionError(
+                "Ab3P subprocess backend requires a verified installation"
+            ) from error
+        executable = Path(config.executable)
+        working_directory = Path.cwd()
+        try:
+            identity = installation_identity(config, require_runtime=False)
+        except Ab3PInstallationError as identity_error:
+            raise Ab3PExecutionError(
+                "Ab3P subprocess backend requires a verified installation: "
+                f"{identity_error}"
+            ) from identity_error
     input_text = build_ab3p_input(document)
     logger.info("Starting Ab3P resolver for %s", document.document_id)
     try:
@@ -204,8 +330,8 @@ def run_ab3p(document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
             input_path = Path(directory) / "input.txt"
             input_path.write_bytes(input_text.encode("utf-8"))
             try:
-                argv = [config.executable, os.fspath(input_path)]
-                logger.debug("Ab3P executable=%s argv=%s", config.executable, argv)
+                argv = [os.fspath(executable), os.fspath(input_path)]
+                logger.debug("Ab3P executable=%s argv=%s", executable, argv)
                 completed = subprocess.run(
                     argv,
                     shell=False,
@@ -215,6 +341,7 @@ def run_ab3p(document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
                     errors="strict",
                     timeout=config.timeout_seconds,
                     check=False,
+                    cwd=working_directory,
                 )
             except subprocess.TimeoutExpired as error:
                 raise Ab3PExecutionError(
@@ -228,14 +355,16 @@ def run_ab3p(document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
         raise Ab3PExecutionError(
             f"Unable to prepare Ab3P input for {document.document_id!r}: {error}"
         ) from error
-    executable_digest: str | None = None
-    with suppress(OSError):
-        executable_digest = _sha256(Path(config.executable).read_bytes())
+    executable_digest: str | None = identity.get("executable_sha256")
+    if config.installation is None:
+        with suppress(OSError):
+            executable_digest = _sha256(executable.read_bytes())
     result = Ab3PRawResult(
         completed.stdout,
         completed.stderr,
         completed.returncode,
         executable_sha256=executable_digest,
+        cache_identity=identity,
     )
     if completed.returncode != 0:
         logger.error(
@@ -260,16 +389,29 @@ def _sha256(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
 
 
-def _has_cache_identity(config: Ab3PResolverConfig) -> bool:
-    return bool(config.installation_label or config.executable_sha256)
+def _verify_artifact(path: Path | None, expected: str, role: str) -> None:
+    if path is None:
+        raise Ab3PInstallationError(f"Missing Ab3P {role} path")
+    try:
+        actual = _sha256(path.read_bytes())
+    except OSError as error:
+        raise Ab3PInstallationError(f"Missing Ab3P {role} {path}: {error}") from error
+    if actual != expected:
+        raise Ab3PInstallationError(
+            f"Ab3P {role} fingerprint mismatch for {path}: "
+            f"expected {expected}, got {actual}"
+        )
 
 
 __all__ = [
     "Ab3PCache",
     "Ab3PCacheMiss",
     "Ab3PExecutionError",
+    "Ab3PInstallationError",
     "Ab3PRawResult",
     "CACHE_SCHEMA_VERSION",
     "cache_key",
+    "installation_identity",
     "run_ab3p",
+    "runtime_paths",
 ]

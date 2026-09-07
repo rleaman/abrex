@@ -1,6 +1,9 @@
 # T020 Make Ab3P resource lookup and cache identity reliable
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: A.
+Status: Implemented for the typed runtime and cache-identity engineering
+scope; the ABREX-on-WSL live smoke remains pending because the available WSL
+Python lacks the project dependencies. Assigned implementer: GPT-5.6 Luna.
+Milestone: A.
 
 ## Outcome
 
@@ -44,4 +47,3 @@ Verified T018 installation and a Linux ABREX environment.
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T020-ab3p-runtime-and-cache-identity.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

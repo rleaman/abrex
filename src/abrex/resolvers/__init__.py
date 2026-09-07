@@ -2,7 +2,9 @@
 
 from abrex.resolvers.adapters.ab3p import (
     AB3P_ADAPTER_VERSION,
+    AB3P_WRAPPER_VERSION,
     Ab3PCacheConfig,
+    Ab3PInstallationConfig,
     Ab3PMappingError,
     Ab3PParseError,
     Ab3PResolverConfig,
@@ -63,7 +65,9 @@ from abrex.resolvers.validation import validate_predictions
 __all__ = [
     "ExecutionErrorPolicy",
     "AB3P_ADAPTER_VERSION",
+    "AB3P_WRAPPER_VERSION",
     "Ab3PCacheConfig",
+    "Ab3PInstallationConfig",
     "Ab3PMappingError",
     "Ab3PParseError",
     "Ab3PResolver",

@@ -10,7 +10,8 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from abrex.domain import AbbreviationDefinition, Document, PredictionMetadata, TextSpan
 
-AB3P_ADAPTER_VERSION = "1"
+AB3P_ADAPTER_VERSION = "2"
+AB3P_WRAPPER_VERSION = "1"
 
 
 class Ab3PParseError(ValueError):
@@ -120,6 +121,17 @@ class Ab3PCacheConfig(BaseModel):
     write: bool = False
 
 
+class Ab3PInstallationConfig(BaseModel):
+    """T018 installation manifest and paths for the supplied Ab3P build."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    manifest: str = Field(min_length=1)
+    root: str | None = None
+    executable: str = Field(default="identify_abbr", min_length=1)
+    resource_directory: str = Field(default="WordData", min_length=1)
+
+
 class Ab3PResolverConfig(BaseModel):
     """Typed YAML parameters for the Ab3P resolver."""
 
@@ -129,6 +141,7 @@ class Ab3PResolverConfig(BaseModel):
     executable: str | None = None
     timeout_seconds: float = Field(default=60.0, gt=0)
     cache: Ab3PCacheConfig | None = None
+    installation: Ab3PInstallationConfig | None = None
     installation_label: str | None = None
     executable_sha256: str | None = Field(default=None, pattern=r"^[0-9a-fA-F]{64}$")
 
@@ -139,6 +152,7 @@ class Ab3PResolverConfig(BaseModel):
         if (
             self.backend in ("subprocess", "cache_then_subprocess")
             and not self.executable
+            and self.installation is None
         ):
             raise ValueError(f"Ab3P backend {self.backend!r} requires executable")
         if (
@@ -146,12 +160,21 @@ class Ab3PResolverConfig(BaseModel):
             and self.cache is None
         ):
             raise ValueError(f"Ab3P backend {self.backend!r} requires cache settings")
+        if self.backend == "cache_only" and not (
+            self.installation or self.executable_sha256
+        ):
+            raise ValueError(
+                "Ab3P cache_only requires a T018 installation manifest or "
+                "executable_sha256; installation_label alone is not cache identity"
+            )
         return self
 
 
 __all__ = [
     "AB3P_ADAPTER_VERSION",
+    "AB3P_WRAPPER_VERSION",
     "Ab3PCacheConfig",
+    "Ab3PInstallationConfig",
     "Ab3PMappingError",
     "Ab3PParseError",
     "Ab3PResolverConfig",

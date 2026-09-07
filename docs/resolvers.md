@@ -61,16 +61,17 @@ machines. Native Windows execution is neither supported nor required.
 
 The cache stores the canonical document ID and SHA-256, exact UTF-8 input,
 raw stdout/stderr, exit status, adapter/cache schema, and execution
-provenance. Its key is based on document content, exact input, adapter
-version, and an explicit installation identity (`installation_label` or
-`executable_sha256`)—not the backend or any absolute path. Excluding the
-backend allows a subprocess-populated cache to be consumed by `cache_only`.
-Consequently a cache directory can be copied between systems. Changed
-content, schema, semantic configuration, incompatible provenance, or a
-missing identity/entry is an explicit cache miss; it is
-never an empty successful result. Successful zero-output Ab3P runs are cached
-and replayed as legitimate zero predictions. Cached stdout goes through the
-same parser and canonical span reconstruction code as live output.
+provenance. New cache keys include a verified T018 installation identity:
+the manifest, executable, all semantic WordData resources, and wrapper/parser
+versions. The identity is content-based rather than path-based, so an
+unchanged installation may be replayed after relocation. Changed content,
+schema, resources, incompatible provenance, or a missing identity/entry is an
+explicit cache miss; label-only legacy entries are rejected and must be
+rebuilt. Excluding the backend allows a subprocess-populated cache to be
+consumed by `cache_only`, including on Windows without a local Linux binary.
+Successful zero-output Ab3P runs are cached and replayed as legitimate zero
+predictions. Cached stdout goes through the same parser and canonical span
+reconstruction code as live output.
 
 Example Linux configuration:
 
@@ -79,17 +80,28 @@ resolver:
   type: ab3p
   params:
     backend: subprocess
-    executable: /opt/ab3p/identify_abbr
     timeout_seconds: 60
+    installation:
+      manifest: docs/artifacts/ab3p-installation-manifest.json
+      root: /opt/ab3p
+      executable: identify_abbr
+      resource_directory: WordData
     cache:
       path: artifacts/ab3p-cache
       read: true
       write: true
-    installation_label: nlm-linux-ab3p
 ```
 
-Copy `artifacts/ab3p-cache` to the Windows checkout and change only the
-backend to `cache_only` (retaining the cache path and installation label).
+`installation.root` is the copied T018 build directory. ABREX verifies the
+manifest-declared files before running and passes that root as subprocess
+`cwd`, allowing Ab3P's `path_Ab3P` lookup to work from any caller directory.
+For offline replay, omit `root`; the manifest identity is still checked and a
+Linux executable is not required. The older `installation_label`-only form is
+not accepted for new cache entries.
+
+Copy `artifacts/ab3p-cache` and the installation manifest to the Windows
+checkout and change only the backend to `cache_only` (retaining the cache path
+and manifest identity).
 Cache population uses the existing resolver command, for example
 `abrex resolver run docs/examples/resolver-ab3p-cache.yaml --input
 data/processed/benchmark.jsonl --output artifacts/ab3p-predictions.jsonl`.
@@ -107,9 +119,10 @@ build requires Ubuntu/WSL execution and does not provide a native Windows
 binary.
 
 Cache identity correction: the backend is intentionally excluded from the
-cache key so a live subprocess cache can be read by `cache_only`. A cache
-identity is mandatory and is supplied by `installation_label` or
-`executable_sha256`; omitted identity cannot read or write a cache.
+cache key so a live subprocess cache can be read by `cache_only`. A verified
+installation manifest is the preferred identity. Digest-only configurations
+remain an explicit compatibility mode with unverified resources; a stable
+label alone cannot read or write a cache.
 
 ## Schwartz--Hearst baseline
 

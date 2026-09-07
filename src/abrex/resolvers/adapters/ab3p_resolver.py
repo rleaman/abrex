@@ -61,5 +61,15 @@ class Ab3PResolver:
         logger.debug("Ab3P acquisition complete for document %s", document.document_id)
         return result
 
+    @property
+    def cache_identity(self) -> dict[str, str]:
+        """Return verified executable/resource identity for outer caches."""
+
+        from abrex.infrastructure.ab3p import installation_identity
+
+        return installation_identity(
+            self.config, require_runtime=self.config.backend != "cache_only"
+        )
+
 
 __all__ = ["Ab3PResolver"]

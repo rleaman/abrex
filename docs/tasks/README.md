@@ -19,6 +19,9 @@ T018 is complete for the reproducible WSL Ab3P build and upstream verification
 scope. See the [T018 completion note](completed/T018-build-and-verify-real-ab3p.md).
 T019 is complete for the historical adapter engineering and local-source audit
 scope. See the [T019 completion note](completed/T019-audit-and-repair-corpus-semantics.md).
+T020 is implemented for the typed runtime and cache-identity engineering
+scope. The real ABREX-on-WSL smoke remains pending until the WSL Python has
+the project dependencies; see the [T020 implementation note](completed/T020-ab3p-runtime-and-cache-identity.md).
 
 Execute T046 after T028 and before T034. Design T047 after T029 and finalize it before T042; task identifiers were preserved rather than renumbered. See the [resource acquisition register](../resource-acquisition-register.md) for ADAM and additional suggestions.
 

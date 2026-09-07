@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 from subprocess import TimeoutExpired
@@ -15,12 +16,15 @@ from abrex.infrastructure.ab3p import (
     Ab3PCache,
     Ab3PCacheMiss,
     Ab3PExecutionError,
+    Ab3PInstallationError,
     Ab3PRawResult,
     cache_key,
+    installation_identity,
     run_ab3p,
 )
 from abrex.resolvers import (
     Ab3PCacheConfig,
+    Ab3PInstallationConfig,
     Ab3PMappingError,
     Ab3PParseError,
     Ab3PResolverConfig,
@@ -33,13 +37,18 @@ from abrex.resolvers.adapters.ab3p_resolver import Ab3PResolver
 
 
 def _config(
-    path: Path, *, backend: str = "cache_only", label: str | None = None
+    path: Path,
+    *,
+    backend: str = "cache_only",
+    label: str | None = None,
+    digest: str | None = "a" * 64,
 ) -> Ab3PResolverConfig:
     return Ab3PResolverConfig(
         backend=backend,
         executable="/opt/ab3p/identify_abbr" if backend != "cache_only" else None,
         installation_label=label,
         cache=Ab3PCacheConfig(path=str(path), read=True, write=True),
+        executable_sha256=digest,
     )
 
 
@@ -98,7 +107,7 @@ def test_cache_round_trip_is_portable_and_identity_is_explicit(tmp_path: Path) -
     with pytest.raises(Ab3PCacheMiss):
         cache.read(Document("d1", "changed"), offline_config)
     with pytest.raises(Ab3PCacheMiss):
-        cache.read(document, _config(tmp_path, label="different"))
+        cache.read(document, _config(tmp_path, label="linux-ab3p", digest="b" * 64))
     broken = tmp_path / f"{cache_key(document, offline_config)}.json"
     broken.write_text("[]", encoding="utf-8")
     with pytest.raises(Ab3PCacheMiss):
@@ -115,12 +124,63 @@ def test_cache_round_trip_is_portable_and_identity_is_explicit(tmp_path: Path) -
 
 
 def test_cache_requires_an_explicit_installation_identity(tmp_path: Path) -> None:
-    document = Document("d1", "text")
-    config = _config(tmp_path)
-    with pytest.raises(ValueError, match="cache identity"):
-        cache_key(document, config)
-    with pytest.raises(Ab3PCacheMiss, match="installation_label"):
-        Ab3PCache(tmp_path).read(document, config)
+    invalid = Ab3PResolverConfig.model_construct(
+        backend="cache_only",
+        executable=None,
+        cache=Ab3PCacheConfig(path=str(tmp_path)),
+        installation=None,
+        installation_label=None,
+        executable_sha256=None,
+    )
+    with pytest.raises(Ab3PInstallationError, match="requires the T018"):
+        installation_identity(invalid, require_runtime=False)
+    with pytest.raises(ValueError, match="installation_label alone"):
+        _config(tmp_path, digest=None)
+
+
+def test_invalid_installation_manifest_is_explicit(tmp_path: Path) -> None:
+    root, manifest = _installation(tmp_path)
+    config = Ab3PResolverConfig(
+        backend="cache_only",
+        installation=Ab3PInstallationConfig(manifest=str(manifest)),
+        cache=Ab3PCacheConfig(path=str(tmp_path / "cache")),
+    )
+    manifest.write_text("[]", encoding="utf-8")
+    with pytest.raises(Ab3PInstallationError, match="Incompatible"):
+        installation_identity(config, require_runtime=False)
+    manifest.write_text(
+        json.dumps(
+            {
+                "schema_version": "ab3p-installation-v1",
+                "artifacts": [
+                    {
+                        "path": "../identify_abbr",
+                        "role": "executable",
+                        "sha256": "a" * 64,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    with pytest.raises(Ab3PInstallationError, match="escapes"):
+        installation_identity(config, require_runtime=False)
+    manifest.unlink()
+    with pytest.raises(Ab3PInstallationError, match="Unable to read"):
+        installation_identity(config, require_runtime=False)
+    manifest.write_text(
+        json.dumps({"schema_version": "ab3p-installation-v1", "artifacts": [1]}),
+        encoding="utf-8",
+    )
+    with pytest.raises(Ab3PInstallationError, match="must be an object"):
+        installation_identity(config, require_runtime=False)
+    manifest.write_text(
+        json.dumps({"schema_version": "ab3p-installation-v1", "artifacts": [{}]}),
+        encoding="utf-8",
+    )
+    with pytest.raises(Ab3PInstallationError, match="incomplete"):
+        installation_identity(config, require_runtime=False)
+    assert root.is_dir()
 
 
 def test_configured_executable_digest_is_part_of_cache_compatibility(
@@ -158,6 +218,7 @@ def test_cache_only_resolver_replays_same_parser_path_and_misses(
                 "backend": "cache_only",
                 "cache": {"path": str(tmp_path), "read": True, "write": False},
                 "installation_label": "linux-ab3p",
+                "executable_sha256": "a" * 64,
             },
         )
     )
@@ -187,16 +248,110 @@ def test_config_validation_and_resolver_registry() -> None:
         == "subprocess"
     )
     assert (
-        Ab3PResolver(**{"backend": "cache_only", "cache": {"path": "x"}}).identity
+        Ab3PResolver(
+            **{
+                "backend": "cache_only",
+                "cache": {"path": "x"},
+                "executable_sha256": "a" * 64,
+            }
+        ).identity
         == "ab3p"
     )
+
+
+def _installation(tmp_path: Path) -> tuple[Path, Path]:
+    root = tmp_path / "installation"
+    (root / "WordData").mkdir(parents=True)
+    executable = root / "identify_abbr"
+    resource = root / "WordData" / "Ab3P_prec.dat"
+    executable.write_bytes(b"executable-a")
+    resource.write_bytes(b"resource-a")
+    (root / "path_Ab3P").write_text("WordData\n", encoding="utf-8")
+
+    def digest(path: Path) -> str:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+
+    manifest = tmp_path / "installation-manifest.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "schema_version": "ab3p-installation-v1",
+                "artifacts": [
+                    {
+                        "path": "identify_abbr",
+                        "role": "executable",
+                        "sha256": digest(executable),
+                    },
+                    {
+                        "path": "WordData/Ab3P_prec.dat",
+                        "role": "semantic-resource",
+                        "sha256": digest(resource),
+                    },
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    return root, manifest
+
+
+def test_manifest_identity_rejects_changed_runtime_artifacts(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, manifest = _installation(tmp_path)
+    live = Ab3PResolverConfig(
+        backend="subprocess",
+        installation=Ab3PInstallationConfig(manifest=str(manifest), root=str(root)),
+        cache=Ab3PCacheConfig(path=str(tmp_path / "cache"), read=True, write=True),
+    )
+    offline = Ab3PResolverConfig(
+        backend="cache_only",
+        installation=Ab3PInstallationConfig(manifest=str(manifest)),
+        cache=Ab3PCacheConfig(path=str(tmp_path / "cache"), read=True, write=False),
+    )
+    assert installation_identity(live, require_runtime=True) == installation_identity(
+        offline, require_runtime=False
+    )
+    document = Document("d1", "Tumor necrosis factor (TNF)")
+    cache = Ab3PCache(tmp_path / "cache")
+    identity = installation_identity(live, require_runtime=True)
+    cache.write(
+        document,
+        live,
+        Ab3PRawResult(
+            "echo\n TNF|Tumor necrosis factor|0.9\n", "", 0, cache_identity=identity
+        ),
+    )
+    assert cache.read(document, offline).cache_identity == identity
+    calls: list[dict[str, object]] = []
+
+    class Completed:
+        stdout = "text\n"
+        stderr = ""
+        returncode = 0
+
+    def run(*args: object, **kwargs: object) -> Completed:
+        calls.append(kwargs)
+        return Completed()
+
+    monkeypatch.setattr("abrex.infrastructure.ab3p.subprocess.run", run)
+    live_result = run_ab3p(document, live)
+    assert live_result.cache_identity == identity
+    assert calls[0]["cwd"] == root
+    (root / "WordData" / "Ab3P_prec.dat").write_bytes(b"resource-b")
+    with pytest.raises(Ab3PInstallationError, match="fingerprint mismatch"):
+        installation_identity(live, require_runtime=True)
+    with pytest.raises(Ab3PCacheMiss, match="identity is unavailable"):
+        cache.read(document, live)
 
 
 def test_subprocess_success_failure_and_timeout(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     document = Document("d", "text")
-    config = Ab3PResolverConfig(backend="subprocess", executable="ab3p")
+    config = Ab3PResolverConfig(
+        backend="subprocess", executable="ab3p", executable_sha256="a" * 64
+    )
 
     class Completed:
         stdout = "text\n"
@@ -251,10 +406,14 @@ def test_subprocess_success_failure_and_timeout(
     )
     with pytest.raises(Ab3PExecutionError, match="status 3"):
         run_ab3p(document, config)
-    with pytest.raises(Ab3PExecutionError, match="requires executable"):
+    with pytest.raises(Ab3PExecutionError, match="verified installation"):
         run_ab3p(
             document,
-            Ab3PResolverConfig(backend="cache_only", cache=Ab3PCacheConfig(path="x")),
+            Ab3PResolverConfig(
+                backend="cache_only",
+                cache=Ab3PCacheConfig(path="x"),
+                executable_sha256="a" * 64,
+            ),
         )
 
 
@@ -266,6 +425,7 @@ def test_resolver_cache_then_subprocess_miss_is_live(
         "backend": "cache_then_subprocess",
         "executable": "ab3p",
         "installation_label": "test-ab3p",
+        "executable_sha256": "a" * 64,
         "cache": {"path": str(tmp_path), "read": True, "write": False},
     }
     monkeypatch.setattr(
@@ -283,6 +443,7 @@ def test_resolver_cache_then_subprocess_miss_is_live(
     no_read = Ab3PResolver(
         backend="cache_only",
         cache={"path": str(tmp_path), "read": False, "write": False},
+        executable_sha256="a" * 64,
     )
     with pytest.raises(Exception, match="cache"):
         tuple(no_read.resolve(document))
