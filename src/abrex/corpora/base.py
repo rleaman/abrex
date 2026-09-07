@@ -101,6 +101,7 @@ class ParsedSourceRecord:
     text: str
     annotations: Sequence[ParsedSourceAnnotation] = ()
     source_corpus: str | None = None
+    transformation_notes: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         if not isinstance(self.record_id, str) or not self.record_id.strip():
@@ -121,6 +122,10 @@ class ParsedSourceRecord:
         object.__setattr__(self, "annotations", annotations)
         if self.source_corpus is not None and not isinstance(self.source_corpus, str):
             raise TypeError("Parsed source_corpus must be a string or None")
+        if not isinstance(self.transformation_notes, tuple) or any(
+            not isinstance(note, str) for note in self.transformation_notes
+        ):
+            raise TypeError("transformation_notes must be a tuple of strings")
 
 
 @runtime_checkable
@@ -190,6 +195,8 @@ class CorpusBuildResult:
     adapter_identity: str
     adapter_version: str
     normalizer_identities: tuple[str, ...]
+    source_record_count: int = 0
+    source_annotation_count: int = 0
 
     def diagnostics_json(self) -> str:
         """Return the machine-readable diagnostics artifact contents."""
@@ -221,6 +228,7 @@ def map_source_record(
             original_long_form=annotation.long_form,
             adapter_identity=adapter_identity,
             adapter_version=adapter_version,
+            transformation_notes=source_record.transformation_notes,
         )
         definitions.append(
             AbbreviationDefinition(
@@ -241,6 +249,7 @@ def map_source_record(
             source_record_id=source_record.record_id,
             adapter_identity=adapter_identity,
             adapter_version=adapter_version,
+            transformation_notes=source_record.transformation_notes,
         ),
     )
 
@@ -354,6 +363,10 @@ class CorpusPipeline:
             adapter_identity=self.adapter.identity,
             adapter_version=self.adapter.version,
             normalizer_identities=self.normalization_pipeline.identities,
+            source_record_count=len(source_records),
+            source_annotation_count=sum(
+                len(source_record.annotations) for source_record in source_records
+            ),
         )
 
 

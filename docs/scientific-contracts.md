@@ -76,3 +76,24 @@ annotations beyond the matches are reported as false negatives. Pair-level
 precision, recall, and F1 use micro counts. The default `zero_division: zero`
 reports `0.0` when a metric denominator is zero; a configured `raise` mode is
 available for runs that require an empty denominator to fail.
+
+## 12. T019 historical corpus semantics
+
+Historical variants declare their annotation unit, coordinate convention,
+official split, source status and eligible metric in the typed `semantics`
+configuration section. Original BioC variants use the named
+`relations_or_order_fallback` policy: explicit relation nodes take precedence;
+order pairing is used only for a relation-free BioC document under that
+source-specific contract. SDU@AAAI-22 AE is independent-span gold and never
+uses list-order pairing. SDU@AAAI-21 AD retains acronym coordinates and
+expansion text without manufacturing a long-form document span, so it is not
+eligible for the local `exact_pair` metric.
+
+BioC document text is rendered from source passages and preserved by default.
+Annotation text disagreement, dangling relations, duplicate IDs, unpaired
+entities, unequal fallback lists and multiple locations are reported as
+diagnostics and are included in the build manifest. A canonical build with no
+eligible scoreable units must be rejected or reported as not scoreable by the
+benchmark configuration; a zero-valued metric is not evidence of a successful
+pair evaluation. The BADREX-corrected variants remain excluded under the
+[settled availability decision](badrex-availability.md).

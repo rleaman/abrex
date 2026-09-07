@@ -12,9 +12,9 @@ from __future__ import annotations
 import json
 import xml.etree.ElementTree as ET
 from collections.abc import Iterable, Mapping
-from dataclasses import replace
+from dataclasses import dataclass, replace
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from abrex.corpora.base import (
     CorpusAdapterError,
@@ -26,20 +26,70 @@ from abrex.corpora.base import (
 from abrex.corpora.diagnostics import DiagnosticsCollector
 from abrex.domain import CorpusRecord, SourceTextSpan
 
+BioCPairingPolicy = Literal["relations_only", "relations_or_order_fallback"]
+BioCTextPolicy = Literal["preserve_source", "overlay_annotation_text"]
+BioCLocationPolicy = Literal["first_location", "reject_discontinuous"]
+
+
+@dataclass(frozen=True, slots=True)
+class _BioCEntity:
+    """One BioC annotation without collapsing source identifiers."""
+
+    identifier: str
+    source_identifier: str
+    span: SourceTextSpan
+    role: str
+    ordinal: int
+
 
 class BioCCorpusAdapter:
-    """Read BioC XML or JSON with abbreviation relation annotations."""
+    """Read BioC XML or JSON with explicit, auditable pairing semantics.
 
-    def __init__(self, *, dataset_variant: str = "bioc") -> None:
+    The original BioC benchmark exports use ``LongForm``/``ShortForm``
+    relation nodes.  A named ``relations_or_order_fallback`` policy is
+    retained for documents without relation nodes because this is the source
+    contract used by the historical exports.  It is never used by the SDU
+    adapters, whose independent lists have a different scientific meaning.
+    """
+
+    def __init__(
+        self,
+        *,
+        dataset_variant: str = "bioc",
+        pairing_policy: BioCPairingPolicy = "relations_or_order_fallback",
+        text_policy: BioCTextPolicy = "preserve_source",
+        location_policy: BioCLocationPolicy = "first_location",
+    ) -> None:
         if not dataset_variant.strip():
             raise ValueError("dataset_variant must not be empty")
+        if pairing_policy not in ("relations_only", "relations_or_order_fallback"):
+            raise ValueError(f"Unsupported BioC pairing_policy: {pairing_policy!r}")
+        if text_policy not in ("preserve_source", "overlay_annotation_text"):
+            raise ValueError(f"Unsupported BioC text_policy: {text_policy!r}")
+        if location_policy not in ("first_location", "reject_discontinuous"):
+            raise ValueError(f"Unsupported BioC location_policy: {location_policy!r}")
         self.dataset_variant = dataset_variant
+        self.pairing_policy = pairing_policy
+        self.text_policy = text_policy
+        self.location_policy = location_policy
 
     @property
     def identity(self) -> str:
         return self.dataset_variant
 
-    version = "1"
+    version = "2"
+
+    @property
+    def policy_identity(self) -> str:
+        """Return the stable semantic policy identity for provenance."""
+
+        return ":".join(
+            (
+                f"pairing={self.pairing_policy}",
+                f"text={self.text_policy}",
+                f"locations={self.location_policy}",
+            )
+        )
 
     def parse(
         self, resource: SourceResource, diagnostics: DiagnosticsCollector
@@ -48,18 +98,59 @@ class BioCCorpusAdapter:
         try:
             suffix = path.suffix.lower()
             if resource.format == "json" or suffix == ".json":
-                return _parse_bioc_json(path, self.dataset_variant, diagnostics)
-            return _parse_bioc_xml(path, self.dataset_variant, diagnostics)
+                return _parse_bioc_json(
+                    path,
+                    self.dataset_variant,
+                    diagnostics,
+                    pairing_policy=self.pairing_policy,
+                    text_policy=self.text_policy,
+                    location_policy=self.location_policy,
+                )
+            return _parse_bioc_xml(
+                path,
+                self.dataset_variant,
+                diagnostics,
+                pairing_policy=self.pairing_policy,
+                text_policy=self.text_policy,
+                location_policy=self.location_policy,
+            )
         except (OSError, UnicodeError, ET.ParseError, json.JSONDecodeError) as error:
             raise CorpusAdapterError(
                 f"Unable to parse BioC source {path}: {error}"
             ) from error
 
     def map_record(self, source_record: ParsedSourceRecord) -> CorpusRecord:
-        return map_source_record(
+        record = map_source_record(
             source_record,
             adapter_identity=self.identity,
             adapter_version=self.version,
+        )
+        note = f"bioc semantic policy: {self.policy_identity}"
+        return replace(
+            record,
+            provenance=replace(
+                record.provenance,
+                transformation_notes=(*source_record.transformation_notes, note),
+            )
+            if record.provenance is not None
+            else None,
+            gold_annotations=tuple(
+                replace(
+                    annotation,
+                    provenance=(
+                        replace(
+                            annotation.provenance,
+                            transformation_notes=(
+                                *annotation.provenance.transformation_notes,
+                                note,
+                            ),
+                        )
+                        if annotation.provenance is not None
+                        else None
+                    ),
+                )
+                for annotation in record.gold_annotations
+            ),
         )
 
 
@@ -475,30 +566,60 @@ def _require_path(resource: SourceResource) -> Path:
 
 
 def _parse_bioc_xml(
-    path: Path, variant: str, diagnostics: DiagnosticsCollector
+    path: Path,
+    variant: str,
+    diagnostics: DiagnosticsCollector,
+    *,
+    pairing_policy: BioCPairingPolicy,
+    text_policy: BioCTextPolicy,
+    location_policy: BioCLocationPolicy,
 ) -> tuple[ParsedSourceRecord, ...]:
     root = ET.parse(path).getroot()
     records: list[ParsedSourceRecord] = []
     for document in root.iter("document"):
         passages = list(document.findall("passage"))
-        text = "".join((passage.findtext("text") or "") for passage in passages)
-        # BioC passage offsets are absolute; preserve them and use the full
-        # document text when it is available.
-        if passages and any(p.find("offset") is not None for p in passages):
-            end = max(
-                int(p.findtext("offset") or "0") + len(p.findtext("text") or "")
-                for p in passages
-            )
-            chars = [" "] * end
-            for passage in passages:
-                offset = int(passage.findtext("offset") or "0")
-                value = passage.findtext("text") or ""
-                chars[offset : offset + len(value)] = value
-            text = "".join(chars)
-        annotations = _bioc_xml_annotations(document, text, variant)
         document_id = document.findtext("id") or f"{variant}-{len(records)}"
+        text, overlaps = _render_bioc_passages(
+            tuple(
+                (
+                    _integer_text(passage.findtext("offset"), default=0),
+                    passage.findtext("text") or "",
+                )
+                for passage in passages
+            )
+        )
+        for location, message in overlaps:
+            diagnostics.add(
+                "warning",
+                "BIOC_PASSAGE_TEXT_OVERLAP",
+                message,
+                record_id=document_id,
+                location=location,
+            )
+        annotations = _bioc_xml_annotations(
+            document,
+            text,
+            variant,
+            document_id,
+            diagnostics,
+            pairing_policy=pairing_policy,
+            text_policy=text_policy,
+            location_policy=location_policy,
+        )
+        transformations: tuple[str, ...] = ()
+        if text_policy == "overlay_annotation_text":
+            text, changed = _overlay_annotation_text(text, annotations)
+            if changed:
+                transformations = ("bioc_annotation_text_overlay: equal-length text",)
         records.append(
-            ParsedSourceRecord(document_id, document_id, text, annotations, variant)
+            ParsedSourceRecord(
+                document_id,
+                document_id,
+                text,
+                annotations,
+                variant,
+                transformations,
+            )
         )
     diagnostics.add(
         "info",
@@ -511,7 +632,13 @@ def _parse_bioc_xml(
 
 
 def _parse_bioc_json(
-    path: Path, variant: str, diagnostics: DiagnosticsCollector
+    path: Path,
+    variant: str,
+    diagnostics: DiagnosticsCollector,
+    *,
+    pairing_policy: BioCPairingPolicy,
+    text_policy: BioCTextPolicy,
+    location_policy: BioCLocationPolicy,
 ) -> tuple[ParsedSourceRecord, ...]:
     raw = json.loads(path.read_text(encoding="utf-8"))
     documents = raw.get("documents", []) if isinstance(raw, dict) else raw
@@ -524,10 +651,25 @@ def _parse_bioc_json(
         passages = document.get("passages", [])
         if not isinstance(passages, list):
             raise CorpusAdapterError(f"BioC document {index} passages must be an array")
-        text, annotations = _bioc_json_document(passages, variant)
         document_id = str(document.get("id") or f"{variant}-{index}")
+        text, annotations, transformations = _bioc_json_document(
+            passages,
+            variant,
+            document_id,
+            diagnostics,
+            pairing_policy=pairing_policy,
+            text_policy=text_policy,
+            location_policy=location_policy,
+        )
         records.append(
-            ParsedSourceRecord(document_id, document_id, text, annotations, variant)
+            ParsedSourceRecord(
+                document_id,
+                document_id,
+                text,
+                annotations,
+                variant,
+                transformations,
+            )
         )
     diagnostics.add(
         "info",
@@ -540,82 +682,200 @@ def _parse_bioc_json(
 
 
 def _bioc_xml_annotations(
-    document: ET.Element, text: str, variant: str
+    document: ET.Element,
+    text: str,
+    variant: str,
+    document_id: str,
+    diagnostics: DiagnosticsCollector,
+    *,
+    pairing_policy: BioCPairingPolicy,
+    text_policy: BioCTextPolicy,
+    location_policy: BioCLocationPolicy,
 ) -> tuple[ParsedSourceAnnotation, ...]:
-    entities: dict[str, SourceTextSpan] = {}
-    roles: dict[str, str] = {}
-    for annotation in document.iter("annotation"):
-        identifier = annotation.get("id") or str(len(entities))
-        location = annotation.find("location")
-        if location is None:
+    del text_policy  # XML annotation text is never an input-text repair by default.
+    entities: list[_BioCEntity] = []
+    for ordinal, annotation in enumerate(document.iter("annotation")):
+        source_identifier = annotation.get("id")
+        identifier = source_identifier or f"__missing_annotation_id_{ordinal}"
+        if source_identifier is None:
+            diagnostics.add(
+                "warning",
+                "BIOC_ANNOTATION_ID_MISSING",
+                "Annotation has no source identifier; assigned a scoped synthetic ID",
+                action="repaired",
+                record_id=document_id,
+                annotation_id=identifier,
+            )
+        span = _bioc_xml_span(
+            annotation,
+            document_id,
+            diagnostics,
+            location_policy=location_policy,
+        )
+        if span is None:
             continue
-        start, length = (
-            int(location.get("offset", "0")),
-            int(location.get("length", "0")),
+        entities.append(
+            _BioCEntity(
+                identifier,
+                identifier,
+                span,
+                _annotation_role(source_identifier, _infons_xml(annotation)),
+                ordinal,
+            )
         )
-        entities[identifier] = SourceTextSpan(
-            start, start + length, annotation.findtext("text")
+        _diagnose_annotation_text(
+            span,
+            annotation.findtext("text"),
+            text,
+            diagnostics,
+            document_id,
+            identifier,
         )
-        roles[identifier] = _role(_infons_xml(annotation).get("type", ""))
-    pairs = _relations_xml(document)
-    return _pair_entities(entities, roles, pairs, variant)
+    return _pair_entities(
+        entities,
+        _relations_xml(document, document_id, diagnostics),
+        variant,
+        document_id,
+        diagnostics,
+        relation_nodes_present=any(True for _ in document.iter("relation")),
+        pairing_policy=pairing_policy,
+    )
 
 
 def _bioc_json_document(
-    passages: list[object], variant: str
-) -> tuple[str, tuple[ParsedSourceAnnotation, ...]]:
-    entities: dict[str, SourceTextSpan] = {}
-    roles: dict[str, str] = {}
+    passages: list[object],
+    variant: str,
+    document_id: str,
+    diagnostics: DiagnosticsCollector,
+    *,
+    pairing_policy: BioCPairingPolicy,
+    text_policy: BioCTextPolicy,
+    location_policy: BioCLocationPolicy,
+) -> tuple[str, tuple[ParsedSourceAnnotation, ...], tuple[str, ...]]:
+    entities: list[_BioCEntity] = []
     all_relations: list[tuple[str, str]] = []
-    max_end = 0
     passage_values: list[tuple[int, str]] = []
-    for passage in passages:
+    transformations: list[str] = []
+    relation_nodes_present = False
+    for passage_index, passage in enumerate(passages):
         if not isinstance(passage, dict):
             raise CorpusAdapterError("BioC passage must be an object")
         passage_offset = int(passage.get("offset", 0))
         passage_text = passage.get("text", "")
         if isinstance(passage_text, str):
             passage_values.append((passage_offset, passage_text))
-            max_end = max(max_end, passage_offset + len(passage_text))
-        for annotation in passage.get("annotations", []):
+        annotations = passage.get("annotations", [])
+        if not isinstance(annotations, list):
+            raise CorpusAdapterError("BioC passage annotations must be an array")
+        for annotation_index, annotation in enumerate(annotations):
             if not isinstance(annotation, dict):
+                diagnostics.add(
+                    "warning",
+                    "BIOC_ANNOTATION_INVALID",
+                    "BioC annotation must be an object",
+                    action="dropped",
+                    record_id=document_id,
+                    location=f"passages[{passage_index}].annotations[{annotation_index}]",
+                )
                 continue
-            identifier = str(annotation.get("id") or len(entities))
-            locations = annotation.get("locations", [])
-            location = locations[0] if isinstance(locations, list) and locations else {}
-            if not isinstance(location, dict):
-                continue
-            start, length = (
-                int(location.get("offset", 0)),
-                int(location.get("length", 0)),
+            source_identifier_value = annotation.get("id")
+            identifier = str(
+                source_identifier_value or f"__missing_annotation_id_{len(entities)}"
             )
+            if source_identifier_value is None:
+                diagnostics.add(
+                    "warning",
+                    "BIOC_ANNOTATION_ID_MISSING",
+                    (
+                        "Annotation has no source identifier; assigned a scoped "
+                        "synthetic ID"
+                    ),
+                    action="repaired",
+                    record_id=document_id,
+                    annotation_id=identifier,
+                )
+            locations = annotation.get("locations", [])
+            location = _bioc_json_location(
+                locations,
+                identifier,
+                document_id,
+                diagnostics,
+                location_policy=location_policy,
+            )
+            if location is None:
+                continue
+            start, length = location
             value = annotation.get("text")
-            entities[identifier] = SourceTextSpan(
-                start, start + length, value if isinstance(value, str) else None
+            span = SourceTextSpan(
+                start,
+                start + length,
+                value if isinstance(value, str) else None,
             )
             infons = annotation.get("infons", {})
-            roles[identifier] = (
-                _role(str(infons.get("type", ""))) if isinstance(infons, dict) else ""
+            entities.append(
+                _BioCEntity(
+                    identifier,
+                    identifier,
+                    span,
+                    _annotation_role(
+                        str(source_identifier_value)
+                        if source_identifier_value is not None
+                        else None,
+                        infons if isinstance(infons, dict) else {},
+                    ),
+                    len(entities),
+                )
             )
-            max_end = max(max_end, start + length)
-        for relation in passage.get("relations", []):
-            if isinstance(relation, dict):
-                nodes = relation.get("nodes", [])
-                if isinstance(nodes, list):
-                    role_ids = {
-                        _role(str(node.get("role", ""))): str(node.get("refid"))
-                        for node in nodes
-                        if isinstance(node, dict)
-                    }
-                    if role_ids.get("short") and role_ids.get("long"):
-                        all_relations.append((role_ids["short"], role_ids["long"]))
-    chars = [" "] * max_end
-    for start, value in passage_values:
-        chars[start : start + len(value)] = value
-    for span in entities.values():
-        if span.text is not None and span.start is not None and span.end is not None:
-            chars[span.start : span.end] = span.text
-    return "".join(chars), _pair_entities(entities, roles, all_relations, variant)
+        relations = passage.get("relations", [])
+        if not isinstance(relations, list):
+            raise CorpusAdapterError("BioC passage relations must be an array")
+        relation_nodes_present = relation_nodes_present or bool(relations)
+        all_relations.extend(
+            _relations_json(relations, document_id, diagnostics, passage_index)
+        )
+    text, overlaps = _render_bioc_passages(tuple(passage_values))
+    for overlap_location, message in overlaps:
+        diagnostics.add(
+            "warning",
+            "BIOC_PASSAGE_TEXT_OVERLAP",
+            message,
+            record_id=document_id,
+            location=overlap_location,
+        )
+    for entity in entities:
+        _diagnose_annotation_text(
+            entity.span,
+            entity.span.text,
+            text,
+            diagnostics,
+            document_id,
+            entity.source_identifier,
+        )
+    if text_policy == "overlay_annotation_text":
+        chars = list(text)
+        changed = False
+        for entity in entities:
+            if entity.span.text is not None:
+                assert entity.span.start is not None and entity.span.end is not None
+                if len(entity.span.text) == entity.span.end - entity.span.start:
+                    chars[entity.span.start : entity.span.end] = entity.span.text
+                    changed = True
+        text = "".join(chars)
+        if changed:
+            transformations.append("bioc_annotation_text_overlay: equal-length text")
+    return (
+        text,
+        _pair_entities(
+            entities,
+            all_relations,
+            variant,
+            document_id,
+            diagnostics,
+            relation_nodes_present=relation_nodes_present,
+            pairing_policy=pairing_policy,
+        ),
+        tuple(transformations),
+    )
 
 
 def _infons_xml(annotation: ET.Element) -> dict[str, str]:
@@ -625,34 +885,230 @@ def _infons_xml(annotation: ET.Element) -> dict[str, str]:
     }
 
 
-def _relations_xml(document: ET.Element) -> list[tuple[str, str]]:
+def _relations_xml(
+    document: ET.Element, document_id: str, diagnostics: DiagnosticsCollector
+) -> list[tuple[str, str]]:
     result: list[tuple[str, str]] = []
-    for relation in document.iter("relation"):
+    for index, relation in enumerate(document.iter("relation")):
         nodes = relation.findall("node")
-        ids = {_role(node.get("role", "")): node.get("refid", "") for node in nodes}
-        if ids.get("short") and ids.get("long"):
-            result.append((ids["short"], ids["long"]))
+        ids = _relation_ids(
+            tuple(
+                (
+                    _role(node.get("role", "")),
+                    node.get("refid", ""),
+                )
+                for node in nodes
+            ),
+            document_id,
+            diagnostics,
+            f"relations[{index}]",
+        )
+        if ids is not None:
+            result.append(ids)
     return result
 
 
+def _relations_json(
+    relations: list[object],
+    document_id: str,
+    diagnostics: DiagnosticsCollector,
+    passage_index: int,
+) -> list[tuple[str, str]]:
+    result: list[tuple[str, str]] = []
+    for relation_index, relation in enumerate(relations):
+        if not isinstance(relation, dict):
+            diagnostics.add(
+                "warning",
+                "BIOC_RELATION_INVALID",
+                "BioC relation must be an object",
+                action="dropped",
+                record_id=document_id,
+                location=f"passages[{passage_index}].relations[{relation_index}]",
+            )
+            continue
+        nodes = relation.get("nodes", [])
+        if not isinstance(nodes, list):
+            diagnostics.add(
+                "warning",
+                "BIOC_RELATION_INVALID",
+                "BioC relation nodes must be an array",
+                action="dropped",
+                record_id=document_id,
+                location=f"passages[{passage_index}].relations[{relation_index}]",
+            )
+            continue
+        parsed_nodes: list[tuple[str, str]] = []
+        for node in nodes:
+            if isinstance(node, dict):
+                parsed_nodes.append(
+                    (_role(str(node.get("role", ""))), str(node.get("refid", "")))
+                )
+        parsed = _relation_ids(
+            tuple(parsed_nodes),
+            document_id,
+            diagnostics,
+            f"passages[{passage_index}].relations[{relation_index}]",
+        )
+        if parsed is not None:
+            result.append(parsed)
+    return result
+
+
+def _relation_ids(
+    nodes: tuple[tuple[str, str], ...],
+    document_id: str,
+    diagnostics: DiagnosticsCollector,
+    location: str,
+) -> tuple[str, str] | None:
+    shorts = [refid for role, refid in nodes if role == "short" and refid]
+    longs = [refid for role, refid in nodes if role == "long" and refid]
+    if len(shorts) == 1 and len(longs) == 1:
+        return shorts[0], longs[0]
+    diagnostics.add(
+        "warning",
+        "BIOC_RELATION_INVALID",
+        "BioC relation must contain exactly one short and one long endpoint",
+        action="dropped",
+        record_id=document_id,
+        location=location,
+        details=(
+            ("short_endpoints", str(len(shorts))),
+            ("long_endpoints", str(len(longs))),
+        ),
+    )
+    return None
+
+
 def _pair_entities(
-    entities: Mapping[str, SourceTextSpan],
-    roles: Mapping[str, str],
+    entities: list[_BioCEntity],
     relations: Iterable[tuple[str, str]],
     variant: str,
+    document_id: str,
+    diagnostics: DiagnosticsCollector,
+    *,
+    relation_nodes_present: bool,
+    pairing_policy: BioCPairingPolicy,
 ) -> tuple[ParsedSourceAnnotation, ...]:
-    pairs = list(relations)
-    if not pairs:
-        shorts = [key for key, role in roles.items() if role == "short"]
-        longs = [key for key, role in roles.items() if role == "long"]
-        pairs = list(zip(shorts, longs, strict=False))
-    return tuple(
-        ParsedSourceAnnotation(
-            f"{variant}-{index}", entities.get(short), entities.get(long)
+    relations_list = list(relations)
+    by_id: dict[str, list[_BioCEntity]] = {}
+    for entity in entities:
+        by_id.setdefault(entity.identifier, []).append(entity)
+    for identifier, matches in by_id.items():
+        if len(matches) > 1:
+            diagnostics.add(
+                "warning",
+                "BIOC_DUPLICATE_ANNOTATION_ID",
+                (
+                    f"Source annotation ID {identifier!r} occurs more than once; "
+                    "relation lookup is ambiguous"
+                ),
+                record_id=document_id,
+                annotation_id=identifier,
+                details=(("occurrences", str(len(matches))),),
+            )
+
+    output: list[ParsedSourceAnnotation] = []
+    referenced: set[int] = set()
+    if relations_list:
+        for index, (short_id, long_id) in enumerate(relations_list):
+            short_matches = by_id.get(short_id, [])
+            long_matches = by_id.get(long_id, [])
+            if len(short_matches) != 1 or len(long_matches) != 1:
+                diagnostics.add(
+                    "warning",
+                    "BIOC_RELATION_ENDPOINT_UNRESOLVED",
+                    (
+                        "Relation endpoint is missing or has a duplicate source ID; "
+                        "relation not paired"
+                    ),
+                    action="dropped",
+                    record_id=document_id,
+                    details=(
+                        ("short_refid", short_id),
+                        ("long_refid", long_id),
+                        ("short_matches", str(len(short_matches))),
+                        ("long_matches", str(len(long_matches))),
+                    ),
+                )
+                continue
+            short_entity, long_entity = short_matches[0], long_matches[0]
+            referenced.update((short_entity.ordinal, long_entity.ordinal))
+            output.append(
+                ParsedSourceAnnotation(
+                    f"{variant}-{index}", short_entity.span, long_entity.span
+                )
+            )
+    elif not relation_nodes_present and pairing_policy == "relations_or_order_fallback":
+        shorts = [entity for entity in entities if entity.role == "short"]
+        longs = [entity for entity in entities if entity.role == "long"]
+        pair_count = min(len(shorts), len(longs))
+        if shorts or longs:
+            diagnostics.add(
+                "info",
+                "BIOC_ORDER_FALLBACK_USED",
+                (
+                    "No BioC relation nodes were present; paired source entities "
+                    "by order under the named historical policy"
+                ),
+                record_id=document_id,
+                details=(
+                    ("short_entities", str(len(shorts))),
+                    ("long_entities", str(len(longs))),
+                    ("paired_entities", str(pair_count)),
+                ),
+            )
+        for index in range(pair_count):
+            short_entity, long_entity = shorts[index], longs[index]
+            referenced.update((short_entity.ordinal, long_entity.ordinal))
+            output.append(
+                ParsedSourceAnnotation(
+                    f"{variant}-fallback-{index}",
+                    short_entity.span,
+                    long_entity.span,
+                )
+            )
+    elif entities and not relation_nodes_present:
+        diagnostics.add(
+            "info",
+            "BIOC_RELATIONS_ABSENT",
+            (
+                "No BioC relation nodes were present; source entities were "
+                "retained independently"
+            ),
+            record_id=document_id,
         )
-        for index, (short, long) in enumerate(pairs)
-        if short in entities and long in entities
-    )
+
+    for entity in entities:
+        if entity.ordinal in referenced:
+            continue
+        if entity.role not in {"short", "long"}:
+            diagnostics.add(
+                "warning",
+                "BIOC_UNPAIRED_ENTITY",
+                "Source annotation was not paired and its role is not scoreable",
+                action="dropped",
+                record_id=document_id,
+                annotation_id=entity.source_identifier,
+            )
+            continue
+        diagnostics.add(
+            "warning",
+            "BIOC_UNPAIRED_ENTITY",
+            (
+                "Source short/long annotation has no paired counterpart; retained "
+                "as a partial annotation"
+            ),
+            record_id=document_id,
+            annotation_id=entity.source_identifier,
+        )
+        output.append(
+            ParsedSourceAnnotation(
+                f"{variant}-unpaired-{entity.ordinal}",
+                entity.span if entity.role == "short" else None,
+                entity.span if entity.role == "long" else None,
+            )
+        )
+    return tuple(output)
 
 
 def _role(value: str) -> str:
@@ -662,6 +1118,259 @@ def _role(value: str) -> str:
     if normalized in {"long", "long form", "longform", "expansion", "lf"}:
         return "long"
     return normalized
+
+
+def _annotation_role(identifier: str | None, infons: Mapping[str, object]) -> str:
+    """Resolve a source entity role without treating arbitrary IDs as proof."""
+
+    raw_type = infons.get("type", "")
+    role = _role(str(raw_type))
+    if role in {"short", "long"}:
+        return role
+    if identifier is not None:
+        prefix = identifier.upper()
+        if prefix.startswith(("SF", "LF")):
+            return "short" if prefix.startswith("SF") else "long"
+    return role
+
+
+def _bioc_xml_span(
+    annotation: ET.Element,
+    document_id: str,
+    diagnostics: DiagnosticsCollector,
+    *,
+    location_policy: BioCLocationPolicy,
+) -> SourceTextSpan | None:
+    locations = annotation.findall("location")
+    identifier = annotation.get("id")
+    if not locations:
+        diagnostics.add(
+            "warning",
+            "BIOC_ANNOTATION_LOCATION_MISSING",
+            "BioC annotation has no location and was not mapped to a canonical span",
+            action="dropped",
+            record_id=document_id,
+            annotation_id=identifier,
+        )
+        return None
+    if len(locations) > 1:
+        diagnostics.add(
+            "warning",
+            "BIOC_MULTIPLE_LOCATIONS",
+            (
+                "BioC annotation has discontinuous locations; the configured "
+                "location policy was applied"
+            ),
+            action="dropped",
+            record_id=document_id,
+            annotation_id=identifier,
+            details=(
+                ("location_count", str(len(locations))),
+                ("policy", location_policy),
+                (
+                    "locations",
+                    ";".join(
+                        f"{item.get('offset', '')}:{item.get('length', '')}"
+                        for item in locations
+                    ),
+                ),
+            ),
+        )
+        if location_policy == "reject_discontinuous":
+            return None
+    location = locations[0]
+    try:
+        start = int(location.get("offset", "0"))
+        length = int(location.get("length", "0"))
+    except (TypeError, ValueError) as error:
+        diagnostics.add(
+            "warning",
+            "BIOC_ANNOTATION_LOCATION_INVALID",
+            f"BioC annotation location is not integer-valued: {error}",
+            action="dropped",
+            record_id=document_id,
+            annotation_id=identifier,
+        )
+        return None
+    if start < 0 or length < 0:
+        diagnostics.add(
+            "warning",
+            "BIOC_ANNOTATION_LOCATION_INVALID",
+            "BioC annotation location must have non-negative offset and length",
+            action="dropped",
+            record_id=document_id,
+            annotation_id=identifier,
+        )
+        return None
+    return SourceTextSpan(start, start + length, annotation.findtext("text"))
+
+
+def _bioc_json_location(
+    locations: object,
+    identifier: str,
+    document_id: str,
+    diagnostics: DiagnosticsCollector,
+    *,
+    location_policy: BioCLocationPolicy,
+) -> tuple[int, int] | None:
+    if not isinstance(locations, list) or not locations:
+        diagnostics.add(
+            "warning",
+            "BIOC_ANNOTATION_LOCATION_MISSING",
+            "BioC annotation has no location and was not mapped to a canonical span",
+            action="dropped",
+            record_id=document_id,
+            annotation_id=identifier,
+        )
+        return None
+    if len(locations) > 1:
+        diagnostics.add(
+            "warning",
+            "BIOC_MULTIPLE_LOCATIONS",
+            (
+                "BioC annotation has discontinuous locations; the configured "
+                "location policy was applied"
+            ),
+            action="dropped",
+            record_id=document_id,
+            annotation_id=identifier,
+            details=(
+                ("location_count", str(len(locations))),
+                ("policy", location_policy),
+            ),
+        )
+        if location_policy == "reject_discontinuous":
+            return None
+    location = locations[0]
+    if not isinstance(location, dict):
+        diagnostics.add(
+            "warning",
+            "BIOC_ANNOTATION_LOCATION_INVALID",
+            "BioC annotation location must be an object",
+            action="dropped",
+            record_id=document_id,
+            annotation_id=identifier,
+        )
+        return None
+    offset, length = location.get("offset", 0), location.get("length", 0)
+    if (
+        isinstance(offset, bool)
+        or isinstance(length, bool)
+        or not isinstance(offset, int)
+        or not isinstance(length, int)
+        or offset < 0
+        or length < 0
+    ):
+        diagnostics.add(
+            "warning",
+            "BIOC_ANNOTATION_LOCATION_INVALID",
+            "BioC annotation location must have non-negative integer offset and length",
+            action="dropped",
+            record_id=document_id,
+            annotation_id=identifier,
+        )
+        return None
+    return offset, length
+
+
+def _diagnose_annotation_text(
+    span: SourceTextSpan,
+    annotation_text: str | None,
+    document_text: str,
+    diagnostics: DiagnosticsCollector,
+    document_id: str,
+    identifier: str | None,
+) -> None:
+    if annotation_text is None or span.start is None or span.end is None:
+        return
+    observed = document_text[span.start : span.end]
+    if observed == annotation_text:
+        return
+    diagnostics.add(
+        "warning",
+        "BIOC_ANNOTATION_TEXT_MISMATCH",
+        (
+            "BioC annotation text differs from source document text; source text "
+            "was preserved"
+        ),
+        record_id=document_id,
+        annotation_id=identifier,
+        details=(
+            ("source_text", annotation_text),
+            ("document_text", observed),
+        ),
+    )
+
+
+def _render_bioc_passages(
+    passages: tuple[tuple[int, str], ...],
+) -> tuple[str, tuple[tuple[str, str], ...]]:
+    """Render absolute-offset BioC passages without annotation-text overlay."""
+
+    if not passages:
+        return "", ()
+    max_end = max(offset + len(value) for offset, value in passages)
+    if any(offset < 0 for offset, _ in passages):
+        raise CorpusAdapterError("BioC passage offsets must be non-negative")
+    chars = [" "] * max_end
+    occupied = [False] * max_end
+    overlaps: list[tuple[str, str]] = []
+    for passage_index, (offset, value) in enumerate(passages):
+        for relative, character in enumerate(value):
+            position = offset + relative
+            existing = chars[position]
+            if occupied[position] and existing != character:
+                overlaps.append(
+                    (
+                        f"passages[{passage_index}]",
+                        (
+                            "BioC passages overlap with conflicting source text; "
+                            "earlier text was preserved"
+                        ),
+                    )
+                )
+                continue
+            chars[position] = character
+            occupied[position] = True
+    return "".join(chars), tuple(overlaps)
+
+
+def _overlay_annotation_text(
+    text: str, annotations: Iterable[ParsedSourceAnnotation]
+) -> tuple[str, bool]:
+    """Apply only equal-length annotation text overlays as a named repair."""
+
+    chars = list(text)
+    changed = False
+    for annotation in annotations:
+        for span, value in (
+            (
+                annotation.short_form,
+                annotation.short_form.text if annotation.short_form else None,
+            ),
+            (
+                annotation.long_form,
+                annotation.long_form.text if annotation.long_form else None,
+            ),
+        ):
+            if span is None or value is None or span.start is None or span.end is None:
+                continue
+            if len(value) != span.end - span.start:
+                continue
+            chars[span.start : span.end] = value
+            changed = True
+    return "".join(chars), changed
+
+
+def _integer_text(value: str | None, *, default: int) -> int:
+    if value is None or not value.strip():
+        return default
+    try:
+        return int(value)
+    except ValueError as error:
+        raise CorpusAdapterError(
+            f"BioC passage offset must be an integer: {value!r}"
+        ) from error
 
 
 def _sdu_record(

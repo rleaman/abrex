@@ -1,6 +1,6 @@
 # T019 Audit historical corpus semantics and prevent silent annotation changes
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: A.
+Status: Complete for engineering and local-source audit scope. Assigned implementer: GPT-5.6 Luna. Milestone: A.
 
 ## Outcome
 

@@ -26,10 +26,18 @@ def register_builtin_components() -> None:
     if "fixture" not in CORPUS_ADAPTERS:
         CORPUS_ADAPTERS.register("fixture", FixtureCorpusAdapter)
     historical: dict[str, Callable[..., CorpusAdapter]] = {
-        "schwartz_hearst": lambda: BioCCorpusAdapter(dataset_variant="schwartz_hearst"),
-        "ab3p_corpus": lambda: BioCCorpusAdapter(dataset_variant="ab3p_corpus"),
-        "bioadi": lambda: BioCCorpusAdapter(dataset_variant="bioadi"),
-        "medstract": lambda: BioCCorpusAdapter(dataset_variant="medstract"),
+        "schwartz_hearst": lambda **params: BioCCorpusAdapter(
+            dataset_variant="schwartz_hearst", **params
+        ),
+        "ab3p_corpus": lambda **params: BioCCorpusAdapter(
+            dataset_variant="ab3p_corpus", **params
+        ),
+        "bioadi": lambda **params: BioCCorpusAdapter(
+            dataset_variant="bioadi", **params
+        ),
+        "medstract": lambda **params: BioCCorpusAdapter(
+            dataset_variant="medstract", **params
+        ),
         "sdu_aaai21_ai": lambda: SDUAcronymIdentificationAdapter(
             dataset_variant="sdu_aaai21_ai"
         ),

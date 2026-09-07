@@ -105,6 +105,19 @@ The [completion plan](project-completion-plan.md) turns these findings into boun
 
 The user supplied a sibling NCBITextLib source tree. Its README, include/, lib/ and applications/ were inspected; the September 6 dependency-availability statements above remain historical. T018 now uses this copy and builds in a writable task-owned location. No compilation was performed in this plan revision.
 
+## T019 implementation evidence (September 7, 2026)
+
+T019 now provides typed per-variant semantics, named BioC pairing/text/location
+policies, structured diagnostics for source loss and ambiguity, and a compact
+real-source audit artifact. The four original BioC sources and the three local
+SDU training variants were built through the canonical pipeline. The audit
+records source and canonical SHA-256 fingerprints, raw source-unit counts,
+processed counts, eligible metric and scoreable-unit counts. It confirms that
+SDU@AAAI-22 AE remains independent-span evaluation and SDU@AAAI-21 AD is not a
+local exact-pair benchmark. The BADREX-corrected variants remain excluded by
+the settled decision. Scientific validation of benchmark quality and any
+license restrictions remains open.
+
 The user identified missing explicit dictionary-acquisition and large-scale document-selection work. T046 now covers external resources beginning with ADAM; T047 selects the discovery/training and tagged-release corpus. The revised plan has 31 assignments, T017–T047, with T046/T047 scheduled by dependency rather than numeric order.
 
 ## September 7 resource CSV follow-up

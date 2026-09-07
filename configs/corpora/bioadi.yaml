@@ -4,7 +4,10 @@ project:
 corpus:
   adapter:
     type: bioadi
-    params: {}
+    params:
+      pairing_policy: relations_or_order_fallback
+      text_policy: preserve_source
+      location_policy: first_location
   source:
     identifier: bioadi
     location: data/raw/historical/bioadi/bioadi_bioc_gold.xml
@@ -13,6 +16,15 @@ corpus:
     - type: identity
       params: {}
   strict: false
+  semantics:
+    annotation_unit: paired_definition
+    relation_policy: relations_or_order_fallback
+    coordinate_convention: unicode_python_half_open
+    official_split: corpus_defined
+    eligible_metric: exact_pair
+    source_status: user_managed_local
+    source_version: BioC archive as acquired; raw-file fingerprint is recorded at build time
+    license_status: source terms require local review
   output:
     directory: data/processed/bioadi
     jsonl: canonical.jsonl

@@ -20,6 +20,18 @@ Each command uses the shared adapter, normalization, validation, and T004
 canonical serialization path. It writes `canonical.jsonl` and `manifest.json`
 under the configured `data/processed/<corpus-or-variant>/` directory.
 
+Every current historical configuration also declares a typed `semantics`
+section. It records the annotation unit, source relation policy, coordinate
+convention, official split, licensing/source status and eligible metric. Run
+the T019 source-to-canonical audit after acquiring local sources:
+
+```console
+python scripts/audit_historical_corpora.py --output docs/artifacts/historical-corpus-audit.json
+```
+
+The checked-in audit artifact is a compact inspection report; the full
+diagnostic stream remains in each ignored processed manifest.
+
 The configuration-driven convenience command composes the same single-corpus
 operation for all currently available historical corpora:
 

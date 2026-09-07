@@ -65,6 +65,42 @@ annotation locations are document character offsets; `ShortForm`/`LongForm`
 entities are paired through BioC relation nodes, with deterministic fallback
 pairing by entity order when no relations are present.
 
+T019 makes the BioC choices explicit through three adapter parameters:
+
+```yaml
+params:
+  pairing_policy: relations_or_order_fallback
+  text_policy: preserve_source
+  location_policy: first_location
+```
+
+`relations_or_order_fallback` is a named policy for the original BioC
+benchmark exports only. It uses order pairing only when a document has no
+relation nodes, and emits `BIOC_ORDER_FALLBACK_USED`. `relations_only` retains
+unpaired source entities as partial annotations. Dangling or ambiguous
+relation endpoints, duplicate source IDs, unequal fallback lists, unpaired
+entities, invalid locations and discontinuous locations all emit structured
+diagnostics; no endpoint or extra entity is silently discarded.
+
+`preserve_source` is the default text policy. Annotation-captured text is
+provenance, not an instruction to rewrite resolver input. The optional
+`overlay_annotation_text` policy is restricted to equal-length overlays and
+records `bioc_annotation_text_overlay` in record provenance, producing a
+distinct canonical fingerprint. `first_location` is retained for the legacy
+single-span domain model but reports every multi-location annotation and its
+source locations; `reject_discontinuous` drops that annotation with a
+diagnostic instead.
+
+The reproducible real-source audit is run with:
+
+```console
+python scripts/audit_historical_corpora.py --output docs/artifacts/historical-corpus-audit.json
+```
+
+The report contains source SHA-256 values, raw source-unit counts, parsed and
+canonical counts, diagnostic counts, semantic configuration and artifact
+fingerprints. Raw and generated canonical data remain outside version control.
+
 The BADREX-corrected Schwartz & Hearst and MEDSTRACT variants are unavailable
 and are not registered. Follow the [settled availability decision](badrex-availability.md);
 their absence does not require investigation during routine work.

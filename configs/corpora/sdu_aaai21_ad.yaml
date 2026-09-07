@@ -15,6 +15,15 @@ corpus:
     - type: identity
       params: {}
   strict: false
+  semantics:
+    annotation_unit: acronym_with_text_expansion
+    relation_policy: acronym_index_plus_expansion_text
+    coordinate_convention: acronym_unicode_python_half_open; expansion_has_no_document_span
+    official_split: train (dev is available; test labels are not supplied)
+    eligible_metric: not_scoreable
+    source_status: user_managed_local
+    source_version: AAAI-21 SDU shared-task dataset
+    license_status: repository terms require local review
   output:
     directory: data/processed/sdu_aaai21_ad
     jsonl: canonical.jsonl

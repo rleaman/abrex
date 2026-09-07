@@ -43,6 +43,12 @@ def test_every_committed_historical_config_loads_and_resolves() -> None:
         assert corpus.source.location.parts[:2] == ("data", "raw")
         assert corpus.normalizers
         assert corpus.strict is False
+        assert corpus.semantics is not None
+        assert corpus.semantics.eligible_metric in {
+            "exact_pair",
+            "exact_span",
+            "not_scoreable",
+        }
         assert corpus.output is not None
         assert corpus.output.directory.parts[:2] == ("data", "processed")
         pipeline = create_corpus_pipeline(corpus)

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path, PurePosixPath, PureWindowsPath
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -83,6 +84,25 @@ class CorpusOutputConfig(BaseModel):
         return self.directory / self.manifest
 
 
+class CorpusSemanticsConfig(BaseModel):
+    """Scientific contract metadata for one historical benchmark variant."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    annotation_unit: Literal[
+        "paired_definition", "independent_spans", "acronym_with_text_expansion"
+    ]
+    relation_policy: str = "not_applicable"
+    coordinate_convention: str = "unicode_python_half_open"
+    official_split: str = "unspecified"
+    eligible_metric: Literal["exact_pair", "exact_span", "not_scoreable"]
+    source_status: Literal["user_managed_local", "unavailable_settled"] = (
+        "user_managed_local"
+    )
+    source_version: str | None = None
+    license_status: str = "source_terms_require_review"
+
+
 class CorpusConfig(BaseModel):
     """Typed YAML configuration for one adapter and normalizer sequence."""
 
@@ -95,6 +115,7 @@ class CorpusConfig(BaseModel):
     normalizers: tuple[ComponentSpec, ...] = ()
     strict: bool = False
     output: CorpusOutputConfig | None = None
+    semantics: CorpusSemanticsConfig | None = None
 
 
 class CorpusBuildGroupConfig(BaseModel):
@@ -167,6 +188,7 @@ __all__ = [
     "CorpusBuildGroupConfig",
     "CorpusBuildGroupsConfig",
     "CorpusOutputConfig",
+    "CorpusSemanticsConfig",
     "SourceResourceConfig",
     "corpus_config_from_resolved",
     "create_corpus_pipeline",

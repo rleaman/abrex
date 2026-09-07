@@ -1,0 +1,445 @@
+{
+  "configs": [
+    "configs\\corpora\\ab3p.yaml",
+    "configs\\corpora\\bioadi.yaml",
+    "configs\\corpora\\medstract.yaml",
+    "configs\\corpora\\schwartz_hearst.yaml",
+    "configs\\corpora\\sdu_aaai21_ad.yaml",
+    "configs\\corpora\\sdu_aaai21_ai.yaml",
+    "configs\\corpora\\sdu_aaai22_ae.yaml"
+  ],
+  "entries": [
+    {
+      "adapter": {
+        "identity": "ab3p_corpus",
+        "policy_identity": "pairing=relations_or_order_fallback:text=preserve_source:locations=first_location",
+        "version": "2"
+      },
+      "artifacts": {
+        "canonical_jsonl": "data\\processed\\ab3p_corpus\\canonical.jsonl",
+        "canonical_jsonl_sha256": "0e26c9ec4fcaf36721ddffdc9318e2f53c73f651fb24b46ce7e161520ef6d41d",
+        "manifest": "data\\processed\\ab3p_corpus\\manifest.json"
+      },
+      "config": "configs\\corpora\\ab3p.yaml",
+      "counts": {
+        "canonical_annotations": 1174,
+        "canonical_records": 1237,
+        "diagnostics": 60,
+        "diagnostics_by_code": {
+          "BIOC_ANNOTATION_TEXT_MISMATCH": 23,
+          "BIOC_MULTIPLE_LOCATIONS": 23,
+          "BIOC_SOURCE_PARSED": 1,
+          "RECORD_DROPPED": 13
+        },
+        "eligible_metric": "exact_pair",
+        "eligible_scoreable_units": 1174,
+        "parsed_annotations_emitted": 1223,
+        "raw_records_parsed": 1250,
+        "validation": {
+          "ambiguous": 2,
+          "records_dropped": 13,
+          "records_kept": 1237,
+          "records_seen": 1250,
+          "repaired": 0,
+          "unscoreable": 0
+        }
+      },
+      "dataset_id": "ab3p_corpus",
+      "raw_inventory": {
+        "annotation_nodes": 2446,
+        "discontinuous_annotations": 23,
+        "location_nodes": 2470,
+        "records": 1250,
+        "records_with_duplicate_annotation_ids": 0,
+        "relation_nodes": 1223
+      },
+      "semantics": {
+        "annotation_unit": "paired_definition",
+        "coordinate_convention": "unicode_python_half_open",
+        "eligible_metric": "exact_pair",
+        "license_status": "source terms require local review",
+        "official_split": "corpus_defined",
+        "relation_policy": "relations_or_order_fallback",
+        "source_status": "user_managed_local",
+        "source_version": "BioC archive as acquired; raw-file fingerprint is recorded at build time"
+      },
+      "source": {
+        "format": "xml",
+        "identifier": "ab3p_corpus",
+        "path": "data\\raw\\historical\\ab3p_corpus\\Ab3P_bioc_gold.xml",
+        "sha256": "1ebbd44bd1c00c685857bff79a0b2c1d6b43d33a9b87dfc3f35eeb6339e69219"
+      },
+      "status": "built"
+    },
+    {
+      "adapter": {
+        "identity": "bioadi",
+        "policy_identity": "pairing=relations_or_order_fallback:text=preserve_source:locations=first_location",
+        "version": "2"
+      },
+      "artifacts": {
+        "canonical_jsonl": "data\\processed\\bioadi\\canonical.jsonl",
+        "canonical_jsonl_sha256": "a025a0d44718436cd893dd02f74b0a21c84e8bbf0ab71334ec0729ac2fa4024e",
+        "manifest": "data\\processed\\bioadi\\manifest.json"
+      },
+      "config": "configs\\corpora\\bioadi.yaml",
+      "counts": {
+        "canonical_annotations": 1670,
+        "canonical_records": 1185,
+        "diagnostics": 59,
+        "diagnostics_by_code": {
+          "BIOC_ANNOTATION_TEXT_MISMATCH": 28,
+          "BIOC_MULTIPLE_LOCATIONS": 14,
+          "BIOC_SOURCE_PARSED": 1,
+          "RECORD_DROPPED": 16
+        },
+        "eligible_metric": "exact_pair",
+        "eligible_scoreable_units": 1670,
+        "parsed_annotations_emitted": 1720,
+        "raw_records_parsed": 1201,
+        "validation": {
+          "ambiguous": 36,
+          "records_dropped": 16,
+          "records_kept": 1185,
+          "records_seen": 1201,
+          "repaired": 0,
+          "unscoreable": 0
+        }
+      },
+      "dataset_id": "bioadi",
+      "raw_inventory": {
+        "annotation_nodes": 3440,
+        "discontinuous_annotations": 14,
+        "location_nodes": 3454,
+        "records": 1201,
+        "records_with_duplicate_annotation_ids": 0,
+        "relation_nodes": 1720
+      },
+      "semantics": {
+        "annotation_unit": "paired_definition",
+        "coordinate_convention": "unicode_python_half_open",
+        "eligible_metric": "exact_pair",
+        "license_status": "source terms require local review",
+        "official_split": "corpus_defined",
+        "relation_policy": "relations_or_order_fallback",
+        "source_status": "user_managed_local",
+        "source_version": "BioC archive as acquired; raw-file fingerprint is recorded at build time"
+      },
+      "source": {
+        "format": "xml",
+        "identifier": "bioadi",
+        "path": "data\\raw\\historical\\bioadi\\bioadi_bioc_gold.xml",
+        "sha256": "2adb6f1be0cc415a5a1f862674c2b0ebaaadcc06f5a47c6abc1c91c6ae5d8be5"
+      },
+      "status": "built"
+    },
+    {
+      "adapter": {
+        "identity": "medstract",
+        "policy_identity": "pairing=relations_or_order_fallback:text=preserve_source:locations=first_location",
+        "version": "2"
+      },
+      "artifacts": {
+        "canonical_jsonl": "data\\processed\\medstract\\canonical.jsonl",
+        "canonical_jsonl_sha256": "008bde7d4a2730fbdd37635a39c23627a2e7e5d5f0bafd2950c16058945f55a2",
+        "manifest": "data\\processed\\medstract\\manifest.json"
+      },
+      "config": "configs\\corpora\\medstract.yaml",
+      "counts": {
+        "canonical_annotations": 156,
+        "canonical_records": 197,
+        "diagnostics": 4,
+        "diagnostics_by_code": {
+          "BIOC_ANNOTATION_TEXT_MISMATCH": 1,
+          "BIOC_MULTIPLE_LOCATIONS": 1,
+          "BIOC_SOURCE_PARSED": 1,
+          "RECORD_DROPPED": 1
+        },
+        "eligible_metric": "exact_pair",
+        "eligible_scoreable_units": 156,
+        "parsed_annotations_emitted": 159,
+        "raw_records_parsed": 198,
+        "validation": {
+          "ambiguous": 0,
+          "records_dropped": 1,
+          "records_kept": 197,
+          "records_seen": 198,
+          "repaired": 0,
+          "unscoreable": 0
+        }
+      },
+      "dataset_id": "medstract",
+      "raw_inventory": {
+        "annotation_nodes": 318,
+        "discontinuous_annotations": 1,
+        "location_nodes": 319,
+        "records": 198,
+        "records_with_duplicate_annotation_ids": 0,
+        "relation_nodes": 159
+      },
+      "semantics": {
+        "annotation_unit": "paired_definition",
+        "coordinate_convention": "unicode_python_half_open",
+        "eligible_metric": "exact_pair",
+        "license_status": "source terms require local review",
+        "official_split": "corpus_defined",
+        "relation_policy": "relations_or_order_fallback",
+        "source_status": "user_managed_local",
+        "source_version": "BioC archive as acquired; raw-file fingerprint is recorded at build time"
+      },
+      "source": {
+        "format": "xml",
+        "identifier": "medstract",
+        "path": "data\\raw\\historical\\medstract\\medstract_bioc_gold.xml",
+        "sha256": "f9309a8192ee5595fdf0de8781fbaa223c4d02ffbb9fd9ec5f9c5f4962840ab1"
+      },
+      "status": "built"
+    },
+    {
+      "adapter": {
+        "identity": "schwartz_hearst",
+        "policy_identity": "pairing=relations_or_order_fallback:text=preserve_source:locations=first_location",
+        "version": "2"
+      },
+      "artifacts": {
+        "canonical_jsonl": "data\\processed\\schwartz_hearst\\canonical.jsonl",
+        "canonical_jsonl_sha256": "b727e26732d45ae22391132d1e51f2a592bd16cec925ad8228ef7e7e235079d4",
+        "manifest": "data\\processed\\schwartz_hearst\\manifest.json"
+      },
+      "config": "configs\\corpora\\schwartz_hearst.yaml",
+      "counts": {
+        "canonical_annotations": 944,
+        "canonical_records": 991,
+        "diagnostics": 30,
+        "diagnostics_by_code": {
+          "BIOC_ANNOTATION_TEXT_MISMATCH": 10,
+          "BIOC_MULTIPLE_LOCATIONS": 10,
+          "BIOC_SOURCE_PARSED": 1,
+          "RECORD_DROPPED": 9
+        },
+        "eligible_metric": "exact_pair",
+        "eligible_scoreable_units": 944,
+        "parsed_annotations_emitted": 979,
+        "raw_records_parsed": 1000,
+        "validation": {
+          "ambiguous": 1,
+          "records_dropped": 9,
+          "records_kept": 991,
+          "records_seen": 1000,
+          "repaired": 0,
+          "unscoreable": 0
+        }
+      },
+      "dataset_id": "schwartz_hearst",
+      "raw_inventory": {
+        "annotation_nodes": 1958,
+        "discontinuous_annotations": 10,
+        "location_nodes": 1968,
+        "records": 1000,
+        "records_with_duplicate_annotation_ids": 0,
+        "relation_nodes": 979
+      },
+      "semantics": {
+        "annotation_unit": "paired_definition",
+        "coordinate_convention": "unicode_python_half_open",
+        "eligible_metric": "exact_pair",
+        "license_status": "source terms require local review",
+        "official_split": "corpus_defined",
+        "relation_policy": "relations_or_order_fallback",
+        "source_status": "user_managed_local",
+        "source_version": "BioC archive as acquired; raw-file fingerprint is recorded at build time"
+      },
+      "source": {
+        "format": "xml",
+        "identifier": "schwartz_hearst",
+        "path": "data\\raw\\historical\\schwartz_hearst\\SH_bioc_gold.xml",
+        "sha256": "f7ef9fe66ed96d53c90fea340d61be867acbf1b7dea20faa1b52dc269ee0d3a6"
+      },
+      "status": "built"
+    },
+    {
+      "adapter": {
+        "identity": "sdu_aaai21_ad",
+        "policy_identity": null,
+        "version": "1"
+      },
+      "artifacts": {
+        "canonical_jsonl": "data\\processed\\sdu_aaai21_ad\\canonical.jsonl",
+        "canonical_jsonl_sha256": "8698bf719655a9590ab9308d28082d254189954687f48dd28fb8e8dcaf26017d",
+        "manifest": "data\\processed\\sdu_aaai21_ad\\manifest.json"
+      },
+      "config": "configs\\corpora\\sdu_aaai21_ad.yaml",
+      "counts": {
+        "canonical_annotations": 50034,
+        "canonical_records": 50034,
+        "diagnostics": 0,
+        "diagnostics_by_code": {},
+        "eligible_metric": "not_scoreable",
+        "eligible_scoreable_units": 0,
+        "parsed_annotations_emitted": 50034,
+        "raw_records_parsed": 50034,
+        "validation": {
+          "ambiguous": 0,
+          "records_dropped": 0,
+          "records_kept": 50034,
+          "records_seen": 50034,
+          "repaired": 0,
+          "unscoreable": 50034
+        }
+      },
+      "dataset_id": "sdu_aaai21_ad_train",
+      "raw_inventory": {
+        "annotation_nodes": 50034,
+        "discontinuous_annotations": 0,
+        "location_nodes": 0,
+        "records": 50034,
+        "records_with_duplicate_annotation_ids": 0,
+        "relation_nodes": 0
+      },
+      "semantics": {
+        "annotation_unit": "acronym_with_text_expansion",
+        "coordinate_convention": "acronym_unicode_python_half_open; expansion_has_no_document_span",
+        "eligible_metric": "not_scoreable",
+        "license_status": "repository terms require local review",
+        "official_split": "train (dev is available; test labels are not supplied)",
+        "relation_policy": "acronym_index_plus_expansion_text",
+        "source_status": "user_managed_local",
+        "source_version": "AAAI-21 SDU shared-task dataset"
+      },
+      "source": {
+        "format": "json",
+        "identifier": "sdu_aaai21_ad_train",
+        "path": "data\\raw\\historical\\sdu_aaai21_ad\\train.json",
+        "sha256": "bcc5c855c9c408ff76998db1d5c785c2ecbb694b7311ccb8bc6f2cfe7051266a"
+      },
+      "status": "built"
+    },
+    {
+      "adapter": {
+        "identity": "sdu_aaai21_ai",
+        "policy_identity": null,
+        "version": "1"
+      },
+      "artifacts": {
+        "canonical_jsonl": "data\\processed\\sdu_aaai21_ai\\canonical.jsonl",
+        "canonical_jsonl_sha256": "a45dff7cd2039785b1791b03e0ac82c4bc250ffe1d89596848b93fa149d7376e",
+        "manifest": "data\\processed\\sdu_aaai21_ai\\manifest.json"
+      },
+      "config": "configs\\corpora\\sdu_aaai21_ai.yaml",
+      "counts": {
+        "canonical_annotations": 14006,
+        "canonical_records": 14006,
+        "diagnostics": 0,
+        "diagnostics_by_code": {},
+        "eligible_metric": "exact_pair",
+        "eligible_scoreable_units": 10575,
+        "parsed_annotations_emitted": 14006,
+        "raw_records_parsed": 14006,
+        "validation": {
+          "ambiguous": 0,
+          "records_dropped": 0,
+          "records_kept": 14006,
+          "records_seen": 14006,
+          "repaired": 0,
+          "unscoreable": 3431
+        }
+      },
+      "dataset_id": "sdu_aaai21_ai_train",
+      "raw_inventory": {
+        "annotation_nodes": 37501,
+        "discontinuous_annotations": 0,
+        "location_nodes": 0,
+        "records": 14006,
+        "records_with_duplicate_annotation_ids": 0,
+        "relation_nodes": 0
+      },
+      "semantics": {
+        "annotation_unit": "paired_definition",
+        "coordinate_convention": "reconstructed_unicode_python_half_open",
+        "eligible_metric": "exact_pair",
+        "license_status": "repository terms require local review",
+        "official_split": "train (dev/test are separate official files)",
+        "relation_policy": "token_BIO_labels",
+        "source_status": "user_managed_local",
+        "source_version": "AAAI-21 SDU shared-task dataset"
+      },
+      "source": {
+        "format": "json",
+        "identifier": "sdu_aaai21_ai_train",
+        "path": "data\\raw\\historical\\sdu_aaai21_ai\\train.json",
+        "sha256": "2a48182187235167e8cbfa71e13c5c9882c4cabdefd2148edace2a50ccd8bbcd"
+      },
+      "status": "built"
+    },
+    {
+      "adapter": {
+        "identity": "sdu_aaai22_ae",
+        "policy_identity": null,
+        "version": "2"
+      },
+      "artifacts": {
+        "canonical_jsonl": "data\\processed\\sdu_aaai22_ae\\canonical.jsonl",
+        "canonical_jsonl_sha256": "6e5132dadd684048ca4b29a129f4e5db3784c0329e07edb0823378a44fabfc67",
+        "manifest": "data\\processed\\sdu_aaai22_ae\\manifest.json"
+      },
+      "config": "configs\\corpora\\sdu_aaai22_ae.yaml",
+      "counts": {
+        "canonical_annotations": 13404,
+        "canonical_records": 3980,
+        "diagnostics": 0,
+        "diagnostics_by_code": {},
+        "eligible_metric": "exact_span",
+        "eligible_scoreable_units": 13404,
+        "parsed_annotations_emitted": 13404,
+        "raw_records_parsed": 3980,
+        "validation": {
+          "ambiguous": 1,
+          "records_dropped": 0,
+          "records_kept": 3980,
+          "records_seen": 3980,
+          "repaired": 0,
+          "unscoreable": 13404
+        }
+      },
+      "dataset_id": "sdu_aaai22_ae_english_scientific_train",
+      "raw_inventory": {
+        "annotation_nodes": 13404,
+        "discontinuous_annotations": 0,
+        "location_nodes": 13404,
+        "records": 3980,
+        "records_with_duplicate_annotation_ids": 0,
+        "relation_nodes": 0
+      },
+      "semantics": {
+        "annotation_unit": "independent_spans",
+        "coordinate_convention": "unicode_python_half_open",
+        "eligible_metric": "exact_span",
+        "license_status": "repository terms require local review",
+        "official_split": "English scientific train (dev/test are separate official files)",
+        "relation_policy": "no_pairing_source_lists_are_independent",
+        "source_status": "user_managed_local",
+        "source_version": "AAAI-22 SDU shared-task repository"
+      },
+      "source": {
+        "format": "json",
+        "identifier": "sdu_aaai22_ae_english_scientific_train",
+        "path": "data\\raw\\historical\\sdu_aaai22\\data\\english\\scientific\\train.json",
+        "sha256": "00b8fba7f16d8d0b44c7b21ac7dbdc02106ffc867a6d9a3f166c11fd67143cdf"
+      },
+      "status": "built"
+    }
+  ],
+  "excluded_variants": [
+    {
+      "dataset_id": "schwartz_hearst_badrex",
+      "reason": "docs/badrex-availability.md",
+      "status": "unavailable_settled"
+    },
+    {
+      "dataset_id": "medstract_badrex",
+      "reason": "docs/badrex-availability.md",
+      "status": "unavailable_settled"
+    }
+  ],
+  "schema_version": "historical-corpus-audit-v1"
+}

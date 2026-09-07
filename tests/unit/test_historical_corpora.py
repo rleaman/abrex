@@ -232,7 +232,7 @@ def test_bioc_json_parser_supports_variants_and_reports_bad_structures(
                             },
                             {
                                 "id": "short",
-                                "locations": [{"offset": 7, "length": 1}],
+                                "locations": [{"offset": 6, "length": 1}],
                                 "text": "S",
                                 "infons": {"type": "short_form"},
                             },
@@ -437,3 +437,330 @@ def test_pair_adapter_reports_two_column_rows_without_reconstruction_template(
         == ()
     )
     assert collector.diagnostics[0].code == "PAIR_ROW_INVALID"
+
+
+def test_bioc_order_fallback_keeps_unpaired_entities_and_counts_unequal_lists(
+    tmp_path: Path,
+) -> None:
+    text = "Long one (A) and Long two"
+    path = tmp_path / "fallback.json"
+    path.write_text(
+        json.dumps(
+            {
+                "documents": [
+                    {
+                        "id": "fallback-1",
+                        "passages": [
+                            {
+                                "offset": 0,
+                                "text": text,
+                                "annotations": [
+                                    {
+                                        "id": "LF0",
+                                        "text": "Long one",
+                                        "locations": [{"offset": 0, "length": 8}],
+                                        "infons": {"type": "LongForm"},
+                                    },
+                                    {
+                                        "id": "SF0",
+                                        "text": "A",
+                                        "locations": [{"offset": 10, "length": 1}],
+                                        "infons": {"type": "ShortForm"},
+                                    },
+                                    {
+                                        "id": "LF1",
+                                        "text": "Long two",
+                                        "locations": [
+                                            {
+                                                "offset": text.index("Long two"),
+                                                "length": 8,
+                                            }
+                                        ],
+                                        "infons": {"type": "LongForm"},
+                                    },
+                                ],
+                            }
+                        ],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    collector = DiagnosticsCollector()
+    records = tuple(
+        BioCCorpusAdapter().parse(
+            SourceResourceConfig(identifier="fallback", location=path).to_resource(),
+            collector,
+        )
+    )
+    assert len(records[0].annotations) == 2
+    assert records[0].annotations[1].long_form is not None
+    codes = [item.code for item in collector.diagnostics]
+    assert "BIOC_ORDER_FALLBACK_USED" in codes
+    assert "BIOC_UNPAIRED_ENTITY" in codes
+
+
+def test_bioc_dangling_relation_and_duplicate_id_never_select_an_endpoint(
+    tmp_path: Path,
+) -> None:
+    text = "Long (A)"
+    path = tmp_path / "dirty.json"
+
+    def annotation(
+        identifier: str, value: str, offset: int, role: str
+    ) -> dict[str, object]:
+        return {
+            "id": identifier,
+            "text": value,
+            "locations": [{"offset": offset, "length": len(value)}],
+            "infons": {"type": role},
+        }
+
+    path.write_text(
+        json.dumps(
+            {
+                "documents": [
+                    {
+                        "id": "dirty-1",
+                        "passages": [
+                            {
+                                "offset": 0,
+                                "text": text,
+                                "annotations": [
+                                    annotation("LF", "Long", 0, "LongForm"),
+                                    annotation("SF", "A", 6, "ShortForm"),
+                                    annotation("SF", "A", 6, "ShortForm"),
+                                ],
+                                "relations": [
+                                    {
+                                        "nodes": [
+                                            {"role": "long", "refid": "LF"},
+                                            {"role": "short", "refid": "missing"},
+                                        ]
+                                    }
+                                ],
+                            }
+                        ],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    collector = DiagnosticsCollector()
+    parsed = tuple(
+        BioCCorpusAdapter().parse(
+            SourceResourceConfig(identifier="dirty", location=path).to_resource(),
+            collector,
+        )
+    )
+    assert len(parsed[0].annotations) == 3
+    assert all(
+        annotation.short_form is None or annotation.long_form is None
+        for annotation in parsed[0].annotations
+    )
+    codes = [item.code for item in collector.diagnostics]
+    assert "BIOC_DUPLICATE_ANNOTATION_ID" in codes
+    assert "BIOC_RELATION_ENDPOINT_UNRESOLVED" in codes
+
+
+def test_bioc_json_preserves_source_text_and_matches_equivalent_xml(
+    tmp_path: Path,
+) -> None:
+    text = "Long (S)"
+    json_path = tmp_path / "source.json"
+    json_path.write_text(
+        json.dumps(
+            {
+                "documents": [
+                    {
+                        "id": "equivalent",
+                        "passages": [
+                            {
+                                "offset": 0,
+                                "text": text,
+                                "annotations": [
+                                    {
+                                        "id": "long",
+                                        "text": "WRONG",
+                                        "locations": [{"offset": 0, "length": 4}],
+                                        "infons": {"type": "LongForm"},
+                                    },
+                                    {
+                                        "id": "short",
+                                        "text": "S",
+                                        "locations": [{"offset": 6, "length": 1}],
+                                        "infons": {"type": "ShortForm"},
+                                    },
+                                ],
+                                "relations": [
+                                    {
+                                        "nodes": [
+                                            {"role": "long", "refid": "long"},
+                                            {"role": "short", "refid": "short"},
+                                        ]
+                                    }
+                                ],
+                            }
+                        ],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    xml_path = tmp_path / "source.xml"
+    xml_path.write_text(
+        """<collection><document><id>equivalent</id><passage>
+        <offset>0</offset><text>Long (S)</text>
+        <annotation id="long"><infon key="type">LongForm</infon>
+        <location offset="0" length="4"/><text>WRONG</text></annotation>
+        <annotation id="short"><infon key="type">ShortForm</infon>
+        <location offset="6" length="1"/><text>S</text></annotation>
+        <relation><node role="long" refid="long"/>
+        <node role="short" refid="short"/></relation>
+        </passage></document></collection>""",
+        encoding="utf-8",
+    )
+    json_result = tuple(
+        BioCCorpusAdapter().parse(
+            SourceResourceConfig(identifier="json", location=json_path).to_resource(),
+            DiagnosticsCollector(),
+        )
+    )
+    xml_result = tuple(
+        BioCCorpusAdapter().parse(
+            SourceResourceConfig(identifier="xml", location=xml_path).to_resource(),
+            DiagnosticsCollector(),
+        )
+    )
+    assert json_result[0].text == text
+    assert json_result[0].text == xml_result[0].text
+    assert json_result[0].annotations == xml_result[0].annotations
+
+
+def test_bioc_multiple_locations_are_explicitly_diagnosed(tmp_path: Path) -> None:
+    path = tmp_path / "multi.json"
+    path.write_text(
+        json.dumps(
+            {
+                "documents": [
+                    {
+                        "id": "multi",
+                        "passages": [
+                            {
+                                "offset": 0,
+                                "text": "Long A",
+                                "annotations": [
+                                    {
+                                        "id": "long",
+                                        "text": "Long",
+                                        "locations": [
+                                            {"offset": 0, "length": 4},
+                                            {"offset": 5, "length": 1},
+                                        ],
+                                        "infons": {"type": "LongForm"},
+                                    }
+                                ],
+                            }
+                        ],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    collector = DiagnosticsCollector()
+    tuple(
+        BioCCorpusAdapter().parse(
+            SourceResourceConfig(identifier="multi", location=path).to_resource(),
+            collector,
+        )
+    )
+    assert any(item.code == "BIOC_MULTIPLE_LOCATIONS" for item in collector.diagnostics)
+
+
+def test_bioc_named_text_and_location_policies_cover_repairs(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="pairing_policy"):
+        BioCCorpusAdapter(pairing_policy="bad")  # type: ignore[arg-type]
+    with pytest.raises(ValueError, match="text_policy"):
+        BioCCorpusAdapter(text_policy="bad")  # type: ignore[arg-type]
+    with pytest.raises(ValueError, match="location_policy"):
+        BioCCorpusAdapter(location_policy="bad")  # type: ignore[arg-type]
+
+    path = tmp_path / "policies.json"
+    path.write_text(
+        json.dumps(
+            {
+                "documents": [
+                    {
+                        "id": "policies",
+                        "passages": [
+                            {
+                                "offset": 0,
+                                "text": "Long (A)",
+                                "annotations": [
+                                    {
+                                        "id": "SF0",
+                                        "text": "Z",
+                                        "locations": [{"offset": 6, "length": 1}],
+                                        "infons": {"type": "ABBR"},
+                                    },
+                                    {
+                                        "id": "LF0",
+                                        "text": "Long (A)",
+                                        "locations": [
+                                            {"offset": 0, "length": 4},
+                                            {"offset": 5, "length": 3},
+                                        ],
+                                        "infons": {"type": "ABBR"},
+                                    },
+                                ],
+                            }
+                        ],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    collector = DiagnosticsCollector()
+    parsed = tuple(
+        BioCCorpusAdapter(
+            text_policy="overlay_annotation_text",
+            location_policy="reject_discontinuous",
+        ).parse(
+            SourceResourceConfig(identifier="policies", location=path).to_resource(),
+            collector,
+        )
+    )
+    assert parsed[0].text == "Long (Z)"
+    assert parsed[0].transformation_notes
+    assert parsed[0].annotations[0].short_form is not None
+    assert any(item.code == "BIOC_MULTIPLE_LOCATIONS" for item in collector.diagnostics)
+
+    empty_path = tmp_path / "empty.json"
+    empty_path.write_text(
+        json.dumps({"documents": [{"id": "empty", "passages": []}]}), encoding="utf-8"
+    )
+    empty = tuple(
+        BioCCorpusAdapter().parse(
+            SourceResourceConfig(identifier="empty", location=empty_path).to_resource(),
+            DiagnosticsCollector(),
+        )
+    )
+    assert empty[0].text == ""
+
+    negative_path = tmp_path / "negative.json"
+    negative_path.write_text(
+        json.dumps({"documents": [{"passages": [{"offset": -1, "text": "bad"}]}]}),
+        encoding="utf-8",
+    )
+    with pytest.raises(CorpusAdapterError, match="non-negative"):
+        BioCCorpusAdapter().parse(
+            SourceResourceConfig(
+                identifier="negative", location=negative_path
+            ).to_resource(),
+            DiagnosticsCollector(),
+        )
