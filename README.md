@@ -7,6 +7,39 @@ remaining research and engineering milestones. See the
 [current-state audit](docs/project-state-audit.md) for verified capabilities
 and the [task index](docs/tasks/README.md) for the planned GPT-5.6 Luna assignments.
 
+## Start here when returning to the project
+
+Open PowerShell in the repository folder. These commands use the existing
+Windows environment; for a new installation, follow **Development** below.
+
+```powershell
+$py = ".\env313\Scripts\python.exe"
+```
+
+**Try the complete pipeline on a tiny bundled example** (no downloads or WSL):
+
+```powershell
+& $py -m abrex experiment run docs/examples/experiment-toy.yaml --output-root data/exploration/toy-experiment
+```
+
+Look in the printed run directory for `evaluation.json` and `run-manifest.json`.
+This demonstrates resolution, evaluation, and reporting; it is not a benchmark.
+
+**Extract definitions from the locally built MEDSTRACT corpus**:
+
+```powershell
+& $py -m abrex resolver run docs/examples/resolver-schwartz-hearst.yaml --input data/processed/medstract/canonical.jsonl --output data/exploration/medstract-sh-predictions.jsonl
+```
+
+Open the output JSONL to inspect predicted short/long forms, spans, and
+diagnostics. This produces predictions, not accuracy scores. If the input is
+missing, see the build instructions in the [returning-user guide](docs/quickstart.md).
+
+For corpus audits, other datasets, experiment variants, output locations, and
+common missing-input problems, keep the [returning-user guide](docs/quickstart.md)
+handy. For what to implement next, consult the [task index](docs/tasks/README.md)
+and the latest [completion notes](docs/tasks/completed/).
+
 ## Development
 
 The project targets Python 3.13 and uses a `src/` layout. Create an environment

@@ -652,7 +652,7 @@ def test_prediction_serialization_handles_metadata_diagnostics_and_bad_inputs(
         write_prediction_artifact(artifact, tmp_path / "missing" / "out.jsonl")
     assert capsys.readouterr().out == ""
 
-    cli_output = tmp_path / "cli-predictions.jsonl"
+    cli_output = tmp_path / "nested" / "cli-predictions.jsonl"
     assert (
         main(
             [

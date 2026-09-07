@@ -309,6 +309,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 tuple(record.document for record in records)
             )
             dataset_fingerprint = fingerprint_records(records)
+            args.output.parent.mkdir(parents=True, exist_ok=True)
             fingerprint = write_prediction_artifact(
                 resolver_result,
                 args.output,
@@ -325,6 +326,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             PredictionSerializationError,
             RegistryError,
             ResolverError,
+            OSError,
             ValueError,
         ) as error:
             logger.error("error: resolver run failed: %s", error)
