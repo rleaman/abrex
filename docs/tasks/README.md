@@ -13,6 +13,9 @@ is finished. The tentative T017–T023 suggestions in the Word handoff are
 superseded by the new repository assignments. Creating this backlog does not
 authorize implementing it automatically.
 
+T017 is complete for the environment and CI engineering scope. See the
+[T017 completion note](completed/T017-reproducible-development-environments.md).
+
 Execute T046 after T028 and before T034. Design T047 after T029 and finalize it before T042; task identifiers were preserved rather than renumbered. See the [resource acquisition register](../resource-acquisition-register.md) for ADAM and additional suggestions.
 
 T048 assesses the BioADI JAR after T022 and supplies additional benchmark results if viable. The [complete resource catalog](../resource-catalog.md) preserves all 41 supplied CSV entries and their task routes.

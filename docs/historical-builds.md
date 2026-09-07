@@ -11,8 +11,6 @@ abrex corpus build --config configs/corpora/ab3p.yaml
 abrex corpus build --config configs/corpora/bioadi.yaml
 abrex corpus build --config configs/corpora/medstract.yaml
 abrex corpus build --config configs/corpora/schwartz_hearst.yaml
-abrex corpus build --config configs/corpora/schwartz_hearst_badrex.yaml
-abrex corpus build --config configs/corpora/medstract_badrex.yaml
 abrex corpus build --config configs/corpora/sdu_aaai21_ai.yaml
 abrex corpus build --config configs/corpora/sdu_aaai21_ad.yaml
 abrex corpus build --config configs/corpora/sdu_aaai22_ae.yaml
@@ -43,8 +41,10 @@ download historical data
 ```
 
 The raw sources remain user-managed and are not committed. The checked-in
-configurations cover the original BioC corpora, both BADREX variants, SDU@AAAI-21
-AI/AD, and SDU@AAAI-22 AE. A build is expected to fail clearly until its
+configurations cover the currently available original BioC corpora and SDU
+variants. BADREX references in older completion notes describe a historical
+local state; the current BADREX sources return 404 and no BADREX configs are
+present. A build is expected to fail clearly until its
 corresponding downloaded source is present.
 
 SDU@AAAI-21 AD preserves the expansion as text when it is not present in the

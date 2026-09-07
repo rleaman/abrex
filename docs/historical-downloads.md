@@ -31,5 +31,6 @@ After acquisition, use the runnable configurations and commands in
 
 The URLs in the manifest were resolved from the project references in
 `docs/notes-for-later.md`: BioC's `SH-BioC.zip`, `Ab3P-BioC.zip`,
-`BioADI-BioC.zip`, and `MEDSTRACT.zip`; the two BADREX corrected files; the
-AAAI-21 AI/AD repository JSON files; and the AAAI-22 repository archive.
+`BioADI-BioC.zip`, and `MEDSTRACT.zip`; the AAAI-21 AI/AD repository JSON
+files; and the AAAI-22 repository archive. The BADREX corrected URLs remain
+historical notes only: they return 404 and are not in the current manifest.

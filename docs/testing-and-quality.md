@@ -2,14 +2,20 @@
 
 ## Repository-wide fast gate
 
-The exact commands may differ by tooling, but provide a single documented command that runs:
+The canonical command is `python scripts/quality_gate.py`. It runs, in order:
 
 - formatting check;
 - linting;
 - type checking;
-- fast unit and contract tests.
+- fast unit and contract tests, stopping with the first nonzero status.
 
-The repository pins mypy and Ruff to the versions used by the pre-commit hooks.
+It creates `.pytest-tmp` before pytest starts, so a missing temporary parent
+does not break the documented Windows command. Use `--full` for the complete
+offline coverage suite. The same runner is used by the Windows and Linux CI
+matrix in `.github/workflows/quality.yml`.
+
+The repository pins mypy and Ruff to the versions used by the pre-commit hooks,
+and records the complete verified environment in `requirements-dev.lock`.
 Run all checks through the same interpreter that installed the development
 extra, for example `python -m mypy` rather than an unrelated global `mypy`
 executable. On Windows, use `.\env313\Scripts\python.exe -m mypy` when the

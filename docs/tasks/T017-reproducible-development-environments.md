@@ -1,6 +1,6 @@
 # T017 Make development and experiment environments reproducible
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: A.
+Status: Complete (engineering scope; hosted CI replay pending). Assigned implementer: GPT-5.6 Luna. Milestone: A.
 
 ## Outcome
 
@@ -44,4 +44,3 @@ Existing env313 is usable with host access. Fresh dependency acquisition may req
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T017-reproducible-development-environments.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

@@ -9,18 +9,20 @@ and the [task index](docs/tasks/README.md) for the planned GPT-5.6 Luna assignme
 
 ## Development
 
-The project targets Python 3.13 and uses a `src/` layout. Create an environment and install the package with development tools:
+The project targets Python 3.13 and uses a `src/` layout. Create an environment
+and install the checked-in development snapshot. See
+[reproducible development environments](docs/development-environments.md) for
+Windows and Linux commands:
 
 ```console
-python -m pip install --upgrade pip
-python -m pip install --editable ".[dev]"
+python -m pip install --requirement requirements-dev.lock
+python -m pip install --no-deps --editable .
 ```
 
-Run the fast quality gate (format check, lint, type check, and unit/contract tests)
-from the same Python environment used to install the project:
+Run the fail-fast quality gate from the same environment:
 
 ```console
-python -m ruff format --check src tests; python -m ruff check src tests; python -m mypy; python -m pytest tests/unit tests/contract
+python scripts/quality_gate.py
 ```
 
 On Windows, an unactivated environment can use the interpreter explicitly:
@@ -47,7 +49,7 @@ python -m pip install --editable ".[dev]"
 Run the full test gate with coverage:
 
 ```console
-python -m ruff format --check src tests; python -m ruff check src tests; python -m mypy; python -m pytest --cov --cov-report=term-missing
+python scripts/quality_gate.py --full
 ```
 
 The `pytest` portion is what actually runs the tests; Ruff and mypy only
