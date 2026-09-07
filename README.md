@@ -2,6 +2,11 @@
 
 A modular framework for abbreviation resolution and expansion extraction in scientific text.
 
+The [project completion plan](docs/project-completion-plan.md) summarizes the
+remaining research and engineering milestones. See the
+[current-state audit](docs/project-state-audit.md) for verified capabilities
+and the [task index](docs/tasks/README.md) for the planned GPT-5.6 Luna assignments.
+
 ## Development
 
 The project targets Python 3.13 and uses a `src/` layout. Create an environment and install the package with development tools:
