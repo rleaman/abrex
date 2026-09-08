@@ -24,6 +24,10 @@ def register_builtin_components() -> None:
     )
     from abrex.resolvers.adapters.toy import ToyResolver, ToyResolverConfig
     from abrex.resolvers.plod import PlodConfig, PlodSpanDetector
+    from abrex.resolvers.plod_pairing import (
+        PlodPairingResolver,
+        PlodPairingResolverConfig,
+    )
 
     if "toy" not in RESOLVERS:
         RESOLVERS.register("toy", ToyResolver, config_model=ToyResolverConfig)
@@ -45,6 +49,12 @@ def register_builtin_components() -> None:
         )
     if "plodv2" not in RESOLVERS:
         RESOLVERS.register("plodv2", PlodSpanDetector, config_model=PlodConfig)
+    if "plodv2_pairing" not in RESOLVERS:
+        RESOLVERS.register(
+            "plodv2_pairing",
+            PlodPairingResolver,
+            config_model=PlodPairingResolverConfig,
+        )
 
 
 register_builtin_components()

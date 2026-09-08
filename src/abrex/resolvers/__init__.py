@@ -66,6 +66,18 @@ from abrex.resolvers.plod import (
     ValidatedPlodSpan,
     serialize_span_record,
 )
+from abrex.resolvers.plod_pairing import (
+    PAIRING_STRATEGIES,
+    PAIRING_VERSION,
+    PairCandidate,
+    PairingResult,
+    PatternGreedyPairing,
+    PlodPairingConfig,
+    PlodPairingResolver,
+    PlodPairingResolverConfig,
+    PositionAnchoredPairing,
+    SpanDetector,
+)
 from abrex.resolvers.registry import RESOLVERS, register_builtin_components
 from abrex.resolvers.serialization import (
     PREDICTION_SCHEMA_VERSION,
@@ -131,6 +143,16 @@ __all__ = [
     "RawPlodSpan",
     "ValidatedPlodSpan",
     "serialize_span_record",
+    "PAIRING_STRATEGIES",
+    "PAIRING_VERSION",
+    "PairCandidate",
+    "PairingResult",
+    "PlodPairingConfig",
+    "PlodPairingResolver",
+    "PlodPairingResolverConfig",
+    "PatternGreedyPairing",
+    "PositionAnchoredPairing",
+    "SpanDetector",
     "attach_resolver_metadata",
     "create_resolver_executor",
     "fingerprint_prediction_artifact",

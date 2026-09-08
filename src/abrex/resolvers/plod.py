@@ -7,11 +7,12 @@ owned by T024 and is never inferred from model scores here.
 from __future__ import annotations
 
 import hashlib
+import importlib
 import json
 from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal, Protocol, cast
+from typing import Any, Literal, Protocol, cast
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -99,8 +100,10 @@ class PlodTagger(Protocol):
 class _FlairTagger:
     def __init__(self, config: PlodConfig) -> None:
         try:
-            from flair.data import Sentence
-            from flair.models import SequenceTagger
+            flair_data = importlib.import_module("flair.data")
+            flair_models = importlib.import_module("flair.models")
+            Sentence: Any = flair_data.Sentence
+            SequenceTagger: Any = flair_models.SequenceTagger
         except ImportError as error:
             raise RuntimeError(
                 "PLODv2 requires the optional Flair/PyTorch runtime; install "
@@ -118,13 +121,13 @@ class _FlairTagger:
                 )
         if config.device == "cuda":
             try:
-                import torch
+                torch = importlib.import_module("torch")
             except ImportError as error:
                 raise RuntimeError("PLODv2 CUDA mode requires PyTorch") from error
             if not torch.cuda.is_available():
                 raise RuntimeError("PLODv2 CUDA was requested but is unavailable")
         try:
-            import torch
+            torch = importlib.import_module("torch")
 
             _ = torch.device("cuda" if config.device == "cuda" else "cpu")
         except ImportError as error:

@@ -220,3 +220,31 @@ The detector also exposes `PlodSpanRecord` and `serialize_span_record` for
 artifacts containing raw labels, translated canonical offsets, scores, window
 origins, and validation diagnostics. Flair and PyTorch remain optional and
 are imported only when this component is constructed.
+
+## PLODv2 pairing
+
+`plodv2_pairing` composes the detector with an explicit pairing strategy. The
+default `position_anchored` strategy evaluates only the text between each
+candidate's actual spans, uses deterministic cost ordering and one-to-one
+selection, and retains local rejection diagnostics through `pair_record`.
+`pattern_greedy` is available as a named compatibility strategy; it is not
+claimed to be globally optimal. Set `selection: shared_long_form` when the
+scientific protocol permits several short forms for one long form, and set
+`require_local_pattern: true` to abstain when the candidate-position pattern
+does not match.
+
+```yaml
+resolver:
+  type: plodv2_pairing
+  params:
+    checkpoint_path: /path/to/pytorch_model.bin
+    checkpoint_sha256: 3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277
+    strategy: position_anchored
+    selection: one_to_one
+    allow_reverse_order: true
+    max_gap: 160
+    require_local_pattern: false
+```
+
+Standalone model span scores are preserved in provenance notes and raw span
+artifacts; the prediction score is the separately computed pair score.

@@ -1,6 +1,6 @@
 # T024 Add explicit PLODv2 pairing strategies and resolver integration
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: B.
+Status: Complete. Assigned implementer: GPT-5.6 Luna. Milestone: B.
 
 ## Outcome
 
