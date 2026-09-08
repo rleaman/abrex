@@ -74,6 +74,9 @@ note](completed/T043-document-local-mention-propagation.md).
 T044 is complete for the narrow downstream adapter contract and impact
 comparison fixtures; real pipeline impact remains pending external inputs.
 See the [T044 completion note](completed/T044-downstream-impact-evaluation.md).
+T045 is complete for the local installable release candidate, offline CLI
+smoke, artifact manifest and research limitations package. No publication was
+performed. See the [T045 completion note](completed/T045-release-and-reproducibility-package.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay

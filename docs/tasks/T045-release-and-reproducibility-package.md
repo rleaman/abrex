@@ -1,6 +1,8 @@
 # T045 Package the resolver and research resources for reuse
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: F.
+Status: Complete for the local installable release candidate and
+reproducibility package; T042 and T044 research inputs remain explicitly
+pending/unvalidated. Assigned implementer: GPT-5.6 Luna. Milestone: F.
 
 ## Outcome
 
@@ -45,4 +47,3 @@ Validated results and permitted distributable artifacts; final release size and 
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T045-release-and-reproducibility-package.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

@@ -1,0 +1,36 @@
+{
+  "schema_version": "t045-release-manifest-v1",
+  "package": {
+    "name": "abrex",
+    "version": "0.1.0",
+    "wheel": ".artifacts/T045/wheel/abrex-0.1.0-py3-none-any.whl",
+    "wheel_sha256": "f14dedc84154ffb8661205cc2f323a85ef9bc6497013e5e49b3fbf411e8f3268",
+    "wheel_size_bytes": 231082,
+    "python": ">=3.13",
+    "default_runtime_dependencies": ["pydantic>=2.10,<3", "PyYAML>=6.0,<7"]
+  },
+  "verification": {
+    "unit_contract_tests": 307,
+    "ruff": "passed",
+    "strict_mypy_targeted": "passed",
+    "offline_import_and_cli_smoke": "passed",
+    "publication": "not performed"
+  },
+  "research_artifacts": {
+    "T040_campaign_audit": "docs/artifacts/T040-campaign-audit.json",
+    "T042_tagged_corpus": "pending approved work-scale source snapshot and reuse decision",
+    "T044_downstream_impact": "docs/artifacts/T044-downstream-impact-report.json",
+    "T048_bioadi": "docs/artifacts/bioadi-runtime-smoke.json"
+  },
+  "release_candidate": "native_offset_ab3p",
+  "claims": {
+    "production_improvement_supported": false,
+    "work_scale_coverage": false,
+    "downstream_impact_validated": false
+  },
+  "notices": [
+    "Third-party runtimes, model weights, raw literature and acquired archives are not redistributed.",
+    "Aggregate lexical resources retain unknown document overlap and source-defined count units.",
+    "T030 contemporary labels remain provisional."
+  ]
+}

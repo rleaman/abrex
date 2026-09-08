@@ -107,6 +107,11 @@ python -m abrex article resolve docs/examples/article-resolution.yaml \
 See [local article integration](docs/literature-integration.md) for the input
 shape, provenance contract, and downstream entity mapping.
 
+For the local installable release candidate and exact artifact hashes, see
+[release-candidate.md](docs/release-candidate.md). Research artifacts remain
+separately labeled as exploratory, provisional or pending; no external
+publication is performed by this workflow.
+
 ## Historical datasets
 
 Download one source bundle with its own YAML configuration, or the named
