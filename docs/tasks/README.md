@@ -62,6 +62,9 @@ abstention, feature isolation and reproducible split materialization. See the
 T038 is complete for the deterministic CPU logistic-regression scorer,
 schema-aware persistence and explicit-selection smoke. Scientific gold/silver
 comparison remains pending. See the [T038 completion note](completed/T038-lightweight-scorer-training.md).
+T039 is complete for bounded iteration manifests, lineage checks,
+checkpoint/resume and rollback mechanics. Research improvement remains
+unvalidated. See the [T039 completion note](completed/T039-controlled-iteration-controller.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay

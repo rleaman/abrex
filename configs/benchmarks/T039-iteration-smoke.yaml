@@ -1,0 +1,9 @@
+project:
+  name: T039-iteration-smoke
+  seed: 20260908
+iteration:
+  max_iterations: 2
+  max_documents: 100
+  max_stages: 10
+  minimum_gain: 0.0
+  minimum_development_precision: 0.8
