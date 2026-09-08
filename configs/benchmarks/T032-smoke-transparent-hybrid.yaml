@@ -1,0 +1,54 @@
+project:
+  name: t032-historical-transparent-hybrid
+  seed: 20260908
+
+corpus:
+  type: canonical_jsonl
+  params:
+    path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.jsonl
+    manifest_path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.manifest.json
+
+resolver:
+  type: transparent_hybrid
+  params:
+    strategy: exact_union
+    conflict_policy: retain_all
+    child_failure_policy: raise
+    children:
+      - type: schwartz_hearst
+        params:
+          minimum_short_form_length: 2
+          max_long_form_words: null
+          ignore_non_alphanumeric: true
+          case_sensitive: false
+      - type: ab3p
+        params:
+          backend: cache_only
+          output_format: offset_jsonl
+          timeout_seconds: 60
+          installation:
+            manifest: .artifacts/T022/fresh-installation-manifest.json
+            executable: identify_abbr_offsets
+            resource_directory: WordData
+          cache:
+            path: .artifacts/T022/fresh-raw-cache
+            read: true
+            write: false
+
+matching:
+  type: exact_pair
+  params: {}
+
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+
+reporters:
+  - type: json
+    params: {}
+
+output:
+  root: .artifacts/T032/experiments
+  reuse_cached_predictions: true

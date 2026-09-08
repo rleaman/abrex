@@ -57,6 +57,16 @@ from abrex.resolvers.config import (
     resolver_config_from_resolved,
 )
 from abrex.resolvers.execution import ResolverExecutor
+from abrex.resolvers.hybrid import (
+    HYBRID_VERSION,
+    ChildResolution,
+    FusionDecision,
+    HybridResolution,
+    HybridResolverConfig,
+    HybridResolverError,
+    TransparentHybridResolver,
+    create_hybrid_resolver,
+)
 from abrex.resolvers.plod import (
     PLOD_VERSION,
     PlodConfig,
@@ -153,6 +163,14 @@ __all__ = [
     "PatternGreedyPairing",
     "PositionAnchoredPairing",
     "SpanDetector",
+    "HYBRID_VERSION",
+    "ChildResolution",
+    "FusionDecision",
+    "HybridResolution",
+    "HybridResolverConfig",
+    "HybridResolverError",
+    "TransparentHybridResolver",
+    "create_hybrid_resolver",
     "attach_resolver_metadata",
     "create_resolver_executor",
     "fingerprint_prediction_artifact",

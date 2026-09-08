@@ -1,0 +1,5258 @@
+{
+  "artifacts": {
+    "ab3p": {
+      "fingerprint": "840f3b618c0a997bd739b96c79f47d07b0f5b5bcb18bdc4fce5153caf3f262eb",
+      "path": ".artifacts/T022/experiments-fresh/predictions/410cffdbb91a5bc19bee31be158c319b33a183a65354d37b7f47650837058fff/predictions.jsonl"
+    },
+    "hybrid": {
+      "fingerprint": "d0578a3ddb93d2192f2eac584b01de64d221d09c50aacd3042a97e99a0cc46a0",
+      "path": ".artifacts/T032/experiments/predictions/c0eb822b97dd62646f0716ad94ff455e82155b100dfe20e00c0b8ba152cd8914/predictions.jsonl"
+    },
+    "schwartz_hearst": {
+      "fingerprint": "e39deed4bf945edb79b0098d056ea0c03e35b03b3ccfca886afe148d794dd528",
+      "path": ".artifacts/T022/experiments/predictions/2607793332f6edca09b8914a2077c281519fe8a99f4c41e3b750c3ebe5489493/predictions.jsonl"
+    }
+  },
+  "comparison": {
+    "limitations": [
+      "Gold-assisted union recall is an oracle analysis, not a deployable resolver score.",
+      "Results are valid only for the supplied document universe and matching policy.",
+      "Pair and span metrics must be reported in separate analyses and are never pooled."
+    ],
+    "mode": "exact_pair",
+    "resolver_results": [
+      {
+        "bootstrap": {
+          "f1": [
+            0.8609865470852018,
+            0.9387755102040817
+          ],
+          "precision": [
+            0.9345794392523364,
+            0.9928057553956835
+          ],
+          "recall": [
+            0.7857142857142857,
+            0.9
+          ],
+          "samples": 1000,
+          "seed": 2423074569843815282,
+          "unit": "article_group"
+        },
+        "correct_count": 121,
+        "matching_policy": "exact_pair",
+        "metric": {
+          "name": "pair_prf",
+          "values": {
+            "f1": 0.9029850746268657,
+            "fn": 22,
+            "fp": 4,
+            "precision": 0.968,
+            "recall": 0.8461538461538461,
+            "tp": 121
+          }
+        },
+        "resolver": "ab3p",
+        "scoreable_gold": 143
+      },
+      {
+        "bootstrap": {
+          "f1": [
+            0.8595744680851064,
+            0.9368029739776952
+          ],
+          "precision": [
+            0.8968253968253969,
+            0.9745762711864406
+          ],
+          "recall": [
+            0.8114754098360656,
+            0.9185185185185185
+          ],
+          "samples": 1000,
+          "seed": 2402950272727035694,
+          "unit": "article_group"
+        },
+        "correct_count": 124,
+        "matching_policy": "exact_pair",
+        "metric": {
+          "name": "pair_prf",
+          "values": {
+            "f1": 0.9018181818181819,
+            "fn": 19,
+            "fp": 8,
+            "precision": 0.9393939393939394,
+            "recall": 0.8671328671328671,
+            "tp": 124
+          }
+        },
+        "resolver": "hybrid",
+        "scoreable_gold": 143
+      },
+      {
+        "bootstrap": {
+          "f1": [
+            0.8,
+            0.898876404494382
+          ],
+          "precision": [
+            0.9175257731958762,
+            0.9912280701754386
+          ],
+          "recall": [
+            0.6901408450704225,
+            0.8404907975460123
+          ],
+          "samples": 1000,
+          "seed": 14738607264859342295,
+          "unit": "article_group"
+        },
+        "correct_count": 110,
+        "matching_policy": "exact_pair",
+        "metric": {
+          "name": "pair_prf",
+          "values": {
+            "f1": 0.8527131782945736,
+            "fn": 33,
+            "fp": 5,
+            "precision": 0.9565217391304348,
+            "recall": 0.7692307692307693,
+            "tp": 110
+          }
+        },
+        "resolver": "schwartz_hearst",
+        "scoreable_gold": 143
+      }
+    ],
+    "schema_version": "comparative-analysis-v1",
+    "union": {
+      "correct_count": 124,
+      "oracle_denominator": 143,
+      "oracle_recall": 0.8671328671328671
+    },
+    "unique_correct": [
+      {
+        "count": 0,
+        "resolver": "ab3p"
+      },
+      {
+        "count": 0,
+        "resolver": "hybrid"
+      },
+      {
+        "count": 0,
+        "resolver": "schwartz_hearst"
+      }
+    ]
+  },
+  "dataset": {
+    "dataset_id": "ab3p_corpus_t022_smoke",
+    "fingerprint": "e962059364d99004fa4f999914568f9451b275178446f5b8164d18a70cec371c",
+    "records": 64
+  },
+  "fusion": {
+    "document_evidence": [
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "10632648",
+              [
+                198,
+                201
+              ],
+              [
+                170,
+                196
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "10632648",
+              [
+                198,
+                201
+              ],
+              [
+                170,
+                196
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "10632648"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "10844631",
+              [
+                172,
+                174
+              ],
+              [
+                158,
+                170
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "10844631",
+              [
+                172,
+                174
+              ],
+              [
+                158,
+                170
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "10844631"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "11087743",
+              [
+                250,
+                260
+              ],
+              [
+                214,
+                248
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "11087743",
+              [
+                250,
+                260
+              ],
+              [
+                214,
+                248
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "11087743"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "11224728",
+              [
+                205,
+                209
+              ],
+              [
+                166,
+                203
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "11224728",
+              [
+                205,
+                209
+              ],
+              [
+                166,
+                203
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "11224728",
+              [
+                777,
+                783
+              ],
+              [
+                739,
+                775
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "11224728"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 3
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 3
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "11307263",
+              [
+                268,
+                270
+              ],
+              [
+                252,
+                266
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "11307263",
+              [
+                293,
+                295
+              ],
+              [
+                276,
+                291
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "11307263",
+              [
+                628,
+                631
+              ],
+              [
+                598,
+                626
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "11307263",
+              [
+                268,
+                270
+              ],
+              [
+                252,
+                266
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "11307263",
+              [
+                293,
+                295
+              ],
+              [
+                276,
+                291
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "11307263",
+              [
+                628,
+                631
+              ],
+              [
+                598,
+                626
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "11307263"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "11731976",
+              [
+                381,
+                385
+              ],
+              [
+                368,
+                379
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "11731976"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "11800393",
+              [
+                183,
+                190
+              ],
+              [
+                150,
+                181
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "11800393"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "1187001",
+              [
+                557,
+                563
+              ],
+              [
+                529,
+                555
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "1187001"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "12603351",
+              [
+                1409,
+                1412
+              ],
+              [
+                1379,
+                1407
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "12603351"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "1398023",
+              [
+                104,
+                107
+              ],
+              [
+                77,
+                102
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "1398023",
+              [
+                168,
+                175
+              ],
+              [
+                113,
+                166
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "1398023",
+              [
+                104,
+                107
+              ],
+              [
+                77,
+                102
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "1398023",
+              [
+                168,
+                175
+              ],
+              [
+                113,
+                166
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "1398023"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "14738863",
+              [
+                88,
+                90
+              ],
+              [
+                74,
+                86
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "14738863",
+              [
+                1119,
+                1123
+              ],
+              [
+                1104,
+                1117
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "14738863",
+              [
+                88,
+                90
+              ],
+              [
+                74,
+                86
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "14738863",
+              [
+                1119,
+                1123
+              ],
+              [
+                1104,
+                1117
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "14738863"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "14749752",
+              [
+                396,
+                400
+              ],
+              [
+                367,
+                394
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "14749752",
+              [
+                396,
+                400
+              ],
+              [
+                367,
+                394
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "14749752"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 3
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 4
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "15108074",
+              [
+                144,
+                146
+              ],
+              [
+                123,
+                142
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "15108074",
+              [
+                667,
+                673
+              ],
+              [
+                616,
+                665
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "15108074",
+              [
+                1031,
+                1036
+              ],
+              [
+                991,
+                1029
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "15108074",
+              [
+                144,
+                146
+              ],
+              [
+                123,
+                142
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "15108074",
+              [
+                667,
+                673
+              ],
+              [
+                616,
+                665
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "15108074",
+              [
+                868,
+                871
+              ],
+              [
+                845,
+                865
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "15108074",
+              [
+                1031,
+                1036
+              ],
+              [
+                991,
+                1029
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "15108074"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "1521837",
+              [
+                64,
+                66
+              ],
+              [
+                53,
+                62
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "1521837",
+              [
+                64,
+                66
+              ],
+              [
+                53,
+                62
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "1521837"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 3
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "15246976",
+              [
+                140,
+                142
+              ],
+              [
+                118,
+                138
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "15246976",
+              [
+                231,
+                233
+              ],
+              [
+                214,
+                229
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "15246976",
+              [
+                332,
+                335
+              ],
+              [
+                317,
+                331
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "15246976",
+              [
+                140,
+                142
+              ],
+              [
+                118,
+                138
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "15246976",
+              [
+                231,
+                233
+              ],
+              [
+                214,
+                229
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "15246976"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 0
+          }
+        ],
+        "decisions": [],
+        "document_id": "1542029"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 0
+          }
+        ],
+        "decisions": [],
+        "document_id": "15850202"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "1617223",
+              [
+                149,
+                151
+              ],
+              [
+                153,
+                158
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "1617223"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 3
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 3
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16184468",
+              [
+                713,
+                716
+              ],
+              [
+                688,
+                711
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16184468",
+              [
+                973,
+                975
+              ],
+              [
+                960,
+                971
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16184468",
+              [
+                1591,
+                1594
+              ],
+              [
+                1571,
+                1589
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16184468",
+              [
+                713,
+                716
+              ],
+              [
+                688,
+                711
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16184468",
+              [
+                973,
+                975
+              ],
+              [
+                960,
+                971
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16184468",
+              [
+                1591,
+                1594
+              ],
+              [
+                1571,
+                1589
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "16184468"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16234005",
+              [
+                245,
+                248
+              ],
+              [
+                217,
+                243
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16234005",
+              [
+                339,
+                341
+              ],
+              [
+                322,
+                337
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16234005",
+              [
+                245,
+                248
+              ],
+              [
+                217,
+                243
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16234005",
+              [
+                339,
+                341
+              ],
+              [
+                322,
+                337
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "16234005"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16402108",
+              [
+                139,
+                142
+              ],
+              [
+                106,
+                137
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16402108",
+              [
+                273,
+                276
+              ],
+              [
+                240,
+                271
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16402108",
+              [
+                139,
+                142
+              ],
+              [
+                106,
+                137
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16402108",
+              [
+                273,
+                276
+              ],
+              [
+                240,
+                271
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "16402108"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 3
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16492985",
+              [
+                125,
+                127
+              ],
+              [
+                107,
+                123
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16492985",
+              [
+                592,
+                595
+              ],
+              [
+                554,
+                590
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16492985",
+              [
+                660,
+                663
+              ],
+              [
+                634,
+                658
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16492985",
+              [
+                125,
+                127
+              ],
+              [
+                107,
+                123
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16492985",
+              [
+                660,
+                663
+              ],
+              [
+                634,
+                658
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "16492985"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 3
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16856099",
+              [
+                155,
+                159
+              ],
+              [
+                123,
+                153
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16856099",
+              [
+                326,
+                330
+              ],
+              [
+                305,
+                324
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16856099",
+              [
+                1031,
+                1038
+              ],
+              [
+                992,
+                1029
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16856099",
+              [
+                155,
+                159
+              ],
+              [
+                123,
+                153
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16856099",
+              [
+                326,
+                330
+              ],
+              [
+                305,
+                324
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "16856099"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 4
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16935568",
+              [
+                1228,
+                1234
+              ],
+              [
+                1177,
+                1226
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16935568",
+              [
+                766,
+                768
+              ],
+              [
+                749,
+                764
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16935568",
+              [
+                913,
+                914
+              ],
+              [
+                901,
+                911
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16935568",
+              [
+                937,
+                938
+              ],
+              [
+                925,
+                935
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16935568",
+              [
+                1228,
+                1234
+              ],
+              [
+                1177,
+                1226
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "16935568"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 5
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 5
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16945427",
+              [
+                146,
+                148
+              ],
+              [
+                123,
+                144
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16945427",
+              [
+                197,
+                200
+              ],
+              [
+                176,
+                195
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16945427",
+              [
+                326,
+                329
+              ],
+              [
+                302,
+                324
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16945427",
+              [
+                525,
+                527
+              ],
+              [
+                505,
+                523
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "16945427",
+              [
+                1017,
+                1020
+              ],
+              [
+                987,
+                1015
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16945427",
+              [
+                146,
+                148
+              ],
+              [
+                123,
+                144
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16945427",
+              [
+                197,
+                200
+              ],
+              [
+                176,
+                195
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16945427",
+              [
+                326,
+                329
+              ],
+              [
+                302,
+                324
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16945427",
+              [
+                525,
+                527
+              ],
+              [
+                505,
+                523
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "16945427",
+              [
+                1017,
+                1020
+              ],
+              [
+                987,
+                1015
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "16945427"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17110009",
+              [
+                415,
+                419
+              ],
+              [
+                376,
+                413
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17110009",
+              [
+                452,
+                455
+              ],
+              [
+                425,
+                450
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17110009",
+              [
+                415,
+                419
+              ],
+              [
+                376,
+                413
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17110009",
+              [
+                452,
+                455
+              ],
+              [
+                425,
+                450
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "17110009"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 5
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 5
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17307014",
+              [
+                411,
+                416
+              ],
+              [
+                367,
+                409
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17307014",
+              [
+                685,
+                688
+              ],
+              [
+                662,
+                683
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17307014",
+              [
+                756,
+                758
+              ],
+              [
+                737,
+                754
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17307014",
+              [
+                967,
+                970
+              ],
+              [
+                927,
+                965
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17307014",
+              [
+                1022,
+                1025
+              ],
+              [
+                997,
+                1020
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17307014",
+              [
+                411,
+                416
+              ],
+              [
+                367,
+                409
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17307014",
+              [
+                685,
+                688
+              ],
+              [
+                662,
+                683
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17307014",
+              [
+                756,
+                758
+              ],
+              [
+                737,
+                754
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17307014",
+              [
+                967,
+                970
+              ],
+              [
+                927,
+                965
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17307014",
+              [
+                1022,
+                1025
+              ],
+              [
+                997,
+                1020
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "17307014"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 5
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 5
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17362729",
+              [
+                183,
+                186
+              ],
+              [
+                173,
+                181
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17362729",
+              [
+                271,
+                273
+              ],
+              [
+                257,
+                269
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17362729",
+              [
+                952,
+                956
+              ],
+              [
+                937,
+                950
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17362729",
+              [
+                1169,
+                1172
+              ],
+              [
+                1152,
+                1167
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17362729",
+              [
+                1341,
+                1344
+              ],
+              [
+                1305,
+                1339
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17362729",
+              [
+                183,
+                186
+              ],
+              [
+                173,
+                181
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17362729",
+              [
+                271,
+                273
+              ],
+              [
+                257,
+                269
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17362729",
+              [
+                952,
+                956
+              ],
+              [
+                937,
+                950
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17362729",
+              [
+                1169,
+                1172
+              ],
+              [
+                1152,
+                1167
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17362729",
+              [
+                1341,
+                1344
+              ],
+              [
+                1305,
+                1339
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "17362729"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 0
+          }
+        ],
+        "decisions": [],
+        "document_id": "17447850"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17657690",
+              [
+                49,
+                52
+              ],
+              [
+                25,
+                47
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17657690",
+              [
+                49,
+                52
+              ],
+              [
+                25,
+                47
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "17657690"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17954666",
+              [
+                190,
+                193
+              ],
+              [
+                174,
+                188
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "17954666",
+              [
+                215,
+                218
+              ],
+              [
+                199,
+                213
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17954666",
+              [
+                190,
+                193
+              ],
+              [
+                174,
+                188
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "17954666",
+              [
+                215,
+                218
+              ],
+              [
+                199,
+                213
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "17954666"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "1913620",
+              [
+                470,
+                473
+              ],
+              [
+                445,
+                468
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "1913620",
+              [
+                512,
+                515
+              ],
+              [
+                498,
+                510
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "1913620",
+              [
+                470,
+                473
+              ],
+              [
+                445,
+                468
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "1913620",
+              [
+                512,
+                515
+              ],
+              [
+                498,
+                510
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "1913620"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2005554",
+              [
+                314,
+                317
+              ],
+              [
+                292,
+                312
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2005554",
+              [
+                314,
+                317
+              ],
+              [
+                292,
+                312
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "2005554"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2094407",
+              [
+                171,
+                175
+              ],
+              [
+                135,
+                169
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2094407",
+              [
+                171,
+                175
+              ],
+              [
+                135,
+                169
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "2094407"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2184006",
+              [
+                637,
+                640
+              ],
+              [
+                611,
+                635
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2184006",
+              [
+                637,
+                640
+              ],
+              [
+                611,
+                635
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "2184006"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2442278",
+              [
+                434,
+                438
+              ],
+              [
+                385,
+                432
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "2442278"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2480805",
+              [
+                205,
+                207
+              ],
+              [
+                184,
+                203
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2480805",
+              [
+                1401,
+                1404
+              ],
+              [
+                1374,
+                1399
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2480805",
+              [
+                205,
+                207
+              ],
+              [
+                184,
+                203
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2480805",
+              [
+                1401,
+                1404
+              ],
+              [
+                1374,
+                1399
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "2480805"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2576035",
+              [
+                140,
+                143
+              ],
+              [
+                110,
+                138
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2576035",
+              [
+                140,
+                143
+              ],
+              [
+                105,
+                138
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "2576035"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2729005",
+              [
+                202,
+                206
+              ],
+              [
+                170,
+                200
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2729005",
+              [
+                589,
+                591
+              ],
+              [
+                570,
+                587
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2729005",
+              [
+                202,
+                206
+              ],
+              [
+                170,
+                200
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2729005",
+              [
+                589,
+                591
+              ],
+              [
+                570,
+                587
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "2729005"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 0
+          }
+        ],
+        "decisions": [],
+        "document_id": "2867579"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 4
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 3
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2949133",
+              [
+                332,
+                334
+              ],
+              [
+                316,
+                330
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2949133",
+              [
+                759,
+                764
+              ],
+              [
+                728,
+                757
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2949133",
+              [
+                793,
+                795
+              ],
+              [
+                773,
+                791
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "2949133",
+              [
+                1019,
+                1022
+              ],
+              [
+                978,
+                1017
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2949133",
+              [
+                332,
+                334
+              ],
+              [
+                316,
+                330
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2949133",
+              [
+                759,
+                764
+              ],
+              [
+                728,
+                757
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "2949133",
+              [
+                793,
+                795
+              ],
+              [
+                773,
+                791
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "2949133"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "3171477",
+              [
+                274,
+                276
+              ],
+              [
+                255,
+                272
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "3171477",
+              [
+                651,
+                657
+              ],
+              [
+                618,
+                649
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "3171477",
+              [
+                274,
+                276
+              ],
+              [
+                255,
+                272
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "3171477",
+              [
+                651,
+                657
+              ],
+              [
+                618,
+                649
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "3171477"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "3228275",
+              [
+                115,
+                117
+              ],
+              [
+                100,
+                113
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "3228275",
+              [
+                115,
+                117
+              ],
+              [
+                100,
+                113
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "3228275"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 6
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 6
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "3272808",
+              [
+                153,
+                157
+              ],
+              [
+                115,
+                151
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "3272808",
+              [
+                522,
+                525
+              ],
+              [
+                490,
+                520
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "3272808",
+              [
+                562,
+                565
+              ],
+              [
+                528,
+                560
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "3272808",
+              [
+                594,
+                596
+              ],
+              [
+                568,
+                592
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "3272808",
+              [
+                644,
+                647
+              ],
+              [
+                611,
+                642
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "3272808",
+              [
+                715,
+                717
+              ],
+              [
+                698,
+                713
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "3272808",
+              [
+                153,
+                157
+              ],
+              [
+                115,
+                151
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "3272808",
+              [
+                522,
+                525
+              ],
+              [
+                490,
+                520
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "3272808",
+              [
+                562,
+                565
+              ],
+              [
+                528,
+                560
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "3272808",
+              [
+                594,
+                596
+              ],
+              [
+                568,
+                592
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "3272808",
+              [
+                644,
+                647
+              ],
+              [
+                611,
+                642
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "3272808",
+              [
+                715,
+                717
+              ],
+              [
+                698,
+                713
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "3272808"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "464545",
+              [
+                632,
+                636
+              ],
+              [
+                588,
+                630
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "464545",
+              [
+                632,
+                636
+              ],
+              [
+                583,
+                630
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "464545"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 0
+          }
+        ],
+        "decisions": [],
+        "document_id": "512555"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "6281195",
+              [
+                196,
+                199
+              ],
+              [
+                166,
+                194
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "6281195",
+              [
+                342,
+                344
+              ],
+              [
+                323,
+                340
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "6281195",
+              [
+                196,
+                199
+              ],
+              [
+                166,
+                194
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "6281195",
+              [
+                342,
+                344
+              ],
+              [
+                323,
+                340
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "6281195"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "6333893",
+              [
+                150,
+                153
+              ],
+              [
+                126,
+                148
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "6333893",
+              [
+                150,
+                153
+              ],
+              [
+                126,
+                148
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "6333893"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "7451235",
+              [
+                303,
+                311
+              ],
+              [
+                276,
+                301
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "7451235"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 0
+          }
+        ],
+        "decisions": [],
+        "document_id": "7540594"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "7612189",
+              [
+                728,
+                731
+              ],
+              [
+                703,
+                726
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "7612189",
+              [
+                728,
+                731
+              ],
+              [
+                703,
+                726
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "7612189"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 1
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8377912",
+              [
+                204,
+                208
+              ],
+              [
+                175,
+                202
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8377912",
+              [
+                204,
+                208
+              ],
+              [
+                175,
+                202
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "8377912"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 0
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 0
+          }
+        ],
+        "decisions": [],
+        "document_id": "8430078"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 6
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 8
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8480736",
+              [
+                248,
+                252
+              ],
+              [
+                218,
+                246
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8480736",
+              [
+                807,
+                810
+              ],
+              [
+                777,
+                805
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8480736",
+              [
+                834,
+                836
+              ],
+              [
+                813,
+                832
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8480736",
+              [
+                854,
+                857
+              ],
+              [
+                843,
+                852
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8480736",
+              [
+                915,
+                921
+              ],
+              [
+                862,
+                913
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8480736",
+              [
+                1038,
+                1040
+              ],
+              [
+                1017,
+                1036
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8480736",
+              [
+                248,
+                252
+              ],
+              [
+                218,
+                246
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8480736",
+              [
+                685,
+                686
+              ],
+              [
+                671,
+                683
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8480736",
+              [
+                732,
+                733
+              ],
+              [
+                718,
+                730
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8480736",
+              [
+                807,
+                810
+              ],
+              [
+                777,
+                805
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8480736",
+              [
+                834,
+                836
+              ],
+              [
+                813,
+                832
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8480736",
+              [
+                854,
+                857
+              ],
+              [
+                843,
+                852
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8480736",
+              [
+                915,
+                921
+              ],
+              [
+                862,
+                913
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8480736",
+              [
+                1038,
+                1040
+              ],
+              [
+                1017,
+                1036
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "8480736"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 1
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8542069",
+              [
+                286,
+                289
+              ],
+              [
+                262,
+                284
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8542069",
+              [
+                562,
+                566
+              ],
+              [
+                529,
+                560
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8542069",
+              [
+                286,
+                289
+              ],
+              [
+                262,
+                284
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "8542069"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8547631",
+              [
+                311,
+                315
+              ],
+              [
+                287,
+                309
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8547631",
+              [
+                789,
+                795
+              ],
+              [
+                740,
+                787
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8547631",
+              [
+                311,
+                315
+              ],
+              [
+                287,
+                309
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8547631",
+              [
+                789,
+                795
+              ],
+              [
+                740,
+                787
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "8547631"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8852277",
+              [
+                811,
+                814
+              ],
+              [
+                783,
+                809
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8852277",
+              [
+                847,
+                850
+              ],
+              [
+                833,
+                845
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8852277",
+              [
+                811,
+                814
+              ],
+              [
+                783,
+                809
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8852277",
+              [
+                847,
+                850
+              ],
+              [
+                833,
+                845
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "8852277"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 3
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 4
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8871183",
+              [
+                253,
+                257
+              ],
+              [
+                224,
+                251
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8871183",
+              [
+                320,
+                322
+              ],
+              [
+                306,
+                318
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "8871183",
+              [
+                341,
+                348
+              ],
+              [
+                325,
+                339
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8871183",
+              [
+                253,
+                257
+              ],
+              [
+                224,
+                251
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8871183",
+              [
+                320,
+                322
+              ],
+              [
+                306,
+                318
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8871183",
+              [
+                341,
+                348
+              ],
+              [
+                325,
+                339
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "8871183",
+              [
+                367,
+                372
+              ],
+              [
+                354,
+                365
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          }
+        ],
+        "document_id": "8871183"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9114132",
+              [
+                30,
+                33
+              ],
+              [
+                0,
+                28
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9114132",
+              [
+                178,
+                181
+              ],
+              [
+                148,
+                176
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9114132",
+              [
+                30,
+                33
+              ],
+              [
+                0,
+                28
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9114132",
+              [
+                178,
+                181
+              ],
+              [
+                148,
+                176
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "9114132"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 4
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 4
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9190854",
+              [
+                243,
+                246
+              ],
+              [
+                226,
+                241
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9190854",
+              [
+                298,
+                301
+              ],
+              [
+                286,
+                296
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9190854",
+              [
+                621,
+                623
+              ],
+              [
+                603,
+                619
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9190854",
+              [
+                768,
+                770
+              ],
+              [
+                745,
+                766
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9190854",
+              [
+                243,
+                246
+              ],
+              [
+                226,
+                241
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9190854",
+              [
+                298,
+                301
+              ],
+              [
+                286,
+                296
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9190854",
+              [
+                621,
+                623
+              ],
+              [
+                603,
+                619
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9190854",
+              [
+                768,
+                770
+              ],
+              [
+                745,
+                766
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "9190854"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 4
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 4
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9303540",
+              [
+                141,
+                143
+              ],
+              [
+                131,
+                139
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9303540",
+              [
+                280,
+                283
+              ],
+              [
+                268,
+                278
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9303540",
+              [
+                335,
+                337
+              ],
+              [
+                314,
+                333
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9303540",
+              [
+                358,
+                361
+              ],
+              [
+                340,
+                356
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9303540",
+              [
+                141,
+                143
+              ],
+              [
+                131,
+                139
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9303540",
+              [
+                280,
+                283
+              ],
+              [
+                268,
+                278
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9303540",
+              [
+                335,
+                337
+              ],
+              [
+                314,
+                333
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9303540",
+              [
+                358,
+                361
+              ],
+              [
+                340,
+                356
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "9303540"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9546237",
+              [
+                275,
+                280
+              ],
+              [
+                235,
+                273
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9546237",
+              [
+                356,
+                361
+              ],
+              [
+                322,
+                354
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9546237",
+              [
+                275,
+                280
+              ],
+              [
+                235,
+                273
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9546237",
+              [
+                356,
+                361
+              ],
+              [
+                322,
+                354
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "9546237"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 4
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 4
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9596100",
+              [
+                210,
+                213
+              ],
+              [
+                180,
+                208
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9596100",
+              [
+                306,
+                308
+              ],
+              [
+                290,
+                304
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9596100",
+              [
+                351,
+                353
+              ],
+              [
+                333,
+                349
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9596100",
+              [
+                412,
+                416
+              ],
+              [
+                382,
+                410
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9596100",
+              [
+                210,
+                213
+              ],
+              [
+                180,
+                208
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9596100",
+              [
+                306,
+                308
+              ],
+              [
+                290,
+                304
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9596100",
+              [
+                351,
+                353
+              ],
+              [
+                333,
+                349
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9596100",
+              [
+                412,
+                416
+              ],
+              [
+                382,
+                410
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "9596100"
+      },
+      {
+        "children": [
+          {
+            "child": "schwartz_hearst",
+            "prediction_count": 2
+          },
+          {
+            "child": "ab3p",
+            "prediction_count": 2
+          }
+        ],
+        "decisions": [
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9715100",
+              [
+                174,
+                178
+              ],
+              [
+                148,
+                172
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "schwartz_hearst",
+            "prediction_key": [
+              "9715100",
+              [
+                212,
+                214
+              ],
+              [
+                200,
+                210
+              ]
+            ],
+            "reason": "first occurrence under fusion policy",
+            "rule": "accepted"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9715100",
+              [
+                174,
+                178
+              ],
+              [
+                148,
+                172
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          },
+          {
+            "accepted": true,
+            "child": "ab3p",
+            "prediction_key": [
+              "9715100",
+              [
+                212,
+                214
+              ],
+              [
+                200,
+                210
+              ]
+            ],
+            "reason": "merged with an existing exact pair",
+            "rule": "exact_duplicate_merge"
+          }
+        ],
+        "document_id": "9715100"
+      }
+    ],
+    "resolver": {
+      "child_failure_policy": "raise",
+      "children": [
+        {
+          "config": {
+            "params": {
+              "case_sensitive": false,
+              "ignore_non_alphanumeric": true,
+              "max_long_form_words": null,
+              "minimum_short_form_length": 2
+            },
+            "type": "schwartz_hearst"
+          },
+          "identity": {
+            "identity": "schwartz_hearst",
+            "version": "1"
+          },
+          "name": "schwartz_hearst"
+        },
+        {
+          "config": {
+            "params": {
+              "backend": "cache_only",
+              "cache": {
+                "path": ".artifacts/T022/fresh-raw-cache",
+                "read": true,
+                "write": false
+              },
+              "installation": {
+                "executable": "identify_abbr_offsets",
+                "manifest": ".artifacts/T022/fresh-installation-manifest.json",
+                "resource_directory": "WordData"
+              },
+              "output_format": "offset_jsonl",
+              "timeout_seconds": 60
+            },
+            "type": "ab3p"
+          },
+          "identity": {
+            "adapter_version": "3",
+            "executable_sha256": "4a6b8c48dbb8e928c06464f94bf13295f524bd3c65e078c7d5169a131c431ee9",
+            "manifest_sha256": "79177737cf14b2eab360978c4ed12cea8f7e244afebd30b3be2de4f74d8a2e05",
+            "offset_schema_version": "ab3p-offsets-v1",
+            "output_format": "offset_jsonl",
+            "resource_sha256": "f3d4b283f9b3f11ddda9fa5f040adf32a7a7d4750d50f76f5f7c28407c39f47c",
+            "schema_version": "ab3p-identity-v1",
+            "wrapper_version": "2"
+          },
+          "name": "ab3p"
+        }
+      ],
+      "conflict_policy": "retain_all",
+      "priority": [
+        "schwartz_hearst",
+        "ab3p"
+      ],
+      "resolver": "transparent_hybrid",
+      "strategy": "exact_union",
+      "version": "transparent-hybrid-v1"
+    }
+  },
+  "schema_version": "t032-transparent-hybrid-evidence-v1",
+  "scientific_limits": [
+    "The union comparison is exact-pair and does not pool span metrics.",
+    "This hash-selected historical slice is exploratory, not representative.",
+    "No precision promotion threshold was invented; native-offset Ab3P remains recommended on this slice.",
+    "T030 provisional contemporary labels were not used."
+  ],
+  "scope": "historical T022 smoke slice; exploratory development evidence"
+}

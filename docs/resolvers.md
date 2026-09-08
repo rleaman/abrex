@@ -248,3 +248,39 @@ resolver:
 
 Standalone model span scores are preserved in provenance notes and raw span
 artifacts; the prediction score is the separately computed pair score.
+
+## Transparent hybrid composition
+
+The registry-backed `transparent_hybrid` resolver composes typed child
+resolver specifications. `exact_union` retains distinct exact pairs and
+merges exact duplicates; `priority_cascade` processes children in the named
+priority order. `conflict_policy` is explicit: `retain_all`, `abstain`, or
+`priority`. Child failures default to `raise`; `abstain` is available only
+when the surrounding scientific protocol permits it.
+
+```yaml
+resolver:
+  type: transparent_hybrid
+  params:
+    strategy: exact_union
+    conflict_policy: retain_all
+    children:
+      - type: schwartz_hearst
+        params: {}
+      - type: ab3p
+        params:
+          backend: cache_only
+          output_format: offset_jsonl
+          installation:
+            manifest: docs/artifacts/ab3p-installation-manifest.json
+          cache:
+            path: artifacts/ab3p-cache
+            read: true
+            write: false
+```
+
+Each accepted prediction carries the named child contributor in its
+provenance; `resolve_with_evidence` additionally returns raw child outputs and
+accepted/rejected decisions. Child identities, configurations and fusion
+policy are included in `cache_identity`. Scores are preserved from the
+selected child and are never averaged across components.

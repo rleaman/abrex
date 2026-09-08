@@ -23,6 +23,7 @@ def register_builtin_components() -> None:
         SchwartzHearstResolverConfig,
     )
     from abrex.resolvers.adapters.toy import ToyResolver, ToyResolverConfig
+    from abrex.resolvers.hybrid import HybridResolverConfig, create_hybrid_resolver
     from abrex.resolvers.plod import PlodConfig, PlodSpanDetector
     from abrex.resolvers.plod_pairing import (
         PlodPairingResolver,
@@ -54,6 +55,12 @@ def register_builtin_components() -> None:
             "plodv2_pairing",
             PlodPairingResolver,
             config_model=PlodPairingResolverConfig,
+        )
+    if "transparent_hybrid" not in RESOLVERS:
+        RESOLVERS.register(
+            "transparent_hybrid",
+            create_hybrid_resolver,
+            config_model=HybridResolverConfig,
         )
 
 

@@ -58,6 +58,9 @@ article-level leakage controls; see the [T029 completion note](completed/T029-sa
 T030 is complete for the versioned annotation workflow and bounded provisional
 pilot; independent review and gold certification remain pending. See the
 [T030 completion note](completed/T030-annotation-pilot-and-adjudication.md).
+T032 is complete for the transparent typed hybrid, conflict policies,
+provenance-preserving fusion and matched historical development comparison.
+See the [T032 completion note](completed/T032-transparent-hybrid-resolver.md).
 T047 is complete for the deterministic bounded corpus-selection mechanism and
 metadata-frame proposal; final work-scale limits and scientific approval remain
 open. See the [T047 completion note](completed/T047-large-scale-corpus-selection.md).
