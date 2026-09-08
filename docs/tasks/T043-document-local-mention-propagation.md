@@ -1,6 +1,8 @@
 # T043 Link abbreviation mentions to local definitions
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: F.
+Status: Complete for explicit local mention-linking engineering and tests;
+production policy remains downstream-data dependent. Assigned implementer:
+GPT-5.6 Luna. Milestone: F.
 
 ## Outcome
 
@@ -44,4 +46,3 @@ Local article examples. Production policy should be selected on actual downstrea
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T043-document-local-mention-propagation.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

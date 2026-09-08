@@ -70,6 +70,13 @@ Embedding applications can use `create_article_resolution_service` with an
 injected resolver or segmenter registry. `read_article_json` is only a local
 file adapter; retrieval and licensing remain application responsibilities.
 
+T043 adds `resolve_and_link_mentions`, which composes that selected resolver
+with the explicit `MentionLinkConfig` policy. Links retain mention spans,
+chosen definition references, scope, status and evidence. Nearest-preceding,
+article-scope and section-scope behavior, redefinitions, conflicts, before-
+definition mentions, case/plural handling and undefined forms remain explicit;
+the linker never invents a definition or changes article text.
+
 ## Bounded PubMed acquisition
 
 T025 adds a narrow application adapter for a fixed list of PubMed IDs. It uses

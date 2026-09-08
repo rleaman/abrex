@@ -40,6 +40,7 @@ from abrex.literature.mapping import (
     ArticlePredictionRecord,
     ArticleResolutionResult,
 )
+from abrex.literature.mentions import MentionLink, MentionLinkConfig, link_mentions
 from abrex.literature.models import (
     Article,
     ArticleDocument,
@@ -109,6 +110,8 @@ __all__ = [
     "ArticleSection",
     "ArticleSectionLocation",
     "ArticleStructure",
+    "MentionLink",
+    "MentionLinkConfig",
     "ArticleGroup",
     "ArticleSegmenter",
     "ArticleSegmenterConfig",
@@ -139,6 +142,7 @@ __all__ = [
     "derive_lexicon_view",
     "estimate_acquisition",
     "load_acquisition_config",
+    "link_mentions",
     "load_corpus_selection_config",
     "load_sampling_config",
     "parse_jats_xml",

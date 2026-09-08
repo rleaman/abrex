@@ -68,6 +68,9 @@ unvalidated. See the [T039 completion note](completed/T039-controlled-iteration-
 T040 is complete for the frozen bounded campaign protocol, evidence-backed
 ablation audit and explicit no-promotion decision. See the [T040 completion
 note](completed/T040-research-validation-and-ablation-campaign.md).
+T043 is complete for explicit article/section mention propagation with
+redefinition, conflict and undefined-form statuses. See the [T043 completion
+note](completed/T043-document-local-mention-propagation.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay

@@ -12,6 +12,7 @@ from abrex.literature.mapping import (
     ArticlePredictionRecord,
     ArticleResolutionResult,
 )
+from abrex.literature.mentions import MentionLink, MentionLinkConfig, link_mentions
 from abrex.literature.models import Article
 from abrex.literature.registry import SEGMENTERS
 from abrex.literature.segmenters import ArticleSegmenter
@@ -97,6 +98,19 @@ class ArticleResolutionService:
             resolver=self.executor.metadata,
             records=tuple(records),
         )
+
+    def resolve_and_link_mentions(
+        self, article: Article, config: MentionLinkConfig | None = None
+    ) -> tuple[MentionLink, ...]:
+        """Resolve definitions, then propagate only within the same article."""
+
+        result = self.resolve(article)
+        links: list[MentionLink] = []
+        for record in result.records:
+            links.extend(
+                link_mentions(record.source, record.predictions.predictions, config)
+            )
+        return tuple(links)
 
 
 def create_article_resolution_service(
