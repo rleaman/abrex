@@ -1,6 +1,8 @@
 # T034 Use dictionaries and terminologies as local candidate evidence
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: D.
+Status: Complete for bounded local lexical evidence engineering and pilot
+ablation. Scientific benefit remains unvalidated. Assigned implementer:
+GPT-5.6 Luna. Milestone: D.
 
 ## Outcome
 
@@ -45,4 +47,3 @@ A real permitted T028 resource and T029 split/exclusion manifests; fixtures alon
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T034-lexical-candidates-and-evidence-features.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

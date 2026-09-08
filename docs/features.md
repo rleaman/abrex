@@ -52,4 +52,10 @@ The built-in registry keys are:
 
 `character_alignment`, `token_counts`, `capitalization`,
 `digit_punctuation`, `length_relationship`, `position_direction`,
-`lexical_cues`, and `parenthetical_metadata`.
+`lexical_cues`, `lexical_resource_evidence`, and `parenthetical_metadata`.
+
+`lexical_resource_evidence` is a separate, gold-independent extractor. It
+reports raw variant count, source identity count/agreement, ambiguity, the
+source-defined aggregate count, exact local pair support, and short-form
+occurrences in a bounded context. Missing or absent local evidence is zero;
+the extractor never turns resource membership into an acceptance decision.

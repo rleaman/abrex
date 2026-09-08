@@ -71,6 +71,7 @@ def test_builtins_are_registered_and_emit_declared_numeric_features() -> None:
         "digit_punctuation",
         "length_relationship",
         "lexical_cues",
+        "lexical_resource_evidence",
         "parenthetical_metadata",
         "position_direction",
         "token_counts",

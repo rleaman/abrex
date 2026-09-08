@@ -1,0 +1,18 @@
+project:
+  name: T034-lexical-evidence
+  seed: 20260908
+candidates:
+  generators:
+    - type: parenthetical
+      params: {}
+    - type: lexical_resource
+      params:
+        resource_paths: [.artifacts/T028/frequency-pilot.sqlite]
+        maximum_window: 240
+  deduplicate: true
+features:
+  extractors:
+    - type: lexical_resource_evidence
+      params:
+        resource_paths: [.artifacts/T028/frequency-pilot.sqlite]
+        context_characters: 80

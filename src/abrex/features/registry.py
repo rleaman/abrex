@@ -22,6 +22,8 @@ def register_builtin_components() -> None:
         LengthRelationshipFeatureExtractor,
         LexicalCueConfig,
         LexicalCueFeatureExtractor,
+        LexicalResourceEvidenceConfig,
+        LexicalResourceEvidenceFeatureExtractor,
         ParentheticalMetadataConfig,
         ParentheticalMetadataFeatureExtractor,
         PositionDirectionFeatureExtractor,
@@ -41,6 +43,11 @@ def register_builtin_components() -> None:
         ("length_relationship", LengthRelationshipFeatureExtractor, None),
         ("position_direction", PositionDirectionFeatureExtractor, None),
         ("lexical_cues", LexicalCueFeatureExtractor, LexicalCueConfig),
+        (
+            "lexical_resource_evidence",
+            LexicalResourceEvidenceFeatureExtractor,
+            LexicalResourceEvidenceConfig,
+        ),
         (
             "parenthetical_metadata",
             ParentheticalMetadataFeatureExtractor,

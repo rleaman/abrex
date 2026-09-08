@@ -42,3 +42,10 @@ paths in provenance. Its `generate(Document)` method emits an explicit
 metadata-required diagnostic rather than guessing structural relationships.
 All variants have explicit text/complexity bounds and emit pruning diagnostics;
 none accepts a candidate as gold or applies OCR to image-only regions.
+
+The `lexical_resource` generator consumes one or more T028 SQLite resources.
+For each raw variant it searches the canonical document for exact short- and
+long-form occurrences within a configured character window. A missing local
+span is explicitly pruned, and emitted candidates retain the source label and
+resource SHA-256 in provenance. Aggregate counts do not create document
+locations or resolve homonyms.

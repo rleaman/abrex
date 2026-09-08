@@ -12,6 +12,8 @@ def register_builtin_components() -> None:
     """Register built-in generators exactly once."""
 
     from abrex.candidates.generators import (
+        LexicalResourceCandidateConfig,
+        LexicalResourceCandidateGenerator,
         NestedParentheticalCandidateConfig,
         NestedParentheticalCandidateGenerator,
         ParentheticalCandidateConfig,
@@ -29,6 +31,11 @@ def register_builtin_components() -> None:
             config_model=ParentheticalCandidateConfig,
         )
     for key, factory, config in (
+        (
+            "lexical_resource",
+            LexicalResourceCandidateGenerator,
+            LexicalResourceCandidateConfig,
+        ),
         ("reverse_order", ReverseOrderCandidateGenerator, ReverseOrderCandidateConfig),
         (
             "nested_parenthetical",

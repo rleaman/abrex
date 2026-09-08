@@ -12,6 +12,8 @@ from abrex.candidates.base import (
 )
 from abrex.candidates.generators import (
     PARENTHETICAL_GENERATOR_VERSION,
+    LexicalResourceCandidateConfig,
+    LexicalResourceCandidateGenerator,
     NestedParentheticalCandidateConfig,
     NestedParentheticalCandidateGenerator,
     ParentheticalCandidateConfig,
@@ -60,6 +62,8 @@ __all__ = [
     "ReverseOrderCandidateGenerator",
     "StructuredRelationCandidateConfig",
     "StructuredRelationCandidateGenerator",
+    "LexicalResourceCandidateConfig",
+    "LexicalResourceCandidateGenerator",
     "candidate_pipeline_config_from_resolved",
     "create_candidate_pipeline",
     "fingerprint_candidate_artifact",

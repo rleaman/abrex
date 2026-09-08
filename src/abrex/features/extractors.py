@@ -9,12 +9,14 @@ from __future__ import annotations
 
 import re
 from collections.abc import Mapping
+from pathlib import Path
 
 from pydantic import BaseModel, ConfigDict, Field
 
 from abrex.candidates import Candidate
 from abrex.domain import Document
 from abrex.features.base import validate_feature_names
+from abrex.resources import FrequencyResource, ResourceVariant
 
 BUILTIN_FEATURE_VERSION = "1"
 
@@ -445,6 +447,108 @@ class LexicalCueFeatureExtractor:
         return dict(zip(self.feature_names, values, strict=True))
 
 
+class LexicalResourceEvidenceConfig(BaseModel):
+    """Aggregate resource inputs for local, gold-independent evidence."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    resource_paths: tuple[Path, ...] = Field(min_length=1)
+    context_characters: int = Field(default=80, ge=0)
+
+
+class LexicalResourceEvidenceFeatureExtractor:
+    """Expose resource evidence separately from structural candidate cues."""
+
+    identity = "lexical_resource_evidence"
+    version = BUILTIN_FEATURE_VERSION
+    feature_names = (
+        "resource_variant_count",
+        "resource_source_count",
+        "resource_source_agreement",
+        "resource_ambiguity_count",
+        "resource_observed_count",
+        "resource_local_pair_match",
+        "resource_contextual_short_count",
+    )
+    feature_descriptions = (
+        "Number of raw resource variants for the candidate short form.",
+        "Number of distinct resource source label and hash identities.",
+        "Whether more than one distinct resource source identity supports the "
+        "short form.",
+        "Number of distinct long-form keys among resource variants.",
+        "Aggregate resource count across variants; its unit remains source-defined.",
+        "Whether the candidate's exact local short/long pair matches a resource "
+        "variant.",
+        "Number of exact short-form occurrences in the configured local context "
+        "window.",
+    )
+
+    def __init__(self, **params: object) -> None:
+        self.config = LexicalResourceEvidenceConfig.model_validate(params)
+        self.resources = tuple(
+            FrequencyResource(path) for path in self.config.resource_paths
+        )
+
+    @property
+    def cache_identity(self) -> str:
+        """Return a content-aware identity for reproducible feature reuse."""
+
+        sources = ",".join(
+            f"{summary.source_label}:{summary.source_sha256}"
+            for summary in (resource.summary() for resource in self.resources)
+        )
+        return (
+            f"{self.identity}:{self.version}:{self.config.context_characters}:{sources}"
+        )
+
+    def extract(self, document: Document, candidate: Candidate) -> Mapping[str, float]:
+        short, long = _texts(document, candidate)
+        variants = tuple(
+            variant for resource in self.resources for variant in resource.lookup(short)
+        )
+        identities = {(item.source_label, item.source_sha256) for item in variants}
+        long_keys = {item.long_form_key for item in variants}
+        pair_match = any(_variant_matches_long(item, long) for item in variants)
+        start = max(0, candidate.long_form.start - self.config.context_characters)
+        end = min(
+            len(document.text), candidate.long_form.end + self.config.context_characters
+        )
+        contextual_short_count = sum(
+            len(_occurrences(document.text[start:end], item.short_form_raw))
+            for item in variants
+        )
+        return dict(
+            zip(
+                self.feature_names,
+                (
+                    float(len(variants)),
+                    float(len(identities)),
+                    _indicator(len(identities) > 1),
+                    float(len(long_keys)),
+                    float(sum(item.count for item in variants)),
+                    _indicator(pair_match),
+                    float(contextual_short_count),
+                ),
+                strict=True,
+            )
+        )
+
+
+def _variant_matches_long(variant: ResourceVariant, long_form: str) -> bool:
+    return (
+        variant.long_form_raw == long_form
+        or variant.long_form_key == long_form.casefold()
+    )
+
+
+def _occurrences(text: str, value: str) -> tuple[tuple[int, int], ...]:
+    if not value:
+        return ()
+    return tuple(
+        (match.start(), match.end()) for match in re.finditer(re.escape(value), text)
+    )
+
+
 class ParentheticalMetadataConfig(BaseModel):
     """Construction labels to expose as one-hot metadata columns."""
 
@@ -528,6 +632,8 @@ __all__ = [
     "LengthRelationshipFeatureExtractor",
     "LexicalCueConfig",
     "LexicalCueFeatureExtractor",
+    "LexicalResourceEvidenceConfig",
+    "LexicalResourceEvidenceFeatureExtractor",
     "ParentheticalMetadataConfig",
     "ParentheticalMetadataFeatureExtractor",
     "PositionDirectionFeatureExtractor",

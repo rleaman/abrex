@@ -1,0 +1,46 @@
+{
+  "dataset": {
+    "dataset_id": "ab3p_corpus_t022_smoke",
+    "fingerprint": "e962059364d99004fa4f999914568f9451b275178446f5b8164d18a70cec371c",
+    "records": 64
+  },
+  "delta": {
+    "novel_candidates": 6,
+    "precision_delta": -0.00029637661516218605,
+    "recall_delta": 0.0
+  },
+  "leakage_controls": [
+    "Only exact local spans are emitted; aggregate rows cannot fabricate a long-form span.",
+    "T029 evaluation/challenge records are not used to build this resource view.",
+    "Resource source label and SHA-256 remain in candidate provenance; aggregate document frequency is unknown."
+  ],
+  "limitations": [
+    "The bounded T028 pilot has one short-form key and is not a lexical-benefit study.",
+    "Gold comparisons are coverage diagnostics, not resolver precision or scientific validation.",
+    "No global acronym disambiguation or terminology authority is applied."
+  ],
+  "resource": {
+    "path": ".artifacts\\T028\\frequency-pilot.sqlite",
+    "summary": "aggregate T028 pilot; no document frequency"
+  },
+  "schema_version": "t034-lexical-evidence-ablation-v1",
+  "scope": "historical T022 smoke slice; candidate metrics are exploratory",
+  "variants": {
+    "lexical_local": {
+      "candidate_count": 1581,
+      "candidate_precision_against_gold": 0.0777988614800759,
+      "candidate_recall_against_gold": 0.8601398601398601,
+      "covered_gold_pairs": 123,
+      "diagnostic_count": 353,
+      "gold_pair_count": 143
+    },
+    "no_lexicon": {
+      "candidate_count": 1575,
+      "candidate_precision_against_gold": 0.07809523809523809,
+      "candidate_recall_against_gold": 0.8601398601398601,
+      "covered_gold_pairs": 123,
+      "diagnostic_count": 167,
+      "gold_pair_count": 143
+    }
+  }
+}

@@ -47,6 +47,9 @@ T033 is complete for bounded reverse-order, nested-parenthetical and
 T027-structure candidate enumeration, with measured historical candidate
 coverage and explicit image-only limits. See the
 [T033 completion note](completed/T033-structural-candidate-generators.md).
+T034 is complete for registry-backed exact local lexical candidates,
+provenance-aware resource features, leakage controls and the bounded no-gain
+ablation. See the [T034 completion note](completed/T034-lexical-candidates-and-evidence-features.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay

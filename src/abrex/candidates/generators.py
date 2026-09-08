@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 from collections import defaultdict
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -13,13 +14,15 @@ from abrex.candidates.base import (
     CandidateDiagnostic,
     CandidateGenerationResult,
 )
-from abrex.domain import AnnotationProvenance, Document, TextSpan
+from abrex.domain import AnnotationProvenance, Document, SourceTextSpan, TextSpan
+from abrex.resources import FrequencyResource, ResourceVariant
 
 if TYPE_CHECKING:
     from abrex.literature.models import ArticleDocument, ArticleStructure
 
 PARENTHETICAL_GENERATOR_VERSION = "1"
 STRUCTURAL_GENERATOR_VERSION = "1"
+LEXICAL_GENERATOR_VERSION = "1"
 
 
 class ParentheticalCandidateConfig(BaseModel):
@@ -123,6 +126,128 @@ class ParentheticalCandidateGenerator:
 
 def _pruned(document: Document, code: str, message: str) -> CandidateDiagnostic:
     return CandidateDiagnostic("info", code, message, document.document_id, "pruned")
+
+
+class LexicalResourceCandidateConfig(BaseModel):
+    """Bounds and local resources for exact lexical candidate enumeration."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    resource_paths: tuple[Path, ...] = Field(min_length=1)
+    maximum_window: int = Field(default=240, ge=1)
+
+
+class LexicalResourceCandidateGenerator:
+    """Pair exact resource variants only when both forms occur locally.
+
+    Aggregate resources propose evidence, never definitions.  Every emitted
+    candidate therefore contains canonical spans for both exact occurrences;
+    a resource row with no local long-form occurrence is not emitted.
+    """
+
+    identity = "lexical_resource"
+    version = LEXICAL_GENERATOR_VERSION
+
+    def __init__(self, **params: object) -> None:
+        self.config = LexicalResourceCandidateConfig.model_validate(params)
+        self.resources = tuple(
+            FrequencyResource(path) for path in self.config.resource_paths
+        )
+
+    @property
+    def cache_identity(self) -> str:
+        """Return a content-aware identity for reproducible candidate reuse."""
+
+        sources = ",".join(
+            f"{summary.source_label}:{summary.source_sha256}"
+            for summary in (resource.summary() for resource in self.resources)
+        )
+        return f"{self.identity}:{self.version}:{self.config.maximum_window}:{sources}"
+
+    def generate(self, document: Document) -> CandidateGenerationResult:
+        candidates: list[Candidate] = []
+        diagnostics: list[CandidateDiagnostic] = []
+        for resource in self.resources:
+            summary = resource.summary()
+            for short_key in self._short_keys(document, resource):
+                variants = resource.lookup(short_key)
+                for variant in variants:
+                    short_occurrences = tuple(
+                        _occurrences(document.text, variant.short_form_raw)
+                    )
+                    long_occurrences = tuple(
+                        _occurrences(document.text, variant.long_form_raw)
+                    )
+                    if not short_occurrences or not long_occurrences:
+                        diagnostics.append(
+                            _pruned(
+                                document,
+                                "resource_pair_not_local",
+                                "Resource variant lacked one or both exact local spans",
+                            )
+                        )
+                        continue
+                    for short_start, short_end in short_occurrences:
+                        for long_start, long_end in long_occurrences:
+                            if (
+                                abs(short_start - long_start)
+                                > self.config.maximum_window
+                            ):
+                                continue
+                            candidates.append(
+                                Candidate(
+                                    document.document_id,
+                                    TextSpan(short_start, short_end),
+                                    TextSpan(long_start, long_end),
+                                    "resource_local_window",
+                                    _resource_provenance(variant, summary.source_label),
+                                )
+                            )
+        if not candidates:
+            diagnostics.append(
+                _pruned(
+                    document,
+                    "resource_no_local_pair",
+                    "No resource pair had two local spans",
+                )
+            )
+        return CandidateGenerationResult(
+            document.document_id, tuple(candidates), tuple(diagnostics)
+        )
+
+    @staticmethod
+    def _short_keys(document: Document, resource: FrequencyResource) -> tuple[str, ...]:
+        # Query keys are obtained from the resource itself, preserving its
+        # configured normalization policy without guessing it here.
+        keys: set[str] = set()
+        for match in re.finditer(r"[A-Za-z][A-Za-z0-9-]{1,29}", document.text):
+            keys.add(match.group(0))
+        return tuple(sorted(keys))
+
+
+def _occurrences(text: str, value: str) -> list[tuple[int, int]]:
+    if not value:
+        return []
+    return [
+        (match.start(), match.end()) for match in re.finditer(re.escape(value), text)
+    ]
+
+
+def _resource_provenance(
+    variant: ResourceVariant, source_label: str
+) -> AnnotationProvenance:
+    return AnnotationProvenance(
+        source_corpus="lexical_resource",
+        source_record_id=f"{variant.source_label}:{variant.source_sha256}",
+        original_short_form=SourceTextSpan(text=variant.short_form_raw),
+        original_long_form=SourceTextSpan(text=variant.long_form_raw),
+        adapter_identity="lexical_resource",
+        adapter_version=LEXICAL_GENERATOR_VERSION,
+        transformation_notes=(
+            f"resource_source={source_label}",
+            "exact_local_occurrences",
+        ),
+    )
 
 
 class ReverseOrderCandidateConfig(BaseModel):
@@ -429,4 +554,7 @@ __all__ = [
     "NestedParentheticalCandidateGenerator",
     "StructuredRelationCandidateConfig",
     "StructuredRelationCandidateGenerator",
+    "LEXICAL_GENERATOR_VERSION",
+    "LexicalResourceCandidateConfig",
+    "LexicalResourceCandidateGenerator",
 ]
