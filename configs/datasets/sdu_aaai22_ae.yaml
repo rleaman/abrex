@@ -1,0 +1,12 @@
+downloads:
+  user_agent: abrex-historical-datasets/1.0 (research; contact project owner)
+  timeout_seconds: 120
+  retries: 4
+  retry_delay_seconds: 3
+  polite_delay_seconds: 2
+  datasets:
+    - name: sdu_aaai22_repository
+      url: https://github.com/amirveyseh/AAAI-22-SDU-shared-task-1-AE/archive/refs/heads/main.zip
+      destination: data/raw/historical/sdu_aaai22
+      extract: true
+      strip_top_level_directory: true

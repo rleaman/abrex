@@ -1,0 +1,11 @@
+downloads:
+  user_agent: abrex-historical-datasets/1.0 (research; contact project owner)
+  timeout_seconds: 120
+  retries: 4
+  retry_delay_seconds: 3
+  polite_delay_seconds: 2
+  datasets:
+    - name: bioadi_bioc_archive
+      url: https://downloads.sourceforge.net/project/bioc/BioADI-BioC.zip
+      destination: data/raw/historical/bioadi
+      extract: true

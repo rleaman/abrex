@@ -1,0 +1,16 @@
+downloads:
+  user_agent: abrex-historical-datasets/1.0 (research; contact project owner)
+  timeout_seconds: 120
+  retries: 4
+  retry_delay_seconds: 3
+  polite_delay_seconds: 2
+  datasets:
+    - name: sdu_aaai21_ad_train
+      url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-2-AD/master/dataset/train.json
+      destination: data/raw/historical/sdu_aaai21_ad/train.json
+    - name: sdu_aaai21_ad_dev
+      url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-2-AD/master/dataset/dev.json
+      destination: data/raw/historical/sdu_aaai21_ad/dev.json
+    - name: sdu_aaai21_ad_dictionary
+      url: https://raw.githubusercontent.com/amirveyseh/AAAI-21-SDU-shared-task-2-AD/master/dataset/diction.json
+      destination: data/raw/historical/sdu_aaai21_ad/diction.json

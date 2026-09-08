@@ -72,10 +72,13 @@ from abrex.resources import (
     load_allie_config,
 )
 from abrex.tools.download_datasets import (
+    DatasetDownloadsConfig,
     DownloadError,
     download_datasets,
     load_download_config,
+    load_download_groups,
     results_to_json,
+    validate_download_selection,
 )
 
 logger = logging.getLogger(__name__)
@@ -147,7 +150,36 @@ def _build_parser() -> argparse.ArgumentParser:
     download = dataset_commands.add_parser(
         "download", help="download configured dataset sources"
     )
-    download.add_argument("config", type=Path, help="YAML download manifest")
+    download.add_argument(
+        "paths", nargs="*", type=Path, help="legacy YAML download manifest"
+    )
+    download.add_argument("--config", type=Path, help="one YAML download bundle")
+    download.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="classify items without network or writes",
+    )
+    download.add_argument(
+        "--force", action="store_true", help="replace existing conflicting artifacts"
+    )
+    download_all = dataset_commands.add_parser(
+        "download-all", help="download every bundle in a named group"
+    )
+    download_all.add_argument("--group", required=True, help="configured group name")
+    download_all.add_argument(
+        "--groups-config",
+        type=Path,
+        default=Path("configs/dataset-groups.yaml"),
+        help="YAML dataset group manifest",
+    )
+    download_all.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="classify items without network or writes",
+    )
+    download_all.add_argument(
+        "--force", action="store_true", help="replace existing conflicting artifacts"
+    )
     literature = commands.add_parser(
         "literature", help="bounded literature acquisition utilities"
     )
@@ -273,15 +305,58 @@ def main(argv: Sequence[str] | None = None) -> int:
             logger.error("error: configuration resolution failed: %s", error)
             return 2
         return 0
-    if args.command == "datasets" and args.datasets_command == "download":
+    if args.command == "datasets" and args.datasets_command in {
+        "download",
+        "download-all",
+    }:
         try:
-            logger.info("Loading dataset download configuration: %s", args.config)
-            results = download_datasets(load_download_config(args.config))
+            configs: tuple[DatasetDownloadsConfig, ...]
+            if args.datasets_command == "download":
+                selected = ((args.config,) if args.config is not None else ()) + tuple(
+                    args.paths
+                )
+                if not selected:
+                    raise DownloadError(
+                        "datasets download requires --config or a legacy YAML path"
+                    )
+                if len(selected) != 1:
+                    raise DownloadError(
+                        "datasets download accepts exactly one bundle configuration"
+                    )
+                configs = (load_download_config(selected[0]),)
+            else:
+                download_groups = load_download_groups(args.groups_config)
+                configs = tuple(
+                    (
+                        load_download_config(path).model_copy(
+                            update={"overwrite": False}
+                        )
+                        if not args.force
+                        else load_download_config(path)
+                    )
+                    for path in download_groups.paths_for(args.group)
+                )
+            validate_download_selection(configs)
+            results = tuple(
+                item
+                for config in configs
+                for item in (
+                    download_datasets(config)
+                    if not args.dry_run and not args.force
+                    else download_datasets(
+                        config, dry_run=args.dry_run, force=args.force
+                    )
+                )
+            )
             sys.stdout.write(results_to_json(results))
-        except DownloadError as error:
+            return (
+                2
+                if any(item.status in {"conflict", "failed"} for item in results)
+                else 0
+            )
+        except (DownloadError, ConfigError) as error:
             logger.error("error: dataset download failed: %s", error)
             return 2
-        return 0
     if args.command == "literature" and args.literature_command == "acquire":
         try:
             acquisition_config = load_acquisition_config(args.config)

@@ -1,0 +1,11 @@
+# Ordered dataset bundles. Each bundle owns its source definitions.
+groups:
+  historical:
+    configs:
+      - configs/datasets/schwartz_hearst.yaml
+      - configs/datasets/ab3p.yaml
+      - configs/datasets/bioadi.yaml
+      - configs/datasets/medstract.yaml
+      - configs/datasets/sdu_aaai21_ai.yaml
+      - configs/datasets/sdu_aaai21_ad.yaml
+      - configs/datasets/sdu_aaai22_ae.yaml

@@ -63,6 +63,7 @@ def _parser() -> argparse.ArgumentParser:
 
 def main(argv: Sequence[str] | None = None) -> int:
     """Run the selected gate from the repository root."""
+    print(f"python executable is {sys.executable}")
     args = _parser().parse_args(argv)
     root = Path(__file__).resolve().parents[1]
     if args.self_test:

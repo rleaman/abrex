@@ -7,6 +7,10 @@ planned for GPT-5.6 Luna. Start with the [completion plan](../project-completion
 [current-state audit](../project-state-audit.md) and
 [Luna execution guide](LUNA_EXECUTION_GUIDE.md).
 
+T049 was added September 8, 2026 as a focused Luna maintenance task to make
+historical dataset downloads selective, idempotent, and consistent with the
+single/group corpus-build CLI.
+
 T000–T016 below are the historical implementation sequence. Their completion
 notes describe the scope delivered, not proof that the full research project
 is finished. The tentative T017–T023 suggestions in the Word handoff are
@@ -56,6 +60,9 @@ Execute T046 after T028 and before T034. Design T047 after T029 and finalize it 
 
 T048 assesses the BioADI JAR after T022 and supplies additional benchmark results if viable. The [complete resource catalog](../resource-catalog.md) preserves all 41 supplied CSV entries and their task routes.
 
+T049 is complete for the idempotent, group-driven dataset downloader; see the
+[T049 completion note](completed/T049-idempotent-dataset-download-cli.md).
+
 ### Planned assignments
 
 | Task | Outcome | Hard new prerequisites | Milestone |
@@ -92,6 +99,7 @@ T048 assesses the BioADI JAR after T022 and supplies additional benchmark result
 | [T046](T046-external-dictionary-acquisition.md) | Acquire and audit external abbreviation dictionaries | T028 | B |
 | [T047](T047-large-scale-corpus-selection.md) | Select and freeze the large-scale literature corpus | T025, T029 | B/E |
 | [T048](T048-bioadi-runtime-and-resolver.md) | Verify BioADI software and integrate if viable | T017, T019, T022 | B/C |
+| [T049](T049-idempotent-dataset-download-cli.md) | Make dataset downloads selective, idempotent and group-driven | T011, T017 | Maintenance |
 
 ## How to use these tasks
 

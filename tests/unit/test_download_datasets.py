@@ -15,8 +15,11 @@ import pytest
 
 import abrex.cli as cli
 import abrex.tools.download_datasets as downloads
+from abrex.config import ConfigError
 from abrex.tools.download_datasets import (
     DatasetDownloadConfig,
+    DatasetDownloadGroup,
+    DatasetDownloadGroups,
     DatasetDownloadsConfig,
     DownloadedDataset,
     DownloadError,
@@ -37,9 +40,11 @@ class _Response:
         return self.stream.read(size)
 
 
-def _config(destination: Path, *, extract: bool = False) -> DatasetDownloadConfig:
+def _config(
+    destination: Path, *, extract: bool = False, name: str = "sample"
+) -> DatasetDownloadConfig:
     return DatasetDownloadConfig(
-        name="sample",
+        name=name,
         url="https://example.test/sample",
         destination=destination,
         extract=extract,
@@ -138,22 +143,24 @@ def test_download_file_digest_overwrite_and_manifest(
         )["name"]
         == "sample"
     )
-    with pytest.raises(DownloadError, match="already exists"):
-        downloads.download_datasets(config)
-    with pytest.raises(DownloadError, match="SHA-256 mismatch"):
-        downloads.download_datasets(
-            DatasetDownloadsConfig(
-                overwrite=True,
-                datasets=(
-                    DatasetDownloadConfig(
-                        name="bad-digest",
-                        url="url",
-                        destination=destination,
-                        sha256="0" * 64,
-                    ),
+    reused = downloads.download_datasets(config)
+    assert reused[0].status == "reused"
+    failed = downloads.download_datasets(
+        DatasetDownloadsConfig(
+            overwrite=True,
+            datasets=(
+                DatasetDownloadConfig(
+                    name="bad-digest",
+                    url="url",
+                    destination=destination,
+                    sha256="0" * 64,
                 ),
-            )
+            ),
         )
+    )
+    assert failed[0].status == "failed"
+    assert failed[0].diagnostic is not None
+    assert "SHA-256 mismatch" in failed[0].diagnostic
 
 
 def test_archive_extractors_and_safe_paths(
@@ -268,11 +275,15 @@ def test_download_extract_overwrite_existing_parts_and_errors(
     existing.mkdir()
     (existing / "old.txt").write_text("old", encoding="utf-8")
     (tmp_path / "existing.part").mkdir()
+    (tmp_path / "existing.download.part").mkdir()
     second = tmp_path / "second"
     config = DatasetDownloadsConfig(
         overwrite=True,
         polite_delay_seconds=0.5,
-        datasets=(_config(existing, extract=True), _config(second, extract=True)),
+        datasets=(
+            _config(existing, extract=True, name="existing"),
+            _config(second, extract=True, name="second"),
+        ),
     )
     result = downloads.download_datasets(config)
     assert len(result) == 2
@@ -285,12 +296,15 @@ def test_download_extract_overwrite_existing_parts_and_errors(
         destination.write_bytes(b"not an archive")
 
     monkeypatch.setattr(downloads, "_retrieve", invalid_archive)
-    with pytest.raises(DownloadError, match="Unable to extract"):
-        downloads.download_datasets(
-            DatasetDownloadsConfig(
-                overwrite=True, datasets=(_config(tmp_path / "bad", extract=True),)
-            )
+    failed = downloads.download_datasets(
+        DatasetDownloadsConfig(
+            overwrite=True,
+            datasets=(_config(tmp_path / "bad", extract=True),),
         )
+    )
+    assert failed[0].status == "failed"
+    assert failed[0].diagnostic is not None
+    assert "Unable to extract" in failed[0].diagnostic
 
 
 def test_download_archive_and_cli_download_paths(
@@ -321,3 +335,192 @@ def test_download_archive_and_cli_download_paths(
     monkeypatch.setattr(cli, "download_datasets", fail)
     assert cli.main(["datasets", "download", "ignored.yaml"]) == 2
     assert "download failed" in capsys.readouterr().err
+
+
+def test_dry_run_and_conflict_make_no_network_or_writes(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    destination = tmp_path / "missing.txt"
+    calls: list[str] = []
+
+    def unexpected_retrieve(
+        url: str, path: Path, config: DatasetDownloadsConfig
+    ) -> None:
+        calls.append(url)
+        raise AssertionError("dry run made a network request")
+
+    monkeypatch.setattr(downloads, "_retrieve", unexpected_retrieve)
+    config = DatasetDownloadsConfig(datasets=(_config(destination),))
+    planned = downloads.download_datasets(config, dry_run=True)
+    assert planned[0].status == "planned"
+    assert calls == []
+    assert not destination.exists()
+
+    destination.write_text("changed", encoding="utf-8")
+    conflict = downloads.download_datasets(config, dry_run=True)
+    assert conflict[0].status == "conflict"
+    assert "--force" in (conflict[0].diagnostic or "")
+    assert calls == []
+
+
+def test_legacy_file_sidecar_is_migrated_without_network(
+    tmp_path: Path,
+) -> None:
+    destination = tmp_path / "legacy.txt"
+    destination.write_text("legacy", encoding="utf-8")
+    digest = hashlib.sha256(b"legacy").hexdigest()
+    sidecar = destination.with_name("legacy.txt.download.json")
+    sidecar.write_text(
+        json.dumps(
+            {
+                "name": "sample",
+                "url": "https://example.test/sample",
+                "path": str(destination),
+                "sha256": digest,
+                "extracted": False,
+            }
+        ),
+        encoding="utf-8",
+    )
+    result = downloads.download_datasets(
+        DatasetDownloadsConfig(datasets=(_config(destination),))
+    )
+    assert result[0].status == "reused"
+    migrated = json.loads(sidecar.read_text(encoding="utf-8"))
+    assert migrated["version"] == 2
+    assert migrated["archive_sha256_verified"] is True
+
+
+def test_legacy_directory_sidecar_records_unverified_archive(
+    tmp_path: Path,
+) -> None:
+    destination = tmp_path / "legacy-directory"
+    destination.mkdir()
+    (destination / "data.txt").write_text("legacy", encoding="utf-8")
+    sidecar = destination.with_name("legacy-directory.download.json")
+    sidecar.write_text(
+        json.dumps(
+            {
+                "name": "sample",
+                "url": "https://example.test/sample",
+                "path": str(destination),
+                "sha256": "archive-digest-no-longer-verifiable",
+                "extracted": True,
+            }
+        ),
+        encoding="utf-8",
+    )
+    result = downloads.download_datasets(
+        DatasetDownloadsConfig(
+            datasets=(_config(destination, extract=True),),
+        )
+    )
+    assert result[0].status == "reused"
+    migrated = json.loads(sidecar.read_text(encoding="utf-8"))
+    assert migrated["archive_sha256_verified"] is False
+    assert migrated["output_sha256"] == result[0].output_sha256
+
+
+def test_download_all_group_dry_run(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    bundle = tmp_path / "bundle.yaml"
+    bundle.write_text(
+        "downloads:\n"
+        "  datasets:\n"
+        "    - name: grouped\n"
+        "      url: https://example.test/grouped\n"
+        f"      destination: {(tmp_path / 'grouped.txt').as_posix()}\n",
+        encoding="utf-8",
+    )
+    groups = tmp_path / "groups.yaml"
+    groups.write_text(
+        f"groups:\n  test:\n    configs:\n      - {bundle.as_posix()}\n",
+        encoding="utf-8",
+    )
+    assert (
+        cli.main(
+            [
+                "datasets",
+                "download-all",
+                "--group",
+                "test",
+                "--groups-config",
+                str(groups),
+                "--dry-run",
+            ]
+        )
+        == 0
+    )
+    result = json.loads(capsys.readouterr().out)
+    assert result[0]["name"] == "grouped"
+    assert result[0]["status"] == "planned"
+
+
+def test_duplicate_selection_is_rejected_before_download(tmp_path: Path) -> None:
+    first = DatasetDownloadsConfig(datasets=(_config(tmp_path / "one"),))
+    second = DatasetDownloadsConfig(datasets=(_config(tmp_path / "one", name="other"),))
+    with pytest.raises(DownloadError, match="destinations must be unique"):
+        downloads.validate_download_selection((first, second))
+
+
+def test_download_config_rejects_duplicate_names_and_destinations(
+    tmp_path: Path,
+) -> None:
+    destination = tmp_path / "duplicate"
+    with pytest.raises(ValueError, match="names must be unique"):
+        DatasetDownloadsConfig(
+            datasets=(
+                _config(destination, name="same"),
+                _config(tmp_path / "other", name="same"),
+            )
+        )
+    with pytest.raises(ValueError, match="destinations must be unique"):
+        DatasetDownloadsConfig(
+            datasets=(_config(destination), _config(destination, name="other"))
+        )
+
+
+def test_malformed_and_stale_sidecars_are_conflicts(tmp_path: Path) -> None:
+    destination = tmp_path / "artifact"
+    destination.write_text("content", encoding="utf-8")
+    sidecar = destination.with_name("artifact.download.json")
+    sidecar.write_text("[]", encoding="utf-8")
+    config = DatasetDownloadsConfig(datasets=(_config(destination),))
+    result = downloads.download_datasets(config)
+    assert result[0].status == "conflict"
+    assert "sidecar is not an object" in (result[0].diagnostic or "")
+
+    downloads._write_manifest(config.datasets[0], "archive", "0" * 64)
+    result = downloads.download_datasets(config)
+    assert result[0].status == "conflict"
+    assert "destination content" in (result[0].diagnostic or "")
+
+
+def test_group_loader_reports_unknown_and_invalid_groups(tmp_path: Path) -> None:
+    groups = DatasetDownloadGroups(
+        groups={"known": DatasetDownloadGroup(configs=(tmp_path / "one.yaml",))}
+    )
+    with pytest.raises(ConfigError, match="available groups: known"):
+        groups.paths_for("missing")
+
+    invalid = tmp_path / "invalid-groups.yaml"
+    invalid.write_text("groups:\n  broken:\n    configs: []\n", encoding="utf-8")
+    with pytest.raises(DownloadError, match="Invalid dataset group"):
+        downloads.load_download_groups(invalid)
+
+
+def test_publish_guards_existing_destinations_and_backups(tmp_path: Path) -> None:
+    destination = tmp_path / "destination"
+    destination.write_text("old", encoding="utf-8")
+    staging = tmp_path / "staging"
+    staging.write_text("new", encoding="utf-8")
+    with pytest.raises(DownloadError, match="Destination already exists"):
+        downloads._publish(staging, destination, force=False)
+
+    staging.write_text("new", encoding="utf-8")
+    backup = tmp_path / "destination.backup"
+    backup.write_text("stale backup", encoding="utf-8")
+    downloads._publish(staging, destination, force=True)
+    assert destination.read_text(encoding="utf-8") == "new"
+    assert not backup.exists()

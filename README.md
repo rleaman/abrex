@@ -109,16 +109,22 @@ shape, provenance contract, and downstream entity mapping.
 
 ## Historical datasets
 
-Download the user-managed historical corpus sources listed in the YAML
-manifest with:
+Download one source bundle with its own YAML configuration, or the named
+historical group, with:
 
 ```console
-python -m abrex datasets download configs/historical-datasets.yaml
+abrex datasets download --config configs/datasets/sdu_aaai22_ae.yaml
+abrex datasets download-all --group historical
 ```
 
-The downloader uses polite sequential requests, retries transient failures,
-writes atomically, verifies configured checksums, safely extracts archives,
-and records a `.download.json` provenance file for each completed source.
+Normal reruns reuse a validated destination without contacting the network.
+Use `--dry-run` to classify missing, reusable, and conflicting items without
+network or filesystem writes; use `--force` only for an intentional refresh.
+Group runs continue after independent conflicts or failures and return the
+structured result array on stdout. The old positional command
+`python -m abrex datasets download configs/historical-datasets.yaml` remains
+accepted as legacy compatibility syntax; new source definitions live under
+`configs/datasets/` and the group is declared in `configs/dataset-groups.yaml`.
 
 ### Command-line logging
 

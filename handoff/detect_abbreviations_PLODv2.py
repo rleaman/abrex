@@ -5,15 +5,15 @@ from __future__ import annotations
 import argparse
 import logging
 import os
+import re
 import tempfile
 from pathlib import Path
 from typing import Any
-import re
 
 import bioc
 
-from .config import load_config
 from .bioc_io import open_bioc
+from .config import load_config
 from .logging_utils import configure_logging
 
 LOG = logging.getLogger(__name__)
@@ -22,7 +22,10 @@ posinf = float("inf")
 
 # See PLODv2 GitHub at https://github.com/surrey-nlp/PLODv2-CLM4AbbrDetection
 
-def _merge_adjacent_entities(entities: list[dict[str, Any]], text: str) -> list[dict[str, Any]]:
+
+def _merge_adjacent_entities(
+    entities: list[dict[str, Any]], text: str
+) -> list[dict[str, Any]]:
     if not entities:
         return []
     merge_groups = [[0]]
@@ -51,43 +54,18 @@ def _merge_adjacent_entities(entities: list[dict[str, Any]], text: str) -> list[
     return merged
 
 
-def check_match_OLD(f1: dict[str, Any], f2: dict[str, Any], text: str) -> bool:
-    dist = f2["start"] - f1["end"]
-    if dist <= 0:
-        return False
-    between_text = text[f1["end"] : f2["start"]]
-    # Check for "lysosomal storage disorders (LSDs)"
-    if len(text) > f2["end"] and text[f2["end"]] == ")" and between_text == (" " * (dist - 1) + "("):
-        return True
-    # Check for "heat-stable antigen (HSA, CD24, nectadrin)"
-    if len(text) > f2["end"] and text[f2["end"]] == "," and between_text == (" " * (dist - 1) + "("):
-        return True
-    # Check for "lipopolysaccharide (LPS; 1 µg/ml)"
-    if len(text) > f2["end"] and text[f2["end"]] == ";" and between_text == (" " * (dist - 1) + "("):
-        return True
-    # Check for "Type 2 diabetes [T2D]"
-    if len(text) > f2["end"] and text[f2["end"]] == "]" and between_text == (" " * (dist - 1) + "["):
-        return True
-    # Check for "(Mucopolysaccharidosis Type IIIA, MPS-IIIA)"
-    if (
-        f1["start"] > 0
-        and text[f1["start"] - 1] == "("
-        and len(text) > f2["end"]
-        and text[f2["end"]] == ")"
-        and between_text == ("," + " " * (dist - 1))
-    ):
-        return True
-    return False
-
 def check_match(f1: dict[str, Any], f2: dict[str, Any], text: str) -> bool:
     dist = f2["start"] - f1["end"]
     if dist <= 0:
         return False
-    f1t = text[f1["start"]:f1["end"]]
-    f2t = text[f2["start"]:f2["end"]]
+    f1t = text[f1["start"] : f1["end"]]
+    f2t = text[f2["start"] : f2["end"]]
 
-    # Check for "lysosomal storage disorders (LSDs)" or "Apolipoprotein E ( Apoe )"
-    # or "heat-stable antigen (HSA, CD24, nectadrin)" or "N-methyl-D-aspartate (NMDA; or AMPA)"
+    # Check for cases like:
+    # - "lysosomal storage disorders (LSDs)"
+    # - "Apolipoprotein E ( Apoe )"
+    # - "heat-stable antigen (HSA, CD24, nectadrin)"
+    # - "N-methyl-D-aspartate (NMDA; or AMPA)"
     if re.search(rf"\b{re.escape(f1t)} *\( *{re.escape(f2t)} *[),;]", text):
         return True
 
@@ -102,10 +80,7 @@ def check_match(f1: dict[str, Any], f2: dict[str, Any], text: str) -> bool:
 
     # TODO Add extra spaces and recheck
     # Check for "CASP3: caspase 3;" or "FDC, follicular dendritic cell."
-    if re.search(rf"\b{re.escape(f1t)}[,:] *{re.escape(f2t)}[;.]", text):
-        return True
-
-    return False
+    return re.search(rf"\b{re.escape(f1t)}[,:] *{re.escape(f2t)}[;.]", text) is not None
 
 
 def _cost(lf: dict[str, Any], sf: dict[str, Any], text: str) -> float:
@@ -128,7 +103,6 @@ def _cost(lf: dict[str, Any], sf: dict[str, Any], text: str) -> float:
 
 
 class PLOD_Abbreviation_Detector:
-
     def __init__(self, device_name: str):
         """Load the PLOD v2 Flair tagger and return a text-to-entities function."""
         try:
@@ -138,14 +112,17 @@ class PLOD_Abbreviation_Detector:
             from flair.models import SequenceTagger
         except ImportError as exc:
             raise RuntimeError(
-                "PLOD v2 abbreviation detection requires flair and torch; install the project dependencies."
+                "PLOD v2 abbreviation detection requires flair and torch;"
+                + "install the project dependencies."
             ) from exc
         self.Sentence = Sentence
 
         if device_name == "auto":
             device_name = "cuda" if torch.cuda.is_available() else "cpu"
         if device_name == "cuda" and not torch.cuda.is_available():
-            raise RuntimeError("CUDA was requested, but no CUDA-enabled GPU is available.")
+            raise RuntimeError(
+                "CUDA was requested, but no CUDA-enabled GPU is available."
+            )
         if device_name not in {"cpu", "cuda"}:
             raise ValueError("abbreviations.device must be auto, cpu, or cuda")
 
@@ -204,7 +181,10 @@ class PLOD_Abbreviation_Detector:
         for lf_index, lf in enumerate(long_forms):
             for sf_index, sf in enumerate(short_forms):
                 cost = _cost(lf, sf, text)
-                # LOG.debug(f"TRACE cost for LF #{lf_index} {lf} with SF #{sf_index} {sf} = {cost}")
+                # LOG.debug(
+                #    f"TRACE cost for LF #{lf_index} {lf} "
+                #    + "with SF #{sf_index} {sf} = {cost}"
+                # )
                 if cost != posinf:
                     costs.append((cost, (lf_index, sf_index)))
         costs.sort()
@@ -221,10 +201,10 @@ class PLOD_Abbreviation_Detector:
             lf = long_forms[lf_index]
             sf = short_forms[sf_index]
             r_index = len(relations)
-            #LOG.debug(
+            # LOG.debug(
             #    f"TRACE pairing LF #{lf_index} {lf} with SF #{sf_index} {sf} "
             #    + f"and cost {cost} as relation #{r_index}"
-            #)
+            # )
             lf_ann = bioc.BioCAnnotation()
             lf_ann.id = f"LF{r_index}"
             lf_ann.infons = {"ABBR": "LongForm", "type": "ABBR"}
@@ -239,9 +219,15 @@ class PLOD_Abbreviation_Detector:
             relation = bioc.BioCRelation()
             relation.id = f"R{r_index}"
             relation.infons = {"type": "ABBR", "cost": cost}
-            relation.nodes = [bioc.BioCNode(lf_ann.id, "LongForm"), bioc.BioCNode(sf_ann.id, "ShortForm")]
+            relation.nodes = [
+                bioc.BioCNode(lf_ann.id, "LongForm"),
+                bioc.BioCNode(sf_ann.id, "ShortForm"),
+            ]
             relations.append(relation)
-            #LOG.debug(f'TRACE relation #{r_index}: LF = "{lf_ann.text}" SF = "{sf_ann.text}"')
+            # LOG.debug(
+            #    f'TRACE relation #{r_index}: LF = "{lf_ann.text}"'
+            #    + ' SF = "{sf_ann.text}"'
+            # )
         passage.relations.extend(relations)
         return len(relations)
 
@@ -257,7 +243,9 @@ def _input_files(input_path: Path) -> list[Path]:
 def _write_collection(path: Path, collection: bioc.BioCCollection) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     suffix = ".gz" if str(path).endswith(".gz") else ""
-    fd, temporary = tempfile.mkstemp(prefix=f"{path.name}.", suffix=suffix, dir=path.parent)
+    fd, temporary = tempfile.mkstemp(
+        prefix=f"{path.name}.", suffix=suffix, dir=path.parent
+    )
     os.close(fd)
     try:
         with open_bioc(Path(temporary), "wt") as handle:
@@ -275,7 +263,11 @@ def run(config_path: Path) -> None:
     input_files = _input_files(config.abbreviation_input)
     output_is_file = config.abbreviation_input.is_file()
     for input_file in input_files:
-        output = config.abbreviation_output if output_is_file else config.abbreviation_output / input_file.name
+        output = (
+            config.abbreviation_output
+            if output_is_file
+            else config.abbreviation_output / input_file.name
+        )
         LOG.debug(f"Detecting abbreviations from {input_file} to {output}")
         with open_bioc(input_file) as handle:
             collection = bioc.load(handle)
@@ -303,7 +295,9 @@ def run(config_path: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=Path("config/pipeline.yaml"))
-    parser.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING", "ERROR"])
+    parser.add_argument(
+        "--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING", "ERROR"]
+    )
     parser.add_argument("--log-file", type=Path)
     args = parser.parse_args()
     configure_logging(args.log_level, args.log_file)
