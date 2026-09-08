@@ -1,0 +1,13 @@
+project:
+  name: T040-research-validation-and-ablation
+  seed: 20260908
+protocol:
+  corpus: ab3p_corpus_t022_smoke
+  matching: exact_pair
+  metrics: [pair_prf, seeded_article_group_bootstrap]
+  bootstrap_samples: 1000
+  precision_tolerance: 0.0
+  final_holdout_access: forbidden
+  max_iterations: 2
+  budget: bounded-local-artifacts-only
+  selection_rule: retain strongest validated development baseline unless a predeclared gain is supported

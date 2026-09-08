@@ -65,6 +65,9 @@ comparison remains pending. See the [T038 completion note](completed/T038-lightw
 T039 is complete for bounded iteration manifests, lineage checks,
 checkpoint/resume and rollback mechanics. Research improvement remains
 unvalidated. See the [T039 completion note](completed/T039-controlled-iteration-controller.md).
+T040 is complete for the frozen bounded campaign protocol, evidence-backed
+ablation audit and explicit no-promotion decision. See the [T040 completion
+note](completed/T040-research-validation-and-ablation-campaign.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay

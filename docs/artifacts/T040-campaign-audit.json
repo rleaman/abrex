@@ -1,0 +1,57 @@
+{
+  "ablations": {
+    "lexical_local": {
+      "recall": 0.8601398601398601,
+      "status": "no_gain_bounded_pilot"
+    },
+    "logistic_regression": {
+      "scientific_comparison": false,
+      "status": "plumbing_smoke_only"
+    },
+    "native_offset_ab3p": {
+      "f1": 0.9029850746268657,
+      "status": "validated_exploratory"
+    },
+    "plodv2_pairing": {
+      "f1": 0.7790262172284644,
+      "status": "validated_exploratory"
+    },
+    "schwartz_hearst": {
+      "f1": 0.8527131782945736,
+      "status": "validated_exploratory"
+    },
+    "transparent_hybrid": {
+      "f1": 0.9018181818181819,
+      "status": "validated_exploratory"
+    }
+  },
+  "decision": {
+    "holdout_status": "unused_and_reserved",
+    "production_improvement_supported": false,
+    "reason": "No approved contemporary gold or adequately powered gold-plus-silver development set is available; hybrid and lexical pilots do not establish a gain.",
+    "release_candidate": "native_offset_ab3p"
+  },
+  "inputs": {
+    "T031-comparative-analysis-report.json": "b38e182f132943811916ad7718d375c62778efbb3f8ac30a6d21ffb617267ad8",
+    "T032-transparent-hybrid-report.json": "8283799ed78eb35b65906ec0f8f4600f38c1d9a6f5ad209dc4dfe75dce5f7936",
+    "T034-lexical-evidence-ablation.json": "c8a09a271112a023d96a3ffe48a63af5e046f13afbb47a2d2f7cdf5a946048db",
+    "T038-logistic-regression-report.json": "817c0d93bba3baf646487b918df6c5e87279d2ec2849bd441dfc7216bffd0007"
+  },
+  "limitations": [
+    "T022 is a bounded historical smoke slice, not a representative final evaluation.",
+    "T030 labels remain provisional and were not used to select a release candidate.",
+    "T034 aggregate resource overlap is unknown; no independent confirmation is claimed.",
+    "Runtime and work-scale dictionary quality remain unvalidated."
+  ],
+  "protocol": {
+    "corpus": "ab3p_corpus_t022_smoke",
+    "final_holdout_access": "forbidden",
+    "matching": "exact_pair",
+    "metrics": [
+      "pair_prf",
+      "seeded_article_group_bootstrap"
+    ],
+    "selection": "retain strongest validated baseline unless predeclared gain is supported"
+  },
+  "schema_version": "t040-campaign-audit-v1"
+}
