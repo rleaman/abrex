@@ -1,6 +1,8 @@
 # T035 Represent noisy evidence and derive versioned silver labels
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: D.
+Status: Complete for transparent evidence-ledger engineering and fixture truth
+tables; silver-label accuracy remains scientifically unvalidated. Assigned
+implementer: GPT-5.6 Luna. Milestone: D.
 
 ## Outcome
 
@@ -44,4 +46,3 @@ Real multi-source development evidence and a small reviewed set for noise estima
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T035-weak-evidence-ledger-and-silver-labels.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

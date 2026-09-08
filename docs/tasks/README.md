@@ -50,6 +50,9 @@ coverage and explicit image-only limits. See the
 T034 is complete for registry-backed exact local lexical candidates,
 provenance-aware resource features, leakage controls and the bounded no-gain
 ablation. See the [T034 completion note](completed/T034-lexical-candidates-and-evidence-features.md).
+T035 is complete for content-addressed weak-evidence records, source-family
+deduplication and transparent conflict-aware silver labels. See the [T035
+completion note](completed/T035-weak-evidence-ledger-and-silver-labels.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay
