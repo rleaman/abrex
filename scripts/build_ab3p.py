@@ -187,6 +187,10 @@ def _definition_count(output: str) -> int:
     )
 
 
+def _offset_record_count(output: str) -> int:
+    return sum(1 for line in output.splitlines() if line.strip())
+
+
 def build(args: argparse.Namespace) -> dict[str, Any]:
     if os.name != "posix":
         raise RuntimeError(
@@ -252,6 +256,34 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         ab3p_root,
         env=build_env,
     )
+    offset_frontend_source = Path(__file__).with_name("ab3p_offset_frontend.C")
+    if not offset_frontend_source.is_file():
+        raise FileNotFoundError(
+            f"Missing offset frontend source: {offset_frontend_source}"
+        )
+    offset_frontend = ab3p_root / "identify_abbr_offsets"
+    _run(
+        [
+            os.fspath(compiler_wrapper),
+            "-std=c++11",
+            "-g",
+            "-I",
+            os.fspath(ab3p_root / "lib"),
+            "-I",
+            os.fspath(ncbi_root / "include"),
+            os.fspath(offset_frontend_source),
+            "-L",
+            os.fspath(ab3p_root / "lib"),
+            "-lAb3P",
+            "-L",
+            os.fspath(ncbi_root / "lib"),
+            "-lText",
+            "-o",
+            os.fspath(offset_frontend),
+        ],
+        output,
+        env=build_env,
+    )
     upstream = _run(["make", "test"], ab3p_root, capture=True)
 
     verification = output / "verification"
@@ -269,6 +301,12 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         [os.fspath(executable), os.fspath(smoke_input)], ab3p_root, capture=True
     )
     _write_run_output(verification / "nonascii-multiline.stdout.txt", smoke)
+    offset_smoke = _run(
+        [os.fspath(offset_frontend), os.fspath(smoke_input)],
+        ab3p_root,
+        capture=True,
+    )
+    _write_run_output(verification / "nonascii-multiline.offsets.jsonl", offset_smoke)
 
     other_cwd = verification / "other-working-directory"
     other_cwd.mkdir()
@@ -310,6 +348,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     ]
     artifacts = [
         _artifact(ab3p_root, Path("identify_abbr"), role="executable"),
+        _artifact(ab3p_root, Path("identify_abbr_offsets"), role="executable"),
         _artifact(ab3p_root, Path("lib/libAb3P.a"), role="static-library"),
         _artifact(ncbi_root, Path("lib/libText.a"), role="static-library"),
         *resources,
@@ -354,6 +393,12 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
                 "stdout": "verification/nonascii-multiline.stdout.txt",
                 "definition_count": _definition_count(smoke.stdout),
                 "exit_status": smoke.returncode,
+            },
+            "nonascii_multiline_offset_smoke": {
+                "input": "verification/nonascii-multiline.input.txt",
+                "stdout": "verification/nonascii-multiline.offsets.jsonl",
+                "record_count": _offset_record_count(offset_smoke.stdout),
+                "exit_status": offset_smoke.returncode,
             },
             "other_working_directory": {
                 "path_file": "verification/other-working-directory/path_Ab3P",

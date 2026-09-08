@@ -1,0 +1,16 @@
+# Linux cache population using the task-owned native-offset frontend.
+resolver:
+  type: ab3p
+  params:
+    backend: subprocess
+    output_format: offset_jsonl
+    timeout_seconds: 60
+    installation:
+      manifest: docs/artifacts/ab3p-installation-manifest.json
+      root: /opt/ab3p
+      executable: identify_abbr_offsets
+      resource_directory: WordData
+    cache:
+      path: artifacts/ab3p-offset-cache
+      read: true
+      write: true

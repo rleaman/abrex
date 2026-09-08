@@ -1,6 +1,8 @@
 # T021 Use verified Ab3P offsets for canonical span mapping
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: A.
+Status: Complete for the native-offset adapter and live conformance scope;
+scientific benchmark impact remains pending T022. Assigned implementer:
+GPT-5.6 Luna. Milestone: A.
 
 ## Outcome
 
@@ -44,4 +46,3 @@ T018/T020 live installation and permission to compile the task-owned wrapper.
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T021-ab3p-native-offset-adapter.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

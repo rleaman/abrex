@@ -1,0 +1,9 @@
+adam_import:
+  tar_path: .artifacts/T046/adam/adam.tar
+  readme_path: .artifacts/T046/adam/README
+  manifest_path: .artifacts/T046/adam/manifest.json
+  normalized_path: .artifacts/T046/adam/adam.json.gz
+  sqlite_path: .artifacts/T046/adam/adam.sqlite
+  source_label: ADAM
+  count_unit: definition-count
+  max_records: 64

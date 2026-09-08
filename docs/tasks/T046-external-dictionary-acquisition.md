@@ -1,6 +1,6 @@
 # T046 Acquire and audit external abbreviation dictionaries
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: B. Added September 7, 2026; execute after T028 and before T034, not at the end of the project.
+Status: Complete. Assigned implementer: GPT-5.6 Luna. Milestone: B. Added September 7, 2026; execute after T028 and before T034, not at the end of the project.
 
 ## Outcome
 

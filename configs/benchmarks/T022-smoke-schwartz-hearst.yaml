@@ -1,0 +1,35 @@
+project:
+  name: t022-real-baseline-smoke-schwartz-hearst
+  seed: 20260907
+
+corpus:
+  type: canonical_jsonl
+  params:
+    path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.jsonl
+    manifest_path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.manifest.json
+
+resolver:
+  type: schwartz_hearst
+  params:
+    minimum_short_form_length: 2
+    max_long_form_words: null
+    ignore_non_alphanumeric: true
+    case_sensitive: false
+
+matching:
+  type: exact_pair
+  params: {}
+
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+
+reporters:
+  - type: json
+    params: {}
+
+output:
+  root: .artifacts/T022/experiments
+  reuse_cached_predictions: true

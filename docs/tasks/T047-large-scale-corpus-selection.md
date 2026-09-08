@@ -1,6 +1,6 @@
 # T047 Select and freeze the large-scale literature corpus
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: B/E. Added September 7, 2026; design after T029 and finalize before T042.
+Status: Complete for the configurable selection mechanism and bounded metadata-frame proposal; work-scale limits and scientific corpus approval remain pending. Assigned implementer: GPT-5.6 Luna. Milestone: B/E. Added September 7, 2026; design after T029 and finalize before T042.
 
 ## Outcome
 

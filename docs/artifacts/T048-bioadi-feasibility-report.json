@@ -1,0 +1,40 @@
+{
+  "task": "T048",
+  "historical": true,
+  "superseded_by": "T048-bioadi-resolver-report.json",
+  "artifact": {
+    "url": "https://clojars.org/repo/edu/sinica/bioagent/bioadi/0.1.0/bioadi-0.1.0.jar",
+    "path": ".artifacts/T048/bioadi-0.1.0.jar",
+    "bytes": 5237679,
+    "sha256": "62e92f3debc0b792c6ee0678a88c30102dec349c7f337befa427de232014975a",
+    "zip_entry_count": 2975,
+    "manifest_main_class": "spiaotools.SentParDetector",
+    "bioadi_classes_observed": [
+      "aiiaadi.util.Executor",
+      "aiiaadi.util.Extractor",
+      "aiiaadi.util.Utility"
+    ],
+    "embedded_resources": [
+      "aiiaadi/util/Model",
+      "aiiaadi/util/StopWordList.txt"
+    ],
+    "maven_metadata": "no BioADI project POM; commons-lang POM present"
+  },
+  "runtime_smoke": {
+    "windows_java": "not_found",
+    "windows_jar": "not_found",
+    "wsl_java": "not_found",
+    "command": "timeout 10s java -jar bioadi-0.1.0.jar",
+    "stderr": "timeout: failed to run command 'java': No such file or directory",
+    "output_semantics_verified": false,
+    "canonical_offsets_verified": false,
+    "resolver_integrated": false
+  },
+  "assessment": "Artifact reachable and acquired; current supported environments lack Java, so operational BioADI feasibility is negative/pending runtime installation. No resolver claim is made.",
+  "limitations": [
+    "No Java runtime was installed during this bounded task; a future supported JRE/JDK is required for execution evidence.",
+    "The JAR entry point and embedded classes were inspected but not decompiled or executed; input/output and offset contracts remain unknown.",
+    "The BioADI corpus remains a separate T019 artifact and is not an independent test of this software/model.",
+    "No predictions were manufactured and no resolver adapter was added."
+  ]
+}

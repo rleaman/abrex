@@ -1,5 +1,20 @@
 # T020 Ab3P runtime and cache identity
 
+## Follow-up: WSL smoke completed September 7, 2026
+
+The missing-Pydantic blocker recorded below is resolved. A separate Ubuntu
+Python 3.13.15 environment now contains the locked dependencies and editable
+ABREX installation. On an isolated snapshot of commit
+`395661011e9900a280cd6eb3c1d8d0ab201975ec`, real Ab3P execution processed two
+bundled documents with zero failures and extracted TNF and MRI definitions.
+Cache-only replay was byte-identical. The focused Ab3P tests passed (11),
+and the fast gate passed (Ruff, mypy, 174 unit/contract tests).
+
+See [WSL runtime and verification](../../wsl-runtime.md) for the interpreter,
+commands, artifact locations, and verification scope. This closes the T020
+operational smoke gap; it does not validate concurrently developed T021 changes.
+The original completion account below is retained as history.
+
 ## Implemented scope
 
 - Added typed `Ab3PInstallationConfig` settings for the T018 installation

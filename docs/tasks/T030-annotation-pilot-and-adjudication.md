@@ -1,6 +1,8 @@
 # T030 Create an auditable contemporary annotation pilot
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: B.
+Status: Complete for the auditable tooling and bounded local pilot; independent
+review and scientific gold certification remain pending. Assigned implementer:
+GPT-5.6 Luna. Milestone: B.
 
 ## Outcome
 

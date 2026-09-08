@@ -1,6 +1,10 @@
 # T048 Verify BioADI software and integrate a viable resolver
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: B/C. Added September 7, 2026; run after the real baseline path, then include usable results in T031/T040 comparisons.
+Status: Complete for bounded runtime verification, typed integration and the
+T022 resolver artifact. The evaluator treatment of the 51 explicit mapping
+failures remains an open scientific decision; see the [completion note](completed/T048-bioadi-runtime-and-resolver.md).
+Assigned implementer: GPT-5.6 Luna. Milestone: B/C. Added September 7, 2026;
+run after the real baseline path, then include usable results in T031/T040 comparisons.
 
 ## Outcome
 

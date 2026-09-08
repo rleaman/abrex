@@ -1,0 +1,24 @@
+# Bounded T047 proposal. This selects identifiers and metadata only; it does
+# not fetch or process the selected articles.
+corpus_selection:
+  frame_path: data/fixtures/literature/t029-sampling-frame.jsonl
+  manifest_path: .artifacts/T047/corpus-selection.json
+  seed: 20260907
+  snapshot_cutoff: "2026-09-07T00:00:00Z"
+  selection_rationale: "Use a seeded broad discovery pool and a separately denominated enriched structure pool; protect the configured T029 difficult-group holdout before any role assignment."
+  min_year: 2018
+  max_year: 2024
+  allowed_languages: [en]
+  allowed_document_types: [journal-article]
+  allowed_reuse_classes: [open, unknown]
+  broad_fraction: 1.0
+  enriched_max_groups: 1
+  protected_record_ids:
+    - pmcid-4051513
+  final_release_includes_selected: true
+  near_duplicate_jaccard: 0.98
+  work_scale_limits:
+    max_documents: 100000
+    max_raw_bytes: 50000000000
+    max_runtime_minutes: 1440
+    estimated_documents_per_minute: 30.0

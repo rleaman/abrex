@@ -1,0 +1,79 @@
+{
+  "task": "T047",
+  "frame_path": "data/fixtures/literature/t029-sampling-frame.jsonl",
+  "frame_sha256": "4123fa13d62c34a2b1b4b06bafc75a607afb0cb67a39c9862d912a470da3caae",
+  "config_path": "configs/literature/T047-corpus-selection.yaml",
+  "manifest_path": ".artifacts/T047/corpus-selection.json",
+  "manifest_sha256": "cb64eb2166c037fd7e5f8ac52bbbecee05045885aca29e321672de1129923e1f",
+  "pilot_summary": {
+    "frame_records": 5,
+    "article_groups": 4,
+    "eligible_groups": 1,
+    "tagged_structure_groups": 1,
+    "enriched_candidate_groups": 0,
+    "selected_group_counts": {
+      "discovery": 1,
+      "enriched": 0,
+      "tagged-release": 1
+    },
+    "selected_record_counts": {
+      "discovery": 1,
+      "enriched": 0,
+      "tagged-release": 1
+    },
+    "exclusion_group_counts": {
+      "evaluation-holdout": 1,
+      "unavailable": 1,
+      "year-range": 2
+    },
+    "source_kind_counts": {
+      "abstract": 3,
+      "full_text": 2
+    },
+    "year_counts": {
+      "2003": 2,
+      "2014": 1,
+      "2018": 1,
+      "2022": 1
+    },
+    "structure_tag_counts": {
+      "caption": 1,
+      "rare-form": 1,
+      "table": 1
+    },
+    "estimated_selected_text_bytes": 74,
+    "estimated_selected_runtime_minutes": 0.033
+  },
+  "verification": {
+    "focused_tests": 2,
+    "repository_fast_tests": 254,
+    "repository_full_tests": 258,
+    "repository_coverage_percent": 95.05,
+    "ruff_and_mypy": true,
+    "git_diff_check": true,
+    "same_frame_and_config_reproduce_manifest": true,
+    "counterpart_grouping": true,
+    "protected_holdout_closure": true,
+    "unavailable_and_exclusion_reconciliation": true,
+    "broad_and_enriched_denominators_separate": true,
+    "bulk_retrieval_or_resolver_processing_run": false
+  },
+  "work_scale_limits": {
+    "max_documents": 100000,
+    "max_raw_bytes": 50000000000,
+    "max_runtime_minutes": 1440,
+    "estimated_documents_per_minute": 30.0
+  },
+  "limitations": [
+    "This is a five-record metadata-frame pilot, not a representative literature census.",
+    "The only structure-tagged group is protected, so the enriched pool has zero selected groups in this pilot; the mechanism remains ready for a larger frame.",
+    "The frame carries unknown reuse class and no journal/domain fields; these must be populated before a work-scale freeze.",
+    "The T030 fixture evaluation case is not identifier-linked to this T029-derived frame; the protected identifier closure must be reconciled against the actual final annotation manifest.",
+    "Runtime and storage estimates are planning limits until T041 measures real acquisition and processing costs."
+  ],
+  "open_decisions": [
+    "Approve snapshot date, publication-year range, language/document-type policy and reuse class for the production frame.",
+    "Supply or build the work-host metadata census with journal/domain, version, structure and acquisition-size fields.",
+    "Choose final broad/enriched/release volumes and update the cost envelope from T041 measurements before T042."
+  ]
+}

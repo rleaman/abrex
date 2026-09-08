@@ -2,6 +2,7 @@
 
 from abrex.resolvers.adapters.ab3p import (
     AB3P_ADAPTER_VERSION,
+    AB3P_OFFSET_SCHEMA_VERSION,
     AB3P_WRAPPER_VERSION,
     Ab3PCacheConfig,
     Ab3PInstallationConfig,
@@ -10,10 +11,22 @@ from abrex.resolvers.adapters.ab3p import (
     Ab3PResolverConfig,
     ParsedAbbreviation,
     build_ab3p_input,
+    parse_ab3p_offset_output,
     parse_ab3p_output,
+    reconstruct_offset_predictions,
     reconstruct_predictions,
 )
 from abrex.resolvers.adapters.ab3p_resolver import Ab3PResolver
+from abrex.resolvers.adapters.bioadi import (
+    BIOADI_ADAPTER_VERSION,
+    BioADIMappingError,
+    BioADIPair,
+    BioADIParseError,
+    BioADIResolver,
+    BioADIResolverConfig,
+    parse_bioadi_output,
+    reconstruct_bioadi_predictions,
+)
 from abrex.resolvers.adapters.learned import (
     LEARNED_SCORER_RESOLVER_VERSION,
     LearnedScorerResolver,
@@ -65,12 +78,19 @@ from abrex.resolvers.validation import validate_predictions
 __all__ = [
     "ExecutionErrorPolicy",
     "AB3P_ADAPTER_VERSION",
+    "BIOADI_ADAPTER_VERSION",
+    "AB3P_OFFSET_SCHEMA_VERSION",
     "AB3P_WRAPPER_VERSION",
     "Ab3PCacheConfig",
     "Ab3PInstallationConfig",
     "Ab3PMappingError",
     "Ab3PParseError",
     "Ab3PResolver",
+    "BioADIMappingError",
+    "BioADIPair",
+    "BioADIParseError",
+    "BioADIResolver",
+    "BioADIResolverConfig",
     "LEARNED_SCORER_RESOLVER_VERSION",
     "LearnedScorerResolver",
     "LearnedScorerResolverConfig",
@@ -112,5 +132,9 @@ __all__ = [
     "write_predictions",
     "build_ab3p_input",
     "parse_ab3p_output",
+    "parse_bioadi_output",
+    "parse_ab3p_offset_output",
+    "reconstruct_offset_predictions",
     "reconstruct_predictions",
+    "reconstruct_bioadi_predictions",
 ]

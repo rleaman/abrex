@@ -15,7 +15,14 @@ Source SHA-256: 3cee5f2e10358fb98cfd915c4bdd651cf2cd5b523eb5ec4d3ff6036179efb5e9
 
 ## Verified access observations
 
-- BioADI: a host HTTP HEAD request to the [supplied JAR](https://clojars.org/repo/edu/sinica/bioagent/bioadi/0.1.0/bioadi-0.1.0.jar) returned 200, Content-Length 5237679 and application/x-java-archive. Binary integrity, packaging and execution are untested.
+BioADI runtime follow-up: Java is now installed in WSL, and the explicit
+`aiiaadi.util.Executor` entry point passed a real extraction smoke. See
+[current runtime evidence](bioadi-runtime.md). The earlier missing-Java
+observation below is historical; canonical resolver integration remains open.
+
+- ADAM: the [official landing page](http://abel.lis.illinois.edu/adam.html) returned 200 and exposed the [official tar](http://abel.lis.illinois.edu/download/adam.tar) and [README](http://abel.lis.illinois.edu/download/README). T046 acquired both locally for a bounded import; its terms and a README count discrepancy remain under review.
+- ALLIE: the [official service](https://allie.dbcls.jp/en) reports a 2026-08-04 index update and links an official download directory. T046 acquired one bounded official AML REST XML response; the full archives remain unacquired.
+- BioADI: T048 acquired the [supplied JAR](https://clojars.org/repo/edu/sinica/bioagent/bioadi/0.1.0/bioadi-0.1.0.jar), 5,237,679 bytes, SHA-256 `62e92f3dedc0b792c6ee0678a88c30102dec349c7f337befa427de232014975a`. Its manifest names `spiaotools.SentParDetector` as the main class; a user-local Temurin Java 8 runtime now executes the explicit `aiiaadi.util.Executor` entry point. T048 reports 51 cardinality-mapping failures rather than guessing offsets.
 - [ALLIE](https://allie.dbcls.jp/en) links an accessible [official download directory](https://ftp.dbcls.jp/allie/) with large archives and ALICE-output/RDF directories. Listings have differing dates; do not call every file the current service snapshot. No bulk download was performed.
 - [Acromine documentation](https://www.nactem.ac.uk/software/acromine/rest.html) describes JSON lookups with counts and variants and includes a Request Access link. Documentation availability does not establish granted access, working queries or bulk export rights.
 - ALLIE states that it uses ALICE and retains PubMed identifiers. Preserve this shared lineage and verify downloaded fields before promising article-level occurrence links. ALICE and ALLIE are not independent teachers. [Official description](https://allie.dbcls.jp/en)
@@ -562,4 +569,3 @@ Paper URL field: (not supplied)
 Resource navigation: Not supplied. Paper: Not supplied.
 
 Citation: William Hogan, Yoshiki Vazquez Baeza, Yannis Katsis, Tyler Baldwin, Ho-Cheol Kim, and Chun-Nan Hsu. 2021. BLAR: Biomedical Local Acronym Resolver. In Proceedings of the 20th Workshop on Biomedical Language Processing, pages 126–130, Online. Association for Computational Linguistics.
-

@@ -1,0 +1,66 @@
+{
+  "task": "T048",
+  "status": "implemented_with_bounded_comparison",
+  "runtime": {
+    "java_path": "/home/rleaman/.local/share/abrex/java8/jdk8u504-b01/bin/java",
+    "java_archive_sha256": "9c70e102f527ac674ac2fe9c7d47b9a04e2d19842ba5ab8e9b33f368bbadfaea",
+    "jar_path": ".artifacts/T048/bioadi-0.1.0.jar",
+    "jar_sha256": "62e92f3dedc0b792c6ee0678a88c30102dec349c7f337befa427de232014975a",
+    "entry_point": "aiiaadi.util.Executor",
+    "heap_mb": 512,
+    "timeout_seconds": 30,
+    "mapping_policy": "ordered_occurrence"
+  },
+  "input": {
+    "dataset_id": "ab3p_corpus_t022_smoke",
+    "record_count": 64,
+    "annotation_count": 143,
+    "dataset_fingerprint": "e962059364d99004fa4f999914568f9451b275178446f5b8164d18a70cec371c",
+    "config_sha256": "75844c08b271bfcc44fbfbadce8855f52ffa17487587fbde144c9eb20f52366e"
+  },
+  "resolver_artifact": {
+    "path": ".artifacts/T048/bioadi-t022-predictions.jsonl",
+    "sha256": "eba7e64b7b14434e6a9cbc46415bf6c7f1316216a7245efa5fad61b6d4ff139b",
+    "fingerprint": "eba7e64b7b14434e6a9cbc46415bf6c7f1316216a7245efa5fad61b6d4ff139b",
+    "successful_records": 13,
+    "failed_records": 51,
+    "successful_predictions": 9,
+    "failed_document_ids": [
+      "10632648", "10844631", "11087743", "11224728", "11307263",
+      "11731976", "11800393", "1187001", "12603351", "14738863",
+      "14749752", "15108074", "1521837", "15246976", "16184468",
+      "16234005", "16402108", "16492985", "16856099", "16935568",
+      "16945427", "17110009", "17307014", "17362729", "17657690",
+      "17954666", "2005554", "2480805", "2576035", "2729005",
+      "2949133", "3171477", "3228275", "3272808", "512555",
+      "6281195", "6333893", "7451235", "7540594", "8377912",
+      "8480736", "8542069", "8547631", "8852277", "8871183",
+      "9114132", "9190854", "9303540", "9546237", "9596100",
+      "9715100"
+    ],
+    "failure_reason": "Exact occurrence cardinality did not reconcile; the adapter retained a structured resolver failure instead of guessing offsets."
+  },
+  "conditional_metric_on_successful_records": {
+    "policy": "exact_pair",
+    "tp": 8,
+    "fp": 1,
+    "fn": 9,
+    "precision": 0.8888888888888888,
+    "recall": 0.47058823529411764,
+    "f1": 0.6153846153846154,
+    "gold_annotations": 17,
+    "prediction_annotations": 9
+  },
+  "comparison_interpretation": {
+    "full_subset_metric": null,
+    "reason": "The standard evaluator intentionally rejects resolver execution failures; deciding whether these 51 failures should count as abstentions, document-level misses, or require a different mapping policy is a scientific evaluation decision.",
+    "experiment_command": "python -m abrex experiment run configs/benchmarks/T048-bioadi-t022.yaml",
+    "resolver_command": "python -m abrex resolver run configs/benchmarks/T048-bioadi-t022.yaml --input .artifacts/T022/smoke/ab3p_corpus_t022_smoke.jsonl --output .artifacts/T048/bioadi-t022-predictions.jsonl"
+  },
+  "limitations": [
+    "BioADI stdout supplies forms and scores but no offsets; only exact, cardinality-reconciled occurrence mapping is accepted.",
+    "The BioADI score is preserved as a score and is not interpreted as calibrated confidence.",
+    "The T022 corpus is not an independent BioADI test because corpus/model lineage and wrapper differences remain unresolved.",
+    "The supplied JAR's licensing and publication equivalence were not established by this task."
+  ]
+}

@@ -1,6 +1,9 @@
 # T028 Build a provenance-preserving abbreviation resource layer
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: B.
+Status: Complete for the provenance-preserving streaming SQLite layer and
+bounded supplied-resource pilot; article-linked prevalence and external
+dictionary acquisition remain pending. Assigned implementer: GPT-5.6 Luna.
+Milestone: B.
 
 ## Outcome
 
@@ -44,4 +47,3 @@ The user supplied data/raw/resources/abbr_frequency_2024.json.gz. Its extraction
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T028-lexical-resource-ingestion.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

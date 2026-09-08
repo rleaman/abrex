@@ -6,12 +6,12 @@ import hashlib
 import json
 from pathlib import Path
 from subprocess import TimeoutExpired
-from typing import Any
+from typing import Any, cast
 
 import pytest
 
 from abrex.config import ComponentSpec
-from abrex.domain import Document
+from abrex.domain import Document, TextSpan
 from abrex.infrastructure.ab3p import (
     Ab3PCache,
     Ab3PCacheMiss,
@@ -30,9 +30,12 @@ from abrex.resolvers import (
     Ab3PResolverConfig,
     build_ab3p_input,
     create_resolver_executor,
+    parse_ab3p_offset_output,
     parse_ab3p_output,
+    reconstruct_offset_predictions,
     reconstruct_predictions,
 )
+from abrex.resolvers.adapters.ab3p import ParsedAbbreviation
 from abrex.resolvers.adapters.ab3p_resolver import Ab3PResolver
 
 
@@ -92,11 +95,237 @@ def test_parser_rejects_malformed_output_and_mapping_ambiguity() -> None:
         reconstruct_predictions(Document("d", "nothing"), (pair,))
 
 
+def test_native_offsets_map_repeated_unicode_and_crlf_lines() -> None:
+    first = "Café study of tumor necrosis factor (TNF); tumor necrosis factor (TNF)"
+    second = "第二行: interleukin 6 (IL-6) is measured."
+    document = Document("native", first + "\r\n" + second)
+    first_bytes = first.encode("utf-8")
+    second_bytes = second.encode("utf-8")
+    records = [
+        {
+            "schema_version": "ab3p-offsets-v1",
+            "line_index": 0,
+            "line_start_byte": 0,
+            "line_byte_length": len(first_bytes) + 1,
+            "short_form": "TNF",
+            "long_form": "tumor necrosis factor",
+            "precision": 0.95,
+            "strategy": "Paren",
+            "sf_offset": len("Café study of tumor necrosis factor (".encode()),
+            "lf_offset": len("Café study of ".encode()),
+        },
+        {
+            "schema_version": "ab3p-offsets-v1",
+            "line_index": 0,
+            "line_start_byte": 0,
+            "line_byte_length": len(first_bytes) + 1,
+            "short_form": "TNF",
+            "long_form": "tumor necrosis factor",
+            "precision": 0.95,
+            "strategy": "Paren",
+            "sf_offset": len(
+                "Café study of tumor necrosis factor (TNF); "
+                "tumor necrosis factor (".encode()
+            ),
+            "lf_offset": len("Café study of tumor necrosis factor (TNF); ".encode()),
+        },
+        {
+            "schema_version": "ab3p-offsets-v1",
+            "line_index": 1,
+            "line_start_byte": len(first_bytes) + 2,
+            "line_byte_length": len(second_bytes),
+            "short_form": "IL-6",
+            "long_form": "interleukin 6",
+            "precision": 0.8,
+            "strategy": "Paren",
+            "sf_offset": len("第二行: interleukin 6 (".encode()),
+            "lf_offset": len("第二行: ".encode()),
+        },
+    ]
+    parsed = parse_ab3p_offset_output(
+        "".join(json.dumps(record, ensure_ascii=False) + "\n" for record in records)
+    )
+    predictions = reconstruct_offset_predictions(document, parsed)
+    assert len(predictions) == 3
+    assert all(item.long_form is not None for item in predictions)
+    assert all(item.short_form is not None for item in predictions)
+    assert [
+        document.text_for(cast(TextSpan, item.long_form)) for item in predictions
+    ] == [
+        "tumor necrosis factor",
+        "tumor necrosis factor",
+        "interleukin 6",
+    ]
+    assert [
+        document.text_for(cast(TextSpan, item.short_form)) for item in predictions
+    ] == [
+        "TNF",
+        "TNF",
+        "IL-6",
+    ]
+    assert predictions[0].long_form != predictions[1].long_form
+    assert predictions[2].short_form is not None
+    assert predictions[2].short_form.start == document.text.index("IL-6")
+    assert predictions[0].long_form is not None
+    assert predictions[1].long_form is not None
+    assert predictions[0].provenance is not None
+    assert (
+        "native_ab3p_strategy=Paren" in predictions[0].provenance.transformation_notes
+    )
+
+
+def test_native_offset_mapping_rejects_bad_boundaries_and_surface_text() -> None:
+    document = Document("native", "β blocker (BB)")
+    line_byte_length = len(document.text.encode("utf-8"))
+    base = {
+        "schema_version": "ab3p-offsets-v1",
+        "line_index": 0,
+        "line_start_byte": 0,
+        "line_byte_length": line_byte_length,
+        "short_form": "BB",
+        "long_form": "β blocker",
+        "precision": 1.0,
+        "strategy": "Paren",
+        "sf_offset": len("β blocker (".encode()),
+        "lf_offset": 0,
+    }
+    valid = parse_ab3p_offset_output(json.dumps(base))
+    assert valid[0].long_form is not None
+    mapped = reconstruct_offset_predictions(document, valid)[0]
+    assert document.text_for(cast(TextSpan, mapped.long_form)) == "β blocker"
+    boundary = dict(base, lf_offset=1)
+    with pytest.raises(Ab3PMappingError, match="UTF-8 boundary"):
+        reconstruct_offset_predictions(
+            document, parse_ab3p_offset_output(json.dumps(boundary))
+        )
+    mismatch = dict(base, long_form="wrong form")
+    with pytest.raises(Ab3PMappingError, match="does not slice"):
+        reconstruct_offset_predictions(
+            document, parse_ab3p_offset_output(json.dumps(mismatch))
+        )
+    with pytest.raises(Ab3PMappingError, match="offsets are missing"):
+        reconstruct_offset_predictions(
+            document, (ParsedAbbreviation("BB", "β blocker", 1.0),)
+        )
+    outside = dict(base, line_index=1)
+    with pytest.raises(Ab3PMappingError, match="outside"):
+        reconstruct_offset_predictions(
+            document, parse_ab3p_offset_output(json.dumps(outside))
+        )
+    with pytest.raises(Ab3PMappingError, match="line origin mismatch"):
+        reconstruct_offset_predictions(
+            document,
+            parse_ab3p_offset_output(json.dumps(dict(base, line_start_byte=1))),
+        )
+    with pytest.raises(Ab3PMappingError, match="line byte length mismatch"):
+        reconstruct_offset_predictions(
+            document,
+            parse_ab3p_offset_output(
+                json.dumps(dict(base, line_byte_length=line_byte_length + 1))
+            ),
+        )
+
+
+def test_native_parser_rejects_wrong_schema_and_malformed_records() -> None:
+    assert parse_ab3p_offset_output("\n") == ()
+    with pytest.raises(TypeError):
+        parse_ab3p_offset_output(None)  # type: ignore[arg-type]
+    with pytest.raises(Ab3PParseError, match="Unsupported native Ab3P schema"):
+        parse_ab3p_offset_output('{"schema_version":"old"}')
+    with pytest.raises(Ab3PParseError, match="Malformed native Ab3P JSON"):
+        parse_ab3p_offset_output("not-json")
+    with pytest.raises(Ab3PParseError, match="must be an object"):
+        parse_ab3p_offset_output("[]")
+    with pytest.raises(Ab3PParseError, match="Empty native Ab3P form"):
+        parse_ab3p_offset_output(
+            json.dumps(
+                {
+                    "schema_version": "ab3p-offsets-v1",
+                    "short_form": "",
+                    "long_form": "Long",
+                    "precision": 1.0,
+                    "line_index": 0,
+                    "line_start_byte": 0,
+                    "line_byte_length": 4,
+                    "sf_offset": 0,
+                    "lf_offset": 0,
+                }
+            )
+        )
+    with pytest.raises(Ab3PParseError, match="precision out of range"):
+        parse_ab3p_offset_output(
+            json.dumps(
+                {
+                    "schema_version": "ab3p-offsets-v1",
+                    "short_form": "S",
+                    "long_form": "Long",
+                    "precision": 2.0,
+                    "line_index": 0,
+                    "line_start_byte": 0,
+                    "line_byte_length": 4,
+                    "sf_offset": 0,
+                    "lf_offset": 0,
+                }
+            )
+        )
+    with pytest.raises(Ab3PParseError, match="line_index"):
+        parse_ab3p_offset_output(
+            json.dumps(
+                {
+                    "schema_version": "ab3p-offsets-v1",
+                    "short_form": "S",
+                    "long_form": "Long",
+                    "precision": 1.0,
+                    "line_index": -1,
+                    "line_start_byte": 0,
+                    "line_byte_length": 4,
+                    "sf_offset": 0,
+                    "lf_offset": 0,
+                }
+            )
+        )
+    with pytest.raises(Ab3PParseError, match="short_form must be a string"):
+        parse_ab3p_offset_output(
+            json.dumps(
+                {
+                    "schema_version": "ab3p-offsets-v1",
+                    "short_form": 1,
+                    "long_form": "Long",
+                    "precision": 1.0,
+                    "line_index": 0,
+                    "line_start_byte": 0,
+                    "line_byte_length": 4,
+                    "sf_offset": 0,
+                    "lf_offset": 0,
+                }
+            )
+        )
+    with pytest.raises(Ab3PParseError, match="strategy must be a string or null"):
+        parse_ab3p_offset_output(
+            json.dumps(
+                {
+                    "schema_version": "ab3p-offsets-v1",
+                    "short_form": "S",
+                    "long_form": "Long",
+                    "precision": 1.0,
+                    "line_index": 0,
+                    "line_start_byte": 0,
+                    "line_byte_length": 4,
+                    "sf_offset": 0,
+                    "lf_offset": 0,
+                    "strategy": 1,
+                }
+            )
+        )
+
+
 def test_cache_round_trip_is_portable_and_identity_is_explicit(tmp_path: Path) -> None:
     document = Document("d1", "Tumor necrosis factor (TNF)")
     live_config = _config(tmp_path, backend="subprocess", label="linux-ab3p")
     offline_config = _config(tmp_path, label="linux-ab3p")
     assert cache_key(document, live_config) == cache_key(document, offline_config)
+    offset_config = live_config.model_copy(update={"output_format": "offset_jsonl"})
+    assert cache_key(document, offset_config) != cache_key(document, live_config)
     result = Ab3PRawResult("echo\n TNF|Tumor necrosis factor|0.9\n", "", 0)
     cache = Ab3PCache(tmp_path)
     path = cache.write(document, live_config, result)
@@ -343,6 +572,37 @@ def test_manifest_identity_rejects_changed_runtime_artifacts(
         installation_identity(live, require_runtime=True)
     with pytest.raises(Ab3PCacheMiss, match="identity is unavailable"):
         cache.read(document, live)
+
+
+def test_relative_installation_root_is_resolved_before_subprocess_cwd(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, manifest = _installation(tmp_path)
+    monkeypatch.chdir(tmp_path)
+    live = Ab3PResolverConfig(
+        backend="subprocess",
+        installation=Ab3PInstallationConfig(
+            manifest=manifest.name,
+            root=root.name,
+        ),
+    )
+    calls: list[tuple[tuple[object, ...], dict[str, object]]] = []
+
+    class Completed:
+        stdout = "text\n"
+        stderr = ""
+        returncode = 0
+
+    def run(*args: object, **kwargs: object) -> Completed:
+        calls.append((args, kwargs))
+        return Completed()
+
+    monkeypatch.setattr("abrex.infrastructure.ab3p.subprocess.run", run)
+    run_ab3p(Document("d", "text"), live)
+    argv = calls[0][0][0]
+    assert isinstance(argv, list)
+    assert argv[0] == str(root / "identify_abbr")
+    assert calls[0][1]["cwd"] == root.resolve()
 
 
 def test_subprocess_success_failure_and_timeout(

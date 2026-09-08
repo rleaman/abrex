@@ -1,0 +1,38 @@
+project:
+  name: t048-bioadi-t022-bioadi
+  seed: 20260908
+
+corpus:
+  type: canonical_jsonl
+  params:
+    path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.jsonl
+    manifest_path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.manifest.json
+
+resolver:
+  type: bioadi
+  params:
+    jar_path: .artifacts/T048/bioadi-0.1.0.jar
+    java_path: /home/rleaman/.local/share/abrex/java8/jdk8u504-b01/bin/java
+    jar_sha256: 62e92f3dedc0b792c6ee0678a88c30102dec349c7f337befa427de232014975a
+    timeout_seconds: 30
+    heap_mb: 512
+    mapping_policy: ordered_occurrence
+  error_policy: collect
+
+matching:
+  type: exact_pair
+  params: {}
+
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+
+reporters:
+  - type: json
+    params: {}
+
+output:
+  root: .artifacts/T048/experiments
+  reuse_cached_predictions: true

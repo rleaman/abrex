@@ -1,0 +1,79 @@
+{
+  "schema_version": "t022-real-baseline-smoke-v1",
+  "scope": "local pilot; not a full-corpus or research-selection claim",
+  "dataset": {
+    "full_dataset_id": "ab3p_corpus",
+    "full_dataset_fingerprint": "0e26c9ec4fcaf36721ddffdc9318e2f53c73f651fb24b46ce7e161520ef6d41d",
+    "subset_manifest": "configs/benchmarks/T022-smoke-selection.json",
+    "subset_dataset_id": "ab3p_corpus_t022_smoke",
+    "subset_fingerprint": "e962059364d99004fa4f999914568f9451b275178446f5b8164d18a70cec371c",
+    "records": 64,
+    "gold_pairs": 143,
+    "scoreable_documents": 64,
+    "unscoreable_documents": 0,
+    "selection": "sha256(t022-real-baseline-v1:record_id) ascending among records with non-empty gold_annotations"
+  },
+  "evaluation": {
+    "matching_policy": "exact_pair",
+    "metrics": ["micro pair precision/recall/F1"],
+    "results": {
+      "schwartz_hearst": {
+        "tp": 110,
+        "fp": 5,
+        "fn": 33,
+        "precision": 0.956521739130435,
+        "recall": 0.769230769230769,
+        "f1": 0.852713178294574,
+        "execution_failures": 0,
+        "mapping_failures": 0,
+        "elapsed_seconds_observed": 0.4
+      },
+      "ab3p_native_offsets": {
+        "tp": 121,
+        "fp": 4,
+        "fn": 22,
+        "precision": 0.968,
+        "recall": 0.846153846153846,
+        "f1": 0.902985074626866,
+        "execution_failures": 0,
+        "mapping_failures": 0,
+        "elapsed_seconds_observed": 101.6
+      }
+    }
+  },
+  "reproducibility": {
+    "schwartz_hearst": {
+      "cold_run_manifest": ".artifacts/T022/experiments/runs/32fed67bed1fc89d8d70b873affee3e6501062d1a4e4e53e0b733792935f7477/run-manifest.json",
+      "warm_reused": true,
+      "prediction_fingerprint": "e39deed4bf945edb79b0098d056ea0c03e35b03b3ccfca886afe148d794dd528",
+      "evaluation_fingerprint": "8f31c158ea6f59332921f8717daa68ee8d3d2297f3bdc564102e71ceaf06e733"
+    },
+    "ab3p_native_offsets": {
+      "first_build_manifest": ".artifacts/T022/experiments/runs/f8f6f8be43f9ff8b4fe73516391e84f27c30d011d3b41c2d9ac18b6f1f8e557e/run-manifest.json",
+      "fresh_build_manifest": ".artifacts/T022/experiments-fresh/runs/d70c1f9a95d5b45ebe82efb5270efb6f4f600bf8d8787cc248b0423b2e317028/run-manifest.json",
+      "raw_cache_entries": 64,
+      "raw_replay_prediction": ".artifacts/T022/ab3p-replay-predictions.jsonl",
+      "raw_replay_byte_identical": true,
+      "fresh_build_prediction_fingerprint": "840f3b618c0a997bd739b96c79f47d07b0f5b5bcb18bdc4fce5153caf3f262eb",
+      "fresh_build_evaluation_fingerprint": "31d23bbe5b54e587fc77ae3d5c686fc2a7cf2d65815fd76f720b1e0ae51b64d0",
+      "first_build_prediction_fingerprint": "840f3b618c0a997bd739b96c79f47d07b0f5b5bcb18bdc4fce5153caf3f262eb",
+      "first_build_evaluation_fingerprint": "31d23bbe5b54e587fc77ae3d5c686fc2a7cf2d65815fd76f720b1e0ae51b64d0"
+    },
+    "installation_manifest": ".artifacts/T021/live-installation-manifest.json",
+    "native_offset_executable_sha256": "4a6b8c48dbb8e928c06464f94bf13295f524bd3c65e078c7d5169a131c431ee9",
+    "commands": [
+      "env313/Scripts/python.exe -m abrex experiment run configs/benchmarks/T022-smoke-schwartz-hearst.yaml",
+      "wsl.exe -d Ubuntu -- bash -lc 'cd /mnt/c/Users/mail/Documents/Projects/abrex && $HOME/.local/share/abrex/venv313/bin/python -m abrex experiment run configs/benchmarks/T022-smoke-ab3p-offsets.yaml'",
+      "wsl.exe -d Ubuntu -- bash -lc 'cd /mnt/c/Users/mail/Documents/Projects/abrex && $HOME/.local/share/abrex/venv313/bin/python -m abrex resolver run configs/benchmarks/T022-smoke-ab3p-offsets.yaml --input .artifacts/T022/smoke/ab3p_corpus_t022_smoke.jsonl --output .artifacts/T022/ab3p-replay-predictions.jsonl'"
+    ]
+  },
+  "quality_gate": {
+    "unit_contract_tests": 179,
+    "full_suite_tests": 183,
+    "coverage_percent": 95.01,
+    "ruff_format": "passed",
+    "ruff_check": "passed",
+    "mypy": "passed",
+    "git_diff_check": "passed"
+  }
+}

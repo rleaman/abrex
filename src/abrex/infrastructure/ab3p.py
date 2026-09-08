@@ -17,6 +17,7 @@ from pathlib import Path
 from abrex.domain import Document
 from abrex.resolvers.adapters.ab3p import (
     AB3P_ADAPTER_VERSION,
+    AB3P_OFFSET_SCHEMA_VERSION,
     AB3P_WRAPPER_VERSION,
     Ab3PResolverConfig,
     build_ab3p_input,
@@ -67,6 +68,12 @@ def installation_identity(
             "schema_version": "ab3p-identity-v1",
             "adapter_version": AB3P_ADAPTER_VERSION,
             "wrapper_version": AB3P_WRAPPER_VERSION,
+            "output_format": config.output_format,
+            "offset_schema_version": (
+                AB3P_OFFSET_SCHEMA_VERSION
+                if config.output_format == "offset_jsonl"
+                else "none"
+            ),
             "executable_sha256": config.executable_sha256.lower(),
             "resource_sha256": "unverified",
         }
@@ -132,6 +139,12 @@ def installation_identity(
         "schema_version": "ab3p-identity-v1",
         "adapter_version": AB3P_ADAPTER_VERSION,
         "wrapper_version": AB3P_WRAPPER_VERSION,
+        "output_format": config.output_format,
+        "offset_schema_version": (
+            AB3P_OFFSET_SCHEMA_VERSION
+            if config.output_format == "offset_jsonl"
+            else "none"
+        ),
         "manifest_sha256": _sha256(manifest_path.read_bytes()),
         "executable_sha256": executable_digest,
         "resource_sha256": _sha256(
@@ -148,7 +161,7 @@ def runtime_paths(config: Ab3PResolverConfig) -> tuple[Path, Path]:
             "Live Ab3P execution requires installation.manifest and installation.root"
         )
     installation_identity(config, require_runtime=True)
-    root = Path(config.installation.root)
+    root = Path(config.installation.root).resolve()
     return root / config.installation.executable, root
 
 
@@ -281,6 +294,7 @@ class Ab3PCache:
             "cache_identity": expected_identity,
             "provenance": {
                 "configured_executable": config.executable,
+                "output_format": config.output_format,
                 "invocation_arguments": [
                     "<configured executable>",
                     "<temporary input file>",

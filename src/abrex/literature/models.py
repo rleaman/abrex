@@ -37,6 +37,9 @@ class ArticleSection:
     section_id: str
     text: str
     title: str | None = None
+    source_id: str | None = None
+    source_offset: int | None = None
+    source_length: int | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.section_id, str) or not self.section_id.strip():
@@ -44,6 +47,44 @@ class ArticleSection:
         if not isinstance(self.text, str):
             raise TypeError("section text must be a string")
         _optional_text(self.title, "section title")
+        _optional_text(self.source_id, "section source_id")
+        for name, value in (
+            ("source_offset", self.source_offset),
+            ("source_length", self.source_length),
+        ):
+            if value is not None and (isinstance(value, bool) or value < 0):
+                raise ValueError(f"{name} must be a non-negative integer or None")
+
+
+@dataclass(frozen=True, slots=True)
+class ArticleStructure:
+    """A source-ordered structural element retained beside article text."""
+
+    node_id: str
+    kind: str
+    text: str
+    source_path: str
+    parent_id: str | None = None
+    attributes: tuple[tuple[str, str], ...] = ()
+
+    def __post_init__(self) -> None:
+        for name, value in (
+            ("node_id", self.node_id),
+            ("kind", self.kind),
+            ("source_path", self.source_path),
+        ):
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"{name} must be a non-empty string")
+        if not isinstance(self.text, str):
+            raise TypeError("structure text must be a string")
+        _optional_text(self.parent_id, "structure parent_id")
+        if not isinstance(self.attributes, tuple) or any(
+            not isinstance(pair, tuple)
+            or len(pair) != 2
+            or any(not isinstance(value, str) for value in pair)
+            for pair in self.attributes
+        ):
+            raise TypeError("structure attributes must be string key/value tuples")
 
 
 @dataclass(frozen=True, slots=True)
@@ -60,13 +101,29 @@ class Article:
     pmid: str | None = None
     pmcid: str | None = None
     sections: tuple[ArticleSection, ...] = ()
+    structures: tuple[ArticleStructure, ...] = ()
     title: str | None = None
+    source_format: str | None = None
+    source_version: str | None = None
+    source_sha256: str | None = None
+    source_coordinate_system: str = "logical-text"
 
     def __post_init__(self) -> None:
         _optional_text(self.article_id, "article_id")
         _optional_text(self.pmid, "pmid")
         _optional_text(self.pmcid, "pmcid")
         _optional_text(self.title, "title")
+        _optional_text(self.source_format, "source_format")
+        _optional_text(self.source_version, "source_version")
+        _optional_text(self.source_coordinate_system, "source_coordinate_system")
+        if self.source_sha256 is not None and (
+            len(self.source_sha256) != 64
+            or any(
+                character not in "0123456789abcdefABCDEF"
+                for character in self.source_sha256
+            )
+        ):
+            raise ValueError("source_sha256 must be a 64-character hexadecimal digest")
         if not self.article_id and not self.pmid and not self.pmcid:
             raise ValueError("article requires article_id, pmid, or pmcid")
         raw_sections: object = self.sections
@@ -79,6 +136,10 @@ class Article:
             raise ValueError("article requires at least one section")
         if any(not isinstance(section, ArticleSection) for section in sections):
             raise TypeError("sections must contain ArticleSection values")
+        if not isinstance(self.structures, tuple) or any(
+            not isinstance(structure, ArticleStructure) for structure in self.structures
+        ):
+            raise TypeError("structures must contain ArticleStructure values")
         section_ids = [section.section_id for section in sections]
         if len(set(section_ids)) != len(section_ids):
             raise ValueError("article section IDs must be unique")
@@ -201,5 +262,6 @@ __all__ = [
     "ArticleError",
     "ArticleMappingError",
     "ArticleSection",
+    "ArticleStructure",
     "ArticleSectionLocation",
 ]

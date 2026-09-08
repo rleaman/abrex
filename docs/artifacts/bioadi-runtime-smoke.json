@@ -1,0 +1,23 @@
+{
+  "java_version": "openjdk version \"1.8.0_504\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_504-b01)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.504-b01, mixed mode)\n",
+  "java_archive_sha256": "9c70e102f527ac674ac2fe9c7d47b9a04e2d19842ba5ab8e9b33f368bbadfaea",
+  "jar_sha256": "62e92f3dedc0b792c6ee0678a88c30102dec349c7f337befa427de232014975a",
+  "command": [
+    "/home/rleaman/.local/share/abrex/java8/jdk8u504-b01/bin/java",
+    "-Xmx512m",
+    "-Dfile.encoding=UTF-8",
+    "-cp",
+    "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T048/bioadi-0.1.0.jar",
+    "aiiaadi.util.Executor",
+    "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/bioadi-runtime/input.txt"
+  ],
+  "timeout_seconds": 30,
+  "exit_code": 0,
+  "stdout": "1\nTumor necrosis factor (TNF) is a cytokine.\n  TNF|Tumor necrosis factor|0.9861388671823804\n\n2\nMagnetic resonance imaging (MRI) was performed.\n  MRI|Magnetic resonance imaging|0.9919835257805023\n\n3\nThe patient was stable.\n\n4\nβ-catenin and café were noted. Tumor necrosis factor (TNF) was measured.\n  TNF|Tumor necrosis factor|0.9861388671823804\n\n5\nTumor necrosis factor (TNF) was measured. Tumor necrosis factor (TNF) increased.\n  TNF|Tumor necrosis factor|0.9861388671823804\n  TNF|Tumor necrosis factor|0.9861388671823804\n\n",
+  "stderr": "",
+  "input": "1\nTumor necrosis factor (TNF) is a cytokine.\n2\nMagnetic resonance imaging (MRI) was performed.\n3\nThe patient was stable.\n4\nβ-catenin and café were noted. Tumor necrosis factor (TNF) was measured.\n5\nTumor necrosis factor (TNF) was measured. Tumor necrosis factor (TNF) increased.\n",
+  "record_count": 5,
+  "pair_row_count": 5,
+  "canonical_offsets_verified": false,
+  "resolver_integrated": false
+}

@@ -1,0 +1,8 @@
+annotation_pilot:
+  input_path: data/fixtures/annotations/t030-annotation-pilot.json
+  canonical_output: .artifacts/T030/contemporary-annotations.jsonl
+  report_output: .artifacts/T030/annotation-report.json
+  review_packet_output: .artifacts/T030/review-packet.json
+  review_packet_size: 2
+  seed: 20260907
+  guideline_version: t030-v1

@@ -1,0 +1,11 @@
+# Bounded T028 pilot: stop after 64 aggregate SF/LF rows.
+frequency_resource:
+  adapter: frequency-json-gzip
+  source_path: data/raw/resources/abbr_frequency_2024.json.gz
+  sqlite_path: .artifacts/T028/frequency-pilot.sqlite
+  source_label: abbr_frequency_2024
+  normalization: identity
+  count_unit: unknown
+  max_entries: 64
+  chunk_chars: 65536
+  intended_use: aggregate lexical evidence pilot; not gold or document frequency

@@ -70,3 +70,43 @@ Embedding applications can use `create_article_resolution_service` with an
 injected resolver or segmenter registry. `read_article_json` is only a local
 file adapter; retrieval and licensing remain application responsibilities.
 
+## Bounded PubMed acquisition
+
+T025 adds a narrow application adapter for a fixed list of PubMed IDs. It uses
+NCBI EFetch and writes raw XML responses separately from the later offline
+parsers. The checked-in [pilot configuration](../configs/literature/T025-pubmed-pilot.yaml)
+contains two IDs and is an example, not an instruction to download a corpus:
+
+```console
+python -m abrex literature acquire configs/literature/T025-pubmed-pilot.yaml --dry-run
+python -m abrex literature acquire configs/literature/T025-pubmed-pilot.yaml
+python -m abrex literature replay .artifacts/T025/pubmed-pilot/manifest.json
+```
+
+The manifest pins the identifier list, request URLs, retrieval time, raw-file
+hashes, access metadata and missing/failed/partial counts. A rerun reuses a
+matching raw request after verifying its hash. Interrupted writes remain in a
+`.part` file and are never presented as a successful response.
+
+NCBI's current E-utilities guidance requires requests to use the E-utilities
+host, stay within the published request-rate limits, and identify distributed
+software with registered `tool` and `email` values; an API key is optional for
+this bounded pilot and is read only from the configured environment variable.
+See the [NCBI E-utilities guidance](https://www.ncbi.nlm.nih.gov/books/NBK25497/)
+and [NCBI policies](https://www.ncbi.nlm.nih.gov/home/about/policies/). Article
+reuse and redistribution remain source-specific decisions; acquisition does
+not assert a license for downstream publication.
+
+## JATS structure
+
+T027 adds `parse_jats_xml` and `read_jats_xml`. The parser keeps textual
+sections and a separate `Article.structures` stream. Table wraps, captions,
+headers, cells, footnotes, definition lists and terms/definitions carry stable
+source paths and parent IDs. Each table cell is also an independent section;
+the parser never joins cells or accepts a pair. Image assets produce an
+`unsupported-image-asset` structure and diagnostic; caption text remains
+available, but figure pixels are not parsed.
+
+The structure extension and its compatibility policy are recorded in
+[ADR-002](decisions/ADR-002-jats-structure-alongside-article-text.md).
+

@@ -16,23 +16,43 @@ from abrex.config import (
     serialize_resolved_config,
 )
 from abrex.corpora import (
+    AnnotationPilotError,
     CanonicalSerializationError,
     CorpusError,
     DatasetManifest,
     corpus_config_from_resolved,
     create_corpus_pipeline,
     fingerprint_records,
+    load_annotation_config,
     load_corpus_build_groups,
     read_canonical_jsonl,
+    run_annotation_pilot,
     write_canonical_dataset,
 )
 from abrex.experiments import ExperimentError, run_experiment
 from abrex.literature import (
+    AcquisitionError,
     ArticleError,
+    ArticleParseError,
     ArticleSerializationError,
+    CorpusSelectionError,
+    SamplingError,
+    acquire_pubmed,
+    article_to_dict,
     create_article_resolution_service,
+    estimate_acquisition,
+    load_acquisition_config,
+    load_corpus_selection_config,
+    load_sampling_config,
+    parse_bioc_json,
+    parse_pubmed_xml,
     read_article_json,
+    replay_acquisition,
+    sample_frame,
+    select_corpus,
     serialize_article_resolution,
+    write_corpus_selection_manifest,
+    write_sampling_manifest,
 )
 from abrex.logging import configure_logging
 from abrex.registry import RegistryError
@@ -42,6 +62,14 @@ from abrex.resolvers import (
     create_resolver_executor,
     resolver_config_from_resolved,
     write_prediction_artifact,
+)
+from abrex.resources import (
+    AdamAcquisitionError,
+    AllieAcquisitionError,
+    acquire_allie,
+    import_adam,
+    load_adam_config,
+    load_allie_config,
 )
 from abrex.tools.download_datasets import (
     DownloadError,
@@ -120,6 +148,53 @@ def _build_parser() -> argparse.ArgumentParser:
         "download", help="download configured dataset sources"
     )
     download.add_argument("config", type=Path, help="YAML download manifest")
+    literature = commands.add_parser(
+        "literature", help="bounded literature acquisition utilities"
+    )
+    literature_commands = literature.add_subparsers(
+        dest="literature_command", required=True
+    )
+    acquire = literature_commands.add_parser(
+        "acquire", help="acquire fixed PubMed IDs into immutable raw files"
+    )
+    acquire.add_argument("config", type=Path, help="YAML acquisition manifest")
+    acquire.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="estimate requests and bytes without network access",
+    )
+    replay = literature_commands.add_parser(
+        "replay", help="validate an acquisition manifest and raw files offline"
+    )
+    replay.add_argument("manifest", type=Path)
+    sample = literature_commands.add_parser(
+        "sample", help="build a deterministic contemporary sampling proposal"
+    )
+    sample.add_argument("--config", required=True, type=Path)
+    sample.add_argument(
+        "--frame", type=Path, help="override the configured JSONL frame"
+    )
+    sample.add_argument("--output", type=Path)
+    select = literature_commands.add_parser(
+        "select", help="freeze a deterministic bounded corpus-selection manifest"
+    )
+    select.add_argument("--config", required=True, type=Path)
+    select.add_argument(
+        "--frame", type=Path, help="override the configured JSONL frame"
+    )
+    select.add_argument("--output", type=Path)
+    resources = commands.add_parser(
+        "resources", help="external lexical-resource commands"
+    )
+    resource_commands = resources.add_subparsers(dest="resource_command", required=True)
+    allie = resource_commands.add_parser(
+        "acquire-allie", help="acquire a bounded official ALLIE REST response"
+    )
+    allie.add_argument("config", type=Path, help="YAML ALLIE acquisition manifest")
+    adam = resource_commands.add_parser(
+        "import-adam", help="import a bounded official ADAM tar archive"
+    )
+    adam.add_argument("config", type=Path, help="YAML ADAM import manifest")
     experiment = commands.add_parser(
         "experiment", help="declarative experiment commands"
     )
@@ -151,6 +226,25 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     article_resolve.add_argument("--input", required=True, type=Path)
     article_resolve.add_argument("--output", type=Path)
+    article_convert = article_commands.add_parser(
+        "convert", help="convert one local PubMed XML or BioC JSON file to article JSON"
+    )
+    article_convert.add_argument(
+        "--format", choices=("pubmed-xml", "bioc-json"), required=True
+    )
+    article_convert.add_argument("--input", required=True, type=Path)
+    article_convert.add_argument("--output", type=Path)
+    article_convert.add_argument("--include-title", action="store_true")
+    annotations = commands.add_parser(
+        "annotations", help="contemporary annotation-pilot commands"
+    )
+    annotation_commands = annotations.add_subparsers(
+        dest="annotation_command", required=True
+    )
+    annotation_run = annotation_commands.add_parser(
+        "run", help="import annotation cases and write canonical/report artifacts"
+    )
+    annotation_run.add_argument("config", type=Path)
     return parser
 
 
@@ -186,6 +280,95 @@ def main(argv: Sequence[str] | None = None) -> int:
             sys.stdout.write(results_to_json(results))
         except DownloadError as error:
             logger.error("error: dataset download failed: %s", error)
+            return 2
+        return 0
+    if args.command == "literature" and args.literature_command == "acquire":
+        try:
+            acquisition_config = load_acquisition_config(args.config)
+            if args.dry_run:
+                sys.stdout.write(
+                    json.dumps(
+                        estimate_acquisition(acquisition_config).to_dict(),
+                        sort_keys=True,
+                    )
+                    + "\n"
+                )
+            else:
+                sys.stdout.write(
+                    json.dumps(
+                        acquire_pubmed(acquisition_config).to_dict(), sort_keys=True
+                    )
+                    + "\n"
+                )
+        except (AcquisitionError, OSError, ValueError) as error:
+            logger.error("error: literature acquisition failed: %s", error)
+            return 2
+        return 0
+    if args.command == "literature" and args.literature_command == "replay":
+        try:
+            sys.stdout.write(
+                json.dumps(replay_acquisition(args.manifest), sort_keys=True) + "\n"
+            )
+        except (AcquisitionError, OSError, ValueError) as error:
+            logger.error("error: literature replay failed: %s", error)
+            return 2
+        return 0
+    if args.command == "literature" and args.literature_command == "sample":
+        try:
+            sampling_config = load_sampling_config(args.config)
+            sampling_result = sample_frame(sampling_config, frame_path=args.frame)
+            output = args.output or sampling_config.manifest_path
+            fingerprint = write_sampling_manifest(sampling_result, output)
+            sys.stdout.write(
+                json.dumps(
+                    {
+                        "manifest": str(output),
+                        "fingerprint": fingerprint,
+                        "summary": sampling_result.summary,
+                    },
+                    sort_keys=True,
+                )
+                + "\n"
+            )
+        except (OSError, SamplingError, ValueError) as error:
+            logger.error("error: literature sampling failed: %s", error)
+            return 2
+        return 0
+    if args.command == "literature" and args.literature_command == "select":
+        try:
+            selection_config = load_corpus_selection_config(args.config)
+            selection_result = select_corpus(selection_config, frame_path=args.frame)
+            output = args.output or selection_config.manifest_path
+            fingerprint = write_corpus_selection_manifest(selection_result, output)
+            sys.stdout.write(
+                json.dumps(
+                    {
+                        "manifest": str(output),
+                        "fingerprint": fingerprint,
+                        "summary": selection_result.summary,
+                    },
+                    sort_keys=True,
+                )
+                + "\n"
+            )
+        except (CorpusSelectionError, OSError, ValueError) as error:
+            logger.error("error: corpus selection failed: %s", error)
+            return 2
+        return 0
+    if args.command == "resources" and args.resource_command == "acquire-allie":
+        try:
+            allie_result = acquire_allie(load_allie_config(args.config))
+            sys.stdout.write(json.dumps(allie_result.to_dict(), sort_keys=True) + "\n")
+        except (AllieAcquisitionError, OSError, ValueError) as error:
+            logger.error("error: ALLIE acquisition failed: %s", error)
+            return 2
+        return 0
+    if args.command == "resources" and args.resource_command == "import-adam":
+        try:
+            adam_result = import_adam(load_adam_config(args.config))
+            sys.stdout.write(json.dumps(adam_result.to_dict(), sort_keys=True) + "\n")
+        except (AdamAcquisitionError, OSError, ValueError) as error:
+            logger.error("error: ADAM import failed: %s", error)
             return 2
         return 0
     if args.command == "experiment" and args.experiment_command == "run":
@@ -253,6 +436,51 @@ def main(argv: Sequence[str] | None = None) -> int:
             ValueError,
         ) as error:
             logger.error("error: article resolution failed: %s", error)
+            return 2
+        return 0
+    if args.command == "article" and args.article_command == "convert":
+        try:
+            payload = args.input.read_bytes()
+            parsed = (
+                parse_pubmed_xml(payload, include_title=args.include_title)
+                if args.format == "pubmed-xml"
+                else parse_bioc_json(payload, include_title=args.include_title)
+            )
+            serialized = (
+                json.dumps(
+                    article_to_dict(parsed.article),
+                    ensure_ascii=False,
+                    indent=2,
+                    sort_keys=True,
+                )
+                + "\n"
+            )
+            if args.output is None:
+                sys.stdout.write(serialized)
+            else:
+                args.output.parent.mkdir(parents=True, exist_ok=True)
+                args.output.write_text(serialized, encoding="utf-8", newline="\n")
+                sys.stdout.write(
+                    json.dumps(
+                        {
+                            "article_id": parsed.article.stable_id,
+                            "diagnostic_count": len(parsed.diagnostics),
+                            "output": str(args.output),
+                        },
+                        sort_keys=True,
+                    )
+                    + "\n"
+                )
+        except (ArticleParseError, OSError, ValueError) as error:
+            logger.error("error: article conversion failed: %s", error)
+            return 2
+        return 0
+    if args.command == "annotations" and args.annotation_command == "run":
+        try:
+            report = run_annotation_pilot(load_annotation_config(args.config))
+            sys.stdout.write(json.dumps(report, sort_keys=True) + "\n")
+        except (AnnotationPilotError, OSError, ValueError) as error:
+            logger.error("error: annotation pilot failed: %s", error)
             return 2
         return 0
     if args.command == "corpus" and args.corpus_command == "build":

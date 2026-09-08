@@ -1,0 +1,24 @@
+{
+  "task": "T025",
+  "source": "ncbi_pubmed_efetch",
+  "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+  "identifiers": ["12603049", "29446729"],
+  "batch_size": 2,
+  "estimated_requests": 1,
+  "live_summary": {
+    "downloaded": 1,
+    "reused_on_rerun": 1,
+    "missing": 0,
+    "failed": 0,
+    "partial": 0,
+    "bytes": 12980,
+    "raw_sha256": "0734a0d3a1680cd121dfd1bcbdc0cec81d8ed645d95603b34b9d91316fad8ac8"
+  },
+  "manifest_path": ".artifacts/T025/pubmed-pilot/manifest.json",
+  "offline_replay": {"checked": 1, "valid": 1, "invalid": []},
+  "limitations": [
+    "The raw response is intentionally not tracked or parsed by T025.",
+    "Article-level reuse and redistribution terms remain to be reviewed.",
+    "This fixed-ID pilot does not select the later scientific corpus population."
+  ]
+}

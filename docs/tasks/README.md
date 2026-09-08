@@ -22,6 +22,35 @@ scope. See the [T019 completion note](completed/T019-audit-and-repair-corpus-sem
 T020 is implemented for the typed runtime and cache-identity engineering
 scope. The real ABREX-on-WSL smoke remains pending until the WSL Python has
 the project dependencies; see the [T020 implementation note](completed/T020-ab3p-runtime-and-cache-identity.md).
+T021 is complete for the native offset adapter and live conformance scope; see
+the [T021 completion note](completed/T021-ab3p-native-offset-adapter.md).
+T022 is complete for the bounded real-data baseline smoke and reproducibility
+scope; see the [T022 completion note](completed/T022-real-baseline-smoke-benchmarks.md).
+T023 remains blocked in the current environment: the separate CPU runtime and
+pinned checkpoint are not available with the required dependencies. See
+[PLOD runtime setup](../plod-runtime.md); detector integration and full task
+acceptance checks remain outstanding.
+T025 is complete for bounded PubMed EFetch acquisition, manifest/replay
+engineering and its two-record live pilot; see the [T025 completion note](completed/T025-literature-acquisition-manifests.md).
+T026 is complete for local PubMed XML/BioC parsing, source provenance and its
+bounded live round-trip scope; see the [T026 completion note](completed/T026-pubmed-bioc-source-parsing.md).
+T027 is complete for JATS structural preservation and bounded real-source
+validation; see the [T027 completion note](completed/T027-jats-tables-captions-and-definition-lists.md).
+T028 is complete for the provenance-preserving resource layer and bounded
+frequency-resource pilot; see the [T028 completion note](completed/T028-lexical-resource-ingestion.md).
+T029 is complete for deterministic contemporary sampling proposals and
+article-level leakage controls; see the [T029 completion note](completed/T029-sampling-and-leakage-controls.md).
+T030 is complete for the versioned annotation workflow and bounded provisional
+pilot; independent review and gold certification remain pending. See the
+[T030 completion note](completed/T030-annotation-pilot-and-adjudication.md).
+T047 is complete for the deterministic bounded corpus-selection mechanism and
+metadata-frame proposal; final work-scale limits and scientific approval remain
+open. See the [T047 completion note](completed/T047-large-scale-corpus-selection.md).
+T046 is complete for bounded ADAM and ALLIE acquisition/import pilots; see
+the [T046 completion note](completed/T046-external-dictionary-acquisition.md).
+T048 is complete for bounded runtime verification, typed integration and the
+T022 resolver artifact. See [runtime instructions](../bioadi-runtime.md) and
+the [T048 completion note](completed/T048-bioadi-runtime-and-resolver.md).
 
 Execute T046 after T028 and before T034. Design T047 after T029 and finalize it before T042; task identifiers were preserved rather than renumbered. See the [resource acquisition register](../resource-acquisition-register.md) for ADAM and additional suggestions.
 

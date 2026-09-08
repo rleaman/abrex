@@ -1,0 +1,31 @@
+{
+  "task": "T028",
+  "source_path": "data/raw/resources/abbr_frequency_2024.json.gz",
+  "source_size_bytes": 133582426,
+  "source_sha256": "eec42cb74577130f07cdd2422f664b21011e4fdd70847ffe5b5345f63c78f023",
+  "sqlite_path": ".artifacts/T028/frequency-pilot.sqlite",
+  "adapter": "frequency-json-gzip",
+  "normalization": "identity",
+  "count_unit": "unknown",
+  "max_entries": 64,
+  "pilot_summary": {
+    "variant_count": 64,
+    "short_form_key_count": 1,
+    "observed_short_form_key": "CNS",
+    "total_count": 120393,
+    "document_frequency": null,
+    "source_sha256_in_sqlite": "eec42cb74577130f07cdd2422f664b21011e4fdd70847ffe5b5345f63c78f023"
+  },
+  "verification": {
+    "fast_tests": 212,
+    "full_tests": 216,
+    "coverage_percent": 95.0,
+    "ruff": "passed",
+    "mypy": "passed"
+  },
+  "limitations": [
+    "Only 64 rows were imported; the 133.6 MB source was not fully materialized into SQLite.",
+    "The supplied resource contains aggregate counts without article links; counts are not document frequencies or gold labels.",
+    "Raw resource terms and reuse conditions remain source-specific and external acquisition is T046 scope."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "task": "T046",
+  "sources": {
+    "ALLIE": {
+      "access_status": "official_bounded_rest_query_acquired",
+      "endpoint": "https://allie.dbcls.jp/rest/getPairsByAbbr",
+      "query": "AML",
+      "raw_bytes": 53889,
+      "raw_sha256": "61062de1b6c64b82d30b704fd10e2a1db5b282e4ac4324b23ffeeb0d786fdaa9",
+      "normalized_sha256": "35e3924cbad2ee5339d28c9e6d4bc43c61bde5e201fa654e703917c663831d75",
+      "manifest_sha256": "a8d3b1d17e301a14383b7d3678eee0a6d1ed476feca2f428638f3c5d5eb9835c",
+      "pair_count": 16,
+      "t028_resource": {
+        "variant_count": 16,
+        "short_form_key_count": 1,
+        "total_count": 36701,
+        "count_unit": "pair-appearance-count",
+        "document_frequency": null
+      },
+      "lineage": "ALLIE uses ALICE extraction; this is not an independent teacher",
+      "terms_url": "https://allie.dbcls.jp/en",
+      "rights_status": "official_terms_reference; redistribution_not_assumed"
+    },
+    "ADAM": {
+      "access_status": "official_archive_acquired_bounded_local_import",
+      "landing_url": "http://abel.lis.illinois.edu/adam.html",
+      "archive_url": "http://abel.lis.illinois.edu/download/adam.tar",
+      "readme_url": "http://abel.lis.illinois.edu/download/README",
+      "archive_bytes": 3645440,
+      "tar_sha256": "1c49bfb5793fb54956245d30d3c0806526941ab5f19b0e3f9cec40d4d37e3f06",
+      "readme_sha256": "0179e52095ccbf6f3033e84e58b7f9fd777839e6ec2aa74dd59ae2dd7e859dcf",
+      "normalized_sha256": "877773889be668099ec4cfe699cddd4d6fcdfd4375aa3d40414f0b06d4d7dba3",
+      "manifest_sha256": "f94a49791ac09ad0966c868dcc458085ed8ce32f7dd035a35d05a60650db4a1e",
+      "parsed_rows": 57827,
+      "imported_rows": 64,
+      "malformed_rows": 0,
+      "readme_claimed_distinct_pairs": 59405,
+      "t028_resource": {
+        "variant_count": 66,
+        "short_form_key_count": 54,
+        "total_count": 1966,
+        "count_unit": "definition-count"
+      },
+      "lineage": "ADAM generated from the 2006 MEDLINE baseline",
+      "terms": "README states non-commercial/no-redistribution and also names GPL; legal review required"
+    },
+    "Acromine": {
+      "access_status": "official_documentation_only_query_unverified",
+      "documentation_url": "https://www.nactem.ac.uk/software/acromine/rest.html",
+      "count_semantics": "documented but not locally verified",
+      "lineage": "same resource family for both supplied publications"
+    },
+    "SaRAD_Stanford_ARGH_AcroMed": {
+      "access_status": "discovery_candidates_not_acquired",
+      "count_semantics": "unknown",
+      "lineage": "supplied citations retained; no mirror substituted"
+    }
+  },
+  "verification": {
+    "allie_focused_tests": 8,
+    "adam_focused_tests": 14,
+    "allie_t028_lookup": true,
+    "adam_t028_lookup": true,
+    "raw_artifacts_preserved_outside_git": true,
+    "repository_fast_tests": 247,
+    "repository_full_tests": 251,
+    "coverage_percent": 95.02,
+    "ruff": "passed",
+    "mypy": "passed",
+    "git_diff_check": "passed"
+  },
+  "limitations": [
+    "ALLIE is a bounded AML REST query, not a full database extract; its 16 pairs are not a population sample.",
+    "ADAM import is limited to 64 rows even though the complete 3.5 MB archive was scanned locally.",
+    "ADAM parsed 57,827 valid rows while its README states 59,405 distinct pairs; the unit of that discrepancy needs source review.",
+    "ADAM terms combine a non-commercial/no-redistribution statement with a GPL reference; legal review is required before reuse or redistribution.",
+    "Acromine and the remaining cited dictionary candidates were not silently treated as acquired."
+  ]
+}

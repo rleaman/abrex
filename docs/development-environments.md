@@ -72,6 +72,9 @@ verification, and do not install datasets for the core quality gate.
 
 ## Real Ab3P in Ubuntu WSL2
 
+For the installed local Python environment, copyable launch commands, and the
+successful T020 live/cache smoke, see [local WSL runtime](wsl-runtime.md).
+
 The real Ab3P build is an optional Linux/WSL artifact, not a Python or native
 Windows dependency. The checked-in builder copies the user-supplied sibling
 sources into a task-owned output directory, builds NCBITextLib and Ab3P,

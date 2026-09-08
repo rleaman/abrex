@@ -1,0 +1,48 @@
+{
+  "task": "T029",
+  "frame_path": "data/fixtures/literature/t029-sampling-frame.jsonl",
+  "frame_sha256": "4123fa13d62c34a2b1b4b06bafc75a607afb0cb67a39c9862d912a470da3caae",
+  "config_path": "configs/literature/T029-sampling-proposal.yaml",
+  "manifest_path": ".artifacts/T029/sampling-proposal.json",
+  "manifest_sha256": "96ee5a0951272208a7a372e4300e5fde88615398c023718452e9b5433501a44d",
+  "pilot_summary": {
+    "frame_records": 5,
+    "available_records": 4,
+    "unavailable_records": 1,
+    "article_groups": 4,
+    "assigned_groups": 3,
+    "source_kind_counts": {
+      "abstract": 3,
+      "full_text": 2
+    },
+    "role_record_counts": {
+      "challenge": 1,
+      "development": 1,
+      "not-selected": 2,
+      "unavailable": 1
+    },
+    "occurrence_link_count": 1,
+    "frequency_priorities": {
+      "CNS": 120393
+    }
+  },
+  "real_source_provenance": {
+    "pubmed_efetch_response_sha256": "0734a0d3a1680cd121dfd1bcbdc0cec81d8ed645d95603b34b9d91316fad8ac8",
+    "pmc_jats_response_sha256": "2030e0547ed486539e8a666db063070a65180740e9807fff8171a1756917e301",
+    "frequency_resource_source_sha256": "eec42cb74577130f07cdd2422f664b21011e4fdd70847ffe5b5345f63c78f023"
+  },
+  "verification": {
+    "focused_tests": 10,
+    "deterministic_repeated_run": true,
+    "identifier_duplicate_grouping": true,
+    "held_out_lexicon_exclusion": true,
+    "official_split_preservation": true
+  },
+  "limitations": [
+    "This is a five-record local proposal pilot, not a representative literature sample.",
+    "The frame contains two real-source fingerprints from earlier bounded pilots, but the fixture is not a complete PubMed/PMC sampling frame.",
+    "Four groups have unknown teacher-overlap status; overlap is not ascertainable from the local frame.",
+    "Target years and role fractions are concrete review proposals, not final scientific requirements.",
+    "No Ab3P-only benchmark is labeled unbiased; challenge selections are not population-weighted."
+  ]
+}

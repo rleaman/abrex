@@ -73,6 +73,43 @@ Successful zero-output Ab3P runs are cached and replayed as legitimate zero
 predictions. Cached stdout goes through the same parser and canonical span
 reconstruction code as live output.
 
+### Native offset output
+
+T021 adds an opt-in `output_format: offset_jsonl` path. The task-owned
+`identify_abbr_offsets` frontend calls the unchanged Ab3P library once per
+input line and emits versioned JSONL containing the detected pair, precision,
+strategy, line identity, and native `sf_offset`/`lf_offset` byte offsets.
+Those offsets are checked against the exact UTF-8 input (including CRLF),
+converted to Python character intervals, and rejected if they do not land on
+UTF-8 boundaries or slice to the reported forms. No occurrence search is
+performed, so repeated definitions and later short-form reuse retain their
+actual positions. Legacy `output_format: text` remains a separately
+identified replay path and raises an ambiguity error when text-only
+reconstruction cannot identify exactly one pair.
+
+The offset executable must be selected explicitly in the installation because
+it is a wrapper around the same upstream library:
+
+```yaml
+resolver:
+  type: ab3p
+  params:
+    backend: subprocess
+    output_format: offset_jsonl
+    installation:
+      manifest: docs/artifacts/ab3p-installation-manifest.json
+      root: /opt/ab3p
+      executable: identify_abbr_offsets
+      resource_directory: WordData
+    cache:
+      path: artifacts/ab3p-offset-cache
+      read: true
+      write: true
+```
+
+The output schema is `ab3p-offsets-v1`; output format and schema identity are
+part of the cache key, so text and native-offset artifacts cannot be mixed.
+
 Example Linux configuration:
 
 ```yaml

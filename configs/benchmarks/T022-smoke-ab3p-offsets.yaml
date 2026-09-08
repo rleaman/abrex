@@ -1,0 +1,43 @@
+project:
+  name: t022-real-baseline-smoke-ab3p-offsets
+  seed: 20260907
+
+corpus:
+  type: canonical_jsonl
+  params:
+    path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.jsonl
+    manifest_path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.manifest.json
+
+resolver:
+  type: ab3p
+  params:
+    backend: subprocess
+    output_format: offset_jsonl
+    timeout_seconds: 60
+    installation:
+      manifest: .artifacts/T021/live-installation-manifest.json
+      root: .artifacts/T021/live-build/Ab3P
+      executable: identify_abbr_offsets
+      resource_directory: WordData
+    cache:
+      path: .artifacts/T022/ab3p-raw-cache
+      read: true
+      write: true
+
+matching:
+  type: exact_pair
+  params: {}
+
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+
+reporters:
+  - type: json
+    params: {}
+
+output:
+  root: .artifacts/T022/experiments
+  reuse_cached_predictions: true

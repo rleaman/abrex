@@ -13,6 +13,7 @@ def register_builtin_components() -> None:
 
     from abrex.resolvers.adapters.ab3p import Ab3PResolverConfig
     from abrex.resolvers.adapters.ab3p_resolver import Ab3PResolver
+    from abrex.resolvers.adapters.bioadi import BioADIResolver, BioADIResolverConfig
     from abrex.resolvers.adapters.learned import (
         LearnedScorerResolverConfig,
         create_learned_scorer_resolver,
@@ -27,6 +28,8 @@ def register_builtin_components() -> None:
         RESOLVERS.register("toy", ToyResolver, config_model=ToyResolverConfig)
     if "ab3p" not in RESOLVERS:
         RESOLVERS.register("ab3p", Ab3PResolver, config_model=Ab3PResolverConfig)
+    if "bioadi" not in RESOLVERS:
+        RESOLVERS.register("bioadi", BioADIResolver, config_model=BioADIResolverConfig)
     if "schwartz_hearst" not in RESOLVERS:
         RESOLVERS.register(
             "schwartz_hearst",

@@ -1,0 +1,11 @@
+allie_acquisition:
+  keywords: [AML]
+  output_dir: .artifacts/T046/allie-pilot/raw
+  manifest_path: .artifacts/T046/allie-pilot/manifest.json
+  normalized_path: .artifacts/T046/allie-pilot/allie.json.gz
+  sqlite_path: .artifacts/T046/allie-pilot/allie.sqlite
+  endpoint: https://allie.dbcls.jp/rest/getPairsByAbbr
+  terms_url: https://allie.dbcls.jp/en
+  source_label: ALLIE
+  count_unit: pair-appearance-count
+  max_pairs: 16

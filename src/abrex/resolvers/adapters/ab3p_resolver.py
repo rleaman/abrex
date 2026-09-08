@@ -10,7 +10,9 @@ from abrex.domain import AbbreviationDefinition, Document
 from abrex.resolvers.adapters.ab3p import (
     AB3P_ADAPTER_VERSION,
     Ab3PResolverConfig,
+    parse_ab3p_offset_output,
     parse_ab3p_output,
+    reconstruct_offset_predictions,
     reconstruct_predictions,
 )
 
@@ -36,6 +38,10 @@ class Ab3PResolver:
         """Return canonical predictions through the shared raw-output pipeline."""
 
         result = self._acquire(document)
+        if self.config.output_format == "offset_jsonl":
+            return reconstruct_offset_predictions(
+                document, parse_ab3p_offset_output(result.stdout)
+            )
         return reconstruct_predictions(document, parse_ab3p_output(result.stdout))
 
     def _acquire(self, document: Document) -> Ab3PRawResult:

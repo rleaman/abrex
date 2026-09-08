@@ -1,0 +1,21 @@
+# Bounded T025 example: only these fixed IDs are eligible for acquisition.
+# No search is performed and no full PubMed/PMC corpus is downloaded.
+literature_acquisition:
+  source: ncbi_pubmed_efetch
+  identifiers:
+    - "12603049"
+    - "29446729"
+  output_dir: .artifacts/T025/pubmed-pilot/raw
+  manifest_path: .artifacts/T025/pubmed-pilot/manifest.json
+  database: pubmed
+  response_format: xml
+  batch_size: 2
+  timeout_seconds: 30
+  retries: 2
+  retry_delay_seconds: 1
+  rate_limit_delay_seconds: 0.34
+  user_agent: abrex-t025-pubmed-pilot/1.0
+  tool: abrex
+  # Supply a registered developer contact when performing larger retrievals.
+  # email: your-registered-email@example.org
+  intended_use: bounded local parser and resolver pilot

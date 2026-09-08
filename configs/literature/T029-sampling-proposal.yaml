@@ -1,0 +1,25 @@
+sampling:
+  frame_path: data/fixtures/literature/t029-sampling-frame.jsonl
+  manifest_path: .artifacts/T029/sampling-proposal.json
+  seed: 20260907
+  mode: proposal
+  near_duplicate_jaccard: 0.98
+  target_years: [2020, 2021, 2022, 2023, 2024]
+  frequency_resource_path: .artifacts/T028/frequency-pilot.sqlite
+  roles:
+    - name: challenge
+      strategy: challenge
+      max_groups: 1
+      lexicon_allowed: false
+    - name: development
+      strategy: random
+      fraction: 0.5
+      lexicon_allowed: true
+    - name: evaluation
+      strategy: random
+      fraction: 0.25
+      lexicon_allowed: false
+    - name: unlabeled_pilot
+      strategy: random
+      fraction: 0.25
+      lexicon_allowed: false

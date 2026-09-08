@@ -1,6 +1,8 @@
 # T026 Parse local PubMed and BioC articles with traceable text
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: B.
+Status: Complete for local PubMed XML/BioC parsing, source provenance and
+bounded live round-trip scope; broader full-text structure remains pending.
+Assigned implementer: GPT-5.6 Luna. Milestone: B.
 
 ## Outcome
 
@@ -44,4 +46,3 @@ Small raw examples from T025; only redistribute fixtures when permitted, otherwi
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T026-pubmed-bioc-source-parsing.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

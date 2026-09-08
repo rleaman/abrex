@@ -5,9 +5,15 @@ from __future__ import annotations
 import json
 from collections.abc import Mapping, Sequence
 from pathlib import Path
+from typing import cast
 
 from abrex.literature.mapping import ArticleResolutionResult
-from abrex.literature.models import Article, ArticleDocument, ArticleSection
+from abrex.literature.models import (
+    Article,
+    ArticleDocument,
+    ArticleSection,
+    ArticleStructure,
+)
 from abrex.resolvers.serialization import prediction_record_to_dict
 
 ARTICLE_SCHEMA_VERSION = "local-article-v1"
@@ -54,13 +60,78 @@ def article_from_dict(data: Mapping[str, object]) -> Article:
             raise ArticleSerializationError(
                 f"article.sections[{index}].title must be a string or null"
             )
-        sections.append(ArticleSection(section_id, text, title))
+        sections.append(
+            ArticleSection(
+                section_id,
+                text,
+                title,
+                _optional_string(raw_section, "source_id"),
+                _optional_int(raw_section, "source_offset"),
+                _optional_int(raw_section, "source_length"),
+            )
+        )
+    raw_structures = data.get("structures", [])
+    if not isinstance(raw_structures, Sequence) or isinstance(
+        raw_structures, str | bytes
+    ):
+        raise ArticleSerializationError("article.structures must be a JSON array")
+    structures: list[ArticleStructure] = []
+    for index, raw_structure in enumerate(raw_structures):
+        if not isinstance(raw_structure, Mapping):
+            raise ArticleSerializationError(
+                f"article.structures[{index}] must be a JSON object"
+            )
+        attributes = raw_structure.get("attributes", [])
+        if not isinstance(attributes, Sequence) or isinstance(attributes, str | bytes):
+            raise ArticleSerializationError(
+                f"article.structures[{index}].attributes must be an array"
+            )
+        pairs: list[tuple[str, str]] = []
+        for pair in attributes:
+            if (
+                not isinstance(pair, Sequence)
+                or isinstance(pair, str | bytes)
+                or len(pair) != 2
+                or not all(isinstance(value, str) for value in pair)
+            ):
+                raise ArticleSerializationError(
+                    f"article.structures[{index}].attributes must contain string pairs"
+                )
+            pairs.append((pair[0], pair[1]))
+        node_id = raw_structure.get("node_id")
+        kind = raw_structure.get("kind")
+        text = raw_structure.get("text")
+        source_path = raw_structure.get("source_path")
+        if not all(
+            isinstance(value, str) for value in (node_id, kind, text, source_path)
+        ):
+            raise ArticleSerializationError(
+                f"article.structures[{index}] requires string node_id, kind, text "
+                "and source_path"
+            )
+        structures.append(
+            ArticleStructure(
+                cast(str, node_id),
+                cast(str, kind),
+                cast(str, text),
+                cast(str, source_path),
+                _optional_string(raw_structure, "parent_id"),
+                tuple(pairs),
+            )
+        )
     article_id = _optional_string(data, "article_id") or _optional_string(data, "id")
     return Article(
         article_id=article_id,
         pmid=_optional_string(data, "pmid"),
         pmcid=_optional_string(data, "pmcid"),
         title=_optional_string(data, "title"),
+        source_format=_optional_string(data, "source_format"),
+        source_version=_optional_string(data, "source_version"),
+        source_sha256=_optional_string(data, "source_sha256"),
+        source_coordinate_system=(
+            _optional_string(data, "source_coordinate_system") or "logical-text"
+        ),
+        structures=tuple(structures),
         sections=tuple(sections),
     )
 
@@ -74,11 +145,29 @@ def article_to_dict(article: Article) -> dict[str, object]:
         "pmid": article.pmid,
         "pmcid": article.pmcid,
         "title": article.title,
+        "source_format": article.source_format,
+        "source_version": article.source_version,
+        "source_sha256": article.source_sha256,
+        "source_coordinate_system": article.source_coordinate_system,
+        "structures": [
+            {
+                "node_id": structure.node_id,
+                "kind": structure.kind,
+                "text": structure.text,
+                "source_path": structure.source_path,
+                "parent_id": structure.parent_id,
+                "attributes": [list(pair) for pair in structure.attributes],
+            }
+            for structure in article.structures
+        ],
         "sections": [
             {
                 "section_id": section.section_id,
                 "title": section.title,
                 "text": section.text,
+                "source_id": section.source_id,
+                "source_offset": section.source_offset,
+                "source_length": section.source_length,
             }
             for section in article.sections
         ],
@@ -161,6 +250,13 @@ def _optional_string(data: Mapping[str, object], key: str) -> str | None:
     value = data.get(key)
     if value is not None and not isinstance(value, str):
         raise ArticleSerializationError(f"article.{key} must be a string or null")
+    return value
+
+
+def _optional_int(data: Mapping[str, object], key: str) -> int | None:
+    value = data.get(key)
+    if value is not None and (isinstance(value, bool) or not isinstance(value, int)):
+        raise ArticleSerializationError(f"article.{key} must be an integer or null")
     return value
 
 

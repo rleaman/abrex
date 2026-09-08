@@ -1,6 +1,6 @@
 # T029 Define contemporary sampling and article-level data separation
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: B.
+Status: Complete. Assigned implementer: GPT-5.6 Luna. Milestone: B.
 
 ## Outcome
 
@@ -45,4 +45,3 @@ Real T026/T027 articles. T028 is optional. Final benchmark release requires the 
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T029-sampling-and-leakage-controls.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

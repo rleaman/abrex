@@ -1,6 +1,11 @@
 # T023 Integrate PLODv2 as a reproducible span detector
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: B.
+Status: Ready to resume. The optional Python 3.13 CPU runtime and pinned PLODv2
+checkpoint are installed, and standalone live/offline inference passed. See
+[runtime setup and verified assets](../plod-runtime.md) before starting.
+The detector engineering and full acceptance criteria remain unimplemented.
+Assigned implementer: GPT-5.6 Luna.
+Milestone: B.
 
 ## Outcome
 
@@ -44,4 +49,3 @@ Checkpoint download and disk capacity. The model card identifies CC-BY-SA-4.0; r
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T023-plodv2-span-detection.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

@@ -1,0 +1,61 @@
+"""Provenance-preserving local abbreviation resources."""
+
+from abrex.resources.adam import (
+    ADAM_ACQUISITION_SCHEMA_VERSION,
+    AdamAcquisitionError,
+    AdamImportConfig,
+    AdamImportResult,
+    AdamLongFormVariant,
+    AdamRecord,
+    import_adam,
+    load_adam_config,
+    parse_adam_line,
+)
+from abrex.resources.allie import (
+    ALLIE_ACQUISITION_SCHEMA_VERSION,
+    AllieAcquisitionConfig,
+    AllieAcquisitionError,
+    AllieAcquisitionResult,
+    AlliePair,
+    acquire_allie,
+    load_allie_config,
+    parse_allie_xml,
+)
+from abrex.resources.frequency import (
+    FrequencyResource,
+    FrequencyResourceConfig,
+    FrequencyResourceError,
+    ResourceQuery,
+    ResourceSummary,
+    ResourceVariant,
+    import_frequency_resource,
+    load_frequency_config,
+)
+
+__all__ = [
+    "ALLIE_ACQUISITION_SCHEMA_VERSION",
+    "AllieAcquisitionConfig",
+    "AllieAcquisitionError",
+    "AllieAcquisitionResult",
+    "AlliePair",
+    "ADAM_ACQUISITION_SCHEMA_VERSION",
+    "AdamAcquisitionError",
+    "AdamImportConfig",
+    "AdamImportResult",
+    "AdamLongFormVariant",
+    "AdamRecord",
+    "FrequencyResource",
+    "FrequencyResourceConfig",
+    "FrequencyResourceError",
+    "ResourceSummary",
+    "ResourceQuery",
+    "ResourceVariant",
+    "import_frequency_resource",
+    "load_frequency_config",
+    "acquire_allie",
+    "load_allie_config",
+    "parse_allie_xml",
+    "import_adam",
+    "load_adam_config",
+    "parse_adam_line",
+]

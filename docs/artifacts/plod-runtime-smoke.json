@@ -1,0 +1,86 @@
+{
+  "network_disabled_during_load_and_predict": true,
+  "model": "surrey-nlp/flair-abbr-pubmed-filtered",
+  "revision": "019ed5392cad2deab220ad6bfda0681b20cabe21",
+  "sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277",
+  "label_type": "ner",
+  "label_dictionary": [
+    "O",
+    "S-AC",
+    "B-AC",
+    "E-AC",
+    "I-AC",
+    "S-LF",
+    "B-LF",
+    "E-LF",
+    "I-LF",
+    "<START>",
+    "<STOP>"
+  ],
+  "embeddings": "StackedEmbeddings [0-/user/HS501/sq00159/.flair/embeddings/pubmed-forward.pt,1-/user/HS501/sq00159/.flair/embeddings/pubmed-backward.pt]",
+  "versions": {
+    "torch": "2.14.0+cpu",
+    "flair": "0.15.1"
+  },
+  "seconds": 4.786192351000011,
+  "results": [
+    {
+      "text": "Tumor necrosis factor (TNF) is a cytokine.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 21,
+          "text": "Tumor necrosis factor",
+          "labels": [
+            {
+              "value": "LF",
+              "score": 0.9447909792264303
+            }
+          ]
+        },
+        {
+          "start": 23,
+          "end": 26,
+          "text": "TNF",
+          "labels": [
+            {
+              "value": "AC",
+              "score": 0.9971109628677368
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Magnetic resonance imaging (MRI) was performed.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 26,
+          "text": "Magnetic resonance imaging",
+          "labels": [
+            {
+              "value": "LF",
+              "score": 0.8970215519269308
+            }
+          ]
+        },
+        {
+          "start": 28,
+          "end": 31,
+          "text": "MRI",
+          "labels": [
+            {
+              "value": "AC",
+              "score": 0.9975825548171997
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "The patient was stable.",
+      "spans": []
+    }
+  ]
+}

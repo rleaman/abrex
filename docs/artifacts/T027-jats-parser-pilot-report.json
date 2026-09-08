@@ -1,0 +1,39 @@
+{
+  "task": "T027",
+  "real_pmc_jats": {
+    "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=PMC4051513&retmode=xml&tool=abrex",
+    "pmcid": "PMC4051513",
+    "bytes": 49080,
+    "source_sha256": "2030e0547ed486539e8a666db063070a65180740e9807fff8171a1756917e301",
+    "source_table_wrap_count": 3,
+    "source_figure_count": 3,
+    "parsed_sections": 137,
+    "parsed_structures": 124,
+    "image_asset_diagnostics": 3
+  },
+  "synthetic_structure_checks": {
+    "table_cells": 3,
+    "header_cells": 2,
+    "captions": 1,
+    "footnotes": 1,
+    "definition_lists": 1,
+    "definition_terms": 1,
+    "definitions": 1,
+    "rowspan_preserved": true,
+    "repeated_cells_distinguished": true,
+    "cross_cell_pairs_invented": false
+  },
+  "verification": {
+    "fast_tests": 207,
+    "full_tests": 211,
+    "coverage_percent": 95.06,
+    "ruff": "passed",
+    "mypy": "passed",
+    "git_diff_check": "passed"
+  },
+  "limitations": [
+    "Figure pixels and OCR are unsupported; image references are visible diagnostics.",
+    "The real pilot had table and figure structures but no definition list; definition-list behavior is validated synthetically.",
+    "No scientific abbreviation pair is accepted by the structural parser."
+  ]
+}

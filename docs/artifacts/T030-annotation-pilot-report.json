@@ -1,0 +1,48 @@
+{
+  "task": "T030",
+  "fixture_path": "data/fixtures/annotations/t030-annotation-pilot.json",
+  "config_path": "configs/annotations/T030-annotation-pilot.yaml",
+  "input_sha256": "a9614005922413eb3116e1307c4dfc7cca092a3d51198293b3d6c1e8e2d6ca1a",
+  "canonical_path": ".artifacts/T030/contemporary-annotations.jsonl",
+  "canonical_sha256": "71cc0fb84e84d6a0f509595b5859f4efc367e5ad8595370ee47989b1c2d3df20",
+  "report_path": ".artifacts/T030/annotation-report.json",
+  "report_sha256": "7fe3d1d9349c79748b982809b6bf4c09b0015527e50c84629538f0e5377b04e1",
+  "review_packet_path": ".artifacts/T030/review-packet.json",
+  "review_packet_sha256": "eae8d6b0f367cd19df4a742020cc5a6e53666a1647a75d79d1b26312f4e765d3",
+  "pilot_summary": {
+    "case_count": 4,
+    "evaluation_case_count": 1,
+    "empty_definition_case_count": 1,
+    "independent_label_count": 2,
+    "assisted_label_count": 1,
+    "adjudicated_label_count": 0,
+    "unresolved_label_count": 1,
+    "review_packet_case_count": 2,
+    "phenomenon_counts": {
+      "ambiguous": 1,
+      "caption": 1,
+      "table": 1
+    }
+  },
+  "evidence_status": "provisional_silver_pending_independent_review",
+  "claims_allowed": false,
+  "verification": {
+    "focused_tests": 5,
+    "round_trip_preserves_spans_and_history": true,
+    "canonical_import_smoke": true,
+    "invalid_offsets_rejected": true,
+    "review_packet_deterministic": true,
+    "bounded_real_source_evidence": false
+  },
+  "limitations": [
+    "The pilot fixture is intentionally small and cannot certify contemporary accuracy.",
+    "No independent expert adjudication has been supplied; unresolved labels remain explicit.",
+    "Assisted labels are separated from independent labels and must not be treated as independent human gold.",
+    "The evaluation packet is provisional only and must not drive T031 development choices or T037 training."
+  ],
+  "open_decisions": [
+    "Choose reviewers, independent-pass count and adjudication policy before certifying evaluation gold.",
+    "Approve the final scoreability policy for unresolved and rejected relations.",
+    "Confirm whether title-only, table/caption and nested-relation cases need larger strata in the next pilot."
+  ]
+}
