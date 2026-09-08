@@ -105,6 +105,19 @@ paired corpora, or a separate `mode: exact_span` analysis for independent span
 corpora; the results are never pooled. `write_comparative_report` writes a
 deterministic JSON evidence artifact.
 
+The reproducible historical T031 matrix is built with
+[`scripts/build_t031_comparison.py`](../scripts/build_t031_comparison.py) and
+the pinned configuration
+[`T031-smoke-plodv2-pairing.yaml`](../configs/benchmarks/T031-smoke-plodv2-pairing.yaml).
+Its tracked evidence report is
+[`T031-comparative-analysis-report.json`](artifacts/T031-comparative-analysis-report.json).
+On the 64-document T022 smoke slice, native-offset Ab3P, PLODv2 pairing and
+Schwartz--Hearst obtain 121/143, 104/143 and 110/143 exact-pair true
+positives respectively; their gold-assisted union reaches 130/143 (0.9091)
+and is reported only as an exploratory oracle. The report includes seeded
+document-group bootstrap intervals, artifact fingerprints, and explicit
+limitations of the historical slice.
+
 The oracle is not a deployable resolver score. It measures attainable union
 recall on the supplied document universe and must retain its denominator,
 matching policy, duplicate policy, execution failures, and corpus limitations.

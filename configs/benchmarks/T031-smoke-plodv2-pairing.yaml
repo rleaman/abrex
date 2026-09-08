@@ -1,0 +1,43 @@
+project:
+  name: t031-historical-comparative-plodv2
+  seed: 20260908
+
+corpus:
+  type: canonical_jsonl
+  params:
+    path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.jsonl
+    manifest_path: .artifacts/T022/smoke/ab3p_corpus_t022_smoke.manifest.json
+
+resolver:
+  type: plodv2_pairing
+  params:
+    checkpoint_path: /home/rleaman/.local/share/abrex/models/plodv2/019ed5392cad2deab220ad6bfda0681b20cabe21/pytorch_model.bin
+    checkpoint_sha256: 3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277
+    device: cpu
+    batch_size: 1
+    max_chars_per_window: 4096
+    window_overlap: 128
+    duplicate_policy: deduplicate
+    strategy: position_anchored
+    selection: one_to_one
+    allow_reverse_order: true
+    max_gap: 160
+    require_local_pattern: false
+
+matching:
+  type: exact_pair
+  params: {}
+
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+
+reporters:
+  - type: json
+    params: {}
+
+output:
+  root: .artifacts/T031/experiments
+  reuse_cached_predictions: true

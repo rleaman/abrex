@@ -38,8 +38,11 @@ documented Ubuntu WSL distribution, so the supplied real-checkpoint smoke is
 reported as an environment limitation rather than new evidence.
 T024 is complete for explicit position-anchored and named greedy pairing,
 composition with T023, and deterministic pair policies. See the
-[T024 completion note](completed/T024-plodv2-pairing-resolver.md). T031 is
-ready once the historical comparison inputs are assembled.
+[T024 completion note](completed/T024-plodv2-pairing-resolver.md).
+T031 is complete for the historical three-resolver comparison, seeded
+document-group bootstrap and gold-assisted oracle analysis; contemporary
+annotation extension remains pending because T030 labels are provisional.
+See the [T031 completion note](completed/T031-comparative-benchmark-and-oracle-analysis.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay
