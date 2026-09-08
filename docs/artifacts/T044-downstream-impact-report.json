@@ -1,0 +1,23 @@
+{
+  "schema_version": "t044-downstream-impact-v1",
+  "status": "contract_and_fixture_only",
+  "real_validation": false,
+  "adapter_contract": "DownstreamAdapter.extract(ArticleDocument, Sequence[MentionLink])",
+  "definition_extraction_and_mention_linking": "reported separately from downstream entity metrics",
+  "fixture": {
+    "baseline_entities": ["gene-a"],
+    "propagated_entities": ["gene-a", "gene-c"],
+    "gold_entities": ["gene-a", "gene-b"],
+    "introduced": ["gene-c"],
+    "removed": [],
+    "precision": 0.5,
+    "recall": 0.5,
+    "false_expansions": 1
+  },
+  "missing_inputs": [
+    "user downstream pipeline interface",
+    "permitted frozen downstream evaluation snapshot",
+    "approved downstream success metric and non-abbreviation settings"
+  ],
+  "decision": "Do not claim biological or entity-pipeline improvement from abbreviation F1 alone."
+}

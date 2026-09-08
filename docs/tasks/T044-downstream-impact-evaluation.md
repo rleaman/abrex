@@ -1,6 +1,9 @@
 # T044 Measure impact on the biomedical NLP pipeline
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: F.
+Status: Complete for the downstream adapter contract and regression fixtures;
+real impact validation remains incomplete because no user pipeline or frozen
+downstream dataset is available. Assigned implementer: GPT-5.6 Luna.
+Milestone: F.
 
 ## Outcome
 
@@ -45,4 +48,3 @@ Actual pipeline interface, permitted evaluation data and the user's relevant suc
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T044-downstream-impact-evaluation.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

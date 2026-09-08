@@ -23,6 +23,12 @@ from abrex.literature.corpus_selection import (
     select_corpus,
     write_corpus_selection_manifest,
 )
+from abrex.literature.downstream import (
+    DownstreamAdapter,
+    DownstreamEntity,
+    DownstreamImpactResult,
+    compare_downstream_entities,
+)
 from abrex.literature.io import (
     ARTICLE_RESOLUTION_SCHEMA_VERSION,
     ARTICLE_SCHEMA_VERSION,
@@ -112,6 +118,9 @@ __all__ = [
     "ArticleStructure",
     "MentionLink",
     "MentionLinkConfig",
+    "DownstreamAdapter",
+    "DownstreamEntity",
+    "DownstreamImpactResult",
     "ArticleGroup",
     "ArticleSegmenter",
     "ArticleSegmenterConfig",
@@ -143,6 +152,7 @@ __all__ = [
     "estimate_acquisition",
     "load_acquisition_config",
     "link_mentions",
+    "compare_downstream_entities",
     "load_corpus_selection_config",
     "load_sampling_config",
     "parse_jats_xml",

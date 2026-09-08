@@ -71,6 +71,9 @@ note](completed/T040-research-validation-and-ablation-campaign.md).
 T043 is complete for explicit article/section mention propagation with
 redefinition, conflict and undefined-form statuses. See the [T043 completion
 note](completed/T043-document-local-mention-propagation.md).
+T044 is complete for the narrow downstream adapter contract and impact
+comparison fixtures; real pipeline impact remains pending external inputs.
+See the [T044 completion note](completed/T044-downstream-impact-evaluation.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay

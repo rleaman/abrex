@@ -77,6 +77,13 @@ article-scope and section-scope behavior, redefinitions, conflicts, before-
 definition mentions, case/plural handling and undefined forms remain explicit;
 the linker never invents a definition or changes article text.
 
+The T044 `DownstreamAdapter` contract accepts unchanged `ArticleDocument`
+source text and `MentionLink` results, and returns traceable
+`DownstreamEntity` values. `compare_downstream_entities` reports introduced
+and removed entity IDs plus precision/recall and false-expansion counts when
+caller-supplied downstream gold exists; without gold, quality fields remain
+`None`.
+
 ## Bounded PubMed acquisition
 
 T025 adds a narrow application adapter for a fixed list of PubMed IDs. It uses
