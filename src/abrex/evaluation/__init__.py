@@ -11,6 +11,13 @@ from abrex.evaluation.base import (
     Metric,
     MetricResult,
 )
+from abrex.evaluation.comparative import (
+    BootstrapInterval,
+    ComparativeReport,
+    ResolverComparison,
+    compare_resolvers,
+    write_comparative_report,
+)
 from abrex.evaluation.config import (
     EvaluationConfig,
     create_evaluator,
@@ -48,6 +55,8 @@ from abrex.evaluation.registry import (
 )
 
 __all__ = [
+    "BootstrapInterval",
+    "ComparativeReport",
     "DocumentEvaluation",
     "EvaluationConfig",
     "EvaluationError",
@@ -78,8 +87,11 @@ __all__ = [
     "SpanPRFMetric",
     "PredictionBatchLike",
     "PredictionRecordLike",
+    "ResolverComparison",
     "ZeroDivisionHandling",
     "create_evaluator",
     "evaluation_config_from_resolved",
     "register_builtin_components",
+    "compare_resolvers",
+    "write_comparative_report",
 ]

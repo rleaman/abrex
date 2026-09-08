@@ -92,3 +92,19 @@ reporting:
 Stratification dimensions are explicit hooks. A dimension returning `None`
 for an outcome excludes it from that dimension; no corpus, positional, or
 parenthetical classifier is inferred by the framework.
+
+## Comparative resolver analysis
+
+`abrex.evaluation.compare_resolvers` evaluates several complete prediction
+sets on the same document universe under one named policy. It reports
+standalone counts, per-resolver correct occurrences, unique correct
+occurrences, a gold-assisted union-recall oracle, and seeded article-group
+bootstrap intervals. Duplicate gold occurrences remain distinct through their
+deterministic match positions. Use `mode: exact_pair` and `PairPRFMetric` for
+paired corpora, or a separate `mode: exact_span` analysis for independent span
+corpora; the results are never pooled. `write_comparative_report` writes a
+deterministic JSON evidence artifact.
+
+The oracle is not a deployable resolver score. It measures attainable union
+recall on the supplied document universe and must retain its denominator,
+matching policy, duplicate policy, execution failures, and corpus limitations.

@@ -1,6 +1,9 @@
 # T031 Measure resolver complementarity and uncertainty
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: C.
+Status: In progress. The typed comparative/oracle analysis and deterministic
+bootstrap implementation are complete; the required real three-resolver
+matrix remains pending because the documented Ubuntu WSL runtime is
+unavailable in the current shell. Assigned implementer: GPT-5.6 Luna.
 
 ## Outcome
 
