@@ -40,6 +40,8 @@ T024 is complete for explicit position-anchored and named greedy pairing,
 composition with T023, and deterministic pair policies. See the
 [T024 completion note](completed/T024-plodv2-pairing-resolver.md). T031 is
 ready once the historical comparison inputs are assembled.
+T041 is complete for generic bounded, resumable shard orchestration; see the
+[T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay
 engineering and its two-record live pilot; see the [T025 completion note](completed/T025-literature-acquisition-manifests.md).
 T026 is complete for local PubMed XML/BioC parsing, source provenance and its

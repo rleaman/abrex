@@ -1,6 +1,8 @@
 # T041 Make corpus processing resumable and bounded in memory
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: E.
+Status: Complete for the generic bounded, resumable orchestration scope.
+Large production runs remain gated by T040 and campaign limits. Assigned
+implementer: GPT-5.6 Luna. Milestone: E.
 
 ## Outcome
 
