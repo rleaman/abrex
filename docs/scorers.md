@@ -65,6 +65,12 @@ value and evidence IDs, while feature extraction receives only documents and
 candidates. The resulting rows are partitioned solely by the supplied
 document-level `SplitManifest`.
 
+The named T038 `logistic_regression` scorer is a dependency-free binary
+baseline using full-batch gradient descent, configurable L2 regularization and
+optional balanced class weighting. It persists its learned weights and the
+feature-schema fingerprint, and rejects prediction against a changed schema.
+Its selection threshold remains an explicit configuration choice.
+
 ## Artifacts and predictions
 
 `write_scorer_artifact` writes model state plus a sidecar manifest containing

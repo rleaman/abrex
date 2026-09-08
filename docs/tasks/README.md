@@ -59,6 +59,9 @@ completion note](completed/T036-contextual-pattern-induction.md).
 T037 is complete for explicit gold/silver label joins, partial-gold
 abstention, feature isolation and reproducible split materialization. See the
 [T037 completion note](completed/T037-training-dataset-materialization.md).
+T038 is complete for the deterministic CPU logistic-regression scorer,
+schema-aware persistence and explicit-selection smoke. Scientific gold/silver
+comparison remains pending. See the [T038 completion note](completed/T038-lightweight-scorer-training.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay

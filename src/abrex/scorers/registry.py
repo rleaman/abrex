@@ -13,12 +13,22 @@ SELECTION_POLICIES = Registry[SelectionPolicy]("scorer_selection_policies")
 def register_builtin_components() -> None:
     """Register only neutral plumbing components supplied by ABREX."""
 
+    from abrex.scorers.logistic import (
+        LogisticRegressionConfig,
+        LogisticRegressionScorer,
+    )
     from abrex.scorers.strategies import FixedThreshold, IdentityCalibrator
 
     if "identity" not in CALIBRATORS:
         CALIBRATORS.register("identity", IdentityCalibrator)
     if "fixed" not in SELECTION_POLICIES:
         SELECTION_POLICIES.register("fixed", FixedThreshold)
+    if "logistic_regression" not in SCORERS:
+        SCORERS.register(
+            "logistic_regression",
+            LogisticRegressionScorer,
+            config_model=LogisticRegressionConfig,
+        )
 
 
 register_builtin_components()

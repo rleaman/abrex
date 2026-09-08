@@ -34,6 +34,7 @@ from abrex.scorers.datasets import (
     materialize_training_dataset,
 )
 from abrex.scorers.execution import ScorerExecutor, derive_child_seed
+from abrex.scorers.logistic import LogisticRegressionConfig, LogisticRegressionScorer
 from abrex.scorers.materialization import (
     materialize_feature_predictions,
     materialize_predictions,
@@ -59,6 +60,8 @@ __all__ = [
     "FixedThreshold",
     "IdentityCalibrator",
     "LabelConstructionConfig",
+    "LogisticRegressionConfig",
+    "LogisticRegressionScorer",
     "PersistableScorer",
     "SCORER_ARTIFACT_SCHEMA_VERSION",
     "SCORERS",

@@ -1,0 +1,31 @@
+{
+  "schema_version": "t038-logistic-regression-v1",
+  "scope": "dependency-free scorer contract smoke; not a scientific comparison",
+  "scorer": {
+    "key": "logistic_regression",
+    "version": "1",
+    "objective": "binary logistic loss with L2 regularization",
+    "optimizer": "deterministic full-batch gradient descent",
+    "selection": "fixed threshold 0.5 is explicit in the smoke configuration"
+  },
+  "smoke": {
+    "rows": 4,
+    "classes": [0, 1],
+    "train_save_load_predict_equivalence": true,
+    "schema_mismatch_rejected": true,
+    "model_tamper_rejected": true
+  },
+  "development_comparison": {
+    "gold_only": "not run: available T030 labels are provisional and no approved training/dev artifact is frozen",
+    "gold_plus_silver": "not run: no reviewed multi-source silver set is available",
+    "candidate_recall_ceiling": null,
+    "precision_recall_tradeoff": null,
+    "runtime_seconds": null,
+    "no_gain_outcome": "scientific comparison pending sufficient leakage-safe labels"
+  },
+  "limitations": [
+    "The scorer smoke demonstrates plumbing, not generalization or calibration.",
+    "The fixed threshold is configuration, not a development-selected scientific threshold.",
+    "No final holdout data were read or used."
+  ]
+}

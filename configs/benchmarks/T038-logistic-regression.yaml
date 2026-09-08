@@ -1,0 +1,14 @@
+project:
+  name: T038-logistic-regression
+  seed: 20260908
+scorer:
+  type: logistic_regression
+  params:
+    learning_rate: 0.1
+    max_iter: 500
+    l2: 0.001
+    class_weight: none
+  selection:
+    type: fixed
+    params:
+      value: 0.5
