@@ -57,6 +57,14 @@ split:
 it does not infer labels from gold annotations. The scientific label policy
 and split rationale remain part of the experiment record.
 
+`materialize_training_dataset` provides the T037 label boundary. Complete
+gold span pairs become positive rows; unmatched candidates remain excluded
+unless an explicit caller-supplied silver map opts them in. Thus partial
+annotations do not create closed-world negatives. Silver rows retain binary
+value and evidence IDs, while feature extraction receives only documents and
+candidates. The resulting rows are partitioned solely by the supplied
+document-level `SplitManifest`.
+
 ## Artifacts and predictions
 
 `write_scorer_artifact` writes model state plus a sidecar manifest containing

@@ -1,6 +1,8 @@
 # T037 Build leakage-safe candidate training datasets
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: D.
+Status: Complete for leakage-safe materialization tooling and bounded tests;
+training utility and scientific accuracy remain unvalidated. Assigned
+implementer: GPT-5.6 Luna. Milestone: D.
 
 ## Outcome
 
@@ -44,4 +46,3 @@ Explicit source/split/label policies and sufficient reviewed training/developmen
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T037-training-dataset-materialization.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

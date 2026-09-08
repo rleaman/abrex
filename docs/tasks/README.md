@@ -56,6 +56,9 @@ completion note](completed/T035-weak-evidence-ledger-and-silver-labels.md).
 T036 is complete for bounded literal-context templates, distinct-support
 promotion thresholds and held-out validation mechanics. See the [T036
 completion note](completed/T036-contextual-pattern-induction.md).
+T037 is complete for explicit gold/silver label joins, partial-gold
+abstention, feature isolation and reproducible split materialization. See the
+[T037 completion note](completed/T037-training-dataset-materialization.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay
