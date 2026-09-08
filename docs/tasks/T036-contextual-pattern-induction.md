@@ -1,6 +1,8 @@
 # T036 Induce and validate reusable contextual patterns
 
-Status: Planned. Assigned implementer: GPT-5.6 Luna. Milestone: D.
+Status: Complete for bounded contextual-template engineering and held-out
+mechanics; scientific generalization remains unvalidated. Assigned
+implementer: GPT-5.6 Luna. Milestone: D.
 
 ## Outcome
 
@@ -44,4 +46,3 @@ T035 evidence corpus with enough diverse supported occurrences. If support is in
 Deliver the scoped implementation, typed configuration/example, meaningful tests, updated public documentation and any task-specific manifests/report described above. Keep large/generated source data, model weights and raw outputs outside tracked code; check in small permitted fixtures and reproducibility metadata.
 
 Write `docs/tasks/completed/T036-contextual-pattern-induction.md` only after acceptance checks, distinguishing completed engineering from scientific validation still pending. Include files changed, commands/results, artifact locations and fingerprints, open decisions, and the next ready task. Update this task's status and the task index without rewriting earlier historical completion notes.
-

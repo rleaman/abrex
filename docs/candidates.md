@@ -49,3 +49,8 @@ long-form occurrences within a configured character window. A missing local
 span is explicitly pruned, and emitted candidates retain the source label and
 resource SHA-256 in provenance. Aggregate counts do not create document
 locations or resolve homonyms.
+
+T036 adds bounded context templates over supported evidence. Templates mask
+literal SF/LF values, require distinct-document and distinct-pair support, and
+retain evidence IDs; they are proposals until an explicit development policy
+promotes them.

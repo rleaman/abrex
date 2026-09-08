@@ -53,6 +53,9 @@ ablation. See the [T034 completion note](completed/T034-lexical-candidates-and-e
 T035 is complete for content-addressed weak-evidence records, source-family
 deduplication and transparent conflict-aware silver labels. See the [T035
 completion note](completed/T035-weak-evidence-ledger-and-silver-labels.md).
+T036 is complete for bounded literal-context templates, distinct-support
+promotion thresholds and held-out validation mechanics. See the [T036
+completion note](completed/T036-contextual-pattern-induction.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay
