@@ -30,10 +30,12 @@ T021 is complete for the native offset adapter and live conformance scope; see
 the [T021 completion note](completed/T021-ab3p-native-offset-adapter.md).
 T022 is complete for the bounded real-data baseline smoke and reproducibility
 scope; see the [T022 completion note](completed/T022-real-baseline-smoke-benchmarks.md).
-T023 is ready to resume: the separate CPU runtime and pinned checkpoint are
-installed and standalone live/offline inference passed. See
-[PLOD runtime setup](../plod-runtime.md). Detector integration and the full
-task acceptance checks remain outstanding.
+T023 is complete for the typed PLODv2 detector, independent span artifacts,
+window/offset handling and optional-runtime integration. See the
+[T023 completion note](completed/T023-plodv2-span-detection.md) and
+[PLOD runtime setup](../plod-runtime.md). The current shell cannot launch the
+documented Ubuntu WSL distribution, so the supplied real-checkpoint smoke is
+reported as an environment limitation rather than new evidence.
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay
 engineering and its two-record live pilot; see the [T025 completion note](completed/T025-literature-acquisition-manifests.md).
 T026 is complete for local PubMed XML/BioC parsing, source provenance and its

@@ -1,6 +1,6 @@
 # T023 Integrate PLODv2 as a reproducible span detector
 
-Status: Ready to resume. The optional Python 3.13 CPU runtime and pinned PLODv2
+Status: Complete. The optional Python 3.13 CPU runtime and pinned PLODv2
 checkpoint are installed, and standalone live/offline inference passed. See
 [runtime setup and verified assets](../plod-runtime.md) before starting.
 The detector engineering and full acceptance criteria remain unimplemented.

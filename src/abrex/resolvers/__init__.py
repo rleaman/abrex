@@ -57,6 +57,15 @@ from abrex.resolvers.config import (
     resolver_config_from_resolved,
 )
 from abrex.resolvers.execution import ResolverExecutor
+from abrex.resolvers.plod import (
+    PLOD_VERSION,
+    PlodConfig,
+    PlodSpanDetector,
+    PlodSpanRecord,
+    RawPlodSpan,
+    ValidatedPlodSpan,
+    serialize_span_record,
+)
 from abrex.resolvers.registry import RESOLVERS, register_builtin_components
 from abrex.resolvers.serialization import (
     PREDICTION_SCHEMA_VERSION,
@@ -115,6 +124,13 @@ __all__ = [
     "ResolverExecutor",
     "ResolverMetadata",
     "ResolverRunResult",
+    "PLOD_VERSION",
+    "PlodConfig",
+    "PlodSpanDetector",
+    "PlodSpanRecord",
+    "RawPlodSpan",
+    "ValidatedPlodSpan",
+    "serialize_span_record",
     "attach_resolver_metadata",
     "create_resolver_executor",
     "fingerprint_prediction_artifact",

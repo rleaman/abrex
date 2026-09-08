@@ -194,3 +194,29 @@ resolver:
     ignore_non_alphanumeric: true
     case_sensitive: false
 ```
+
+## PLODv2 independent span detection
+
+The optional `plodv2` resolver loads the pinned Flair checkpoint described in
+[`plod-runtime.md`](plod-runtime.md). It emits one prediction per detected
+short-form (`AC` is mapped explicitly to `SF`) or long-form (`LF`); it does
+not pair spans or treat span scores as pair probabilities. The checkpoint,
+runtime, segmentation, window overlap, and duplicate policy are part of the
+resolver cache identity.
+
+```yaml
+resolver:
+  type: plodv2
+  params:
+    checkpoint_path: /path/to/pytorch_model.bin
+    checkpoint_sha256: 3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277
+    device: cpu
+    max_chars_per_window: 4096
+    window_overlap: 128
+    duplicate_policy: deduplicate
+```
+
+The detector also exposes `PlodSpanRecord` and `serialize_span_record` for
+artifacts containing raw labels, translated canonical offsets, scores, window
+origins, and validation diagnostics. Flair and PyTorch remain optional and
+are imported only when this component is constructed.

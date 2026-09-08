@@ -23,6 +23,7 @@ def register_builtin_components() -> None:
         SchwartzHearstResolverConfig,
     )
     from abrex.resolvers.adapters.toy import ToyResolver, ToyResolverConfig
+    from abrex.resolvers.plod import PlodConfig, PlodSpanDetector
 
     if "toy" not in RESOLVERS:
         RESOLVERS.register("toy", ToyResolver, config_model=ToyResolverConfig)
@@ -42,6 +43,8 @@ def register_builtin_components() -> None:
             create_learned_scorer_resolver,
             config_model=LearnedScorerResolverConfig,
         )
+    if "plodv2" not in RESOLVERS:
+        RESOLVERS.register("plodv2", PlodSpanDetector, config_model=PlodConfig)
 
 
 register_builtin_components()
