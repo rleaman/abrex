@@ -1,0 +1,34 @@
+{
+  "dataset": {
+    "dataset_id": "ab3p_corpus_t022_smoke",
+    "fingerprint": "e962059364d99004fa4f999914568f9451b275178446f5b8164d18a70cec371c",
+    "records": 64
+  },
+  "limitations": [
+    "Candidate coverage is not resolver precision or final acceptance.",
+    "The hash-selected T022 slice is not representative.",
+    "T030 provisional labels were not used for model selection."
+  ],
+  "schema_version": "t033-candidate-evidence-v1",
+  "scope": "historical T022 smoke slice; candidate recall is exploratory",
+  "structural_pilot": {
+    "image_only_regions": "uncovered; no OCR or fabricated text",
+    "structured_relations": "requires ArticleDocument structures and is not silently applied to canonical-only records"
+  },
+  "variants": {
+    "parenthetical": {
+      "candidate_count": 1575,
+      "candidate_recall": 0.8601398601398601,
+      "covered_gold": 123,
+      "diagnostic_count": 167,
+      "gold_count": 143
+    },
+    "structural_prose": {
+      "candidate_count": 1737,
+      "candidate_recall": 0.8601398601398601,
+      "covered_gold": 123,
+      "diagnostic_count": 334,
+      "gold_count": 143
+    }
+  }
+}

@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import re
+from collections import defaultdict
+from typing import TYPE_CHECKING
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -13,7 +15,11 @@ from abrex.candidates.base import (
 )
 from abrex.domain import AnnotationProvenance, Document, TextSpan
 
+if TYPE_CHECKING:
+    from abrex.literature.models import ArticleDocument, ArticleStructure
+
 PARENTHETICAL_GENERATOR_VERSION = "1"
+STRUCTURAL_GENERATOR_VERSION = "1"
 
 
 class ParentheticalCandidateConfig(BaseModel):
@@ -119,8 +125,308 @@ def _pruned(document: Document, code: str, message: str) -> CandidateDiagnostic:
     return CandidateDiagnostic("info", code, message, document.document_id, "pruned")
 
 
+class ReverseOrderCandidateConfig(BaseModel):
+    """Bounds for ``(SHORT) long form`` and separator constructions."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    maximum_gap: int = Field(default=160, ge=1)
+    maximum_long_form_words: int = Field(default=12, ge=1)
+
+
+class ReverseOrderCandidateGenerator:
+    """Enumerate reverse-order and separator-defined candidate pairs."""
+
+    identity = "reverse_order"
+    version = STRUCTURAL_GENERATOR_VERSION
+    _short = re.compile(r"[A-Za-z][A-Za-z0-9-]{1,29}")
+    _word = re.compile(r"[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*")
+
+    def __init__(self, **params: object) -> None:
+        self.config = ReverseOrderCandidateConfig.model_validate(params)
+
+    def generate(self, document: Document) -> CandidateGenerationResult:
+        candidates: list[Candidate] = []
+        diagnostics: list[CandidateDiagnostic] = []
+        for match in re.finditer(r"\((?P<short>[^()]*)\)", document.text):
+            short = match.group("short").strip()
+            if not self._short.fullmatch(short):
+                diagnostics.append(
+                    _pruned(
+                        document,
+                        "reverse_short_invalid",
+                        "Reverse-order parenthetical is not an acronym",
+                    )
+                )
+                continue
+            start = match.end()
+            words = tuple(
+                self._word.finditer(
+                    document.text[start : start + self.config.maximum_gap]
+                )
+            )
+            if not words:
+                diagnostics.append(
+                    _pruned(
+                        document,
+                        "reverse_long_missing",
+                        "Reverse-order construction has no following context",
+                    )
+                )
+                continue
+            selected = words[: self.config.maximum_long_form_words]
+            long_start = start + selected[0].start()
+            long_end = start + selected[-1].end()
+            candidates.append(
+                _candidate(
+                    document,
+                    match.start("short"),
+                    match.end("short"),
+                    long_start,
+                    long_end,
+                    "reverse_order",
+                    match.group(0),
+                )
+            )
+        return CandidateGenerationResult(
+            document.document_id, tuple(candidates), tuple(diagnostics)
+        )
+
+
+class NestedParentheticalCandidateConfig(BaseModel):
+    """Bounds for nested parenthetical text enumeration."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    maximum_depth: int = Field(default=4, ge=1)
+    maximum_long_form_words: int = Field(default=12, ge=1)
+
+
+class NestedParentheticalCandidateGenerator:
+    """Enumerate acronym-like inner parentheses and their local preceding text."""
+
+    identity = "nested_parenthetical"
+    version = STRUCTURAL_GENERATOR_VERSION
+    _short = re.compile(r"[A-Za-z][A-Za-z0-9-]{1,29}")
+    _word = re.compile(r"[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*")
+
+    def __init__(self, **params: object) -> None:
+        self.config = NestedParentheticalCandidateConfig.model_validate(params)
+
+    def generate(self, document: Document) -> CandidateGenerationResult:
+        candidates: list[Candidate] = []
+        diagnostics: list[CandidateDiagnostic] = []
+        depth = 0
+        for index, character in enumerate(document.text):
+            if character == "(":
+                depth += 1
+            elif character == ")":
+                depth = max(0, depth - 1)
+            if character != "(" or depth < 2:
+                continue
+            end = document.text.find(")", index + 1)
+            if end < 0:
+                diagnostics.append(
+                    _pruned(
+                        document, "nested_unclosed", "Nested parenthetical is unclosed"
+                    )
+                )
+                continue
+            short = document.text[index + 1 : end].strip()
+            if not self._short.fullmatch(short):
+                continue
+            words = tuple(self._word.finditer(document.text[:index].rstrip()))
+            selected = words[-self.config.maximum_long_form_words :]
+            if not selected:
+                diagnostics.append(
+                    _pruned(
+                        document,
+                        "nested_long_missing",
+                        "Nested acronym has no preceding words",
+                    )
+                )
+                continue
+            candidates.append(
+                _candidate(
+                    document,
+                    index + 1,
+                    end,
+                    selected[0].start(),
+                    selected[-1].end(),
+                    "nested_parenthetical",
+                    "nested",
+                )
+            )
+        return CandidateGenerationResult(
+            document.document_id, tuple(candidates), tuple(diagnostics)
+        )
+
+
+class StructuredRelationCandidateConfig(BaseModel):
+    """Complexity bounds for table and definition-list candidate enumeration."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    maximum_structures_per_parent: int = Field(default=64, ge=1)
+    maximum_text_length: int = Field(default=1000, ge=1)
+
+
+class StructuredRelationCandidateGenerator:
+    """Enumerate same-row and term/definition candidates from T027 structures."""
+
+    identity = "structured_relations"
+    version = STRUCTURAL_GENERATOR_VERSION
+    _short = re.compile(r"^[A-Za-z][A-Za-z0-9-]{1,29}$")
+
+    def __init__(self, **params: object) -> None:
+        self.config = StructuredRelationCandidateConfig.model_validate(params)
+
+    def generate(self, document: Document) -> CandidateGenerationResult:
+        return CandidateGenerationResult(
+            document.document_id,
+            (),
+            (
+                _pruned(
+                    document,
+                    "structure_metadata_required",
+                    "Table and definition-list structures require "
+                    "ArticleDocument metadata",
+                ),
+            ),
+        )
+
+    def generate_article(self, article: ArticleDocument) -> CandidateGenerationResult:
+        document = article.document
+        candidates: list[Candidate] = []
+        diagnostics: list[CandidateDiagnostic] = []
+        groups: dict[str, list[ArticleStructure]] = defaultdict(list)
+        for structure in article.structures:
+            if len(structure.text) <= self.config.maximum_text_length:
+                groups[_relation_group(structure)].append(structure)
+            else:
+                diagnostics.append(
+                    _pruned(
+                        document,
+                        "structure_text_too_long",
+                        f"Skipped {structure.node_id} above text bound",
+                    )
+                )
+        for structures in sorted(
+            groups.values(), key=lambda value: tuple(item.node_id for item in value)
+        ):
+            for left_index, left in enumerate(
+                structures[: self.config.maximum_structures_per_parent]
+            ):
+                for right in structures[
+                    left_index + 1 : self.config.maximum_structures_per_parent
+                ]:
+                    pair = _structured_pair(left, right)
+                    if pair is None:
+                        continue
+                    short_text, long_text, construction = pair
+                    short_span = _locate(article, short_text)
+                    long_span = _locate(article, long_text)
+                    if short_span is None or long_span is None:
+                        diagnostics.append(
+                            _pruned(
+                                document,
+                                "structure_unmapped",
+                                f"Could not map {left.node_id} and {right.node_id} "
+                                "to canonical offsets",
+                            )
+                        )
+                        continue
+                    candidates.append(
+                        Candidate(
+                            document.document_id,
+                            short_span,
+                            long_span,
+                            construction,
+                            AnnotationProvenance(
+                                adapter_identity=self.identity,
+                                adapter_version=self.version,
+                                transformation_notes=(
+                                    f"source_path:{left.source_path}",
+                                    f"source_path:{right.source_path}",
+                                    "parent_id:"
+                                    f"{left.parent_id or right.parent_id or ''}",
+                                ),
+                            ),
+                        )
+                    )
+        return CandidateGenerationResult(
+            document.document_id, tuple(candidates), tuple(diagnostics)
+        )
+
+
+def _relation_group(structure: ArticleStructure) -> str:
+    """Return a stable row/list-item grouping key from a T027 source path."""
+
+    if structure.kind.startswith("table-"):
+        return re.split(r"/(?:th|td)\[", structure.source_path, maxsplit=1)[0]
+    if structure.kind in {"definition-term", "definition"}:
+        return re.sub(r"/(?:term|definition)/\d+$", "/item", structure.node_id)
+    return structure.parent_id or structure.node_id
+
+
+def _structured_pair(
+    first: ArticleStructure, second: ArticleStructure
+) -> tuple[str, str, str] | None:
+    first_text, second_text = first.text.strip(), second.text.strip()
+    if _looks_short(first_text) and _looks_long(second_text):
+        return first_text, second_text, "structured_relation"
+    if _looks_short(second_text) and _looks_long(first_text):
+        return second_text, first_text, "structured_relation"
+    return None
+
+
+def _looks_short(value: str) -> bool:
+    return bool(StructuredRelationCandidateGenerator._short.fullmatch(value))
+
+
+def _looks_long(value: str) -> bool:
+    return len(value.split()) >= 2
+
+
+def _locate(article: ArticleDocument, value: str) -> TextSpan | None:
+    positions = [location.canonical_span for location in article.section_locations]
+    for section in positions:
+        start = article.document.text.find(value, section.start, section.end)
+        if start >= 0:
+            return TextSpan(start, start + len(value))
+    return None
+
+
+def _candidate(
+    document: Document,
+    short_start: int,
+    short_end: int,
+    long_start: int,
+    long_end: int,
+    construction: str,
+    note: str,
+) -> Candidate:
+    return Candidate(
+        document.document_id,
+        TextSpan(short_start, short_end),
+        TextSpan(long_start, long_end),
+        construction,
+        AnnotationProvenance(
+            adapter_identity=construction,
+            adapter_version=STRUCTURAL_GENERATOR_VERSION,
+            transformation_notes=(note,),
+        ),
+    )
+
+
 __all__ = [
     "PARENTHETICAL_GENERATOR_VERSION",
     "ParentheticalCandidateConfig",
     "ParentheticalCandidateGenerator",
+    "ReverseOrderCandidateConfig",
+    "ReverseOrderCandidateGenerator",
+    "NestedParentheticalCandidateConfig",
+    "NestedParentheticalCandidateGenerator",
+    "StructuredRelationCandidateConfig",
+    "StructuredRelationCandidateGenerator",
 ]

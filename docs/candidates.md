@@ -31,3 +31,14 @@ Candidate records can be serialized independently as deterministic
 `candidates-v1` JSONL using `serialize_candidate_artifact` and
 `read_candidate_artifact`, allowing later resolvers and scorers to consume
 the artifact without importing evaluator code.
+
+The bounded structural variants are `reverse_order`, which enumerates
+`(SHORT) long form` constructions, `nested_parenthetical`, which retains
+candidate windows for nested parentheses, and `structured_relations`, which
+requires an `ArticleDocument` carrying T027 table/definition-list structures.
+The structured generator groups same-row cells and term/definition items,
+maps text only within declared canonical section locations, and records source
+paths in provenance. Its `generate(Document)` method emits an explicit
+metadata-required diagnostic rather than guessing structural relationships.
+All variants have explicit text/complexity bounds and emit pruning diagnostics;
+none accepts a candidate as gold or applies OCR to image-only regions.

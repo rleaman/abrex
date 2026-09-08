@@ -85,6 +85,7 @@ class SectionDocumentSegmenter:
                             section.section_id, TextSpan(0, len(section.text))
                         ),
                     ),
+                    article.structures,
                 )
             )
         return tuple(documents)
@@ -131,7 +132,9 @@ class WholeArticleSegmenter:
             section_index=None,
             section_ids=tuple(section.section_id for section in article.sections),
         )
-        return (ArticleDocument(document, provenance, tuple(locations)),)
+        return (
+            ArticleDocument(document, provenance, tuple(locations), article.structures),
+        )
 
 
 __all__ = [

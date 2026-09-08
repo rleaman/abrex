@@ -213,6 +213,7 @@ class ArticleDocument:
     document: Document
     provenance: ArticleDocumentProvenance
     section_locations: tuple[ArticleSectionLocation, ...]
+    structures: tuple[ArticleStructure, ...] = ()
 
     def __post_init__(self) -> None:
         if not isinstance(self.document, Document):
@@ -226,6 +227,10 @@ class ArticleDocument:
             raise TypeError(
                 "section_locations must be a tuple of ArticleSectionLocation values"
             )
+        if not isinstance(self.structures, tuple) or any(
+            not isinstance(item, ArticleStructure) for item in self.structures
+        ):
+            raise TypeError("structures must contain ArticleStructure values")
         for location in self.section_locations:
             location.canonical_span.validate_against(self.document.text)
 

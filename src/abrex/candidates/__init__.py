@@ -12,8 +12,14 @@ from abrex.candidates.base import (
 )
 from abrex.candidates.generators import (
     PARENTHETICAL_GENERATOR_VERSION,
+    NestedParentheticalCandidateConfig,
+    NestedParentheticalCandidateGenerator,
     ParentheticalCandidateConfig,
     ParentheticalCandidateGenerator,
+    ReverseOrderCandidateConfig,
+    ReverseOrderCandidateGenerator,
+    StructuredRelationCandidateConfig,
+    StructuredRelationCandidateGenerator,
 )
 from abrex.candidates.pipeline import (
     CandidatePipelineConfig,
@@ -48,6 +54,12 @@ __all__ = [
     "ConfiguredCandidatePipeline",
     "ParentheticalCandidateConfig",
     "ParentheticalCandidateGenerator",
+    "NestedParentheticalCandidateConfig",
+    "NestedParentheticalCandidateGenerator",
+    "ReverseOrderCandidateConfig",
+    "ReverseOrderCandidateGenerator",
+    "StructuredRelationCandidateConfig",
+    "StructuredRelationCandidateGenerator",
     "candidate_pipeline_config_from_resolved",
     "create_candidate_pipeline",
     "fingerprint_candidate_artifact",

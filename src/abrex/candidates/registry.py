@@ -12,8 +12,14 @@ def register_builtin_components() -> None:
     """Register built-in generators exactly once."""
 
     from abrex.candidates.generators import (
+        NestedParentheticalCandidateConfig,
+        NestedParentheticalCandidateGenerator,
         ParentheticalCandidateConfig,
         ParentheticalCandidateGenerator,
+        ReverseOrderCandidateConfig,
+        ReverseOrderCandidateGenerator,
+        StructuredRelationCandidateConfig,
+        StructuredRelationCandidateGenerator,
     )
 
     if "parenthetical" not in GENERATORS:
@@ -22,6 +28,21 @@ def register_builtin_components() -> None:
             ParentheticalCandidateGenerator,
             config_model=ParentheticalCandidateConfig,
         )
+    for key, factory, config in (
+        ("reverse_order", ReverseOrderCandidateGenerator, ReverseOrderCandidateConfig),
+        (
+            "nested_parenthetical",
+            NestedParentheticalCandidateGenerator,
+            NestedParentheticalCandidateConfig,
+        ),
+        (
+            "structured_relations",
+            StructuredRelationCandidateGenerator,
+            StructuredRelationCandidateConfig,
+        ),
+    ):
+        if key not in GENERATORS:
+            GENERATORS.register(key, factory, config_model=config)
 
 
 register_builtin_components()

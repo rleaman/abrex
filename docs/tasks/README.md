@@ -43,6 +43,10 @@ T031 is complete for the historical three-resolver comparison, seeded
 document-group bootstrap and gold-assisted oracle analysis; contemporary
 annotation extension remains pending because T030 labels are provisional.
 See the [T031 completion note](completed/T031-comparative-benchmark-and-oracle-analysis.md).
+T033 is complete for bounded reverse-order, nested-parenthetical and
+T027-structure candidate enumeration, with measured historical candidate
+coverage and explicit image-only limits. See the
+[T033 completion note](completed/T033-structural-candidate-generators.md).
 T041 is complete for generic bounded, resumable shard orchestration; see the
 [T041 completion note](completed/T041-resumable-bounded-corpus-processing.md).
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay
