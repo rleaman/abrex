@@ -23,6 +23,8 @@ from abrex.domain import (
 )
 
 ANNOTATION_SCHEMA_VERSION = "contemporary-annotation-v1"
+ANNOTATION_PROVENANCE_METADATA_VERSION = "annotation-provenance-metadata-v1"
+_ANNOTATION_METADATA_NOTE_PREFIX = "annotation_metadata="
 LabelOrigin = Literal["independent", "assisted", "adjudicated"]
 LabelStatus = Literal["accepted", "unresolved", "rejected"]
 PilotRole = Literal["development", "evaluation", "unlabeled_pilot"]
@@ -121,6 +123,29 @@ class AnnotationCase(BaseModel):
         return self
 
 
+class AnnotationProvenanceMetadata(BaseModel):
+    """Lossless T030 metadata embedded in canonical annotation provenance."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    schema_version: Literal["annotation-provenance-metadata-v1"] = (
+        "annotation-provenance-metadata-v1"
+    )
+    relation_id: str = Field(min_length=1)
+    origin: LabelOrigin
+    status: LabelStatus
+    annotator_id: str | None = None
+    suggestion_source: str | None = None
+    phenomenon_tags: tuple[str, ...] = ()
+    revision: int = Field(ge=0)
+    history: tuple[AdjudicationEvent, ...] = ()
+    note: str | None = None
+    article_group_id: str = Field(min_length=1)
+    guideline_version: str = Field(min_length=1)
+    resolver_identity: str | None = None
+    source_path: str | None = None
+
+
 class AnnotationPilotConfig(BaseModel):
     """Typed paths and policy for one local annotation-pilot conversion."""
 
@@ -182,6 +207,7 @@ def case_to_corpus_record(case: AnnotationCase) -> CorpusRecord:
                 f"status={label.status}",
                 f"revision={label.revision}",
                 f"article_group_id={case.article_group_id}",
+                _annotation_metadata_note(case, label),
             ),
         )
         definitions.append(
@@ -210,6 +236,53 @@ def case_to_corpus_record(case: AnnotationCase) -> CorpusRecord:
             ),
         ),
     )
+
+
+def _annotation_metadata_note(case: AnnotationCase, label: AnnotationLabel) -> str:
+    metadata = AnnotationProvenanceMetadata(
+        relation_id=label.relation_id,
+        origin=label.origin,
+        status=label.status,
+        annotator_id=label.annotator_id,
+        suggestion_source=label.suggestion_source,
+        phenomenon_tags=label.phenomenon_tags,
+        revision=label.revision,
+        history=label.history,
+        note=label.note,
+        article_group_id=case.article_group_id,
+        guideline_version=case.guideline_version,
+        resolver_identity=case.resolver_identity,
+        source_path=case.source_path,
+    )
+    payload = json.dumps(
+        metadata.model_dump(mode="json"),
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+    return _ANNOTATION_METADATA_NOTE_PREFIX + payload
+
+
+def annotation_metadata_from_provenance(
+    provenance: AnnotationProvenance,
+) -> AnnotationProvenanceMetadata | None:
+    """Decode lossless T030 metadata from canonical provenance, when present."""
+
+    encoded = [
+        note.removeprefix(_ANNOTATION_METADATA_NOTE_PREFIX)
+        for note in provenance.transformation_notes
+        if note.startswith(_ANNOTATION_METADATA_NOTE_PREFIX)
+    ]
+    if not encoded:
+        return None
+    if len(encoded) != 1:
+        raise AnnotationPilotError("canonical provenance has duplicate T030 metadata")
+    try:
+        return AnnotationProvenanceMetadata.model_validate_json(encoded[0])
+    except ValueError as error:
+        raise AnnotationPilotError(
+            f"invalid canonical T030 provenance metadata: {error}"
+        ) from error
 
 
 def _text_for(case: AnnotationCase, span: TextSpan) -> str:
@@ -388,13 +461,16 @@ def run_annotation_pilot(config: AnnotationPilotConfig) -> dict[str, object]:
 
 
 __all__ = [
+    "ANNOTATION_PROVENANCE_METADATA_VERSION",
     "ANNOTATION_SCHEMA_VERSION",
     "AdjudicationEvent",
     "AnnotationCase",
     "AnnotationLabel",
     "AnnotationPilotConfig",
     "AnnotationPilotError",
+    "AnnotationProvenanceMetadata",
     "AnnotationSpan",
+    "annotation_metadata_from_provenance",
     "annotation_report",
     "case_to_corpus_record",
     "load_annotation_config",

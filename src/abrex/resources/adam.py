@@ -21,7 +21,7 @@ from abrex.resources.frequency import (
     import_frequency_resource,
 )
 
-ADAM_ACQUISITION_SCHEMA_VERSION = "adam-acquisition-v1"
+ADAM_ACQUISITION_SCHEMA_VERSION = "adam-acquisition-v2"
 
 
 class AdamAcquisitionError(RuntimeError):
@@ -174,6 +174,23 @@ def _normalized_mapping(records: Iterator[AdamRecord]) -> dict[str, dict[str, in
     return dict(sorted(mapping.items()))
 
 
+def _record_to_dict(record: AdamRecord) -> dict[str, object]:
+    return {
+        "preferred_abbreviation": record.preferred_abbreviation,
+        "abbreviation_variants": list(record.abbreviation_variants),
+        "long_form_variants": [
+            {
+                "long_form": variant.long_form,
+                "count": variant.count,
+                "score": variant.score,
+            }
+            for variant in record.long_form_variants
+        ],
+        "phrase_score": record.phrase_score,
+        "definition_count": record.definition_count,
+    }
+
+
 def load_adam_config(path: Path) -> AdamImportConfig:
     """Load the ``adam_import`` YAML section."""
 
@@ -267,9 +284,10 @@ def import_adam(config: AdamImportConfig) -> AdamImportResult:
         "count_unit": config.count_unit,
         "normalization": "identity; preferred abbreviation retained",
         "variant_semantics": (
-            "ADAM abbreviation and long-form variants retained; long-form counts "
-            "are variant counts"
+            "Complete ADAM source semantics are retained in records; the T028 "
+            "projection uses preferred abbreviations and long-form variant counts"
         ),
+        "records": [_record_to_dict(record) for record in imported],
         "terms": (
             "README states non-commercial/no-redistribution and also names GPL; "
             "legal review required"

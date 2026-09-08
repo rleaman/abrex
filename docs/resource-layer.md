@@ -28,3 +28,10 @@ source rows remain separate. Aggregate counts are not document counts, so
 `document_frequency` always returns unknown (`None`) until article links are
 available from the literature pipeline. No gold label or automatic UMLS
 acquisition is implied.
+
+The ADAM adapter keeps its generic T028 projection intentionally narrow:
+preferred abbreviation, long form and source count. Its versioned acquisition
+manifest additionally persists every bounded source record, including grouped
+morphological abbreviation variants, per-long-form counts and scores, phrase
+score and definition count. Consumers needing ADAM-specific semantics must use
+that manifest rather than infer them from the generic frequency rows.

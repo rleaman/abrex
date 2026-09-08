@@ -1,5 +1,14 @@
 # T046 completion note: external dictionary acquisition
 
+## Follow-up: ADAM persistence corrected September 8, 2026
+
+The ADAM acquisition manifest is now `adam-acquisition-v2`. In addition to the
+compatible T028 preferred-abbreviation/long-form/count projection, it persists
+each bounded source record with its grouped morphological abbreviations,
+per-long-form counts and scores, phrase score and definition count. Previously
+generated T046 manifests remain historical v1 artifacts and must be regenerated
+to expose these fields.
+
 Status: Complete for the bounded ADAM and ALLIE acquisition/import pilots.
 Source expansion, legal review and scientific use remain separate decisions.
 

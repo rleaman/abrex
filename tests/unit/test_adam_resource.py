@@ -71,8 +71,21 @@ def test_import_adam_reconciles_full_stream_and_queries_t028(tmp_path: Path) -> 
         for variant in result.resource.lookup("$ABC")
     } == {"Alpha beta": 5, "A. beta": 2}
     manifest = json.loads(result.manifest_path.read_text(encoding="utf-8"))
-    assert manifest["variant_semantics"].startswith("ADAM")
+    assert manifest["schema_version"] == "adam-acquisition-v2"
+    assert manifest["variant_semantics"].startswith("Complete ADAM")
     assert manifest["readme_sha256"] == result.readme_sha256
+    assert manifest["records"] == [
+        {
+            "preferred_abbreviation": "$ABC",
+            "abbreviation_variants": ["$ABC", "$Abc"],
+            "long_form_variants": [
+                {"long_form": "Alpha beta", "count": 5, "score": 0.8},
+                {"long_form": "A. beta", "count": 2, "score": 0.4},
+            ],
+            "phrase_score": 0.8,
+            "definition_count": 5,
+        }
+    ]
 
 
 @pytest.mark.parametrize(

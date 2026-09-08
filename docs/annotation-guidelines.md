@@ -41,6 +41,9 @@ changes are history events, not in-place erasure of earlier decisions.
 
 The T030 importer emits accepted and incomplete labels into canonical records,
 skips explicitly rejected labels, and preserves relation IDs in provenance.
+Canonical annotation provenance also carries a versioned metadata payload with
+the annotator and suggestion identities, origin, status, revision, phenomenon
+tags, note, guideline/article context and complete adjudication-event history.
 Reports separately count independent, assisted, adjudicated and unresolved
 labels. Without independent expert review, the packet is provisional/silver and
 cannot support contemporary accuracy claims.

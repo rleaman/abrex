@@ -12,13 +12,16 @@ from abrex.corpora.adapters import (
     SDUAcronymIdentificationAdapter,
 )
 from abrex.corpora.annotation_pilot import (
+    ANNOTATION_PROVENANCE_METADATA_VERSION,
     ANNOTATION_SCHEMA_VERSION,
     AdjudicationEvent,
     AnnotationCase,
     AnnotationLabel,
     AnnotationPilotConfig,
     AnnotationPilotError,
+    AnnotationProvenanceMetadata,
     AnnotationSpan,
+    annotation_metadata_from_provenance,
     annotation_report,
     case_to_corpus_record,
     load_annotation_config,
@@ -92,6 +95,7 @@ from abrex.corpora.validation import (
 
 __all__ = [
     "AdapterDiagnostic",
+    "ANNOTATION_PROVENANCE_METADATA_VERSION",
     "ANNOTATION_SCHEMA_VERSION",
     "CANONICAL_SCHEMA_VERSION",
     "BioCCorpusAdapter",
@@ -105,6 +109,7 @@ __all__ = [
     "AnnotationLabel",
     "AnnotationPilotConfig",
     "AnnotationPilotError",
+    "AnnotationProvenanceMetadata",
     "AnnotationSpan",
     "CanonicalValidator",
     "CorpusAdapter",
@@ -144,6 +149,7 @@ __all__ = [
     "ValidationSeverity",
     "ValidationSummary",
     "build_dataset_manifest",
+    "annotation_metadata_from_provenance",
     "annotation_report",
     "case_to_corpus_record",
     "corpus_config_from_resolved",

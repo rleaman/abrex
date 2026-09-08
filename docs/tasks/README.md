@@ -23,17 +23,17 @@ T018 is complete for the reproducible WSL Ab3P build and upstream verification
 scope. See the [T018 completion note](completed/T018-build-and-verify-real-ab3p.md).
 T019 is complete for the historical adapter engineering and local-source audit
 scope. See the [T019 completion note](completed/T019-audit-and-repair-corpus-semantics.md).
-T020 is implemented for the typed runtime and cache-identity engineering
-scope. The real ABREX-on-WSL smoke remains pending until the WSL Python has
-the project dependencies; see the [T020 implementation note](completed/T020-ab3p-runtime-and-cache-identity.md).
+T020 is complete for the typed runtime, cache-identity and ABREX-on-WSL smoke
+scope; see the [T020 completion note](completed/T020-ab3p-runtime-and-cache-identity.md)
+and [WSL runtime verification](../wsl-runtime.md).
 T021 is complete for the native offset adapter and live conformance scope; see
 the [T021 completion note](completed/T021-ab3p-native-offset-adapter.md).
 T022 is complete for the bounded real-data baseline smoke and reproducibility
 scope; see the [T022 completion note](completed/T022-real-baseline-smoke-benchmarks.md).
-T023 remains blocked in the current environment: the separate CPU runtime and
-pinned checkpoint are not available with the required dependencies. See
-[PLOD runtime setup](../plod-runtime.md); detector integration and full task
-acceptance checks remain outstanding.
+T023 is ready to resume: the separate CPU runtime and pinned checkpoint are
+installed and standalone live/offline inference passed. See
+[PLOD runtime setup](../plod-runtime.md). Detector integration and the full
+task acceptance checks remain outstanding.
 T025 is complete for bounded PubMed EFetch acquisition, manifest/replay
 engineering and its two-record live pilot; see the [T025 completion note](completed/T025-literature-acquisition-manifests.md).
 T026 is complete for local PubMed XML/BioC parsing, source provenance and its

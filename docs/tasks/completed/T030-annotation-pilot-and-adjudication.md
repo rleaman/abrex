@@ -1,5 +1,15 @@
 # T030 completion note: auditable contemporary annotation pilot
 
+## Follow-up: canonical provenance loss corrected September 8, 2026
+
+Canonical definitions now contain a versioned, typed metadata payload in
+annotation provenance. It retains annotator and suggestion identities, origin,
+status, revision, phenomenon tags, notes, guideline/article context and the
+complete adjudication-event history. A public decoder and regression assertion
+verify the canonical JSONL round trip. Previously generated T030 canonical
+artifacts retain their historical fingerprints and must be regenerated to gain
+the new payload.
+
 Status: Complete for the versioned annotation workflow and bounded local pilot.
 Independent review and scientific gold certification remain pending.
 

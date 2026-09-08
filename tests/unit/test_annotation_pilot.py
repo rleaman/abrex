@@ -14,6 +14,7 @@ from abrex.corpora import (
     AnnotationPilotConfig,
     AnnotationPilotError,
     AnnotationSpan,
+    annotation_metadata_from_provenance,
     case_to_corpus_record,
     load_annotation_config,
     read_annotation_pilot,
@@ -70,6 +71,18 @@ def test_annotation_roundtrip_preserves_canonical_offsets_and_history(
     assert short_form is not None
     assert (short_form.start, short_form.end) == (11, 13)
     assert records[0].gold_annotations[0].provenance is not None
+    provenance = records[0].gold_annotations[0].provenance
+    assert provenance is not None
+    metadata = annotation_metadata_from_provenance(provenance)
+    assert metadata is not None
+    assert metadata.relation_id == "r1"
+    assert metadata.origin == "independent"
+    assert metadata.status == "accepted"
+    assert metadata.annotator_id == "ann"
+    assert metadata.revision == 0
+    assert metadata.history == (history,)
+    assert metadata.article_group_id == "group-1"
+    assert metadata.guideline_version == "v1"
     assert fingerprint != output_fingerprint
 
 
