@@ -39,6 +39,9 @@ src = ["src", "tests"]
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
 
+[tool.ruff.lint.per-file-ignores]
+"src/abrex/literature/reviewer_ui.py" = ["E501"]
+
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"

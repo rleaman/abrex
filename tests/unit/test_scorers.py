@@ -99,6 +99,71 @@ def _registry() -> Registry[Scorer]:
     return registry
 
 
+@pytest.mark.parametrize(
+    "field,value,message",
+    [
+        ("scorer", [], "scorer must be an object"),
+        ("scorer", {"key": " ", "version": "1"}, "non-empty string"),
+        ("calibration", [], "calibration metadata"),
+        ("selection", {"key": "fixed", "version": None}, "non-empty string"),
+        ("seed", True, "seed must be an integer"),
+        ("model_fingerprint", 123, "fingerprints must be strings"),
+        ("feature_schema_fingerprint", None, "fingerprints must be strings"),
+        ("feature_config_fingerprint", [], "string or null"),
+        ("schema_version", "future-schema", "schema"),
+    ],
+)
+def test_persisted_model_rejects_corrupt_provenance_before_loading(
+    tmp_path: Path, field: str, value: object, message: str
+) -> None:
+    matrix = _feature_matrix()
+    executor = create_scorer_executor(
+        ScorerConfig(scorer=ComponentSpec(type="fake", params={})),
+        scorer_registry=_registry(),
+    )
+    executor.fit(ScoringDataset("train", matrix, (1.0,)), seed=3)
+    path = tmp_path / "model.json"
+    write_scorer_artifact(executor, path, feature_schema=matrix.schema)
+    manifest_path = path.with_name(f"{path.name}.manifest.json")
+    data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    data[field] = value
+    manifest_path.write_text(json.dumps(data), encoding="utf-8")
+    with pytest.raises(ScorerArtifactError, match=message):
+        load_scorer_artifact(path, registry=_registry())
+
+
+@pytest.mark.parametrize("contents", ["[]", "not json"])
+def test_persisted_model_rejects_unreadable_manifest(
+    tmp_path: Path, contents: str
+) -> None:
+    path = tmp_path / "model.json"
+    path.with_name(f"{path.name}.manifest.json").write_text(contents, encoding="utf-8")
+    with pytest.raises(ScorerArtifactError):
+        load_scorer_artifact(path, registry=_registry())
+
+
+@pytest.mark.parametrize(
+    "contents", ["[]", "not json", '{"train": ["a"], "dev": ["a"]}']
+)
+def test_split_manifest_rejects_corrupt_or_leaking_assignments(
+    tmp_path: Path, contents: str
+) -> None:
+    path = tmp_path / "splits.json"
+    path.write_text(contents, encoding="utf-8")
+    with pytest.raises(ValueError):
+        read_split_manifest(path)
+
+
+def test_split_manifest_requires_real_training_rows_and_matching_labels() -> None:
+    matrix = _feature_matrix()
+    with pytest.raises(ValueError, match="Labels must match"):
+        partition_dataset(matrix, (), SplitManifest(train=("doc-1",)))
+    with pytest.raises(ValueError, match="no training rows"):
+        partition_dataset(
+            matrix, (1.0,), SplitManifest(train=("other",), dev=("doc-1",))
+        )
+
+
 def test_executor_fit_predict_selection_and_seed() -> None:
     matrix = _feature_matrix()
     config = ScorerConfig(

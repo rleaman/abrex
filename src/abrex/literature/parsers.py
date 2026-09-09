@@ -58,29 +58,43 @@ def parse_pubmed_xml(
         root = ET.fromstring(raw)
     except (ET.ParseError, UnicodeError) as error:
         raise ArticleParseError(f"invalid PubMed XML: {error}") from error
-    article_node = _first_local(root, "PubmedArticle")
-    if article_node is None:
-        article_node = root
-    pmid_node = _first_local(article_node, "PMID")
+    articles = [
+        node for node in root.iter() if _local_name(node.tag) == "PubmedArticle"
+    ]
+    if len(articles) > 1:
+        raise ArticleParseError("PubMed source must contain exactly one article")
+    article_node = articles[0] if articles else root
+    citation = _child_local(article_node, "MedlineCitation")
+    if citation is None:
+        citation = article_node
+    primary_article = _child_local(citation, "Article")
+    if primary_article is None:
+        primary_article = citation
+    pmid_node = _child_local(citation, "PMID")
     pmid = _text(pmid_node)
     if not pmid:
         raise ArticleParseError("PubMed XML has no PMID")
-    title_node = _first_local(article_node, "ArticleTitle")
+    title_node = _child_local(primary_article, "ArticleTitle")
     title = _element_text(title_node) if title_node is not None else None
-    id_nodes = [
-        node for node in article_node.iter() if _local_name(node.tag) == "ArticleId"
-    ]
+    pubmed_data = _child_local(article_node, "PubmedData")
+    primary_ids = _child_local(pubmed_data, "ArticleIdList")
+    id_nodes = [] if primary_ids is None else list(primary_ids)
     pmcid = next(
         (
             _text(node)
             for node in id_nodes
-            if node.attrib.get("IdType", "").lower() in {"pmc", "pmcid"}
+            if _local_name(node.tag) == "ArticleId"
+            and node.attrib.get("IdType", "").lower() in {"pmc", "pmcid"}
         ),
         None,
     )
     version = pmid_node.attrib.get("Version") if pmid_node is not None else None
     abstract_nodes = [
-        node for node in article_node.iter() if _local_name(node.tag) == "AbstractText"
+        node
+        for abstract in primary_article
+        if _local_name(abstract.tag) == "Abstract"
+        for node in abstract
+        if _local_name(node.tag) == "AbstractText"
     ]
     sections: list[ArticleSection] = []
     diagnostics: list[ArticleParseDiagnostic] = []
@@ -88,9 +102,10 @@ def parse_pubmed_xml(
         sections.append(
             ArticleSection("title", title, "Title", "ArticleTitle", 0, len(title))
         )
+    abstract_count = 0
     for index, node in enumerate(abstract_nodes):
         text = _element_text(node)
-        if not text:
+        if not text.strip():
             diagnostics.append(
                 ArticleParseDiagnostic(
                     "empty-abstract-passage", f"AbstractText[{index}] has no text"
@@ -107,7 +122,8 @@ def parse_pubmed_xml(
                 section_id, text, label, f"AbstractText[{index}]", 0, len(text)
             )
         )
-    if not sections:
+        abstract_count += 1
+    if not abstract_count:
         raise ArticleParseError("PubMed XML has no non-empty abstract passages")
     return ArticleParseResult(
         Article(
@@ -237,8 +253,10 @@ def _read_bytes(path: Path) -> bytes:
         raise ArticleParseError(f"unable to read source {path}: {error}") from error
 
 
-def _first_local(root: ET.Element, name: str) -> ET.Element | None:
-    return next((node for node in root.iter() if _local_name(node.tag) == name), None)
+def _child_local(root: ET.Element | None, name: str) -> ET.Element | None:
+    if root is None:
+        return None
+    return next((node for node in root if _local_name(node.tag) == name), None)
 
 
 def _local_name(tag: str) -> str:

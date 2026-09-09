@@ -14,7 +14,9 @@ def test_t022_smoke_materializer_writes_auditable_slice(tmp_path: Path) -> None:
     output_jsonl = tmp_path / "smoke.jsonl"
     output_manifest = tmp_path / "smoke.manifest.json"
     environment = os.environ.copy()
-    environment["PYTHONPATH"] = str(root / "src")
+    source = str(root / "src")
+    existing = environment.get("PYTHONPATH")
+    environment["PYTHONPATH"] = source + (os.pathsep + existing if existing else "")
     completed = subprocess.run(
         (
             sys.executable,

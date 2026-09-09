@@ -12,6 +12,7 @@ from pathlib import Path
 
 from abrex.config import (
     ConfigError,
+    load_config_layer,
     load_resolved_config,
     serialize_resolved_config,
 )
@@ -36,6 +37,8 @@ from abrex.literature import (
     ArticleParseError,
     ArticleSerializationError,
     CorpusSelectionError,
+    PilotConfig,
+    PilotError,
     SamplingError,
     acquire_pubmed,
     article_to_dict,
@@ -48,6 +51,7 @@ from abrex.literature import (
     parse_pubmed_xml,
     read_article_json,
     replay_acquisition,
+    run_pilot,
     sample_frame,
     select_corpus,
     serialize_article_resolution,
@@ -215,6 +219,10 @@ def _build_parser() -> argparse.ArgumentParser:
         "--frame", type=Path, help="override the configured JSONL frame"
     )
     select.add_argument("--output", type=Path)
+    pilot = literature_commands.add_parser(
+        "pilot", help="run the bounded random PMC/PubMed comparison pilot"
+    )
+    pilot.add_argument("config", type=Path)
     resources = commands.add_parser(
         "resources", help="external lexical-resource commands"
     )
@@ -511,6 +519,18 @@ def main(argv: Sequence[str] | None = None) -> int:
             ValueError,
         ) as error:
             logger.error("error: article resolution failed: %s", error)
+            return 2
+        return 0
+    if args.command == "literature" and args.literature_command == "pilot":
+        try:
+            raw = load_config_layer(args.config)
+            section = raw.get("literature_pilot")
+            if not isinstance(section, dict):
+                raise PilotError("configuration requires a literature_pilot mapping")
+            report = run_pilot(PilotConfig.model_validate(section))
+            sys.stdout.write(json.dumps(report["counts"], sort_keys=True) + "\n")
+        except (PilotError, OSError, ValueError, json.JSONDecodeError) as error:
+            logger.error("error: literature pilot failed: %s", error)
             return 2
         return 0
     if args.command == "article" and args.article_command == "convert":

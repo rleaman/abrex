@@ -95,6 +95,76 @@ def test_article_rejects_missing_or_duplicate_source_sections() -> None:
         article_from_dict({"article_id": "a", "sections": [{"text": 1}]})
 
 
+@pytest.mark.parametrize(
+    ("payload", "message"),
+    [
+        ({"article_id": "a", "sections": "not-an-array"}, "sections must be"),
+        (
+            {"article_id": "a", "sections": [{"section_id": "s", "text": 1}]},
+            "text must be a string",
+        ),
+        (
+            {
+                "article_id": "a",
+                "sections": [{"section_id": "s", "text": "x"}],
+                "structures": "bad",
+            },
+            "structures must be",
+        ),
+        (
+            {
+                "article_id": "a",
+                "sections": [{"section_id": "s", "text": "x"}],
+                "structures": [{"node_id": "n", "kind": "p", "text": "x"}],
+            },
+            "requires string",
+        ),
+    ],
+)
+def test_article_json_rejects_malformed_structure_fields(
+    payload: dict[str, object], message: str
+) -> None:
+    with pytest.raises(ArticleSerializationError, match=message):
+        article_from_dict(payload)
+
+
+@pytest.mark.parametrize(
+    ("factory", "message"),
+    [
+        (lambda: ArticleSection("", "text"), "section_id"),
+        (lambda: ArticleSection("s", "text", title=" "), "section title"),
+        (lambda: ArticleSection("s", "text", source_offset=-1), "source_offset"),
+        (lambda: ArticleSection("s", "text", source_length=True), "source_length"),
+        (lambda: ArticleStructure("", "paragraph", "text", "/p"), "node_id"),
+        (
+            lambda: ArticleStructure(
+                "n",
+                "paragraph",
+                "text",
+                "/p",
+                attributes=cast(tuple[tuple[str, str], ...], (("k", 1),)),
+            ),
+            "attributes",
+        ),
+    ],
+)
+def test_article_source_values_reject_invalid_metadata(
+    factory: object, message: str
+) -> None:
+    with pytest.raises((TypeError, ValueError), match=message):
+        factory()  # type: ignore[operator]
+
+
+def test_read_article_json_wraps_filesystem_and_schema_errors(tmp_path: Path) -> None:
+    with pytest.raises(ArticleSerializationError, match="Unable to read article"):
+        read_article_json(tmp_path / "missing.json")
+
+    invalid = tmp_path / "invalid.json"
+    invalid.write_text('{"schema_version": "future", "sections": []}', encoding="utf-8")
+    with pytest.raises(ArticleSerializationError, match="Invalid article"):
+        read_article_json(invalid)
+
+
 def test_segmenters_preserve_text_and_map_section_offsets() -> None:
     article = _article()
     section_documents = SectionDocumentSegmenter().segment(article)
