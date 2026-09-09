@@ -1,5 +1,17 @@
 # Numbered Codex Assignments
 
+## Active milestone — September 8, 2026
+
+Start with [CURRENT_WORK](../CURRENT_WORK.md). The user authorized recovery of the bounded random-literature pilot using orchestrated Sol/High implementers and independent Astra/High acceptance review. Follow the [audit](../reviewer-implementation-audit-2026-09-08.md) and [recovery checks](../recovery-acceptance.md); historical partial artifacts do not satisfy acceptance.
+
+| Task | Outcome | Dependency | Status |
+| --- | --- | --- | --- |
+| [T050](T050-source-verification-repair.md) | Reliable source checks and isolated wheel verification | September 8 audit | Engineering verified: source import, fast gate, mypy and isolated wheel smoke pass; full coverage is 86.44% pending focused coverage work |
+| [T051](T051-random-literature-comparison-pilot.md) | 10 CC BY PMC full texts and 20 PubMed abstracts; real method comparison and BioC/JATS audit | T050 | Partial real run: targets and provenance pass; Ab3P/PLODv2 unavailable, so strict comparison strata are empty |
+| [T052](T052-pilot-annotation-interface.md) | Usable review interface, BioC XML interchange and annotation round trip | T051 data; interface fixtures can proceed independently | Partial delivery: 60-case diagnostic packet and local reviewer pass HTTP/API checks; browser QA and TeamTat remain unverified |
+
+Historical completion notes below often certify engineering only. They do not certify completed research outcomes. T042 remains pending. Preserve historical notes and links; use targeted reading instead of moving or deleting them.
+
 ## Current completion roadmap
 
 The September 6, 2026 planning review adds **T017–T048** (revised September 7), all initially

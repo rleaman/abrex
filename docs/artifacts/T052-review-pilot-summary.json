@@ -1,0 +1,27 @@
+{
+  "schema_version": "t052-review-summary-v2",
+  "source_manifest": ".artifacts/T051/random-pilot-v2/pilot-manifest.json",
+  "packet_artifact": ".artifacts/T052/review-packet-v2.json",
+  "bioc_artifact": ".artifacts/T052/review-packet-v2.bioc.xml",
+  "packet_sha256": "c7a6e431cabf0dc74b62e67b5b83dd3912d1525a6798fdc4bded8bc5cb8a088c",
+  "bioc_sha256": "a9327cbcfb8e6a386db6c58e1e91d808f8d975c702bcd41654eb70c0c7a129c4",
+  "packet_id": "t052-c40e146e26cd7d50b807",
+  "case_count": 60,
+  "per_article_cap": 4,
+  "seed": 20260908,
+  "selection": {
+    "disagreement": 30,
+    "agreement": 10,
+    "all_method_zero": 15,
+    "uniform_zero": 5,
+    "diagnostic": 60
+  },
+  "selected": {
+    "diagnostic": 60,
+    "pmc_cc_by": 30,
+    "pubmed_abstract": 30
+  },
+  "interchange": "BioC XML contains passage offsets, explicit short/long annotation roles when decisions exist, status and stable packet/case provenance. TeamTat compatibility was not independently tested.",
+  "diagnostic_note": "All 60 cases are explicitly labeled method-availability diagnostics because the strict three-primary-method strata had zero eligible rows; the requested scientific strata remain shortages, not negatives.",
+  "reviewer": "python scripts/run_t052_reviewer.py .artifacts/T052/review-packet.json --port 8765"
+}

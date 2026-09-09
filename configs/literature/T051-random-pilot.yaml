@@ -1,0 +1,27 @@
+literature_pilot:
+  output_dir: .artifacts/T051/random-pilot-v2
+  seed: 20260908
+  pmc_target: 10
+  pubmed_target: 20
+  pmc_max_attempts: 1000
+  pubmed_max_attempts: 1000
+  max_metadata_requests: 80
+  max_total_bytes: 200000000
+  max_response_bytes: 8000000
+  max_elapsed_seconds: 14400
+  request_timeout_seconds: 30
+  request_retries: 2
+  retry_backoff_seconds: 1
+  delay_seconds: 0.34
+  uid_search_ceiling: 100000000
+  source_comparison_count: 3
+  abbreviation_heuristic: bounded-scientific-token-v1
+  ab3p:
+    interpreter: /home/rleaman/.local/share/abrex/venv313/bin/python
+    installation_manifest: .artifacts/T021/live-build/Ab3P/manifest.json
+    installation_root: .artifacts/T021/live-build/Ab3P
+    cache_dir: .artifacts/T051/ab3p-cache
+  plodv2:
+    interpreter: /home/rleaman/.local/share/abrex/plod313/bin/python
+    checkpoint_path: .artifacts/T051/plodv2/model.pt
+    checkpoint_sha256: unknown

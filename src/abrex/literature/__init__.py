@@ -66,7 +66,24 @@ from abrex.literature.parsers import (
     read_bioc_json,
     read_pubmed_xml,
 )
+from abrex.literature.pilot import (
+    PILOT_SCHEMA_VERSION,
+    PilotConfig,
+    PilotError,
+    run_pilot,
+)
 from abrex.literature.registry import SEGMENTERS, register_builtin_components
+from abrex.literature.review import (
+    REVIEW_SCHEMA_VERSION,
+    ReviewCase,
+    ReviewDecision,
+    ReviewPacket,
+    ReviewSpan,
+    build_review_packet,
+    read_review_packet,
+    serve_review,
+    write_bioc_xml,
+)
 from abrex.literature.sampling import (
     SAMPLING_SCHEMA_VERSION,
     ArticleGroup,
@@ -116,6 +133,14 @@ __all__ = [
     "ArticleSection",
     "ArticleSectionLocation",
     "ArticleStructure",
+    "PILOT_SCHEMA_VERSION",
+    "PilotConfig",
+    "PilotError",
+    "REVIEW_SCHEMA_VERSION",
+    "ReviewCase",
+    "ReviewDecision",
+    "ReviewPacket",
+    "ReviewSpan",
     "MentionLink",
     "MentionLinkConfig",
     "DownstreamAdapter",
@@ -163,6 +188,11 @@ __all__ = [
     "read_bioc_json",
     "read_jats_xml",
     "read_pubmed_xml",
+    "run_pilot",
+    "build_review_packet",
+    "read_review_packet",
+    "serve_review",
+    "write_bioc_xml",
     "replay_acquisition",
     "register_builtin_components",
     "serialize_article_resolution",

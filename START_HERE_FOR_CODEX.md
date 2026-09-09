@@ -18,7 +18,7 @@ Every resolver must be interchangeable. Evaluation must not know or care how a r
 ## What Codex should do first
 
 1. Read `AGENTS.md` completely.
-2. Read all files under `docs/` before making architectural decisions.
+2. Read [current work](docs/CURRENT_WORK.md), the assigned task, relevant public contracts and the specific dependency acceptance artifacts needed for that task. Do not read all of `docs/` or recursively reread historical task instructions. Consult historical plans/notes only for a concrete question; their dated status is not current authority.
 3. If this is a fresh repository and no task number was assigned, implement only `docs/tasks/T000-bootstrap-repository.md`.
 4. After T000, implement only task numbers explicitly assigned by the user. Never treat the existence of later task files as authorization to execute them.
 5. Before an assigned task, verify that its dependencies are already satisfied; if not, report the missing dependency rather than silently absorbing large prerequisite work into the task.

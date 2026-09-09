@@ -1,0 +1,27 @@
+{
+  "schema_version": "random-literature-pilot-summary-v2",
+  "run_artifact": ".artifacts/T051/random-pilot-v2/pilot-manifest.json",
+  "manifest_sha256": "613d4b35d38f2659ebddf2d8055f354ce9dc0b6f0a560914c66d06bb92c2f9fa",
+  "seed": 20260908,
+  "counts": {
+    "pmc_cc_by_selected": 10,
+    "pubmed_abstract_selected": 20,
+    "records": 30,
+    "exclusions": 44,
+    "attempts": 74,
+    "inventories": 1567,
+    "downloaded_bytes": 3806317
+  },
+  "methods": {
+    "schwartz_hearst": "completed",
+    "ab3p": "failed/unavailable: configured native installation manifest was absent on host",
+    "plodv2": "unavailable: checkpoint/runtime validation failed dynamically",
+    "hybrid": "failed with explicit primary-method-incomplete diagnostics"
+  },
+  "limitations": [
+    "The source comparison is structural/provenance evidence, not reviewed accuracy.",
+    "Raw JATS, BioC and PubMed XML are ignored under .artifacts and replayable from the v2 manifest.",
+    "The strict comparison strata are empty because Ab3P and PLODv2 were unavailable; no-definition and agreement counts are therefore not inferred.",
+    "No precision, recall or F1 is reported before human review."
+  ]
+}

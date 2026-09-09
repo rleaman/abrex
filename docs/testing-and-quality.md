@@ -1,9 +1,24 @@
 # Testing and Quality Gate
 
-## Repository-wide fast gate
+## Repository-wide source gates
 
-The canonical command is `python scripts/quality_gate.py`. It runs, in order:
+The canonical commands are:
 
+```powershell
+py -3.13 scripts/quality_gate.py
+py -3.13 scripts/quality_gate.py --full
+```
+
+On other platforms, use `python` in place of `py -3.13`. The runner uses the
+active interpreter unless this checkout contains `.venv` or `env313`, in which
+case it uses that repository environment. `--python PATH` provides an explicit
+override. This lets the ordinary Python launcher start the gate without
+borrowing a partial tool installation through `PYTHONPATH`.
+
+The runner sets every child process to the checkout's `src` directory and runs,
+in order:
+
+- source import identity verification, including the exact imported path;
 - formatting check;
 - linting;
 - type checking;
@@ -16,10 +31,9 @@ matrix in `.github/workflows/quality.yml`.
 
 The repository pins mypy and Ruff to the versions used by the pre-commit hooks,
 and records the complete verified environment in `requirements-dev.lock`.
-Run all checks through the same interpreter that installed the development
-extra, for example `python -m mypy` rather than an unrelated global `mypy`
-executable. On Windows, use `.\env313\Scripts\python.exe -m mypy` when the
-environment is not activated.
+Run component checks through the same interpreter that installed the
+development extra, for example `python -m mypy` rather than an unrelated global
+`mypy` executable.
 
 ## Environment consistency
 
@@ -61,6 +75,22 @@ This floor keeps the fast gate meaningful while allowing defensive boundary
 branches that require unavailable external tools or unusual filesystem
 failures; coverage output still reports those branches and component tests
 cover the normal and failure contracts.
+
+## Isolated wheel smoke
+
+Run the release smoke separately from the source gates:
+
+```powershell
+py -3.13 scripts/verify_wheel.py --work-dir .pytest-tmp
+```
+
+The verifier builds without network or build isolation, installs the wheel into
+a disposable virtual environment, and confirms that `abrex` imports from that
+environment. It resolves a local document, runs the documented toy experiment,
+and imports and queries a local SQLite frequency resource. The disposable
+environment is deleted afterward. The verifier checks the source import before
+and after the wheel smoke, so release validation cannot replace the development
+package or change the source gate's import identity.
 
 ## Target tooling
 
