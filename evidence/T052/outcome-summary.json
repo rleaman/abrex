@@ -1,0 +1,42 @@
+{
+  "schema_version": "t052-review-outcome-summary-v1",
+  "packet_id": "t052-c40e146e26cd7d50b807",
+  "packet_content_sha256": "c40e146e26cd7d50b807abb431cebf4a71c2a6beb20c6a8e2532c330a9a4dfd7",
+  "annotation_state_sha256": "b8ffb53d176e8a49bef7a947c9d0947977da0c63adfb43633d7bc44f91da931f",
+  "annotation_updated_at": "2026-09-10T12:31:03.429917+00:00",
+  "case_count": 60,
+  "annotation_case_count": 60,
+  "annotation_revision_count": 77,
+  "suggestion_count": 79,
+  "pair_decisions": {
+    "total": 105,
+    "correct": 103,
+    "incorrect": 2,
+    "unsure": 0,
+    "unreviewed": 0
+  },
+  "decision_origins": {
+    "assisted": 73,
+    "corrected": 6,
+    "added": 26
+  },
+  "suggestion_dispositions": {
+    "correct": 77,
+    "incorrect": 2,
+    "unsure": 0,
+    "unreviewed": 0
+  },
+  "missed_definition_review": {
+    "cases_marked_missed": 10,
+    "cases_with_added_pairs": 10,
+    "added_pairs": 26,
+    "unresolved_cases": 0
+  },
+  "interpretation_limits": [
+    "The packet was diagnostically selected and is not a prevalence sample.",
+    "The review was assisted and does not constitute independent gold.",
+    "All machine suggestions in the packet came from Schwartz-Hearst because Ab3P and PLODv2 were unavailable for the bounded run.",
+    "The counts are review dispositions and must not be reported as precision or recall."
+  ],
+  "scientific_model_iteration": "../../docs/scientific-model/2026-09-10-interpretive-grounding.md"
+}

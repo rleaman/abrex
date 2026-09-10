@@ -1,0 +1,67 @@
+{
+  "schema_version": "abrex-evidence-bundle-v1",
+  "bundle_id": "T052-review-pilot-v2-final",
+  "frozen_at": "2026-09-10T13:41:21.1120639Z",
+  "source_git_commit": "5ad7e88be7957e820661358bf68b7072421fb111",
+  "source_worktree_dirty_at_freeze": true,
+  "packet": {
+    "packet_id": "t052-c40e146e26cd7d50b807",
+    "packet_content_sha256": "c40e146e26cd7d50b807abb431cebf4a71c2a6beb20c6a8e2532c330a9a4dfd7",
+    "source_run_id": "run-cdf417245e07b4e26b9c",
+    "source_manifest_sha256": "613d4b35d38f2659ebddf2d8055f354ce9dc0b6f0a560914c66d06bb92c2f9fa",
+    "seed": 20260908
+  },
+  "source_population": {
+    "records": 30,
+    "pmc_cc_by_records": 10,
+    "pubmed_title_abstract_records": 20,
+    "inventory_rows": 1567
+  },
+  "distribution_policy": {
+    "decision_date": "2026-09-10",
+    "authority": "explicit user scientific-policy decision",
+    "public_sharing_permitted": true,
+    "pmc_basis": "The ten PMC records in this bundle have source-verified CC BY licenses recorded in T051-pilot-manifest.json.",
+    "pubmed_basis": "The PubMed arm preserves only titles and abstracts from a bounded 20-record scientific sample. The project treats public sharing of this non-substantial sample as fair use.",
+    "scope": "This policy authorizes preservation and public sharing of this evidence bundle; it is not an automatic policy for future or larger literature collections."
+  },
+  "files": [
+    {
+      "path": "T051-pilot-manifest.json",
+      "role": "source selection, canonical text, method output and diagnostic evidence",
+      "bytes": 13761288,
+      "sha256": "613d4b35d38f2659ebddf2d8055f354ce9dc0b6f0a560914c66d06bb92c2f9fa"
+    },
+    {
+      "path": "review-packet-build-summary.json",
+      "role": "pre-review packet construction summary",
+      "bytes": 1295,
+      "sha256": "8aaa09c4b97693fbbe0716cdb8e451c155d53fb6816887bc745baeeaedc9ac55"
+    },
+    {
+      "path": "review-packet-v2.json",
+      "role": "immutable data and suggestions presented to the reviewer",
+      "bytes": 749936,
+      "sha256": "c7a6e431cabf0dc74b62e67b5b83dd3912d1525a6798fdc4bded8bc5cb8a088c"
+    },
+    {
+      "path": "review-packet-v2.annotations.final.json",
+      "role": "final human review state with complete revision history",
+      "bytes": 193709,
+      "sha256": "b8ffb53d176e8a49bef7a947c9d0947977da0c63adfb43633d7bc44f91da931f"
+    },
+    {
+      "path": "review-packet-v2.final.bioc.xml",
+      "role": "final BioC interchange generated from the frozen annotation state",
+      "bytes": 321796,
+      "sha256": "4f720fdfcc8044827d212f6de6654f9339ddb7f73bf698bbfe2cd5b81546bbc9"
+    },
+    {
+      "path": "outcome-summary.json",
+      "role": "descriptive review disposition counts and interpretation limits",
+      "bytes": 1446,
+      "sha256": "d8a90c265784a5d45fce54a1845498dc3eeb3260349d8647b747ff5a3e8b2059"
+    }
+  ],
+  "linked_scientific_model_iteration": "../../docs/scientific-model/2026-09-10-interpretive-grounding.md"
+}

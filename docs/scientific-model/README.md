@@ -60,5 +60,4 @@ only through an explicit task and corresponding contract or schema change.
 
 | Date | Iteration | Evidence and focus | Status |
 | --- | --- | --- | --- |
-| 2026-09-10 | [Interpretive grounding from the T052 pilot](2026-09-10-interpretive-grounding.md) | Initial hierarchy, taxonomy and independent dimensions derived from the 60-case assisted review | Provisional; preserved |
-
+| 2026-09-10 | [Interpretive grounding from the T052 pilot](2026-09-10-interpretive-grounding.md) | Initial hierarchy, taxonomy and independent dimensions derived from the 60-case assisted review; [frozen evidence](../../evidence/T052/README.md) | Provisional; preserved |

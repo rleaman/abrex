@@ -1,0 +1,6233 @@
+{
+  "schema_version": "t052-annotations-v2",
+  "packet_id": "t052-c40e146e26cd7d50b807",
+  "packet_content_sha256": "c40e146e26cd7d50b807abb431cebf4a71c2a6beb20c6a8e2532c330a9a4dfd7",
+  "current_case_id": "case-8deab3bbe026a86e6b5c",
+  "updated_at": "2026-09-10T12:31:03.429917+00:00",
+  "annotations": {
+    "case-3d2665693fb0be945023": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:11:07.016723+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-a1e0d9c4222e8304",
+            "suggestion_id": "suggestion-a1e0d9c4222e8304",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1217,
+              "end": 1221,
+              "text": "TEBs"
+            },
+            "long_form": {
+              "start": 1198,
+              "end": 1215,
+              "text": "terminal end buds"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:11:07.016723+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-a1e0d9c4222e8304",
+                "suggestion_id": "suggestion-a1e0d9c4222e8304",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1217,
+                  "end": 1221,
+                  "text": "TEBs"
+                },
+                "long_form": {
+                  "start": 1198,
+                  "end": 1215,
+                  "text": "terminal end buds"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-912c109badf69739f017": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:14:51.692769+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-130d2dec38413b28",
+            "suggestion_id": "suggestion-130d2dec38413b28",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 54,
+              "end": 57,
+              "text": "DPN"
+            },
+            "long_form": {
+              "start": 33,
+              "end": 52,
+              "text": "dipropylnitrosamine"
+            },
+            "origin": "corrected",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-63a3a60c-f9ec-4904-bda9-cfbe6fba6bcf",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 107,
+              "end": 113,
+              "text": "1-MPPN"
+            },
+            "long_form": {
+              "start": 73,
+              "end": 105,
+              "text": "1-methoxypropylpropylnitrosamine"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-661574be-475c-41fc-9db7-1da5501a4466",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 247,
+              "end": 253,
+              "text": "1-APPN"
+            },
+            "long_form": {
+              "start": 213,
+              "end": 245,
+              "text": "1-acetoxypropylpropylnitrosamine"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:14:51.692769+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-130d2dec38413b28",
+                "suggestion_id": "suggestion-130d2dec38413b28",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 54,
+                  "end": 57,
+                  "text": "DPN"
+                },
+                "long_form": {
+                  "start": 33,
+                  "end": 52,
+                  "text": "dipropylnitrosamine"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-63a3a60c-f9ec-4904-bda9-cfbe6fba6bcf",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 107,
+                  "end": 113,
+                  "text": "1-MPPN"
+                },
+                "long_form": {
+                  "start": 73,
+                  "end": 105,
+                  "text": "1-methoxypropylpropylnitrosamine"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-661574be-475c-41fc-9db7-1da5501a4466",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 247,
+                  "end": 253,
+                  "text": "1-APPN"
+                },
+                "long_form": {
+                  "start": 213,
+                  "end": 245,
+                  "text": "1-acetoxypropylpropylnitrosamine"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-96f768174731f35a4d08": {
+      "revision": 2,
+      "updated_at": "2026-09-10T02:19:10.925390+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-ab0468fd1a4779ac",
+            "suggestion_id": "suggestion-ab0468fd1a4779ac",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 61,
+              "end": 66,
+              "text": "AOPPs"
+            },
+            "long_form": {
+              "start": 24,
+              "end": 59,
+              "text": "advanced oxidation protein products"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-8ffa05b17254d969",
+            "suggestion_id": "suggestion-8ffa05b17254d969",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 317,
+              "end": 320,
+              "text": "HVs"
+            },
+            "long_form": {
+              "start": 297,
+              "end": 315,
+              "text": "healthy volunteers"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-09d1a46be486f00e",
+            "suggestion_id": "suggestion-09d1a46be486f00e",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 360,
+              "end": 362,
+              "text": "MS"
+            },
+            "long_form": {
+              "start": 340,
+              "end": 358,
+              "text": "metabolic syndrome"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-cbb012ff71db6ddc",
+            "suggestion_id": "suggestion-cbb012ff71db6ddc",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 487,
+              "end": 491,
+              "text": "VLDL"
+            },
+            "long_form": {
+              "start": 457,
+              "end": 485,
+              "text": "very-low-density lipoprotein"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-f2b5a8c57c6727ba",
+            "suggestion_id": "suggestion-f2b5a8c57c6727ba",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 528,
+              "end": 531,
+              "text": "IDL"
+            },
+            "long_form": {
+              "start": 494,
+              "end": 526,
+              "text": "intermediate-density lipoprotein"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-bedc1919f9d244da",
+            "suggestion_id": "suggestion-bedc1919f9d244da",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 563,
+              "end": 566,
+              "text": "LDL"
+            },
+            "long_form": {
+              "start": 538,
+              "end": 561,
+              "text": "low-density lipoprotein"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-dc71651f9b4fcf10",
+            "suggestion_id": "suggestion-dc71651f9b4fcf10",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 655,
+              "end": 658,
+              "text": "HDL"
+            },
+            "long_form": {
+              "start": 629,
+              "end": 653,
+              "text": "high-density lipoprotein"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:15:18.772279+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-ab0468fd1a4779ac",
+                "suggestion_id": "suggestion-ab0468fd1a4779ac",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 61,
+                  "end": 66,
+                  "text": "AOPPs"
+                },
+                "long_form": {
+                  "start": 24,
+                  "end": 59,
+                  "text": "advanced oxidation protein products"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-8ffa05b17254d969",
+                "suggestion_id": "suggestion-8ffa05b17254d969",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 317,
+                  "end": 320,
+                  "text": "HVs"
+                },
+                "long_form": {
+                  "start": 297,
+                  "end": 315,
+                  "text": "healthy volunteers"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-09d1a46be486f00e",
+                "suggestion_id": "suggestion-09d1a46be486f00e",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 360,
+                  "end": 362,
+                  "text": "MS"
+                },
+                "long_form": {
+                  "start": 340,
+                  "end": 358,
+                  "text": "metabolic syndrome"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-cbb012ff71db6ddc",
+                "suggestion_id": "suggestion-cbb012ff71db6ddc",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 487,
+                  "end": 491,
+                  "text": "VLDL"
+                },
+                "long_form": {
+                  "start": 457,
+                  "end": 485,
+                  "text": "very-low-density lipoprotein"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-f2b5a8c57c6727ba",
+                "suggestion_id": "suggestion-f2b5a8c57c6727ba",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 528,
+                  "end": 531,
+                  "text": "IDL"
+                },
+                "long_form": {
+                  "start": 494,
+                  "end": 526,
+                  "text": "intermediate-density lipoprotein"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-bedc1919f9d244da",
+                "suggestion_id": "suggestion-bedc1919f9d244da",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 563,
+                  "end": 566,
+                  "text": "LDL"
+                },
+                "long_form": {
+                  "start": 538,
+                  "end": 561,
+                  "text": "low-density lipoprotein"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-dc71651f9b4fcf10",
+                "suggestion_id": "suggestion-dc71651f9b4fcf10",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 655,
+                  "end": 658,
+                  "text": "HDL"
+                },
+                "long_form": {
+                  "start": 629,
+                  "end": 653,
+                  "text": "high-density lipoprotein"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T02:19:10.925390+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-ab0468fd1a4779ac",
+                "suggestion_id": "suggestion-ab0468fd1a4779ac",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 61,
+                  "end": 66,
+                  "text": "AOPPs"
+                },
+                "long_form": {
+                  "start": 24,
+                  "end": 59,
+                  "text": "advanced oxidation protein products"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-8ffa05b17254d969",
+                "suggestion_id": "suggestion-8ffa05b17254d969",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 317,
+                  "end": 320,
+                  "text": "HVs"
+                },
+                "long_form": {
+                  "start": 297,
+                  "end": 315,
+                  "text": "healthy volunteers"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-09d1a46be486f00e",
+                "suggestion_id": "suggestion-09d1a46be486f00e",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 360,
+                  "end": 362,
+                  "text": "MS"
+                },
+                "long_form": {
+                  "start": 340,
+                  "end": 358,
+                  "text": "metabolic syndrome"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-cbb012ff71db6ddc",
+                "suggestion_id": "suggestion-cbb012ff71db6ddc",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 487,
+                  "end": 491,
+                  "text": "VLDL"
+                },
+                "long_form": {
+                  "start": 457,
+                  "end": 485,
+                  "text": "very-low-density lipoprotein"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-f2b5a8c57c6727ba",
+                "suggestion_id": "suggestion-f2b5a8c57c6727ba",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 528,
+                  "end": 531,
+                  "text": "IDL"
+                },
+                "long_form": {
+                  "start": 494,
+                  "end": 526,
+                  "text": "intermediate-density lipoprotein"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-bedc1919f9d244da",
+                "suggestion_id": "suggestion-bedc1919f9d244da",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 563,
+                  "end": 566,
+                  "text": "LDL"
+                },
+                "long_form": {
+                  "start": 538,
+                  "end": 561,
+                  "text": "low-density lipoprotein"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-dc71651f9b4fcf10",
+                "suggestion_id": "suggestion-dc71651f9b4fcf10",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 655,
+                  "end": 658,
+                  "text": "HDL"
+                },
+                "long_form": {
+                  "start": 629,
+                  "end": 653,
+                  "text": "high-density lipoprotein"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-0218e722f61ee55ef7dd": {
+      "revision": 3,
+      "updated_at": "2026-09-10T02:19:17.570760+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-a043e55b0534eaf6",
+            "suggestion_id": "suggestion-a043e55b0534eaf6",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 83,
+              "end": 85,
+              "text": "CC"
+            },
+            "long_form": {
+              "start": 55,
+              "end": 81,
+              "text": "cisplatin/cyclophosphamide"
+            },
+            "origin": "corrected",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-bfdf10f0bdf5b3b2",
+            "suggestion_id": "suggestion-bfdf10f0bdf5b3b2",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 135,
+              "end": 137,
+              "text": "CT"
+            },
+            "long_form": {
+              "start": 113,
+              "end": 133,
+              "text": "cisplatin/paclitaxel"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:16:19.554123+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-a043e55b0534eaf6",
+                "suggestion_id": "suggestion-a043e55b0534eaf6",
+                "proposal_kind": "definition",
+                "status": "incorrect",
+                "short_form": {
+                  "start": 83,
+                  "end": 85,
+                  "text": "CC"
+                },
+                "long_form": {
+                  "start": 65,
+                  "end": 81,
+                  "text": "cyclophosphamide"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-bfdf10f0bdf5b3b2",
+                "suggestion_id": "suggestion-bfdf10f0bdf5b3b2",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 135,
+                  "end": 137,
+                  "text": "CT"
+                },
+                "long_form": {
+                  "start": 113,
+                  "end": 133,
+                  "text": "cisplatin/paclitaxel"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T02:18:41.476827+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-a043e55b0534eaf6",
+                "suggestion_id": "suggestion-a043e55b0534eaf6",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 83,
+                  "end": 85,
+                  "text": "CC"
+                },
+                "long_form": {
+                  "start": 55,
+                  "end": 81,
+                  "text": "cisplatin/cyclophosphamide"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-bfdf10f0bdf5b3b2",
+                "suggestion_id": "suggestion-bfdf10f0bdf5b3b2",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 135,
+                  "end": 137,
+                  "text": "CT"
+                },
+                "long_form": {
+                  "start": 113,
+                  "end": 133,
+                  "text": "cisplatin/paclitaxel"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-09-10T02:19:17.570760+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-a043e55b0534eaf6",
+                "suggestion_id": "suggestion-a043e55b0534eaf6",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 83,
+                  "end": 85,
+                  "text": "CC"
+                },
+                "long_form": {
+                  "start": 55,
+                  "end": 81,
+                  "text": "cisplatin/cyclophosphamide"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-bfdf10f0bdf5b3b2",
+                "suggestion_id": "suggestion-bfdf10f0bdf5b3b2",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 135,
+                  "end": 137,
+                  "text": "CT"
+                },
+                "long_form": {
+                  "start": 113,
+                  "end": 133,
+                  "text": "cisplatin/paclitaxel"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-07cad09127f682525233": {
+      "revision": 2,
+      "updated_at": "2026-09-10T02:19:21.754142+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-0b9abee72bbc0026",
+            "suggestion_id": "suggestion-0b9abee72bbc0026",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 392,
+              "end": 395,
+              "text": "EPV"
+            },
+            "long_form": {
+              "start": 371,
+              "end": 390,
+              "text": "events per variable"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:16:30.606853+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-0b9abee72bbc0026",
+                "suggestion_id": "suggestion-0b9abee72bbc0026",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 392,
+                  "end": 395,
+                  "text": "EPV"
+                },
+                "long_form": {
+                  "start": 371,
+                  "end": 390,
+                  "text": "events per variable"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T02:19:21.754142+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-0b9abee72bbc0026",
+                "suggestion_id": "suggestion-0b9abee72bbc0026",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 392,
+                  "end": 395,
+                  "text": "EPV"
+                },
+                "long_form": {
+                  "start": 371,
+                  "end": 390,
+                  "text": "events per variable"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-7a11345f02095ae53ae2": {
+      "revision": 2,
+      "updated_at": "2026-09-10T02:19:29.287013+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-9d4fe4bde5488307",
+            "suggestion_id": "suggestion-9d4fe4bde5488307",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 17,
+              "end": 19,
+              "text": "EO"
+            },
+            "long_form": {
+              "start": 0,
+              "end": 15,
+              "text": "Electro-osmosis"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-81f1722e9805dc56",
+            "suggestion_id": "suggestion-81f1722e9805dc56",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 297,
+              "end": 299,
+              "text": "MD"
+            },
+            "long_form": {
+              "start": 277,
+              "end": 295,
+              "text": "molecular dynamics"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:16:41.927821+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-9d4fe4bde5488307",
+                "suggestion_id": "suggestion-9d4fe4bde5488307",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 17,
+                  "end": 19,
+                  "text": "EO"
+                },
+                "long_form": {
+                  "start": 0,
+                  "end": 15,
+                  "text": "Electro-osmosis"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-81f1722e9805dc56",
+                "suggestion_id": "suggestion-81f1722e9805dc56",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 297,
+                  "end": 299,
+                  "text": "MD"
+                },
+                "long_form": {
+                  "start": 277,
+                  "end": 295,
+                  "text": "molecular dynamics"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T02:19:29.287013+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-9d4fe4bde5488307",
+                "suggestion_id": "suggestion-9d4fe4bde5488307",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 17,
+                  "end": 19,
+                  "text": "EO"
+                },
+                "long_form": {
+                  "start": 0,
+                  "end": 15,
+                  "text": "Electro-osmosis"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-81f1722e9805dc56",
+                "suggestion_id": "suggestion-81f1722e9805dc56",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 297,
+                  "end": 299,
+                  "text": "MD"
+                },
+                "long_form": {
+                  "start": 277,
+                  "end": 295,
+                  "text": "molecular dynamics"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-1a4f2e3443392fdca836": {
+      "revision": 3,
+      "updated_at": "2026-09-10T11:34:26.965176+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-fd8b76a756264d97",
+            "suggestion_id": "suggestion-fd8b76a756264d97",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 284,
+              "end": 287,
+              "text": "VIP"
+            },
+            "long_form": {
+              "start": 260,
+              "end": 282,
+              "text": "variable of importance"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-dca419a96f7d31ee",
+            "suggestion_id": "suggestion-dca419a96f7d31ee",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1244,
+              "end": 1251,
+              "text": "VLDL-PL"
+            },
+            "long_form": {
+              "start": 1215,
+              "end": 1242,
+              "text": "phospholipids in total VLDL"
+            },
+            "origin": "corrected",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-90c70916-a78c-4a49-a716-c615eeaf64ef",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 767,
+              "end": 774,
+              "text": "LDL5-TG"
+            },
+            "long_form": {
+              "start": 734,
+              "end": 765,
+              "text": "triglycerides in LDL subclass 5"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-05644a03-a43c-45df-b134-677293857283",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1173,
+              "end": 1189,
+              "text": "VLDL3-C, VLDL4-C"
+            },
+            "long_form": {
+              "start": 1132,
+              "end": 1171,
+              "text": "total cholesterol in subclasses 3 and 4"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-812d0662-7462-4311-8831-9f259dde6c41",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1274,
+              "end": 1282,
+              "text": "VLDL2-PL"
+            },
+            "long_form": {
+              "start": 1215,
+              "end": 1272,
+              "text": "phospholipids in total VLDL (VLDL-PL) and VLDL subclass 2"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-0ed7db5b-d811-4f25-a171-fedaed31b4af",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1678,
+              "end": 1685,
+              "text": "LDL4-PL"
+            },
+            "long_form": {
+              "start": 1638,
+              "end": 1676,
+              "text": "phospholipid content of LDL subclass 4"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-5f98bd29-300e-48ef-b345-4441c7627793",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1979,
+              "end": 1986,
+              "text": "LDL6-FC"
+            },
+            "long_form": {
+              "start": 1935,
+              "end": 1977,
+              "text": "free cholesterol content of LDL subclass 6"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-c4b587d3-f98f-466a-b059-ea30642098bc",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2055,
+              "end": 2060,
+              "text": "IDL-C"
+            },
+            "long_form": {
+              "start": 2027,
+              "end": 2053,
+              "text": "cholesterol content of IDL"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-df4e3532-cb8b-4d2f-af9e-e5bfaa048af5",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 693,
+              "end": 699,
+              "text": "LDL-PL"
+            },
+            "long_form": {
+              "start": 658,
+              "end": 691,
+              "text": "phospholipid content of total LDL"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-319a5b73-097b-4064-981c-8e0c9d022d1d",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 973,
+              "end": 980,
+              "text": "LDL6-PL"
+            },
+            "long_form": {
+              "start": 933,
+              "end": 971,
+              "text": "phospholipid content of LDL subclass 6"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": "Note the coordination ellipses\nNote the use of ratios with definitions"
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:18:10.636035+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-fd8b76a756264d97",
+                "suggestion_id": "suggestion-fd8b76a756264d97",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 284,
+                  "end": 287,
+                  "text": "VIP"
+                },
+                "long_form": {
+                  "start": 260,
+                  "end": 282,
+                  "text": "variable of importance"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-dca419a96f7d31ee",
+                "suggestion_id": "suggestion-dca419a96f7d31ee",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1244,
+                  "end": 1251,
+                  "text": "VLDL-PL"
+                },
+                "long_form": {
+                  "start": 1215,
+                  "end": 1242,
+                  "text": "phospholipids in total VLDL"
+                },
+                "origin": "corrected",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T11:16:04.085074+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-fd8b76a756264d97",
+                "suggestion_id": "suggestion-fd8b76a756264d97",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 284,
+                  "end": 287,
+                  "text": "VIP"
+                },
+                "long_form": {
+                  "start": 260,
+                  "end": 282,
+                  "text": "variable of importance"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-dca419a96f7d31ee",
+                "suggestion_id": "suggestion-dca419a96f7d31ee",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1244,
+                  "end": 1251,
+                  "text": "VLDL-PL"
+                },
+                "long_form": {
+                  "start": 1215,
+                  "end": 1242,
+                  "text": "phospholipids in total VLDL"
+                },
+                "origin": "corrected",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": "Revisit"
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-09-10T11:34:26.965176+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-fd8b76a756264d97",
+                "suggestion_id": "suggestion-fd8b76a756264d97",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 284,
+                  "end": 287,
+                  "text": "VIP"
+                },
+                "long_form": {
+                  "start": 260,
+                  "end": 282,
+                  "text": "variable of importance"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-dca419a96f7d31ee",
+                "suggestion_id": "suggestion-dca419a96f7d31ee",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1244,
+                  "end": 1251,
+                  "text": "VLDL-PL"
+                },
+                "long_form": {
+                  "start": 1215,
+                  "end": 1242,
+                  "text": "phospholipids in total VLDL"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-90c70916-a78c-4a49-a716-c615eeaf64ef",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 767,
+                  "end": 774,
+                  "text": "LDL5-TG"
+                },
+                "long_form": {
+                  "start": 734,
+                  "end": 765,
+                  "text": "triglycerides in LDL subclass 5"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-05644a03-a43c-45df-b134-677293857283",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1173,
+                  "end": 1189,
+                  "text": "VLDL3-C, VLDL4-C"
+                },
+                "long_form": {
+                  "start": 1132,
+                  "end": 1171,
+                  "text": "total cholesterol in subclasses 3 and 4"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-812d0662-7462-4311-8831-9f259dde6c41",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1274,
+                  "end": 1282,
+                  "text": "VLDL2-PL"
+                },
+                "long_form": {
+                  "start": 1215,
+                  "end": 1272,
+                  "text": "phospholipids in total VLDL (VLDL-PL) and VLDL subclass 2"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-0ed7db5b-d811-4f25-a171-fedaed31b4af",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1678,
+                  "end": 1685,
+                  "text": "LDL4-PL"
+                },
+                "long_form": {
+                  "start": 1638,
+                  "end": 1676,
+                  "text": "phospholipid content of LDL subclass 4"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-5f98bd29-300e-48ef-b345-4441c7627793",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1979,
+                  "end": 1986,
+                  "text": "LDL6-FC"
+                },
+                "long_form": {
+                  "start": 1935,
+                  "end": 1977,
+                  "text": "free cholesterol content of LDL subclass 6"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-c4b587d3-f98f-466a-b059-ea30642098bc",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2055,
+                  "end": 2060,
+                  "text": "IDL-C"
+                },
+                "long_form": {
+                  "start": 2027,
+                  "end": 2053,
+                  "text": "cholesterol content of IDL"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-df4e3532-cb8b-4d2f-af9e-e5bfaa048af5",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 693,
+                  "end": 699,
+                  "text": "LDL-PL"
+                },
+                "long_form": {
+                  "start": 658,
+                  "end": 691,
+                  "text": "phospholipid content of total LDL"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-319a5b73-097b-4064-981c-8e0c9d022d1d",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 973,
+                  "end": 980,
+                  "text": "LDL6-PL"
+                },
+                "long_form": {
+                  "start": 933,
+                  "end": 971,
+                  "text": "phospholipid content of LDL subclass 6"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": "Note the coordination ellipses\nNote the use of ratios with definitions"
+          }
+        }
+      ]
+    },
+    "case-30552e3046615ec9369f": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:20:02.574443+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-bf1f5061e83d330c",
+            "suggestion_id": "suggestion-bf1f5061e83d330c",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 70,
+              "end": 74,
+              "text": "DSPN"
+            },
+            "long_form": {
+              "start": 37,
+              "end": 68,
+              "text": "distal symmetric polyneuropathy"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-6a2d26361b7cfffe",
+            "suggestion_id": "suggestion-6a2d26361b7cfffe",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 133,
+              "end": 135,
+              "text": "DM"
+            },
+            "long_form": {
+              "start": 114,
+              "end": 131,
+              "text": "diabetes mellitus"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-78c2ac44c5bc993b",
+            "suggestion_id": "suggestion-78c2ac44c5bc993b",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 672,
+              "end": 676,
+              "text": "TCSS"
+            },
+            "long_form": {
+              "start": 639,
+              "end": 670,
+              "text": "Toronto Clinical Scoring System"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:20:02.574443+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-bf1f5061e83d330c",
+                "suggestion_id": "suggestion-bf1f5061e83d330c",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 70,
+                  "end": 74,
+                  "text": "DSPN"
+                },
+                "long_form": {
+                  "start": 37,
+                  "end": 68,
+                  "text": "distal symmetric polyneuropathy"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-6a2d26361b7cfffe",
+                "suggestion_id": "suggestion-6a2d26361b7cfffe",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 133,
+                  "end": 135,
+                  "text": "DM"
+                },
+                "long_form": {
+                  "start": 114,
+                  "end": 131,
+                  "text": "diabetes mellitus"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-78c2ac44c5bc993b",
+                "suggestion_id": "suggestion-78c2ac44c5bc993b",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 672,
+                  "end": 676,
+                  "text": "TCSS"
+                },
+                "long_form": {
+                  "start": 639,
+                  "end": 670,
+                  "text": "Toronto Clinical Scoring System"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-862b4f1d66a83473d434": {
+      "revision": 3,
+      "updated_at": "2026-09-10T12:30:02.598736+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-da3fc4c1933f0b83",
+            "suggestion_id": "suggestion-da3fc4c1933f0b83",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 91,
+              "end": 95,
+              "text": "ITCs"
+            },
+            "long_form": {
+              "start": 69,
+              "end": 89,
+              "text": "isolated tumor cells"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-55d31a04-f105-4f4b-9961-6972e1b182a1",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 120,
+              "end": 123,
+              "text": "ATX"
+            },
+            "long_form": {
+              "start": 102,
+              "end": 118,
+              "text": "adjuvant therapy"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:22:18.664456+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-da3fc4c1933f0b83",
+                "suggestion_id": "suggestion-da3fc4c1933f0b83",
+                "proposal_kind": "definition",
+                "status": "unreviewed",
+                "short_form": {
+                  "start": 91,
+                  "end": 95,
+                  "text": "ITCs"
+                },
+                "long_form": {
+                  "start": 69,
+                  "end": 89,
+                  "text": "isolated tumor cells"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-55d31a04-f105-4f4b-9961-6972e1b182a1",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 120,
+                  "end": 123,
+                  "text": "ATX"
+                },
+                "long_form": {
+                  "start": 102,
+                  "end": 118,
+                  "text": "adjuvant therapy"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T11:28:25.192550+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-da3fc4c1933f0b83",
+                "suggestion_id": "suggestion-da3fc4c1933f0b83",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 91,
+                  "end": 95,
+                  "text": "ITCs"
+                },
+                "long_form": {
+                  "start": 69,
+                  "end": 89,
+                  "text": "isolated tumor cells"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-55d31a04-f105-4f4b-9961-6972e1b182a1",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 120,
+                  "end": 123,
+                  "text": "ATX"
+                },
+                "long_form": {
+                  "start": 102,
+                  "end": 118,
+                  "text": "adjuvant therapy"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-09-10T12:30:02.598736+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-da3fc4c1933f0b83",
+                "suggestion_id": "suggestion-da3fc4c1933f0b83",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 91,
+                  "end": 95,
+                  "text": "ITCs"
+                },
+                "long_form": {
+                  "start": 69,
+                  "end": 89,
+                  "text": "isolated tumor cells"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-55d31a04-f105-4f4b-9961-6972e1b182a1",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 120,
+                  "end": 123,
+                  "text": "ATX"
+                },
+                "long_form": {
+                  "start": 102,
+                  "end": 118,
+                  "text": "adjuvant therapy"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-698d1f9de9f96c239666": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:22:31.872336+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-a04c1c985b12693e",
+            "suggestion_id": "suggestion-a04c1c985b12693e",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 35,
+              "end": 38,
+              "text": "FCS"
+            },
+            "long_form": {
+              "start": 0,
+              "end": 33,
+              "text": "Familial chylomicronemia syndrome"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:22:31.872336+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-a04c1c985b12693e",
+                "suggestion_id": "suggestion-a04c1c985b12693e",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 35,
+                  "end": 38,
+                  "text": "FCS"
+                },
+                "long_form": {
+                  "start": 0,
+                  "end": 33,
+                  "text": "Familial chylomicronemia syndrome"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-5d7512d1d17f9f486465": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:22:46.620040+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-32b9a5eb52d9eefa",
+            "suggestion_id": "suggestion-32b9a5eb52d9eefa",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 520,
+              "end": 524,
+              "text": "MHRR"
+            },
+            "long_form": {
+              "start": 497,
+              "end": 518,
+              "text": "mean heart rate range"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:22:46.620040+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-32b9a5eb52d9eefa",
+                "suggestion_id": "suggestion-32b9a5eb52d9eefa",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 520,
+                  "end": 524,
+                  "text": "MHRR"
+                },
+                "long_form": {
+                  "start": 497,
+                  "end": 518,
+                  "text": "mean heart rate range"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-8a840747615710c693db": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:23:05.673163+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-e6430af3369d703d",
+            "suggestion_id": "suggestion-e6430af3369d703d",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 55,
+              "end": 59,
+              "text": "CHWs"
+            },
+            "long_form": {
+              "start": 38,
+              "end": 53,
+              "text": "chitin whiskers"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:23:05.673163+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-e6430af3369d703d",
+                "suggestion_id": "suggestion-e6430af3369d703d",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 55,
+                  "end": 59,
+                  "text": "CHWs"
+                },
+                "long_form": {
+                  "start": 38,
+                  "end": 53,
+                  "text": "chitin whiskers"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-2594a3ea94a3f6dfa03a": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:23:48.285341+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-f0ec085b6f3acc03",
+            "suggestion_id": "suggestion-f0ec085b6f3acc03",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 847,
+              "end": 851,
+              "text": "TEBs"
+            },
+            "long_form": {
+              "start": 828,
+              "end": 845,
+              "text": "terminal end buds"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:23:48.285341+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-f0ec085b6f3acc03",
+                "suggestion_id": "suggestion-f0ec085b6f3acc03",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 847,
+                  "end": 851,
+                  "text": "TEBs"
+                },
+                "long_form": {
+                  "start": 828,
+                  "end": 845,
+                  "text": "terminal end buds"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-bb7cec40d4228dda23e5": {
+      "revision": 2,
+      "updated_at": "2026-09-10T12:05:31.493695+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-82605f4667733c5a",
+            "suggestion_id": "suggestion-82605f4667733c5a",
+            "proposal_kind": "definition",
+            "status": "incorrect",
+            "short_form": {
+              "start": 156,
+              "end": 163,
+              "text": "D-group"
+            },
+            "long_form": {
+              "start": 78,
+              "end": 154,
+              "text": "different way. The animals of the first group were killed after decapitation"
+            },
+            "origin": "corrected",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-a9848a49-66fe-4eb3-99fe-644dc43c5aec",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 295,
+              "end": 296,
+              "text": "N"
+            },
+            "long_form": {
+              "start": 327,
+              "end": 336,
+              "text": "nembutal "
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-ad09b56b-3d35-492d-b734-fcae0d9c12b8",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 395,
+              "end": 396,
+              "text": "C"
+            },
+            "long_form": {
+              "start": 381,
+              "end": 393,
+              "text": "chloralosane"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-99bb6742-f081-4dca-9c67-70c7c9db181b",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 439,
+              "end": 440,
+              "text": "H"
+            },
+            "long_form": {
+              "start": 430,
+              "end": 437,
+              "text": "hypnorm"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": "There are D-group, N-group, C-group, and H-group. The letter is an abbreviation-like mnemonic, but the \"group\" definitely is not part of an abbreviation"
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:26:39.153737+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-82605f4667733c5a",
+                "suggestion_id": "suggestion-82605f4667733c5a",
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 156,
+                  "end": 163,
+                  "text": "D-group"
+                },
+                "long_form": {
+                  "start": 78,
+                  "end": 154,
+                  "text": "different way. The animals of the first group were killed after decapitation"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "unsure",
+            "notes": "There are D-group, N-group, C-group, and H-group. The letter is an abbreviation-like mnemonic, but the \"group\" definitely is not part of an abbreviation"
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T12:05:31.493695+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-82605f4667733c5a",
+                "suggestion_id": "suggestion-82605f4667733c5a",
+                "proposal_kind": "definition",
+                "status": "incorrect",
+                "short_form": {
+                  "start": 156,
+                  "end": 163,
+                  "text": "D-group"
+                },
+                "long_form": {
+                  "start": 78,
+                  "end": 154,
+                  "text": "different way. The animals of the first group were killed after decapitation"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-a9848a49-66fe-4eb3-99fe-644dc43c5aec",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 295,
+                  "end": 296,
+                  "text": "N"
+                },
+                "long_form": {
+                  "start": 327,
+                  "end": 336,
+                  "text": "nembutal "
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-ad09b56b-3d35-492d-b734-fcae0d9c12b8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 395,
+                  "end": 396,
+                  "text": "C"
+                },
+                "long_form": {
+                  "start": 381,
+                  "end": 393,
+                  "text": "chloralosane"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-99bb6742-f081-4dca-9c67-70c7c9db181b",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 439,
+                  "end": 440,
+                  "text": "H"
+                },
+                "long_form": {
+                  "start": 430,
+                  "end": 437,
+                  "text": "hypnorm"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": "There are D-group, N-group, C-group, and H-group. The letter is an abbreviation-like mnemonic, but the \"group\" definitely is not part of an abbreviation"
+          }
+        }
+      ]
+    },
+    "case-71204984a415980134f2": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:26:48.063621+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-fabeac212513ae90",
+            "suggestion_id": "suggestion-fabeac212513ae90",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 256,
+              "end": 260,
+              "text": "RCTs"
+            },
+            "long_form": {
+              "start": 226,
+              "end": 254,
+              "text": "randomized controlled trials"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:26:48.063621+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-fabeac212513ae90",
+                "suggestion_id": "suggestion-fabeac212513ae90",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 256,
+                  "end": 260,
+                  "text": "RCTs"
+                },
+                "long_form": {
+                  "start": 226,
+                  "end": 254,
+                  "text": "randomized controlled trials"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-06c9ebb850190d98a90b": {
+      "revision": 2,
+      "updated_at": "2026-09-10T12:09:51.257300+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-9ef7cbf691b1205a",
+            "suggestion_id": "suggestion-9ef7cbf691b1205a",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 235,
+              "end": 238,
+              "text": "LDF"
+            },
+            "long_form": {
+              "start": 210,
+              "end": 233,
+              "text": "laser-Doppler flowmetry"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-19b77573-5f8a-42c5-ac8d-f09b0d00b256",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 52,
+              "end": 56,
+              "text": "HBO2"
+            },
+            "long_form": {
+              "start": 33,
+              "end": 50,
+              "text": "hyperbaric oxygen"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-b2bc1325-1691-4059-9594-f855316802ac",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 397,
+              "end": 402,
+              "text": "tcPO2"
+            },
+            "long_form": {
+              "start": 374,
+              "end": 395,
+              "text": "Transcutaneous oxygen"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-07b046bb-78c8-45e3-920c-8ad681c85a3b",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 424,
+              "end": 430,
+              "text": "tcPCO2"
+            },
+            "long_form": {
+              "start": 374,
+              "end": 422,
+              "text": "Transcutaneous oxygen (tcPO2) and carbon dioxide"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": "the long form for tcPO2 is discontinuous: it includes \"transcutaneous\", so it is a coordination ellipsis. "
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:28:58.776102+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-9ef7cbf691b1205a",
+                "suggestion_id": "suggestion-9ef7cbf691b1205a",
+                "proposal_kind": "definition",
+                "status": "unreviewed",
+                "short_form": {
+                  "start": 235,
+                  "end": 238,
+                  "text": "LDF"
+                },
+                "long_form": {
+                  "start": 210,
+                  "end": 233,
+                  "text": "laser-Doppler flowmetry"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-19b77573-5f8a-42c5-ac8d-f09b0d00b256",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 52,
+                  "end": 56,
+                  "text": "HBO2"
+                },
+                "long_form": {
+                  "start": 33,
+                  "end": 50,
+                  "text": "hyperbaric oxygen"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-7c03ce33-8d4d-4bd3-989e-20516f5fc999",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 424,
+                  "end": 430,
+                  "text": "tcPCO2"
+                },
+                "long_form": {
+                  "start": 408,
+                  "end": 422,
+                  "text": "carbon dioxide"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-b2bc1325-1691-4059-9594-f855316802ac",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 397,
+                  "end": 402,
+                  "text": "tcPO2"
+                },
+                "long_form": {
+                  "start": 374,
+                  "end": 395,
+                  "text": "Transcutaneous oxygen"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": "the long form for tcPO2 is discontinuous: it includes \"transcutaneous\", so it is a coordination ellipsis. "
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T12:09:51.257300+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-9ef7cbf691b1205a",
+                "suggestion_id": "suggestion-9ef7cbf691b1205a",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 235,
+                  "end": 238,
+                  "text": "LDF"
+                },
+                "long_form": {
+                  "start": 210,
+                  "end": 233,
+                  "text": "laser-Doppler flowmetry"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-19b77573-5f8a-42c5-ac8d-f09b0d00b256",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 52,
+                  "end": 56,
+                  "text": "HBO2"
+                },
+                "long_form": {
+                  "start": 33,
+                  "end": 50,
+                  "text": "hyperbaric oxygen"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-b2bc1325-1691-4059-9594-f855316802ac",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 397,
+                  "end": 402,
+                  "text": "tcPO2"
+                },
+                "long_form": {
+                  "start": 374,
+                  "end": 395,
+                  "text": "Transcutaneous oxygen"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-07b046bb-78c8-45e3-920c-8ad681c85a3b",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 424,
+                  "end": 430,
+                  "text": "tcPCO2"
+                },
+                "long_form": {
+                  "start": 374,
+                  "end": 422,
+                  "text": "Transcutaneous oxygen (tcPO2) and carbon dioxide"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": "the long form for tcPO2 is discontinuous: it includes \"transcutaneous\", so it is a coordination ellipsis. "
+          }
+        }
+      ]
+    },
+    "case-27519fd3bbc4edf03d7e": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:29:17.933143+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-61dea3feb9bc72f5",
+            "suggestion_id": "suggestion-61dea3feb9bc72f5",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 622,
+              "end": 626,
+              "text": "ESPB"
+            },
+            "long_form": {
+              "start": 594,
+              "end": 620,
+              "text": "erector spinae plane block"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:29:17.933143+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-61dea3feb9bc72f5",
+                "suggestion_id": "suggestion-61dea3feb9bc72f5",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 622,
+                  "end": 626,
+                  "text": "ESPB"
+                },
+                "long_form": {
+                  "start": 594,
+                  "end": 620,
+                  "text": "erector spinae plane block"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-474f458c08d3bd7a9bf8": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:30:00.322774+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-2f918f93bc576471",
+            "suggestion_id": "suggestion-2f918f93bc576471",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 43,
+              "end": 48,
+              "text": "GPCRs"
+            },
+            "long_form": {
+              "start": 14,
+              "end": 41,
+              "text": "G protein-coupled receptors"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-e138a40e3d063657",
+            "suggestion_id": "suggestion-e138a40e3d063657",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 453,
+              "end": 455,
+              "text": "AR"
+            },
+            "long_form": {
+              "start": 433,
+              "end": 451,
+              "text": "adenosine receptor"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-cbc3ed4c-b9a4-454c-afd2-2951c3d381e2",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 429,
+              "end": 431,
+              "text": "2A"
+            },
+            "long_form": {
+              "start": 413,
+              "end": 428,
+              "text": "agonist-bound A"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:30:00.322774+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-2f918f93bc576471",
+                "suggestion_id": "suggestion-2f918f93bc576471",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 43,
+                  "end": 48,
+                  "text": "GPCRs"
+                },
+                "long_form": {
+                  "start": 14,
+                  "end": 41,
+                  "text": "G protein-coupled receptors"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-e138a40e3d063657",
+                "suggestion_id": "suggestion-e138a40e3d063657",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 453,
+                  "end": 455,
+                  "text": "AR"
+                },
+                "long_form": {
+                  "start": 433,
+                  "end": 451,
+                  "text": "adenosine receptor"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-cbc3ed4c-b9a4-454c-afd2-2951c3d381e2",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 429,
+                  "end": 431,
+                  "text": "2A"
+                },
+                "long_form": {
+                  "start": 413,
+                  "end": 428,
+                  "text": "agonist-bound A"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-00ee648f1c564d12f1cd": {
+      "revision": 2,
+      "updated_at": "2026-09-10T12:18:39.936426+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-0fddb56ec684d8d8",
+            "suggestion_id": "suggestion-0fddb56ec684d8d8",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 194,
+              "end": 198,
+              "text": "ESPB"
+            },
+            "long_form": {
+              "start": 166,
+              "end": 192,
+              "text": "erector spinae plane block"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-2f9f0c533080d8ae",
+            "suggestion_id": "suggestion-2f9f0c533080d8ae",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 420,
+              "end": 423,
+              "text": "LIA"
+            },
+            "long_form": {
+              "start": 390,
+              "end": 418,
+              "text": "local infiltration analgesia"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:30:14.385090+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-0fddb56ec684d8d8",
+                "suggestion_id": "suggestion-0fddb56ec684d8d8",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 194,
+                  "end": 198,
+                  "text": "ESPB"
+                },
+                "long_form": {
+                  "start": 166,
+                  "end": 192,
+                  "text": "erector spinae plane block"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-2f9f0c533080d8ae",
+                "suggestion_id": "suggestion-2f9f0c533080d8ae",
+                "proposal_kind": "definition",
+                "status": "unreviewed",
+                "short_form": {
+                  "start": 420,
+                  "end": 423,
+                  "text": "LIA"
+                },
+                "long_form": {
+                  "start": 390,
+                  "end": 418,
+                  "text": "local infiltration analgesia"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T12:18:39.936426+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-0fddb56ec684d8d8",
+                "suggestion_id": "suggestion-0fddb56ec684d8d8",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 194,
+                  "end": 198,
+                  "text": "ESPB"
+                },
+                "long_form": {
+                  "start": 166,
+                  "end": 192,
+                  "text": "erector spinae plane block"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-2f9f0c533080d8ae",
+                "suggestion_id": "suggestion-2f9f0c533080d8ae",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 420,
+                  "end": 423,
+                  "text": "LIA"
+                },
+                "long_form": {
+                  "start": 390,
+                  "end": 418,
+                  "text": "local infiltration analgesia"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-3ff97b821dfb9669208a": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:30:23.047828+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-0b9ab67b6fe1fc08",
+            "suggestion_id": "suggestion-0b9ab67b6fe1fc08",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 378,
+              "end": 382,
+              "text": "NHSC"
+            },
+            "long_form": {
+              "start": 347,
+              "end": 376,
+              "text": "National Health Service Corps"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:30:23.047828+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-0b9ab67b6fe1fc08",
+                "suggestion_id": "suggestion-0b9ab67b6fe1fc08",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 378,
+                  "end": 382,
+                  "text": "NHSC"
+                },
+                "long_form": {
+                  "start": 347,
+                  "end": 376,
+                  "text": "National Health Service Corps"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-018860b0c1232ddf7807": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:30:59.425101+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-d411bd1f6f0f06a1",
+            "suggestion_id": "suggestion-d411bd1f6f0f06a1",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 135,
+              "end": 138,
+              "text": "DLR"
+            },
+            "long_form": {
+              "start": 99,
+              "end": 133,
+              "text": "deep learning image reconstruction"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-296dcd1ac7e4223c",
+            "suggestion_id": "suggestion-296dcd1ac7e4223c",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 208,
+              "end": 211,
+              "text": "EPE"
+            },
+            "long_form": {
+              "start": 182,
+              "end": 206,
+              "text": "extraprostatic extension"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-618e2914c16d9901",
+            "suggestion_id": "suggestion-618e2914c16d9901",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 257,
+              "end": 262,
+              "text": "mpMRI"
+            },
+            "long_form": {
+              "start": 236,
+              "end": 255,
+              "text": "multiparametric MRI"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-32365482fc50160a",
+            "suggestion_id": "suggestion-32365482fc50160a",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 512,
+              "end": 519,
+              "text": "PI-RADS"
+            },
+            "long_form": {
+              "start": 468,
+              "end": 510,
+              "text": "Prostate Imaging Reporting and Data System"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-75c00d3f-5434-4d5b-a6c8-441bc145939c",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 637,
+              "end": 640,
+              "text": "T2S"
+            },
+            "long_form": {
+              "start": 624,
+              "end": 635,
+              "text": "standard T2"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:30:59.425101+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-d411bd1f6f0f06a1",
+                "suggestion_id": "suggestion-d411bd1f6f0f06a1",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 135,
+                  "end": 138,
+                  "text": "DLR"
+                },
+                "long_form": {
+                  "start": 99,
+                  "end": 133,
+                  "text": "deep learning image reconstruction"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-296dcd1ac7e4223c",
+                "suggestion_id": "suggestion-296dcd1ac7e4223c",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 208,
+                  "end": 211,
+                  "text": "EPE"
+                },
+                "long_form": {
+                  "start": 182,
+                  "end": 206,
+                  "text": "extraprostatic extension"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-618e2914c16d9901",
+                "suggestion_id": "suggestion-618e2914c16d9901",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 257,
+                  "end": 262,
+                  "text": "mpMRI"
+                },
+                "long_form": {
+                  "start": 236,
+                  "end": 255,
+                  "text": "multiparametric MRI"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-32365482fc50160a",
+                "suggestion_id": "suggestion-32365482fc50160a",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 512,
+                  "end": 519,
+                  "text": "PI-RADS"
+                },
+                "long_form": {
+                  "start": 468,
+                  "end": 510,
+                  "text": "Prostate Imaging Reporting and Data System"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-75c00d3f-5434-4d5b-a6c8-441bc145939c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 637,
+                  "end": 640,
+                  "text": "T2S"
+                },
+                "long_form": {
+                  "start": 624,
+                  "end": 635,
+                  "text": "standard T2"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-61373e85fbcdf1819c0f": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:31:10.168309+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:31:10.168309+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-a9bc2d5ecf86d8e58778": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:32:08.349138+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-d9bad32473cd3d6c",
+            "suggestion_id": "suggestion-d9bad32473cd3d6c",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 75,
+              "end": 80,
+              "text": "AOPPs"
+            },
+            "long_form": {
+              "start": 38,
+              "end": 73,
+              "text": "advanced oxidation protein products"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-336c2969b95dd8d4",
+            "suggestion_id": "suggestion-336c2969b95dd8d4",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 828,
+              "end": 831,
+              "text": "T2D"
+            },
+            "long_form": {
+              "start": 811,
+              "end": 826,
+              "text": "type 2 diabetes"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-db19bb24ba48ff26",
+            "suggestion_id": "suggestion-db19bb24ba48ff26",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1430,
+              "end": 1433,
+              "text": "HDL"
+            },
+            "long_form": {
+              "start": 1404,
+              "end": 1428,
+              "text": "high-density lipoprotein"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-db29dd17-9f3b-4265-8fd6-e7d02bb9d52c",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1479,
+              "end": 1484,
+              "text": "SR-BI"
+            },
+            "long_form": {
+              "start": 1444,
+              "end": 1477,
+              "text": "scavenger receptor class B type 1"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:32:08.349138+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-d9bad32473cd3d6c",
+                "suggestion_id": "suggestion-d9bad32473cd3d6c",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 75,
+                  "end": 80,
+                  "text": "AOPPs"
+                },
+                "long_form": {
+                  "start": 38,
+                  "end": 73,
+                  "text": "advanced oxidation protein products"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-336c2969b95dd8d4",
+                "suggestion_id": "suggestion-336c2969b95dd8d4",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 828,
+                  "end": 831,
+                  "text": "T2D"
+                },
+                "long_form": {
+                  "start": 811,
+                  "end": 826,
+                  "text": "type 2 diabetes"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-db19bb24ba48ff26",
+                "suggestion_id": "suggestion-db19bb24ba48ff26",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1430,
+                  "end": 1433,
+                  "text": "HDL"
+                },
+                "long_form": {
+                  "start": 1404,
+                  "end": 1428,
+                  "text": "high-density lipoprotein"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-db29dd17-9f3b-4265-8fd6-e7d02bb9d52c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1479,
+                  "end": 1484,
+                  "text": "SR-BI"
+                },
+                "long_form": {
+                  "start": 1444,
+                  "end": 1477,
+                  "text": "scavenger receptor class B type 1"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-bd8057ab8a7c9a81ff3c": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:32:16.424348+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:32:16.424348+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-c940824221d306518316": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:32:29.942551+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-506eaae8f4ca6525",
+            "suggestion_id": "suggestion-506eaae8f4ca6525",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 201,
+              "end": 205,
+              "text": "RCTs"
+            },
+            "long_form": {
+              "start": 171,
+              "end": 199,
+              "text": "randomized controlled trials"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-89e10d2f153f54c7",
+            "suggestion_id": "suggestion-89e10d2f153f54c7",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 830,
+              "end": 834,
+              "text": "TAPB"
+            },
+            "long_form": {
+              "start": 795,
+              "end": 828,
+              "text": "transversus abdominis plane block"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-255e577d931ae0ab",
+            "suggestion_id": "suggestion-255e577d931ae0ab",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 866,
+              "end": 869,
+              "text": "QLB"
+            },
+            "long_form": {
+              "start": 840,
+              "end": 864,
+              "text": "quadratus lumborum block"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:32:29.942551+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-506eaae8f4ca6525",
+                "suggestion_id": "suggestion-506eaae8f4ca6525",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 201,
+                  "end": 205,
+                  "text": "RCTs"
+                },
+                "long_form": {
+                  "start": 171,
+                  "end": 199,
+                  "text": "randomized controlled trials"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-89e10d2f153f54c7",
+                "suggestion_id": "suggestion-89e10d2f153f54c7",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 830,
+                  "end": 834,
+                  "text": "TAPB"
+                },
+                "long_form": {
+                  "start": 795,
+                  "end": 828,
+                  "text": "transversus abdominis plane block"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-255e577d931ae0ab",
+                "suggestion_id": "suggestion-255e577d931ae0ab",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 866,
+                  "end": 869,
+                  "text": "QLB"
+                },
+                "long_form": {
+                  "start": 840,
+                  "end": 864,
+                  "text": "quadratus lumborum block"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-26dd218284ba83169652": {
+      "revision": 1,
+      "updated_at": "2026-09-10T02:32:35.398971+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T02:32:35.398971+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-8deab3bbe026a86e6b5c": {
+      "revision": 4,
+      "updated_at": "2026-09-10T12:31:03.429917+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-09e5ad7e87e8434a",
+            "suggestion_id": "suggestion-09e5ad7e87e8434a",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 268,
+              "end": 275,
+              "text": "HDL1-PL"
+            },
+            "long_form": {
+              "start": 219,
+              "end": 266,
+              "text": "phospholipids in large buoyant HDL subclasses 1"
+            },
+            "origin": "corrected",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-7d1d3fb29d59c32c",
+            "suggestion_id": "suggestion-7d1d3fb29d59c32c",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 644,
+              "end": 654,
+              "text": "HDL-apoA-I"
+            },
+            "long_form": {
+              "start": 619,
+              "end": 642,
+              "text": "apoA-I in the total HDL"
+            },
+            "origin": "corrected",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-2b5280c7-1e52-4abd-8a83-26d6c20e191f",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 137,
+              "end": 143,
+              "text": "HDL-PL"
+            },
+            "long_form": {
+              "start": 105,
+              "end": 135,
+              "text": "phospholipids in the total HDL"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-e86f75b2-8ce4-41e6-8144-d59aa7171355",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 371,
+              "end": 378,
+              "text": "HDL4-PL"
+            },
+            "long_form": {
+              "start": 330,
+              "end": 369,
+              "text": "phospholipids in small dense subclass 4"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-88957dd5-4374-4678-9c3a-91f41287cf17",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 545,
+              "end": 556,
+              "text": "HDL1-apoA-I"
+            },
+            "long_form": {
+              "start": 503,
+              "end": 543,
+              "text": "apoA-I in large buoyant HDL subclasses 1"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-791957eb-4671-4b47-aa36-9ba76dc591f8",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 999,
+              "end": 1011,
+              "text": "HDL1-apoA-II"
+            },
+            "long_form": {
+              "start": 958,
+              "end": 997,
+              "text": "apoA-II in large buoyant HDL subclass 1"
+            },
+            "origin": "added",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-2b39113e-e095-4202-9532-1167a83ee5aa",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 284,
+              "end": 291,
+              "text": "HDL1-PL"
+            },
+            "long_form": {
+              "start": 219,
+              "end": 282,
+              "text": "phospholipids in large buoyant HDL subclasses 1 (HDL1-PL) and 2"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": "Note the coordination ellipsis and the copy paste error: the second HDL1-PL was meant to be HDL2-PL"
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:09:04.841519+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-09e5ad7e87e8434a",
+                "suggestion_id": "suggestion-09e5ad7e87e8434a",
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 268,
+                  "end": 275,
+                  "text": "HDL1-PL"
+                },
+                "long_form": {
+                  "start": 219,
+                  "end": 266,
+                  "text": "phospholipids in large buoyant HDL subclasses 1"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-7d1d3fb29d59c32c",
+                "suggestion_id": "suggestion-7d1d3fb29d59c32c",
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 644,
+                  "end": 654,
+                  "text": "HDL-apoA-I"
+                },
+                "long_form": {
+                  "start": 619,
+                  "end": 642,
+                  "text": "apoA-I in the total HDL"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-2b5280c7-1e52-4abd-8a83-26d6c20e191f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 137,
+                  "end": 143,
+                  "text": "HDL-PL"
+                },
+                "long_form": {
+                  "start": 105,
+                  "end": 135,
+                  "text": "phospholipids in the total HDL"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-e86f75b2-8ce4-41e6-8144-d59aa7171355",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 371,
+                  "end": 378,
+                  "text": "HDL4-PL"
+                },
+                "long_form": {
+                  "start": 330,
+                  "end": 369,
+                  "text": "phospholipids in small dense subclass 4"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-88957dd5-4374-4678-9c3a-91f41287cf17",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 545,
+                  "end": 556,
+                  "text": "HDL1-apoA-I"
+                },
+                "long_form": {
+                  "start": 503,
+                  "end": 543,
+                  "text": "apoA-I in large buoyant HDL subclasses 1"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-791957eb-4671-4b47-aa36-9ba76dc591f8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 999,
+                  "end": 1011,
+                  "text": "HDL1-apoA-II"
+                },
+                "long_form": {
+                  "start": 958,
+                  "end": 997,
+                  "text": "apoA-II in large buoyant HDL subclass 1"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-2b39113e-e095-4202-9532-1167a83ee5aa",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 284,
+                  "end": 291,
+                  "text": "HDL1-PL"
+                },
+                "long_form": {
+                  "start": 219,
+                  "end": 282,
+                  "text": "phospholipids in large buoyant HDL subclasses 1 (HDL1-PL) and 2"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T11:09:40.481114+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-09e5ad7e87e8434a",
+                "suggestion_id": "suggestion-09e5ad7e87e8434a",
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 268,
+                  "end": 275,
+                  "text": "HDL1-PL"
+                },
+                "long_form": {
+                  "start": 219,
+                  "end": 266,
+                  "text": "phospholipids in large buoyant HDL subclasses 1"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-7d1d3fb29d59c32c",
+                "suggestion_id": "suggestion-7d1d3fb29d59c32c",
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 644,
+                  "end": 654,
+                  "text": "HDL-apoA-I"
+                },
+                "long_form": {
+                  "start": 619,
+                  "end": 642,
+                  "text": "apoA-I in the total HDL"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-2b5280c7-1e52-4abd-8a83-26d6c20e191f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 137,
+                  "end": 143,
+                  "text": "HDL-PL"
+                },
+                "long_form": {
+                  "start": 105,
+                  "end": 135,
+                  "text": "phospholipids in the total HDL"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-e86f75b2-8ce4-41e6-8144-d59aa7171355",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 371,
+                  "end": 378,
+                  "text": "HDL4-PL"
+                },
+                "long_form": {
+                  "start": 330,
+                  "end": 369,
+                  "text": "phospholipids in small dense subclass 4"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-88957dd5-4374-4678-9c3a-91f41287cf17",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 545,
+                  "end": 556,
+                  "text": "HDL1-apoA-I"
+                },
+                "long_form": {
+                  "start": 503,
+                  "end": 543,
+                  "text": "apoA-I in large buoyant HDL subclasses 1"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-791957eb-4671-4b47-aa36-9ba76dc591f8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 999,
+                  "end": 1011,
+                  "text": "HDL1-apoA-II"
+                },
+                "long_form": {
+                  "start": 958,
+                  "end": 997,
+                  "text": "apoA-II in large buoyant HDL subclass 1"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-2b39113e-e095-4202-9532-1167a83ee5aa",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 284,
+                  "end": 291,
+                  "text": "HDL1-PL"
+                },
+                "long_form": {
+                  "start": 219,
+                  "end": 282,
+                  "text": "phospholipids in large buoyant HDL subclasses 1 (HDL1-PL) and 2"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": "Note the coordination ellipsis"
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-09-10T11:10:35.798338+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-09e5ad7e87e8434a",
+                "suggestion_id": "suggestion-09e5ad7e87e8434a",
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 268,
+                  "end": 275,
+                  "text": "HDL1-PL"
+                },
+                "long_form": {
+                  "start": 219,
+                  "end": 266,
+                  "text": "phospholipids in large buoyant HDL subclasses 1"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-7d1d3fb29d59c32c",
+                "suggestion_id": "suggestion-7d1d3fb29d59c32c",
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 644,
+                  "end": 654,
+                  "text": "HDL-apoA-I"
+                },
+                "long_form": {
+                  "start": 619,
+                  "end": 642,
+                  "text": "apoA-I in the total HDL"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-2b5280c7-1e52-4abd-8a83-26d6c20e191f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 137,
+                  "end": 143,
+                  "text": "HDL-PL"
+                },
+                "long_form": {
+                  "start": 105,
+                  "end": 135,
+                  "text": "phospholipids in the total HDL"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-e86f75b2-8ce4-41e6-8144-d59aa7171355",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 371,
+                  "end": 378,
+                  "text": "HDL4-PL"
+                },
+                "long_form": {
+                  "start": 330,
+                  "end": 369,
+                  "text": "phospholipids in small dense subclass 4"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-88957dd5-4374-4678-9c3a-91f41287cf17",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 545,
+                  "end": 556,
+                  "text": "HDL1-apoA-I"
+                },
+                "long_form": {
+                  "start": 503,
+                  "end": 543,
+                  "text": "apoA-I in large buoyant HDL subclasses 1"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-791957eb-4671-4b47-aa36-9ba76dc591f8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 999,
+                  "end": 1011,
+                  "text": "HDL1-apoA-II"
+                },
+                "long_form": {
+                  "start": 958,
+                  "end": 997,
+                  "text": "apoA-II in large buoyant HDL subclass 1"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-2b39113e-e095-4202-9532-1167a83ee5aa",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 284,
+                  "end": 291,
+                  "text": "HDL1-PL"
+                },
+                "long_form": {
+                  "start": 219,
+                  "end": 282,
+                  "text": "phospholipids in large buoyant HDL subclasses 1 (HDL1-PL) and 2"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": "Note the coordination ellipsis and the copy paste error: the second HDL1-PL was meant to be HDL2-PL"
+          }
+        },
+        {
+          "revision": 4,
+          "saved_at": "2026-09-10T12:31:03.429917+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-09e5ad7e87e8434a",
+                "suggestion_id": "suggestion-09e5ad7e87e8434a",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 268,
+                  "end": 275,
+                  "text": "HDL1-PL"
+                },
+                "long_form": {
+                  "start": 219,
+                  "end": 266,
+                  "text": "phospholipids in large buoyant HDL subclasses 1"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-7d1d3fb29d59c32c",
+                "suggestion_id": "suggestion-7d1d3fb29d59c32c",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 644,
+                  "end": 654,
+                  "text": "HDL-apoA-I"
+                },
+                "long_form": {
+                  "start": 619,
+                  "end": 642,
+                  "text": "apoA-I in the total HDL"
+                },
+                "origin": "corrected",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-2b5280c7-1e52-4abd-8a83-26d6c20e191f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 137,
+                  "end": 143,
+                  "text": "HDL-PL"
+                },
+                "long_form": {
+                  "start": 105,
+                  "end": 135,
+                  "text": "phospholipids in the total HDL"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-e86f75b2-8ce4-41e6-8144-d59aa7171355",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 371,
+                  "end": 378,
+                  "text": "HDL4-PL"
+                },
+                "long_form": {
+                  "start": 330,
+                  "end": 369,
+                  "text": "phospholipids in small dense subclass 4"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-88957dd5-4374-4678-9c3a-91f41287cf17",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 545,
+                  "end": 556,
+                  "text": "HDL1-apoA-I"
+                },
+                "long_form": {
+                  "start": 503,
+                  "end": 543,
+                  "text": "apoA-I in large buoyant HDL subclasses 1"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-791957eb-4671-4b47-aa36-9ba76dc591f8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 999,
+                  "end": 1011,
+                  "text": "HDL1-apoA-II"
+                },
+                "long_form": {
+                  "start": 958,
+                  "end": 997,
+                  "text": "apoA-II in large buoyant HDL subclass 1"
+                },
+                "origin": "added",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-2b39113e-e095-4202-9532-1167a83ee5aa",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 284,
+                  "end": 291,
+                  "text": "HDL1-PL"
+                },
+                "long_form": {
+                  "start": 219,
+                  "end": 282,
+                  "text": "phospholipids in large buoyant HDL subclasses 1 (HDL1-PL) and 2"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": "Note the coordination ellipsis and the copy paste error: the second HDL1-PL was meant to be HDL2-PL"
+          }
+        }
+      ]
+    },
+    "case-f62314a055b254266e95": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:10:47.758137+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:10:47.758137+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-ee515336f1df996c40b4": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:11:17.766961+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-09e7539722460340",
+            "suggestion_id": "suggestion-09e7539722460340",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 109,
+              "end": 111,
+              "text": "OS"
+            },
+            "long_form": {
+              "start": 91,
+              "end": 107,
+              "text": "overall survival"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:11:17.766961+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-09e7539722460340",
+                "suggestion_id": "suggestion-09e7539722460340",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 109,
+                  "end": 111,
+                  "text": "OS"
+                },
+                "long_form": {
+                  "start": 91,
+                  "end": 107,
+                  "text": "overall survival"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-c141a23fc444376c7d2a": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:11:35.512705+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:11:35.512705+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-69682da3d2adaf6d888d": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:11:56.026204+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-2a2e8e5383d9a79c",
+            "suggestion_id": "suggestion-2a2e8e5383d9a79c",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 19,
+              "end": 22,
+              "text": "DOS"
+            },
+            "long_form": {
+              "start": 0,
+              "end": 17,
+              "text": "Density of states"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:11:56.026204+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-2a2e8e5383d9a79c",
+                "suggestion_id": "suggestion-2a2e8e5383d9a79c",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 19,
+                  "end": 22,
+                  "text": "DOS"
+                },
+                "long_form": {
+                  "start": 0,
+                  "end": 17,
+                  "text": "Density of states"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-4d37491c635b6df2a47f": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:12:29.063155+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:12:29.063155+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-111fedae578499330207": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:13:36.739722+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-b1e6b66bdcf07da9",
+            "suggestion_id": "suggestion-b1e6b66bdcf07da9",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2013,
+              "end": 2017,
+              "text": "MRUs"
+            },
+            "long_form": {
+              "start": 1985,
+              "end": 2011,
+              "text": "mammary repopulating units"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-975615fe92ce58e6",
+            "suggestion_id": "suggestion-975615fe92ce58e6",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2281,
+              "end": 2285,
+              "text": "TEBs"
+            },
+            "long_form": {
+              "start": 2262,
+              "end": 2279,
+              "text": "terminal end buds"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:13:36.739722+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-b1e6b66bdcf07da9",
+                "suggestion_id": "suggestion-b1e6b66bdcf07da9",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2013,
+                  "end": 2017,
+                  "text": "MRUs"
+                },
+                "long_form": {
+                  "start": 1985,
+                  "end": 2011,
+                  "text": "mammary repopulating units"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-975615fe92ce58e6",
+                "suggestion_id": "suggestion-975615fe92ce58e6",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2281,
+                  "end": 2285,
+                  "text": "TEBs"
+                },
+                "long_form": {
+                  "start": 2262,
+                  "end": 2279,
+                  "text": "terminal end buds"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-a8d6eccea52046938723": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:13:48.347117+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:13:48.347117+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-9fd446ab763bfc52af81": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:14:02.157770+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-ffe3343a616521f0",
+            "suggestion_id": "suggestion-ffe3343a616521f0",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 122,
+              "end": 126,
+              "text": "RMST"
+            },
+            "long_form": {
+              "start": 91,
+              "end": 120,
+              "text": "restricted mean survival time"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:14:02.157770+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-ffe3343a616521f0",
+                "suggestion_id": "suggestion-ffe3343a616521f0",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 122,
+                  "end": 126,
+                  "text": "RMST"
+                },
+                "long_form": {
+                  "start": 91,
+                  "end": 120,
+                  "text": "restricted mean survival time"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-ce234095d69deae6ef7d": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:14:09.731833+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:14:09.731833+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-88bfa500a152f2d3fd89": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:14:25.078924+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-9df638acb2234b1c",
+            "suggestion_id": "suggestion-9df638acb2234b1c",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 67,
+              "end": 71,
+              "text": "NCDB"
+            },
+            "long_form": {
+              "start": 41,
+              "end": 65,
+              "text": "National Cancer Database"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-738d78f7cde63912",
+            "suggestion_id": "suggestion-738d78f7cde63912",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 190,
+              "end": 193,
+              "text": "CoC"
+            },
+            "long_form": {
+              "start": 168,
+              "end": 188,
+              "text": "Commission on Cancer"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-01093ee56473176a",
+            "suggestion_id": "suggestion-01093ee56473176a",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 818,
+              "end": 824,
+              "text": "STROBE"
+            },
+            "long_form": {
+              "start": 748,
+              "end": 816,
+              "text": "Strengthening the Reporting of Observational Studies in Epidemiology"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:14:25.078924+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-9df638acb2234b1c",
+                "suggestion_id": "suggestion-9df638acb2234b1c",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 67,
+                  "end": 71,
+                  "text": "NCDB"
+                },
+                "long_form": {
+                  "start": 41,
+                  "end": 65,
+                  "text": "National Cancer Database"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-738d78f7cde63912",
+                "suggestion_id": "suggestion-738d78f7cde63912",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 190,
+                  "end": 193,
+                  "text": "CoC"
+                },
+                "long_form": {
+                  "start": 168,
+                  "end": 188,
+                  "text": "Commission on Cancer"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-01093ee56473176a",
+                "suggestion_id": "suggestion-01093ee56473176a",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 818,
+                  "end": 824,
+                  "text": "STROBE"
+                },
+                "long_form": {
+                  "start": 748,
+                  "end": 816,
+                  "text": "Strengthening the Reporting of Observational Studies in Epidemiology"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-a85eeb25e85689e085e3": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:14:32.383650+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:14:32.383650+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-5d18574f3700ca15cf6d": {
+      "revision": 2,
+      "updated_at": "2026-09-10T11:15:06.010739+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-e8a16747e95bd6af",
+            "suggestion_id": "suggestion-e8a16747e95bd6af",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 33,
+              "end": 35,
+              "text": "BP"
+            },
+            "long_form": {
+              "start": 17,
+              "end": 31,
+              "text": "blood pressure"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:14:58.802317+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-e8a16747e95bd6af",
+                "suggestion_id": "suggestion-e8a16747e95bd6af",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 33,
+                  "end": 35,
+                  "text": "BP"
+                },
+                "long_form": {
+                  "start": 17,
+                  "end": 31,
+                  "text": "blood pressure"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T11:15:06.010739+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-e8a16747e95bd6af",
+                "suggestion_id": "suggestion-e8a16747e95bd6af",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 33,
+                  "end": 35,
+                  "text": "BP"
+                },
+                "long_form": {
+                  "start": 17,
+                  "end": 31,
+                  "text": "blood pressure"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-5d9ca2be35e7591acddd": {
+      "revision": 2,
+      "updated_at": "2026-09-10T11:16:50.356813+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:15:11.768273+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-09-10T11:16:50.356813+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-3bccaf86d01deb9302e9": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:17:46.048072+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-3b0a000789259969",
+            "suggestion_id": "suggestion-3b0a000789259969",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 145,
+              "end": 148,
+              "text": "GFs"
+            },
+            "long_form": {
+              "start": 129,
+              "end": 143,
+              "text": "growth factors"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:17:46.048072+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-3b0a000789259969",
+                "suggestion_id": "suggestion-3b0a000789259969",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 145,
+                  "end": 148,
+                  "text": "GFs"
+                },
+                "long_form": {
+                  "start": 129,
+                  "end": 143,
+                  "text": "growth factors"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-d5d9163ba26ccbb219b7": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:18:09.334822+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:18:09.334822+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-d0ae2ee153e0eaf5a56c": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:19:05.710488+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-783e134d000745d6",
+            "suggestion_id": "suggestion-783e134d000745d6",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 97,
+              "end": 100,
+              "text": "PFC"
+            },
+            "long_form": {
+              "start": 78,
+              "end": 95,
+              "text": "prefrontal cortex"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-7001c966bf1a9034",
+            "suggestion_id": "suggestion-7001c966bf1a9034",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 295,
+              "end": 298,
+              "text": "ANS"
+            },
+            "long_form": {
+              "start": 269,
+              "end": 293,
+              "text": "autonomic nervous system"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-29644dc152ac455a",
+            "suggestion_id": "suggestion-29644dc152ac455a",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 364,
+              "end": 368,
+              "text": "BDNF"
+            },
+            "long_form": {
+              "start": 329,
+              "end": 362,
+              "text": "brain-derived neurotrophic factor"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-43626c40cea505b5",
+            "suggestion_id": "suggestion-43626c40cea505b5",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 454,
+              "end": 458,
+              "text": "SERT"
+            },
+            "long_form": {
+              "start": 431,
+              "end": 452,
+              "text": "Serotonin transporter"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-b4ffa728471d0f9f",
+            "suggestion_id": "suggestion-b4ffa728471d0f9f",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 545,
+              "end": 548,
+              "text": "HRV"
+            },
+            "long_form": {
+              "start": 521,
+              "end": 543,
+              "text": "heart rate variability"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-506fce07de5d0a2b",
+            "suggestion_id": "suggestion-506fce07de5d0a2b",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 639,
+              "end": 643,
+              "text": "WCST"
+            },
+            "long_form": {
+              "start": 610,
+              "end": 637,
+              "text": "Wisconsin card-sorting test"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:19:05.710488+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-783e134d000745d6",
+                "suggestion_id": "suggestion-783e134d000745d6",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 97,
+                  "end": 100,
+                  "text": "PFC"
+                },
+                "long_form": {
+                  "start": 78,
+                  "end": 95,
+                  "text": "prefrontal cortex"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-7001c966bf1a9034",
+                "suggestion_id": "suggestion-7001c966bf1a9034",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 295,
+                  "end": 298,
+                  "text": "ANS"
+                },
+                "long_form": {
+                  "start": 269,
+                  "end": 293,
+                  "text": "autonomic nervous system"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-29644dc152ac455a",
+                "suggestion_id": "suggestion-29644dc152ac455a",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 364,
+                  "end": 368,
+                  "text": "BDNF"
+                },
+                "long_form": {
+                  "start": 329,
+                  "end": 362,
+                  "text": "brain-derived neurotrophic factor"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-43626c40cea505b5",
+                "suggestion_id": "suggestion-43626c40cea505b5",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 454,
+                  "end": 458,
+                  "text": "SERT"
+                },
+                "long_form": {
+                  "start": 431,
+                  "end": 452,
+                  "text": "Serotonin transporter"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-b4ffa728471d0f9f",
+                "suggestion_id": "suggestion-b4ffa728471d0f9f",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 545,
+                  "end": 548,
+                  "text": "HRV"
+                },
+                "long_form": {
+                  "start": 521,
+                  "end": 543,
+                  "text": "heart rate variability"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-506fce07de5d0a2b",
+                "suggestion_id": "suggestion-506fce07de5d0a2b",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 639,
+                  "end": 643,
+                  "text": "WCST"
+                },
+                "long_form": {
+                  "start": 610,
+                  "end": 637,
+                  "text": "Wisconsin card-sorting test"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-a49a1ee1d4ee79b96f8b": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:19:17.925293+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:19:17.925293+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-831590c598e0d001beba": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:22:03.822209+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-a3eba3ee42ca1bc6",
+            "suggestion_id": "suggestion-a3eba3ee42ca1bc6",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1906,
+              "end": 1908,
+              "text": "RE"
+            },
+            "long_form": {
+              "start": 1893,
+              "end": 1904,
+              "text": "red nucleus"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-c066a2d874b0ea1e",
+            "suggestion_id": "suggestion-c066a2d874b0ea1e",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2000,
+              "end": 2002,
+              "text": "RA"
+            },
+            "long_form": {
+              "start": 1985,
+              "end": 1998,
+              "text": "raphe nucleus"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-55e7c4402567371b",
+            "suggestion_id": "suggestion-55e7c4402567371b",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2033,
+              "end": 2035,
+              "text": "GE"
+            },
+            "long_form": {
+              "start": 2013,
+              "end": 2031,
+              "text": "geniculate nucleus"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-8ae9a2edf59100d1",
+            "suggestion_id": "suggestion-8ae9a2edf59100d1",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2060,
+              "end": 2062,
+              "text": "DV"
+            },
+            "long_form": {
+              "start": 2038,
+              "end": 2058,
+              "text": "dorsal vagal nucleus"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-10e5ff23b6292653",
+            "suggestion_id": "suggestion-10e5ff23b6292653",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2113,
+              "end": 2115,
+              "text": "AM"
+            },
+            "long_form": {
+              "start": 2103,
+              "end": 2111,
+              "text": "amygdala"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-487525f65cf2764a",
+            "suggestion_id": "suggestion-487525f65cf2764a",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2217,
+              "end": 2219,
+              "text": "AD"
+            },
+            "long_form": {
+              "start": 2200,
+              "end": 2215,
+              "text": "adrenal medulla"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-a4f0269c887455a5",
+            "suggestion_id": "suggestion-a4f0269c887455a5",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2242,
+              "end": 2244,
+              "text": "AP"
+            },
+            "long_form": {
+              "start": 2222,
+              "end": 2240,
+              "text": "anterior pituitary"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-6fa36826dca1ecde",
+            "suggestion_id": "suggestion-6fa36826dca1ecde",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2266,
+              "end": 2268,
+              "text": "KI"
+            },
+            "long_form": {
+              "start": 2247,
+              "end": 2264,
+              "text": "kidney Henle loop"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-6ec56bf9a51ccf29",
+            "suggestion_id": "suggestion-6ec56bf9a51ccf29",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2294,
+              "end": 2296,
+              "text": "TH"
+            },
+            "long_form": {
+              "start": 2275,
+              "end": 2292,
+              "text": "thyroid follicles"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "added-0b176167-3108-4b77-a6bf-c2a307edc8cc",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2091,
+              "end": 2093,
+              "text": "7n"
+            },
+            "long_form": {
+              "start": 2069,
+              "end": 2089,
+              "text": "facial motor nucleus"
+            },
+            "origin": "added",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "missed",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:22:03.822209+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-a3eba3ee42ca1bc6",
+                "suggestion_id": "suggestion-a3eba3ee42ca1bc6",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1906,
+                  "end": 1908,
+                  "text": "RE"
+                },
+                "long_form": {
+                  "start": 1893,
+                  "end": 1904,
+                  "text": "red nucleus"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-c066a2d874b0ea1e",
+                "suggestion_id": "suggestion-c066a2d874b0ea1e",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2000,
+                  "end": 2002,
+                  "text": "RA"
+                },
+                "long_form": {
+                  "start": 1985,
+                  "end": 1998,
+                  "text": "raphe nucleus"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-55e7c4402567371b",
+                "suggestion_id": "suggestion-55e7c4402567371b",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2033,
+                  "end": 2035,
+                  "text": "GE"
+                },
+                "long_form": {
+                  "start": 2013,
+                  "end": 2031,
+                  "text": "geniculate nucleus"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-8ae9a2edf59100d1",
+                "suggestion_id": "suggestion-8ae9a2edf59100d1",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2060,
+                  "end": 2062,
+                  "text": "DV"
+                },
+                "long_form": {
+                  "start": 2038,
+                  "end": 2058,
+                  "text": "dorsal vagal nucleus"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-10e5ff23b6292653",
+                "suggestion_id": "suggestion-10e5ff23b6292653",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2113,
+                  "end": 2115,
+                  "text": "AM"
+                },
+                "long_form": {
+                  "start": 2103,
+                  "end": 2111,
+                  "text": "amygdala"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-487525f65cf2764a",
+                "suggestion_id": "suggestion-487525f65cf2764a",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2217,
+                  "end": 2219,
+                  "text": "AD"
+                },
+                "long_form": {
+                  "start": 2200,
+                  "end": 2215,
+                  "text": "adrenal medulla"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-a4f0269c887455a5",
+                "suggestion_id": "suggestion-a4f0269c887455a5",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2242,
+                  "end": 2244,
+                  "text": "AP"
+                },
+                "long_form": {
+                  "start": 2222,
+                  "end": 2240,
+                  "text": "anterior pituitary"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-6fa36826dca1ecde",
+                "suggestion_id": "suggestion-6fa36826dca1ecde",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2266,
+                  "end": 2268,
+                  "text": "KI"
+                },
+                "long_form": {
+                  "start": 2247,
+                  "end": 2264,
+                  "text": "kidney Henle loop"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-6ec56bf9a51ccf29",
+                "suggestion_id": "suggestion-6ec56bf9a51ccf29",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2294,
+                  "end": 2296,
+                  "text": "TH"
+                },
+                "long_form": {
+                  "start": 2275,
+                  "end": 2292,
+                  "text": "thyroid follicles"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "added-0b176167-3108-4b77-a6bf-c2a307edc8cc",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2091,
+                  "end": 2093,
+                  "text": "7n"
+                },
+                "long_form": {
+                  "start": 2069,
+                  "end": 2089,
+                  "text": "facial motor nucleus"
+                },
+                "origin": "added",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-c6d784666df0500d0136": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:22:30.575594+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:22:30.575594+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-070773a12d676907498f": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:22:47.887261+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-bb1389d4ad8def7e",
+            "suggestion_id": "suggestion-bb1389d4ad8def7e",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 694,
+              "end": 697,
+              "text": "CNS"
+            },
+            "long_form": {
+              "start": 670,
+              "end": 692,
+              "text": "central nervous system"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:22:47.887261+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-bb1389d4ad8def7e",
+                "suggestion_id": "suggestion-bb1389d4ad8def7e",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 694,
+                  "end": 697,
+                  "text": "CNS"
+                },
+                "long_form": {
+                  "start": 670,
+                  "end": 692,
+                  "text": "central nervous system"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-4c15868326ef7e02a720": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:22:54.994851+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:22:54.994851+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-0f8bfd4e615558df24ef": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:24:01.384416+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-fca1e4f5dff2a06f",
+            "suggestion_id": "suggestion-fca1e4f5dff2a06f",
+            "proposal_kind": "definition",
+            "status": "incorrect",
+            "short_form": {
+              "start": 403,
+              "end": 408,
+              "text": "arrow"
+            },
+            "long_form": {
+              "start": 319,
+              "end": 401,
+              "text": "arrow). Autometallography/hematoxylin. Inset: a mercury-containing oligodendrocyte"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:24:01.384416+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-fca1e4f5dff2a06f",
+                "suggestion_id": "suggestion-fca1e4f5dff2a06f",
+                "proposal_kind": "definition",
+                "status": "incorrect",
+                "short_form": {
+                  "start": 403,
+                  "end": 408,
+                  "text": "arrow"
+                },
+                "long_form": {
+                  "start": 319,
+                  "end": 401,
+                  "text": "arrow). Autometallography/hematoxylin. Inset: a mercury-containing oligodendrocyte"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-cf339f5dc4663f00fc0c": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:24:26.924389+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:24:26.924389+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-2f97c85f80016614d22f": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:25:10.309568+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-f7754155e2af6aea",
+            "suggestion_id": "suggestion-f7754155e2af6aea",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 403,
+              "end": 405,
+              "text": "ED"
+            },
+            "long_form": {
+              "start": 381,
+              "end": 401,
+              "text": "Emergency Department"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:25:10.309568+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-f7754155e2af6aea",
+                "suggestion_id": "suggestion-f7754155e2af6aea",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 403,
+                  "end": 405,
+                  "text": "ED"
+                },
+                "long_form": {
+                  "start": 381,
+                  "end": 401,
+                  "text": "Emergency Department"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-8fe48490565f82852f79": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:25:16.071906+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:25:16.071906+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-c076e782e7d4c440231b": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:25:32.205783+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-3cf7addd33c8024e",
+            "suggestion_id": "suggestion-3cf7addd33c8024e",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 196,
+              "end": 199,
+              "text": "ROI"
+            },
+            "long_form": {
+              "start": 176,
+              "end": 194,
+              "text": "region of interest"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:25:32.205783+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-3cf7addd33c8024e",
+                "suggestion_id": "suggestion-3cf7addd33c8024e",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 196,
+                  "end": 199,
+                  "text": "ROI"
+                },
+                "long_form": {
+                  "start": 176,
+                  "end": 194,
+                  "text": "region of interest"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-df362b8d1427cfe18f71": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:25:37.243930+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:25:37.243930+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-0afea8c49a401282b574": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:26:04.225779+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-64c22314f8da2ce1",
+            "suggestion_id": "suggestion-64c22314f8da2ce1",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 344,
+              "end": 350,
+              "text": "MWCNTs"
+            },
+            "long_form": {
+              "start": 325,
+              "end": 342,
+              "text": "multi-walled CNTs"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-fea2c6e6ba1f24d3",
+            "suggestion_id": "suggestion-fea2c6e6ba1f24d3",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 414,
+              "end": 417,
+              "text": "AFM"
+            },
+            "long_form": {
+              "start": 389,
+              "end": 412,
+              "text": "atomic force microscopy"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:26:04.225779+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-64c22314f8da2ce1",
+                "suggestion_id": "suggestion-64c22314f8da2ce1",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 344,
+                  "end": 350,
+                  "text": "MWCNTs"
+                },
+                "long_form": {
+                  "start": 325,
+                  "end": 342,
+                  "text": "multi-walled CNTs"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-fea2c6e6ba1f24d3",
+                "suggestion_id": "suggestion-fea2c6e6ba1f24d3",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 414,
+                  "end": 417,
+                  "text": "AFM"
+                },
+                "long_form": {
+                  "start": 389,
+                  "end": 412,
+                  "text": "atomic force microscopy"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-a0a758e564e1cd508b9f": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:26:09.113009+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:26:09.113009+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-e453cb27a852f314b681": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:26:19.600186+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-eb767e5371e94b32",
+            "suggestion_id": "suggestion-eb767e5371e94b32",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 21,
+              "end": 23,
+              "text": "PD"
+            },
+            "long_form": {
+              "start": 0,
+              "end": 19,
+              "text": "Parkinson’s disease"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:26:19.600186+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-eb767e5371e94b32",
+                "suggestion_id": "suggestion-eb767e5371e94b32",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 21,
+                  "end": 23,
+                  "text": "PD"
+                },
+                "long_form": {
+                  "start": 0,
+                  "end": 19,
+                  "text": "Parkinson’s disease"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-3785a821adfefe779f42": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:26:26.487894+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:26:26.487894+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-9a27b1aac754c541ca57": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:26:49.715708+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-9726cd2acde9ea76",
+            "suggestion_id": "suggestion-9726cd2acde9ea76",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 370,
+              "end": 373,
+              "text": "vdW"
+            },
+            "long_form": {
+              "start": 355,
+              "end": 368,
+              "text": "van der Waals"
+            },
+            "origin": "assisted",
+            "notes": ""
+          },
+          {
+            "decision_id": "decision-suggestion-4abe204404cdedc2",
+            "suggestion_id": "suggestion-4abe204404cdedc2",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 800,
+              "end": 804,
+              "text": "CNTs"
+            },
+            "long_form": {
+              "start": 782,
+              "end": 798,
+              "text": "carbon nanotubes"
+            },
+            "origin": "assisted",
+            "notes": ""
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:26:49.715708+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-9726cd2acde9ea76",
+                "suggestion_id": "suggestion-9726cd2acde9ea76",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 370,
+                  "end": 373,
+                  "text": "vdW"
+                },
+                "long_form": {
+                  "start": 355,
+                  "end": 368,
+                  "text": "van der Waals"
+                },
+                "origin": "assisted",
+                "notes": ""
+              },
+              {
+                "decision_id": "decision-suggestion-4abe204404cdedc2",
+                "suggestion_id": "suggestion-4abe204404cdedc2",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 800,
+                  "end": 804,
+                  "text": "CNTs"
+                },
+                "long_form": {
+                  "start": 782,
+                  "end": 798,
+                  "text": "carbon nanotubes"
+                },
+                "origin": "assisted",
+                "notes": ""
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-3f16a9aaf9da2aadb7df": {
+      "revision": 1,
+      "updated_at": "2026-09-10T11:26:58.235751+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-09-10T11:26:58.235751+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    }
+  }
+}
