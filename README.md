@@ -6,6 +6,9 @@ The [project completion plan](docs/project-completion-plan.md) summarizes the
 remaining research and engineering milestones. See the
 [current-state audit](docs/project-state-audit.md) for verified capabilities
 and the [task index](docs/tasks/README.md) for the planned GPT-5.6 Luna assignments.
+The provisional [scientific model](docs/scientific-model/README.md) records the
+phenomena and distinctions being refined through iterative annotation before
+they are operationalized as annotation guidelines.
 
 ## Start here when returning to the project
 
