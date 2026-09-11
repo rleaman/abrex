@@ -1,5 +1,18 @@
 # Numbered Codex Assignments
 
+## Next milestone — post-T052 planning, September 10, 2026
+
+Start with the [post-T052 task plan](../post-t052-next-steps.md) for **T053–T068**:
+eleven bounded Luna assignments and five explicit user annotation/decision steps.
+The first assignment is [T053](T053-t052-audit-inventory.md). Tasks are planned,
+not automatically authorized for execution. The plan includes the complete
+owner/dependency sequence, assisted and blind frontend requirements, and handoffs.
+
+The [frozen T052 evidence](../../evidence/T052/README.md) records completed
+assisted annotation. This supersedes older statements that user annotation is
+still pending; it does not retroactively certify browser QA or a three-method
+pilot. Preserve the historical statuses below for context.
+
 ## Active milestone — September 8, 2026
 
 Start with [CURRENT_WORK](../CURRENT_WORK.md). The user authorized recovery of the bounded random-literature pilot using orchestrated Sol/High implementers and independent Astra/High acceptance review. Follow the [audit](../reviewer-implementation-audit-2026-09-08.md) and [recovery checks](../recovery-acceptance.md); historical partial artifacts do not satisfy acceptance.

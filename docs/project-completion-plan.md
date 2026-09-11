@@ -1,5 +1,10 @@
 # Completion plan for abrex
 
+For the immediate next assignments after completed T052 annotation, use the
+[September 10 post-T052 plan](post-t052-next-steps.md). It adds T053–T068 with
+explicit Luna/user ownership and a bounded scientific decision sequence. The
+roadmap below remains historical context; no broad campaign is newly authorized.
+
 Prepared September 6, 2026; revised September 7, 2026. This plan delivers 32 proposed implementation assignments, T017–T048, for GPT-5.6 Luna. It builds on the completed T000–T016 framework. It does not authorize automatic execution of the backlog, installation of new systems, paid jobs or external publication.
 
 ## Recommendation
@@ -169,4 +174,3 @@ For minimal scientist effort, agents should assemble small review packets contai
 The planning deliverable consists of this overview, the source-backed state audit, the Luna execution guide, the updated task index and 32 individual planned task files. Existing task implementations and completion logs remain historical records. No task implementation was started by creating this plan.
 
 Start by assigning [T017](tasks/T017-reproducible-development-environments.md). The detailed baseline path is T017 → T018/T019 → T020 → T021 → T022; then build the complementary detector and real-literature evidence without waiting for an elaborate ensemble.
-

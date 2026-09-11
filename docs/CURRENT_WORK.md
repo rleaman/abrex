@@ -1,5 +1,21 @@
 # Current work: random-literature plumbing and review pilot
 
+## September 10 planning checkpoint
+
+The user completed the T052 assisted annotation and requested comprehensive
+next-step assignments for Luna and explicit human review steps. Follow the
+[post-T052 plan](post-t052-next-steps.md) and **T053–T068** when assigning new
+work. This checkpoint updates the immediate roadmap; writing the tasks does
+not authorize executing them automatically. Start with T053 when assigned.
+
+The final annotations are preserved in the [T052 evidence bundle](../evidence/T052/README.md).
+The historical recovery scope and September 9 runtime/QA status below remain
+context; completed annotation does not establish the missing method comparison
+or retroactively verify browser testing. The new plan separates assisted audit,
+bounded complementarity measurement and a fresh prediction-blind check.
+
+## Historical recovery scope
+
 Decision date: September 8, 2026. Recovery implementers: GPT-5.6 Sol / High,
 orchestrated in the current task; independent acceptance review: GPT-6 Astra / High.
 
