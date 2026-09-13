@@ -10,15 +10,27 @@ import hashlib
 import time
 from pathlib import Path
 from typing import Literal
+from unittest.mock import patch
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from abrex.domain import Document
+from abrex.infrastructure.ab3p import (
+    Ab3PCacheMiss,
+    Ab3PInstallationError,
+    cache_key,
+)
 from abrex.literature.pilot_methods import _worker_command, run_methods
 from abrex.literature.pilot_models import (
     MethodOutput,
     PilotConfig,
     PilotSection,
     config_fingerprint,
+)
+from abrex.resolvers import (
+    Ab3PCacheConfig,
+    Ab3PInstallationConfig,
+    Ab3PResolverConfig,
 )
 
 ReadinessStatus = Literal["available", "failed", "unavailable"]
@@ -55,6 +67,7 @@ class ReadinessReport(BaseModel):
     smoke_documents: tuple[dict[str, object], ...]
     canonical_text_hashes: dict[str, str]
     methods: tuple[ReadinessMethod, ...]
+    offset_evidence: dict[str, object]
     cache_identity_checks: dict[str, object]
     limitations: tuple[str, ...] = ()
 
@@ -118,18 +131,21 @@ def run_readiness(
             )
         methods.append(_method_evidence(method_id, observed, command))
 
+    offset_evidence = _offset_evidence(outputs, sections)
+
     input_hashes = {
         section.document_id: section.canonical_text_sha256 for section in sections
     }
     cache_checks = {
         "input_hashes_are_unique": len(set(input_hashes.values())) == len(input_hashes),
         "changed_input_changes_identity": _changed_input_changes_identity(sections[0]),
-        "check_scope": "input fingerprint only; not a prediction-cache replay test",
+        "check_scope": "live prediction-cache probe plus input/config identity checks",
         "worker_inputs": {
             method: _worker_input_hash(runtime_dir, method)
             for method in ("ab3p", "plodv2")
             if (runtime_dir / f"{method}-input.json").is_file()
         },
+        "prediction_cache": _verify_ab3p_prediction_cache(config, runtime_dir),
     }
     return ReadinessReport(
         repair_budget={
@@ -156,6 +172,7 @@ def run_readiness(
         ),
         canonical_text_hashes=input_hashes,
         methods=tuple(methods),
+        offset_evidence=offset_evidence,
         cache_identity_checks=cache_checks,
         limitations=(
             "Smoke evidence establishes operational readiness only; it is not "
@@ -163,6 +180,135 @@ def run_readiness(
             "PLOD independent spans and paired relations are reported separately.",
         ),
     )
+
+
+def _offset_evidence(
+    outputs: dict[str, dict[str, MethodOutput]], sections: tuple[PilotSection, ...]
+) -> dict[str, object]:
+    evidence: dict[str, object] = {}
+    for method_id in ("schwartz_hearst", "ab3p", "plodv2", "plodv2_pairing"):
+        method_outputs = [
+            outputs[section.document_id][method_id] for section in sections
+        ]
+        pair_total = sum(len(output.pairs) for output in method_outputs)
+        pair_text_matches = sum(
+            1
+            for output, section in zip(method_outputs, sections, strict=True)
+            for pair in output.pairs
+            if section.canonical_text[pair.short_form.start : pair.short_form.end]
+            == pair.short_form.text
+            and section.canonical_text[pair.long_form.start : pair.long_form.end]
+            == pair.long_form.text
+        )
+        span_total = sum(len(output.spans) for output in method_outputs)
+        span_text_matches = sum(
+            1
+            for output, section in zip(method_outputs, sections, strict=True)
+            for span in output.spans
+            if section.canonical_text[span.start : span.end] == span.text
+        )
+        empty = outputs["t058-empty"][method_id]
+        evidence[method_id] = {
+            "pair_offsets_checked": pair_total,
+            "pair_text_matches": pair_text_matches,
+            "span_offsets_checked": span_total,
+            "span_text_matches": span_text_matches,
+            "empty_control_pairs": len(empty.pairs),
+            "empty_control_spans": len(empty.spans),
+        }
+    return evidence
+
+
+def _verify_ab3p_prediction_cache(
+    config: PilotConfig, runtime_dir: Path
+) -> dict[str, object]:
+    """Exercise the existing Ab3P cache through cold and warm resolver paths."""
+
+    from abrex.resolvers import Ab3PResolver
+
+    cache_dir = runtime_dir.parent / "cache-probe"
+    document = Document(
+        "t058-cache",
+        "Tumor necrosis factor (TNF) is measured in 🧬 tissue.",
+    )
+    live_config = Ab3PResolverConfig(
+        backend="cache_then_subprocess",
+        output_format="offset_jsonl",
+        timeout_seconds=config.ab3p.timeout_seconds,
+        installation=Ab3PInstallationConfig(
+            manifest=config.ab3p.installation_manifest,
+            root=config.ab3p.installation_root,
+            executable="identify_abbr_offsets",
+            resource_directory="WordData",
+        ),
+        cache=Ab3PCacheConfig(path=str(cache_dir), read=True, write=True),
+    )
+    try:
+        key = cache_key(document, live_config)
+    except (Ab3PInstallationError, OSError, ValueError) as error:
+        return {
+            "status": "unavailable",
+            "diagnostic": f"cache_probe_prerequisite:{type(error).__name__}:{error}",
+        }
+    cache_path = cache_dir / f"{key}.json"
+    cache_path.unlink(missing_ok=True)
+    cold_absent = not cache_path.exists()
+    cold_predictions = tuple(Ab3PResolver(**live_config.model_dump()).resolve(document))
+    cold_written = cache_path.is_file()
+
+    warm_resolver = Ab3PResolver(**live_config.model_dump())
+    with patch(
+        "abrex.infrastructure.ab3p.run_ab3p",
+        side_effect=AssertionError("warm cache unexpectedly invoked live Ab3P"),
+    ):
+        warm_predictions = tuple(warm_resolver.resolve(document))
+
+    cache_only = live_config.model_copy(
+        update={
+            "backend": "cache_only",
+            "cache": Ab3PCacheConfig(path=str(cache_dir), read=True, write=False),
+        }
+    )
+    changed_text_missed = _cache_misses(
+        Ab3PResolver(**cache_only.model_dump()),
+        Document(document.document_id, document.text + " changed"),
+    )
+    changed_config = live_config.model_copy(update={"output_format": "text"})
+    changed_config = changed_config.model_copy(
+        update={
+            "backend": "cache_only",
+            "cache": Ab3PCacheConfig(path=str(cache_dir), read=True, write=False),
+        }
+    )
+    changed_config_missed = _cache_misses(
+        Ab3PResolver(**changed_config.model_dump()), document
+    )
+    return {
+        "cache_layer": "Ab3PCache via Ab3PResolver",
+        "cache_key": key,
+        "cold_cache_entry_absent_before_run": cold_absent,
+        "cold_live_predictions": len(cold_predictions),
+        "cold_cache_entry_written": cold_written,
+        "warm_replay_predictions": len(warm_predictions),
+        "warm_replay_matches_cold": _prediction_dump(cold_predictions)
+        == _prediction_dump(warm_predictions),
+        "warm_live_invocation_blocked": True,
+        "changed_text_cache_miss": changed_text_missed,
+        "changed_config_cache_miss": changed_config_missed,
+        "cache_entry": str(cache_path),
+    }
+
+
+def _cache_misses(resolver: object, document: Document) -> bool:
+    try:
+        resolver.resolve(document)  # type: ignore[attr-defined]
+    except Ab3PCacheMiss:
+        return True
+    return False
+
+
+def _prediction_dump(predictions: tuple[object, ...]) -> tuple[str, ...]:
+    return tuple(repr(prediction) for prediction in predictions)
 
 
 def _method_evidence(

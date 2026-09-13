@@ -1,55 +1,56 @@
 # T058 bounded runtime readiness
 
-> September 13 correction: the completion claim below is retained as historical
-> evidence and is superseded pending acceptance revision. Both optional runtimes
-> ran successfully after correcting configuration. See
-> [the runtime guide](../../baseline-runtimes.md). The original unavailable report
-> does not describe current host readiness. The generic changed-input hash check
-> does not establish prediction-cache invalidation.
+Status: Complete — acceptance evidence verified September 13, 2026.
 
-Status: Engineering and bounded smoke complete; the three-primary-method run
-remains incomplete because the optional runtimes are unavailable on this host.
+The original failed report remains preserved at
+[T058-runtime-readiness.json](../../artifacts/T058-runtime-readiness.json).
+It used placeholder runtime settings and is historical evidence only. The
+superseding strict WSL evidence is
+[T058-runtime-readiness-repaired.json](../../artifacts/T058-runtime-readiness-repaired.json),
+produced with the documented command in [baseline-runtimes.md](../../baseline-runtimes.md).
 
-The reusable readiness runner is [runtime_readiness.py](../../../src/abrex/literature/runtime_readiness.py),
-with its portable configuration in
-[T058-runtime-readiness.yaml](../../../configs/literature/T058-runtime-readiness.yaml).
-It executes one fixed three-passage smoke containing supplementary Unicode,
-repeated forms and a control passage with no expected definition. It preserves
-PLOD independent spans and PLOD pairing as separate report entries, records
-canonical text hashes, worker commands, coverage, truncation diagnostics and
-changed-input identity checks, and never converts a failed worker into zero
-detections.
+## Acceptance evidence
 
-## Observed readiness
+- All four readiness channels are `available` with `complete` coverage for all
+  3/3 smoke passages: Schwartz–Hearst, native-offset Ab3P, PLODv2 independent
+  spans and PLODv2 pairing.
+- The smoke includes supplementary Unicode, repeated forms and an empty-result
+  control. Worker input arrays are identical across optional methods.
+- Exact source-offset evidence passed for every returned result: 2/2 S&H
+  pairs, 1/1 Ab3P pair, 7/7 PLOD spans and 3/3 PLOD pairs have text that
+  exactly slices the canonical text. The empty control returned zero pairs and
+  zero independent spans for every method.
+- Ab3P identity records the adapter/wrapper versions, Python 3.13.15,
+  executable, manifest and resource hashes. PLOD records Python 3.13.15,
+  Flair 0.15.1, PyTorch 2.14.0+cpu and the pinned checkpoint hash.
+- Worker commands and runtime origins are recorded. No installation, download
+  or rebuild was performed for closure; the existing WSL environments were
+  reused.
+- The existing `Ab3PCache` was tested through `Ab3PResolver`: a cold live run
+  started with no entry and wrote one; a warm replay returned identical
+  predictions while live invocation was actively blocked; changed text and a
+  changed output-format configuration both produced cache misses. This is
+  actual cache behavior, not only a generic hash comparison.
+- PLOD independent spans and paired relations remain separate outputs. The
+  `rejected_selection_conflict` diagnostic is retained as pairing evidence,
+  not treated as a worker failure.
 
-The durable report is [T058-runtime-readiness.json](../../artifacts/T058-runtime-readiness.json).
+## Repair budget and scope
 
-| Method | Status | Coverage | Evidence |
-| --- | --- | --- | --- |
-| Schwartz–Hearst | available | complete, 3/3 passages | real in-process smoke; 2 pairs |
-| native-offset Ab3P | unavailable | none | configured installation manifest is absent |
-| PLODv2 independent spans | unavailable | none | configured checkpoint identity is `unknown`, rejected by validation |
-| PLODv2 pairing | unavailable | none | same prerequisite failure; kept separate from spans |
-
-The repair budget was two hours total, one bounded repair attempt per optional
-method, and no bulk download or system installation. No repair was attempted:
-the missing Ab3P installation and missing/invalid PLOD checkpoint are separate
-prerequisite work, not safe local repairs.
+The recorded ceiling was two hours total troubleshooting, at most one bounded
+repair attempt per optional method, and no bulk downloads or system
+installation. The configuration/launcher repair was already supplied before
+this closure pass; no installation work was repeated. T052/T057 frozen evidence
+was not modified, and T059/T060 were not started.
 
 ## Reproduction
 
 ```powershell
-.\env313\Scripts\python.exe scripts\run_t058_readiness.py `
-  configs\literature\T058-runtime-readiness.yaml `
-  --output docs\artifacts\T058-runtime-readiness.json `
-  --runtime-dir .artifacts\T058\runtime-readiness
+wsl.exe -d Ubuntu -- /home/rleaman/.local/share/abrex/venv313/bin/python scripts/run_t058_readiness.py configs/literature/T058-runtime-readiness.yaml --output .artifacts/T058/verified-runtime/report.json --runtime-dir .artifacts/T058/verified-runtime/workers --require-all
 ```
 
-Edit only the machine-local interpreter, installation, cache and checkpoint
-paths in the YAML before replaying on a prepared environment. The output is
-portable JSON; the ignored runtime directory retains worker inputs and outputs.
-
-Focused regression checks: **2 passed**. Ruff format, Ruff lint and strict
-mypy: **passed**. The readiness runner was executed against the current
-configuration and produced the statuses above. No accuracy or scientific
-comparison claim is made.
+Focused checks: **19 passed** for readiness and Ab3P cache behavior. The
+repository fast gate passed: source import, Ruff format/lint, strict mypy and
+**373** unit/contract tests. `git diff --check` passed. This is operational
+readiness evidence only; it makes no accuracy, complementarity or deployment
+claim.

@@ -1,11 +1,9 @@
 # T058 Verify existing baseline runtimes within a repair budget
 
 Owner: **Luna — engineering and preparation**  
-Status: Implemented; acceptance revision pending. This file does not authorize automatic execution.
-September 13 correction: implementation exists, but closure needs revision.
-Both optional runtimes passed the local audit smoke. Follow
-[the verified runtime guide](../baseline-runtimes.md); do not reuse the original
-placeholder configuration or equate its failure with absent installations.
+Status: Complete — acceptance evidence verified September 13, 2026.
+Follow [the verified runtime guide](../baseline-runtimes.md); the original
+placeholder configuration is preserved only as historical failed evidence.
 Dependencies: T053 inputs; can proceed before T056.
 
 ## Execution contract
@@ -22,4 +20,10 @@ Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECU
 
 ## Acceptance, deliverables and stopping point
 
-Real S&H smoke is required; each optional method has either actual smoke artifacts or a reproducible missing-prerequisite report. Test orchestration failure accounting and changed-input cache invalidation. Deliver a ready run configuration and bounded follow-up list. Optional-runtime failure does not block unrelated annotation work; it leaves the three-way experiment incomplete.
+Real S&H smoke and actual Ab3P/PLODv2 smoke artifacts are complete. Cold/warm
+Ab3P cache behavior, changed-text/config misses, orchestration failure
+accounting, exact offsets, empty controls, runtime identities and worker
+commands are recorded in the [superseding report](../artifacts/T058-runtime-readiness-repaired.json).
+The ready configuration and bounded reproduction command are documented in
+[baseline-runtimes.md](../baseline-runtimes.md). T058 is closed; no method
+comparison or scientific accuracy claim is made here.

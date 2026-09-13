@@ -1,8 +1,21 @@
 {
   "cache_identity_checks": {
     "changed_input_changes_identity": true,
-    "check_scope": "input fingerprint only; not a prediction-cache replay test",
+    "check_scope": "live prediction-cache probe plus input/config identity checks",
     "input_hashes_are_unique": true,
+    "prediction_cache": {
+      "cache_entry": ".artifacts/T058/verified-runtime/cache-probe/45e0364696e7a9aee96bbaf8d1be06adf83cdd5a75544aaba1141bee81aab064.json",
+      "cache_key": "45e0364696e7a9aee96bbaf8d1be06adf83cdd5a75544aaba1141bee81aab064",
+      "cache_layer": "Ab3PCache via Ab3PResolver",
+      "changed_config_cache_miss": true,
+      "changed_text_cache_miss": true,
+      "cold_cache_entry_absent_before_run": true,
+      "cold_cache_entry_written": true,
+      "cold_live_predictions": 1,
+      "warm_live_invocation_blocked": true,
+      "warm_replay_matches_cold": true,
+      "warm_replay_predictions": 1
+    },
     "worker_inputs": {
       "ab3p": "cb1b0046b93bfad09dc76b3a02fc5a9981fac654cd13bbfb216cf1c2b861b7f2",
       "plodv2": "cb1b0046b93bfad09dc76b3a02fc5a9981fac654cd13bbfb216cf1c2b861b7f2"
@@ -20,7 +33,7 @@
   "methods": [
     {
       "diagnostics": [],
-      "elapsed_seconds": 0.00039501700000244,
+      "elapsed_seconds": 0.00029641200001151446,
       "identity": "schwartz_hearst",
       "method_id": "schwartz_hearst",
       "pair_count": 2,
@@ -38,7 +51,7 @@
     },
     {
       "diagnostics": [],
-      "elapsed_seconds": 5.273850307000011,
+      "elapsed_seconds": 1.2511968780000018,
       "identity": "ab3p",
       "method_id": "ab3p",
       "pair_count": 1,
@@ -84,7 +97,7 @@
       "diagnostics": [
         "rejected_selection_conflict"
       ],
-      "elapsed_seconds": 2.0242141610000033,
+      "elapsed_seconds": 1.545062588999997,
       "identity": "plodv2_span_detector",
       "method_id": "plodv2",
       "pair_count": 0,
@@ -135,7 +148,7 @@
       "diagnostics": [
         "rejected_selection_conflict"
       ],
-      "elapsed_seconds": 2.0242141610000033,
+      "elapsed_seconds": 1.545062588999997,
       "identity": "plodv2_span_detector",
       "method_id": "plodv2_pairing",
       "pair_count": 3,
@@ -183,10 +196,44 @@
       ]
     }
   ],
+  "offset_evidence": {
+    "ab3p": {
+      "empty_control_pairs": 0,
+      "empty_control_spans": 0,
+      "pair_offsets_checked": 1,
+      "pair_text_matches": 1,
+      "span_offsets_checked": 0,
+      "span_text_matches": 0
+    },
+    "plodv2": {
+      "empty_control_pairs": 0,
+      "empty_control_spans": 0,
+      "pair_offsets_checked": 0,
+      "pair_text_matches": 0,
+      "span_offsets_checked": 7,
+      "span_text_matches": 7
+    },
+    "plodv2_pairing": {
+      "empty_control_pairs": 0,
+      "empty_control_spans": 0,
+      "pair_offsets_checked": 3,
+      "pair_text_matches": 3,
+      "span_offsets_checked": 7,
+      "span_text_matches": 7
+    },
+    "schwartz_hearst": {
+      "empty_control_pairs": 0,
+      "empty_control_spans": 0,
+      "pair_offsets_checked": 2,
+      "pair_text_matches": 2,
+      "span_offsets_checked": 0,
+      "span_text_matches": 0
+    }
+  },
   "repair_budget": {
     "bulk_downloads_permitted": false,
     "ceiling_hours": 2.0,
-    "elapsed_seconds": 33.503475361999996,
+    "elapsed_seconds": 25.286174292999988,
     "optional_method_repairs_per_method": 1,
     "system_installation_permitted": false
   },

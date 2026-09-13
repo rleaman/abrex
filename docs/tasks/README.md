@@ -3,12 +3,12 @@
 ## September 13 runtime correction
 
 [T058](T058-bounded-runtime-readiness.md): runtime configuration and launcher
-repairs are implemented; all three primary methods passed the repaired tiny
-smoke. Acceptance revision remains pending. Use
+repairs are complete; all four readiness channels passed the strict smoke,
+including actual cold/warm cache replay and changed-input/config misses. Use
 [the baseline runtime guide](../baseline-runtimes.md) and
 [new smoke evidence](../artifacts/T058-runtime-readiness-repaired.json).
 Earlier unavailable statuses describe historical runs, not the current host.
-No new development comparison or user review was performed by this repair.
+No development comparison or user review was performed by T058.
 
 ## Next milestone — post-T052 planning, September 10, 2026
 
