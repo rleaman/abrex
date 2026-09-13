@@ -29,6 +29,7 @@ from abrex.literature.review_packet import (
     build_review_packet,
     read_review_packet,
 )
+from abrex.literature.review_readiness import review_readiness
 from abrex.literature.reviewer_ui import REVIEWER_HTML
 
 # Kept as a deliberately small compatibility surface for the package facade.
@@ -37,16 +38,53 @@ ReviewDecision = object
 
 
 class _ReviewerState:
-    def __init__(self, packet_path: Path) -> None:
+    def __init__(
+        self,
+        packet_path: Path,
+        *,
+        state_path: Path | None = None,
+        required_case_ids: tuple[str, ...] | None = None,
+        workflow_name: str | None = None,
+    ) -> None:
         self.packet_path = packet_path
         self.packet = read_review_packet(packet_path)
         # Keep annotation backups content-addressed to the packet filename so
         # a corrected packet cannot accidentally load the legacy packet's
         # state.  A packet/content mismatch is still rejected by the state
         # validator when a sidecar is deliberately copied into this location.
-        self.state_path = packet_path.with_name(f"{packet_path.stem}.annotations.json")
+        self.state_path = state_path or packet_path.with_name(
+            f"{packet_path.stem}.annotations.json"
+        )
+        available = {case.case_id for case in self.packet.cases}
+        self.required_case_ids = required_case_ids or tuple(
+            case.case_id for case in self.packet.cases
+        )
+        unknown = sorted(set(self.required_case_ids) - available)
+        if unknown:
+            raise ReviewError(f"unknown required reviewer cases: {unknown}")
+        self.workflow_name = workflow_name or "Review packet"
         self.lock = threading.RLock()
         self.state = read_annotation_state(self.packet, self.state_path)
+
+    def packet_payload(self) -> dict[str, object]:
+        payload = self.packet.model_dump(mode="json")
+        required = set(self.required_case_ids)
+        payload["cases"] = [
+            case for case in payload["cases"] if case["case_id"] in required
+        ]
+        payload["_workflow"] = {
+            "name": self.workflow_name,
+            "working_file": str(self.state_path.resolve()),
+            "required_cases": len(self.required_case_ids),
+        }
+        return payload
+
+    def readiness_payload(self) -> dict[str, object]:
+        value = review_readiness(self.packet, self.state, self.required_case_ids)
+        return {
+            **value.model_dump(mode="json"),
+            "working_file": str(self.state_path.resolve()),
+        }
 
     def save_submission(self, payload: bytes) -> AnnotationState:
         try:
@@ -89,10 +127,21 @@ def _json(handler: BaseHTTPRequestHandler, value: object, status: int = 200) -> 
 
 
 def serve_review(
-    packet_path: Path, *, host: str = "127.0.0.1", port: int = 8765
+    packet_path: Path,
+    *,
+    host: str = "127.0.0.1",
+    port: int = 8765,
+    state_path: Path | None = None,
+    required_case_ids: tuple[str, ...] | None = None,
+    workflow_name: str | None = None,
 ) -> None:
     """Serve a packet until interrupted. State is persisted beside the packet."""
-    app = _ReviewerState(Path(packet_path))
+    app = _ReviewerState(
+        Path(packet_path),
+        state_path=state_path,
+        required_case_ids=required_case_ids,
+        workflow_name=workflow_name,
+    )
 
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, format: str, *args: object) -> None:  # noqa: A002
@@ -108,9 +157,11 @@ def serve_review(
                 self.end_headers()
                 self.wfile.write(body)
             elif route == "/api/packet":
-                _json(self, app.packet.model_dump(mode="json"))
+                _json(self, app.packet_payload())
             elif route == "/api/annotations":
                 _json(self, app.state.model_dump(mode="json"))
+            elif route == "/api/readiness":
+                _json(self, app.readiness_payload())
             elif route == "/api/export/json":
                 body = app.state.model_dump_json(indent=2).encode("utf-8")
                 self.send_response(200)

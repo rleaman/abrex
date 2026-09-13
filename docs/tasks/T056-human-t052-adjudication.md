@@ -1,7 +1,8 @@
 # T056 Adjudicate the T052 audit and provisional distinctions
 
 Owner: **USER — scientific lead; not a Luna implementation assignment**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: Completed by user report on September 12, 2026; adjudication artifact
+is recorded in the completion note.
 Dependencies: T055 user-ready reviewer and guide.
 
 ## Execution contract
@@ -20,4 +21,3 @@ Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECU
 ## Acceptance, deliverables and stopping point
 
 User deliverable: saved adjudication supplement plus remaining policy questions. Luna may validate files, fix UI defects and explain controls; Luna must not supply your scientific judgments, certify its own recoding as your decision, or mark an untouched passage searched. This is assisted development evidence, not independent gold.
-

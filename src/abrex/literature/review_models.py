@@ -141,6 +141,20 @@ class PairDecision(BaseModel):
     long_form: ReviewSpan | None = None
     origin: DecisionOrigin = "assisted"
     notes: str = ""
+    # Additive reviewer fields.  They preserve the T054 audit distinctions
+    # without changing resolver/evaluator semantics or old import inputs.
+    relation_kind: Literal[
+        "abbreviation_expansion", "other_naming_or_code_relation", "uncertain"
+    ] = "uncertain"
+    evidence_structure: Literal["contiguous_shared", "discontinuous", "uncertain"] = (
+        "uncertain"
+    )
+    context_requirement: Literal[
+        "text_alone", "document_structure", "image", "uncertain"
+    ] = "uncertain"
+    evidence_spans: tuple[ReviewSpan, ...] = ()
+    interpretation: str = ""
+    source_error: bool = False
 
     @model_validator(mode="after")
     def origin_contract(self) -> PairDecision:

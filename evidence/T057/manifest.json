@@ -1,0 +1,93 @@
+{
+  "schema_version": "abrex-evidence-bundle-v1",
+  "bundle_id": "T057-development-guidelines-v1",
+  "status": "frozen",
+  "materialized_date": "2026-09-13",
+  "policy_id": "t057-strict-exact-pair-v1",
+  "provenance": {
+    "reviewer_role": "user scientific lead",
+    "assisted_exposure": true,
+    "reviewer_identity_limitation": "legacy T052 state records no reviewer ID",
+    "t052_packet_id": "t052-c40e146e26cd7d50b807",
+    "t052_packet_content_sha256": "c40e146e26cd7d50b807abb431cebf4a71c2a6beb20c6a8e2532c330a9a4dfd7"
+  },
+  "sources": {
+    "packet": {
+      "path": "evidence/T052/review-packet-v2.json",
+      "sha256": "c7a6e431cabf0dc74b62e67b5b83dd3912d1525a6798fdc4bded8bc5cb8a088c"
+    },
+    "baseline_annotations": {
+      "path": "evidence/T052/review-packet-v2.annotations.final.json",
+      "sha256": "b8ffb53d176e8a49bef7a947c9d0947977da0c63adfb43633d7bc44f91da931f",
+      "relations": 105
+    },
+    "user_adjudication": {
+      "path": "evidence/T052/review-packet-v2.annotations.json",
+      "sha256": "15c8e59232041f0999290f426348e3777d15c3562a76eccf76b454e023a01533",
+      "relations": 111
+    },
+    "accepted_mechanical_corrections": {
+      "path": "evidence/T057/accepted-mechanical-corrections.json",
+      "sha256": "68d8435f08baffda82247d14894454a8f6d08643d866ad418b6740a8d079c779",
+      "source_annotations_sha256": "15c8e59232041f0999290f426348e3777d15c3562a76eccf76b454e023a01533",
+      "corrections": 6,
+      "authority": "T057 acceptance review; mechanical source-span repair only"
+    },
+    "t053_inventory": {
+      "path": "evidence/T053/inventory.json",
+      "sha256": "852bef5430e144ec1a2dfce86a1fe41e567e1fb12ef72b90ad230382eedc26e0"
+    },
+    "t053_audit_packet": {
+      "path": "evidence/T053/audit-packet.json",
+      "sha256": "129d0ec198641cb862f3f6b6e5987d0f1c7e3222cdfa5334e61882e9ef27a4ab"
+    }
+  },
+  "documents": {
+    "guideline": {
+      "path": "docs/annotation-guidelines/2026-09-12-development-supplement-v1.md",
+      "sha256": "83240c006f9101a32ce88d22c5a8e36a7293b38773eca603764e6b4e9bfa4c86"
+    },
+    "scientific_model": {
+      "path": "docs/scientific-model/2026-09-12-development-challenge.md",
+      "sha256": "0fffc751a6fd5ddfeb5713375aa9c7c2b4c1f7850e79df2f68ad5444e8e43b03"
+    }
+  },
+  "outputs": {
+    "eligibility-ledger.json": {
+      "bytes": 150168,
+      "sha256": "77bdc8b767b44204c7511c98c0796368f5208308aa105bef150abed8016486c7"
+    },
+    "strict-exact-pair-development.json": {
+      "bytes": 29652,
+      "sha256": "ba4fc1cd9f50ea07e98b2bb90e6ad34775ed27b92690f3001547921f1f4e6edf"
+    },
+    "diagnostic-development.json": {
+      "bytes": 89357,
+      "sha256": "2c33a9fce5dca50edd55cfd1fb59c2a068ea26a759174e1dcd6e8d26d266bb29"
+    }
+  },
+  "counts": {
+    "cases": 60,
+    "challenge_cases": 20,
+    "relations": 111,
+    "strict_relations": 59,
+    "diagnostic_relations": 16,
+    "unresolved_relations": 36,
+    "metric_eligible_cases": 40
+  },
+  "human_review": {
+    "complete": true,
+    "required_cases": 20,
+    "complete_cases": 20,
+    "remaining_cases": 0,
+    "remaining_items": 0
+  },
+  "limitations": [
+    "assisted development evidence; not independent gold",
+    "diagnostically selected T052 material; no population estimate",
+    "unresolved relations and incomplete cases are outside scored claims",
+    "no relaxed metric is defined by this bundle",
+    "one source-error relation preserves the literal printed text; an intended scientific correction was not inferred"
+  ],
+  "content_sha256": "2ff23efc0913b72a8ca64756dd43eb59481c3cd365ef96515e205d8133890bec"
+}

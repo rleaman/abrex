@@ -1,0 +1,66 @@
+{
+  "schema_version": "t057-mechanical-corrections-v1",
+  "source_annotations_sha256": "15c8e59232041f0999290f426348e3777d15c3562a76eccf76b454e023a01533",
+  "authority": "T057 acceptance review; mechanical source-span repair only",
+  "corrections": [
+    {
+      "correction_id": "trim-hdl1-source-error-long-form",
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "decision_id": "decision-suggestion-09e5ad7e87e8434a",
+      "reason": "Remove trailing source whitespace while retaining the reviewer's source-error flag and literal printed HDL1-PL text.",
+      "expected_long_form": {"start": 281, "end": 283, "text": "2 "},
+      "corrected_long_form": {"start": 281, "end": 282, "text": "2"}
+    },
+    {
+      "correction_id": "complete-hdl1-source-error-shared-evidence",
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "decision_id": "decision-suggestion-09e5ad7e87e8434a",
+      "reason": "Include the complete shared lexical evidence for the discontinuous phospholipid relation rather than only its final two words.",
+      "expected_evidence_spans": [
+        {"start": 250, "end": 264, "text": "HDL subclasses"}
+      ],
+      "corrected_evidence_spans": [
+        {"start": 219, "end": 264, "text": "phospholipids in large buoyant HDL subclasses"}
+      ]
+    },
+    {
+      "correction_id": "swap-hdl4-pl-endpoints",
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "decision_id": "added-0655bb72-246b-46c0-a8be-6fffc0a4094f",
+      "reason": "Repair an evident UI endpoint reversal: the compact parenthetical form is the short form and the descriptive phrase is the long form.",
+      "expected_short_form": {"start": 330, "end": 369, "text": "phospholipids in small dense subclass 4"},
+      "corrected_short_form": {"start": 371, "end": 378, "text": "HDL4-PL"},
+      "expected_long_form": {"start": 371, "end": 378, "text": "HDL4-PL"},
+      "corrected_long_form": {"start": 330, "end": 369, "text": "phospholipids in small dense subclass 4"}
+    },
+    {
+      "correction_id": "deduplicate-d-group-evidence",
+      "case_id": "case-bb7cec40d4228dda23e5",
+      "decision_id": "decision-suggestion-82605f4667733c5a",
+      "reason": "Remove an exact duplicate evidence-fragment selection without changing the selected source evidence.",
+      "expected_evidence_spans": [
+        {"start": 118, "end": 123, "text": "group"},
+        {"start": 118, "end": 123, "text": "group"}
+      ],
+      "corrected_evidence_spans": [
+        {"start": 118, "end": 123, "text": "group"}
+      ]
+    },
+    {
+      "correction_id": "restore-free-cholesterol-initial",
+      "case_id": "case-1a4f2e3443392fdca836",
+      "decision_id": "added-0e2feed1-410d-4488-acd6-6a350e31ff66",
+      "reason": "Extend the selected long-form span one code point left to restore the omitted initial f in free.",
+      "expected_long_form": {"start": 997, "end": 1038, "text": "ree cholesterol content of LDL subclass 5"},
+      "corrected_long_form": {"start": 996, "end": 1038, "text": "free cholesterol content of LDL subclass 5"}
+    },
+    {
+      "correction_id": "complete-hdl4-apoa1-long-form-boundary",
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "decision_id": "added-5a838721-3eb5-4e0f-babe-79c1a82ceb2e",
+      "reason": "Include the contiguous 'small dense' modifiers in the exact long-form fragment; apoA-I remains separate evidence.",
+      "expected_long_form": {"start": 682, "end": 696, "text": "HDL subclass 4"},
+      "corrected_long_form": {"start": 670, "end": 696, "text": "small dense HDL subclass 4"}
+    }
+  ]
+}

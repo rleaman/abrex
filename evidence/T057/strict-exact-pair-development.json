@@ -1,0 +1,1041 @@
+{
+  "schema_version": "t057-development-views-v1",
+  "view_id": "t057-strict-exact-pair-v1",
+  "status": "frozen",
+  "ordinary_metrics_authorized": true,
+  "metric": "exact_pair",
+  "offset_semantics": "half-open Unicode code-point intervals",
+  "prediction_policy": {
+    "in_scope_complete_case": "unmatched predictions count as false positives",
+    "explicit_outside_target": "classify and report outside_strict_target",
+    "incomplete_or_unresolved_case": "do not form ordinary precision/recall denominators"
+  },
+  "cases": [
+    {
+      "case_id": "case-3d2665693fb0be945023",
+      "article_id": "PMC9065107",
+      "article_group_id": "35504930",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "562621060bdec050751be026bb4fecda03a3f78836ed2064174c16c69066f165",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-a1e0d9c4222e8304",
+          "short_form": {
+            "start": 1217,
+            "end": 1221,
+            "text": "TEBs"
+          },
+          "long_form": {
+            "start": 1198,
+            "end": 1215,
+            "text": "terminal end buds"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-912c109badf69739f017",
+      "article_id": "146322",
+      "article_group_id": "146322",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "9018a79e9cdbb3107f57c6f5cdeb8a26cd417b5db40d647bd883f32a4746604b",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-130d2dec38413b28",
+          "short_form": {
+            "start": 54,
+            "end": 57,
+            "text": "DPN"
+          },
+          "long_form": {
+            "start": 33,
+            "end": 52,
+            "text": "dipropylnitrosamine"
+          }
+        },
+        {
+          "decision_id": "added-5b43d54a-bf24-46c7-9e53-555cfe5dbeec",
+          "short_form": {
+            "start": 107,
+            "end": 113,
+            "text": "1-MPPN"
+          },
+          "long_form": {
+            "start": 73,
+            "end": 105,
+            "text": "1-methoxypropylpropylnitrosamine"
+          }
+        },
+        {
+          "decision_id": "added-f5cf9e44-c372-4541-83d7-9c69e3f4fa90",
+          "short_form": {
+            "start": 247,
+            "end": 253,
+            "text": "1-APPN"
+          },
+          "long_form": {
+            "start": 213,
+            "end": 245,
+            "text": "1-acetoxypropylpropylnitrosamine"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-0218e722f61ee55ef7dd",
+      "article_id": "9053487",
+      "article_group_id": "9053487",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "8ae21f1ecce8b2a85f29a5dbdaf1431e100444cc6d38e7c0249fbe7482312ec4",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-a043e55b0534eaf6",
+          "short_form": {
+            "start": 83,
+            "end": 85,
+            "text": "CC"
+          },
+          "long_form": {
+            "start": 55,
+            "end": 81,
+            "text": "cisplatin/cyclophosphamide"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-bfdf10f0bdf5b3b2",
+          "short_form": {
+            "start": 135,
+            "end": 137,
+            "text": "CT"
+          },
+          "long_form": {
+            "start": 113,
+            "end": 133,
+            "text": "cisplatin/paclitaxel"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-07cad09127f682525233",
+      "article_id": "PMC3946689",
+      "article_group_id": "24609084",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "7a4b7fc253ae774510b763f495fecff8f1db25035c0f975f9f1ef75353d88390",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-0b9abee72bbc0026",
+          "short_form": {
+            "start": 392,
+            "end": 395,
+            "text": "EPV"
+          },
+          "long_form": {
+            "start": 371,
+            "end": 390,
+            "text": "events per variable"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-7a11345f02095ae53ae2",
+      "article_id": "28422239",
+      "article_group_id": "28422239",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "8e68a3e3c66745bc51226aeaec0b28d943a7ccb7e1a9220c5f25d0864b84bc90",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-9d4fe4bde5488307",
+          "short_form": {
+            "start": 17,
+            "end": 19,
+            "text": "EO"
+          },
+          "long_form": {
+            "start": 0,
+            "end": 15,
+            "text": "Electro-osmosis"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-81f1722e9805dc56",
+          "short_form": {
+            "start": 297,
+            "end": 299,
+            "text": "MD"
+          },
+          "long_form": {
+            "start": 277,
+            "end": 295,
+            "text": "molecular dynamics"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "article_id": "PMC10968302",
+      "article_group_id": "38539872",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "6a73b4d52fe0bce5fe334f3bf54b1ee1ff6062a7bd12761fae32aef87edeaf3c",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-fd8b76a756264d97",
+          "short_form": {
+            "start": 284,
+            "end": 287,
+            "text": "VIP"
+          },
+          "long_form": {
+            "start": 260,
+            "end": 282,
+            "text": "variable of importance"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-dca419a96f7d31ee",
+          "short_form": {
+            "start": 1244,
+            "end": 1251,
+            "text": "VLDL-PL"
+          },
+          "long_form": {
+            "start": 1215,
+            "end": 1242,
+            "text": "phospholipids in total VLDL"
+          }
+        },
+        {
+          "decision_id": "added-074f96cd-68c1-48c1-9daf-a057add2100b",
+          "short_form": {
+            "start": 767,
+            "end": 774,
+            "text": "LDL5-TG"
+          },
+          "long_form": {
+            "start": 734,
+            "end": 765,
+            "text": "triglycerides in LDL subclass 5"
+          }
+        },
+        {
+          "decision_id": "added-d9a97ba8-d461-4d29-aaa3-c4afafae08c0",
+          "short_form": {
+            "start": 693,
+            "end": 708,
+            "text": "LDL-PL/LDL-apoB"
+          },
+          "long_form": {
+            "start": 658,
+            "end": 691,
+            "text": "phospholipid content of total LDL"
+          }
+        },
+        {
+          "decision_id": "added-1b1d984b-2158-41ab-a0a4-07f7163b52f8",
+          "short_form": {
+            "start": 973,
+            "end": 989,
+            "text": "LDL6-PL/LDL-apoB"
+          },
+          "long_form": {
+            "start": 933,
+            "end": 971,
+            "text": "phospholipid content of LDL subclass 6"
+          }
+        },
+        {
+          "decision_id": "added-0e2feed1-410d-4488-acd6-6a350e31ff66",
+          "short_form": {
+            "start": 1040,
+            "end": 1057,
+            "text": "LDL5-FC/LDL5-apoB"
+          },
+          "long_form": {
+            "start": 996,
+            "end": 1038,
+            "text": "free cholesterol content of LDL subclass 5"
+          }
+        },
+        {
+          "decision_id": "added-28b4484f-ef7e-4999-9f99-844bc96d14ac",
+          "short_form": {
+            "start": 1274,
+            "end": 1282,
+            "text": "VLDL2-PL"
+          },
+          "long_form": {
+            "start": 1257,
+            "end": 1272,
+            "text": "VLDL subclass 2"
+          }
+        },
+        {
+          "decision_id": "added-7ecee9f2-fcd4-43a7-869e-93c873a382fa",
+          "short_form": {
+            "start": 1173,
+            "end": 1189,
+            "text": "VLDL3-C, VLDL4-C"
+          },
+          "long_form": {
+            "start": 1132,
+            "end": 1171,
+            "text": "total cholesterol in subclasses 3 and 4"
+          }
+        },
+        {
+          "decision_id": "added-39186c1d-ad2f-4df5-8022-4da0db6e14e2",
+          "short_form": {
+            "start": 1592,
+            "end": 1607,
+            "text": "LDL-FC/LDL-apoB"
+          },
+          "long_form": {
+            "start": 1553,
+            "end": 1590,
+            "text": "free cholesterol content of total LDL"
+          }
+        },
+        {
+          "decision_id": "added-8ec9c0f0-e6e3-4af8-b78b-7e0cfd765e5a",
+          "short_form": {
+            "start": 1678,
+            "end": 1695,
+            "text": "LDL4-PL/LDL4-apoB"
+          },
+          "long_form": {
+            "start": 1638,
+            "end": 1676,
+            "text": "phospholipid content of LDL subclass 4"
+          }
+        },
+        {
+          "decision_id": "added-8b7057bb-5af4-4646-825c-b3d5758b6062",
+          "short_form": {
+            "start": 1979,
+            "end": 1996,
+            "text": "LDL6-FC/LDL6-apoB"
+          },
+          "long_form": {
+            "start": 1935,
+            "end": 1977,
+            "text": "free cholesterol content of LDL subclass 6"
+          }
+        },
+        {
+          "decision_id": "added-89628d10-50a1-40f6-9fc3-c25a8f028071",
+          "short_form": {
+            "start": 2055,
+            "end": 2069,
+            "text": "IDL-C/IDL-apoB"
+          },
+          "long_form": {
+            "start": 2027,
+            "end": 2053,
+            "text": "cholesterol content of IDL"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-862b4f1d66a83473d434",
+      "article_id": "PMC10949095",
+      "article_group_id": "38497964",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "9496dec489de51b4c42019fbe24473e34126db3bc16bc698ce0980ca7763e138",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-da3fc4c1933f0b83",
+          "short_form": {
+            "start": 91,
+            "end": 95,
+            "text": "ITCs"
+          },
+          "long_form": {
+            "start": 69,
+            "end": 89,
+            "text": "isolated tumor cells"
+          }
+        },
+        {
+          "decision_id": "added-85ed4cb9-a012-408b-a28f-99f7a5c3044b",
+          "short_form": {
+            "start": 120,
+            "end": 123,
+            "text": "ATX"
+          },
+          "long_form": {
+            "start": 102,
+            "end": 118,
+            "text": "adjuvant therapy"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-5d7512d1d17f9f486465",
+      "article_id": "PMC5803248",
+      "article_group_id": "29416077",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "3945c5d871cd3666a01bfdbd87656a3727c3d34debbbe91c4e532ad358362eaf",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-32b9a5eb52d9eefa",
+          "short_form": {
+            "start": 520,
+            "end": 524,
+            "text": "MHRR"
+          },
+          "long_form": {
+            "start": 497,
+            "end": 518,
+            "text": "mean heart rate range"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-bb7cec40d4228dda23e5",
+      "article_id": "6696891",
+      "article_group_id": "6696891",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "70c301f288914618f8585da4a4e5a9ed53ed17bf78318005d2680d1e91123ae5",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": []
+    },
+    {
+      "case_id": "case-06c9ebb850190d98a90b",
+      "article_id": "9883490",
+      "article_group_id": "9883490",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "1a7c39f9cfe6fba574af90861dd9d9c26dc55c49ef316a700911b55bd481d30d",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-9ef7cbf691b1205a",
+          "short_form": {
+            "start": 235,
+            "end": 238,
+            "text": "LDF"
+          },
+          "long_form": {
+            "start": 210,
+            "end": 233,
+            "text": "laser-Doppler flowmetry"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-474f458c08d3bd7a9bf8",
+      "article_id": "22486652",
+      "article_group_id": "22486652",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "ea04b4acaa77380a35a05d3a6d73235f96f0ac8a18cd2d2ad111e22054197ed6",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-2f918f93bc576471",
+          "short_form": {
+            "start": 43,
+            "end": 48,
+            "text": "GPCRs"
+          },
+          "long_form": {
+            "start": 14,
+            "end": 41,
+            "text": "G protein-coupled receptors"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-e138a40e3d063657",
+          "short_form": {
+            "start": 453,
+            "end": 455,
+            "text": "AR"
+          },
+          "long_form": {
+            "start": 433,
+            "end": 451,
+            "text": "adenosine receptor"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-018860b0c1232ddf7807",
+      "article_id": "PMC12615415",
+      "article_group_id": "41244649",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "c4a56643842b7df418859171410f8a7aad51440a90872c8de49a87b32cf98c01",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-d411bd1f6f0f06a1",
+          "short_form": {
+            "start": 135,
+            "end": 138,
+            "text": "DLR"
+          },
+          "long_form": {
+            "start": 99,
+            "end": 133,
+            "text": "deep learning image reconstruction"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-296dcd1ac7e4223c",
+          "short_form": {
+            "start": 208,
+            "end": 211,
+            "text": "EPE"
+          },
+          "long_form": {
+            "start": 182,
+            "end": 206,
+            "text": "extraprostatic extension"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-618e2914c16d9901",
+          "short_form": {
+            "start": 257,
+            "end": 262,
+            "text": "mpMRI"
+          },
+          "long_form": {
+            "start": 236,
+            "end": 255,
+            "text": "multiparametric MRI"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-32365482fc50160a",
+          "short_form": {
+            "start": 512,
+            "end": 519,
+            "text": "PI-RADS"
+          },
+          "long_form": {
+            "start": 468,
+            "end": 510,
+            "text": "Prostate Imaging Reporting and Data System"
+          }
+        },
+        {
+          "decision_id": "added-737fd2b3-0996-4859-89a8-4cbae28bee7b",
+          "short_form": {
+            "start": 79,
+            "end": 83,
+            "text": "T2HR"
+          },
+          "long_form": {
+            "start": 42,
+            "end": 77,
+            "text": "high-resolution T2-weighted imaging"
+          }
+        },
+        {
+          "decision_id": "added-b8132786-6385-436c-8ce0-8e64656cf484",
+          "short_form": {
+            "start": 637,
+            "end": 640,
+            "text": "T2S"
+          },
+          "long_form": {
+            "start": 624,
+            "end": 635,
+            "text": "standard T2"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-a9bc2d5ecf86d8e58778",
+      "article_id": "PMC10968302",
+      "article_group_id": "38539872",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "f000d84193c2ebbba60f5ec5a2ee1cab90ddd1b695485398bc5df2b0d9f7070f",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-d9bad32473cd3d6c",
+          "short_form": {
+            "start": 75,
+            "end": 80,
+            "text": "AOPPs"
+          },
+          "long_form": {
+            "start": 38,
+            "end": 73,
+            "text": "advanced oxidation protein products"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-336c2969b95dd8d4",
+          "short_form": {
+            "start": 828,
+            "end": 831,
+            "text": "T2D"
+          },
+          "long_form": {
+            "start": 811,
+            "end": 826,
+            "text": "type 2 diabetes"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-db19bb24ba48ff26",
+          "short_form": {
+            "start": 1430,
+            "end": 1433,
+            "text": "HDL"
+          },
+          "long_form": {
+            "start": 1404,
+            "end": 1428,
+            "text": "high-density lipoprotein"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-c940824221d306518316",
+      "article_id": "PMC12436430",
+      "article_group_id": "40963576",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "9f1e156be1500a94ec047aca1b5c1cc3c167b359ace8fe6e44113fee757b2a89",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-506eaae8f4ca6525",
+          "short_form": {
+            "start": 201,
+            "end": 205,
+            "text": "RCTs"
+          },
+          "long_form": {
+            "start": 171,
+            "end": 199,
+            "text": "randomized controlled trials"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-89e10d2f153f54c7",
+          "short_form": {
+            "start": 830,
+            "end": 834,
+            "text": "TAPB"
+          },
+          "long_form": {
+            "start": 795,
+            "end": 828,
+            "text": "transversus abdominis plane block"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-255e577d931ae0ab",
+          "short_form": {
+            "start": 866,
+            "end": 869,
+            "text": "QLB"
+          },
+          "long_form": {
+            "start": 840,
+            "end": 864,
+            "text": "quadratus lumborum block"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "article_id": "PMC10968302",
+      "article_group_id": "38539872",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "4360cd5631e1b262e37b8e569c8d59e9c25790899fac206a77086434f4cd4df1",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-7d1d3fb29d59c32c",
+          "short_form": {
+            "start": 644,
+            "end": 654,
+            "text": "HDL-apoA-I"
+          },
+          "long_form": {
+            "start": 619,
+            "end": 642,
+            "text": "apoA-I in the total HDL"
+          }
+        },
+        {
+          "decision_id": "added-b9f8650f-a2b3-4fba-ad31-88c09b33a7f3",
+          "short_form": {
+            "start": 137,
+            "end": 143,
+            "text": "HDL-PL"
+          },
+          "long_form": {
+            "start": 105,
+            "end": 135,
+            "text": "phospholipids in the total HDL"
+          }
+        },
+        {
+          "decision_id": "added-11d0b66e-8b2a-44dc-9bd9-5792424c7954",
+          "short_form": {
+            "start": 268,
+            "end": 275,
+            "text": "HDL1-PL"
+          },
+          "long_form": {
+            "start": 250,
+            "end": 266,
+            "text": "HDL subclasses 1"
+          }
+        },
+        {
+          "decision_id": "added-0655bb72-246b-46c0-a8be-6fffc0a4094f",
+          "short_form": {
+            "start": 371,
+            "end": 378,
+            "text": "HDL4-PL"
+          },
+          "long_form": {
+            "start": 330,
+            "end": 369,
+            "text": "phospholipids in small dense subclass 4"
+          }
+        },
+        {
+          "decision_id": "added-3b5be43b-2499-4280-af17-9a68d6eb8072",
+          "short_form": {
+            "start": 545,
+            "end": 556,
+            "text": "HDL1-apoA-I"
+          },
+          "long_form": {
+            "start": 503,
+            "end": 543,
+            "text": "apoA-I in large buoyant HDL subclasses 1"
+          }
+        },
+        {
+          "decision_id": "added-5d1dd695-6aed-4ea1-97fc-012cb1a097ac",
+          "short_form": {
+            "start": 999,
+            "end": 1011,
+            "text": "HDL1-apoA-II"
+          },
+          "long_form": {
+            "start": 958,
+            "end": 997,
+            "text": "apoA-II in large buoyant HDL subclass 1"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-88bfa500a152f2d3fd89",
+      "article_id": "PMC10949095",
+      "article_group_id": "38497964",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "6db83cbdca925e273bb8345bf87cfc072d855ab7baae0e73d1dd5f0b5876c633",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-9df638acb2234b1c",
+          "short_form": {
+            "start": 67,
+            "end": 71,
+            "text": "NCDB"
+          },
+          "long_form": {
+            "start": 41,
+            "end": 65,
+            "text": "National Cancer Database"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-738d78f7cde63912",
+          "short_form": {
+            "start": 190,
+            "end": 193,
+            "text": "CoC"
+          },
+          "long_form": {
+            "start": 168,
+            "end": 188,
+            "text": "Commission on Cancer"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-01093ee56473176a",
+          "short_form": {
+            "start": 818,
+            "end": 824,
+            "text": "STROBE"
+          },
+          "long_form": {
+            "start": 748,
+            "end": 816,
+            "text": "Strengthening the Reporting of Observational Studies in Epidemiology"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-831590c598e0d001beba",
+      "article_id": "PMC8752015",
+      "article_group_id": "35015796",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "bf367c0f786a046edf56e7930a91bc675574f8e62299ec6c72c24b3cca64279f",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-a3eba3ee42ca1bc6",
+          "short_form": {
+            "start": 1906,
+            "end": 1908,
+            "text": "RE"
+          },
+          "long_form": {
+            "start": 1893,
+            "end": 1904,
+            "text": "red nucleus"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-c066a2d874b0ea1e",
+          "short_form": {
+            "start": 2000,
+            "end": 2002,
+            "text": "RA"
+          },
+          "long_form": {
+            "start": 1985,
+            "end": 1998,
+            "text": "raphe nucleus"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-55e7c4402567371b",
+          "short_form": {
+            "start": 2033,
+            "end": 2035,
+            "text": "GE"
+          },
+          "long_form": {
+            "start": 2013,
+            "end": 2031,
+            "text": "geniculate nucleus"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-10e5ff23b6292653",
+          "short_form": {
+            "start": 2113,
+            "end": 2115,
+            "text": "AM"
+          },
+          "long_form": {
+            "start": 2103,
+            "end": 2111,
+            "text": "amygdala"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-487525f65cf2764a",
+          "short_form": {
+            "start": 2217,
+            "end": 2219,
+            "text": "AD"
+          },
+          "long_form": {
+            "start": 2200,
+            "end": 2215,
+            "text": "adrenal medulla"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-a4f0269c887455a5",
+          "short_form": {
+            "start": 2242,
+            "end": 2244,
+            "text": "AP"
+          },
+          "long_form": {
+            "start": 2222,
+            "end": 2240,
+            "text": "anterior pituitary"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-6fa36826dca1ecde",
+          "short_form": {
+            "start": 2266,
+            "end": 2268,
+            "text": "KI"
+          },
+          "long_form": {
+            "start": 2247,
+            "end": 2264,
+            "text": "kidney Henle loop"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-6ec56bf9a51ccf29",
+          "short_form": {
+            "start": 2294,
+            "end": 2296,
+            "text": "TH"
+          },
+          "long_form": {
+            "start": 2275,
+            "end": 2292,
+            "text": "thyroid follicles"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-070773a12d676907498f",
+      "article_id": "PMC8752015",
+      "article_group_id": "35015796",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "594be255cea8713ad30883b7320ff5f635d1e1ad091a1144c7f9f4efd690433d",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-bb1389d4ad8def7e",
+          "short_form": {
+            "start": 694,
+            "end": 697,
+            "text": "CNS"
+          },
+          "long_form": {
+            "start": 670,
+            "end": 692,
+            "text": "central nervous system"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "case-0f8bfd4e615558df24ef",
+      "article_id": "PMC8752015",
+      "article_group_id": "35015796",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "a1af3673375bef7293ce87dc7bdb1a087b5eab9cf30c2c84586f039ac3d3b260",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": []
+    },
+    {
+      "case_id": "case-9a27b1aac754c541ca57",
+      "article_id": "PMC11434519",
+      "article_group_id": "39337794",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "9e2e7ea54796882f6c5bd936862e02c0af3e6a519f7254802bbe642893fd4398",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "exact_pairs": [
+        {
+          "decision_id": "decision-suggestion-9726cd2acde9ea76",
+          "short_form": {
+            "start": 370,
+            "end": 373,
+            "text": "vdW"
+          },
+          "long_form": {
+            "start": 355,
+            "end": 368,
+            "text": "van der Waals"
+          }
+        },
+        {
+          "decision_id": "decision-suggestion-4abe204404cdedc2",
+          "short_form": {
+            "start": 800,
+            "end": 804,
+            "text": "CNTs"
+          },
+          "long_form": {
+            "start": 782,
+            "end": 798,
+            "text": "carbon nanotubes"
+          }
+        }
+      ]
+    }
+  ],
+  "content_sha256": "2cbe5b3cf614ff32112ede77db3ddcc2dcef41f661c047a6523c33a4c671516c"
+}

@@ -1,0 +1,4141 @@
+{
+  "schema_version": "t057-development-views-v1",
+  "policy_id": "t057-strict-exact-pair-v1",
+  "cases": [
+    {
+      "case_id": "case-3d2665693fb0be945023",
+      "article_id": "PMC9065107",
+      "article_group_id": "35504930",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "562621060bdec050751be026bb4fecda03a3f78836ed2064174c16c69066f165",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-3d2665693fb0be945023",
+          "decision_id": "decision-suggestion-a1e0d9c4222e8304",
+          "suggestion_id": "suggestion-a1e0d9c4222e8304",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 1217,
+            "end": 1221,
+            "text": "TEBs"
+          },
+          "long_form": {
+            "start": 1198,
+            "end": 1215,
+            "text": "terminal end buds"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "3d62c9751e1a8f724ae9a0519354ceb9a15c817d89ecfac73923d90bf1f33a32",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-912c109badf69739f017",
+      "article_id": "146322",
+      "article_group_id": "146322",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "9018a79e9cdbb3107f57c6f5cdeb8a26cd417b5db40d647bd883f32a4746604b",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 3,
+      "relations": [
+        {
+          "case_id": "case-912c109badf69739f017",
+          "decision_id": "decision-suggestion-130d2dec38413b28",
+          "suggestion_id": "suggestion-130d2dec38413b28",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 54,
+            "end": 57,
+            "text": "DPN"
+          },
+          "long_form": {
+            "start": 33,
+            "end": 52,
+            "text": "dipropylnitrosamine"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "73e013617f0a5782dbf88552fdf571e9434630989277feb53bb90229f3ca604a",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-912c109badf69739f017",
+          "decision_id": "added-5b43d54a-bf24-46c7-9e53-555cfe5dbeec",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 107,
+            "end": 113,
+            "text": "1-MPPN"
+          },
+          "long_form": {
+            "start": 73,
+            "end": 105,
+            "text": "1-methoxypropylpropylnitrosamine"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "69c891c2b7213ea14080def62de2cdc6f67434ffcce3d1576197a22d85eed216",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-912c109badf69739f017",
+          "decision_id": "added-f5cf9e44-c372-4541-83d7-9c69e3f4fa90",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 247,
+            "end": 253,
+            "text": "1-APPN"
+          },
+          "long_form": {
+            "start": 213,
+            "end": 245,
+            "text": "1-acetoxypropylpropylnitrosamine"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "f2618a4c33896d1da4b37ef02fe7e00b3f31ba69567a92ba79931c0b7f5ffff6",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-96f768174731f35a4d08",
+      "article_id": "PMC10968302",
+      "article_group_id": "38539872",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "f538738c4e991d0510865c68965a5d832dfd42a77148fea2d070b557e87a48ee",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-96f768174731f35a4d08",
+          "decision_id": "decision-suggestion-ab0468fd1a4779ac",
+          "suggestion_id": "suggestion-ab0468fd1a4779ac",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 61,
+            "end": 66,
+            "text": "AOPPs"
+          },
+          "long_form": {
+            "start": 24,
+            "end": 59,
+            "text": "advanced oxidation protein products"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "77deb7e635761791ceb4c2912e6d6bcc8a745e84076ac585c711a407a0b1e6a9",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-96f768174731f35a4d08",
+          "decision_id": "decision-suggestion-8ffa05b17254d969",
+          "suggestion_id": "suggestion-8ffa05b17254d969",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 317,
+            "end": 320,
+            "text": "HVs"
+          },
+          "long_form": {
+            "start": 297,
+            "end": 315,
+            "text": "healthy volunteers"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "45134090f20fb7fae3ffcd38866193d8dcfb716d6dd8f67f312a60e2fbb9782d",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-96f768174731f35a4d08",
+          "decision_id": "decision-suggestion-09d1a46be486f00e",
+          "suggestion_id": "suggestion-09d1a46be486f00e",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 360,
+            "end": 362,
+            "text": "MS"
+          },
+          "long_form": {
+            "start": 340,
+            "end": 358,
+            "text": "metabolic syndrome"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "a540634a35b0ce869925b7af5f8b6d2bf7b14e8388a62c153fae3a7169c86038",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-96f768174731f35a4d08",
+          "decision_id": "decision-suggestion-cbb012ff71db6ddc",
+          "suggestion_id": "suggestion-cbb012ff71db6ddc",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 487,
+            "end": 491,
+            "text": "VLDL"
+          },
+          "long_form": {
+            "start": 457,
+            "end": 485,
+            "text": "very-low-density lipoprotein"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "95cb6dfb34da33074b81b5f00314b073a3cc2e9a271282e937045e96a9cbccc4",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-96f768174731f35a4d08",
+          "decision_id": "decision-suggestion-f2b5a8c57c6727ba",
+          "suggestion_id": "suggestion-f2b5a8c57c6727ba",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 528,
+            "end": 531,
+            "text": "IDL"
+          },
+          "long_form": {
+            "start": 494,
+            "end": 526,
+            "text": "intermediate-density lipoprotein"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "13d53965b94d0b8adc1b713eabec67de57e66a04c65d0a7858a1270494d86dc7",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-96f768174731f35a4d08",
+          "decision_id": "decision-suggestion-bedc1919f9d244da",
+          "suggestion_id": "suggestion-bedc1919f9d244da",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 563,
+            "end": 566,
+            "text": "LDL"
+          },
+          "long_form": {
+            "start": 538,
+            "end": 561,
+            "text": "low-density lipoprotein"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "8faa98f9dcc1f0117f2394b1bec5b41753977d99b64e087a02f14d9ba7a33293",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-96f768174731f35a4d08",
+          "decision_id": "decision-suggestion-dc71651f9b4fcf10",
+          "suggestion_id": "suggestion-dc71651f9b4fcf10",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 655,
+            "end": 658,
+            "text": "HDL"
+          },
+          "long_form": {
+            "start": 629,
+            "end": 653,
+            "text": "high-density lipoprotein"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "8b10cf6037552e9c0672bc1f27856f6e116b36b3a53d2f713dcf1488aa77b718",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-0218e722f61ee55ef7dd",
+      "article_id": "9053487",
+      "article_group_id": "9053487",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "8ae21f1ecce8b2a85f29a5dbdaf1431e100444cc6d38e7c0249fbe7482312ec4",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 3,
+      "relations": [
+        {
+          "case_id": "case-0218e722f61ee55ef7dd",
+          "decision_id": "decision-suggestion-a043e55b0534eaf6",
+          "suggestion_id": "suggestion-a043e55b0534eaf6",
+          "status": "correct",
+          "origin": "corrected",
+          "short_form": {
+            "start": 83,
+            "end": 85,
+            "text": "CC"
+          },
+          "long_form": {
+            "start": 55,
+            "end": 81,
+            "text": "cisplatin/cyclophosphamide"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "7da69adc36c77505f397e32dcb8210ec7f537ac21bd812058c38aa392add9365",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-0218e722f61ee55ef7dd",
+          "decision_id": "decision-suggestion-bfdf10f0bdf5b3b2",
+          "suggestion_id": "suggestion-bfdf10f0bdf5b3b2",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 135,
+            "end": 137,
+            "text": "CT"
+          },
+          "long_form": {
+            "start": 113,
+            "end": 133,
+            "text": "cisplatin/paclitaxel"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "Taxol is the brand name for paclitaxel. So CT is an abbreviation for \"cisplatin/Taxol\" but that's not how it's defined in the manuscript.\nNote need for background knowledge",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "a73fc500b224392a01dc94ea23624cf6b22f52c8f82997ff6b4ec650c4ec9ebe",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-07cad09127f682525233",
+      "article_id": "PMC3946689",
+      "article_group_id": "24609084",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "7a4b7fc253ae774510b763f495fecff8f1db25035c0f975f9f1ef75353d88390",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-07cad09127f682525233",
+          "decision_id": "decision-suggestion-0b9abee72bbc0026",
+          "suggestion_id": "suggestion-0b9abee72bbc0026",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 392,
+            "end": 395,
+            "text": "EPV"
+          },
+          "long_form": {
+            "start": 371,
+            "end": 390,
+            "text": "events per variable"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "6920ddcf2644aaffe8ff3b5443582a21060ed880375f30db9fb150a27232b27e",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-7a11345f02095ae53ae2",
+      "article_id": "28422239",
+      "article_group_id": "28422239",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "8e68a3e3c66745bc51226aeaec0b28d943a7ccb7e1a9220c5f25d0864b84bc90",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-7a11345f02095ae53ae2",
+          "decision_id": "decision-suggestion-9d4fe4bde5488307",
+          "suggestion_id": "suggestion-9d4fe4bde5488307",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 17,
+            "end": 19,
+            "text": "EO"
+          },
+          "long_form": {
+            "start": 0,
+            "end": 15,
+            "text": "Electro-osmosis"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "0806f7f69fae1a2af6fa2133daa0b4e2faf4faaf447fa0ed66a5d94fbca4e780",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-7a11345f02095ae53ae2",
+          "decision_id": "decision-suggestion-81f1722e9805dc56",
+          "suggestion_id": "suggestion-81f1722e9805dc56",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 297,
+            "end": 299,
+            "text": "MD"
+          },
+          "long_form": {
+            "start": 277,
+            "end": 295,
+            "text": "molecular dynamics"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "fe21c8b01c78ec8f1f4d3ce514b7896051e17366aea5f5f7e34c2526075b53f2",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "article_id": "PMC10968302",
+      "article_group_id": "38539872",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "6a73b4d52fe0bce5fe334f3bf54b1ee1ff6062a7bd12761fae32aef87edeaf3c",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 3,
+      "relations": [
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "decision-suggestion-fd8b76a756264d97",
+          "suggestion_id": "suggestion-fd8b76a756264d97",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 284,
+            "end": 287,
+            "text": "VIP"
+          },
+          "long_form": {
+            "start": 260,
+            "end": 282,
+            "text": "variable of importance"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "c61072e6e763c00903fb8d30b363b7856d51c160a729be0a68a12c18c3b9256a",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "decision-suggestion-dca419a96f7d31ee",
+          "suggestion_id": "suggestion-dca419a96f7d31ee",
+          "status": "correct",
+          "origin": "corrected",
+          "short_form": {
+            "start": 1244,
+            "end": 1251,
+            "text": "VLDL-PL"
+          },
+          "long_form": {
+            "start": 1215,
+            "end": 1242,
+            "text": "phospholipids in total VLDL"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "90335d13c244f829b27a3d4a167cf666537af831e62a975e9df4d4b22dc8bf23",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-074f96cd-68c1-48c1-9daf-a057add2100b",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 767,
+            "end": 774,
+            "text": "LDL5-TG"
+          },
+          "long_form": {
+            "start": 734,
+            "end": 765,
+            "text": "triglycerides in LDL subclass 5"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "fd719ffe2634a30da0879b7497b0c056bb9d9c2b8e9d6cde1bb9a31a73b34a0a",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-d9a97ba8-d461-4d29-aaa3-c4afafae08c0",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 693,
+            "end": 708,
+            "text": "LDL-PL/LDL-apoB"
+          },
+          "long_form": {
+            "start": 658,
+            "end": 691,
+            "text": "phospholipid content of total LDL"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "99342f6a8eb0c4bc7cae891865f04f7714cf3173be410f0e9e9200bf8375ffc9",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-1b1d984b-2158-41ab-a0a4-07f7163b52f8",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 973,
+            "end": 989,
+            "text": "LDL6-PL/LDL-apoB"
+          },
+          "long_form": {
+            "start": 933,
+            "end": 971,
+            "text": "phospholipid content of LDL subclass 6"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "3c71aeb20bddc6d4a3fc54532c2f342f10629924d09081ad5f7751199b6ec673",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-0e2feed1-410d-4488-acd6-6a350e31ff66",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 1040,
+            "end": 1057,
+            "text": "LDL5-FC/LDL5-apoB"
+          },
+          "long_form": {
+            "start": 996,
+            "end": 1038,
+            "text": "free cholesterol content of LDL subclass 5"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "21be623b24835af440fff3bc716a34d99ea8e327a152a4a4d9b8eb28e97d09bc",
+          "mechanical_corrections": [
+            {
+              "correction_id": "restore-free-cholesterol-initial",
+              "reason": "Extend the selected long-form span one code point left to restore the omitted initial f in free."
+            }
+          ]
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-28b4484f-ef7e-4999-9f99-844bc96d14ac",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 1274,
+            "end": 1282,
+            "text": "VLDL2-PL"
+          },
+          "long_form": {
+            "start": 1257,
+            "end": 1272,
+            "text": "VLDL subclass 2"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "554d08874bc780f2a5c33a2c5746bfc635ccaf2dea71b70b5e8841f24016a302",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-7ecee9f2-fcd4-43a7-869e-93c873a382fa",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 1173,
+            "end": 1189,
+            "text": "VLDL3-C, VLDL4-C"
+          },
+          "long_form": {
+            "start": 1132,
+            "end": 1171,
+            "text": "total cholesterol in subclasses 3 and 4"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "af6db55bd15896f18a9e150c391e7073f35ed9ed137a572b8df556647883d149",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-39186c1d-ad2f-4df5-8022-4da0db6e14e2",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 1592,
+            "end": 1607,
+            "text": "LDL-FC/LDL-apoB"
+          },
+          "long_form": {
+            "start": 1553,
+            "end": 1590,
+            "text": "free cholesterol content of total LDL"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "01362eee7cd5073272395d452a997adffe2e89a6e409e172ffcb0b94c80f4898",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-8ec9c0f0-e6e3-4af8-b78b-7e0cfd765e5a",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 1678,
+            "end": 1695,
+            "text": "LDL4-PL/LDL4-apoB"
+          },
+          "long_form": {
+            "start": 1638,
+            "end": 1676,
+            "text": "phospholipid content of LDL subclass 4"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "ef2972fafbd88d72534146769986db46ce5bf32f86606b468657fa966efd668c",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-8b7057bb-5af4-4646-825c-b3d5758b6062",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 1979,
+            "end": 1996,
+            "text": "LDL6-FC/LDL6-apoB"
+          },
+          "long_form": {
+            "start": 1935,
+            "end": 1977,
+            "text": "free cholesterol content of LDL subclass 6"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "3f1ea60c7100eb5755e07bb28602fe5a30b7773fc48dcc85516147e0ae5559d0",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-1a4f2e3443392fdca836",
+          "decision_id": "added-89628d10-50a1-40f6-9fc3-c25a8f028071",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 2055,
+            "end": 2069,
+            "text": "IDL-C/IDL-apoB"
+          },
+          "long_form": {
+            "start": 2027,
+            "end": 2053,
+            "text": "cholesterol content of IDL"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "9bd8558f7af39f59d0c70d0950f281754b9eeb1a3350e81aea98656aa3672802",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-30552e3046615ec9369f",
+      "article_id": "37451270",
+      "article_group_id": "37451270",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "192ab798dddfcc0f83085a3f0d4eda4d7acd0133e9237eca81093d90ec09eb33",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-30552e3046615ec9369f",
+          "decision_id": "decision-suggestion-bf1f5061e83d330c",
+          "suggestion_id": "suggestion-bf1f5061e83d330c",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 70,
+            "end": 74,
+            "text": "DSPN"
+          },
+          "long_form": {
+            "start": 37,
+            "end": 68,
+            "text": "distal symmetric polyneuropathy"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "1ebcaa1239f25721c7658da719d9fb51c4e2a9e2319d302fcb487ff9b18ec1fb",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-30552e3046615ec9369f",
+          "decision_id": "decision-suggestion-6a2d26361b7cfffe",
+          "suggestion_id": "suggestion-6a2d26361b7cfffe",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 133,
+            "end": 135,
+            "text": "DM"
+          },
+          "long_form": {
+            "start": 114,
+            "end": 131,
+            "text": "diabetes mellitus"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "0a509fac43a9ef3fbce73f559247ea552d34c1bf8e28533e956abcbdc703cce9",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-30552e3046615ec9369f",
+          "decision_id": "decision-suggestion-78c2ac44c5bc993b",
+          "suggestion_id": "suggestion-78c2ac44c5bc993b",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 672,
+            "end": 676,
+            "text": "TCSS"
+          },
+          "long_form": {
+            "start": 639,
+            "end": 670,
+            "text": "Toronto Clinical Scoring System"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "cb6874f9011535fe19b2681f174ca07b097663ed689c13683c198e3a2a639349",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-862b4f1d66a83473d434",
+      "article_id": "PMC10949095",
+      "article_group_id": "38497964",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "9496dec489de51b4c42019fbe24473e34126db3bc16bc698ce0980ca7763e138",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-862b4f1d66a83473d434",
+          "decision_id": "decision-suggestion-da3fc4c1933f0b83",
+          "suggestion_id": "suggestion-da3fc4c1933f0b83",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 91,
+            "end": 95,
+            "text": "ITCs"
+          },
+          "long_form": {
+            "start": 69,
+            "end": 89,
+            "text": "isolated tumor cells"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "7c0e482a499b899d5179e540c73be09525a615aa04f921d8b6c76483050dc3ce",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-862b4f1d66a83473d434",
+          "decision_id": "added-85ed4cb9-a012-408b-a28f-99f7a5c3044b",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 120,
+            "end": 123,
+            "text": "ATX"
+          },
+          "long_form": {
+            "start": 102,
+            "end": 118,
+            "text": "adjuvant therapy"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "99a422093bee0835a8adbb4e3934b2acb5f48cee9d358b3a1521eddc17f08a90",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-698d1f9de9f96c239666",
+      "article_id": "34920815",
+      "article_group_id": "34920815",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "9d61ba99fb0e529ed0ec2776f271497ae8e6f7f3fdb16349252cba395cbd12b0",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-698d1f9de9f96c239666",
+          "decision_id": "decision-suggestion-a04c1c985b12693e",
+          "suggestion_id": "suggestion-a04c1c985b12693e",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 35,
+            "end": 38,
+            "text": "FCS"
+          },
+          "long_form": {
+            "start": 0,
+            "end": 33,
+            "text": "Familial chylomicronemia syndrome"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "bac049e15b98f25b571e6ae08e34d5b13e8ec0292c47cc5a679b2b4972c0ec46",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-5d7512d1d17f9f486465",
+      "article_id": "PMC5803248",
+      "article_group_id": "29416077",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "3945c5d871cd3666a01bfdbd87656a3727c3d34debbbe91c4e532ad358362eaf",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-5d7512d1d17f9f486465",
+          "decision_id": "decision-suggestion-32b9a5eb52d9eefa",
+          "suggestion_id": "suggestion-32b9a5eb52d9eefa",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 520,
+            "end": 524,
+            "text": "MHRR"
+          },
+          "long_form": {
+            "start": 497,
+            "end": 518,
+            "text": "mean heart rate range"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "b3085e6c644a2f9bc564219e25d77bd9861fb30a55b114ee139b3a7d877008a7",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-8a840747615710c693db",
+      "article_id": "30732829",
+      "article_group_id": "30732829",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "f80f7e2c2157b67785c7d4dbc4376ea097fa4b320732ecad0e637b604b96b877",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-8a840747615710c693db",
+          "decision_id": "decision-suggestion-e6430af3369d703d",
+          "suggestion_id": "suggestion-e6430af3369d703d",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 55,
+            "end": 59,
+            "text": "CHWs"
+          },
+          "long_form": {
+            "start": 38,
+            "end": 53,
+            "text": "chitin whiskers"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "647c7e5aa1055c334174e73e264b8b2a336312c69952e45e4c36474508050e2c",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-8a840747615710c693db",
+          "decision_id": "added-63425868-a978-4e40-ae6e-ecf17eb1ed3d",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 736,
+            "end": 738,
+            "text": "G'"
+          },
+          "long_form": {
+            "start": 719,
+            "end": 734,
+            "text": "elastic modulus"
+          },
+          "relation_kind": "other_naming_or_code_relation",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "outside_strict_target",
+          "source_decision_sha256": "5aae35f14e752a4346b447f54257e3a152134857fa17667bf81888da1a66102c",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-8a840747615710c693db",
+          "decision_id": "added-28b203e3-ee0d-4d69-9a1c-9ed28af77f4f",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 761,
+            "end": 763,
+            "text": "G\""
+          },
+          "long_form": {
+            "start": 744,
+            "end": 759,
+            "text": "viscous modulus"
+          },
+          "relation_kind": "other_naming_or_code_relation",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "outside_strict_target",
+          "source_decision_sha256": "aa1e0a19184e15f94042c6ab992d60d9a51a5584ae283d3624ae0f1041b24596",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-2594a3ea94a3f6dfa03a",
+      "article_id": "PMC9065107",
+      "article_group_id": "35504930",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "8112f6e15699355a957d343591375ff96f8977dbbd9e92d7b6d44051aa4da03b",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-2594a3ea94a3f6dfa03a",
+          "decision_id": "decision-suggestion-f0ec085b6f3acc03",
+          "suggestion_id": "suggestion-f0ec085b6f3acc03",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 847,
+            "end": 851,
+            "text": "TEBs"
+          },
+          "long_form": {
+            "start": 828,
+            "end": 845,
+            "text": "terminal end buds"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "5aabc6d5d42115ecb2641e357ff6ece0a3bd20418c3ad499e7662d3cfe254df0",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-bb7cec40d4228dda23e5",
+      "article_id": "6696891",
+      "article_group_id": "6696891",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "70c301f288914618f8585da4a4e5a9ed53ed17bf78318005d2680d1e91123ae5",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-bb7cec40d4228dda23e5",
+          "decision_id": "decision-suggestion-82605f4667733c5a",
+          "suggestion_id": "suggestion-82605f4667733c5a",
+          "status": "correct",
+          "origin": "corrected",
+          "short_form": {
+            "start": 156,
+            "end": 163,
+            "text": "D-group"
+          },
+          "long_form": {
+            "start": 142,
+            "end": 154,
+            "text": "decapitation"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "discontinuous",
+          "context_requirement": "text_alone",
+          "evidence_spans": [
+            {
+              "start": 118,
+              "end": 123,
+              "text": "group"
+            }
+          ],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "not_representable_as_exact_pair",
+          "source_decision_sha256": "84a4bc0428a057957915ddabfa75489e8f40a7c7f0239f43b8c9e496b35ac5b1",
+          "mechanical_corrections": [
+            {
+              "correction_id": "deduplicate-d-group-evidence",
+              "reason": "Remove an exact duplicate evidence-fragment selection without changing the selected source evidence."
+            }
+          ]
+        },
+        {
+          "case_id": "case-bb7cec40d4228dda23e5",
+          "decision_id": "added-1f44ab2e-7246-4eb4-aaf9-ac7b08ce1f0d",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 295,
+            "end": 302,
+            "text": "N-group"
+          },
+          "long_form": {
+            "start": 327,
+            "end": 335,
+            "text": "nembutal"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "discontinuous",
+          "context_requirement": "text_alone",
+          "evidence_spans": [
+            {
+              "start": 288,
+              "end": 293,
+              "text": "group"
+            }
+          ],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "not_representable_as_exact_pair",
+          "source_decision_sha256": "4a21da57bf320d41a1d82ca8ed618b914265187e6e424c6fc2d7d78f18fa8ad1",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-bb7cec40d4228dda23e5",
+          "decision_id": "added-cab455a9-a828-4f76-9910-00e78a70a4cb",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 395,
+            "end": 402,
+            "text": "C-group"
+          },
+          "long_form": {
+            "start": 381,
+            "end": 393,
+            "text": "chloralosane"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "discontinuous",
+          "context_requirement": "text_alone",
+          "evidence_spans": [
+            {
+              "start": 370,
+              "end": 375,
+              "text": "group"
+            }
+          ],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "not_representable_as_exact_pair",
+          "source_decision_sha256": "98fbf3798da6bfc505b6b5d706776c3a0780a40e19b19f474a641649d6250836",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-bb7cec40d4228dda23e5",
+          "decision_id": "added-39b11dae-f7a9-4066-bb52-4d83f78b2d11",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 439,
+            "end": 446,
+            "text": "H-group"
+          },
+          "long_form": {
+            "start": 430,
+            "end": 437,
+            "text": "hypnorm"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "discontinuous",
+          "context_requirement": "text_alone",
+          "evidence_spans": [
+            {
+              "start": 419,
+              "end": 424,
+              "text": "group"
+            }
+          ],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "not_representable_as_exact_pair",
+          "source_decision_sha256": "f1ad20eaf60bd3b60fcce32729c64022a09c4fad161d65ea037e36e117029db0",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-71204984a415980134f2",
+      "article_id": "PMC12436430",
+      "article_group_id": "40963576",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "f4ea1bdc754f853076d91a4269d070d4ba8df571059a4e512aa71c342f86d66d",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-71204984a415980134f2",
+          "decision_id": "decision-suggestion-fabeac212513ae90",
+          "suggestion_id": "suggestion-fabeac212513ae90",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 256,
+            "end": 260,
+            "text": "RCTs"
+          },
+          "long_form": {
+            "start": 226,
+            "end": 254,
+            "text": "randomized controlled trials"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "85d5dc76c0502e1f0a541947d5089dc4c1a3bed00cfa391b39f4bf0368370d34",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-06c9ebb850190d98a90b",
+      "article_id": "9883490",
+      "article_group_id": "9883490",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "1a7c39f9cfe6fba574af90861dd9d9c26dc55c49ef316a700911b55bd481d30d",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-06c9ebb850190d98a90b",
+          "decision_id": "decision-suggestion-9ef7cbf691b1205a",
+          "suggestion_id": "suggestion-9ef7cbf691b1205a",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 235,
+            "end": 238,
+            "text": "LDF"
+          },
+          "long_form": {
+            "start": 210,
+            "end": 233,
+            "text": "laser-Doppler flowmetry"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "7a6235ea5a0a91b78cbf22644ad1622cb582a020c7c2a28175a9f83a2fd5c014",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-06c9ebb850190d98a90b",
+          "decision_id": "added-6e453bc1-ba87-492d-acf3-a59a598be42a",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 52,
+            "end": 56,
+            "text": "HBO2"
+          },
+          "long_form": {
+            "start": 33,
+            "end": 50,
+            "text": "hyperbaric oxygen"
+          },
+          "relation_kind": "other_naming_or_code_relation",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "outside_strict_target",
+          "source_decision_sha256": "9d35763b0358ec86254ee9d7546cf8d91dbdbbc6fb875ff8af4efd1646ebf870",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-06c9ebb850190d98a90b",
+          "decision_id": "added-05cbb420-58d1-46c0-bf50-0fa9afadae01",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 424,
+            "end": 430,
+            "text": "tcPCO2"
+          },
+          "long_form": {
+            "start": 408,
+            "end": 422,
+            "text": "carbon dioxide"
+          },
+          "relation_kind": "other_naming_or_code_relation",
+          "evidence_structure": "discontinuous",
+          "context_requirement": "text_alone",
+          "evidence_spans": [
+            {
+              "start": 374,
+              "end": 388,
+              "text": "Transcutaneous"
+            }
+          ],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "outside_strict_target",
+          "source_decision_sha256": "0d18dadbd8aa9086a0c0c72d9d32c4977e5e3b1f10bd9a6bb2d31fe257723d24",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-06c9ebb850190d98a90b",
+          "decision_id": "added-423bce25-ac78-44f3-bed2-fe0de3040ac3",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 397,
+            "end": 402,
+            "text": "tcPO2"
+          },
+          "long_form": {
+            "start": 374,
+            "end": 395,
+            "text": "Transcutaneous oxygen"
+          },
+          "relation_kind": "other_naming_or_code_relation",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "outside_strict_target",
+          "source_decision_sha256": "86c63b88993fb8aebeeac76254ffb3b1facc2b09aec3414325e87a9aee4137cc",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-27519fd3bbc4edf03d7e",
+      "article_id": "PMC12436430",
+      "article_group_id": "40963576",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "301538907b1bba1796e5a759e1146cf48075d28f300c4affa2e509cbc83fa73d",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-27519fd3bbc4edf03d7e",
+          "decision_id": "decision-suggestion-61dea3feb9bc72f5",
+          "suggestion_id": "suggestion-61dea3feb9bc72f5",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 622,
+            "end": 626,
+            "text": "ESPB"
+          },
+          "long_form": {
+            "start": 594,
+            "end": 620,
+            "text": "erector spinae plane block"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "7a221f148d985b3d86945af767f0e0f6d6a9963481c692b45405fc8776d2545c",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-474f458c08d3bd7a9bf8",
+      "article_id": "22486652",
+      "article_group_id": "22486652",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "ea04b4acaa77380a35a05d3a6d73235f96f0ac8a18cd2d2ad111e22054197ed6",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-474f458c08d3bd7a9bf8",
+          "decision_id": "decision-suggestion-2f918f93bc576471",
+          "suggestion_id": "suggestion-2f918f93bc576471",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 43,
+            "end": 48,
+            "text": "GPCRs"
+          },
+          "long_form": {
+            "start": 14,
+            "end": 41,
+            "text": "G protein-coupled receptors"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "b01b6b3bcaa5e606d6ace3d5dceec8a59cbc1257757b491b9477b83936367ce0",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-474f458c08d3bd7a9bf8",
+          "decision_id": "decision-suggestion-e138a40e3d063657",
+          "suggestion_id": "suggestion-e138a40e3d063657",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 453,
+            "end": 455,
+            "text": "AR"
+          },
+          "long_form": {
+            "start": 433,
+            "end": 451,
+            "text": "adenosine receptor"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "8ef119e81b1178627556190706589941f7351897c7ccba4ad71e7941e828e414",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-00ee648f1c564d12f1cd",
+      "article_id": "PMC12436430",
+      "article_group_id": "40963576",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "f8823a0e83e4fed1fa6b7523ebaec2570b63f90d222f6f83e9aeae93a7b24550",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-00ee648f1c564d12f1cd",
+          "decision_id": "decision-suggestion-0fddb56ec684d8d8",
+          "suggestion_id": "suggestion-0fddb56ec684d8d8",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 194,
+            "end": 198,
+            "text": "ESPB"
+          },
+          "long_form": {
+            "start": 166,
+            "end": 192,
+            "text": "erector spinae plane block"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "35271f1d764abaeb7f867dc425e5f23a0a074fbebed1254d9bde913ef0fa0927",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-00ee648f1c564d12f1cd",
+          "decision_id": "decision-suggestion-2f9f0c533080d8ae",
+          "suggestion_id": "suggestion-2f9f0c533080d8ae",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 420,
+            "end": 423,
+            "text": "LIA"
+          },
+          "long_form": {
+            "start": 390,
+            "end": 418,
+            "text": "local infiltration analgesia"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "b02142edd59f45ab831cd0e2cf8b8c59f6997f7ffda4fbafc6180a0e29651c88",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-3ff97b821dfb9669208a",
+      "article_id": "8163379",
+      "article_group_id": "8163379",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "1821ae9da2b08d4ff655608d9006cf664c9000e7d52b37ae8cdbce8df29f04a3",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-3ff97b821dfb9669208a",
+          "decision_id": "decision-suggestion-0b9ab67b6fe1fc08",
+          "suggestion_id": "suggestion-0b9ab67b6fe1fc08",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 378,
+            "end": 382,
+            "text": "NHSC"
+          },
+          "long_form": {
+            "start": 347,
+            "end": 376,
+            "text": "National Health Service Corps"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "21e8b837eecdcb3152d1c313f918159d09f555e996fca20be1e517da18d6b6c0",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-018860b0c1232ddf7807",
+      "article_id": "PMC12615415",
+      "article_group_id": "41244649",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "c4a56643842b7df418859171410f8a7aad51440a90872c8de49a87b32cf98c01",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 3,
+      "relations": [
+        {
+          "case_id": "case-018860b0c1232ddf7807",
+          "decision_id": "decision-suggestion-d411bd1f6f0f06a1",
+          "suggestion_id": "suggestion-d411bd1f6f0f06a1",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 135,
+            "end": 138,
+            "text": "DLR"
+          },
+          "long_form": {
+            "start": 99,
+            "end": 133,
+            "text": "deep learning image reconstruction"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "40dbe90b354f0f829d7044bf58926a91691d7e4fb77caaa300a843d0ba01ea27",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-018860b0c1232ddf7807",
+          "decision_id": "decision-suggestion-296dcd1ac7e4223c",
+          "suggestion_id": "suggestion-296dcd1ac7e4223c",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 208,
+            "end": 211,
+            "text": "EPE"
+          },
+          "long_form": {
+            "start": 182,
+            "end": 206,
+            "text": "extraprostatic extension"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "55ff3649c697b437124787657cc9dc3428365e59a6876a1445e940fe66f866a2",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-018860b0c1232ddf7807",
+          "decision_id": "decision-suggestion-618e2914c16d9901",
+          "suggestion_id": "suggestion-618e2914c16d9901",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 257,
+            "end": 262,
+            "text": "mpMRI"
+          },
+          "long_form": {
+            "start": 236,
+            "end": 255,
+            "text": "multiparametric MRI"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "43797eda38689bf3187527681da803af4da118c566b16109576611d87a4c8e03",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-018860b0c1232ddf7807",
+          "decision_id": "decision-suggestion-32365482fc50160a",
+          "suggestion_id": "suggestion-32365482fc50160a",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 512,
+            "end": 519,
+            "text": "PI-RADS"
+          },
+          "long_form": {
+            "start": 468,
+            "end": 510,
+            "text": "Prostate Imaging Reporting and Data System"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "bb07a4843e1c948e2537de8c95ab5f25f228c834b04c85a75ce713232d443d4c",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-018860b0c1232ddf7807",
+          "decision_id": "added-737fd2b3-0996-4859-89a8-4cbae28bee7b",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 79,
+            "end": 83,
+            "text": "T2HR"
+          },
+          "long_form": {
+            "start": 42,
+            "end": 77,
+            "text": "high-resolution T2-weighted imaging"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "1fd2b20656eba1d70d42a2ad7ac2e6907636165d96c2ca609e599f992d98f621",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-018860b0c1232ddf7807",
+          "decision_id": "added-b8132786-6385-436c-8ce0-8e64656cf484",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 637,
+            "end": 640,
+            "text": "T2S"
+          },
+          "long_form": {
+            "start": 624,
+            "end": 635,
+            "text": "standard T2"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "a13c54150a3771c739ebc4ceee076ccdb1407bbe0d4cdb29990c209534d7e2d0",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-61373e85fbcdf1819c0f",
+      "article_id": "22116775",
+      "article_group_id": "22116775",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "9f837a6378788848b8ef0360ac55be9753bb91edd7e9f7573f45de5ef8d4ef52",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-a9bc2d5ecf86d8e58778",
+      "article_id": "PMC10968302",
+      "article_group_id": "38539872",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "f000d84193c2ebbba60f5ec5a2ee1cab90ddd1b695485398bc5df2b0d9f7070f",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-a9bc2d5ecf86d8e58778",
+          "decision_id": "decision-suggestion-d9bad32473cd3d6c",
+          "suggestion_id": "suggestion-d9bad32473cd3d6c",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 75,
+            "end": 80,
+            "text": "AOPPs"
+          },
+          "long_form": {
+            "start": 38,
+            "end": 73,
+            "text": "advanced oxidation protein products"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "38b01a8c759546906a08c03c3fd576816dab1794794246d2e3677ce670c12d14",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-a9bc2d5ecf86d8e58778",
+          "decision_id": "decision-suggestion-336c2969b95dd8d4",
+          "suggestion_id": "suggestion-336c2969b95dd8d4",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 828,
+            "end": 831,
+            "text": "T2D"
+          },
+          "long_form": {
+            "start": 811,
+            "end": 826,
+            "text": "type 2 diabetes"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "8d8ceb36c136e258295287815455bfc4798bb1f76a761c6dff13207ca9b0af73",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-a9bc2d5ecf86d8e58778",
+          "decision_id": "decision-suggestion-db19bb24ba48ff26",
+          "suggestion_id": "suggestion-db19bb24ba48ff26",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 1430,
+            "end": 1433,
+            "text": "HDL"
+          },
+          "long_form": {
+            "start": 1404,
+            "end": 1428,
+            "text": "high-density lipoprotein"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "a0e354cd92f5f970ee606ffa89f0bcad39bab192570e83ed6e8119b60ef1f25e",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-bd8057ab8a7c9a81ff3c",
+      "article_id": "9053487",
+      "article_group_id": "9053487",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "be9b2a669c2eed2d5ef5c590bcb62c807ea7f69c6c2a61f2fc9f49a0e5d9dd7c",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-c940824221d306518316",
+      "article_id": "PMC12436430",
+      "article_group_id": "40963576",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "9f1e156be1500a94ec047aca1b5c1cc3c167b359ace8fe6e44113fee757b2a89",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 4,
+      "relations": [
+        {
+          "case_id": "case-c940824221d306518316",
+          "decision_id": "decision-suggestion-506eaae8f4ca6525",
+          "suggestion_id": "suggestion-506eaae8f4ca6525",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 201,
+            "end": 205,
+            "text": "RCTs"
+          },
+          "long_form": {
+            "start": 171,
+            "end": 199,
+            "text": "randomized controlled trials"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "3b3da4b1ff18daea86f421fe79be566c5452dc83e6c4a1ed9682c38c7f9822f5",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-c940824221d306518316",
+          "decision_id": "decision-suggestion-89e10d2f153f54c7",
+          "suggestion_id": "suggestion-89e10d2f153f54c7",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 830,
+            "end": 834,
+            "text": "TAPB"
+          },
+          "long_form": {
+            "start": 795,
+            "end": 828,
+            "text": "transversus abdominis plane block"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "e20c705256cfdb9499d6cc0236103370cd070323da78cf695493cc6fe241771f",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-c940824221d306518316",
+          "decision_id": "decision-suggestion-255e577d931ae0ab",
+          "suggestion_id": "suggestion-255e577d931ae0ab",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 866,
+            "end": 869,
+            "text": "QLB"
+          },
+          "long_form": {
+            "start": 840,
+            "end": 864,
+            "text": "quadratus lumborum block"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "edae8537e2abbb75707bf376a7678fc9e5417b40b3a65ef6ee3c0ef29ccf43af",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-26dd218284ba83169652",
+      "article_id": "146322",
+      "article_group_id": "146322",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "18f9c4d60f45e4800f0dbf131441d532b487da266ac3840ac3b175724aef756f",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "article_id": "PMC10968302",
+      "article_group_id": "38539872",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "4360cd5631e1b262e37b8e569c8d59e9c25790899fac206a77086434f4cd4df1",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-8deab3bbe026a86e6b5c",
+          "decision_id": "decision-suggestion-09e5ad7e87e8434a",
+          "suggestion_id": "suggestion-09e5ad7e87e8434a",
+          "status": "correct",
+          "origin": "corrected",
+          "short_form": {
+            "start": 284,
+            "end": 291,
+            "text": "HDL1-PL"
+          },
+          "long_form": {
+            "start": 281,
+            "end": 282,
+            "text": "2"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "discontinuous",
+          "context_requirement": "text_alone",
+          "evidence_spans": [
+            {
+              "start": 219,
+              "end": 264,
+              "text": "phospholipids in large buoyant HDL subclasses"
+            }
+          ],
+          "reconstructed_interpretation": null,
+          "source_error": true,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "source_error",
+          "source_decision_sha256": "9eb71a59f2304e6f2c19d03a0b2d801b937b8c88ae795daf267d8e52247949a3",
+          "mechanical_corrections": [
+            {
+              "correction_id": "trim-hdl1-source-error-long-form",
+              "reason": "Remove trailing source whitespace while retaining the reviewer's source-error flag and literal printed HDL1-PL text."
+            },
+            {
+              "correction_id": "complete-hdl1-source-error-shared-evidence",
+              "reason": "Include the complete shared lexical evidence for the discontinuous phospholipid relation rather than only its final two words."
+            }
+          ]
+        },
+        {
+          "case_id": "case-8deab3bbe026a86e6b5c",
+          "decision_id": "decision-suggestion-7d1d3fb29d59c32c",
+          "suggestion_id": "suggestion-7d1d3fb29d59c32c",
+          "status": "correct",
+          "origin": "corrected",
+          "short_form": {
+            "start": 644,
+            "end": 654,
+            "text": "HDL-apoA-I"
+          },
+          "long_form": {
+            "start": 619,
+            "end": 642,
+            "text": "apoA-I in the total HDL"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "9f17ec85ac65d58ca6e8247f13311b8cdd9a42ba0e4922434a36e22c1cd889e3",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-8deab3bbe026a86e6b5c",
+          "decision_id": "added-b9f8650f-a2b3-4fba-ad31-88c09b33a7f3",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 137,
+            "end": 143,
+            "text": "HDL-PL"
+          },
+          "long_form": {
+            "start": 105,
+            "end": 135,
+            "text": "phospholipids in the total HDL"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "5110c551507a10cc7ec110bb04522b7f017397eab5950c7d6e4cad8895a28022",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-8deab3bbe026a86e6b5c",
+          "decision_id": "added-11d0b66e-8b2a-44dc-9bd9-5792424c7954",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 268,
+            "end": 275,
+            "text": "HDL1-PL"
+          },
+          "long_form": {
+            "start": 250,
+            "end": 266,
+            "text": "HDL subclasses 1"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "aea05b51ed37f424891e936c8a4385c4fdcc70df77adb6d709f341370d759069",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-8deab3bbe026a86e6b5c",
+          "decision_id": "added-0655bb72-246b-46c0-a8be-6fffc0a4094f",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 371,
+            "end": 378,
+            "text": "HDL4-PL"
+          },
+          "long_form": {
+            "start": 330,
+            "end": 369,
+            "text": "phospholipids in small dense subclass 4"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "5446f17a0e414013cd57a00e8ecbeffc22c558741db8db98889059bd208ddff0",
+          "mechanical_corrections": [
+            {
+              "correction_id": "swap-hdl4-pl-endpoints",
+              "reason": "Repair an evident UI endpoint reversal: the compact parenthetical form is the short form and the descriptive phrase is the long form."
+            }
+          ]
+        },
+        {
+          "case_id": "case-8deab3bbe026a86e6b5c",
+          "decision_id": "added-3b5be43b-2499-4280-af17-9a68d6eb8072",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 545,
+            "end": 556,
+            "text": "HDL1-apoA-I"
+          },
+          "long_form": {
+            "start": 503,
+            "end": 543,
+            "text": "apoA-I in large buoyant HDL subclasses 1"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "4da75361b43b7fb46b0d432b73ab826e28f73e50e7be515ac637cc10f8c0cb92",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-8deab3bbe026a86e6b5c",
+          "decision_id": "added-96e4a86d-a8df-4772-92d0-d13c8c87dd30",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 565,
+            "end": 576,
+            "text": "HDL2-apoA-I"
+          },
+          "long_form": {
+            "start": 503,
+            "end": 541,
+            "text": "apoA-I in large buoyant HDL subclasses"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "discontinuous",
+          "context_requirement": "text_alone",
+          "evidence_spans": [
+            {
+              "start": 562,
+              "end": 563,
+              "text": "2"
+            }
+          ],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "not_representable_as_exact_pair",
+          "source_decision_sha256": "df4e7d681e621463262df7b2123d97480e020c13ad0f778a5f11d418e77ba692",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-8deab3bbe026a86e6b5c",
+          "decision_id": "added-5a838721-3eb5-4e0f-babe-79c1a82ceb2e",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 698,
+            "end": 709,
+            "text": "HDL4-apoA-I"
+          },
+          "long_form": {
+            "start": 670,
+            "end": 696,
+            "text": "small dense HDL subclass 4"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "discontinuous",
+          "context_requirement": "text_alone",
+          "evidence_spans": [
+            {
+              "start": 619,
+              "end": 625,
+              "text": "apoA-I"
+            }
+          ],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "not_representable_as_exact_pair",
+          "source_decision_sha256": "15329241db781a22181a620a018a6571b56265bc33ffe49ab19a6c0bfaad8d65",
+          "mechanical_corrections": [
+            {
+              "correction_id": "complete-hdl4-apoa1-long-form-boundary",
+              "reason": "Include the contiguous 'small dense' modifiers in the exact long-form fragment; apoA-I remains separate evidence."
+            }
+          ]
+        },
+        {
+          "case_id": "case-8deab3bbe026a86e6b5c",
+          "decision_id": "added-5d1dd695-6aed-4ea1-97fc-012cb1a097ac",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 999,
+            "end": 1011,
+            "text": "HDL1-apoA-II"
+          },
+          "long_form": {
+            "start": 958,
+            "end": 997,
+            "text": "apoA-II in large buoyant HDL subclass 1"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "dd6da5bc2ad3685ce24bc70d663f35d1377b888bd1409d3b93f75e52c8923ce2",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-f62314a055b254266e95",
+      "article_id": "18494308",
+      "article_group_id": "18494308",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "49b95060f65abbc27f7f9d856806f777e6aa6949c9576a23d1776a06d02ccdcb",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-ee515336f1df996c40b4",
+      "article_id": "PMC10949095",
+      "article_group_id": "38497964",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "93ab0c33fd6b0826304a09f893f66784c2a185efd1c088c548b429b417ace069",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-ee515336f1df996c40b4",
+          "decision_id": "decision-suggestion-09e7539722460340",
+          "suggestion_id": "suggestion-09e7539722460340",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 109,
+            "end": 111,
+            "text": "OS"
+          },
+          "long_form": {
+            "start": 91,
+            "end": 107,
+            "text": "overall survival"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "67528ad1baff9c6d09f60b0c4970275957f5e2edad5149f8a8058661d9bdb1d6",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-ee515336f1df996c40b4",
+          "decision_id": "added-447c7117-5eb8-461c-a236-61bdfb6e207e",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 248,
+            "end": 263,
+            "text": "all-cause death"
+          },
+          "long_form": {
+            "start": 226,
+            "end": 246,
+            "text": "death from any cause"
+          },
+          "relation_kind": "other_naming_or_code_relation",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "outside_strict_target",
+          "source_decision_sha256": "566cf96f0ea3a7d3df38694da18026da68fd84a5ca47ea201298ac81c5873d3e",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-c141a23fc444376c7d2a",
+      "article_id": "9053487",
+      "article_group_id": "9053487",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "3fa7c441748e200bfc2ab7d83c74993fd51aab31956ac24405ef9bd98367f300",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-69682da3d2adaf6d888d",
+      "article_id": "PMC13213574",
+      "article_group_id": "42211382",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "b7fcb532ab535e8f494e06c72467182ecfddd5fce23c52815b2286813a513b60",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-69682da3d2adaf6d888d",
+          "decision_id": "decision-suggestion-2a2e8e5383d9a79c",
+          "suggestion_id": "suggestion-2a2e8e5383d9a79c",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 19,
+            "end": 22,
+            "text": "DOS"
+          },
+          "long_form": {
+            "start": 0,
+            "end": 17,
+            "text": "Density of states"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "503b03e7b0aac3c5df35cedcae153a2e854e88dcfd6f59b43a7b984af93ee673",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-4d37491c635b6df2a47f",
+      "article_id": "25322290",
+      "article_group_id": "25322290",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "a4a1f46f1594fb3766a1b4d6bf84c5585e0b5da78ad8edf2ba6cefb1464bc372",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-111fedae578499330207",
+      "article_id": "PMC9065107",
+      "article_group_id": "35504930",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "b11dde2f69ca903c3dc701b22c0ec28c765be8c9edd87585b3395340ae206f73",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-111fedae578499330207",
+          "decision_id": "decision-suggestion-b1e6b66bdcf07da9",
+          "suggestion_id": "suggestion-b1e6b66bdcf07da9",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2013,
+            "end": 2017,
+            "text": "MRUs"
+          },
+          "long_form": {
+            "start": 1985,
+            "end": 2011,
+            "text": "mammary repopulating units"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "c16a95fce4ee861f7f83b6edf83113d92575215cb19bae46775edab1afcf90cb",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-111fedae578499330207",
+          "decision_id": "decision-suggestion-975615fe92ce58e6",
+          "suggestion_id": "suggestion-975615fe92ce58e6",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2281,
+            "end": 2285,
+            "text": "TEBs"
+          },
+          "long_form": {
+            "start": 2262,
+            "end": 2279,
+            "text": "terminal end buds"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "8f9632fc7aa88a09f1e43df0195101c7228b111f2bcfa425df529dfb45d2448f",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-a8d6eccea52046938723",
+      "article_id": "8163379",
+      "article_group_id": "8163379",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "2415bb4255f8db30cbb6a42a06215a1d618793e2a521e398b1519ec0e7e4c3d8",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-9fd446ab763bfc52af81",
+      "article_id": "PMC10949095",
+      "article_group_id": "38497964",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "9c7eac51809f8f252c8be59d004b3acb2af24d57dfea950c965a0ffc54732c8a",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-9fd446ab763bfc52af81",
+          "decision_id": "decision-suggestion-ffe3343a616521f0",
+          "suggestion_id": "suggestion-ffe3343a616521f0",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 122,
+            "end": 126,
+            "text": "RMST"
+          },
+          "long_form": {
+            "start": 91,
+            "end": 120,
+            "text": "restricted mean survival time"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "5ae0c0775286c66dc3b96f6c39bd8311fdbcb07c4cf785fb26fd831bc2739ad3",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-ce234095d69deae6ef7d",
+      "article_id": "25534083",
+      "article_group_id": "25534083",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "f08af7ad36d19c433bb20e2bc23425e37d007a4c4b217954aba464dc769bfd65",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-88bfa500a152f2d3fd89",
+      "article_id": "PMC10949095",
+      "article_group_id": "38497964",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "6db83cbdca925e273bb8345bf87cfc072d855ab7baae0e73d1dd5f0b5876c633",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-88bfa500a152f2d3fd89",
+          "decision_id": "decision-suggestion-9df638acb2234b1c",
+          "suggestion_id": "suggestion-9df638acb2234b1c",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 67,
+            "end": 71,
+            "text": "NCDB"
+          },
+          "long_form": {
+            "start": 41,
+            "end": 65,
+            "text": "National Cancer Database"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "7fa19bcbfc45e00e256ebbcd8cb9f473aabb10f361f508784f6dd2b5fac79e05",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-88bfa500a152f2d3fd89",
+          "decision_id": "decision-suggestion-738d78f7cde63912",
+          "suggestion_id": "suggestion-738d78f7cde63912",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 190,
+            "end": 193,
+            "text": "CoC"
+          },
+          "long_form": {
+            "start": 168,
+            "end": 188,
+            "text": "Commission on Cancer"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "7d3d22bf6716fa61e7c19cd51e28b6cce69fceb8b62e1e8cfbf9e68ecd7470c2",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-88bfa500a152f2d3fd89",
+          "decision_id": "decision-suggestion-01093ee56473176a",
+          "suggestion_id": "suggestion-01093ee56473176a",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 818,
+            "end": 824,
+            "text": "STROBE"
+          },
+          "long_form": {
+            "start": 748,
+            "end": 816,
+            "text": "Strengthening the Reporting of Observational Studies in Epidemiology"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "73a48a05fc0d3e7d02e3dbaaa98175a80653eb1ab5c62dd07bd514985bdcb0f3",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-a85eeb25e85689e085e3",
+      "article_id": "25534083",
+      "article_group_id": "25534083",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "a1f9f83f6fa8237bf470ee6d4ce0b43d1d7f97bc3483c164be126c95b7adc42b",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": []
+    },
+    {
+      "case_id": "case-5d18574f3700ca15cf6d",
+      "article_id": "PMC5803248",
+      "article_group_id": "29416077",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "b2f32ed44d51a17c435f99da8b64d80133dcb43f400de85db07edd5126c07871",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-5d18574f3700ca15cf6d",
+          "decision_id": "decision-suggestion-e8a16747e95bd6af",
+          "suggestion_id": "suggestion-e8a16747e95bd6af",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 33,
+            "end": 35,
+            "text": "BP"
+          },
+          "long_form": {
+            "start": 17,
+            "end": 31,
+            "text": "blood pressure"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "03d63f6898e7a8961617ad4fcb86cbc1e61dabbf531b81436c4aa464ea905f65",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-5d9ca2be35e7591acddd",
+      "article_id": "8163379",
+      "article_group_id": "8163379",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "c9683c888c40a9012cc6027235c271f33d188e9fe244a5bdfecd7808c24b2b58",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-3bccaf86d01deb9302e9",
+      "article_id": "PMC9065107",
+      "article_group_id": "35504930",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "25b0b49abb71a20be52cccea2e8c7edb45b4037a984307d85c8e0599d04490f0",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-3bccaf86d01deb9302e9",
+          "decision_id": "decision-suggestion-3b0a000789259969",
+          "suggestion_id": "suggestion-3b0a000789259969",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 145,
+            "end": 148,
+            "text": "GFs"
+          },
+          "long_form": {
+            "start": 129,
+            "end": 143,
+            "text": "growth factors"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "8d6407cb62067723f4c4bde88e410ec06bdf0cf89626ee7fe0b16ef6e986ed1c",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-d5d9163ba26ccbb219b7",
+      "article_id": "8340823",
+      "article_group_id": "8340823",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "1a745d3fc47bc2cec3d0b81483c08c6714a77fc82c8efd97a831df46a51212fe",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-d0ae2ee153e0eaf5a56c",
+      "article_id": "PMC5803248",
+      "article_group_id": "29416077",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "720034dfdde5cce77aeb1b8f1dfe467949b886cb3aea60ce33172f00d18a78b1",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-d0ae2ee153e0eaf5a56c",
+          "decision_id": "decision-suggestion-783e134d000745d6",
+          "suggestion_id": "suggestion-783e134d000745d6",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 97,
+            "end": 100,
+            "text": "PFC"
+          },
+          "long_form": {
+            "start": 78,
+            "end": 95,
+            "text": "prefrontal cortex"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "36dca37d963418a47a6b7d7fef3cbddda673aad0d2757d827b9f4c4b7ec2aae4",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-d0ae2ee153e0eaf5a56c",
+          "decision_id": "decision-suggestion-7001c966bf1a9034",
+          "suggestion_id": "suggestion-7001c966bf1a9034",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 295,
+            "end": 298,
+            "text": "ANS"
+          },
+          "long_form": {
+            "start": 269,
+            "end": 293,
+            "text": "autonomic nervous system"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "bed019201c832129288df851b70e233e484cb12a23cb138e97a0b401974c200b",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-d0ae2ee153e0eaf5a56c",
+          "decision_id": "decision-suggestion-29644dc152ac455a",
+          "suggestion_id": "suggestion-29644dc152ac455a",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 364,
+            "end": 368,
+            "text": "BDNF"
+          },
+          "long_form": {
+            "start": 329,
+            "end": 362,
+            "text": "brain-derived neurotrophic factor"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "9960591217ed489d3fb2ef69e7d53aec4417f93bdb1adc930fd514996ffcce05",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-d0ae2ee153e0eaf5a56c",
+          "decision_id": "decision-suggestion-43626c40cea505b5",
+          "suggestion_id": "suggestion-43626c40cea505b5",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 454,
+            "end": 458,
+            "text": "SERT"
+          },
+          "long_form": {
+            "start": 431,
+            "end": 452,
+            "text": "Serotonin transporter"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "ac1ece233bc226c2531fe77bb5b1478c9f2b676086ee5f18badca6d51d56e931",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-d0ae2ee153e0eaf5a56c",
+          "decision_id": "decision-suggestion-b4ffa728471d0f9f",
+          "suggestion_id": "suggestion-b4ffa728471d0f9f",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 545,
+            "end": 548,
+            "text": "HRV"
+          },
+          "long_form": {
+            "start": 521,
+            "end": 543,
+            "text": "heart rate variability"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "2d2bf2611b1ff9f353014d0b6130723204b6c983df5daeed5f080701a0a60eee",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-d0ae2ee153e0eaf5a56c",
+          "decision_id": "decision-suggestion-506fce07de5d0a2b",
+          "suggestion_id": "suggestion-506fce07de5d0a2b",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 639,
+            "end": 643,
+            "text": "WCST"
+          },
+          "long_form": {
+            "start": 610,
+            "end": 637,
+            "text": "Wisconsin card-sorting test"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "98800d970cc2c6824893cdbac01cfed84fc583919746f1d662c941272434fb03",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-a49a1ee1d4ee79b96f8b",
+      "article_id": "9053487",
+      "article_group_id": "9053487",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "ef6f847e103ae309a05f92818c7f9fa29e97122133e7e46d134cb83c590d7f95",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-831590c598e0d001beba",
+      "article_id": "PMC8752015",
+      "article_group_id": "35015796",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "bf367c0f786a046edf56e7930a91bc675574f8e62299ec6c72c24b3cca64279f",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "decision-suggestion-a3eba3ee42ca1bc6",
+          "suggestion_id": "suggestion-a3eba3ee42ca1bc6",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 1906,
+            "end": 1908,
+            "text": "RE"
+          },
+          "long_form": {
+            "start": 1893,
+            "end": 1904,
+            "text": "red nucleus"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "950ee93fd4e30d32f665afd1665f94993c90719d6a5c401791cb74578ec0fede",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "decision-suggestion-c066a2d874b0ea1e",
+          "suggestion_id": "suggestion-c066a2d874b0ea1e",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2000,
+            "end": 2002,
+            "text": "RA"
+          },
+          "long_form": {
+            "start": 1985,
+            "end": 1998,
+            "text": "raphe nucleus"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "93075d1cdf7c0b2965279c2a32efb1511921acb54ba263f10ceea6ad9d999993",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "decision-suggestion-55e7c4402567371b",
+          "suggestion_id": "suggestion-55e7c4402567371b",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2033,
+            "end": 2035,
+            "text": "GE"
+          },
+          "long_form": {
+            "start": 2013,
+            "end": 2031,
+            "text": "geniculate nucleus"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "28e9db768e6bebe64ef9ad5829f68a99e5a3aaf6e1bc172b31dc6c8537eb0bb1",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "decision-suggestion-8ae9a2edf59100d1",
+          "suggestion_id": "suggestion-8ae9a2edf59100d1",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2060,
+            "end": 2062,
+            "text": "DV"
+          },
+          "long_form": {
+            "start": 2038,
+            "end": 2058,
+            "text": "dorsal vagal nucleus"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "document_structure",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "requires_non_text_context",
+          "source_decision_sha256": "e9ae1e37425fed91ae624f8f50d2509f9acc1b9909b963de8b0a280b3cd478be",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "decision-suggestion-10e5ff23b6292653",
+          "suggestion_id": "suggestion-10e5ff23b6292653",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2113,
+            "end": 2115,
+            "text": "AM"
+          },
+          "long_form": {
+            "start": 2103,
+            "end": 2111,
+            "text": "amygdala"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "62cec03348f03be71942a236e5a69dc0beb85a10d1a08bf120371f54d7f6bbf6",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "decision-suggestion-487525f65cf2764a",
+          "suggestion_id": "suggestion-487525f65cf2764a",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2217,
+            "end": 2219,
+            "text": "AD"
+          },
+          "long_form": {
+            "start": 2200,
+            "end": 2215,
+            "text": "adrenal medulla"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "0c61a202cad0967358259479494c7e2690552c9b9c000967df55d7871fd78ec3",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "decision-suggestion-a4f0269c887455a5",
+          "suggestion_id": "suggestion-a4f0269c887455a5",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2242,
+            "end": 2244,
+            "text": "AP"
+          },
+          "long_form": {
+            "start": 2222,
+            "end": 2240,
+            "text": "anterior pituitary"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "e2ad7c3edaa36098b522ec0c3ddde300e752366a45c095a71c767b9141256cd3",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "decision-suggestion-6fa36826dca1ecde",
+          "suggestion_id": "suggestion-6fa36826dca1ecde",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2266,
+            "end": 2268,
+            "text": "KI"
+          },
+          "long_form": {
+            "start": 2247,
+            "end": 2264,
+            "text": "kidney Henle loop"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "f4cc2ac47509e09bdcdae559f66b260df59365f84c1002b3b02f24fc629022f8",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "decision-suggestion-6ec56bf9a51ccf29",
+          "suggestion_id": "suggestion-6ec56bf9a51ccf29",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 2294,
+            "end": 2296,
+            "text": "TH"
+          },
+          "long_form": {
+            "start": 2275,
+            "end": 2292,
+            "text": "thyroid follicles"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "b510d4f4258b5328bdd13f32548d5106ee35bc94511515eae71e02eb49271e74",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "decision_id": "added-4fe06a84-a35d-4093-a731-ccd87d68971f",
+          "suggestion_id": null,
+          "status": "correct",
+          "origin": "added",
+          "short_form": {
+            "start": 2091,
+            "end": 2093,
+            "text": "7n"
+          },
+          "long_form": {
+            "start": 2069,
+            "end": 2089,
+            "text": "facial motor nucleus"
+          },
+          "relation_kind": "other_naming_or_code_relation",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "outside_strict_target",
+          "source_decision_sha256": "005f1589fda9c8a30e66c320c7a7efc60e1c38c60c29546b938233060d7b8e72",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-c6d784666df0500d0136",
+      "article_id": "34042149",
+      "article_group_id": "34042149",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "53a470160e1d86eb634c72dd4f967916faed09e2db34c7fccd2d3918e660f5e4",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-070773a12d676907498f",
+      "article_id": "PMC8752015",
+      "article_group_id": "35015796",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "594be255cea8713ad30883b7320ff5f635d1e1ad091a1144c7f9f4efd690433d",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-070773a12d676907498f",
+          "decision_id": "decision-suggestion-bb1389d4ad8def7e",
+          "suggestion_id": "suggestion-bb1389d4ad8def7e",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 694,
+            "end": 697,
+            "text": "CNS"
+          },
+          "long_form": {
+            "start": 670,
+            "end": 692,
+            "text": "central nervous system"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "cf5bbec31edcef53743ce23d88b18503fd9ee4bf4f746cdbaee8c93c568d3c30",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-4c15868326ef7e02a720",
+      "article_id": "40739937",
+      "article_group_id": "40739937",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "0e90a9772df6e353f0dbf3bdcdaeaffdf5ce3f66c23c10e8caa441207fbf1ead",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-0f8bfd4e615558df24ef",
+      "article_id": "PMC8752015",
+      "article_group_id": "35015796",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "a1af3673375bef7293ce87dc7bdb1a087b5eab9cf30c2c84586f039ac3d3b260",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-0f8bfd4e615558df24ef",
+          "decision_id": "decision-suggestion-fca1e4f5dff2a06f",
+          "suggestion_id": "suggestion-fca1e4f5dff2a06f",
+          "status": "incorrect",
+          "origin": "assisted",
+          "short_form": {
+            "start": 403,
+            "end": 408,
+            "text": "arrow"
+          },
+          "long_form": {
+            "start": 319,
+            "end": 401,
+            "text": "arrow). Autometallography/hematoxylin. Inset: a mercury-containing oligodendrocyte"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "diagnostic",
+          "eligibility_reason": "unsupported",
+          "source_decision_sha256": "b0e2c42b16a1bc5af52efeb32cb6fa88c5a258d5579bc105fe008cd1439a1735",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-cf339f5dc4663f00fc0c",
+      "article_id": "1963129",
+      "article_group_id": "1963129",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "fffb6caaf8402b51a056c3d5c1d799ba3ecd662dc1534bb14fc3e04c38d1fdd5",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": []
+    },
+    {
+      "case_id": "case-2f97c85f80016614d22f",
+      "article_id": "PMC3946689",
+      "article_group_id": "24609084",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "17134527fd9b92d5c9e4816fd69decdd79ca44538d65bf487942d07dc09f7d5e",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-2f97c85f80016614d22f",
+          "decision_id": "decision-suggestion-f7754155e2af6aea",
+          "suggestion_id": "suggestion-f7754155e2af6aea",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 403,
+            "end": 405,
+            "text": "ED"
+          },
+          "long_form": {
+            "start": 381,
+            "end": 401,
+            "text": "Emergency Department"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "29e3624354bdaef8067d6888a18f1ace552d901f8b77924e3b07f47708e25291",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-8fe48490565f82852f79",
+      "article_id": "22486652",
+      "article_group_id": "22486652",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "9f6fd4e7d9d39dcf375c315ffe4a399675bfc05a19cfa712dd6b16e493d5d3f6",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 2,
+      "relations": []
+    },
+    {
+      "case_id": "case-c076e782e7d4c440231b",
+      "article_id": "PMC5803248",
+      "article_group_id": "29416077",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "cedb9eed4d31f3f87cacc4b937cf2dbbf168a34a6986601887d44f728a2da9a6",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-c076e782e7d4c440231b",
+          "decision_id": "decision-suggestion-3cf7addd33c8024e",
+          "suggestion_id": "suggestion-3cf7addd33c8024e",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 196,
+            "end": 199,
+            "text": "ROI"
+          },
+          "long_form": {
+            "start": 176,
+            "end": 194,
+            "text": "region of interest"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "a9150ecb75dd24b51f7bee19c0042cc5ef0b705ae78b1009a8e56fccda828364",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-df362b8d1427cfe18f71",
+      "article_id": "8163379",
+      "article_group_id": "8163379",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "b1c7c266f5bae3b57237be7726d22c13d1bbc2525d6a458a24dee92f8ac21f50",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-0afea8c49a401282b574",
+      "article_id": "PMC11434519",
+      "article_group_id": "39337794",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "1bc1b8b18537c8fc0d7f0cdc7897862c784366ca1f0b85ba274724aa8a059f9f",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 2,
+      "relations": [
+        {
+          "case_id": "case-0afea8c49a401282b574",
+          "decision_id": "decision-suggestion-64c22314f8da2ce1",
+          "suggestion_id": "suggestion-64c22314f8da2ce1",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 344,
+            "end": 350,
+            "text": "MWCNTs"
+          },
+          "long_form": {
+            "start": 325,
+            "end": 342,
+            "text": "multi-walled CNTs"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "e26852538ce0e5278dc11419e77bd958b0c66160fb05edc3829cbb1874c2b673",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-0afea8c49a401282b574",
+          "decision_id": "decision-suggestion-fea2c6e6ba1f24d3",
+          "suggestion_id": "suggestion-fea2c6e6ba1f24d3",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 414,
+            "end": 417,
+            "text": "AFM"
+          },
+          "long_form": {
+            "start": 389,
+            "end": 412,
+            "text": "atomic force microscopy"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "3e1ebd29f985d3861830ec5767eb4fb3eba07130449287030bb0fad37f52c425",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-a0a758e564e1cd508b9f",
+      "article_id": "18494308",
+      "article_group_id": "18494308",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "df8f3fa8cd67b8c8e8a693bb2c21c13d523ebaf46768a6b26f872b793fe02243",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-e453cb27a852f314b681",
+      "article_id": "PMC8752015",
+      "article_group_id": "35015796",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "3fe5e6cc92c86748ced138403ada2e82709bae8b6bea302fdea544b3f1f00fdc",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": false,
+      "eligibility_reasons": [
+        "contains_unresolved_relation"
+      ],
+      "revision": 1,
+      "relations": [
+        {
+          "case_id": "case-e453cb27a852f314b681",
+          "decision_id": "decision-suggestion-eb767e5371e94b32",
+          "suggestion_id": "suggestion-eb767e5371e94b32",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 21,
+            "end": 23,
+            "text": "PD"
+          },
+          "long_form": {
+            "start": 0,
+            "end": 19,
+            "text": "Parkinson’s disease"
+          },
+          "relation_kind": "uncertain",
+          "evidence_structure": "uncertain",
+          "context_requirement": "uncertain",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "unresolved",
+          "eligibility_reason": "unresolved_relation_kind",
+          "source_decision_sha256": "0c3d03867e14a75edab3c33a7d1f21542c019bbf59fd5d1af65bfa9d16e9cba5",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-3785a821adfefe779f42",
+      "article_id": "40739937",
+      "article_group_id": "40739937",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "b38780e1c56154ae51977bbcc0db179be735c78e6a6f87af3b7c75651418e04d",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    },
+    {
+      "case_id": "case-9a27b1aac754c541ca57",
+      "article_id": "PMC11434519",
+      "article_group_id": "39337794",
+      "arm": "pmc_cc_by",
+      "canonical_text_sha256": "9e2e7ea54796882f6c5bd936862e02c0af3e6a519f7254802bbe642893fd4398",
+      "selected_for_challenge": true,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 3,
+      "relations": [
+        {
+          "case_id": "case-9a27b1aac754c541ca57",
+          "decision_id": "decision-suggestion-9726cd2acde9ea76",
+          "suggestion_id": "suggestion-9726cd2acde9ea76",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 370,
+            "end": 373,
+            "text": "vdW"
+          },
+          "long_form": {
+            "start": 355,
+            "end": 368,
+            "text": "van der Waals"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "b359ff84121a6e8fa703bb14475fb1ee1b6476495708718cf81e2dba67d6ea6d",
+          "mechanical_corrections": []
+        },
+        {
+          "case_id": "case-9a27b1aac754c541ca57",
+          "decision_id": "decision-suggestion-4abe204404cdedc2",
+          "suggestion_id": "suggestion-4abe204404cdedc2",
+          "status": "correct",
+          "origin": "assisted",
+          "short_form": {
+            "start": 800,
+            "end": 804,
+            "text": "CNTs"
+          },
+          "long_form": {
+            "start": 782,
+            "end": 798,
+            "text": "carbon nanotubes"
+          },
+          "relation_kind": "abbreviation_expansion",
+          "evidence_structure": "contiguous_shared",
+          "context_requirement": "text_alone",
+          "evidence_spans": [],
+          "reconstructed_interpretation": null,
+          "source_error": false,
+          "notes": "",
+          "disposition": "strict",
+          "eligibility_reason": "eligible_strict_exact_pair",
+          "source_decision_sha256": "d8f93e98c9a7a159ea6d3ab3296a5db217d2b66dc41757212a13e1e4aaa03a55",
+          "mechanical_corrections": []
+        }
+      ]
+    },
+    {
+      "case_id": "case-3f16a9aaf9da2aadb7df",
+      "article_id": "6696891",
+      "article_group_id": "6696891",
+      "arm": "pubmed_abstract",
+      "canonical_text_sha256": "84e067640c071331e460ec25543f285b725b985b7412b776a68ecb02b5e3b718",
+      "selected_for_challenge": false,
+      "search_status": "searched",
+      "metric_eligible": true,
+      "eligibility_reasons": [
+        "eligible_complete_case"
+      ],
+      "revision": 1,
+      "relations": []
+    }
+  ],
+  "counts": {
+    "cases": 60,
+    "challenge_cases": 20,
+    "relations": 111,
+    "strict_relations": 59,
+    "diagnostic_relations": 16,
+    "unresolved_relations": 36,
+    "metric_eligible_cases": 40
+  },
+  "content_sha256": "ec9dd79edbb6899beb091bc1274a954eaefa5d99633a3d8165fc711b81232cd1"
+}

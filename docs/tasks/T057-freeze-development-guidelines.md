@@ -1,7 +1,7 @@
 # T057 Freeze the development guidelines and challenge views
 
 Owner: **Luna — engineering and preparation**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: Completed September 13, 2026; frozen after human review and acceptance audit.
 Dependencies: T056 returned user supplement; unresolved decisions remain explicit.
 
 ## Execution contract
@@ -21,3 +21,12 @@ Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECU
 
 Every input decision maps to a retained output or explicit eligibility reason. Tests cover policy selection, incomplete cases, unresolved annotations and exact-span preservation. Deliver new iteration, guidelines, manifest and challenge views; update scientific-model/evidence indexes. Do not certify independent gold or start method runs.
 
+## Final acceptance
+
+The first materialization exposed that the older reviewer counted support
+review as complete even when required policy fields remained at their default.
+The bounded review workflow corrected that defect. The user completed all 20
+required passages, the independent checker reported no remaining items, and
+the acceptance audit applied six explicit mechanical source-span repairs in
+the derived bundle without changing the human annotation history. The final
+bundle is frozen and authorizes T058 to use only the named strict view.

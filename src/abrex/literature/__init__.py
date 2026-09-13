@@ -11,6 +11,18 @@ from abrex.literature.acquisition import (
     load_acquisition_config,
     replay_acquisition,
 )
+from abrex.literature.audit_supplement import (
+    AUDIT_SUPPLEMENT_SCHEMA_VERSION,
+    AuditCase,
+    AuditRelation,
+    AuditSnapshot,
+    AuditSpan,
+    AuditSupplement,
+    apply_audit_revision,
+    read_audit_supplement,
+    validate_supplement_sources,
+    write_audit_supplement,
+)
 from abrex.literature.corpus_selection import (
     CORPUS_SELECTION_SCHEMA_VERSION,
     CorpusArticleGroup,
@@ -113,6 +125,7 @@ from abrex.literature.service import (
 
 __all__ = [
     "ACQUISITION_SCHEMA_VERSION",
+    "AUDIT_SUPPLEMENT_SCHEMA_VERSION",
     "ARTICLE_RESOLUTION_SCHEMA_VERSION",
     "ARTICLE_SCHEMA_VERSION",
     "Article",
@@ -130,6 +143,12 @@ __all__ = [
     "AcquisitionEstimate",
     "AcquisitionResult",
     "ArticleResolutionService",
+    "AuditCase",
+    "AuditRelation",
+    "AuditSnapshot",
+    "AuditSpan",
+    "AuditSupplement",
+    "apply_audit_revision",
     "ArticleSection",
     "ArticleSectionLocation",
     "ArticleStructure",
@@ -185,6 +204,8 @@ __all__ = [
     "parse_bioc_json",
     "parse_pubmed_xml",
     "read_article_json",
+    "read_audit_supplement",
+    "validate_supplement_sources",
     "read_bioc_json",
     "read_jats_xml",
     "read_pubmed_xml",
@@ -197,6 +218,7 @@ __all__ = [
     "register_builtin_components",
     "serialize_article_resolution",
     "write_article_resolution",
+    "write_audit_supplement",
     "sample_frame",
     "select_corpus",
     "write_sampling_manifest",
