@@ -1,0 +1,172 @@
+{
+  "cache_identity_checks": {
+    "changed_input_changes_identity": true,
+    "input_hashes_are_unique": true,
+    "worker_inputs": {
+      "ab3p": "72acf564804a2710905c2596358c2d99c660b0eab0344fbe707b701e4186d7d0",
+      "plodv2": "72acf564804a2710905c2596358c2d99c660b0eab0344fbe707b701e4186d7d0"
+    }
+  },
+  "canonical_text_hashes": {
+    "t058-empty": "38652eb7237c28d567131a0258bf54b63f2219a94d498b09e17794930fbd3298",
+    "t058-repeated": "7aaeb2b0be9ea4711282bc283d29864f3c0ff9b36bd4f1bad07cb631e10fb63a",
+    "t058-unicode": "efd8e05e5a3b01573f0a031e2fec16dd5caf9f55919e639650f6617efc67f928"
+  },
+  "limitations": [
+    "Smoke evidence establishes operational readiness only; it is not an accuracy evaluation.",
+    "PLOD independent spans and paired relations are reported separately."
+  ],
+  "methods": [
+    {
+      "diagnostics": [],
+      "elapsed_seconds": 0.00043370004277676344,
+      "identity": "schwartz_hearst",
+      "method_id": "schwartz_hearst",
+      "pair_count": 2,
+      "resource_hashes": {},
+      "section_count": 3,
+      "span_count": 0,
+      "status": "available",
+      "text_coverage": "complete",
+      "truncated": false,
+      "version": "1",
+      "worker_command": []
+    },
+    {
+      "diagnostics": [
+        "runtime_identity_failed:Ab3PInstallationError:Unable to read Ab3P installation manifest .artifacts/T021/live-build/Ab3P/manifest.json: [Errno 2] No such file or directory: '.artifacts/T021/live-build/Ab3P/manifest.json'"
+      ],
+      "elapsed_seconds": 0.0,
+      "identity": "ab3p",
+      "method_id": "ab3p",
+      "pair_count": 0,
+      "resource_hashes": {},
+      "section_count": 3,
+      "span_count": 0,
+      "status": "unavailable",
+      "text_coverage": "none",
+      "truncated": false,
+      "version": "3",
+      "worker_command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "PYTHONPATH=/mnt/c/Users/mail/Documents/Projects/abrex/src",
+        "/home/rleaman/.local/share/abrex/venv313/bin/python",
+        "-m",
+        "abrex.literature.pilot_worker",
+        "--method",
+        "ab3p",
+        "--input",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/runtime-readiness/ab3p-input.json",
+        "--output",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/runtime-readiness/ab3p-output.json",
+        "--params",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/runtime-readiness/ab3p-params.json"
+      ]
+    },
+    {
+      "diagnostics": [
+        "runtime_probe_failed:ValidationError:1 validation error for PlodConfig\ncheckpoint_sha256\n  Value error, checkpoint_sha256 must be a lowercase SHA-256 [type=value_error, input_value='unknown', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      "elapsed_seconds": 0.0,
+      "identity": "plodv2",
+      "method_id": "plodv2",
+      "pair_count": 0,
+      "resource_hashes": {},
+      "section_count": 3,
+      "span_count": 0,
+      "status": "unavailable",
+      "text_coverage": "none",
+      "truncated": false,
+      "version": "unavailable",
+      "worker_command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "PYTHONPATH=/mnt/c/Users/mail/Documents/Projects/abrex/src",
+        "/home/rleaman/.local/share/abrex/plod313/bin/python",
+        "-m",
+        "abrex.literature.pilot_worker",
+        "--method",
+        "plodv2",
+        "--input",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/runtime-readiness/plodv2-input.json",
+        "--output",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/runtime-readiness/plodv2-output.json",
+        "--params",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/runtime-readiness/plodv2-params.json"
+      ]
+    },
+    {
+      "diagnostics": [
+        "runtime_probe_failed:ValidationError:1 validation error for PlodConfig\ncheckpoint_sha256\n  Value error, checkpoint_sha256 must be a lowercase SHA-256 [type=value_error, input_value='unknown', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      "elapsed_seconds": 0.0,
+      "identity": "plodv2",
+      "method_id": "plodv2_pairing",
+      "pair_count": 0,
+      "resource_hashes": {},
+      "section_count": 3,
+      "span_count": 0,
+      "status": "unavailable",
+      "text_coverage": "none",
+      "truncated": false,
+      "version": "unavailable",
+      "worker_command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "PYTHONPATH=/mnt/c/Users/mail/Documents/Projects/abrex/src",
+        "/home/rleaman/.local/share/abrex/plod313/bin/python",
+        "-m",
+        "abrex.literature.pilot_worker",
+        "--method",
+        "plodv2",
+        "--input",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/runtime-readiness/plodv2-input.json",
+        "--output",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/runtime-readiness/plodv2-output.json",
+        "--params",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/runtime-readiness/plodv2-params.json"
+      ]
+    }
+  ],
+  "repair_budget": {
+    "bulk_downloads_permitted": false,
+    "ceiling_hours": 2.0,
+    "elapsed_seconds": 7.126628700003494,
+    "optional_method_repairs_per_method": 1,
+    "system_installation_permitted": false
+  },
+  "schema_version": "runtime-readiness-v1",
+  "smoke_documents": [
+    {
+      "characters": 43,
+      "contains_unicode": true,
+      "document_id": "t058-unicode",
+      "expected_empty_result": false,
+      "text_sha256": "efd8e05e5a3b01573f0a031e2fec16dd5caf9f55919e639650f6617efc67f928"
+    },
+    {
+      "characters": 52,
+      "contains_unicode": false,
+      "document_id": "t058-repeated",
+      "expected_empty_result": false,
+      "text_sha256": "7aaeb2b0be9ea4711282bc283d29864f3c0ff9b36bd4f1bad07cb631e10fb63a"
+    },
+    {
+      "characters": 55,
+      "contains_unicode": false,
+      "document_id": "t058-empty",
+      "expected_empty_result": true,
+      "text_sha256": "38652eb7237c28d567131a0258bf54b63f2219a94d498b09e17794930fbd3298"
+    }
+  ]
+}

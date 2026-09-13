@@ -15,19 +15,21 @@ Command = tuple[str, ...]
 def development_python(root: Path, requested: Path | None = None) -> Path:
     """Return the interpreter that owns this checkout's development tools."""
     if requested is not None:
-        return requested.resolve()
-    current = Path(sys.executable).resolve()
+        return requested.absolute()
+    # Resolving a venv's executable symlink selects the base interpreter and
+    # loses the environment's installed tools on POSIX.
+    current = Path(sys.executable).absolute()
     candidates = (
         root / ".venv" / ("Scripts/python.exe" if os.name == "nt" else "bin/python"),
         root / "env313" / ("Scripts/python.exe" if os.name == "nt" else "bin/python"),
     )
     if current in (
-        candidate.resolve() for candidate in candidates if candidate.is_file()
+        candidate.absolute() for candidate in candidates if candidate.is_file()
     ):
         return current
     for candidate in candidates:
         if candidate.is_file():
-            return candidate.resolve()
+            return candidate.absolute()
     return current
 
 
@@ -115,7 +117,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     root = Path(__file__).resolve().parents[1]
     python = development_python(root, args.python)
-    print(f"launcher python is {Path(sys.executable).resolve()}")
+    print(f"launcher python is {Path(sys.executable).absolute()}")
     print(f"gate python is {python}")
     if args.self_test:
         status = run_command((str(python), "-c", "raise SystemExit(17)"), cwd=root)

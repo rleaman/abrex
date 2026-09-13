@@ -1,5 +1,15 @@
 # Numbered Codex Assignments
 
+## September 13 runtime correction
+
+[T058](T058-bounded-runtime-readiness.md): runtime configuration and launcher
+repairs are implemented; all three primary methods passed the repaired tiny
+smoke. Acceptance revision remains pending. Use
+[the baseline runtime guide](../baseline-runtimes.md) and
+[new smoke evidence](../artifacts/T058-runtime-readiness-repaired.json).
+Earlier unavailable statuses describe historical runs, not the current host.
+No new development comparison or user review was performed by this repair.
+
 ## Next milestone — post-T052 planning, September 10, 2026
 
 Start with the [post-T052 task plan](../post-t052-next-steps.md) for **T053–T068**:

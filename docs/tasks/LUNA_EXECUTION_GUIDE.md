@@ -4,6 +4,12 @@ The active assignment and authorization are recorded in [current work](../CURREN
 
 ## Before implementation
 
+**For Ab3P/PLODv2, start with [the runtime guide](../baseline-runtimes.md).**
+The September 13 recheck ran both existing installations successfully. The
+original T058 paths were wrong. Run the strict smoke before reporting missing
+runtimes; follow its diagnostics and preserve the report. This is required
+prerequisite verification, not permission to launch subsequent experiments.
+
 1. Read AGENTS.md, START_HERE_FOR_CODEX.md, current work, the assigned task and relevant scientific/architecture documents. Inspect specific dependency interfaces and acceptance artifacts on demand. Do not recursively read every historical task or all documentation. The [September 8 review](../project-status-review-2026-09-08.md) supersedes older status audits; verify current code rather than treating any dated note as live status.
 2. Check current changes and preserve user work, especially files in handoff/. Do not commit generated datasets, model weights or the large frequency file accidentally.
 3. Verify dependency acceptance artifacts and completion notes. A mocked test or a scaffold does not satisfy a dependency requiring a real run.

@@ -9,6 +9,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import pytest
+
 
 def _load_gate_module() -> Any:
     path = Path(__file__).parents[2] / "scripts" / "quality_gate.py"
@@ -95,6 +97,16 @@ def test_source_import_verifier_reports_checkout_origin() -> None:
     )
     assert completed.returncode == 0, completed.stderr
     assert str((root / "src" / "abrex").resolve()) in completed.stdout
+
+
+@pytest.mark.skipif(os.name == "nt", reason="POSIX virtualenv executable symlink")
+def test_development_python_preserves_virtualenv_symlink(tmp_path: Path) -> None:
+    gate = _load_gate_module()
+    local = tmp_path / ".venv" / "bin" / "python"
+    local.parent.mkdir(parents=True)
+    local.symlink_to(sys.executable)
+    assert gate.development_python(tmp_path, local) == local.absolute()
+    assert gate.development_python(tmp_path) == local.absolute()
 
 
 def test_gate_commands_verify_source_before_tools_and_use_selected_python(

@@ -1,7 +1,11 @@
 # T058 Verify existing baseline runtimes within a repair budget
 
 Owner: **Luna — engineering and preparation**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: Implemented; acceptance revision pending. This file does not authorize automatic execution.
+September 13 correction: implementation exists, but closure needs revision.
+Both optional runtimes passed the local audit smoke. Follow
+[the verified runtime guide](../baseline-runtimes.md); do not reuse the original
+placeholder configuration or equate its failure with absent installations.
 Dependencies: T053 inputs; can proceed before T056.
 
 ## Execution contract
@@ -19,4 +23,3 @@ Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECU
 ## Acceptance, deliverables and stopping point
 
 Real S&H smoke is required; each optional method has either actual smoke artifacts or a reproducible missing-prerequisite report. Test orchestration failure accounting and changed-input cache invalidation. Deliver a ready run configuration and bounded follow-up list. Optional-runtime failure does not block unrelated annotation work; it leaves the three-way experiment incomplete.
-

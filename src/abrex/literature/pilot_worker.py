@@ -4,8 +4,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import platform
+import sys
 import time
 from collections.abc import Mapping, Sequence
+from importlib.metadata import version as package_version
 from pathlib import Path
 from typing import Any
 
@@ -157,7 +160,20 @@ def run_worker(
         "status": "completed",
         "identity": identity,
         "version": version,
-        "runtime_identity": runtime_identity,
+        "runtime_identity": {
+            **runtime_identity,
+            "python_executable": sys.executable,
+            "python_version": platform.python_version(),
+            "worker_origin": str(Path(__file__).resolve()),
+            **(
+                {
+                    "flair_version": package_version("flair"),
+                    "torch_version": package_version("torch"),
+                }
+                if method == "plodv2"
+                else {}
+            ),
+        },
         "elapsed_seconds": time.monotonic() - started,
         "diagnostics": [],
         "records": records,

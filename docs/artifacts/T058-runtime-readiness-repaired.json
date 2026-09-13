@@ -1,0 +1,220 @@
+{
+  "cache_identity_checks": {
+    "changed_input_changes_identity": true,
+    "check_scope": "input fingerprint only; not a prediction-cache replay test",
+    "input_hashes_are_unique": true,
+    "worker_inputs": {
+      "ab3p": "cb1b0046b93bfad09dc76b3a02fc5a9981fac654cd13bbfb216cf1c2b861b7f2",
+      "plodv2": "cb1b0046b93bfad09dc76b3a02fc5a9981fac654cd13bbfb216cf1c2b861b7f2"
+    }
+  },
+  "canonical_text_hashes": {
+    "t058-empty": "38652eb7237c28d567131a0258bf54b63f2219a94d498b09e17794930fbd3298",
+    "t058-repeated": "7aaeb2b0be9ea4711282bc283d29864f3c0ff9b36bd4f1bad07cb631e10fb63a",
+    "t058-unicode": "6046194ac0b57598272ff6e35c9df3215898f909cf351b0d78a192ba162a2f52"
+  },
+  "limitations": [
+    "Smoke evidence establishes operational readiness only; it is not an accuracy evaluation.",
+    "PLOD independent spans and paired relations are reported separately."
+  ],
+  "methods": [
+    {
+      "diagnostics": [],
+      "elapsed_seconds": 0.00039501700000244,
+      "identity": "schwartz_hearst",
+      "method_id": "schwartz_hearst",
+      "pair_count": 2,
+      "resource_hashes": {},
+      "runtime": {
+        "python": "in_process"
+      },
+      "section_count": 3,
+      "span_count": 0,
+      "status": "available",
+      "text_coverage": "complete",
+      "truncated": false,
+      "version": "1",
+      "worker_command": []
+    },
+    {
+      "diagnostics": [],
+      "elapsed_seconds": 5.273850307000011,
+      "identity": "ab3p",
+      "method_id": "ab3p",
+      "pair_count": 1,
+      "resource_hashes": {
+        "executable_sha256": "4a6b8c48dbb8e928c06464f94bf13295f524bd3c65e078c7d5169a131c431ee9",
+        "manifest_sha256": "79177737cf14b2eab360978c4ed12cea8f7e244afebd30b3be2de4f74d8a2e05",
+        "resource_sha256": "f3d4b283f9b3f11ddda9fa5f040adf32a7a7d4750d50f76f5f7c28407c39f47c"
+      },
+      "runtime": {
+        "adapter_version": "3",
+        "executable_sha256": "4a6b8c48dbb8e928c06464f94bf13295f524bd3c65e078c7d5169a131c431ee9",
+        "manifest_sha256": "79177737cf14b2eab360978c4ed12cea8f7e244afebd30b3be2de4f74d8a2e05",
+        "offset_schema_version": "ab3p-offsets-v1",
+        "output_format": "offset_jsonl",
+        "python_executable": "/home/rleaman/.local/share/abrex/venv313/bin/python",
+        "python_version": "3.13.15",
+        "resource_sha256": "f3d4b283f9b3f11ddda9fa5f040adf32a7a7d4750d50f76f5f7c28407c39f47c",
+        "schema_version": "ab3p-identity-v1",
+        "worker_origin": "/mnt/c/Users/mail/Documents/Projects/abrex/src/abrex/literature/pilot_worker.py",
+        "wrapper_version": "2"
+      },
+      "section_count": 3,
+      "span_count": 0,
+      "status": "available",
+      "text_coverage": "complete",
+      "truncated": false,
+      "version": "3",
+      "worker_command": [
+        "/home/rleaman/.local/share/abrex/venv313/bin/python",
+        "-m",
+        "abrex.literature.pilot_worker",
+        "--method",
+        "ab3p",
+        "--input",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/verified-runtime/workers/ab3p-input.json",
+        "--output",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/verified-runtime/workers/ab3p-output.json",
+        "--params",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/verified-runtime/workers/ab3p-params.json"
+      ]
+    },
+    {
+      "diagnostics": [
+        "rejected_selection_conflict"
+      ],
+      "elapsed_seconds": 2.0242141610000033,
+      "identity": "plodv2_span_detector",
+      "method_id": "plodv2",
+      "pair_count": 0,
+      "resource_hashes": {
+        "checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277"
+      },
+      "runtime": {
+        "checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277",
+        "config": {
+          "batch_size": 1,
+          "checkpoint_path": "/home/rleaman/.local/share/abrex/models/plodv2/019ed5392cad2deab220ad6bfda0681b20cabe21/pytorch_model.bin",
+          "checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277",
+          "device": "cpu",
+          "duplicate_policy": "deduplicate",
+          "max_chars_per_window": 4096,
+          "runtime_version": "flair-0.15.1-torch-2.14.0+cpu",
+          "window_overlap": 128
+        },
+        "detector": "plodv2_span_detector",
+        "flair_version": "0.15.1",
+        "python_executable": "/home/rleaman/.local/share/abrex/plod313/bin/python",
+        "python_version": "3.13.15",
+        "torch_version": "2.14.0+cpu",
+        "version": "plodv2-detector-v1",
+        "worker_origin": "/mnt/c/Users/mail/Documents/Projects/abrex/src/abrex/literature/pilot_worker.py"
+      },
+      "section_count": 3,
+      "span_count": 7,
+      "status": "available",
+      "text_coverage": "complete",
+      "truncated": false,
+      "version": "plodv2-detector-v1",
+      "worker_command": [
+        "/home/rleaman/.local/share/abrex/plod313/bin/python",
+        "-m",
+        "abrex.literature.pilot_worker",
+        "--method",
+        "plodv2",
+        "--input",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/verified-runtime/workers/plodv2-input.json",
+        "--output",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/verified-runtime/workers/plodv2-output.json",
+        "--params",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/verified-runtime/workers/plodv2-params.json"
+      ]
+    },
+    {
+      "diagnostics": [
+        "rejected_selection_conflict"
+      ],
+      "elapsed_seconds": 2.0242141610000033,
+      "identity": "plodv2_span_detector",
+      "method_id": "plodv2_pairing",
+      "pair_count": 3,
+      "resource_hashes": {
+        "checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277"
+      },
+      "runtime": {
+        "checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277",
+        "config": {
+          "batch_size": 1,
+          "checkpoint_path": "/home/rleaman/.local/share/abrex/models/plodv2/019ed5392cad2deab220ad6bfda0681b20cabe21/pytorch_model.bin",
+          "checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277",
+          "device": "cpu",
+          "duplicate_policy": "deduplicate",
+          "max_chars_per_window": 4096,
+          "runtime_version": "flair-0.15.1-torch-2.14.0+cpu",
+          "window_overlap": 128
+        },
+        "detector": "plodv2_span_detector",
+        "flair_version": "0.15.1",
+        "python_executable": "/home/rleaman/.local/share/abrex/plod313/bin/python",
+        "python_version": "3.13.15",
+        "torch_version": "2.14.0+cpu",
+        "version": "plodv2-detector-v1",
+        "worker_origin": "/mnt/c/Users/mail/Documents/Projects/abrex/src/abrex/literature/pilot_worker.py"
+      },
+      "section_count": 3,
+      "span_count": 7,
+      "status": "available",
+      "text_coverage": "complete",
+      "truncated": false,
+      "version": "plodv2-detector-v1",
+      "worker_command": [
+        "/home/rleaman/.local/share/abrex/plod313/bin/python",
+        "-m",
+        "abrex.literature.pilot_worker",
+        "--method",
+        "plodv2",
+        "--input",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/verified-runtime/workers/plodv2-input.json",
+        "--output",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/verified-runtime/workers/plodv2-output.json",
+        "--params",
+        "/mnt/c/Users/mail/Documents/Projects/abrex/.artifacts/T058/verified-runtime/workers/plodv2-params.json"
+      ]
+    }
+  ],
+  "repair_budget": {
+    "bulk_downloads_permitted": false,
+    "ceiling_hours": 2.0,
+    "elapsed_seconds": 33.503475361999996,
+    "optional_method_repairs_per_method": 1,
+    "system_installation_permitted": false
+  },
+  "schema_version": "runtime-readiness-v1",
+  "smoke_documents": [
+    {
+      "characters": 45,
+      "contains_supplementary_unicode": true,
+      "contains_unicode": true,
+      "document_id": "t058-unicode",
+      "expected_empty_result": false,
+      "text_sha256": "6046194ac0b57598272ff6e35c9df3215898f909cf351b0d78a192ba162a2f52"
+    },
+    {
+      "characters": 52,
+      "contains_supplementary_unicode": false,
+      "contains_unicode": false,
+      "document_id": "t058-repeated",
+      "expected_empty_result": false,
+      "text_sha256": "7aaeb2b0be9ea4711282bc283d29864f3c0ff9b36bd4f1bad07cb631e10fb63a"
+    },
+    {
+      "characters": 55,
+      "contains_supplementary_unicode": false,
+      "contains_unicode": false,
+      "document_id": "t058-empty",
+      "expected_empty_result": true,
+      "text_sha256": "38652eb7237c28d567131a0258bf54b63f2219a94d498b09e17794930fbd3298"
+    }
+  ]
+}

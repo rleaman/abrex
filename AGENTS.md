@@ -11,6 +11,15 @@ recreate configs or raise their absence as a blocker in routine work. Follow
 request, a newly supplied source or concrete new evidence encountered during
 assigned work. Historical completion notes do not override this decision.
 
+## Baseline runtime prerequisite
+
+For any Ab3P/PLODv2 runtime work, first read and execute
+[the baseline runtime guide](docs/baseline-runtimes.md). Both already have local
+Ubuntu WSL installations. Use the verified configuration and strict smoke;
+do not declare a method unavailable based on placeholder paths, a Windows
+Python launch error, or a dated completion note. Record the actual failed
+prerequisite check before proposing installation/rebuild work.
+
 ## 1. Architectural style
 
 Use a modular monolith with strong internal boundaries. Maximize cohesion and minimize coupling.

@@ -17,6 +17,10 @@ Every resolver must be interchangeable. Evaluation must not know or care how a r
 
 ## What Codex should do first
 
+**Ab3P / PLODv2 runtime work:** use [Run Ab3P and PLODv2](docs/baseline-runtimes.md)
+before any availability conclusion. It includes a working strict smoke command,
+the installed environments, exact resource paths and the quality-gate fallback.
+
 1. Read `AGENTS.md` completely.
 2. Read [current work](docs/CURRENT_WORK.md), the assigned task, relevant public contracts and the specific dependency acceptance artifacts needed for that task. Do not read all of `docs/` or recursively reread historical task instructions. Consult historical plans/notes only for a concrete question; their dated status is not current authority.
 3. If this is a fresh repository and no task number was assigned, implement only `docs/tasks/T000-bootstrap-repository.md`.

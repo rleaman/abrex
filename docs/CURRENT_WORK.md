@@ -1,5 +1,14 @@
 # Current work: random-literature plumbing and review pilot
 
+## September 13 runtime correction
+
+Ab3P and PLODv2 both passed a fresh local three-passage smoke using existing
+Ubuntu WSL installations. The original T058 unavailable statuses reflect bad
+configuration. Use [the runtime guide](baseline-runtimes.md) and corrected YAML.
+T058 closure still requires acceptance reconciliation; historical T051/T052
+predictions and frozen annotations remain unchanged. Earlier host-unavailable
+statements below describe their original runs, not current runtime readiness.
+
 ## September 10 planning checkpoint
 
 The user completed the T052 assisted annotation and requested comprehensive
