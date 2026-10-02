@@ -1,0 +1,35 @@
+project:
+  name: T060-ab3p-linux
+  seed: 20261002
+job:
+  python_executable: /home/rleaman/.local/share/abrex/venv313/bin/python
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/T059/t057-strict-development.jsonl
+    manifest_path: evidence/T059/t057-strict-development.manifest.json
+resolver:
+  type: ab3p
+  params:
+    backend: subprocess
+    output_format: offset_jsonl
+    timeout_seconds: 120
+    installation:
+      manifest: ${ABREX_AB3P_MANIFEST}
+      root: ${ABREX_AB3P_ROOT}
+      executable: identify_abbr_offsets
+      resource_directory: WordData
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+output:
+  root: .artifacts/T060/ab3p
+  reuse_cached_predictions: true

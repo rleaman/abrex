@@ -1,7 +1,7 @@
 # T060 Run the bounded development comparison and build an output review packet
 
 Owner: **Luna — engineering and preparation**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: In progress — local methods complete; Ab3P/PLODv2 Linux results pending.
 Dependencies: T057 challenge views; T058 readiness; T059 model baseline readiness or explicit unavailable status.
 
 ## Execution contract

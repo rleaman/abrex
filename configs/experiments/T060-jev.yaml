@@ -1,0 +1,37 @@
+project:
+  name: T060-jev-candidate-judge
+  seed: 20261002
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/T059/t057-strict-development.jsonl
+    manifest_path: evidence/T059/t057-strict-development.manifest.json
+resolver:
+  type: jev_candidate_judge
+  params:
+    model: jev-1.13.0
+    policy_version: abrex-candidate-choice-v1
+    confidence_threshold: 0.6
+    cache_path: .artifacts/T059/t057-jev-cache.jsonl
+    maximum_candidates_per_document: 512
+    maximum_candidates_per_request: 64
+    maximum_request_characters: 48000
+    maximum_network_requests: 500
+    maximum_input_tokens: 10000000
+    timeout_seconds: 30
+    retries: 3
+    concurrency: 8
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+output:
+  root: .artifacts/T060/jev
+  reuse_cached_predictions: true

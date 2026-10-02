@@ -1,7 +1,7 @@
 # T059 Prepare one evidence-grounded language-model extraction baseline
 
 Owner: **Luna — engineering and preparation**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: Complete — engineering and bounded development evidence verified October 2, 2026.
 Dependencies: T054 contract; T057 required before final prompt freeze and real challenge run.
 
 ## Execution contract

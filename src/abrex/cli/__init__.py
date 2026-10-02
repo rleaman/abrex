@@ -31,6 +31,15 @@ from abrex.corpora import (
     write_canonical_dataset,
 )
 from abrex.experiments import ExperimentError, run_experiment
+from abrex.jobs import (
+    JobBundleError,
+    bundle_status,
+    doctor_bundle,
+    execute_job,
+    import_results,
+    inspect_bundle,
+    prepare_bundle,
+)
 from abrex.literature import (
     AcquisitionError,
     ArticleError,
@@ -285,6 +294,41 @@ def _build_parser() -> argparse.ArgumentParser:
         "run", help="import annotation cases and write canonical/report artifacts"
     )
     annotation_run.add_argument("config", type=Path)
+    jobs = commands.add_parser("jobs", help="portable prediction job bundles")
+    job_commands = jobs.add_subparsers(dest="jobs_command", required=True)
+    job_prepare = job_commands.add_parser(
+        "prepare", help="prepare prediction-only shell and Slurm jobs"
+    )
+    job_prepare.add_argument(
+        "experiments", nargs="+", type=Path, help="experiment YAML files"
+    )
+    job_prepare.add_argument("--output", required=True, type=Path)
+    job_prepare.add_argument(
+        "--backend", choices=("shell", "slurm", "both"), default="both"
+    )
+    job_inspect = job_commands.add_parser(
+        "inspect", help="verify and describe a prepared bundle"
+    )
+    job_inspect.add_argument("bundle", type=Path)
+    job_status = job_commands.add_parser(
+        "status", help="show local completion state for bundle jobs"
+    )
+    job_status.add_argument("bundle", type=Path)
+    job_doctor = job_commands.add_parser(
+        "doctor", help="check server prerequisites without installing them"
+    )
+    job_doctor.add_argument("bundle", type=Path)
+    job_execute = job_commands.add_parser(
+        "execute", help="execute one checksummed bundle job"
+    )
+    job_execute.add_argument("bundle", type=Path)
+    job_execute.add_argument("job_id")
+    job_import = job_commands.add_parser(
+        "import", help="verify and import copied-back job results"
+    )
+    job_import.add_argument("bundle", type=Path)
+    job_import.add_argument("results", type=Path)
+    job_import.add_argument("--into", required=True, type=Path)
     return parser
 
 
@@ -299,6 +343,37 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     configure_logging(level)
     logger.debug("Parsed CLI command: %s", args.command)
+    if args.command == "jobs":
+        try:
+            if args.jobs_command == "prepare":
+                job_bundle = prepare_bundle(
+                    args.experiments, args.output, backend=args.backend
+                )
+                job_payload: object = job_bundle.model_dump(mode="json")
+            elif args.jobs_command == "inspect":
+                job_payload = inspect_bundle(args.bundle).model_dump(mode="json")
+            elif args.jobs_command == "status":
+                job_payload = bundle_status(args.bundle)
+            elif args.jobs_command == "doctor":
+                job_payload = doctor_bundle(args.bundle)
+            elif args.jobs_command == "execute":
+                executed = execute_job(args.bundle, args.job_id)
+                job_payload = executed.model_dump(mode="json")
+                sys.stdout.write(
+                    json.dumps(job_payload, ensure_ascii=False, sort_keys=True) + "\n"
+                )
+                return 0 if executed.status == "complete" else 2
+            elif args.jobs_command == "import":
+                job_payload = import_results(args.bundle, args.results, args.into)
+            else:  # pragma: no cover - argparse owns this invariant
+                raise AssertionError("unsupported jobs command")
+            sys.stdout.write(
+                json.dumps(job_payload, ensure_ascii=False, sort_keys=True) + "\n"
+            )
+        except (JobBundleError, OSError, ValueError) as error:
+            logger.error("error: portable job command failed: %s", error)
+            return 2
+        return 0
     if args.command == "config" and args.config_command == "resolve":
         try:
             logger.info(

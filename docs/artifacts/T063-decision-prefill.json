@@ -1,0 +1,47 @@
+{
+  "schema_version": "t063-protocol-decision-v1",
+  "status": "awaiting_scientific_lead",
+  "evidence_dependencies": {
+    "t060_complete": false,
+    "t061_complete": false,
+    "t062_complete": false,
+    "reason": "Ab3P and PLODv2 results still require the prepared Linux run, followed by assisted output adjudication."
+  },
+  "prefilled_recommendation": {
+    "comparison": "Use Schwartz-Hearst as the fixed baseline. Advance at most one challenger only if the completed T060/T061 recovery analysis shows useful exact-pair additions; current Jev-only development evidence does not justify advancing Jev by itself.",
+    "sample": {
+      "total_items": 32,
+      "prose_items": 24,
+      "table_or_list_items": 8,
+      "article_groups": 8,
+      "maximum_items_per_group": 4,
+      "seed": 20261002,
+      "exclusions": [
+        "all development documents",
+        "all CellLiteraturePipeline annotated documents and linked copies",
+        "all previously reviewed ABREX documents and linked copies"
+      ]
+    },
+    "reviewer_plan": "single-reviewer, prediction-blind unless an independent second reviewer is identified before acquisition",
+    "primary_policy": "strict half-open exact short-form/long-form pairs, with representation-limited and uncertain evidence reported separately",
+    "proposed_success_tolerances": {
+      "strict_pair_f1": "challenger must exceed Schwartz-Hearst",
+      "unique_correct_additions": "at least 3 exact pairs",
+      "additional_false_positives": "at most 2 exact pairs",
+      "runtime_failures": 0,
+      "reporting": "prose and table/list arms reported separately; no pooled-only adoption decision"
+    },
+    "acquisition_limits": {
+      "maximum_elapsed_hours": 2,
+      "maximum_download_bytes": 134217728,
+      "replacement_rule": "replace only documented source-ineligible or failed-fetch groups using the seeded order; never replace based on apparent abbreviation content"
+    }
+  },
+  "required_user_decisions": [
+    "confirm baseline-only versus the single challenger recommended after T062",
+    "confirm or revise the 32-item, eight-group design",
+    "confirm or revise the numerical success tolerances",
+    "confirm the reviewer plan"
+  ],
+  "freeze_rule": "Do not acquire T065 material until this record is completed after T062."
+}

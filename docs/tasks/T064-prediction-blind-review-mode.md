@@ -1,7 +1,7 @@
 # T064 Add a genuinely prediction-blind annotation mode
 
 Owner: **Luna — engineering and preparation**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: Complete — implementation and real-browser QA verified October 2, 2026.
 Dependencies: T054/T055 reviewer; T057 guidelines. Fixture work can precede T063.
 
 ## Execution contract

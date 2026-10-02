@@ -1,0 +1,25 @@
+project:
+  name: T060-schwartz-hearst
+  seed: 20261002
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/T059/t057-strict-development.jsonl
+    manifest_path: evidence/T059/t057-strict-development.manifest.json
+resolver:
+  type: schwartz_hearst
+  params: {}
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+output:
+  root: .artifacts/T060/schwartz-hearst
+  reuse_cached_predictions: true

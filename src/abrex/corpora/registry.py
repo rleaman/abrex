@@ -14,6 +14,7 @@ NORMALIZERS = Registry[NormalizationStep]("normalizers")
 def register_builtin_components() -> None:
     """Register the small built-in fixture components once per process."""
 
+    from abrex.corpora.adapters.clp_snapshot import CLPAbbreviationSnapshotAdapter
     from abrex.corpora.adapters.fixture import FixtureCorpusAdapter
     from abrex.corpora.adapters.historical import (
         BioCCorpusAdapter,
@@ -25,6 +26,8 @@ def register_builtin_components() -> None:
 
     if "fixture" not in CORPUS_ADAPTERS:
         CORPUS_ADAPTERS.register("fixture", FixtureCorpusAdapter)
+    if "clp_abbr_snapshot_v1" not in CORPUS_ADAPTERS:
+        CORPUS_ADAPTERS.register("clp_abbr_snapshot_v1", CLPAbbreviationSnapshotAdapter)
     historical: dict[str, Callable[..., CorpusAdapter]] = {
         "schwartz_hearst": lambda **params: BioCCorpusAdapter(
             dataset_variant="schwartz_hearst", **params

@@ -96,9 +96,9 @@ class CorpusSemanticsConfig(BaseModel):
     coordinate_convention: str = "unicode_python_half_open"
     official_split: str = "unspecified"
     eligible_metric: Literal["exact_pair", "exact_span", "not_scoreable"]
-    source_status: Literal["user_managed_local", "unavailable_settled"] = (
-        "user_managed_local"
-    )
+    source_status: Literal[
+        "user_managed_local", "unavailable_settled", "tracked_canonical_derivative"
+    ] = "user_managed_local"
     source_version: str | None = None
     license_status: str = "source_terms_require_review"
 

@@ -24,6 +24,10 @@ def register_builtin_components() -> None:
     )
     from abrex.resolvers.adapters.toy import ToyResolver, ToyResolverConfig
     from abrex.resolvers.hybrid import HybridResolverConfig, create_hybrid_resolver
+    from abrex.resolvers.jev import (
+        JevCandidateJudgeConfig,
+        JevCandidateJudgeResolver,
+    )
     from abrex.resolvers.plod import PlodConfig, PlodSpanDetector
     from abrex.resolvers.plod_pairing import (
         PlodPairingResolver,
@@ -61,6 +65,12 @@ def register_builtin_components() -> None:
             "transparent_hybrid",
             create_hybrid_resolver,
             config_model=HybridResolverConfig,
+        )
+    if "jev_candidate_judge" not in RESOLVERS:
+        RESOLVERS.register(
+            "jev_candidate_judge",
+            JevCandidateJudgeResolver,
+            config_model=JevCandidateJudgeConfig,
         )
 
 

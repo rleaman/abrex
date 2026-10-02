@@ -6,6 +6,7 @@ import importlib.util
 import os
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -29,10 +30,9 @@ def test_run_gate_creates_parent_and_stops_on_failure(tmp_path: Path) -> None:
         (sys.executable, "-c", f"from pathlib import Path; Path(r'{marker}').touch()"),
     ]
 
-    status = gate.run_gate(commands, root=tmp_path, basetemp_name="test")
+    status = gate.run_gate(commands, root=tmp_path)
 
     assert status == 23
-    assert (tmp_path / ".pytest-tmp").is_dir()
     assert not marker.exists()
 
 
@@ -119,13 +119,13 @@ def test_gate_commands_verify_source_before_tools_and_use_selected_python(
         root=tmp_path,
         python=selected,
         full=False,
-        basetemp_name="fast",
+        basetemp=tmp_path / "fast-temp",
     )
     full = gate._commands(
         root=tmp_path,
         python=selected,
         full=True,
-        basetemp_name="full",
+        basetemp=tmp_path / "full-temp",
     )
 
     assert fast[0] == (
@@ -137,3 +137,16 @@ def test_gate_commands_verify_source_before_tools_and_use_selected_python(
     assert all(command[0] == str(selected) for command in fast)
     assert fast[-1][2:5] == ("pytest", "tests/unit", "tests/contract")
     assert full[-1][2:4] == ("pytest", "--cov")
+    assert fast[-1][-3:] == ("--basetemp", str(tmp_path / "fast-temp"), "-q")
+    assert full[-1][-3:] == ("--basetemp", str(tmp_path / "full-temp"), "-q")
+
+
+def test_unique_pytest_basetemp_is_fresh_and_outside_checkout() -> None:
+    gate = _load_gate_module()
+
+    first = gate.unique_pytest_basetemp(full=False)
+    second = gate.unique_pytest_basetemp(full=False)
+
+    assert first != second
+    assert first.parent == Path(tempfile.gettempdir())
+    assert first.name.startswith("abrex-quality-fast-")

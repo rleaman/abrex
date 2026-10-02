@@ -1,0 +1,40 @@
+project:
+  name: T060-plodv2-pairing-linux
+  seed: 20261002
+job:
+  python_executable: /home/rleaman/.local/share/abrex/plod313/bin/python
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/T059/t057-strict-development.jsonl
+    manifest_path: evidence/T059/t057-strict-development.manifest.json
+resolver:
+  type: plodv2_pairing
+  params:
+    checkpoint_path: ${ABREX_PLODV2_CHECKPOINT}
+    checkpoint_sha256: 3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277
+    device: cpu
+    batch_size: 1
+    max_chars_per_window: 4096
+    window_overlap: 128
+    duplicate_policy: deduplicate
+    runtime_version: flair-0.15.1-torch-2.14.0+cpu
+    strategy: position_anchored
+    selection: one_to_one
+    allow_reverse_order: true
+    max_gap: 160
+    require_local_pattern: false
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+output:
+  root: .artifacts/T060/plodv2
+  reuse_cached_predictions: true

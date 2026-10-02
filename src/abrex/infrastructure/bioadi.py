@@ -5,12 +5,12 @@ from __future__ import annotations
 import hashlib
 import shlex
 import subprocess
-import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING
 
 from abrex.domain import Document
+from abrex.infrastructure.temporary import temporary_working_directory
 
 if TYPE_CHECKING:
     from abrex.resolvers.adapters.bioadi import BioADIResolverConfig
@@ -47,8 +47,8 @@ def run_bioadi(document: Document, config: BioADIResolverConfig) -> BioADIRawRes
     jar_path = Path(config.jar_path)
     if not jar_path.is_file():
         raise BioADIExecutionError(f"BioADI JAR does not exist: {jar_path}")
-    with tempfile.TemporaryDirectory(prefix="abrex-bioadi-") as directory:
-        input_path = Path(directory) / "input.txt"
+    with temporary_working_directory("abrex-bioadi-") as directory:
+        input_path = directory / "input.txt"
         input_path.write_text(_input_text(document), encoding="utf-8", newline="\n")
         java = shlex.quote(_wsl_path(config.java_path))
         jar = shlex.quote(_wsl_path(jar_path.resolve()))

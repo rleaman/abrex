@@ -14,11 +14,11 @@
   "sources": {
     "packet": {
       "path": "evidence/T052/review-packet-v2.json",
-      "sha256": "c7a6e431cabf0dc74b62e67b5b83dd3912d1525a6798fdc4bded8bc5cb8a088c"
+      "sha256": "2eca2fbcc0039e122a45646e087053c6853e84b80bc74fea8c5ffb2b87592aa0"
     },
     "baseline_annotations": {
       "path": "evidence/T052/review-packet-v2.annotations.final.json",
-      "sha256": "b8ffb53d176e8a49bef7a947c9d0947977da0c63adfb43633d7bc44f91da931f",
+      "sha256": "9a641e4e118f1dfdb19e8952307db45e77048046b809f082a67c9e4598b739b9",
       "relations": 105
     },
     "user_adjudication": {
@@ -28,7 +28,7 @@
     },
     "accepted_mechanical_corrections": {
       "path": "evidence/T057/accepted-mechanical-corrections.json",
-      "sha256": "68d8435f08baffda82247d14894454a8f6d08643d866ad418b6740a8d079c779",
+      "sha256": "d9d74cdfbca04771fe87432ad2c2696eaedfb1b53cc10ce3ee439589cbcdc78f",
       "source_annotations_sha256": "15c8e59232041f0999290f426348e3777d15c3562a76eccf76b454e023a01533",
       "corrections": 6,
       "authority": "T057 acceptance review; mechanical source-span repair only"
@@ -45,11 +45,11 @@
   "documents": {
     "guideline": {
       "path": "docs/annotation-guidelines/2026-09-12-development-supplement-v1.md",
-      "sha256": "83240c006f9101a32ce88d22c5a8e36a7293b38773eca603764e6b4e9bfa4c86"
+      "sha256": "d9f1224fd3dfb89c4c1d2af0bf0b30357f6384ef272623d143d3b18a3f1903be"
     },
     "scientific_model": {
       "path": "docs/scientific-model/2026-09-12-development-challenge.md",
-      "sha256": "0fffc751a6fd5ddfeb5713375aa9c7c2b4c1f7850e79df2f68ad5444e8e43b03"
+      "sha256": "f6e6ee82f08a87f441a1d98a08d9309e8ac3f3250b63c4079c40c74704aab32c"
     }
   },
   "outputs": {
@@ -89,5 +89,5 @@
     "no relaxed metric is defined by this bundle",
     "one source-error relation preserves the literal printed text; an intended scientific correction was not inferred"
   ],
-  "content_sha256": "2ff23efc0913b72a8ca64756dd43eb59481c3cd365ef96515e205d8133890bec"
+  "content_sha256": "aff7b11c80e9f01f5163e7e157cc7eba07372d648ad20dc84b268411dfa4190b"
 }

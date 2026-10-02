@@ -6,6 +6,8 @@ import argparse
 import os
 import subprocess
 import sys
+import tempfile
+import uuid
 from collections.abc import Sequence
 from pathlib import Path
 
@@ -42,9 +44,8 @@ def run_command(command: Command, *, cwd: Path) -> int:
     return result.returncode
 
 
-def run_gate(commands: Sequence[Command], *, root: Path, basetemp_name: str) -> int:
-    """Create pytest's parent directory and stop at the first failed command."""
-    (root / ".pytest-tmp").mkdir(parents=True, exist_ok=True)
+def run_gate(commands: Sequence[Command], *, root: Path) -> int:
+    """Run commands in order and stop at the first failed command."""
     for command in commands:
         status = run_command(command, cwd=root)
         if status:
@@ -53,9 +54,16 @@ def run_gate(commands: Sequence[Command], *, root: Path, basetemp_name: str) -> 
     return 0
 
 
-def _commands(
-    *, root: Path, python: Path, full: bool, basetemp_name: str
-) -> list[Command]:
+def unique_pytest_basetemp(*, full: bool) -> Path:
+    """Return a collision-free system-temporary directory for one gate run."""
+
+    gate = "full" if full else "fast"
+    return Path(tempfile.gettempdir()) / (
+        f"abrex-quality-{gate}-{os.getpid()}-{uuid.uuid4().hex}"
+    )
+
+
+def _commands(*, root: Path, python: Path, full: bool, basetemp: Path) -> list[Command]:
     executable = str(python)
     commands: list[Command] = [
         (
@@ -68,7 +76,16 @@ def _commands(
         (executable, "-m", "ruff", "check", "src", "tests", "scripts"),
         (executable, "-m", "mypy"),
     ]
-    test_args = ("--basetemp", f".pytest-tmp/{basetemp_name}", "-q")
+    # Python 3.13's Windows 0o700 ACL handling also affects pytest's cache
+    # atomic-write temporary directories under managed process tokens. The
+    # cache is not evidence and is unnecessary in the reproducibility gate.
+    test_args = (
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        str(basetemp),
+        "-q",
+    )
     if full:
         commands.append(
             (
@@ -126,16 +143,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 1
         print("Failure-path check passed.")
         return 0
-    name = "t017-full" if args.full else "t017-fast"
     return run_gate(
         _commands(
             root=root,
             python=python,
             full=args.full,
-            basetemp_name=name,
+            basetemp=unique_pytest_basetemp(full=args.full),
         ),
         root=root,
-        basetemp_name=name,
     )
 
 

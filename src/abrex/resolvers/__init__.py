@@ -67,6 +67,15 @@ from abrex.resolvers.hybrid import (
     TransparentHybridResolver,
     create_hybrid_resolver,
 )
+from abrex.resolvers.jev import (
+    CalibrationResult,
+    JevBudgetError,
+    JevCandidateJudgeConfig,
+    JevCandidateJudgeResolver,
+    JevResolverError,
+    JevResponseError,
+    calibrate_threshold,
+)
 from abrex.resolvers.plod import (
     PLOD_VERSION,
     PlodConfig,
@@ -144,6 +153,13 @@ __all__ = [
     "ResolverError",
     "ResolverExecutionError",
     "ResolverExecutor",
+    "CalibrationResult",
+    "JevBudgetError",
+    "JevCandidateJudgeConfig",
+    "JevCandidateJudgeResolver",
+    "JevResolverError",
+    "JevResponseError",
+    "calibrate_threshold",
     "ResolverMetadata",
     "ResolverRunResult",
     "PLOD_VERSION",

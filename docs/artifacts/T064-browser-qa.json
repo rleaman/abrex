@@ -1,0 +1,28 @@
+{
+  "annotation_state_sha256": "98828645a0393b8a4675007dbbbe729228113f42a52ab4858696229075dca067",
+  "browser": "Microsoft Edge via Playwright",
+  "cases": 2,
+  "checks": {
+    "json_export_import": true,
+    "locked_export": true,
+    "narrow_viewport": true,
+    "relation_from_scratch": true,
+    "save_reload": true,
+    "server_enforced_lock": true,
+    "source_payload_isolated": true,
+    "unicode_and_repeated_selection": true,
+    "zero_relation_completion": true
+  },
+  "packet_id": "blind-0b269046b46f362002cc",
+  "schema_version": "t064-browser-qa-v1",
+  "screenshot": ".artifacts\\T064\\blind-reviewer-qa.png",
+  "state_revisions": {
+    "empty": 1,
+    "relation": 1
+  },
+  "status": "passed",
+  "viewport": {
+    "height": 844,
+    "width": 390
+  }
+}

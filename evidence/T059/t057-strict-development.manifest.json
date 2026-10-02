@@ -1,0 +1,38 @@
+{
+  "adapter": {
+    "identity": "t057_strict_development_view",
+    "version": "1"
+  },
+  "annotation_count": 59,
+  "config_fingerprint": null,
+  "dataset_id": "t057-strict-development-v1",
+  "fingerprint": "6befee2d33f97e7458d9c2eaa94cc3135158898588a74f56ea03013bc9926d82",
+  "manifest_version": "manifest-v1",
+  "normalizers": [],
+  "record_count": 20,
+  "schema_version": "canonical-v1",
+  "source": {
+    "fingerprint": "ba4fc1cd9f50ea07e98b2bb90e6ad34775ed27b92690f3001547921f1f4e6edf",
+    "format": "t057-development-views-v1",
+    "identifier": "T057-development-guidelines-v1"
+  },
+  "validation": {
+    "by_action": {
+      "ambiguous": 0,
+      "dropped": 0,
+      "observed": 0,
+      "repaired": 0,
+      "unscoreable": 0
+    },
+    "by_severity": {
+      "error": 0,
+      "info": 0,
+      "warning": 0
+    },
+    "diagnostics": [],
+    "records_dropped": 0,
+    "records_kept": 20,
+    "records_seen": 20,
+    "total": 0
+  }
+}

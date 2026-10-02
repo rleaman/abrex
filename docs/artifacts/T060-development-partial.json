@@ -1,0 +1,51 @@
+{
+  "schema_version": "t060-development-comparison-v1",
+  "status": "partial_pending_linux_results",
+  "dataset": {
+    "id": "t057-strict-development-v1",
+    "documents": 20,
+    "strict_pairs": 59,
+    "fingerprint": "6befee2d33f97e7458d9c2eaa94cc3135158898588a74f56ea03013bc9926d82"
+  },
+  "completed_methods": {
+    "schwartz_hearst": {
+      "tp": 36,
+      "fp": 7,
+      "fn": 23,
+      "precision": 0.8372093023255814,
+      "recall": 0.6101694915254238,
+      "f1": 0.7058823529411765,
+      "failures": 0
+    },
+    "jev_candidate_judge": {
+      "model": "jev-1.13.0",
+      "policy_version": "abrex-candidate-choice-v1",
+      "frozen_threshold": 0.6,
+      "tp": 29,
+      "fp": 24,
+      "fn": 30,
+      "precision": 0.5471698113207547,
+      "recall": 0.4915254237288136,
+      "f1": 0.5178571428571428,
+      "candidate_coverage": 0.7966101694915254,
+      "input_tokens": 225965,
+      "estimated_input_cost_usd": 0.00949053,
+      "failures": 0
+    }
+  },
+  "pending_methods": [
+    "ab3p",
+    "plodv2_pairing"
+  ],
+  "linux_bundle": {
+    "path": ".artifacts/T060/abrex-t060-linux-bundle-release2.zip",
+    "bundle_id": "47cb4c8a73b1935bbdf8ddeadba73b0ce9b62d8810e50a907e3e3dbd50bc8ef7",
+    "sha256": "8156f0cae72b7f06339293e660330a9193ac6695d8bf1cb31812ac185b74f36e",
+    "bytes": 363446,
+    "jobs": [
+      "t060-ab3p-linux",
+      "t060-plodv2-pairing-linux"
+    ]
+  },
+  "interpretation": "On assisted development evidence, Schwartz-Hearst is materially stronger than the frozen Jev candidate judge. Final T060 comparison and the T061 review queue wait for verified Ab3P and PLODv2 result imports."
+}

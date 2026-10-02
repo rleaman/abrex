@@ -11,6 +11,10 @@ GENERATORS = Registry[CandidateGenerator]("candidate_generators")
 def register_builtin_components() -> None:
     """Register built-in generators exactly once."""
 
+    from abrex.candidates.clp_table import (
+        CLPTableCandidateConfig,
+        CLPTableCandidateGenerator,
+    )
     from abrex.candidates.generators import (
         LexicalResourceCandidateConfig,
         LexicalResourceCandidateGenerator,
@@ -29,6 +33,12 @@ def register_builtin_components() -> None:
             "parenthetical",
             ParentheticalCandidateGenerator,
             config_model=ParentheticalCandidateConfig,
+        )
+    if "clp_table_v5_1" not in GENERATORS:
+        GENERATORS.register(
+            "clp_table_v5_1",
+            CLPTableCandidateGenerator,
+            config_model=CLPTableCandidateConfig,
         )
     for key, factory, config in (
         (

@@ -8,13 +8,13 @@ import logging
 import os
 import platform
 import subprocess
-import tempfile
 from contextlib import suppress
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 
 from abrex.domain import Document
+from abrex.infrastructure.temporary import temporary_working_directory
 from abrex.resolvers.adapters.ab3p import (
     AB3P_ADAPTER_VERSION,
     AB3P_OFFSET_SCHEMA_VERSION,
@@ -340,8 +340,8 @@ def run_ab3p(document: Document, config: Ab3PResolverConfig) -> Ab3PRawResult:
     input_text = build_ab3p_input(document)
     logger.info("Starting Ab3P resolver for %s", document.document_id)
     try:
-        with tempfile.TemporaryDirectory(prefix="abrex-ab3p-") as directory:
-            input_path = Path(directory) / "input.txt"
+        with temporary_working_directory("abrex-ab3p-") as directory:
+            input_path = directory / "input.txt"
             input_path.write_bytes(input_text.encode("utf-8"))
             try:
                 argv = [os.fspath(executable), os.fspath(input_path)]
