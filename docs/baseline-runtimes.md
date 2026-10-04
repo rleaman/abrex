@@ -1,5 +1,12 @@
 # Run Ab3P and PLODv2: start here
 
+> **Host scope:** The concrete `/home/rleaman/...` values below are historical
+> paths from the verified Ubuntu WSL installation. They are provenance, not
+> portable defaults, and are not expected to exist on a new Linux server. The
+> user cannot install WSL in the active environment. For fresh-server bundles,
+> follow [Linux server runtime provisioning](linux-server-runtimes.md); do not
+> copy these paths or assume its `uv` installation exists.
+
 Verified on September 13, 2026 in this checkout. Both runtimes already exist in
 Ubuntu WSL. The original T058 failure came from incorrect configuration, not
 missing installations. A dated success is not proof of future availability;

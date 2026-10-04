@@ -14,10 +14,15 @@ assigned work. Historical completion notes do not override this decision.
 ## Baseline runtime prerequisite
 
 For any Ab3P/PLODv2 runtime work, first read and execute
-[the baseline runtime guide](docs/baseline-runtimes.md). Both already have local
-Ubuntu WSL installations. Use the verified configuration and strict smoke;
-do not declare a method unavailable based on placeholder paths, a Windows
-Python launch error, or a dated completion note. Record the actual failed
+[the baseline runtime guide](docs/baseline-runtimes.md) and distinguish its
+historical verified Ubuntu WSL installation from a fresh Linux server. The
+user cannot install WSL in the active environment. For server execution follow
+[the Linux server provisioning decision](docs/linux-server-runtimes.md) and
+use the setup script carried by the portable bundle. Never assume the WSL
+`/home/rleaman/...` paths or its preinstalled `uv` exist on another host. Use
+the verified configuration and strict smoke for the applicable host; do not
+declare a method unavailable based on placeholder paths, a Windows Python
+launch error, or a dated completion note. Record the actual failed
 prerequisite check before proposing installation/rebuild work.
 
 ## 1. Architectural style

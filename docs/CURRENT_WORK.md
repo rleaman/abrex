@@ -8,6 +8,9 @@ and PLODv2 jobs are packaged for Linux/Slurm execution. T064 prediction-blind
 review mode is complete and passed real Edge browser QA. See the
 [revival handoff](revival-handoff-2026-10-02.md) for measured results, the
 single ZIP server handoff, and the exact T061–T068 dependency sequence.
+Fresh Linux execution uses the bundle's self-contained setup flow documented
+in [Linux server runtime provisioning](linux-server-runtimes.md); historical
+WSL paths are not server defaults.
 
 Do not acquire fresh T065 material yet. T060 Linux results, T061 adjudication,
 T062 analysis, and the explicit T063 protocol decision precede acquisition.
