@@ -1,0 +1,7 @@
+# Minimal pinned runtime for an embedded ABREX job bundle on Python 3.13.
+annotated-types==0.8.0
+pydantic==2.13.5
+pydantic-core==2.46.5
+PyYAML==6.0.3
+typing-extensions==4.16.0
+typing-inspection==0.4.4

@@ -2,7 +2,8 @@ project:
   name: T060-plodv2-pairing-linux
   seed: 20261002
 job:
-  python_executable: /home/rleaman/.local/share/abrex/plod313/bin/python
+  # Portable fallback only; generated bundles override this through runtime.env.
+  python_executable: python3
 corpus:
   type: canonical_jsonl
   params:

@@ -2,7 +2,8 @@ project:
   name: T060-ab3p-linux
   seed: 20261002
 job:
-  python_executable: /home/rleaman/.local/share/abrex/venv313/bin/python
+  # Portable fallback only; generated bundles override this through runtime.env.
+  python_executable: python3
 corpus:
   type: canonical_jsonl
   params:

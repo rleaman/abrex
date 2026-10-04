@@ -50,6 +50,7 @@ def test_bundle_is_gold_free_content_addressed_and_has_launchers(
     assert b"ABREX_JOB_DOCTOR_PYTHON" in (root / "collect-results.sh").read_bytes()
     assert manifest.jobs[0].python_executable == "python"
     assert manifest.jobs[0].python_environment.startswith("ABREX_JOB_PYTHON_")
+    assert not (root / "setup-runtime.sh").exists()
 
 
 def test_job_round_trip_is_resumable_and_import_is_idempotent(tmp_path: Path) -> None:
@@ -138,6 +139,36 @@ def test_portable_runtime_placeholders_survive_local_config_loading(
 
     assert environment["ABREX_AB3P_ROOT"] == "${ABREX_AB3P_ROOT}"
     assert environment["LOCAL_CORPUS"] == "local-corpus.jsonl"
+
+
+def test_external_runtime_bundle_contains_fresh_server_setup(tmp_path: Path) -> None:
+    root = tmp_path / "bundle"
+
+    manifest = prepare_bundle(
+        (
+            Path("configs/experiments/T060-ab3p-linux.yaml"),
+            Path("configs/experiments/T060-plodv2-linux.yaml"),
+        ),
+        root,
+    )
+
+    setup = (root / "setup-runtime.sh").read_text(encoding="utf-8")
+    guide = (root / "README.md").read_text(encoding="utf-8")
+    assert "python3.13" in setup
+    assert "-m venv" in setup
+    assert "uv_tool" not in setup
+    assert "41130cddfcba1449ba612905d4a51274f8f565a8" in setup
+    assert "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277" in setup
+    assert "ABREX_JOB_PYTHON_T060_AB3P_LINUX" in setup
+    assert "ABREX_JOB_PYTHON_T060_PLODV2_PAIRING_LINUX" in setup
+    assert (root / "runtime-setup/build_ab3p.py").is_file()
+    assert (root / "runtime-setup/ab3p_offset_frontend.C").is_file()
+    assert (root / "runtime-setup/requirements-core.lock").is_file()
+    assert (root / "runtime-setup/plod-runtime-requirements.txt").is_file()
+    assert "./setup-runtime.sh --all" in guide
+    assert "/home/rleaman" not in guide
+    assert "setup-runtime.sh" in manifest.files
+    assert b'source "$ROOT/runtime.env"' in (root / "doctor.sh").read_bytes()
 
 
 def test_job_execution_expands_required_server_environment(

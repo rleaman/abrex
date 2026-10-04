@@ -19,34 +19,51 @@ request failures.
 
 ## Linux handoff
 
-Copy `.artifacts/T060/abrex-t060-linux-bundle-release2.zip` to the Linux server.
+Copy `.artifacts/T060/abrex-t060-linux-bundle-release3.zip` to the Linux server.
 Its SHA-256 is
-`8156f0cae72b7f06339293e660330a9193ac6695d8bf1cb31812ac185b74f36e` and
+`1755738fe6023e79b51afa2c5cb707476e3aaa33d6b0cea452681e8215ceaa15` and
 its bundle ID is
-`47cb4c8a73b1935bbdf8ddeadba73b0ce9b62d8810e50a907e3e3dbd50bc8ef7`.
+`71ed8dc6d27ab7b9002fbdd98130a9b3184c3c5884e66113ed407adfa399e5b8`.
 The archive contains prediction-only inputs, embedded ABREX source, checksums,
-shell launchers, and a Slurm array. It contains neither gold annotations nor
-credentials.
+shell launchers, a Slurm array, and all setup scripts and pinned requirement
+files needed for a fresh server. It contains neither gold annotations,
+credentials, external source archives, nor the 394 MB PLOD checkpoint.
 
-On Linux:
+Do not reuse the old WSL `uv_tool`, virtual-environment, or model paths. They do
+not exist on a fresh server, and `uv` is not required. On an internet-connected
+Linux login node:
 
 ```bash
 mkdir -p abrex-t060
-unzip abrex-t060-linux-bundle-release2.zip -d abrex-t060
+unzip abrex-t060-linux-bundle-release3.zip -d abrex-t060
 cd abrex-t060
 
-export ABREX_JOB_DOCTOR_PYTHON=/home/rleaman/.local/share/abrex/venv313/bin/python
-export ABREX_JOB_PYTHON_T060_AB3P_LINUX=/home/rleaman/.local/share/abrex/venv313/bin/python
-export ABREX_JOB_PYTHON_T060_PLODV2_PAIRING_LINUX=/home/rleaman/.local/share/abrex/plod313/bin/python
-export ABREX_AB3P_MANIFEST=/absolute/path/to/live-installation-manifest.json
-export ABREX_AB3P_ROOT=/absolute/path/to/Ab3P
-export ABREX_PLODV2_CHECKPOINT=/absolute/path/to/pytorch_model.bin
-
-chmod +x doctor.sh run-job.sh run-all.sh collect-results.sh
+chmod +x setup-runtime.sh doctor.sh run-job.sh run-all.sh collect-results.sh
+./setup-runtime.sh --check
+./setup-runtime.sh --all
 ./doctor.sh
 ```
 
-Only proceed if the doctor report marks every check available. Then either run:
+The prerequisite check requires an actual Python 3.13 interpreter plus `git`,
+`make`, `g++`, `curl`, and `sha256sum`. If the server provides Python through
+an environment module, load that module first. If its executable is not named
+`python3.13`, point the setup at it explicitly and repeat the check:
+
+```bash
+export ABREX_BOOTSTRAP_PYTHON=/absolute/path/to/python3.13
+./setup-runtime.sh --check
+./setup-runtime.sh --all
+```
+
+To use a project or scratch filesystem instead of the default user data
+directory, set `ABREX_RUNTIME_ROOT` before both setup commands. The setup uses
+Python's built-in `venv`, installs the two pinned environments, checks out and
+builds pinned Ab3P/NCBITextLib sources, generates the Ab3P installation
+manifest, downloads and verifies the pinned PLOD checkpoint, and writes
+`runtime.env`. The launchers source `runtime.env` automatically, including in
+Slurm jobs. It contains paths and no credentials.
+
+Only proceed if the doctor report says `"complete": true`. Then either run:
 
 ```bash
 ./run-all.sh
@@ -60,13 +77,13 @@ sbatch submit.slurm
 ./collect-results.sh
 ```
 
-Copy the generated `abrex-results-47cb4c8a73b1935bbdf8ddeadba73b0ce9b62d8810e50a907e3e3dbd50bc8ef7.zip`
+Copy the generated `abrex-results-71ed8dc6d27ab7b9002fbdd98130a9b3184c3c5884e66113ed407adfa399e5b8.zip`
 back into this checkout. It includes result manifests, predictions, execution
 logs, the doctor report, and any Slurm logs. Import it with:
 
 ```powershell
 .\env313\Scripts\python.exe -m abrex jobs import `
-  .artifacts/T060/linux-bundle-release2 `
+  .artifacts/T060/linux-bundle-release3 `
   PATH_TO_COPIED_RESULT_ZIP `
   --into .artifacts/T060/imported-linux-results
 ```

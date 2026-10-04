@@ -69,15 +69,32 @@ designing the actual worker. No Python 3.12 fallback was necessary.
 
 ## Recreate the environment
 
-Inside Ubuntu, use a new environment path if preserving the working install:
+For a portable T060/T067 job bundle on a fresh Linux server, do not copy the
+historical `uv_tool` path below. The bundle now carries the pinned requirements
+and a guided installer; from the extracted bundle run:
 
 ```bash
-cd /mnt/c/Users/mail/Documents/Projects/abrex
-uv_tool="$HOME/.local/share/abrex/bin/uv"
+chmod +x setup-runtime.sh
+./setup-runtime.sh --check
+./setup-runtime.sh --all
+./doctor.sh
+```
+
+The installer uses Python's built-in `venv`; `uv` is not required. If
+`python3.13` is not on `PATH`, load the server's Python 3.13 module or set
+`ABREX_BOOTSTRAP_PYTHON` to its absolute executable path.
+
+For a manual environment inside a full ABREX checkout, use a new environment
+path if preserving an existing install:
+
+```bash
+cd /path/to/abrex
 plod_env="$HOME/.local/share/abrex/plod313"
-"$uv_tool" venv --python 3.13.15 "$plod_env"
-"$uv_tool" pip install --python "$plod_env/bin/python" --extra-index-url https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match -r docs/artifacts/plod-runtime-requirements.txt
-"$uv_tool" pip install --python "$plod_env/bin/python" --no-deps --editable .
+python3.13 -m venv "$plod_env"
+"$plod_env/bin/python" -m pip install \
+  --extra-index-url https://download.pytorch.org/whl/cpu \
+  --requirement docs/artifacts/plod-runtime-requirements.txt
+"$plod_env/bin/python" -m pip install --no-deps --editable .
 ```
 
 The requirements snapshot pins all packages; the additional index supplies the

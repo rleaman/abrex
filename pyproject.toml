@@ -35,6 +35,11 @@ abrex = "abrex.cli:main"
 [tool.hatch.build.targets.wheel]
 packages = ["src/abrex"]
 
+[tool.hatch.build.targets.wheel.force-include]
+"scripts/build_ab3p.py" = "abrex/jobs/templates/build_ab3p.py"
+"scripts/ab3p_offset_frontend.C" = "abrex/jobs/templates/ab3p_offset_frontend.C"
+"docs/artifacts/plod-runtime-requirements.txt" = "abrex/jobs/templates/plod-runtime-requirements.txt"
+
 [tool.ruff]
 target-version = "py313"
 line-length = 88

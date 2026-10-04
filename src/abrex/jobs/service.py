@@ -91,6 +91,11 @@ def prepare_bundle(
                 python_environment=_job_python_environment(job_id),
             )
         )
+    external_runtime = any(
+        {"ab3p", "plodv2"}.intersection(job.required_capabilities) for job in jobs
+    )
+    if external_runtime:
+        _write_runtime_setup(output, tuple(jobs))
     _write_launchers(output, tuple(jobs), backend=backend)
     _write_bundle_guide(output, tuple(jobs))
     files = _bundle_file_hashes(output)
@@ -459,6 +464,7 @@ def _write_launchers(
         root / "doctor.sh",
         "#!/usr/bin/env bash\nset -euo pipefail\n"
         'ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"\n'
+        'if [[ -f "$ROOT/runtime.env" ]]; then source "$ROOT/runtime.env"; fi\n'
         'export PYTHONPATH="$ROOT/source${PYTHONPATH:+:$PYTHONPATH}"\n'
         f'PYTHON_BIN="${{ABREX_JOB_DOCTOR_PYTHON:-{control_python.python_executable}}}"\n'
         '"$PYTHON_BIN" -m abrex jobs doctor "$ROOT" | '
@@ -468,6 +474,7 @@ def _write_launchers(
         root / "run-job.sh",
         "#!/usr/bin/env bash\nset -euo pipefail\n"
         'ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"\n'
+        'if [[ -f "$ROOT/runtime.env" ]]; then source "$ROOT/runtime.env"; fi\n'
         'export PYTHONPATH="$ROOT/source${PYTHONPATH:+:$PYTHONPATH}"\n'
         'if [[ $# -ne 1 ]]; then echo "usage: $0 JOB_ID" >&2; exit 2; fi\n'
         'case "$1" in\n'
@@ -491,6 +498,7 @@ def _write_launchers(
         root / "collect-results.sh",
         "#!/usr/bin/env bash\nset -euo pipefail\n"
         'ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"\n'
+        'if [[ -f "$ROOT/runtime.env" ]]; then source "$ROOT/runtime.env"; fi\n'
         f'PYTHON_BIN="${{ABREX_JOB_DOCTOR_PYTHON:-{control_python.python_executable}}}"\n'
         'BUNDLE_ID="$("$PYTHON_BIN" -c \'import json,sys; '
         'print(json.load(open(sys.argv[1], encoding="utf-8"))["bundle_id"])\' '
@@ -519,6 +527,58 @@ def _write_launchers(
             f"JOBS=({quoted})\n"
             '"$ROOT/run-job.sh" "${JOBS[$SLURM_ARRAY_TASK_ID]}"\n',
         )
+
+
+def _write_runtime_setup(root: Path, jobs: tuple[PortableJob, ...]) -> None:
+    """Bundle reproducible fresh-server setup inputs and a guided installer."""
+
+    project_root = Path(__file__).resolve().parents[3]
+    template_root = Path(__file__).with_name("templates")
+    resources = {
+        template_root / "requirements-core.lock": "requirements-core.lock",
+        _packaged_or_checkout_resource(
+            template_root,
+            "plod-runtime-requirements.txt",
+            project_root / "docs/artifacts/plod-runtime-requirements.txt",
+        ): "plod-runtime-requirements.txt",
+        _packaged_or_checkout_resource(
+            template_root,
+            "build_ab3p.py",
+            project_root / "scripts/build_ab3p.py",
+        ): "build_ab3p.py",
+        _packaged_or_checkout_resource(
+            template_root,
+            "ab3p_offset_frontend.C",
+            project_root / "scripts/ab3p_offset_frontend.C",
+        ): "ab3p_offset_frontend.C",
+    }
+    destination = root / "runtime-setup"
+    destination.mkdir(parents=True, exist_ok=True)
+    for source, name in resources.items():
+        if not source.is_file():
+            raise JobBundleError(f"runtime setup resource is missing: {source}")
+        shutil.copy2(source, destination / name)
+
+    exports: list[str] = []
+    for job in jobs:
+        python_variable = (
+            "$PLOD_ENV/bin/python"
+            if "plodv2" in job.required_capabilities
+            else "$CORE_ENV/bin/python"
+        )
+        exports.append(
+            f"    printf 'export {job.python_environment}=%q\\n' \"{python_variable}\""
+        )
+    template = (template_root / "setup-runtime.sh").read_text(encoding="utf-8")
+    script = template.replace("@@JOB_EXPORTS@@", "\n".join(exports))
+    _write_text(root / "setup-runtime.sh", script)
+
+
+def _packaged_or_checkout_resource(
+    template_root: Path, name: str, checkout_path: Path
+) -> Path:
+    packaged = template_root / name
+    return packaged if packaged.is_file() else checkout_path
 
 
 def _required_capabilities(resolver_key: str) -> tuple[str, ...]:
@@ -635,26 +695,59 @@ def _expand_environment(value: object) -> object:
 
 
 def _write_bundle_guide(root: Path, jobs: tuple[PortableJob, ...]) -> None:
-    variables = "\n".join(
-        f"export {job.python_environment}={job.python_executable}" for job in jobs
+    has_runtime_setup = any(
+        {"ab3p", "plodv2"}.intersection(job.required_capabilities) for job in jobs
     )
+    if has_runtime_setup:
+        setup = (
+            "## Fresh Linux server setup\n\n"
+            "The recorded Python paths from the machine that prepared this "
+            "bundle are not expected to exist here. Do not copy them or set "
+            "`uv_tool`. This bundle includes its own setup inputs and uses "
+            "standard-library `venv`; `uv` is not required.\n\n"
+            "Run these commands from this extracted bundle directory on an "
+            "internet-connected login node:\n\n"
+            "```bash\n"
+            "chmod +x setup-runtime.sh doctor.sh run-job.sh run-all.sh "
+            "collect-results.sh\n"
+            "./setup-runtime.sh --check\n"
+            "./setup-runtime.sh --all\n"
+            "./doctor.sh\n"
+            "```\n\n"
+            "The setup creates isolated Python 3.13 environments, builds the "
+            "pinned Ab3P sources, creates and fingerprints its installation "
+            "manifest, downloads and verifies the pinned PLOD checkpoint, and "
+            "writes `runtime.env`. Launchers source that file automatically, "
+            "including inside Slurm jobs. It contains paths and no credentials.\n\n"
+            "If `python3.13` is not on `PATH`, first load the server's Python "
+            "module or specify it explicitly:\n\n"
+            "```bash\n"
+            "export ABREX_BOOTSTRAP_PYTHON=/absolute/path/to/python3.13\n"
+            "./setup-runtime.sh --check\n"
+            "```\n\n"
+            "To put the persistent runtimes somewhere other than the default "
+            "`${XDG_DATA_HOME:-$HOME/.local/share}/abrex`, set "
+            "`ABREX_RUNTIME_ROOT` before both setup commands. The setup is "
+            "resumable and reuses verified downloads and completed resources.\n\n"
+        )
+    else:
+        setup = (
+            "## Runtime check\n\n"
+            "Use a Python 3.13 environment containing Pydantic and PyYAML. "
+            "Override `ABREX_JOB_DOCTOR_PYTHON` or a job-specific interpreter "
+            "variable only if the recorded interpreter is unavailable.\n\n"
+            "```bash\nchmod +x doctor.sh run-job.sh run-all.sh "
+            "collect-results.sh\n./doctor.sh\n```\n\n"
+        )
     _write_text(
         root / "README.md",
         "# ABREX portable job bundle\n\n"
         "This directory contains immutable prediction-only inputs. It contains "
         "no gold annotations or credentials.\n\n"
-        "On the Linux server, set the runtime paths required by the job configs "
-        "and, if needed, override each Python interpreter:\n\n"
-        "```bash\n"
-        f"export ABREX_JOB_DOCTOR_PYTHON={jobs[0].python_executable}\n"
-        f"{variables}\n"
-        "export ABREX_AB3P_MANIFEST=/absolute/path/to/live-installation-manifest.json\n"
-        "export ABREX_AB3P_ROOT=/absolute/path/to/Ab3P\n"
-        "export ABREX_PLODV2_CHECKPOINT=/absolute/path/to/pytorch_model.bin\n"
-        "chmod +x doctor.sh run-job.sh run-all.sh collect-results.sh\n"
-        "./doctor.sh\n"
-        "```\n\n"
-        "Run synchronously with `./run-all.sh`, or submit `sbatch submit.slurm`. "
+        f"{setup}"
+        "## Run the jobs\n\n"
+        "Only continue after `doctor.sh` reports `complete: true`. Run "
+        "synchronously with `./run-all.sh`, or submit `sbatch submit.slurm`. "
         "After a Slurm array finishes, run `./collect-results.sh`. Copy the "
         "result ZIP (which also includes the doctor report and Slurm logs) back "
         "to the machine that prepared this bundle and import it "
