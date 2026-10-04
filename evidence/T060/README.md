@@ -16,7 +16,7 @@ does not treat them as new human judgments.
 Launch the reviewer from the repository root:
 
 ```powershell
-.\env313\Scripts\python.exe scripts/run_t060_reviewer.py
+.\scripts\Review-T061.ps1
 ```
 
 Open `http://127.0.0.1:8765`. Progress is saved beside the packet as
@@ -27,7 +27,8 @@ documents with zero execution errors. It did not contain the independent PLOD
 detector output needed to audit unpaired spans. The one-job follow-up archive
 is `.artifacts/T060/abrex-t060-plod-spans-followup.zip`; it can reuse the
 already installed server runtime. T060 remains open only for that span audit
-and T061 human review. See the revival handoff for exact commands.
+and T061 human review. Follow the
+[T060/T061 runbook](../../docs/t060-t061-runbook.md) for exact commands.
 
 The imported return archive is retained at
 `.artifacts/T060/returned-results/abrex-results-71ed8dc6d27ab7b9002fbdd98130a9b3184c3c5884e66113ed407adfa399e5b8.zip`

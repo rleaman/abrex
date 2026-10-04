@@ -105,6 +105,10 @@ identity, experiment identity, path safety, and every checksum.
 
 ### Small PLOD span follow-up
 
+For the complete Windows-to-Linux-to-Windows procedure, including verification,
+Slurm, copy-back, import, and the corrected T061 launcher, use the
+[T060/T061 runbook](t060-t061-runbook.md).
+
 The original PLOD pairing job retained paired definitions but not the
 independent detector output. T060 requires the latter so unpaired spans remain
 auditable. Copy
@@ -132,15 +136,16 @@ printf 'export ABREX_JOB_PYTHON_T060_PLODV2_SPANS_LINUX=%q\n' \
 
 Copy the resulting
 `abrex-results-aa9203f6c86cd5cd6664ffba112d538cc5a4ee9b1d4fb74599413c07aba2d0bb.zip`
-back to the project root. This is one PLOD pass over the same 20 passages; it
-does not rerun Ab3P or require a new setup.
+back to the project root and import it using the command in the runbook. This
+is one PLOD pass over the same 20 passages; it does not rerun Ab3P or require a
+new setup.
 
 ### T061 review now ready
 
 The pair-level review can proceed while the span follow-up runs:
 
 ```powershell
-.\env313\Scripts\python.exe scripts/run_t060_reviewer.py
+.\scripts\Review-T061.ps1
 ```
 
 Open `http://127.0.0.1:8765`. The reviewer saves resumable work to

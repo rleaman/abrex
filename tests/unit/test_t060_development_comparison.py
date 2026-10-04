@@ -4,6 +4,8 @@ import hashlib
 import json
 from pathlib import Path
 
+from scripts.run_t060_reviewer import readiness_report
+
 from abrex.corpora import (
     build_dataset_manifest,
     fingerprint_records,
@@ -111,6 +113,19 @@ def test_frozen_t060_packet_is_valid_and_exhaustive() -> None:
     assert len({item.suggestion_id for item in suggestions}) == 33
     assert comparison["assisted_review"]["exhaustive"] is True
     assert comparison["assisted_review"]["packet_id"] == packet.packet_id
+
+
+def test_t061_readiness_check_starts_from_corrected_packet(tmp_path: Path) -> None:
+    root = Path(__file__).parents[2]
+
+    complete, report = readiness_report(
+        root / "evidence/T060/review-packet-split-v2.json",
+        tmp_path / "t061.annotations.json",
+    )
+
+    assert complete is False
+    assert "Progress: 0/11 passages complete" in report
+    assert "44 required decisions remain" in report
 
 
 def test_materializes_comparison_packet_and_manifest(tmp_path: Path) -> None:
