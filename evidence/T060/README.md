@@ -1,13 +1,15 @@
 # T060 development comparison
 
-The four-way strict exact-pair comparison is materialized in
-[`docs/artifacts/T060-development-comparison.json`](../../docs/artifacts/T060-development-comparison.json).
+The corrected four-way strict exact-pair comparison is materialized in
+[`docs/artifacts/T060-development-comparison-split-v2.json`](../../docs/artifacts/T060-development-comparison-split-v2.json).
 It joins all 20 frozen T057 passages to complete Schwartz–Hearst, Ab3P,
-PLODv2-pairing and frozen-threshold Jev prediction artifacts.
+PLODv2-pairing and frozen-threshold split-question Jev prediction artifacts.
+The unsuffixed comparison and packet preserve the superseded v1 Jev result.
 
-The assisted T061 packet is [`review-packet.json`](review-packet.json). It
-contains all 40 distinct predictions that did not exactly match an existing
-frozen T057 decision, deduplicated into 13 passages while retaining every
+The assisted T061 packet is
+[`review-packet-split-v2.json`](review-packet-split-v2.json). It contains all
+33 distinct predictions that did not exactly match an existing frozen T057
+decision, deduplicated into 11 passages while retaining every
 method contribution. These proposals are unreviewed; the strict comparison
 does not treat them as new human judgments.
 
@@ -18,7 +20,7 @@ Launch the reviewer from the repository root:
 ```
 
 Open `http://127.0.0.1:8765`. Progress is saved beside the packet as
-`review-packet.annotations.json`; that sidecar is the T061 deliverable.
+`review-packet-split-v2.annotations.json`; that sidecar is the T061 deliverable.
 
 The first returned Linux archive completed Ab3P and PLOD pairing for all 20
 documents with zero execution errors. It did not contain the independent PLOD
@@ -32,7 +34,8 @@ The imported return archive is retained at
 with SHA-256
 `66eae7326ab3730b5e37328e4f169a42e8261d6c3fe0888a9e31a8d81a3b38a9`.
 
-[`manifest.json`](manifest.json) hashes the frozen inputs and both generated
+[`manifest-split-v2.json`](manifest-split-v2.json) hashes the frozen inputs and
+both generated
 outputs. Rebuild them with:
 
 ```powershell

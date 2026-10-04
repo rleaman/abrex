@@ -3,12 +3,13 @@
 ## October 2 revival status
 
 - [T059](T059-bounded-language-model-adapter.md) is complete; see its
-  [completion note](completed/T059-bounded-language-model-adapter.md) and
-  [development artifact](../artifacts/T059-jev-development.json).
+  [completion note](completed/T059-bounded-language-model-adapter.md) and the
+  corrected [split-question development artifact](../artifacts/T059-jev-split-development.json).
 - [T060](T060-development-method-run.md) is in progress. All four paired
-  methods are complete and the [comparison](../artifacts/T060-development-comparison.json)
-  plus 13-passage T061 packet are frozen. One PLOD independent-span follow-up
-  remains so unpaired detections are retained as required.
+  methods are complete and the corrected
+  [comparison](../artifacts/T060-development-comparison-split-v2.json) plus
+  11-passage T061 packet are frozen. One PLOD independent-span follow-up remains
+  so unpaired detections are retained as required.
 - T061 is ready for human adjudication; T062–T063 wait for that result. A
   [prefilled T063 decision](../artifacts/T063-decision-prefill.json) minimizes
   the later scientific-lead step.

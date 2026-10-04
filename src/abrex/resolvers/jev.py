@@ -29,8 +29,9 @@ from abrex.domain import (
     PredictionMetadata,
 )
 
-JEV_RESOLVER_VERSION = "1"
-JEV_POLICY_VERSION = "abrex-candidate-choice-v1"
+JEV_RESOLVER_VERSION = "2"
+JEV_LEGACY_POLICY_VERSION = "abrex-candidate-choice-v1"
+JEV_POLICY_VERSION = "abrex-candidate-split-v2"
 JEV_MODEL = "jev-1.13.0"
 CALIBRATION_GRID = tuple(index / 100 for index in range(50, 100, 5))
 
@@ -73,7 +74,9 @@ class JevCandidateJudgeConfig(BaseModel):
     candidate_generators: tuple[ComponentSpec, ...] = Field(
         default_factory=_default_generators, min_length=1
     )
-    confidence_threshold: float = Field(default=0.5, ge=0, le=1)
+    definition_threshold: float = Field(default=0.5, ge=0, le=1)
+    orientation_threshold: float = Field(default=0.5, ge=0, le=1)
+    confidence_threshold: float | None = Field(default=None, ge=0, le=1)
     cache_path: Path = Path(".cache/abrex/jev-candidate-judge.jsonl")
     cache_only: bool = False
     maximum_candidates_per_document: int = Field(default=512, ge=1)
@@ -96,12 +99,20 @@ class JevChoice:
 
 
 @dataclass(frozen=True, slots=True)
+class JevNoul:
+    """One validated yes/no candidate judgment."""
+
+    probability: float
+
+
+@dataclass(frozen=True, slots=True)
 class JevResponse:
     """Service metadata and choices retained in the content-addressed cache."""
 
     model: str
     request_id: str | None
     choices: dict[str, JevChoice]
+    nouls: dict[str, JevNoul]
     input_tokens: int | None
     output_tokens: int | None
     latency_seconds: float
@@ -121,11 +132,33 @@ class JevCandidateJudgeResolver:
             raise ValueError(
                 f"T059 is frozen to {JEV_MODEL!r}; got {self.config.model!r}"
             )
-        if self.config.policy_version != JEV_POLICY_VERSION:
+        if self.config.policy_version not in {
+            JEV_LEGACY_POLICY_VERSION,
+            JEV_POLICY_VERSION,
+        }:
             raise ValueError(
-                f"T059 is frozen to policy {JEV_POLICY_VERSION!r}; got "
+                "Jev candidate judging supports policies "
+                f"{JEV_LEGACY_POLICY_VERSION!r} and {JEV_POLICY_VERSION!r}; got "
                 f"{self.config.policy_version!r}"
             )
+        if (
+            self.config.policy_version == JEV_POLICY_VERSION
+            and self.config.confidence_threshold is not None
+        ):
+            raise ValueError(
+                "confidence_threshold is a v1 compatibility setting; use "
+                "definition_threshold and orientation_threshold for the split policy"
+            )
+        if (
+            self.config.policy_version == JEV_LEGACY_POLICY_VERSION
+            and self.config.confidence_threshold is None
+        ):
+            raise ValueError("the legacy v1 policy requires confidence_threshold")
+        self.version = (
+            "1"
+            if self.config.policy_version == JEV_LEGACY_POLICY_VERSION
+            else JEV_RESOLVER_VERSION
+        )
         self.pipeline = create_candidate_pipeline(
             CandidatePipelineConfig(
                 generators=self.config.candidate_generators, deduplicate=True
@@ -148,7 +181,9 @@ class JevCandidateJudgeResolver:
             "version": self.version,
             "model": self.config.model,
             "policy_version": self.config.policy_version,
-            "threshold": self.config.confidence_threshold,
+            "definition_threshold": self.config.definition_threshold,
+            "orientation_threshold": self.config.orientation_threshold,
+            "legacy_confidence_threshold": self.config.confidence_threshold,
             "candidate_generators": [
                 item.model_dump(mode="json")
                 for item in self.config.candidate_generators
@@ -190,22 +225,56 @@ class JevCandidateJudgeResolver:
         predictions: list[AbbreviationDefinition] = []
         for chunk, response in zip(chunks, responses, strict=True):
             for local_index, candidate in enumerate(chunk):
-                question_id = f"candidate_{local_index:03d}"
-                choice = response.choices[question_id]
-                if choice.choice == "not_definition":
-                    continue
-                probability = choice.probabilities[choice.choice]
-                if probability < self.config.confidence_threshold:
-                    continue
                 short_span = candidate.short_form
                 long_span = candidate.long_form
-                if choice.choice == "reverse":
-                    short_span, long_span = long_span, short_span
+                candidate_id = f"candidate_{local_index:03d}"
+                decision_notes: tuple[str, ...]
+                if self.config.policy_version == JEV_LEGACY_POLICY_VERSION:
+                    choice = response.choices[candidate_id]
+                    if choice.choice == "not_definition":
+                        continue
+                    probability = choice.probabilities[choice.choice]
+                    threshold = cast(float, self.config.confidence_threshold)
+                    if probability < threshold:
+                        continue
+                    if choice.choice == "reverse":
+                        short_span, long_span = long_span, short_span
+                    decision_notes = (
+                        f"choice={choice.choice}",
+                        "probabilities="
+                        + json.dumps(
+                            choice.probabilities,
+                            sort_keys=True,
+                            separators=(",", ":"),
+                        ),
+                    )
+                else:
+                    definition = response.nouls[f"{candidate_id}_definition"]
+                    orientation = response.choices[f"{candidate_id}_orientation"]
+                    orientation_probability = orientation.probabilities[
+                        orientation.choice
+                    ]
+                    if (
+                        definition.probability < self.config.definition_threshold
+                        or orientation.choice == "unclear"
+                        or orientation_probability < self.config.orientation_threshold
+                    ):
+                        continue
+                    if orientation.choice == "second_is_short_form":
+                        short_span, long_span = long_span, short_span
+                    probability = min(definition.probability, orientation_probability)
+                    decision_notes = (
+                        f"definition_probability={definition.probability:.12g}",
+                        f"orientation_choice={orientation.choice}",
+                        "orientation_probabilities="
+                        + json.dumps(
+                            orientation.probabilities,
+                            sort_keys=True,
+                            separators=(",", ":"),
+                        ),
+                    )
                 request_hash = self._request_hash(
                     *self._request(document, chunk), self.config.model
-                )
-                probabilities = json.dumps(
-                    choice.probabilities, sort_keys=True, separators=(",", ":")
                 )
                 prediction = AbbreviationDefinition(
                     document.document_id,
@@ -218,8 +287,7 @@ class JevCandidateJudgeResolver:
                         adapter_version=self.version,
                         transformation_notes=(
                             f"policy={self.config.policy_version}",
-                            f"choice={choice.choice}",
-                            f"probabilities={probabilities}",
+                            *decision_notes,
                             f"request_id={response.request_id or ''}",
                             f"latency_seconds={response.latency_seconds:.6f}",
                             f"network_attempts={response.network_attempts}",
@@ -280,6 +348,7 @@ class JevCandidateJudgeResolver:
                 cached.model,
                 cached.request_id,
                 cached.choices,
+                cached.nouls,
                 cached.input_tokens,
                 cached.output_tokens,
                 cached.latency_seconds,
@@ -314,7 +383,7 @@ class JevCandidateJudgeResolver:
         latency = time.perf_counter() - started
         response = _parse_response(
             raw,
-            expected_questions=tuple(questions),
+            expected_questions=questions,
             latency_seconds=latency,
             network_attempts=attempts,
         )
@@ -332,6 +401,89 @@ class JevCandidateJudgeResolver:
     def _request(
         self, document: Document, candidates: Sequence[Candidate]
     ) -> tuple[dict[str, object], dict[str, object]]:
+        if self.config.policy_version == JEV_LEGACY_POLICY_VERSION:
+            return self._legacy_request(document, candidates)
+        candidate_rows: dict[str, object] = {}
+        questions: dict[str, object] = {}
+        for index, candidate in enumerate(candidates):
+            candidate.validate_against(document)
+            candidate_id = f"candidate_{index:03d}"
+            candidate_rows[candidate_id] = {
+                "first_text": document.text_for(candidate.short_form),
+                "second_text": document.text_for(candidate.long_form),
+                "first_span": [candidate.short_form.start, candidate.short_form.end],
+                "second_span": [candidate.long_form.start, candidate.long_form.end],
+                "construction": candidate.construction,
+            }
+            questions[f"{candidate_id}_definition"] = {
+                "type": "noul",
+                "instructions": {
+                    "question": (
+                        "Do these exact two source spans form an explicit "
+                        "abbreviation-definition relationship in the supplied "
+                        "passage?"
+                    ),
+                    "state_reference": f"candidates.{candidate_id}",
+                    "rules": [
+                        "Judge only the quoted source passage and exact spans.",
+                        "Either span may be the abbreviation.",
+                        "Do not invent, extend, or normalize either source span.",
+                        "Co-occurrence without an explicit definition is false.",
+                    ],
+                },
+                "criteria": {
+                    "true": (
+                        "The source explicitly presents one exact span as an "
+                        "abbreviation or short label for the other exact span."
+                    ),
+                    "false": (
+                        "The exact spans are unrelated, only co-occur, require "
+                        "changed boundaries, or do not express a definition."
+                    ),
+                },
+            }
+            questions[f"{candidate_id}_orientation"] = {
+                "type": "choice",
+                "instructions": {
+                    "question": (
+                        "Assuming these exact spans form an abbreviation-definition "
+                        "relationship, which span is the short form?"
+                    ),
+                    "state_reference": f"candidates.{candidate_id}",
+                    "rules": [
+                        "Short form means the abbreviation or compact label; long "
+                        "form means its expansion.",
+                        "Choose unclear when the direction cannot be determined "
+                        "reliably from the supplied passage.",
+                    ],
+                },
+                "criteria": {
+                    "first_is_short_form": (
+                        "The first exact span is the abbreviation and the second "
+                        "exact span is its expansion."
+                    ),
+                    "second_is_short_form": (
+                        "The second exact span is the abbreviation and the first "
+                        "exact span is its expansion."
+                    ),
+                    "unclear": (
+                        "The direction is mixed, unsupported, or cannot be "
+                        "determined reliably."
+                    ),
+                },
+            }
+        state: dict[str, object] = {
+            "document_id": document.document_id,
+            "passage": document.text,
+            "candidates": candidate_rows,
+        }
+        return state, questions
+
+    def _legacy_request(
+        self, document: Document, candidates: Sequence[Candidate]
+    ) -> tuple[dict[str, object], dict[str, object]]:
+        """Build the frozen v1 request so historical evidence stays replayable."""
+
         candidate_rows: dict[str, object] = {}
         questions: dict[str, object] = {}
         for index, candidate in enumerate(candidates):
@@ -373,12 +525,11 @@ class JevCandidateJudgeResolver:
                     ),
                 },
             }
-        state: dict[str, object] = {
+        return {
             "document_id": document.document_id,
             "passage": document.text,
             "candidates": candidate_rows,
-        }
-        return state, questions
+        }, questions
 
     def _client(self) -> JevClient:
         if self._client_instance is not None:
@@ -459,7 +610,11 @@ class JevCandidateJudgeResolver:
         chunk_number: int,
     ) -> None:
         record = {
-            "schema_version": "jev-cache-v1",
+            "schema_version": (
+                "jev-cache-v1"
+                if self.config.policy_version == JEV_LEGACY_POLICY_VERSION
+                else "jev-cache-v2"
+            ),
             "request_hash": request_hash,
             "policy_version": self.config.policy_version,
             "model": self.config.model,
@@ -490,15 +645,17 @@ class JevCandidateJudgeResolver:
                 os.fsync(stream.fileno())
             self._cache[request_hash] = response
 
-    @staticmethod
     def _request_hash(
-        state: Mapping[str, object], questions: Mapping[str, object], model: str
+        self,
+        state: Mapping[str, object],
+        questions: Mapping[str, object],
+        model: str,
     ) -> str:
         return hashlib.sha256(
             json.dumps(
                 {
                     "model": model,
-                    "policy_version": JEV_POLICY_VERSION,
+                    "policy_version": self.config.policy_version,
                     "state": state,
                     "questions": questions,
                 },
@@ -578,22 +735,42 @@ def calibrate_threshold(
 def _parse_response(
     raw: object,
     *,
-    expected_questions: tuple[str, ...],
+    expected_questions: Mapping[str, object],
     latency_seconds: float,
     network_attempts: int,
 ) -> JevResponse:
     choices_value = getattr(raw, "choices", None)
     if not isinstance(choices_value, Mapping):
         raise JevResponseError("Jev response choices must be a mapping")
+    nouls_value = getattr(raw, "nouls", {})
+    if not isinstance(nouls_value, Mapping):
+        raise JevResponseError("Jev response nouls must be a mapping")
     choices: dict[str, JevChoice] = {}
-    for question_id in expected_questions:
+    nouls: dict[str, JevNoul] = {}
+    expected_choice_ids = {
+        question_id
+        for question_id, raw_question in expected_questions.items()
+        if _mapping(raw_question, "question").get("type") == "choice"
+    }
+    expected_noul_ids = {
+        question_id
+        for question_id, raw_question in expected_questions.items()
+        if _mapping(raw_question, "question").get("type") == "noul"
+    }
+    for question_id in expected_choice_ids:
         answer = choices_value.get(question_id)
         if answer is None:
             raise JevResponseError(f"Jev response omitted {question_id}")
         choice = getattr(answer, "choice", None)
         confidence = getattr(answer, "confidence", None)
         probabilities_value = getattr(answer, "probabilities", None)
-        if choice not in {"forward", "reverse", "not_definition"}:
+        question = _mapping(expected_questions[question_id], "question")
+        allowed = set(_mapping(question.get("criteria"), "criteria"))
+        if not allowed:
+            raise JevResponseError(
+                f"choice question {question_id} has no configured criteria"
+            )
+        if choice not in allowed:
             raise JevResponseError(f"invalid choice for {question_id}: {choice!r}")
         if not isinstance(confidence, int | float) or isinstance(confidence, bool):
             raise JevResponseError(f"invalid confidence for {question_id}")
@@ -602,18 +779,33 @@ def _parse_response(
         probabilities = {
             str(key): float(value) for key, value in probabilities_value.items()
         }
-        if set(probabilities) != {"forward", "reverse", "not_definition"}:
+        if set(probabilities) != allowed:
             raise JevResponseError(f"incomplete probabilities for {question_id}")
         if any(value < 0 or value > 1 for value in probabilities.values()):
             raise JevResponseError(f"out-of-range probabilities for {question_id}")
         choices[question_id] = JevChoice(str(choice), float(confidence), probabilities)
-    if set(choices_value) != set(expected_questions):
+    for question_id in expected_noul_ids:
+        answer = nouls_value.get(question_id)
+        if answer is None:
+            raise JevResponseError(f"Jev response omitted {question_id}")
+        probability = getattr(answer, "noul", None)
+        if (
+            not isinstance(probability, int | float)
+            or isinstance(probability, bool)
+            or not 0 <= probability <= 1
+        ):
+            raise JevResponseError(f"invalid noul probability for {question_id}")
+        nouls[question_id] = JevNoul(float(probability))
+    if set(choices_value) != expected_choice_ids:
+        raise JevResponseError("Jev response returned unexpected question IDs")
+    if set(nouls_value) != expected_noul_ids:
         raise JevResponseError("Jev response returned unexpected question IDs")
     usage = getattr(raw, "usage", None)
     return JevResponse(
         model=str(getattr(raw, "model", JEV_MODEL)),
         request_id=_optional_string(getattr(raw, "request_id", None)),
         choices=choices,
+        nouls=nouls,
         input_tokens=_usage_value(usage, "input_tokens"),
         output_tokens=_usage_value(usage, "output_tokens"),
         latency_seconds=latency_seconds,
@@ -632,6 +824,10 @@ def _response_mapping(response: JevResponse) -> dict[str, object]:
                 "probabilities": value.probabilities,
             }
             for key, value in response.choices.items()
+        },
+        "nouls": {
+            key: {"probability": value.probability}
+            for key, value in response.nouls.items()
         },
         "input_tokens": response.input_tokens,
         "output_tokens": response.output_tokens,
@@ -654,10 +850,17 @@ def _response_from_mapping(value: Mapping[str, Any], *, cached: bool) -> JevResp
                 for name, probability in probabilities.items()
             },
         )
+    raw_nouls = value.get("nouls", {})
+    nouls_value = _mapping(raw_nouls, "nouls")
+    nouls: dict[str, JevNoul] = {}
+    for key, raw in nouls_value.items():
+        answer = _mapping(raw, "noul")
+        nouls[str(key)] = JevNoul(float(answer["probability"]))
     return JevResponse(
         _required_string(value, "model"),
         _optional_string(value.get("request_id")),
         choices,
+        nouls,
         _optional_int(value.get("input_tokens")),
         _optional_int(value.get("output_tokens")),
         float(value["latency_seconds"]),

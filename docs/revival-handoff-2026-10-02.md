@@ -10,19 +10,22 @@ complete the assisted T061 review, freeze the T063 scientific
 choices, acquire the fresh blind packet, obtain the user's T066 annotations,
 and only then run T067/T068.
 
-The existing development comparison currently favors Schwartz–Hearst. On the
+The corrected development comparison currently favors Schwartz–Hearst. On the
 20-passage, 59-pair T057 development view it scored 36 TP, 7 FP and 23 FN
-(F1 0.7059). The frozen Jev candidate judge scored 29 TP, 24 FP and 30 FN
-(F1 0.5179) at threshold 0.60. Jev candidate coverage was 47/59 (79.66%), so
+(F1 0.7059). Jev resolver v2 separately asks whether a pair is a definition and
+which span is the short form. At frozen thresholds 0.75 and 0.95 it scored 23
+TP, 15 FP and 36 FN (F1 0.4742). Jev candidate coverage was 47/59 (79.66%), so
 some misses cannot be repaired by judging alone. The live run used 225,965
-input tokens, cost approximately $0.0095 at the supplied rate, and had no
-request failures.
+input tokens for historical v1 and 347,692 for corrected v2; v2 cost
+approximately $0.0146 at the supplied rate and had no request failures.
 
 The complete four-way strict-pair comparison is now at
-`docs/artifacts/T060-development-comparison.json`. Schwartz–Hearst leads on F1
-(0.7059); Ab3P scored 0.6355, PLODv2 pairing 0.6105, and Jev 0.5179. The
-deduplicated assisted-review queue contains 40 proposals in 13 passages and is
-ready at `evidence/T060/review-packet.json`.
+`docs/artifacts/T060-development-comparison-split-v2.json`. Schwartz–Hearst
+leads on F1 (0.7059); Ab3P scored 0.6355, PLODv2 pairing 0.6105, and Jev v2
+0.4742. The deduplicated assisted-review queue contains 33 proposals in 11
+passages and is ready at `evidence/T060/review-packet-split-v2.json`. The
+unsuffixed artifacts preserve the superseded v1 comparison and must not be used
+for T061.
 
 ## Linux handoff
 
@@ -141,7 +144,7 @@ The pair-level review can proceed while the span follow-up runs:
 ```
 
 Open `http://127.0.0.1:8765`. The reviewer saves resumable work to
-`evidence/T060/review-packet.annotations.json`.
+`evidence/T060/review-packet-split-v2.annotations.json`.
 
 ## CLP reuse
 

@@ -24,6 +24,22 @@ Candidate coverage was 47/59 (79.66%). These are assisted development results,
 not untouched evaluation evidence. The complete machine-readable record is
 [T059-jev-development.json](../../artifacts/T059-jev-development.json).
 
+## October 4 correction
+
+The v1 question above conflated two independently useful judgments: whether the
+exact pair is a definition and, if so, its orientation. It remains available
+for historical reproduction only. Resolver v2 uses policy
+`abrex-candidate-split-v2`: one Noul for definition validity and one speculative
+Choice for orientation, evaluated together over the same state.
+
+The corrected run used 347,692 input tokens over 38 requests, cost about
+$0.0146 at the supplied rate, and had no failures. Joint development
+calibration froze definition threshold 0.75 and orientation threshold 0.95.
+It produced 23 TP, 15 FP, and 36 FN (strict pair F1 0.4742), so the correction
+materially changed—and reduced—the Jev result. Candidate coverage remained
+47/59 because candidate generation did not change. See
+[T059-jev-split-development.json](../../artifacts/T059-jev-split-development.json).
+
 Captured-response tests cover mapping, caching, retry, malformed responses,
 budgets, threshold tie-breaking, Unicode, and registry creation. The final
 repository gate passed with 408 tests, one optional skip, Ruff, strict mypy,

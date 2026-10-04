@@ -21,8 +21,8 @@ def main() -> int:
         prediction_paths={
             "ab3p": imported / "t060-ab3p-linux/predictions.jsonl",
             "jev_candidate_judge": artifacts
-            / "jev/predictions"
-            / "0ee04a1ddaab62203f5d4f8501081624c60f120ce9c29f4469dd6aa5df48a93c"
+            / "jev-split-v2/predictions"
+            / "7978ab61a649ec43c904ba5186ff1a01e01908fff9e4fa82833eee946b2aa83a"
             / "predictions.jsonl",
             "plodv2_pairing": imported / "t060-plodv2-pairing-linux/predictions.jsonl",
             "schwartz_hearst": artifacts
@@ -34,9 +34,11 @@ def main() -> int:
             "ab3p": imported / "t060-ab3p-linux/result.json",
             "plodv2_pairing": imported / "t060-plodv2-pairing-linux/result.json",
         },
-        comparison_path=root / "docs/artifacts/T060-development-comparison.json",
-        review_packet_path=root / "evidence/T060/review-packet.json",
-        evidence_manifest_path=root / "evidence/T060/manifest.json",
+        comparison_path=(
+            root / "docs/artifacts/T060-development-comparison-split-v2.json"
+        ),
+        review_packet_path=root / "evidence/T060/review-packet-split-v2.json",
+        evidence_manifest_path=root / "evidence/T060/manifest-split-v2.json",
     )
     return 0
 

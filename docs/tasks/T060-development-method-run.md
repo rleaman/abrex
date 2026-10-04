@@ -1,8 +1,8 @@
 # T060 Run the bounded development comparison and build an output review packet
 
 Owner: **Luna — engineering and preparation**  
-Status: In progress — four-way pair comparison and review packet complete;
-PLOD independent-span follow-up and T061 review pending.
+Status: In progress — split-question Jev revision and four-way pair comparison
+complete; PLOD independent-span follow-up and T061 review pending.
 Dependencies: T057 challenge views; T058 readiness; T059 model baseline readiness or explicit unavailable status.
 
 ## Execution contract
@@ -17,6 +17,22 @@ Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECU
 4. Build a bounded assisted review queue for all novel predictions, contested boundaries, unsupported/out-of-scope proposals and unclear mappings. Deduplicate review presentation while retaining every method's contribution and repeated occurrence identity.
 5. Reuse T055 cards for output adjudication, with source passage and frozen previous decisions available. Do not present model confidence as correctness. Method labels can be hidden until reveal, but all output-visible review remains assisted.
 6. Report exact queue size and estimated review burden. If unexpectedly large, split into resumable batches; do not drop cases or call a sampled queue exhaustive. Do not enlarge the corpus.
+
+## October 4 Jev correction
+
+The original Jev policy combined definition validity and orientation in one
+three-way Choice. That is retained as historical v1 evidence, but it is not the
+current T060 result. The corrected `abrex-candidate-split-v2` policy asks an
+independent Noul about the exact pair's validity and a speculative Choice about
+orientation in the same request. A new content-addressed cache was populated,
+both thresholds were calibrated on the frozen development material, and the
+final prediction artifact was replayed cache-only.
+
+The revision did not require rerunning Schwartz–Hearst, Ab3P, or PLODv2 because
+their inputs and outputs were unchanged. The revised comparison is
+[`T060-development-comparison-split-v2.json`](../artifacts/T060-development-comparison-split-v2.json),
+and its 11-passage/33-proposal assisted packet is
+[`review-packet-split-v2.json`](../../evidence/T060/review-packet-split-v2.json).
 
 ## Acceptance, deliverables and stopping point
 

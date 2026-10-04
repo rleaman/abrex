@@ -2,10 +2,14 @@
 
 ## October 2 revival checkpoint
 
-T059 engineering and its bounded live development run are complete. The T060
+T059 engineering and its corrected split-question bounded live development run
+are complete. The T060
 Linux results returned successfully on October 4: Ab3P and PLODv2 pairing each
-processed all 20 passages with zero execution errors. The four-way strict-pair
-comparison and 13-passage/40-proposal T061 review packet are now frozen. A
+processed all 20 passages with zero execution errors. The revised four-way
+strict-pair comparison and 11-passage/33-proposal T061 review packet are now
+frozen. The earlier three-way Jev Choice is preserved only as historical v1
+evidence; the current policy independently judges definition validity and
+orientation. A
 one-job PLOD span follow-up is pending because the original pairing job did not
 serialize independent/unpaired detector spans. T064 prediction-blind
 review mode is complete and passed real Edge browser QA. See the

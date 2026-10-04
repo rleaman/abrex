@@ -96,19 +96,19 @@ def test_prediction_linkage_deduplicates_review_proposals_across_methods() -> No
 def test_frozen_t060_packet_is_valid_and_exhaustive() -> None:
     root = Path(__file__).parents[2]
     packet = ReviewPacket.model_validate_json(
-        (root / "evidence/T060/review-packet.json").read_text(encoding="utf-8")
+        (root / "evidence/T060/review-packet-split-v2.json").read_text(encoding="utf-8")
     )
     comparison = json.loads(
-        (root / "docs/artifacts/T060-development-comparison.json").read_text(
+        (root / "docs/artifacts/T060-development-comparison-split-v2.json").read_text(
             encoding="utf-8"
         )
     )
 
     validate_packet_identity(packet)
     suggestions = [item for case in packet.cases for item in case.suggestions]
-    assert len(packet.cases) == 13
-    assert len(suggestions) == 40
-    assert len({item.suggestion_id for item in suggestions}) == 40
+    assert len(packet.cases) == 11
+    assert len(suggestions) == 33
+    assert len({item.suggestion_id for item in suggestions}) == 33
     assert comparison["assisted_review"]["exhaustive"] is True
     assert comparison["assisted_review"]["packet_id"] == packet.packet_id
 
