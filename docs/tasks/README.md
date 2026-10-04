@@ -5,10 +5,11 @@
 - [T059](T059-bounded-language-model-adapter.md) is complete; see its
   [completion note](completed/T059-bounded-language-model-adapter.md) and
   [development artifact](../artifacts/T059-jev-development.json).
-- [T060](T060-development-method-run.md) is in progress. Schwartz–Hearst and
-  Jev are complete; Ab3P and PLODv2 are queued in the portable Linux bundle.
-  See the [partial comparison](../artifacts/T060-development-partial.json).
-- T061–T063 wait for the Linux results and human adjudication. A
+- [T060](T060-development-method-run.md) is in progress. All four paired
+  methods are complete and the [comparison](../artifacts/T060-development-comparison.json)
+  plus 13-passage T061 packet are frozen. One PLOD independent-span follow-up
+  remains so unpaired detections are retained as required.
+- T061 is ready for human adjudication; T062–T063 wait for that result. A
   [prefilled T063 decision](../artifacts/T063-decision-prefill.json) minimizes
   the later scientific-lead step.
 - [T064](T064-prediction-blind-review-mode.md) is complete; see its

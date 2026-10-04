@@ -48,7 +48,7 @@ exports should be required for the generated jobs.
 
 ## Current T060 handoff
 
-The authoritative archive is
+The original paired-method archive was
 `.artifacts/T060/abrex-t060-linux-bundle-release3.zip`. From its extracted
 directory:
 
@@ -62,6 +62,12 @@ chmod +x setup-runtime.sh doctor.sh run-job.sh run-all.sh collect-results.sh
 Only run or submit jobs after the doctor reports `"complete": true`. See the
 [dated revival handoff](revival-handoff-2026-10-02.md) for the current archive
 hash, bundle ID, result filename, and copy-back command.
+
+Those results returned successfully on October 4. A one-job follow-up now
+captures the independent PLOD spans that the pairing artifact did not retain:
+`.artifacts/T060/abrex-t060-plod-spans-followup.zip`. Reuse the first bundle's
+`runtime.env`; no runtime reinstall is needed. The dated revival handoff has
+the exact copy/run/copy-back commands and immutable identifiers.
 
 ## Interpretation of older documents
 

@@ -4,8 +4,9 @@
 
 The engineering baseline, CLP snapshot integration, Jev candidate judge,
 portable Linux execution, and prediction-blind reviewer are implemented. The
-remaining work is deliberately sequential: finish the two Linux runtime jobs,
-prepare and complete the assisted T061 review, freeze the T063 scientific
+paired Linux runtime jobs returned successfully on October 4. The remaining
+work is deliberately sequential: retain PLOD's independent detector spans,
+complete the assisted T061 review, freeze the T063 scientific
 choices, acquire the fresh blind packet, obtain the user's T066 annotations,
 and only then run T067/T068.
 
@@ -16,6 +17,12 @@ The existing development comparison currently favors Schwartz–Hearst. On the
 some misses cannot be repaired by judging alone. The live run used 225,965
 input tokens, cost approximately $0.0095 at the supplied rate, and had no
 request failures.
+
+The complete four-way strict-pair comparison is now at
+`docs/artifacts/T060-development-comparison.json`. Schwartz–Hearst leads on F1
+(0.7059); Ab3P scored 0.6355, PLODv2 pairing 0.6105, and Jev 0.5179. The
+deduplicated assisted-review queue contains 40 proposals in 13 passages and is
+ready at `evidence/T060/review-packet.json`.
 
 ## Linux handoff
 
@@ -88,9 +95,53 @@ logs, the doctor report, and any Slurm logs. Import it with:
   --into .artifacts/T060/imported-linux-results
 ```
 
-The importer verifies bundle identity, experiment identity, path safety, and
-every checksum. Reimporting the identical result is safe; a conflicting result
-is rejected.
+The returned archive was imported successfully. Both jobs produced 20/20
+records with zero execution errors. Ab3P took 1.89 seconds and PLODv2 pairing
+took 30.87 seconds on the recorded Linux host. The importer verified bundle
+identity, experiment identity, path safety, and every checksum.
+
+### Small PLOD span follow-up
+
+The original PLOD pairing job retained paired definitions but not the
+independent detector output. T060 requires the latter so unpaired spans remain
+auditable. Copy
+`.artifacts/T060/abrex-t060-plod-spans-followup.zip` to the same server. Its
+SHA-256 is
+`1a65a277b898b919e5bd54aff622d1df46c4db5bea93ea694c78fdebf22d654d`
+and its bundle ID is
+`aa9203f6c86cd5cd6664ffba112d538cc5a4ee9b1d4fb74599413c07aba2d0bb`.
+
+Assuming the first bundle is still in `abrex-t060-release3`, reuse its verified
+runtime without rebuilding or downloading anything:
+
+```bash
+mkdir -p abrex-t060-plod-spans
+unzip abrex-t060-plod-spans-followup.zip -d abrex-t060-plod-spans
+cd abrex-t060-plod-spans
+chmod +x doctor.sh run-all.sh run-job.sh collect-results.sh
+cp ../abrex-t060-release3/runtime.env ./runtime.env
+. ./runtime.env
+printf 'export ABREX_JOB_PYTHON_T060_PLODV2_SPANS_LINUX=%q\n' \
+  "$ABREX_PLOD_PYTHON" >> runtime.env
+./doctor.sh
+./run-all.sh
+```
+
+Copy the resulting
+`abrex-results-aa9203f6c86cd5cd6664ffba112d538cc5a4ee9b1d4fb74599413c07aba2d0bb.zip`
+back to the project root. This is one PLOD pass over the same 20 passages; it
+does not rerun Ab3P or require a new setup.
+
+### T061 review now ready
+
+The pair-level review can proceed while the span follow-up runs:
+
+```powershell
+.\env313\Scripts\python.exe scripts/run_t060_reviewer.py
+```
+
+Open `http://127.0.0.1:8765`. The reviewer saves resumable work to
+`evidence/T060/review-packet.annotations.json`.
 
 ## CLP reuse
 
@@ -107,9 +158,9 @@ the sister parser; it is excluded from fresh evaluation.
 
 ## Next checkpoints
 
-1. Import the Linux results. ABREX can then assemble the complete T060
-   comparison and the smallest deduplicated T061 assisted review packet.
-2. Complete T061. ABREX will calculate the T062 recovery/error analysis and
+1. Return the one-job PLOD span result and complete T061. These two actions may
+   happen in parallel.
+2. ABREX will calculate the T062 recovery/error analysis and
    reduce T063 to the prefilled choices in
    `docs/artifacts/T063-decision-prefill.json`.
 3. After those choices are confirmed, freeze and acquire the 32-item packet.

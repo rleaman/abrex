@@ -1,7 +1,8 @@
 # T060 Run the bounded development comparison and build an output review packet
 
 Owner: **Luna — engineering and preparation**  
-Status: In progress — local methods complete; Ab3P/PLODv2 Linux results pending.
+Status: In progress — four-way pair comparison and review packet complete;
+PLOD independent-span follow-up and T061 review pending.
 Dependencies: T057 challenge views; T058 readiness; T059 model baseline readiness or explicit unavailable status.
 
 ## Execution contract

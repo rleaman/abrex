@@ -1,0 +1,318 @@
+{
+  "assisted_review": {
+    "cases": 13,
+    "estimate_basis": "30 seconds per passage plus 30 seconds per proposal",
+    "estimated_minutes": 26.5,
+    "exhaustive": true,
+    "interpretation": "Every prediction not exactly covered by a frozen T057 decision is queued. These are proposals, not false positives, until T061 review.",
+    "method_contributions": {
+      "ab3p": 13,
+      "jev_candidate_judge": 22,
+      "plodv2_pairing": 6,
+      "schwartz_hearst": 5
+    },
+    "packet_id": "t052-c83465fb933473b4dc75",
+    "suggestions": 40
+  },
+  "comparison": {
+    "limitations": [
+      "Gold-assisted union recall is an oracle analysis, not a deployable resolver score.",
+      "Results are valid only for the supplied document universe and matching policy.",
+      "Pair and span metrics must be reported in separate analyses and are never pooled."
+    ],
+    "mode": "exact_pair",
+    "resolver_results": [
+      {
+        "bootstrap": {
+          "f1": [
+            0.4413793103448276,
+            0.8666666666666667
+          ],
+          "precision": [
+            0.5333333333333333,
+            0.8974358974358975
+          ],
+          "recall": [
+            0.3711340206185567,
+            0.8648648648648649
+          ],
+          "samples": 1000,
+          "seed": 15467814922773408100,
+          "unit": "article_group"
+        },
+        "correct_count": 34,
+        "matching_policy": "exact_pair",
+        "metric": {
+          "name": "pair_prf",
+          "values": {
+            "f1": 0.6355140186915887,
+            "fn": 25,
+            "fp": 14,
+            "precision": 0.7083333333333334,
+            "recall": 0.576271186440678,
+            "tp": 34
+          }
+        },
+        "resolver": "ab3p",
+        "scoreable_gold": 59
+      },
+      {
+        "bootstrap": {
+          "f1": [
+            0.37383177570093457,
+            0.7586206896551724
+          ],
+          "precision": [
+            0.40350877192982454,
+            0.7714285714285715
+          ],
+          "recall": [
+            0.3157894736842105,
+            0.7714285714285715
+          ],
+          "samples": 1000,
+          "seed": 17769597692332131584,
+          "unit": "article_group"
+        },
+        "correct_count": 29,
+        "matching_policy": "exact_pair",
+        "metric": {
+          "name": "pair_prf",
+          "values": {
+            "f1": 0.5178571428571429,
+            "fn": 30,
+            "fp": 24,
+            "precision": 0.5471698113207547,
+            "recall": 0.4915254237288136,
+            "tp": 29
+          }
+        },
+        "resolver": "jev_candidate_judge",
+        "scoreable_gold": 59
+      },
+      {
+        "bootstrap": {
+          "f1": [
+            0.45217391304347826,
+            0.896551724137931
+          ],
+          "precision": [
+            0.6428571428571429,
+            0.9666666666666667
+          ],
+          "recall": [
+            0.3287671232876712,
+            0.8571428571428571
+          ],
+          "samples": 1000,
+          "seed": 8341872693605484090,
+          "unit": "article_group"
+        },
+        "correct_count": 29,
+        "matching_policy": "exact_pair",
+        "metric": {
+          "name": "pair_prf",
+          "values": {
+            "f1": 0.6105263157894737,
+            "fn": 30,
+            "fp": 7,
+            "precision": 0.8055555555555556,
+            "recall": 0.4915254237288136,
+            "tp": 29
+          }
+        },
+        "resolver": "plodv2_pairing",
+        "scoreable_gold": 59
+      },
+      {
+        "bootstrap": {
+          "f1": [
+            0.49504950495049505,
+            0.9137931034482759
+          ],
+          "precision": [
+            0.7209302325581395,
+            0.967741935483871
+          ],
+          "recall": [
+            0.3707865168539326,
+            0.925
+          ],
+          "samples": 1000,
+          "seed": 8736111616394167263,
+          "unit": "article_group"
+        },
+        "correct_count": 36,
+        "matching_policy": "exact_pair",
+        "metric": {
+          "name": "pair_prf",
+          "values": {
+            "f1": 0.7058823529411765,
+            "fn": 23,
+            "fp": 7,
+            "precision": 0.8372093023255814,
+            "recall": 0.6101694915254238,
+            "tp": 36
+          }
+        },
+        "resolver": "schwartz_hearst",
+        "scoreable_gold": 59
+      }
+    ],
+    "schema_version": "comparative-analysis-v1",
+    "union": {
+      "correct_count": 43,
+      "oracle_denominator": 59,
+      "oracle_recall": 0.7288135593220338
+    },
+    "unique_correct": [
+      {
+        "count": 1,
+        "resolver": "ab3p"
+      },
+      {
+        "count": 2,
+        "resolver": "jev_candidate_judge"
+      },
+      {
+        "count": 0,
+        "resolver": "plodv2_pairing"
+      },
+      {
+        "count": 2,
+        "resolver": "schwartz_hearst"
+      }
+    ]
+  },
+  "dataset": {
+    "article_groups": 15,
+    "documents": 20,
+    "fingerprint": "6befee2d33f97e7458d9c2eaa94cc3135158898588a74f56ea03013bc9926d82",
+    "id": "t057-strict-development-v1",
+    "strict_pairs": 59
+  },
+  "execution_limits": [
+    "Strict half-open exact-pair scoring only; pair and span metrics are not pooled.",
+    "The development set and prior assisted decisions are not blind evidence.",
+    "Gold-assisted union recall is an oracle diagnostic, not a deployable score."
+  ],
+  "methods": {
+    "ab3p": {
+      "diagnostics": 0,
+      "execution": {
+        "bundle_id": "71ed8dc6d27ab7b9002fbdd98130a9b3184c3c5884e66113ed407adfa399e5b8",
+        "elapsed_seconds": 1.8942237698938698,
+        "environment": {
+          "packages": {
+            "PyYAML": "6.0.3",
+            "abrex": "unavailable",
+            "pydantic": "2.13.5",
+            "typesafe-sdk": "unavailable"
+          },
+          "platform": "Linux-4.18.0-553.158.1.el8_10.x86_64-x86_64-with-glibc2.28",
+          "python": "3.13.14 (main, Jun 11 2026, 15:29:39) [GCC 8.5.0 20210514 (Red Hat 8.5.0-22)]"
+        },
+        "result_id": "4d0a7d3fe0ef39edd7759ec4974c9b10a76fa2054e27f48e11ff976216346822",
+        "status": "complete"
+      },
+      "failures": 0,
+      "prediction_fingerprint": "5e6aa0ebfa385b271b9cf88fa647c51d4c44146c02fc09d4aca70614fbb17f2a",
+      "prediction_path": ".artifacts/T060/imported-linux-results/t060-ab3p-linux/predictions.jsonl",
+      "prediction_sha256": "5e6aa0ebfa385b271b9cf88fa647c51d4c44146c02fc09d4aca70614fbb17f2a",
+      "predictions": 48,
+      "records": 20,
+      "resolver": {
+        "key": "ab3p",
+        "version": "3"
+      }
+    },
+    "jev_candidate_judge": {
+      "diagnostics": 0,
+      "failures": 0,
+      "prediction_fingerprint": "4c2089651703d3fe32dab802479299627deb0553facd15a6f79ce24bf09b2e37",
+      "prediction_path": ".artifacts/T060/jev/predictions/0ee04a1ddaab62203f5d4f8501081624c60f120ce9c29f4469dd6aa5df48a93c/predictions.jsonl",
+      "prediction_sha256": "4c2089651703d3fe32dab802479299627deb0553facd15a6f79ce24bf09b2e37",
+      "predictions": 53,
+      "records": 20,
+      "resolver": {
+        "key": "jev_candidate_judge",
+        "version": "1"
+      }
+    },
+    "plodv2_pairing": {
+      "diagnostics": 0,
+      "execution": {
+        "bundle_id": "71ed8dc6d27ab7b9002fbdd98130a9b3184c3c5884e66113ed407adfa399e5b8",
+        "elapsed_seconds": 30.87347278301604,
+        "environment": {
+          "packages": {
+            "PyYAML": "6.0.3",
+            "abrex": "unavailable",
+            "pydantic": "2.13.5",
+            "typesafe-sdk": "unavailable"
+          },
+          "platform": "Linux-4.18.0-553.158.1.el8_10.x86_64-x86_64-with-glibc2.28",
+          "python": "3.13.14 (main, Jun 11 2026, 15:29:39) [GCC 8.5.0 20210514 (Red Hat 8.5.0-22)]"
+        },
+        "result_id": "9a03fbd46c0c414af2332593cdc72e78d340f9861f87881777c6913570188e45",
+        "status": "complete"
+      },
+      "failures": 0,
+      "prediction_fingerprint": "22dc136228d7475be4524a42969e544753c9be2a0ed2280aa01c483d9bc8d996",
+      "prediction_path": ".artifacts/T060/imported-linux-results/t060-plodv2-pairing-linux/predictions.jsonl",
+      "prediction_sha256": "22dc136228d7475be4524a42969e544753c9be2a0ed2280aa01c483d9bc8d996",
+      "predictions": 36,
+      "records": 20,
+      "resolver": {
+        "key": "plodv2_pairing",
+        "version": "plodv2-pairing-v1"
+      }
+    },
+    "schwartz_hearst": {
+      "diagnostics": 0,
+      "failures": 0,
+      "prediction_fingerprint": "4c36f348ba3d6832e49b6531abeb8f8626435119fe756ccf6089ffbc9b560b63",
+      "prediction_path": ".artifacts/T060/schwartz-hearst/predictions/627e8dc7eb8c6f4ef5887d348cef5659d4f4facb137edf010da4da343fcf14f0/predictions.jsonl",
+      "prediction_sha256": "4c36f348ba3d6832e49b6531abeb8f8626435119fe756ccf6089ffbc9b560b63",
+      "predictions": 43,
+      "records": 20,
+      "resolver": {
+        "key": "schwartz_hearst",
+        "version": "1"
+      }
+    }
+  },
+  "pending": [
+    "T061 human review of the assisted output packet",
+    "Independent PLOD span output is required to audit unpaired detections"
+  ],
+  "prior_decision_linkage": {
+    "frozen_relation_count": 72,
+    "method_counts": {
+      "ab3p": {
+        "prior_correct": 1,
+        "queued_for_review": 13,
+        "strict_exact": 34
+      },
+      "jev_candidate_judge": {
+        "prior_correct": 2,
+        "queued_for_review": 22,
+        "strict_exact": 29
+      },
+      "plodv2_pairing": {
+        "prior_correct": 1,
+        "queued_for_review": 6,
+        "strict_exact": 29
+      },
+      "schwartz_hearst": {
+        "prior_correct": 1,
+        "prior_incorrect": 1,
+        "queued_for_review": 5,
+        "strict_exact": 36
+      }
+    },
+    "strict_relation_count": 59
+  },
+  "schema_version": "t060-development-comparison-v1",
+  "status": "review_and_plod_span_audit_pending"
+}

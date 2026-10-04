@@ -2,9 +2,12 @@
 
 ## October 2 revival checkpoint
 
-T059 engineering and its bounded live development run are complete. T060 is
-partially complete: Schwartz–Hearst and Jev results are frozen, while the Ab3P
-and PLODv2 jobs are packaged for Linux/Slurm execution. T064 prediction-blind
+T059 engineering and its bounded live development run are complete. The T060
+Linux results returned successfully on October 4: Ab3P and PLODv2 pairing each
+processed all 20 passages with zero execution errors. The four-way strict-pair
+comparison and 13-passage/40-proposal T061 review packet are now frozen. A
+one-job PLOD span follow-up is pending because the original pairing job did not
+serialize independent/unpaired detector spans. T064 prediction-blind
 review mode is complete and passed real Edge browser QA. See the
 [revival handoff](revival-handoff-2026-10-02.md) for measured results, the
 single ZIP server handoff, and the exact T061–T068 dependency sequence.
@@ -12,8 +15,9 @@ Fresh Linux execution uses the bundle's self-contained setup flow documented
 in [Linux server runtime provisioning](linux-server-runtimes.md); historical
 WSL paths are not server defaults.
 
-Do not acquire fresh T065 material yet. T060 Linux results, T061 adjudication,
-T062 analysis, and the explicit T063 protocol decision precede acquisition.
+Do not acquire fresh T065 material yet. The PLOD span follow-up, T061
+adjudication, T062 analysis, and the explicit T063 protocol decision precede
+acquisition.
 
 ## September 13 runtime correction
 

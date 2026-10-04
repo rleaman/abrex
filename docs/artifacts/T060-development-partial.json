@@ -1,6 +1,7 @@
 {
   "schema_version": "t060-development-comparison-v1",
-  "status": "partial_pending_linux_results",
+  "status": "superseded",
+  "superseded_by": "docs/artifacts/T060-development-comparison.json",
   "dataset": {
     "id": "t057-strict-development-v1",
     "documents": 20,
@@ -47,5 +48,5 @@
       "t060-plodv2-pairing-linux"
     ]
   },
-  "interpretation": "On assisted development evidence, Schwartz-Hearst is materially stronger than the frozen Jev candidate judge. Final T060 comparison and the T061 review queue wait for verified Ab3P and PLODv2 result imports."
+  "interpretation": "Historical checkpoint before the verified Ab3P and PLODv2 result import; use the superseding four-way comparison."
 }
