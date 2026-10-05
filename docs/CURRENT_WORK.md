@@ -41,6 +41,14 @@ gain was concentrated principally in one article group. The primary report is
 direction decision; no evaluated method was run before the corrected
 replacement lock.
 
+T068 was decided on October 5, 2026. No current method or tested fixed union is
+accepted as a sufficiently accurate modern solution. Ab3P remains the
+operational incumbent for pragmatic continuity, without a claim of proven
+contemporary superiority. The next direction is deliberately a clean slate:
+perform cross-method error analysis, then design new methods including an
+LLM-based approach. No implementation is authorized until that bounded work is
+assigned.
+
 ## September 13 runtime correction
 
 Ab3P and PLODv2 both passed a fresh local three-passage smoke using existing

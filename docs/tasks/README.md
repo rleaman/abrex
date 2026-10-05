@@ -27,8 +27,12 @@
   false-positive tolerance despite higher overall F1. See the
   [T066 evidence](../../evidence/T066/README.md),
   [T067 readout](../T067-fresh-evaluation-readout.md), and
-  [T067 completion note](completed/T067-fresh-evaluation-readout.md). T068 is
-  ready for the user's scientific direction choice.
+  [T067 completion note](completed/T067-fresh-evaluation-readout.md).
+- [T068](T068-human-next-direction.md) is complete; see its
+  [completion note](completed/T068-human-next-direction.md). No current method
+  or tested fixed union is adopted as sufficiently accurate. Ab3P remains the
+  pragmatic operational incumbent. The next direction is limited to error
+  analysis and designing new methods, including an LLM-based approach.
 
 ## September 13 runtime correction
 

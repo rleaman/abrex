@@ -10,8 +10,11 @@ is approved and frozen, and the 32-case fresh packet has an audited corrected
 prediction-blind lock. T067 is complete: the checksummed Linux results were
 imported and its primary readout was frozen without post-reveal tuning. The
 exact-union challenger failed the adoption gate because its 10 additional
-false positives exceeded the approved maximum of two. The remaining step is
-the T068 scientific direction decision.
+false positives exceeded the approved maximum of two. T068 is complete: no
+current method or tested fixed union is adopted as sufficiently accurate;
+Ab3P remains the pragmatic operational incumbent. The next direction is
+limited to error analysis and designing new methods, including an LLM-based
+approach.
 
 The corrected development comparison currently favors Schwartz–Hearst. On the
 20-passage, 59-pair T057 development view it scored 36 TP, 7 FP and 23 FN
@@ -199,10 +202,9 @@ the sister parser; it is excluded from fresh evaluation.
 2. T066 is complete. Use the corrected state and replacement lock under
    `evidence/T066`; the original lock under `evidence/T065` remains preserved.
    Both post-lock corrections were authorized before predictions were exposed.
-3. T067 is complete. Retain Schwartz–Hearst as the supported global baseline;
-   the table/list result is promising but concentrated and does not justify
-   global union adoption. T068 is the user's final scientific direction
-   choice and requires no more annotation or server work.
+3. T067 and T068 are complete. No method or fixed union is promoted. Ab3P
+   remains the pragmatic operational incumbent. The next work, when separately
+   assigned, is error analysis and designing new methods.
 
 T042 remains deferred. The excluded BADREX-corrected corpora remain out of
 scope under the recorded decision.

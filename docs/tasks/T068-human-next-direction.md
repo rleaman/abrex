@@ -1,22 +1,57 @@
 # T068 Choose the next project milestone from the evidence
 
 Owner: **USER — scientific lead; not a Luna implementation assignment**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: **Complete — scientific direction recorded October 5, 2026.**
 Dependencies: T067 final readout, or an explicit incomplete-experiment report.
 
-## Execution contract
+## Decision basis
 
-Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECUTION_GUIDE.md), AGENTS.md and the specific dependency outputs. The plan's common acceptance and scientific safeguards are part of this task. Existing interfaces are starting points, not a requirement to duplicate them.
+The scientific lead reviewed the frozen T067 result together with the earlier
+historical and assisted-development evidence. This record preserves that
+decision without rewriting the earlier plans or results as though the outcome
+had been known in advance.
 
-## Your steps
+## Recorded decision
 
-1. Review the measured gains, added errors, costs and remaining uncertainty.
-2. Choose a useful stopping point or one next investment: package the strongest single baseline; retain an evidenced existing combination/model; commission a narrow structural/shared-evidence improvement; or obtain more independent evidence.
-3. If a method did not earn its complexity, defer it. A negative or inconclusive result does not invalidate the modular framework.
-4. Decide separately whether any downstream mention-linking demonstration or tagged corpus is now useful. Do not automatically authorize full multimodal grounding, iterative denoising or work-scale processing.
-5. Record the decision and its rationale. Request a new bounded Luna task for the selected implementation; no implementation is hidden inside this human decision step.
+No evaluated resolver currently demonstrates the accuracy expected of a modern
+abbreviation-extraction system on robust contemporary evidence. None is
+promoted as a scientifically validated solution, and the tested fixed unions
+are not adopted.
 
-## Acceptance, deliverables and stopping point
+The evidence supports these narrower conclusions:
 
-User deliverable: chosen next milestone and any constraints. Luna can prepare a concise decision record afterward if assigned. Preserve historical findings and uncertainty; do not rewrite earlier plans as though this outcome was known.
+- Ab3P has the strongest historical single-method result, but it has no fresh
+  contemporary evaluation and its historical slice is not representative.
+- Schwartz–Hearst is deterministic and conservative, but its fresh recall is
+  poor and it does not handle structured material adequately.
+- PLODv2 has the strongest standalone numerical result in the small fresh
+  check and supplies much of the table/list recall, but it produces too many
+  false positives and its gain is concentrated.
+- Jev is inexpensive and operational, but its development evidence does not
+  demonstrate an improvement and it was not advanced to the fresh check.
+- The CLP-derived table evidence is promising development material, but ABREX
+  has not independently measured the parser's precision, recall or F1.
+- No method has an adequately powered, independently confirmed contemporary
+  performance estimate.
+
+The fresh result answers the tested combination question negatively: the
+unconditional Schwartz–Hearst/PLODv2 exact union recovers additional true
+pairs but imports too many false positives to be acceptable. This does not
+establish that every possible selective, learned or structure-aware
+combination must fail; it establishes that the tested fixed aggregation is not
+the solution.
+
+Ab3P remains the operational incumbent until stronger evidence exists. This
+is a pragmatic continuity decision based on its historical evidence and
+usability, not a claim of contemporary superiority. Schwartz–Hearst, PLODv2
+and the other implemented methods remain research comparators rather than
+promoted production systems.
+
+## Next direction
+
+1. Perform cross-method error analysis.
+2. Design new methods, including an LLM-based approach.
+
+The frozen T067 result remains unchanged; using its errors for design makes it
+development evidence for any future method.
 
