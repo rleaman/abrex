@@ -1,0 +1,44 @@
+{
+  "schema_version": "clp-abbr-worker-request-v2",
+  "request_id": "fixture-alternating-v1",
+  "documents": [
+    {
+      "document_id": "fixture-document",
+      "source_filename": "fixture.xml.gz",
+      "start_position": 0,
+      "text": "Abbreviations\nABC\nalpha beta complex",
+      "passages": [
+        {
+          "position": 0,
+          "source_index": 10,
+          "canonical_start": 0,
+          "source_offset": 100,
+          "section_type": "ABBR",
+          "passage_type": "title",
+          "text": "Abbreviations",
+          "xml": null
+        },
+        {
+          "position": 1,
+          "source_index": 11,
+          "canonical_start": 14,
+          "source_offset": 114,
+          "section_type": "ABBR",
+          "passage_type": "paragraph",
+          "text": "ABC",
+          "xml": null
+        },
+        {
+          "position": 2,
+          "source_index": 12,
+          "canonical_start": 18,
+          "source_offset": 118,
+          "section_type": "ABBR",
+          "passage_type": "paragraph",
+          "text": "alpha beta complex",
+          "xml": null
+        }
+      ]
+    }
+  ]
+}

@@ -187,6 +187,7 @@ def run_experiment(
         resolver_executor.metadata.version,
         resolver_config_json,
         resolver_cache_identity,
+        _resolver_usage(resolver_executor),
         prediction_path,
         prediction_fingerprint,
         evaluation_path,
@@ -293,6 +294,23 @@ def _resolver_cache_identity(resolver_executor: ResolverExecutor) -> object:
     return identity
 
 
+def _resolver_usage(resolver_executor: ResolverExecutor) -> object:
+    """Return JSON-serializable provider usage after prediction execution."""
+
+    usage = getattr(resolver_executor.resolver, "usage", None)
+    if callable(usage):
+        usage = usage()
+    if usage is None:
+        return None
+    try:
+        json.dumps(usage, sort_keys=True, separators=(",", ":"))
+    except (TypeError, ValueError) as error:
+        raise ExperimentError(
+            f"Resolver usage must be JSON serializable: {error}"
+        ) from error
+    return usage
+
+
 def _write_reports(
     config: ResolvedConfig, context: ReportContext, directory: Path
 ) -> tuple[Path, ...]:
@@ -324,6 +342,7 @@ def _run_manifest(
     resolver_version: str,
     resolver_config: str,
     resolver_cache_identity: object,
+    resolver_usage: object,
     prediction_path: Path,
     prediction_fingerprint: str,
     evaluation_path: Path,
@@ -352,6 +371,7 @@ def _run_manifest(
             "version": resolver_version,
             "config": json.loads(resolver_config),
             "cache_identity": resolver_cache_identity,
+            "usage": resolver_usage,
         },
         "environment": _environment_snapshot(),
         "predictions": {

@@ -1,0 +1,47 @@
+project:
+  name: campaign-2026-10-direct-extraction
+  seed: 20261005
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/campaign-2026-10/milestone-b/t062-development.jsonl
+    manifest_path: evidence/campaign-2026-10/milestone-b/t062-development.manifest.json
+resolver:
+  type: openai_direct_extraction
+  params:
+    model: gpt-6-luna
+    policy_version: source-grounded-direct-v1
+    prompt_version: abrex-direct-extraction-2026-10-05-v1
+    reasoning_effort: medium
+    cache_path: evidence/campaign-2026-10/milestone-b/direct-extraction-cache.jsonl
+    cache_only: false
+    endpoint: https://api.openai.com/v1/responses
+    api_key_env: OPENAI_API_KEY
+    maximum_document_characters: 48000
+    maximum_network_attempts: 20
+    maximum_estimated_input_tokens: 25000
+    maximum_output_tokens_per_request: 2048
+    monetary_cap_usd: 0.05
+    input_usd_per_million_tokens: 0.10
+    output_usd_per_million_tokens: 0.50
+    timeout_seconds: 60
+    retries: 0
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+  - type: error_table
+    params: {}
+  - type: html_error_report
+    params:
+      context_chars: 160
+output:
+  root: .artifacts/campaign-2026-10/direct-extraction
+  reuse_cached_predictions: true

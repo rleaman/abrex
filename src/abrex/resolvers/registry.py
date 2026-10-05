@@ -23,6 +23,10 @@ def register_builtin_components() -> None:
         SchwartzHearstResolverConfig,
     )
     from abrex.resolvers.adapters.toy import ToyResolver, ToyResolverConfig
+    from abrex.resolvers.direct_extraction import (
+        DirectExtractionConfig,
+        create_openai_direct_extractor,
+    )
     from abrex.resolvers.hybrid import HybridResolverConfig, create_hybrid_resolver
     from abrex.resolvers.jev import (
         JevCandidateJudgeConfig,
@@ -71,6 +75,12 @@ def register_builtin_components() -> None:
             "jev_candidate_judge",
             JevCandidateJudgeResolver,
             config_model=JevCandidateJudgeConfig,
+        )
+    if "openai_direct_extraction" not in RESOLVERS:
+        RESOLVERS.register(
+            "openai_direct_extraction",
+            create_openai_direct_extractor,
+            config_model=DirectExtractionConfig,
         )
 
 

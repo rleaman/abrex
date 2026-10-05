@@ -130,6 +130,7 @@ def export_clp_snapshot(
     rows: list[dict[str, object]] = []
     mapped_pairs = 0
     unscorable_pairs = 0
+    semantic_orientation_repairs = 0
     positive_sections = 0
     negative_sections = 0
     for raw_item in items_value:
@@ -138,10 +139,13 @@ def export_clp_snapshot(
         annotation = _mapping(annotations_by_id.get(item_id), "final annotation")
         if annotation.get("done") is not True:
             raise ValueError(f"CLP annotation is not finalized: {item_id}")
-        row, row_mapped, row_unscorable = _snapshot_row(item, annotation, source_commit)
+        row, row_mapped, row_unscorable, row_repairs = _snapshot_row(
+            item, annotation, source_commit
+        )
         rows.append(row)
         mapped_pairs += row_mapped
         unscorable_pairs += row_unscorable
+        semantic_orientation_repairs += row_repairs
         if annotation.get("section_decision") == "valid_abbreviation_section":
             positive_sections += 1
         else:
@@ -161,6 +165,15 @@ def export_clp_snapshot(
     }
     if evaluation_summary_path is not None:
         sources["evaluation_summary_sha256"] = _sha256_file(evaluation_summary_path)
+    counts: dict[str, object] = {
+        "sections": len(rows),
+        "positive_sections": positive_sections,
+        "negative_sections": negative_sections,
+        "mapped_pairs": mapped_pairs,
+        "unscorable_pairs": unscorable_pairs,
+    }
+    if semantic_orientation_repairs:
+        counts["semantic_orientation_repairs"] = semantic_orientation_repairs
     manifest: dict[str, object] = {
         "schema_version": SNAPSHOT_SCHEMA_VERSION,
         "dataset_id": "abbr-v5-validation-v1",
@@ -170,13 +183,7 @@ def export_clp_snapshot(
             "path": output_path.name,
             "sha256": hashlib.sha256(output_text.encode("utf-8")).hexdigest(),
         },
-        "counts": {
-            "sections": len(rows),
-            "positive_sections": positive_sections,
-            "negative_sections": negative_sections,
-            "mapped_pairs": mapped_pairs,
-            "unscorable_pairs": unscorable_pairs,
-        },
+        "counts": counts,
         "mapping_policy": "unique exact occurrence within declared source passages",
     }
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -190,7 +197,7 @@ def export_clp_snapshot(
 
 def _snapshot_row(
     item: Mapping[str, Any], annotation: Mapping[str, Any], source_commit: str
-) -> tuple[dict[str, object], int, int]:
+) -> tuple[dict[str, object], int, int, int]:
     item_id = _required_string(item, "id")
     source = _mapping(item.get("source"), "source")
     context = _mapping(item.get("document_context"), "document_context")
@@ -231,14 +238,22 @@ def _snapshot_row(
     compact_annotations: list[dict[str, object]] = []
     mapped = 0
     unscorable = 0
+    semantic_repairs = 0
     raw_pairs = annotation.get("pairs", [])
     if not isinstance(raw_pairs, list):
         raise TypeError("annotation pairs must be an array")
     passage_by_index = {int(value["index"]): value for value in passages}
+    repair_reversed_semantics = _section_pairs_follow_source_order(raw_pairs)
     for pair_index, raw_pair in enumerate(raw_pairs):
         pair = _mapping(raw_pair, "pair")
         short_form = _required_string(pair, "short_form")
         long_form = _required_string(pair, "long_form")
+        repaired = (
+            repair_reversed_semantics and pair.get("orientation") == "SECOND_IS_SF"
+        )
+        if repaired:
+            short_form, long_form = long_form, short_form
+            semantic_repairs += 1
         raw_source_indexes = pair.get("source_passage_indexes", [])
         if not isinstance(raw_source_indexes, list):
             raise TypeError("source_passage_indexes must be an array")
@@ -271,6 +286,7 @@ def _snapshot_row(
                 "source_first": pair.get("source_first"),
                 "source_second": pair.get("source_second"),
                 "orientation": pair.get("orientation"),
+                "semantic_orientation_repair": repaired,
             }
         )
     source_document_id = _required_string(source, "document_id")
@@ -293,7 +309,34 @@ def _snapshot_row(
         },
         mapped,
         unscorable,
+        semantic_repairs,
     )
+
+
+def _section_pairs_follow_source_order(raw_pairs: list[object]) -> bool:
+    """Detect a legacy section saved in source order despite reversed orientation.
+
+    Most reviewed pairs store semantic short/long fields even when their source
+    order is reversed. One legacy review path instead changed only the orientation
+    flag for a whole section. Requiring a section-level majority prevents a
+    per-pair shape heuristic from silently changing valid scientific labels.
+    """
+
+    source_order = 0
+    semantic_order = 0
+    for raw_pair in raw_pairs:
+        pair = _mapping(raw_pair, "pair")
+        if pair.get("orientation") != "SECOND_IS_SF":
+            continue
+        short_form = str(pair.get("short_form") or "")
+        long_form = str(pair.get("long_form") or "")
+        source_first = str(pair.get("source_first") or "")
+        source_second = str(pair.get("source_second") or "")
+        if short_form == source_first and long_form == source_second:
+            source_order += 1
+        if short_form == source_second and long_form == source_first:
+            semantic_order += 1
+    return source_order > semantic_order and source_order > 0
 
 
 def _unique_occurrence(

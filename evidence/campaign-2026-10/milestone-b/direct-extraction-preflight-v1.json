@@ -1,0 +1,486 @@
+{
+  "candidate_judging": {
+    "coverage": 0.7910447761194029,
+    "final_exact_metrics": {
+      "duplicate_predictions": 0,
+      "f1": 0.48543689320388356,
+      "false_negatives": 42,
+      "false_positives": 11,
+      "outside_strict_target": 2,
+      "precision": 0.6944444444444444,
+      "predictions": 38,
+      "recall": 0.373134328358209,
+      "true_positives": 25,
+      "unique_prediction_occurrences": 38
+    },
+    "generated_candidates": 742,
+    "generator_identity": {
+      "candidate_generators": [
+        {
+          "params": {},
+          "type": "parenthetical"
+        },
+        {
+          "params": {},
+          "type": "reverse_order"
+        },
+        {
+          "params": {},
+          "type": "nested_parenthetical"
+        },
+        {
+          "params": {},
+          "type": "clp_table_v5_1"
+        }
+      ],
+      "definition_threshold": 0.75,
+      "legacy_confidence_threshold": null,
+      "limits": {
+        "maximum_candidates_per_document": 512,
+        "maximum_candidates_per_request": 64,
+        "maximum_input_tokens": 10000000,
+        "maximum_network_requests": 500,
+        "maximum_request_characters": 48000
+      },
+      "model": "jev-1.13.0",
+      "orientation_threshold": 0.95,
+      "policy_version": "abrex-candidate-split-v2",
+      "resolver": "jev_candidate_judge",
+      "version": "2"
+    },
+    "gold_covered": 53,
+    "gold_omitted": 14,
+    "missing_relations": [
+      {
+        "document_id": "case-070773a12d676907498f",
+        "long_form": {
+          "end": 692,
+          "start": 670,
+          "text": "central nervous system"
+        },
+        "short_form": {
+          "end": 697,
+          "start": 694,
+          "text": "CNS"
+        }
+      },
+      {
+        "document_id": "case-1a4f2e3443392fdca836",
+        "long_form": {
+          "end": 691,
+          "start": 658,
+          "text": "phospholipid content of total LDL"
+        },
+        "short_form": {
+          "end": 708,
+          "start": 693,
+          "text": "LDL-PL/LDL-apoB"
+        }
+      },
+      {
+        "document_id": "case-1a4f2e3443392fdca836",
+        "long_form": {
+          "end": 971,
+          "start": 933,
+          "text": "phospholipid content of LDL subclass 6"
+        },
+        "short_form": {
+          "end": 989,
+          "start": 973,
+          "text": "LDL6-PL/LDL-apoB"
+        }
+      },
+      {
+        "document_id": "case-1a4f2e3443392fdca836",
+        "long_form": {
+          "end": 1038,
+          "start": 996,
+          "text": "free cholesterol content of LDL subclass 5"
+        },
+        "short_form": {
+          "end": 1057,
+          "start": 1040,
+          "text": "LDL5-FC/LDL5-apoB"
+        }
+      },
+      {
+        "document_id": "case-1a4f2e3443392fdca836",
+        "long_form": {
+          "end": 1171,
+          "start": 1132,
+          "text": "total cholesterol in subclasses 3 and 4"
+        },
+        "short_form": {
+          "end": 1189,
+          "start": 1173,
+          "text": "VLDL3-C, VLDL4-C"
+        }
+      },
+      {
+        "document_id": "case-1a4f2e3443392fdca836",
+        "long_form": {
+          "end": 1590,
+          "start": 1553,
+          "text": "free cholesterol content of total LDL"
+        },
+        "short_form": {
+          "end": 1607,
+          "start": 1592,
+          "text": "LDL-FC/LDL-apoB"
+        }
+      },
+      {
+        "document_id": "case-1a4f2e3443392fdca836",
+        "long_form": {
+          "end": 1676,
+          "start": 1638,
+          "text": "phospholipid content of LDL subclass 4"
+        },
+        "short_form": {
+          "end": 1695,
+          "start": 1678,
+          "text": "LDL4-PL/LDL4-apoB"
+        }
+      },
+      {
+        "document_id": "case-1a4f2e3443392fdca836",
+        "long_form": {
+          "end": 1977,
+          "start": 1935,
+          "text": "free cholesterol content of LDL subclass 6"
+        },
+        "short_form": {
+          "end": 1996,
+          "start": 1979,
+          "text": "LDL6-FC/LDL6-apoB"
+        }
+      },
+      {
+        "document_id": "case-1a4f2e3443392fdca836",
+        "long_form": {
+          "end": 2053,
+          "start": 2027,
+          "text": "cholesterol content of IDL"
+        },
+        "short_form": {
+          "end": 2069,
+          "start": 2055,
+          "text": "IDL-C/IDL-apoB"
+        }
+      },
+      {
+        "document_id": "case-831590c598e0d001beba",
+        "long_form": {
+          "end": 2112,
+          "start": 2103,
+          "text": "amygdala "
+        },
+        "short_form": {
+          "end": 2115,
+          "start": 2113,
+          "text": "AM"
+        }
+      },
+      {
+        "document_id": "case-831590c598e0d001beba",
+        "long_form": {
+          "end": 2151,
+          "start": 2118,
+          "text": "Autometallography/Luxol fast blue"
+        },
+        "short_form": {
+          "end": 2155,
+          "start": 2154,
+          "text": "F"
+        }
+      },
+      {
+        "document_id": "case-912c109badf69739f017",
+        "long_form": {
+          "end": 52,
+          "start": 33,
+          "text": "dipropylnitrosamine"
+        },
+        "short_form": {
+          "end": 57,
+          "start": 54,
+          "text": "DPN"
+        }
+      },
+      {
+        "document_id": "case-912c109badf69739f017",
+        "long_form": {
+          "end": 105,
+          "start": 73,
+          "text": "1-methoxypropylpropylnitrosamine"
+        },
+        "short_form": {
+          "end": 113,
+          "start": 107,
+          "text": "1-MPPN"
+        }
+      },
+      {
+        "document_id": "case-912c109badf69739f017",
+        "long_form": {
+          "end": 245,
+          "start": 213,
+          "text": "1-acetoxypropylpropylnitrosamine"
+        },
+        "short_form": {
+          "end": 253,
+          "start": 247,
+          "text": "1-APPN"
+        }
+      }
+    ]
+  },
+  "corpus": {
+    "dataset_id": "t062-strict-development-v1",
+    "documents": 20,
+    "fingerprint": "9ef625231e910dbd330db24f9980d93a3661d89375dd9f40d8c95fabe4dc5f50",
+    "overlap_warnings": 5,
+    "strict_relations": 67,
+    "text_characters": 25020
+  },
+  "direct_extraction_route": {
+    "automatic_retries": 0,
+    "cache_identity": {
+      "endpoint": "https://api.openai.com/v1/responses",
+      "maximum_output_tokens_per_request": 2048,
+      "model": "gpt-6-luna",
+      "policy_version": "source-grounded-direct-v1",
+      "prompt_version": "abrex-direct-extraction-2026-10-05-v1",
+      "reasoning_effort": "medium",
+      "resolver": "openai_direct_extraction",
+      "schema": {
+        "$defs": {
+          "GroundedPair": {
+            "additionalProperties": false,
+            "description": "One proposed abbreviation relation.",
+            "properties": {
+              "evidence": {
+                "enum": [
+                  "contiguous",
+                  "discontinuous"
+                ],
+                "title": "Evidence",
+                "type": "string"
+              },
+              "long_form": {
+                "$ref": "#/$defs/GroundedSpan"
+              },
+              "short_form": {
+                "$ref": "#/$defs/GroundedSpan"
+              }
+            },
+            "required": [
+              "short_form",
+              "long_form",
+              "evidence"
+            ],
+            "title": "GroundedPair",
+            "type": "object"
+          },
+          "GroundedSpan": {
+            "additionalProperties": false,
+            "description": "One literal occurrence and its Unicode half-open offsets.",
+            "properties": {
+              "end": {
+                "minimum": 0,
+                "title": "End",
+                "type": "integer"
+              },
+              "quote": {
+                "minLength": 1,
+                "title": "Quote",
+                "type": "string"
+              },
+              "start": {
+                "minimum": 0,
+                "title": "Start",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "quote",
+              "start",
+              "end"
+            ],
+            "title": "GroundedSpan",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Strict structured output returned by the extraction model.",
+        "properties": {
+          "pairs": {
+            "items": {
+              "$ref": "#/$defs/GroundedPair"
+            },
+            "title": "Pairs",
+            "type": "array"
+          }
+        },
+        "required": [
+          "pairs"
+        ],
+        "title": "DirectExtractionOutput",
+        "type": "object"
+      },
+      "version": "2"
+    },
+    "documents": 20,
+    "estimated_input_tokens": 17152,
+    "external_requests_issued": 0,
+    "maximum_network_attempts": 20,
+    "maximum_output_tokens": 40960,
+    "monetary_cap_usd": 0.05,
+    "request_characters": 68640,
+    "standard_price_worst_case_usd": 0.0221952
+  },
+  "evidence_class": "assisted_development",
+  "per_document": [
+    {
+      "covered_relations": 7,
+      "document_id": "case-018860b0c1232ddf7807",
+      "generated_candidates": 65,
+      "gold_relations": 7,
+      "request_characters": 3949
+    },
+    {
+      "covered_relations": 2,
+      "document_id": "case-0218e722f61ee55ef7dd",
+      "generated_candidates": 21,
+      "gold_relations": 2,
+      "request_characters": 2544
+    },
+    {
+      "covered_relations": 2,
+      "document_id": "case-06c9ebb850190d98a90b",
+      "generated_candidates": 62,
+      "gold_relations": 2,
+      "request_characters": 3605
+    },
+    {
+      "covered_relations": 0,
+      "document_id": "case-070773a12d676907498f",
+      "generated_candidates": 11,
+      "gold_relations": 1,
+      "request_characters": 2978
+    },
+    {
+      "covered_relations": 1,
+      "document_id": "case-07cad09127f682525233",
+      "generated_candidates": 11,
+      "gold_relations": 1,
+      "request_characters": 2807
+    },
+    {
+      "covered_relations": 0,
+      "document_id": "case-0f8bfd4e615558df24ef",
+      "generated_candidates": 11,
+      "gold_relations": 0,
+      "request_characters": 3902
+    },
+    {
+      "covered_relations": 4,
+      "document_id": "case-1a4f2e3443392fdca836",
+      "generated_candidates": 44,
+      "gold_relations": 12,
+      "request_characters": 4266
+    },
+    {
+      "covered_relations": 1,
+      "document_id": "case-3d2665693fb0be945023",
+      "generated_candidates": 11,
+      "gold_relations": 1,
+      "request_characters": 5024
+    },
+    {
+      "covered_relations": 2,
+      "document_id": "case-474f458c08d3bd7a9bf8",
+      "generated_candidates": 17,
+      "gold_relations": 2,
+      "request_characters": 3190
+    },
+    {
+      "covered_relations": 1,
+      "document_id": "case-5d7512d1d17f9f486465",
+      "generated_candidates": 11,
+      "gold_relations": 1,
+      "request_characters": 2814
+    },
+    {
+      "covered_relations": 2,
+      "document_id": "case-7a11345f02095ae53ae2",
+      "generated_candidates": 13,
+      "gold_relations": 2,
+      "request_characters": 3286
+    },
+    {
+      "covered_relations": 10,
+      "document_id": "case-831590c598e0d001beba",
+      "generated_candidates": 154,
+      "gold_relations": 12,
+      "request_characters": 4542
+    },
+    {
+      "covered_relations": 2,
+      "document_id": "case-862b4f1d66a83473d434",
+      "generated_candidates": 33,
+      "gold_relations": 2,
+      "request_characters": 2694
+    },
+    {
+      "covered_relations": 3,
+      "document_id": "case-88bfa500a152f2d3fd89",
+      "generated_candidates": 32,
+      "gold_relations": 3,
+      "request_characters": 3048
+    },
+    {
+      "covered_relations": 6,
+      "document_id": "case-8deab3bbe026a86e6b5c",
+      "generated_candidates": 98,
+      "gold_relations": 6,
+      "request_characters": 3194
+    },
+    {
+      "covered_relations": 1,
+      "document_id": "case-912c109badf69739f017",
+      "generated_candidates": 6,
+      "gold_relations": 4,
+      "request_characters": 2937
+    },
+    {
+      "covered_relations": 2,
+      "document_id": "case-9a27b1aac754c541ca57",
+      "generated_candidates": 22,
+      "gold_relations": 2,
+      "request_characters": 3297
+    },
+    {
+      "covered_relations": 4,
+      "document_id": "case-a9bc2d5ecf86d8e58778",
+      "generated_candidates": 43,
+      "gold_relations": 4,
+      "request_characters": 3843
+    },
+    {
+      "covered_relations": 0,
+      "document_id": "case-bb7cec40d4228dda23e5",
+      "generated_candidates": 44,
+      "gold_relations": 0,
+      "request_characters": 3651
+    },
+    {
+      "covered_relations": 3,
+      "document_id": "case-c940824221d306518316",
+      "generated_candidates": 33,
+      "gold_relations": 3,
+      "request_characters": 3069
+    }
+  ],
+  "schema_version": "campaign-2026-10-milestone-b-preflight-v1"
+}

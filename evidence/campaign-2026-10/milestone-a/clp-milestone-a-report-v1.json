@@ -1,0 +1,3441 @@
+{
+  "artifacts": {
+    "evidence\\campaign-2026-10\\milestone-a\\clp-full-replay-v1.jsonl": "e836ced15990076bf34c35675bf186becbae07bd51d358194703627e3e6e3667",
+    "evidence\\campaign-2026-10\\milestone-a\\clp-rules-only-replay-v1.jsonl": "747cf69a10522390bc03b9f362a2814951492636c4ebdca26f1a1613b453454b",
+    "evidence\\campaign-2026-10\\milestone-a\\clp-worker-v2-smoke-response.json": "3b2cb5f73a7081ab348fd857ae6f251ff685ac8e34ee757f3ecf8c6afb1477c2",
+    "resources\\clp\\clp-v5.1-source.zip": "290a52ad53216de64fca78abff2682057cc77b0d3c3ee698580a8ca9f94df7d7"
+  },
+  "evidence_class": "assisted/risk-stratified development evidence; not independent validation",
+  "existing_method_comparison": {
+    "dataset": {
+      "article_groups": 15,
+      "diagnostic_relations": 12,
+      "documents": 20,
+      "new_t061_strict_relations": 8,
+      "strict_relations": 67
+    },
+    "evidence_class": "assisted development evidence; not blind, representative, or a population performance estimate",
+    "gold_assisted_all_method_oracle": {
+      "correct_available_pairs": 47,
+      "interpretation": "Upper bound that selects only known-correct predictions from all available methods; it is not deployable.",
+      "recall_ceiling": 0.7014925373134329,
+      "strict_relations": 67
+    },
+    "methods": {
+      "ab3p": {
+        "duplicate_predictions": 0,
+        "f1": 0.6140350877192982,
+        "false_negatives": 32,
+        "false_positives": 12,
+        "outside_strict_target": 1,
+        "precision": 0.7446808510638298,
+        "predictions": 48,
+        "recall": 0.5223880597014925,
+        "true_positives": 35,
+        "unique_prediction_occurrences": 48
+      },
+      "jev_candidate_judge": {
+        "duplicate_predictions": 0,
+        "f1": 0.48543689320388356,
+        "false_negatives": 42,
+        "false_positives": 11,
+        "outside_strict_target": 2,
+        "precision": 0.6944444444444444,
+        "predictions": 38,
+        "recall": 0.373134328358209,
+        "true_positives": 25,
+        "unique_prediction_occurrences": 38
+      },
+      "plodv2_pairing": {
+        "duplicate_predictions": 0,
+        "f1": 0.6666666666666667,
+        "false_negatives": 33,
+        "false_positives": 1,
+        "outside_strict_target": 1,
+        "precision": 0.9714285714285714,
+        "predictions": 36,
+        "recall": 0.5074626865671642,
+        "true_positives": 34,
+        "unique_prediction_occurrences": 36
+      },
+      "schwartz_hearst": {
+        "duplicate_predictions": 0,
+        "f1": 0.6605504587155964,
+        "false_negatives": 31,
+        "false_positives": 6,
+        "outside_strict_target": 1,
+        "precision": 0.8571428571428571,
+        "predictions": 43,
+        "recall": 0.5373134328358209,
+        "true_positives": 36,
+        "unique_prediction_occurrences": 43
+      }
+    },
+    "transparent_union": {
+      "children": [
+        "schwartz_hearst",
+        "plodv2_pairing"
+      ],
+      "configuration": "transparent_hybrid_exact_union_sh_plodv2",
+      "interpretation": "Existing transparent exact-union baseline; development evidence does not establish denoising or fresh-sample superiority.",
+      "metrics": {
+        "duplicate_predictions": 0,
+        "f1": 0.7563025210084034,
+        "false_negatives": 22,
+        "false_positives": 7,
+        "outside_strict_target": 2,
+        "precision": 0.8653846153846154,
+        "predictions": 54,
+        "recall": 0.6716417910447762,
+        "true_positives": 45,
+        "unique_prediction_occurrences": 54
+      }
+    }
+  },
+  "existing_method_error_outcomes": {
+    "methods": {
+      "ab3p": {
+        "absent_candidate": 25,
+        "correct_exact_pair": 35,
+        "wrong_boundary": 7
+      },
+      "jev_candidate_judge": {
+        "absent_candidate": 38,
+        "correct_exact_pair": 25,
+        "wrong_boundary": 4
+      },
+      "plodv2_pairing": {
+        "absent_candidate": 29,
+        "correct_exact_pair": 34,
+        "wrong_boundary": 4
+      },
+      "schwartz_hearst": {
+        "absent_candidate": 23,
+        "correct_exact_pair": 36,
+        "wrong_boundary": 8
+      }
+    },
+    "strict_relations": 67
+  },
+  "limitations": [
+    "CLP-native normalized/string metrics and Abrex exact-offset metrics use different denominators and are never pooled.",
+    "The full replay makes no new Jev requests and spends no new model budget.",
+    "The 339 unmapped source pairs remain explicit exclusions; corresponding predictions are not automatically false positives.",
+    "PLOD endpoint and pairing ceilings use gold to select evidence and are not deployable scores.",
+    "Article identities are retained for concentration analysis; the 200 sections are risk-stratified development evidence."
+  ],
+  "plod_gold_assisted_diagnostic_ceiling": {
+    "endpoint_count_distribution": {
+      "0": 9,
+      "1": 24,
+      "2": 34
+    },
+    "exact_endpoint_recall_ceiling": 0.6865671641791045,
+    "interpretation": "Gold-assisted diagnostic ceiling over retained PLOD spans; not a deployable score.",
+    "one-endpoint_examples": [
+      {
+        "article_group_id": "41244649",
+        "case_id": "case-018860b0c1232ddf7807",
+        "long_form": {
+          "end": 133,
+          "start": 99,
+          "text": "deep learning image reconstruction"
+        },
+        "short_form": {
+          "end": 138,
+          "start": 135,
+          "text": "DLR"
+        }
+      },
+      {
+        "article_group_id": "41244649",
+        "case_id": "case-018860b0c1232ddf7807",
+        "long_form": {
+          "end": 255,
+          "start": 227,
+          "text": "prostate multiparametric MRI"
+        },
+        "short_form": {
+          "end": 262,
+          "start": 257,
+          "text": "mpMRI"
+        }
+      },
+      {
+        "article_group_id": "41244649",
+        "case_id": "case-018860b0c1232ddf7807",
+        "long_form": {
+          "end": 255,
+          "start": 236,
+          "text": "multiparametric MRI"
+        },
+        "short_form": {
+          "end": 262,
+          "start": 257,
+          "text": "mpMRI"
+        }
+      },
+      {
+        "article_group_id": "41244649",
+        "case_id": "case-018860b0c1232ddf7807",
+        "long_form": {
+          "end": 510,
+          "start": 468,
+          "text": "Prostate Imaging Reporting and Data System"
+        },
+        "short_form": {
+          "end": 519,
+          "start": 512,
+          "text": "PI-RADS"
+        }
+      },
+      {
+        "article_group_id": "41244649",
+        "case_id": "case-018860b0c1232ddf7807",
+        "long_form": {
+          "end": 635,
+          "start": 624,
+          "text": "standard T2"
+        },
+        "short_form": {
+          "end": 640,
+          "start": 637,
+          "text": "T2S"
+        }
+      }
+    ],
+    "pair_recall_ceiling_if_gold_supplies_one_missing_endpoint": 0.8656716417910447,
+    "pairing_recall_ceiling_if_only_retained_exact_endpoints_are_usable": 0.5074626865671642,
+    "relations_with_both_exact_endpoints": 34,
+    "strict_relations": 67
+  },
+  "schema_version": "clp-milestone-a-report-v1",
+  "section_reconciliation": {
+    "exact_offset_mapped_pairs": 3696,
+    "explanation": "The legacy exported total combined 50 true negative sections with 7 needs-parser-extension sections; strict section acceptance excludes the latter while routing reports them separately.",
+    "legacy_exported_negative_total": 57,
+    "mapping_loss_causes": {
+      "long_form_absent": 5,
+      "long_form_repeated": 33,
+      "short_form_absent": 4,
+      "short_form_repeated": 297
+    },
+    "mapping_loss_rate": 0.08401486988847584,
+    "negative": 50,
+    "parser_extension_excluded": 7,
+    "positive": 143,
+    "sections": 200,
+    "semantic_orientation_repairs": 19,
+    "source_pairs": 4035,
+    "unmapped_pairs": 339
+  },
+  "source_pin": {
+    "annotation_source_commit": "323fd4f51aa3c5b54ed30f37dd297b00b49e277e",
+    "candidate_generator_source": {
+      "path": "../../src/clp/abbr/explore_bioc_abbr_tables.py",
+      "sha256": "597dc6acf5564744fc3b1dcc374fbc89a504e7ba8a44f55a0b07fc11049c2fdc",
+      "size_bytes": 41108
+    },
+    "confidence_threshold": 0.52,
+    "dictionary": {
+      "path": "../../resources/abbreviations/abbr_frequency_2024.json.gz",
+      "sha256": "eec42cb74577130f07cdd2422f664b21011e4fdd70847ffe5b5345f63c78f023",
+      "size_bytes": 133582426
+    },
+    "hybrid_source": {
+      "path": "../../src/clp/abbr/explore_bioc_abbr_tables_jev.py",
+      "sha256": "e3fd19dbc6cbef5a5eb7684a7be54e0e7b0634ace21995465d3240034aa119e7",
+      "size_bytes": 160917
+    },
+    "inspected_checkout_commit": "cb898d2955ded9ced7ddf7aba869d06f3555ca43",
+    "jev_cache": {
+      "path": "../abbr-v5-validation-v51-live3/jev_decisions.jsonl",
+      "sha256": "cbad1c9d5d37e1e6937b309e91dad8c2582d49ab5fd6313082c14b3f93daa096",
+      "size_bytes": 2693619
+    },
+    "policy_version": "abbr-section-choice-v5.1",
+    "python": "3.13.1",
+    "repository": "CellLiteraturePipeline",
+    "source_archive": {
+      "path": "resources/clp/clp-v5.1-source.zip",
+      "sha256": "290a52ad53216de64fca78abff2682057cc77b0d3c3ee698580a8ca9f94df7d7"
+    },
+    "transfer_boundary": "versioned compact JSON replay retaining source passage indexes, orientation, rule, acceptance, and source identities",
+    "verified_direct_runtime": {
+      "PyYAML": "6.0.3",
+      "bioc": "2.1",
+      "filelock": "4.0.6",
+      "flair": "0.15.1",
+      "numpy": "2.5.3",
+      "optuna": "4.9.0",
+      "python": "3.13.1",
+      "scipy": "1.18.1",
+      "torch": "2.14.0",
+      "transformers": "4.57.6",
+      "typesafe-sdk": "0.7.2"
+    }
+  },
+  "status": "complete",
+  "variants": {
+    "full": {
+      "abrex_exact_offsets": {
+        "article_groups": {
+          "30276807": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "30943309": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 2
+          },
+          "31015277": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "31367241": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "31554512": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 10
+          },
+          "31569545": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 34
+          },
+          "31663609": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 3,
+            "true_positives": 16
+          },
+          "31715002": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 5
+          },
+          "31980749": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "31996247": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "32331236": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 34
+          },
+          "32393369": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "32397303": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 44
+          },
+          "32422864": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 23
+          },
+          "32629782": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "32693778": {
+            "sections": 1
+          },
+          "32797243": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "32846891": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 11
+          },
+          "32912327": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "33027905": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 20
+          },
+          "33105896": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 13
+          },
+          "33172038": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 51
+          },
+          "33173537": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "33317046": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 46
+          },
+          "33333945": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 79
+          },
+          "33363032": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 40
+          },
+          "33519804": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "33586463": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "33597952": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "33681672": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "33800470": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 43
+          },
+          "33807338": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 13
+          },
+          "33810314": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "33922532": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 37
+          },
+          "34067866": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 22
+          },
+          "34068404": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 48
+          },
+          "34084775": {
+            "false_negatives": 19,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "34097952": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "34202136": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 110
+          },
+          "34234770": {
+            "sections": 1
+          },
+          "34248989": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 28
+          },
+          "34254730": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "34299118": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "34341761": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "34359592": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "34440172": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 31
+          },
+          "34478165": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 3,
+            "true_positives": 0
+          },
+          "34497610": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "34504177": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 23
+          },
+          "34553212": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "34597467": {
+            "sections": 1
+          },
+          "34646264": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "34706640": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "34805178": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "34938177": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 39
+          },
+          "35137398": {
+            "sections": 1
+          },
+          "35153663": {
+            "sections": 1
+          },
+          "35216428": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 28
+          },
+          "35391921": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 32
+          },
+          "35456499": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 19
+          },
+          "35536782": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "35574025": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 42
+          },
+          "35625678": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "35898512": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 32
+          },
+          "36012766": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 24
+          },
+          "36131347": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "36232363": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 28
+          },
+          "36253784": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "36291567": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 30
+          },
+          "36291615": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "36389695": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "36399073": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "36432660": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "36457143": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "36555339": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 20
+          },
+          "36569939": {
+            "false_negatives": 3,
+            "false_positives": 3,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "36619385": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 5
+          },
+          "36633318": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 31
+          },
+          "36674847": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 23
+          },
+          "36723270": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "36814905": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "36816942": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 5
+          },
+          "37095391": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "37109474": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 6
+          },
+          "37155312": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "37190091": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 31
+          },
+          "37205113": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "37243287": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "37275873": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "37426743": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 66
+          },
+          "37427015": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 10
+          },
+          "37475558": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "37497217": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 2
+          },
+          "37505552": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 26
+          },
+          "37520246": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "37626330": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 30
+          },
+          "37627370": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 15
+          },
+          "37789393": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 19
+          },
+          "37798728": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "37889192": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "37900131": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 5
+          },
+          "37996818": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 31
+          },
+          "38091510": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 19
+          },
+          "38247878": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 14
+          },
+          "38256192": {
+            "false_negatives": 1,
+            "false_positives": 2,
+            "sections": 1,
+            "true_positives": 54
+          },
+          "38289826": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 42
+          },
+          "38339013": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "38357948": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "38375204": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 13
+          },
+          "38380364": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 24
+          },
+          "38464521": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "38469181": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 24
+          },
+          "38567065": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "38685568": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "38720887": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "38732225": {
+            "false_negatives": 2,
+            "false_positives": 2,
+            "sections": 1,
+            "true_positives": 72
+          },
+          "38793622": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 4
+          },
+          "38918989": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "38956667": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 19
+          },
+          "39069811": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "39126028": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 49
+          },
+          "39273292": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 29
+          },
+          "39273404": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 22
+          },
+          "39346064": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "39408608": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "39428482": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 58
+          },
+          "39428941": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 7
+          },
+          "39594613": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 60
+          },
+          "39684321": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 11
+          },
+          "39737187": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "39791167": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "39804726": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "39950480": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "39980637": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "40001494": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 95
+          },
+          "40003973": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 20
+          },
+          "40072075": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 39
+          },
+          "40123534": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 28
+          },
+          "40309782": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 7
+          },
+          "40332339": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 39
+          },
+          "40333813": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 4
+          },
+          "40417181": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 10
+          },
+          "40511648": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "40537978": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "40542654": {
+            "sections": 1
+          },
+          "40672948": {
+            "false_negatives": 6,
+            "false_positives": 3,
+            "sections": 1,
+            "true_positives": 24
+          },
+          "40673471": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "40702904": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "40723891": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "40806232": {
+            "false_negatives": 2,
+            "false_positives": 2,
+            "sections": 1,
+            "true_positives": 63
+          },
+          "40862726": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 7
+          },
+          "40869048": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 13
+          },
+          "40895460": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "40908670": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "40910795": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 22
+          },
+          "40922505": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 33
+          },
+          "40936409": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "40949877": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 25
+          },
+          "40956809": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 6
+          },
+          "40990037": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "41188893": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 51
+          },
+          "41226409": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 43
+          },
+          "41245137": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 7
+          },
+          "41262069": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 15
+          },
+          "41303672": {
+            "false_negatives": 0,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 6
+          },
+          "41369385": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 64
+          },
+          "41388396": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "41502505": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 62
+          },
+          "41596707": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 11
+          },
+          "41637882": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "41641929": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "41683918": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "41704423": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 10
+          },
+          "41752177": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 22
+          },
+          "41754581": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 80
+          },
+          "41882698": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 43
+          },
+          "41898326": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "41972669": {
+            "false_negatives": 2,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "42074514": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 29
+          },
+          "42193454": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 68
+          },
+          "42307979": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "42325006": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 4,
+            "true_positives": 26
+          },
+          "42346847": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "42370179": {
+            "false_negatives": 4,
+            "false_positives": 4,
+            "sections": 1,
+            "true_positives": 57
+          },
+          "42375809": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 88
+          }
+        },
+        "counts": {
+          "excluded_parser_extension_pairs": 9,
+          "excluded_parser_extension_sections": 7,
+          "excluded_unmapped_reference_predictions": 0,
+          "false_negatives": 56,
+          "false_positives": 28,
+          "gold_pairs_exact_scoreable": 3690,
+          "gold_pairs_native": 4026,
+          "gold_pairs_unmapped": 336,
+          "predicted_pairs": 3997,
+          "predicted_pairs_mapped": 3662,
+          "predicted_pairs_unmapped": 335,
+          "scored_sections": 193,
+          "sections": 200,
+          "true_positives": 3634
+        },
+        "error_categories": {
+          "acceptance": 19,
+          "candidate_omission": 35,
+          "orientation": 2,
+          "source_structure_mapping": 336
+        },
+        "examples": {
+          "acceptance": [
+            {
+              "article_group_id": "34084775",
+              "long_form": "alpha-synuclein",
+              "long_span": [
+                14,
+                29
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00045-xml--34084775--p98",
+              "short_form": "SYN",
+              "short_span": [
+                31,
+                34
+              ]
+            },
+            {
+              "article_group_id": "34084775",
+              "long_form": "bimolecular fluorescence complementation",
+              "long_span": [
+                36,
+                76
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00045-xml--34084775--p98",
+              "short_form": "BiFC",
+              "short_span": [
+                78,
+                82
+              ]
+            },
+            {
+              "article_group_id": "34084775",
+              "long_form": "chloroquine",
+              "long_span": [
+                84,
+                95
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00045-xml--34084775--p98",
+              "short_form": "CQ",
+              "short_span": [
+                97,
+                99
+              ]
+            },
+            {
+              "article_group_id": "34084775",
+              "long_form": "4',6-diamidino-2-phenylindole",
+              "long_span": [
+                101,
+                130
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00045-xml--34084775--p98",
+              "short_form": "DAPI",
+              "short_span": [
+                132,
+                136
+              ]
+            },
+            {
+              "article_group_id": "34084775",
+              "long_form": "enhanced green fluorescent protein",
+              "long_span": [
+                138,
+                172
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00045-xml--34084775--p98",
+              "short_form": "EGFP",
+              "short_span": [
+                174,
+                178
+              ]
+            }
+          ],
+          "candidate_omission": [
+            {
+              "article_group_id": "33519804",
+              "long_form": "damage-associated molecular patterns",
+              "long_span": [
+                56,
+                92
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00036-xml--33519804--p90",
+              "short_form": "DAMPS",
+              "short_span": [
+                49,
+                54
+              ]
+            },
+            {
+              "article_group_id": "33519804",
+              "long_form": "double stranded RNA",
+              "long_span": [
+                101,
+                120
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00036-xml--33519804--p90",
+              "short_form": "dsRNA",
+              "short_span": [
+                94,
+                99
+              ]
+            },
+            {
+              "article_group_id": "34202136",
+              "long_form": "untranslated region",
+              "long_span": [
+                4111,
+                4130
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00046-xml--34202136--p178",
+              "short_form": "UTR",
+              "short_span": [
+                4106,
+                4109
+              ]
+            },
+            {
+              "article_group_id": "34202136",
+              "long_form": "unilateral ureteral obstruction",
+              "long_span": [
+                4136,
+                4167
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00046-xml--34202136--p178",
+              "short_form": "UUO",
+              "short_span": [
+                4131,
+                4134
+              ]
+            },
+            {
+              "article_group_id": "35216428",
+              "long_form": "signal transducer and activator of transcription 1",
+              "long_span": [
+                911,
+                961
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00064-xml--35216428--p90",
+              "short_form": "STAT1",
+              "short_span": [
+                904,
+                909
+              ]
+            }
+          ],
+          "orientation": [
+            {
+              "article_group_id": "39684321",
+              "long_form": "Specificity",
+              "long_span": [
+                307,
+                318
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00145-xml--39684321--p68",
+              "short_form": "Sp",
+              "short_span": [
+                307,
+                309
+              ]
+            },
+            {
+              "article_group_id": "42370179",
+              "long_form": "5-FU",
+              "long_span": [
+                1698,
+                1702
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00204-xml--42370179--p92",
+              "short_form": "5-Fluorouracil",
+              "short_span": [
+                1683,
+                1697
+              ]
+            }
+          ],
+          "source_structure_mapping": [
+            {
+              "article_group_id": "31569545",
+              "long_form": "Acetoxymethyl ester",
+              "long_span": [
+                17,
+                36
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "AM",
+              "short_span": null
+            },
+            {
+              "article_group_id": "31569545",
+              "long_form": "Calcium",
+              "long_span": [
+                60,
+                67
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "Ca2+",
+              "short_span": null
+            },
+            {
+              "article_group_id": "31569545",
+              "long_form": "Molecular oxygen",
+              "long_span": [
+                71,
+                87
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "O2",
+              "short_span": null
+            },
+            {
+              "article_group_id": "31569545",
+              "long_form": "p-value",
+              "long_span": [
+                397,
+                404
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "P",
+              "short_span": null
+            },
+            {
+              "article_group_id": "31569545",
+              "long_form": "Endoplasmic reticulum",
+              "long_span": null,
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "ER",
+              "short_span": null
+            }
+          ]
+        },
+        "limitations": [
+          "Exact-offset denominators contain only uniquely mapped gold occurrences.",
+          "Predictions matching an unmapped gold string pair are excluded, not false positives.",
+          "Parser-extension sections are outside strict scoring and remain explicit.",
+          "This risk-stratified development set is not independent validation."
+        ],
+        "matching_policy": "half-open exact short-form and long-form offsets",
+        "metrics": {
+          "f1": 0.9885745375408052,
+          "precision": 0.9923539049699618,
+          "recall": 0.9848238482384823
+        }
+      },
+      "execution_mode": "saved cache-only replay of previously live Jev decisions",
+      "native_metrics": {
+        "baseline_id": "abbr-v5.1-live-t052-20261002",
+        "by_gold_pattern": {
+          "NO_PATTERN": {
+            "exact_pair_section_rate": 0.9047619047619048,
+            "exact_pair_sections": 19,
+            "gold_pairs": 289,
+            "matched_pairs": 287,
+            "pair_f1": 0.9930795847750865,
+            "pair_precision": 0.9930795847750865,
+            "pair_recall": 0.9930795847750865,
+            "predicted_pairs": 289,
+            "sections": 21
+          },
+          "PATTERN_1": {
+            "exact_pair_section_rate": 0.925,
+            "exact_pair_sections": 37,
+            "gold_pairs": 714,
+            "matched_pairs": 702,
+            "pair_f1": 0.9901269393511989,
+            "pair_precision": 0.9971590909090909,
+            "pair_recall": 0.9831932773109243,
+            "predicted_pairs": 704,
+            "sections": 40
+          },
+          "PATTERN_1_RECOVERY": {
+            "exact_pair_section_rate": 1.0,
+            "exact_pair_sections": 3,
+            "gold_pairs": 123,
+            "matched_pairs": 123,
+            "pair_f1": 1.0,
+            "pair_precision": 1.0,
+            "pair_recall": 1.0,
+            "predicted_pairs": 123,
+            "sections": 3
+          },
+          "PATTERN_2": {
+            "exact_pair_section_rate": 0.9210526315789473,
+            "exact_pair_sections": 35,
+            "gold_pairs": 551,
+            "matched_pairs": 524,
+            "pair_f1": 0.9712696941612604,
+            "pair_precision": 0.9924242424242424,
+            "pair_recall": 0.9509981851179673,
+            "predicted_pairs": 528,
+            "sections": 38
+          },
+          "PATTERN_3": {
+            "exact_pair_section_rate": 0.9090909090909091,
+            "exact_pair_sections": 20,
+            "gold_pairs": 673,
+            "matched_pairs": 668,
+            "pair_f1": 0.9925705794947994,
+            "pair_precision": 0.9925705794947994,
+            "pair_recall": 0.9925705794947994,
+            "predicted_pairs": 673,
+            "sections": 22
+          },
+          "PATTERN_3_RECOVERY": {
+            "exact_pair_section_rate": 1.0,
+            "exact_pair_sections": 4,
+            "gold_pairs": 193,
+            "matched_pairs": 193,
+            "pair_f1": 1.0,
+            "pair_precision": 1.0,
+            "pair_recall": 1.0,
+            "predicted_pairs": 193,
+            "sections": 4
+          },
+          "PATTERN_4": {
+            "exact_pair_section_rate": 1.0,
+            "exact_pair_sections": 28,
+            "gold_pairs": 207,
+            "matched_pairs": 207,
+            "pair_f1": 1.0,
+            "pair_precision": 1.0,
+            "pair_recall": 1.0,
+            "predicted_pairs": 207,
+            "sections": 28
+          },
+          "RECOVERY_ALTERNATING": {
+            "exact_pair_section_rate": 1.0,
+            "exact_pair_sections": 4,
+            "gold_pairs": 78,
+            "matched_pairs": 78,
+            "pair_f1": 1.0,
+            "pair_precision": 1.0,
+            "pair_recall": 1.0,
+            "predicted_pairs": 78,
+            "sections": 4
+          },
+          "RECOVERY_DELIMITED": {
+            "exact_pair_section_rate": 0.8333333333333334,
+            "exact_pair_sections": 15,
+            "gold_pairs": 586,
+            "matched_pairs": 581,
+            "pair_f1": 0.9906223358908781,
+            "pair_precision": 0.989778534923339,
+            "pair_recall": 0.9914675767918089,
+            "predicted_pairs": 587,
+            "sections": 18
+          },
+          "RECOVERY_INLINE_LIST": {
+            "exact_pair_section_rate": 0.6666666666666666,
+            "exact_pair_sections": 12,
+            "gold_pairs": 452,
+            "matched_pairs": 441,
+            "pair_f1": 0.9810901001112347,
+            "pair_precision": 0.9865771812080537,
+            "pair_recall": 0.9756637168141593,
+            "predicted_pairs": 447,
+            "sections": 18
+          },
+          "RECOVERY_TABLE": {
+            "exact_pair_section_rate": 0.75,
+            "exact_pair_sections": 3,
+            "gold_pairs": 169,
+            "matched_pairs": 167,
+            "pair_f1": 0.9910979228486647,
+            "pair_precision": 0.9940476190476191,
+            "pair_recall": 0.9881656804733728,
+            "predicted_pairs": 168,
+            "sections": 4
+          }
+        },
+        "endpoint": {
+          "conditional_accuracy": 1.0,
+          "correct": 142,
+          "gold_positive_sections": 143,
+          "predicted_positive_sections": 142,
+          "unconditional_accuracy": 0.993006993006993
+        },
+        "gold": {
+          "annotation_grain": "source_occurrence",
+          "negative_sections": 50,
+          "pairs": 4035,
+          "parser_extension_sections": 7,
+          "positive_sections": 143,
+          "sections": 200
+        },
+        "normalized_occurrence_pairs": {
+          "exact_section_rate": 0.9,
+          "exact_sections": 180,
+          "f1": 0.9887948207171314,
+          "gold": 4035,
+          "matched": 3971,
+          "precision": 0.9934951213410057,
+          "predicted": 3997,
+          "recall": 0.9841387856257745
+        },
+        "orientation_on_matched_pairs": {
+          "accuracy": 1.0,
+          "correct": 3971,
+          "eligible": 3971
+        },
+        "section_acceptance": {
+          "accuracy": 0.9948186528497409,
+          "evaluated_sections": 193,
+          "excluded_gold_parser_extension_sections": 7,
+          "f1": 0.9964912280701754,
+          "false_negative": 1,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.993006993006993,
+          "true_negative": 50,
+          "true_positive": 142
+        },
+        "section_routing": {
+          "accuracy": 0.94,
+          "confusion": {
+            "ACCEPTED": {
+              "ACCEPTED": 142,
+              "UNRESOLVED_OR_ERROR": 1
+            },
+            "NEEDS_PARSER_EXTENSION": {
+              "NEEDS_PARSER_EXTENSION": 4,
+              "REJECTED": 2,
+              "UNRESOLVED_OR_ERROR": 1
+            },
+            "REJECTED": {
+              "NEEDS_PARSER_EXTENSION": 2,
+              "REJECTED": 42,
+              "UNRESOLVED_OR_ERROR": 6
+            }
+          },
+          "correct": 188,
+          "sections": 200
+        },
+        "source_string_occurrence_pairs": {
+          "exact_section_rate": 0.885,
+          "exact_sections": 177,
+          "f1": 0.9865537848605578,
+          "matched": 3962,
+          "precision": 0.9912434325744308,
+          "recall": 0.981908302354399
+        }
+      },
+      "source_identity": {
+        "manifest_sha256": "4aa87a9da10001a169d41ef127bdda1b4ef8a661a22e2140581b1fa931f08baf",
+        "sequence_sha256": "75e0cf973bd0d1c7bc11f3e24e77b22aaf98e1cebc516441b5966fa0393a2fcc"
+      }
+    },
+    "rules_only": {
+      "abrex_exact_offsets": {
+        "article_groups": {
+          "30276807": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "30943309": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 2
+          },
+          "31015277": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "31367241": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "31554512": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 10
+          },
+          "31569545": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 34
+          },
+          "31663609": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 3,
+            "true_positives": 16
+          },
+          "31715002": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 5
+          },
+          "31980749": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "31996247": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "32331236": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 34
+          },
+          "32393369": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "32397303": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 44
+          },
+          "32422864": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 23
+          },
+          "32629782": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "32693778": {
+            "sections": 1
+          },
+          "32797243": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "32846891": {
+            "false_negatives": 11,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "32912327": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "33027905": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 20
+          },
+          "33105896": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 13
+          },
+          "33172038": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 51
+          },
+          "33173537": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "33317046": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 46
+          },
+          "33333945": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 79
+          },
+          "33363032": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 40
+          },
+          "33519804": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "33586463": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "33597952": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "33681672": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "33800470": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 43
+          },
+          "33807338": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 13
+          },
+          "33810314": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "33922532": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 37
+          },
+          "34067866": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 22
+          },
+          "34068404": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 48
+          },
+          "34084775": {
+            "false_negatives": 19,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "34097952": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "34202136": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 110
+          },
+          "34234770": {
+            "sections": 1
+          },
+          "34248989": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 28
+          },
+          "34254730": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "34299118": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "34341761": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "34359592": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "34440172": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 31
+          },
+          "34478165": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 3,
+            "true_positives": 0
+          },
+          "34497610": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "34504177": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 23
+          },
+          "34553212": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "34597467": {
+            "sections": 1
+          },
+          "34646264": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "34706640": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "34805178": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "34938177": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 39
+          },
+          "35137398": {
+            "sections": 1
+          },
+          "35153663": {
+            "sections": 1
+          },
+          "35216428": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 28
+          },
+          "35391921": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 32
+          },
+          "35456499": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 19
+          },
+          "35536782": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "35574025": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 42
+          },
+          "35625678": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "35898512": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 32
+          },
+          "36012766": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 24
+          },
+          "36131347": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "36232363": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 28
+          },
+          "36253784": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "36291567": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 30
+          },
+          "36291615": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "36389695": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "36399073": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "36432660": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "36457143": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "36555339": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 20
+          },
+          "36569939": {
+            "false_negatives": 3,
+            "false_positives": 3,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "36619385": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 5
+          },
+          "36633318": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 31
+          },
+          "36674847": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 23
+          },
+          "36723270": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "36814905": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "36816942": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 5
+          },
+          "37095391": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "37109474": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 6
+          },
+          "37155312": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "37190091": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 31
+          },
+          "37205113": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "37243287": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "37275873": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "37426743": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 66
+          },
+          "37427015": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 10
+          },
+          "37475558": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "37497217": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 2
+          },
+          "37505552": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 26
+          },
+          "37520246": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "37626330": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 30
+          },
+          "37627370": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 15
+          },
+          "37789393": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 19
+          },
+          "37798728": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "37889192": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "37900131": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 5
+          },
+          "37996818": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 31
+          },
+          "38091510": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 19
+          },
+          "38247878": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 14
+          },
+          "38256192": {
+            "false_negatives": 1,
+            "false_positives": 2,
+            "sections": 1,
+            "true_positives": 54
+          },
+          "38289826": {
+            "false_negatives": 2,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 42
+          },
+          "38339013": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "38357948": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "38375204": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 13
+          },
+          "38380364": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 24
+          },
+          "38464521": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "38469181": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 24
+          },
+          "38567065": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "38685568": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "38720887": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "38732225": {
+            "false_negatives": 2,
+            "false_positives": 2,
+            "sections": 1,
+            "true_positives": 72
+          },
+          "38793622": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 4
+          },
+          "38918989": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "38956667": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 19
+          },
+          "39069811": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "39126028": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 49
+          },
+          "39273292": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 29
+          },
+          "39273404": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 22
+          },
+          "39346064": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "39408608": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "39428482": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 58
+          },
+          "39428941": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 7
+          },
+          "39594613": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 60
+          },
+          "39684321": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 11
+          },
+          "39737187": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "39791167": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "39804726": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 12
+          },
+          "39950480": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "39980637": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 9
+          },
+          "40001494": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 95
+          },
+          "40003973": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 20
+          },
+          "40072075": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 39
+          },
+          "40123534": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 28
+          },
+          "40309782": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 7
+          },
+          "40332339": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 39
+          },
+          "40333813": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 4
+          },
+          "40417181": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 10
+          },
+          "40511648": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "40537978": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "40542654": {
+            "sections": 1
+          },
+          "40672948": {
+            "false_negatives": 6,
+            "false_positives": 3,
+            "sections": 1,
+            "true_positives": 24
+          },
+          "40673471": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "40702904": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 16
+          },
+          "40723891": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "40806232": {
+            "false_negatives": 2,
+            "false_positives": 2,
+            "sections": 1,
+            "true_positives": 63
+          },
+          "40862726": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 7
+          },
+          "40869048": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 13
+          },
+          "40895460": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "40908670": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "40910795": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 22
+          },
+          "40922505": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 33
+          },
+          "40936409": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 18
+          },
+          "40949877": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 25
+          },
+          "40956809": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 6
+          },
+          "40990037": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "41188893": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 51
+          },
+          "41226409": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 43
+          },
+          "41245137": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 7
+          },
+          "41262069": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 15
+          },
+          "41303672": {
+            "false_negatives": 0,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 6
+          },
+          "41369385": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 64
+          },
+          "41388396": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "41502505": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 62
+          },
+          "41596707": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 11
+          },
+          "41637882": {
+            "false_negatives": 1,
+            "false_positives": 1,
+            "sections": 1,
+            "true_positives": 17
+          },
+          "41641929": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 2,
+            "true_positives": 0
+          },
+          "41683918": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "41704423": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 10
+          },
+          "41752177": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 22
+          },
+          "41754581": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 80
+          },
+          "41882698": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 43
+          },
+          "41898326": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 8
+          },
+          "41972669": {
+            "false_negatives": 2,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 21
+          },
+          "42074514": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 29
+          },
+          "42193454": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 68
+          },
+          "42307979": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "42325006": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 4,
+            "true_positives": 26
+          },
+          "42346847": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 0
+          },
+          "42370179": {
+            "false_negatives": 4,
+            "false_positives": 4,
+            "sections": 1,
+            "true_positives": 57
+          },
+          "42375809": {
+            "false_negatives": 0,
+            "false_positives": 0,
+            "sections": 1,
+            "true_positives": 88
+          }
+        },
+        "counts": {
+          "excluded_parser_extension_pairs": 9,
+          "excluded_parser_extension_sections": 7,
+          "excluded_unmapped_reference_predictions": 0,
+          "false_negatives": 67,
+          "false_positives": 28,
+          "gold_pairs_exact_scoreable": 3690,
+          "gold_pairs_native": 4026,
+          "gold_pairs_unmapped": 336,
+          "predicted_pairs": 3984,
+          "predicted_pairs_mapped": 3651,
+          "predicted_pairs_unmapped": 333,
+          "scored_sections": 193,
+          "sections": 200,
+          "true_positives": 3623
+        },
+        "error_categories": {
+          "acceptance": 30,
+          "candidate_omission": 35,
+          "orientation": 2,
+          "source_structure_mapping": 336
+        },
+        "examples": {
+          "acceptance": [
+            {
+              "article_group_id": "32846891",
+              "long_form": "N-acylethanolamine acid amidase",
+              "long_span": [
+                14,
+                45
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00027-xml--32846891--p53",
+              "short_form": "NAAA",
+              "short_span": [
+                47,
+                51
+              ]
+            },
+            {
+              "article_group_id": "32846891",
+              "long_form": "2-arachidonoylethanolamide",
+              "long_span": [
+                54,
+                80
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00027-xml--32846891--p53",
+              "short_form": "anandamide, AEA",
+              "short_span": [
+                82,
+                97
+              ]
+            },
+            {
+              "article_group_id": "32846891",
+              "long_form": "N-arachidonoylethanolamine phospholipase D",
+              "long_span": [
+                100,
+                142
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00027-xml--32846891--p53",
+              "short_form": "NAPE-PLD",
+              "short_span": [
+                144,
+                152
+              ]
+            },
+            {
+              "article_group_id": "32846891",
+              "long_form": "2-arachidonoylglycerol",
+              "long_span": [
+                155,
+                177
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00027-xml--32846891--p53",
+              "short_form": "2-AG",
+              "short_span": [
+                179,
+                183
+              ]
+            },
+            {
+              "article_group_id": "32846891",
+              "long_form": "experimental autoimmune encephalomyelitis",
+              "long_span": [
+                281,
+                322
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00027-xml--32846891--p53",
+              "short_form": "EAE",
+              "short_span": [
+                324,
+                327
+              ]
+            }
+          ],
+          "candidate_omission": [
+            {
+              "article_group_id": "33519804",
+              "long_form": "damage-associated molecular patterns",
+              "long_span": [
+                56,
+                92
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00036-xml--33519804--p90",
+              "short_form": "DAMPS",
+              "short_span": [
+                49,
+                54
+              ]
+            },
+            {
+              "article_group_id": "33519804",
+              "long_form": "double stranded RNA",
+              "long_span": [
+                101,
+                120
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00036-xml--33519804--p90",
+              "short_form": "dsRNA",
+              "short_span": [
+                94,
+                99
+              ]
+            },
+            {
+              "article_group_id": "34202136",
+              "long_form": "untranslated region",
+              "long_span": [
+                4111,
+                4130
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00046-xml--34202136--p178",
+              "short_form": "UTR",
+              "short_span": [
+                4106,
+                4109
+              ]
+            },
+            {
+              "article_group_id": "34202136",
+              "long_form": "unilateral ureteral obstruction",
+              "long_span": [
+                4136,
+                4167
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00046-xml--34202136--p178",
+              "short_form": "UUO",
+              "short_span": [
+                4131,
+                4134
+              ]
+            },
+            {
+              "article_group_id": "35216428",
+              "long_form": "signal transducer and activator of transcription 1",
+              "long_span": [
+                911,
+                961
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00064-xml--35216428--p90",
+              "short_form": "STAT1",
+              "short_span": [
+                904,
+                909
+              ]
+            }
+          ],
+          "orientation": [
+            {
+              "article_group_id": "39684321",
+              "long_form": "Specificity",
+              "long_span": [
+                307,
+                318
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00145-xml--39684321--p68",
+              "short_form": "Sp",
+              "short_span": [
+                307,
+                309
+              ]
+            },
+            {
+              "article_group_id": "42370179",
+              "long_form": "5-FU",
+              "long_span": [
+                1698,
+                1702
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00204-xml--42370179--p92",
+              "short_form": "5-Fluorouracil",
+              "short_span": [
+                1683,
+                1697
+              ]
+            }
+          ],
+          "source_structure_mapping": [
+            {
+              "article_group_id": "31569545",
+              "long_form": "Acetoxymethyl ester",
+              "long_span": [
+                17,
+                36
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "AM",
+              "short_span": null
+            },
+            {
+              "article_group_id": "31569545",
+              "long_form": "Calcium",
+              "long_span": [
+                60,
+                67
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "Ca2+",
+              "short_span": null
+            },
+            {
+              "article_group_id": "31569545",
+              "long_form": "Molecular oxygen",
+              "long_span": [
+                71,
+                87
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "O2",
+              "short_span": null
+            },
+            {
+              "article_group_id": "31569545",
+              "long_form": "p-value",
+              "long_span": [
+                397,
+                404
+              ],
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "P",
+              "short_span": null
+            },
+            {
+              "article_group_id": "31569545",
+              "long_form": "Endoplasmic reticulum",
+              "long_span": null,
+              "occurrences": 1,
+              "record_id": "collection-full-00011-xml--31569545--p75",
+              "short_form": "ER",
+              "short_span": null
+            }
+          ]
+        },
+        "limitations": [
+          "Exact-offset denominators contain only uniquely mapped gold occurrences.",
+          "Predictions matching an unmapped gold string pair are excluded, not false positives.",
+          "Parser-extension sections are outside strict scoring and remain explicit.",
+          "This risk-stratified development set is not independent validation."
+        ],
+        "matching_policy": "half-open exact short-form and long-form offsets",
+        "metrics": {
+          "f1": 0.9870589837896745,
+          "precision": 0.9923308682552725,
+          "recall": 0.9818428184281843
+        }
+      },
+      "execution_mode": "saved cache-only replay; unresolved cache misses retained",
+      "native_metrics": {
+        "baseline_id": "abbr-v5.1-final-cache-only",
+        "by_gold_pattern": {
+          "NO_PATTERN": {
+            "exact_pair_section_rate": 0.9047619047619048,
+            "exact_pair_sections": 19,
+            "gold_pairs": 289,
+            "matched_pairs": 287,
+            "pair_f1": 0.9930795847750865,
+            "pair_precision": 0.9930795847750865,
+            "pair_recall": 0.9930795847750865,
+            "predicted_pairs": 289,
+            "sections": 21
+          },
+          "PATTERN_1": {
+            "exact_pair_section_rate": 0.925,
+            "exact_pair_sections": 37,
+            "gold_pairs": 714,
+            "matched_pairs": 702,
+            "pair_f1": 0.9901269393511989,
+            "pair_precision": 0.9971590909090909,
+            "pair_recall": 0.9831932773109243,
+            "predicted_pairs": 704,
+            "sections": 40
+          },
+          "PATTERN_1_RECOVERY": {
+            "exact_pair_section_rate": 1.0,
+            "exact_pair_sections": 3,
+            "gold_pairs": 123,
+            "matched_pairs": 123,
+            "pair_f1": 1.0,
+            "pair_precision": 1.0,
+            "pair_recall": 1.0,
+            "predicted_pairs": 123,
+            "sections": 3
+          },
+          "PATTERN_2": {
+            "exact_pair_section_rate": 0.9210526315789473,
+            "exact_pair_sections": 35,
+            "gold_pairs": 551,
+            "matched_pairs": 524,
+            "pair_f1": 0.9712696941612604,
+            "pair_precision": 0.9924242424242424,
+            "pair_recall": 0.9509981851179673,
+            "predicted_pairs": 528,
+            "sections": 38
+          },
+          "PATTERN_3": {
+            "exact_pair_section_rate": 0.9090909090909091,
+            "exact_pair_sections": 20,
+            "gold_pairs": 673,
+            "matched_pairs": 668,
+            "pair_f1": 0.9925705794947994,
+            "pair_precision": 0.9925705794947994,
+            "pair_recall": 0.9925705794947994,
+            "predicted_pairs": 673,
+            "sections": 22
+          },
+          "PATTERN_3_RECOVERY": {
+            "exact_pair_section_rate": 1.0,
+            "exact_pair_sections": 4,
+            "gold_pairs": 193,
+            "matched_pairs": 193,
+            "pair_f1": 1.0,
+            "pair_precision": 1.0,
+            "pair_recall": 1.0,
+            "predicted_pairs": 193,
+            "sections": 4
+          },
+          "PATTERN_4": {
+            "exact_pair_section_rate": 0.9642857142857143,
+            "exact_pair_sections": 27,
+            "gold_pairs": 207,
+            "matched_pairs": 194,
+            "pair_f1": 0.9675810473815462,
+            "pair_precision": 1.0,
+            "pair_recall": 0.9371980676328503,
+            "predicted_pairs": 194,
+            "sections": 28
+          },
+          "RECOVERY_ALTERNATING": {
+            "exact_pair_section_rate": 1.0,
+            "exact_pair_sections": 4,
+            "gold_pairs": 78,
+            "matched_pairs": 78,
+            "pair_f1": 1.0,
+            "pair_precision": 1.0,
+            "pair_recall": 1.0,
+            "predicted_pairs": 78,
+            "sections": 4
+          },
+          "RECOVERY_DELIMITED": {
+            "exact_pair_section_rate": 0.8333333333333334,
+            "exact_pair_sections": 15,
+            "gold_pairs": 586,
+            "matched_pairs": 581,
+            "pair_f1": 0.9906223358908781,
+            "pair_precision": 0.989778534923339,
+            "pair_recall": 0.9914675767918089,
+            "predicted_pairs": 587,
+            "sections": 18
+          },
+          "RECOVERY_INLINE_LIST": {
+            "exact_pair_section_rate": 0.6666666666666666,
+            "exact_pair_sections": 12,
+            "gold_pairs": 452,
+            "matched_pairs": 441,
+            "pair_f1": 0.9810901001112347,
+            "pair_precision": 0.9865771812080537,
+            "pair_recall": 0.9756637168141593,
+            "predicted_pairs": 447,
+            "sections": 18
+          },
+          "RECOVERY_TABLE": {
+            "exact_pair_section_rate": 0.75,
+            "exact_pair_sections": 3,
+            "gold_pairs": 169,
+            "matched_pairs": 167,
+            "pair_f1": 0.9910979228486647,
+            "pair_precision": 0.9940476190476191,
+            "pair_recall": 0.9881656804733728,
+            "predicted_pairs": 168,
+            "sections": 4
+          }
+        },
+        "endpoint": {
+          "conditional_accuracy": 1.0,
+          "correct": 141,
+          "gold_positive_sections": 143,
+          "predicted_positive_sections": 141,
+          "unconditional_accuracy": 0.986013986013986
+        },
+        "gold": {
+          "annotation_grain": "source_occurrence",
+          "negative_sections": 50,
+          "pairs": 4035,
+          "parser_extension_sections": 7,
+          "positive_sections": 143,
+          "sections": 200
+        },
+        "normalized_occurrence_pairs": {
+          "exact_section_rate": 0.895,
+          "exact_sections": 179,
+          "f1": 0.9871555056740242,
+          "gold": 4035,
+          "matched": 3958,
+          "precision": 0.9934738955823293,
+          "predicted": 3984,
+          "recall": 0.98091697645601
+        },
+        "orientation_on_matched_pairs": {
+          "accuracy": 1.0,
+          "correct": 3958,
+          "eligible": 3958
+        },
+        "section_acceptance": {
+          "accuracy": 0.9896373056994818,
+          "evaluated_sections": 193,
+          "excluded_gold_parser_extension_sections": 7,
+          "f1": 0.9929577464788732,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.986013986013986,
+          "true_negative": 50,
+          "true_positive": 141
+        },
+        "section_routing": {
+          "accuracy": 0.875,
+          "confusion": {
+            "ACCEPTED": {
+              "ACCEPTED": 141,
+              "UNRESOLVED_OR_ERROR": 2
+            },
+            "NEEDS_PARSER_EXTENSION": {
+              "REJECTED": 2,
+              "UNRESOLVED_OR_ERROR": 5
+            },
+            "REJECTED": {
+              "REJECTED": 34,
+              "UNRESOLVED_OR_ERROR": 16
+            }
+          },
+          "correct": 175,
+          "sections": 200
+        },
+        "source_string_occurrence_pairs": {
+          "exact_section_rate": 0.88,
+          "exact_sections": 176,
+          "f1": 0.9849108367626886,
+          "matched": 3949,
+          "precision": 0.991214859437751,
+          "recall": 0.9786864931846344
+        }
+      },
+      "source_identity": {
+        "manifest_sha256": "ed64f056b0d4a45115e8bd5365cab2d4125c87c094a10bcbadd39760a1e87752",
+        "sequence_sha256": "5f7f2eeca61e2a072edff1dbc4bd668aacacfa3c84e2fea4d9885b2b4d2c94ed"
+      }
+    }
+  }
+}

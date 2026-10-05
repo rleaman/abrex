@@ -1,0 +1,13 @@
+# Verified direct runtime for the pinned CLP V5.1 worker (Python 3.13.1).
+# This pins the packages declared by CellLiteraturePipeline plus the live judge SDK.
+PyYAML==6.0.3
+accelerate==1.15.0
+bioc==2.1
+filelock==4.0.6
+flair==0.15.1
+numpy==2.5.3
+optuna==4.9.0
+scipy==1.18.1
+torch==2.14.0
+transformers==4.57.6
+typesafe-sdk==0.7.2

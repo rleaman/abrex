@@ -48,6 +48,7 @@ from abrex.resolvers.base import (
     ResolverError,
     ResolverExecutionError,
     ResolverMetadata,
+    ResolverResolution,
     ResolverRunResult,
     attach_resolver_metadata,
 )
@@ -55,6 +56,16 @@ from abrex.resolvers.config import (
     ResolverConfig,
     create_resolver_executor,
     resolver_config_from_resolved,
+)
+from abrex.resolvers.direct_extraction import (
+    DIRECT_MODEL,
+    DIRECT_POLICY_VERSION,
+    DIRECT_PROMPT_VERSION,
+    DirectExtractionBudgetError,
+    DirectExtractionConfig,
+    DirectExtractionError,
+    DirectExtractionResolver,
+    DirectExtractionResponseError,
 )
 from abrex.resolvers.execution import ResolverExecutor
 from abrex.resolvers.hybrid import (
@@ -117,6 +128,9 @@ from abrex.resolvers.validation import validate_predictions
 
 __all__ = [
     "ExecutionErrorPolicy",
+    "DIRECT_MODEL",
+    "DIRECT_POLICY_VERSION",
+    "DIRECT_PROMPT_VERSION",
     "AB3P_ADAPTER_VERSION",
     "BIOADI_ADAPTER_VERSION",
     "AB3P_OFFSET_SCHEMA_VERSION",
@@ -159,8 +173,14 @@ __all__ = [
     "JevCandidateJudgeResolver",
     "JevResolverError",
     "JevResponseError",
+    "DirectExtractionBudgetError",
+    "DirectExtractionConfig",
+    "DirectExtractionError",
+    "DirectExtractionResolver",
+    "DirectExtractionResponseError",
     "calibrate_threshold",
     "ResolverMetadata",
+    "ResolverResolution",
     "ResolverRunResult",
     "PLOD_VERSION",
     "PlodConfig",

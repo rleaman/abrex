@@ -1,13 +1,14 @@
 {
   "artifact": {
     "path": "abbr-v5-validation-v1.jsonl",
-    "sha256": "c70820ee4d11f428d7a39fa828ecc60c906f913fd47bd7b0b85bd148c187b937"
+    "sha256": "67ac64b1de33f6b5c6fcf76ca90b25faf686f048a21f65490d62890201e75cd7"
   },
   "counts": {
     "mapped_pairs": 3696,
     "negative_sections": 57,
     "positive_sections": 143,
     "sections": 200,
+    "semantic_orientation_repairs": 19,
     "unscorable_pairs": 339
   },
   "dataset_id": "abbr-v5-validation-v1",

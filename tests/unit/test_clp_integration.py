@@ -11,11 +11,19 @@ from abrex.candidates.clp_table import CLPTableCandidateGenerator
 from abrex.candidates.clp_worker import (
     CLPWorkerDocument,
     CLPWorkerDocumentResult,
+    CLPWorkerDocumentResultV2,
+    CLPWorkerDocumentV2,
     CLPWorkerPair,
+    CLPWorkerPairV2,
+    CLPWorkerPassageV2,
     CLPWorkerProtocolError,
     CLPWorkerRequest,
+    CLPWorkerRequestV2,
     CLPWorkerResponse,
+    CLPWorkerResponseV2,
+    CLPWorkerSpanV2,
     map_clp_worker_response,
+    map_clp_worker_response_v2,
 )
 from abrex.candidates.registry import GENERATORS
 from abrex.config import load_resolved_config
@@ -140,6 +148,81 @@ def test_snapshot_export_never_guesses_repeated_occurrences(tmp_path: Path) -> N
     assert row["annotations"][0]["mapping_status"] == (
         "ambiguous_or_missing_short_form"
     )
+
+
+def test_snapshot_export_repairs_legacy_section_saved_in_source_order(
+    tmp_path: Path,
+) -> None:
+    items = [
+        {
+            "id": "section-reversed",
+            "source": {
+                "filename": "source.xml.gz",
+                "document_id": "doc-1",
+                "start_index": 1,
+            },
+            "selection_tags": ["test"],
+            "document_context": {
+                "passages": [
+                    {
+                        "index": 1,
+                        "offset": 0,
+                        "section_type": "ABBR",
+                        "type": "paragraph",
+                        "text": "alpha synuclein SYN; fetal bovine serum FBS",
+                    }
+                ],
+                "annotated_passage_indexes": [1],
+            },
+        }
+    ]
+    annotations = {
+        "annotations": {
+            "section-reversed": {
+                "done": True,
+                "section_decision": "valid_abbreviation_section",
+                "orientation": "SECOND_IS_SF",
+                "pairs": [
+                    {
+                        "short_form": "alpha synuclein",
+                        "long_form": "SYN",
+                        "source_passage_indexes": [1],
+                        "source_first": "alpha synuclein",
+                        "source_second": "SYN",
+                        "orientation": "SECOND_IS_SF",
+                    },
+                    {
+                        "short_form": "fetal bovine serum",
+                        "long_form": "FBS",
+                        "source_passage_indexes": [1],
+                        "source_first": "fetal bovine serum",
+                        "source_second": "FBS",
+                        "orientation": "SECOND_IS_SF",
+                    },
+                ],
+            }
+        }
+    }
+    items_path = tmp_path / "items.json"
+    annotations_path = tmp_path / "annotations.json"
+    items_path.write_text(json.dumps(items), encoding="utf-8")
+    annotations_path.write_text(json.dumps(annotations), encoding="utf-8")
+
+    manifest = export_clp_snapshot(
+        items_path=items_path,
+        annotations_path=annotations_path,
+        output_path=tmp_path / "snapshot.jsonl",
+        manifest_path=tmp_path / "manifest.json",
+        source_commit="a" * 40,
+    )
+    row = json.loads((tmp_path / "snapshot.jsonl").read_text("utf-8"))
+
+    counts = manifest["counts"]
+    assert isinstance(counts, dict)
+    assert counts["semantic_orientation_repairs"] == 2
+    assert row["annotations"][0]["short_form"] == "SYN"
+    assert row["annotations"][0]["long_form"] == "alpha synuclein"
+    assert row["annotations"][0]["semantic_orientation_repair"] is True
 
 
 def test_clp_table_generator_maps_only_unique_two_column_rows() -> None:
@@ -306,3 +389,133 @@ def test_clp_worker_protocol_rejects_duplicate_identities() -> None:
             worker_version="5.1",
             documents=(result, result),
         )
+
+
+def test_clp_worker_v2_preserves_structure_and_explicit_occurrences() -> None:
+    request = CLPWorkerRequestV2(
+        request_id="request-v2",
+        documents=(
+            CLPWorkerDocumentV2(
+                document_id="d1",
+                source_filename="source.xml.gz",
+                start_position=0,
+                text="Abbreviations\nABC\talpha beta complex",
+                passages=(
+                    CLPWorkerPassageV2(
+                        position=0,
+                        source_index=4,
+                        canonical_start=0,
+                        source_offset=10,
+                        section_type="ABBR",
+                        passage_type="title",
+                        text="Abbreviations",
+                    ),
+                    CLPWorkerPassageV2(
+                        position=1,
+                        source_index=5,
+                        canonical_start=14,
+                        source_offset=24,
+                        section_type="TABLE",
+                        passage_type="table",
+                        text="ABC\talpha beta complex",
+                        xml=(
+                            "<table><tr><td>ABC</td>"
+                            "<td>alpha beta complex</td></tr></table>"
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    )
+    response = CLPWorkerResponseV2(
+        request_id="request-v2",
+        worker_identity="CellLiteraturePipeline/full-clp",
+        worker_version="323fd4f",
+        policy_version="abbr-section-choice-v5.1",
+        model_version="jev-1.13.0",
+        documents=(
+            CLPWorkerDocumentResultV2(
+                document_id="d1",
+                disposition="ACCEPTED",
+                decision_source="DETERMINISTIC",
+                pairs=(
+                    CLPWorkerPairV2(
+                        pair_id="pair-1",
+                        decision="accepted",
+                        short_form="ABC",
+                        long_form="alpha beta complex",
+                        short_span=CLPWorkerSpanV2(start=14, end=17),
+                        long_span=CLPWorkerSpanV2(start=18, end=36),
+                        rule="PATTERN_3:TWO_COLUMN_TABLE",
+                        orientation="FIRST_IS_SF",
+                        source_passage_indexes=(5,),
+                        mapping_status="mapped",
+                    ),
+                ),
+            ),
+        ),
+    )
+
+    result = map_clp_worker_response_v2(request, response)[0]
+
+    assert len(result.candidates) == 1
+    assert result.candidates[0].short_form == TextSpan(14, 17)
+    assert result.candidates[0].long_form == TextSpan(18, 36)
+    assert result.candidates[0].provenance is not None
+    assert result.candidates[0].provenance.adapter_identity == "clp_worker_v2"
+
+
+def test_clp_worker_v2_rejects_span_text_mismatch() -> None:
+    request = CLPWorkerRequestV2(
+        request_id="request-v2",
+        documents=(
+            CLPWorkerDocumentV2(
+                document_id="d1",
+                source_filename="source.xml.gz",
+                start_position=0,
+                text="ABC alpha",
+                passages=(
+                    CLPWorkerPassageV2(
+                        position=0,
+                        source_index=0,
+                        canonical_start=0,
+                        source_offset=0,
+                        section_type="ABBR",
+                        passage_type="title",
+                        text="ABC alpha",
+                    ),
+                ),
+            ),
+        ),
+    )
+    response = CLPWorkerResponseV2(
+        request_id="request-v2",
+        worker_identity="clp",
+        worker_version="323fd4f",
+        policy_version="v5.1",
+        model_version="jev-1.13.0",
+        documents=(
+            CLPWorkerDocumentResultV2(
+                document_id="d1",
+                disposition="ACCEPTED",
+                decision_source="DETERMINISTIC",
+                pairs=(
+                    CLPWorkerPairV2(
+                        pair_id="bad",
+                        decision="accepted",
+                        short_form="XYZ",
+                        long_form="alpha",
+                        short_span=CLPWorkerSpanV2(start=0, end=3),
+                        long_span=CLPWorkerSpanV2(start=4, end=9),
+                        rule="test",
+                        orientation="FIRST_IS_SF",
+                        source_passage_indexes=(0,),
+                        mapping_status="mapped",
+                    ),
+                ),
+            ),
+        ),
+    )
+
+    with pytest.raises(CLPWorkerProtocolError, match="spans do not match"):
+        map_clp_worker_response_v2(request, response)

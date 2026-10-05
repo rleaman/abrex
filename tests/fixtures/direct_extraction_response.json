@@ -1,0 +1,25 @@
+{
+  "model": "gpt-6-luna",
+  "output": {
+    "pairs": [
+      {
+        "evidence": "contiguous",
+        "long_form": {
+          "end": 23,
+          "quote": "tumor necrosis factor",
+          "start": 2
+        },
+        "short_form": {
+          "end": 28,
+          "quote": "TNF",
+          "start": 25
+        }
+      }
+    ]
+  },
+  "request_id": "fixture-response",
+  "usage": {
+    "input_tokens": 100,
+    "output_tokens": 20
+  }
+}

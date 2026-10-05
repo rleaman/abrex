@@ -15,6 +15,7 @@ from abrex.resolvers.base import (
     Resolver,
     ResolverExecutionError,
     ResolverMetadata,
+    ResolverResolution,
     ResolverRunResult,
 )
 from abrex.resolvers.validation import validate_predictions
@@ -58,11 +59,11 @@ class ResolverExecutor:
 
         if not isinstance(document, Document):
             raise TypeError("document must be a Document")
-        raw_predictions = self._invoke(document)
+        detailed = self._invoke(document)
         try:
             validated = validate_predictions(
                 document,
-                raw_predictions,
+                detailed.predictions,
                 resolver=self.metadata,
                 mode=mode or self.validation_mode,
             )
@@ -71,7 +72,7 @@ class ResolverExecutor:
         return PredictionRecord(
             document.document_id,
             predictions=validated.predictions,
-            diagnostics=validated.diagnostics,
+            diagnostics=(*detailed.diagnostics, *validated.diagnostics),
         )
 
     def resolve_documents(
@@ -161,8 +162,14 @@ class ResolverExecutor:
 
         return self.resolve_documents(documents, mode=mode, error_policy=error_policy)
 
-    def _invoke(self, document: Document) -> tuple[object, ...]:
+    def _invoke(self, document: Document) -> ResolverResolution:
         try:
+            detailed_method = getattr(self.resolver, "resolve_detailed", None)
+            if callable(detailed_method):
+                detailed = detailed_method(document)
+                if not isinstance(detailed, ResolverResolution):
+                    raise TypeError("resolve_detailed must return ResolverResolution")
+                return detailed
             returned = self.resolver.resolve(document)
         except Exception as error:
             raise ResolverExecutionError(
@@ -174,7 +181,7 @@ class ResolverExecutor:
                 cause=error,
             ) from error
         try:
-            return tuple(returned)
+            return ResolverResolution(tuple(returned))
         except Exception as error:
             raise ResolverExecutionError(
                 f"Resolver {self.metadata.key!r} output could not be materialized "

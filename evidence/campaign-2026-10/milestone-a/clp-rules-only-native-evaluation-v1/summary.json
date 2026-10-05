@@ -1,0 +1,256 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-10-01T23:44:39.929950+00:00",
+  "baseline_id": "abbr-v5.1-final-cache-only",
+  "snapshot_id": "abbr-v5-validation-v1.0.0",
+  "gold": {
+    "sections": 200,
+    "positive_sections": 143,
+    "negative_sections": 50,
+    "parser_extension_sections": 7,
+    "pairs": 4035,
+    "annotation_grain": "source_occurrence"
+  },
+  "section_acceptance": {
+    "true_positive": 141,
+    "false_negative": 2,
+    "false_positive": 0,
+    "true_negative": 50,
+    "evaluated_sections": 193,
+    "excluded_gold_parser_extension_sections": 7,
+    "accuracy": 0.9896373056994818,
+    "precision": 1.0,
+    "recall": 0.986013986013986,
+    "f1": 0.9929577464788732
+  },
+  "section_routing": {
+    "correct": 175,
+    "sections": 200,
+    "accuracy": 0.875,
+    "confusion": {
+      "ACCEPTED": {
+        "ACCEPTED": 141,
+        "UNRESOLVED_OR_ERROR": 2
+      },
+      "NEEDS_PARSER_EXTENSION": {
+        "REJECTED": 2,
+        "UNRESOLVED_OR_ERROR": 5
+      },
+      "REJECTED": {
+        "REJECTED": 34,
+        "UNRESOLVED_OR_ERROR": 16
+      }
+    }
+  },
+  "normalized_occurrence_pairs": {
+    "gold": 4035,
+    "predicted": 3984,
+    "matched": 3958,
+    "precision": 0.9934738955823293,
+    "recall": 0.98091697645601,
+    "f1": 0.9871555056740242,
+    "exact_sections": 179,
+    "exact_section_rate": 0.895
+  },
+  "source_string_occurrence_pairs": {
+    "matched": 3949,
+    "precision": 0.991214859437751,
+    "recall": 0.9786864931846344,
+    "f1": 0.9849108367626886,
+    "exact_sections": 176,
+    "exact_section_rate": 0.88
+  },
+  "document_unique_normalized_pairs": {
+    "gold": 4033,
+    "predicted": 3983,
+    "matched": 3957,
+    "precision": 0.9934722570926438,
+    "recall": 0.9811554673939995,
+    "f1": 0.9872754491017964
+  },
+  "endpoint": {
+    "correct": 141,
+    "gold_positive_sections": 143,
+    "predicted_positive_sections": 141,
+    "unconditional_accuracy": 0.986013986013986,
+    "conditional_accuracy": 1.0
+  },
+  "orientation_on_matched_pairs": {
+    "correct": 3958,
+    "eligible": 3958,
+    "accuracy": 1.0
+  },
+  "by_gold_pattern": {
+    "NO_PATTERN": {
+      "sections": 21,
+      "gold_pairs": 289,
+      "predicted_pairs": 289,
+      "matched_pairs": 287,
+      "exact_pair_sections": 19,
+      "pair_precision": 0.9930795847750865,
+      "pair_recall": 0.9930795847750865,
+      "pair_f1": 0.9930795847750865,
+      "exact_pair_section_rate": 0.9047619047619048
+    },
+    "PATTERN_1": {
+      "sections": 40,
+      "gold_pairs": 714,
+      "predicted_pairs": 704,
+      "matched_pairs": 702,
+      "exact_pair_sections": 37,
+      "pair_precision": 0.9971590909090909,
+      "pair_recall": 0.9831932773109243,
+      "pair_f1": 0.9901269393511989,
+      "exact_pair_section_rate": 0.925
+    },
+    "PATTERN_1_RECOVERY": {
+      "sections": 3,
+      "gold_pairs": 123,
+      "predicted_pairs": 123,
+      "matched_pairs": 123,
+      "exact_pair_sections": 3,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "exact_pair_section_rate": 1.0
+    },
+    "PATTERN_2": {
+      "sections": 38,
+      "gold_pairs": 551,
+      "predicted_pairs": 528,
+      "matched_pairs": 524,
+      "exact_pair_sections": 35,
+      "pair_precision": 0.9924242424242424,
+      "pair_recall": 0.9509981851179673,
+      "pair_f1": 0.9712696941612604,
+      "exact_pair_section_rate": 0.9210526315789473
+    },
+    "PATTERN_3": {
+      "sections": 22,
+      "gold_pairs": 673,
+      "predicted_pairs": 673,
+      "matched_pairs": 668,
+      "exact_pair_sections": 20,
+      "pair_precision": 0.9925705794947994,
+      "pair_recall": 0.9925705794947994,
+      "pair_f1": 0.9925705794947994,
+      "exact_pair_section_rate": 0.9090909090909091
+    },
+    "PATTERN_3_RECOVERY": {
+      "sections": 4,
+      "gold_pairs": 193,
+      "predicted_pairs": 193,
+      "matched_pairs": 193,
+      "exact_pair_sections": 4,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "exact_pair_section_rate": 1.0
+    },
+    "PATTERN_4": {
+      "sections": 28,
+      "gold_pairs": 207,
+      "predicted_pairs": 194,
+      "matched_pairs": 194,
+      "exact_pair_sections": 27,
+      "pair_precision": 1.0,
+      "pair_recall": 0.9371980676328503,
+      "pair_f1": 0.9675810473815462,
+      "exact_pair_section_rate": 0.9642857142857143
+    },
+    "RECOVERY_ALTERNATING": {
+      "sections": 4,
+      "gold_pairs": 78,
+      "predicted_pairs": 78,
+      "matched_pairs": 78,
+      "exact_pair_sections": 4,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "exact_pair_section_rate": 1.0
+    },
+    "RECOVERY_DELIMITED": {
+      "sections": 18,
+      "gold_pairs": 586,
+      "predicted_pairs": 587,
+      "matched_pairs": 581,
+      "exact_pair_sections": 15,
+      "pair_precision": 0.989778534923339,
+      "pair_recall": 0.9914675767918089,
+      "pair_f1": 0.9906223358908781,
+      "exact_pair_section_rate": 0.8333333333333334
+    },
+    "RECOVERY_INLINE_LIST": {
+      "sections": 18,
+      "gold_pairs": 452,
+      "predicted_pairs": 447,
+      "matched_pairs": 441,
+      "exact_pair_sections": 12,
+      "pair_precision": 0.9865771812080537,
+      "pair_recall": 0.9756637168141593,
+      "pair_f1": 0.9810901001112347,
+      "exact_pair_section_rate": 0.6666666666666666
+    },
+    "RECOVERY_TABLE": {
+      "sections": 4,
+      "gold_pairs": 169,
+      "predicted_pairs": 168,
+      "matched_pairs": 167,
+      "exact_pair_sections": 3,
+      "pair_precision": 0.9940476190476191,
+      "pair_recall": 0.9881656804733728,
+      "pair_f1": 0.9910979228486647,
+      "exact_pair_section_rate": 0.75
+    }
+  },
+  "by_confidence": {
+    "high_>=0.9": {
+      "sections": 132,
+      "gold_pairs": 2793,
+      "predicted_pairs": 2784,
+      "matched_pairs": 2765,
+      "exact_pair_sections": 119,
+      "pair_precision": 0.9931752873563219,
+      "pair_recall": 0.9899749373433584,
+      "pair_f1": 0.9915725300340685,
+      "exact_pair_section_rate": 0.9015151515151515
+    },
+    "low_<0.7": {
+      "sections": 35,
+      "gold_pairs": 602,
+      "predicted_pairs": 583,
+      "matched_pairs": 581,
+      "exact_pair_sections": 32,
+      "pair_precision": 0.9965694682675815,
+      "pair_recall": 0.9651162790697675,
+      "pair_f1": 0.980590717299578,
+      "exact_pair_section_rate": 0.9142857142857143
+    },
+    "mid_0.7_to_<0.9": {
+      "sections": 33,
+      "gold_pairs": 640,
+      "predicted_pairs": 617,
+      "matched_pairs": 612,
+      "exact_pair_sections": 28,
+      "pair_precision": 0.9918962722852512,
+      "pair_recall": 0.95625,
+      "pair_f1": 0.9737470167064439,
+      "exact_pair_section_rate": 0.8484848484848485
+    }
+  },
+  "error_sections": 43,
+  "report_integrity": {
+    "prediction_rows": 350,
+    "matched_gold_rows": 200,
+    "duplicate_prediction_keys": [],
+    "report_sha256": "5f7f2eeca61e2a072edff1dbc4bd668aacacfa3c84e2fea4d9885b2b4d2c94ed"
+  },
+  "caveats": [
+    "The gold sample is risk-stratified, not a random corpus sample.",
+    "Extraction acceptance treats ACCEPTED and ACCEPTED_WITH_REVIEW as positive and excludes gold parser-extension sections.",
+    "Routing accuracy separately scores accepted, rejected, parser-extension, and unresolved/error outcomes.",
+    "Canonical pair scoring case-folds, trims delimiter punctuation and known heading prefixes, and removes one full outer short-form parenthesis pair.",
+    "Occurrence scoring expands source_occurrences; document-unique scoring deduplicates by document, short form, and long form.",
+    "Endpoint accuracy excludes gold sections without an annotated endpoint."
+  ]
+}

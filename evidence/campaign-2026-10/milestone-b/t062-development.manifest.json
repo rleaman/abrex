@@ -1,0 +1,79 @@
+{
+  "adapter": {
+    "identity": "t062_strict_development_view",
+    "version": "1"
+  },
+  "annotation_count": 67,
+  "config_fingerprint": null,
+  "dataset_id": "t062-strict-development-v1",
+  "fingerprint": "9ef625231e910dbd330db24f9980d93a3661d89375dd9f40d8c95fabe4dc5f50",
+  "manifest_version": "manifest-v1",
+  "normalizers": [],
+  "record_count": 20,
+  "schema_version": "canonical-v1",
+  "source": {
+    "fingerprint": "1e4ff9f3d562158f3098a38a64df78d5374d3489c4f51bb9844710a74c3bfeec",
+    "format": "t062-development-ledger-v1",
+    "identifier": "t057-strict-exact-pair-v1+t061-assisted-supplement-v1"
+  },
+  "validation": {
+    "by_action": {
+      "ambiguous": 5,
+      "dropped": 0,
+      "observed": 0,
+      "repaired": 0,
+      "unscoreable": 0
+    },
+    "by_severity": {
+      "error": 0,
+      "info": 0,
+      "warning": 5
+    },
+    "diagnostics": [
+      {
+        "action": "ambiguous",
+        "code": "OVERLAPPING_ANNOTATIONS",
+        "location": "gold_annotations[3],gold_annotations[4]",
+        "message": "Annotation spans overlap; scoring policy must decide handling",
+        "record_id": "case-018860b0c1232ddf7807",
+        "severity": "warning"
+      },
+      {
+        "action": "ambiguous",
+        "code": "OVERLAPPING_ANNOTATIONS",
+        "location": "gold_annotations[1],gold_annotations[2]",
+        "message": "Annotation spans overlap; scoring policy must decide handling",
+        "record_id": "case-831590c598e0d001beba",
+        "severity": "warning"
+      },
+      {
+        "action": "ambiguous",
+        "code": "OVERLAPPING_ANNOTATIONS",
+        "location": "gold_annotations[3],gold_annotations[4]",
+        "message": "Annotation spans overlap; scoring policy must decide handling",
+        "record_id": "case-831590c598e0d001beba",
+        "severity": "warning"
+      },
+      {
+        "action": "ambiguous",
+        "code": "OVERLAPPING_ANNOTATIONS",
+        "location": "gold_annotations[5],gold_annotations[6]",
+        "message": "Annotation spans overlap; scoring policy must decide handling",
+        "record_id": "case-831590c598e0d001beba",
+        "severity": "warning"
+      },
+      {
+        "action": "ambiguous",
+        "code": "OVERLAPPING_ANNOTATIONS",
+        "location": "gold_annotations[0],gold_annotations[1]",
+        "message": "Annotation spans overlap; scoring policy must decide handling",
+        "record_id": "case-912c109badf69739f017",
+        "severity": "warning"
+      }
+    ],
+    "records_dropped": 0,
+    "records_kept": 20,
+    "records_seen": 20,
+    "total": 5
+  }
+}

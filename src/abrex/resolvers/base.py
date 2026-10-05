@@ -150,6 +150,27 @@ class PredictionRecord:
 
 
 @dataclass(frozen=True, slots=True)
+class ResolverResolution:
+    """Resolver output that retains component-specific diagnostics.
+
+    Most resolvers only need :meth:`Resolver.resolve`.  Components that reject
+    otherwise well-formed upstream output can use this value so the executor
+    persists those abstentions instead of silently losing them.
+    """
+
+    predictions: tuple[object, ...] = ()
+    diagnostics: tuple[PredictionDiagnostic, ...] = ()
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.predictions, tuple):
+            raise TypeError("predictions must be a tuple")
+        if not isinstance(self.diagnostics, tuple) or any(
+            not isinstance(item, PredictionDiagnostic) for item in self.diagnostics
+        ):
+            raise TypeError("diagnostics must be a tuple of PredictionDiagnostic")
+
+
+@dataclass(frozen=True, slots=True)
 class PredictionValidationResult:
     """Validated predictions plus every invalid-output diagnostic."""
 
@@ -259,6 +280,7 @@ __all__ = [
     "ResolverError",
     "ResolverExecutionError",
     "ResolverMetadata",
+    "ResolverResolution",
     "ResolverRunResult",
     "attach_resolver_metadata",
 ]

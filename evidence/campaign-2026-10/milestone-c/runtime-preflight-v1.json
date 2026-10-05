@@ -1,0 +1,10 @@
+{
+  "command": "wsl.exe -d Ubuntu -- /home/rleaman/.local/share/abrex/venv313/bin/python scripts/run_t058_readiness.py configs/literature/T058-runtime-readiness.yaml --output .artifacts/T058/campaign-2026-10-runtime-preflight.json --runtime-dir .artifacts/T058/campaign-2026-10-runtime-workers --require-all",
+  "exit_code": 1,
+  "interpretation": "This is an active-host prerequisite failure, not an Ab3P or PLODv2 resolver failure. The campaign must use the fresh Linux server bundle and its setup-runtime.sh flow.",
+  "observed": "wsl.exe returned installation/usage help; the named Ubuntu distribution and historical /home/rleaman runtime were not available.",
+  "recorded_date": "2026-10-05",
+  "schema_version": "campaign-runtime-preflight-v1",
+  "server_decision": "docs/linux-server-runtimes.md",
+  "status": "active_host_runtime_unavailable"
+}
