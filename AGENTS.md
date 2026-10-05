@@ -2,6 +2,16 @@
 
 These instructions apply to all work in this repository unless a task explicitly overrides them.
 
+## Instruction and documentation authority
+
+Use START_HERE_FOR_CODEX.md for navigation, this file for standing rules,
+docs/CURRENT_WORK.md for live status, and its linked campaign for assigned work.
+Superseded plans live in docs/archive/; old numbered task specifications and
+completion notes are historical references, not current dispatch instructions.
+Search matches do not confer authority. Consult historical records for specific
+evidence or contracts; never resume an old assignment from a search snippet.
+The archive index explains explicit historical searches and retained evidence.
+
 ## Deliver complete outcomes and minimize user work
 
 Own the user's authorized outcome through preparation, implementation, execution,

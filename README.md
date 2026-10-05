@@ -2,10 +2,11 @@
 
 A modular framework for abbreviation resolution and expansion extraction in scientific text.
 
-The [project completion plan](docs/project-completion-plan.md) summarizes the
-remaining research and engineering milestones. See the
-[current-state audit](docs/project-state-audit.md) for verified capabilities
-and the [task index](docs/tasks/README.md) for the planned GPT-5.6 Luna assignments.
+Start with [current work](docs/CURRENT_WORK.md) and the
+[CLP and extraction campaign](docs/experiment-campaign-2026-10.md) for active
+scope, verified progress and next actions. The [agent entry point](START_HERE_FOR_CODEX.md)
+links the current instructions. [Archived plans](docs/archive/README.md) and
+[task records](docs/tasks/README.md) preserve the earlier project history.
 The provisional [scientific model](docs/scientific-model/README.md) records the
 phenomena and distinctions being refined through iterative annotation before
 they are operationalized as annotation guidelines. Frozen packets, annotations

@@ -21,6 +21,34 @@ routine self-review and fixes. A review request should contain the precise
 question, relevant diff/artifacts and acceptance evidence, not the full history.
 The coding agent's model is separate from models evaluated as extractors.
 
+## Optional delegation recommendation
+
+This section is a proposed opt-in workflow, not an instruction to spawn agents.
+If the user asks for subagents, start with the Sol/High owner plus at most two
+Sol/High helpers at a time. Keep the model choice explicit; do not automatically
+escalate helpers to Astra or create nested agent teams. Delegate only bounded
+work that can proceed independently while the owner makes progress.
+
+Good initial assignments are a read-only inspection of CLP's complete parser and
+saved evaluations, and a separate audit of Abrex's prediction/gold mapping and
+error categories. Ask for file references, measured counts, uncertainties and
+one actionable recommendation. The owner implements and integrates the findings.
+Later, delegate independent tests or a separate implementation module when the
+interface and exclusive file ownership are clear. If edits overlap, serialize
+them or use isolated worktrees and have the owner integrate and verify changes.
+
+Give each helper the outcome, relevant paths, scientific constraints, write scope
+(read-only by default), and completion checks. The owner retains responsibility
+for scientific policy, final integration, the quality gate, current-work updates
+and all user handoffs. Helpers do not ask the user to coordinate their outputs.
+Keep human annotation and model-agreement evidence distinct; another AI review
+does not establish independent human gold.
+
+Parallelism can reduce elapsed time and keep detailed exploration out of the
+owner's context; it also consumes additional tokens and coordination effort.
+Use it selectively, not for every small task or a chain of dependent steps.
+See [official subagent guidance](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+
 ## Milestone A: complete CLP transfer and explain existing errors
 
 Deliver a reproducible comparison on existing development evidence before
