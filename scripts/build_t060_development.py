@@ -33,7 +33,9 @@ def main() -> int:
         job_result_paths={
             "ab3p": imported / "t060-ab3p-linux/result.json",
             "plodv2_pairing": imported / "t060-plodv2-pairing-linux/result.json",
+            "plodv2_spans": imported / "t060-plodv2-spans-linux/result.json",
         },
+        plod_span_path=imported / "t060-plodv2-spans-linux/predictions.jsonl",
         comparison_path=(
             root / "docs/artifacts/T060-development-comparison-split-v2.json"
         ),

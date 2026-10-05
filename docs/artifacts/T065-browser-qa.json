@@ -1,0 +1,13 @@
+{
+  "browser": "Microsoft Edge via Playwright",
+  "cases": 32,
+  "checks": {
+    "actual_packet_loaded": true,
+    "from_scratch_relation_control": true,
+    "no_annotation_state_created": true,
+    "source_payload_isolated": true
+  },
+  "packet_id": "blind-45185b07c036a0efe564",
+  "schema_version": "t065-browser-qa-v1",
+  "status": "passed"
+}

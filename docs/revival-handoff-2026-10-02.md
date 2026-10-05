@@ -4,11 +4,11 @@
 
 The engineering baseline, CLP snapshot integration, Jev candidate judge,
 portable Linux execution, and prediction-blind reviewer are implemented. The
-paired Linux runtime jobs returned successfully on October 4. The remaining
-work is deliberately sequential: retain PLOD's independent detector spans,
-complete the assisted T061 review, freeze the T063 scientific
-choices, acquire the fresh blind packet, obtain the user's T066 annotations,
-and only then run T067/T068.
+paired Linux runtime jobs returned successfully on October 4. T061–T065 are
+now complete: the development evidence is reconciled, the T063 scientific
+protocol is approved and frozen, and the 32-case fresh prediction-blind packet
+has been acquired and browser-verified. The remaining work is deliberately
+sequential: obtain the user's T066 annotation lock, then run T067/T068.
 
 The corrected development comparison currently favors Schwartz–Hearst. On the
 20-passage, 59-pair T057 development view it scored 36 TP, 7 FP and 23 FN
@@ -140,15 +140,21 @@ back to the project root and import it using the command in the runbook. This
 is one PLOD pass over the same 20 passages; it does not rerun Ab3P or require a
 new setup.
 
-### T061 review now ready
+### T061 review complete
 
-The pair-level review can proceed while the span follow-up runs:
+The returned PLOD span follow-up is imported and complete. Existing T061 work
+was preserved, then the unfinished proposals were reconciled against frozen
+T057 evidence and the exact-boundary policy. The user accepted the one
+remaining full `scavenger receptor class B type 1 (SR-BI)` pair. Verify the
+saved state at any time with:
 
 ```powershell
 .\scripts\Review-T061.ps1
 ```
 
-Open `http://127.0.0.1:8765`. The reviewer saves resumable work to
+The completed state is in
+`evidence/T061/review-packet-minimal.annotations.json`; the original seven
+completed passages remain in
 `evidence/T060/review-packet-split-v2.annotations.json`.
 
 ## CLP reuse
@@ -166,16 +172,13 @@ the sister parser; it is excluded from fresh evaluation.
 
 ## Next checkpoints
 
-1. Return the one-job PLOD span result and complete T061. These two actions may
-   happen in parallel.
-2. ABREX will calculate the T062 recovery/error analysis and
-   reduce T063 to the prefilled choices in
-   `docs/artifacts/T063-decision-prefill.json`.
-3. After those choices are confirmed, freeze and acquire the 32-item packet.
-   The implemented blind UI will be used for T066; it has passed real Edge
-   browser QA, payload-isolation, save/reload, import/export, Unicode/repeated
-   text, zero-relation, lock, and narrow-viewport checks.
-4. Once the annotation lock exists, prepare/run/import prediction-only T067
+1. T060–T065 are complete. The approved protocol and actual 32-case packet are
+   frozen under `docs/artifacts/T063-decision-prefill.json` and `evidence/T065`.
+2. Start T066 with `.\scripts\Review-T066.ps1`, annotate all 32 passages from
+   scratch, and use **Lock completed annotation** only after the reviewer says
+   the entire packet is ready. The actual packet passed Edge/browser and
+   payload-isolation QA without creating annotation state.
+3. Once the annotation lock exists, prepare/run/import prediction-only T067
    jobs and evaluate prose and table/list arms separately. T068 remains the
    user's final scientific direction choice.
 

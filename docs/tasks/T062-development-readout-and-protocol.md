@@ -1,7 +1,7 @@
 # T062 Measure recoverable misses and draft a fresh-sample protocol
 
 Owner: **Luna — engineering and preparation**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: Complete; T063 scientific-lead confirmation remains.
 Dependencies: T061 adjudications; T057 guidelines; T060 run artifacts.
 
 ## Execution contract
@@ -22,4 +22,20 @@ Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECU
 ## Acceptance, deliverables and stopping point
 
 Deliver concise readout, complete recovery table, runnable report inputs and a concrete protocol decision sheet. Test oracle matching, duplicate occurrences, unscoreable/unresolved units and denominators with meaningful fixtures. Make unavailable-method limits prominent. No iterative training or fresh-source acquisition yet.
+
+## Completion evidence
+
+The revised assisted view contains 67 strict relations and 12 diagnostic
+relations. PLODv2 pairing produced 34 true positives, one in-scope false
+positive, and one outside-target match; Schwartz–Hearst produced 36, six, and
+one respectively. Their existing transparent exact union produced 45 true
+positives and seven false positives (F1 0.756), adding nine correct pairs and
+one false positive relative to Schwartz–Hearst. Jev is not recommended for the
+fresh check.
+
+The concise report is
+[`T062-development-readout.md`](../artifacts/T062-development-readout.md), with
+machine-readable evidence in [`evidence/T062`](../../evidence/T062/README.md).
+The updated T063 record reduces the remaining scientific-lead work to one
+bundled approval or a list of specific changes.
 

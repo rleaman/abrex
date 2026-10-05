@@ -33,6 +33,7 @@ T060_MANIFEST_SCHEMA_VERSION = "t060-evidence-manifest-v1"
 DEFAULT_SEED = 20261002
 
 PairKey = tuple[str, int, int, int, int]
+EndpointKey = tuple[str, str, int, int]
 
 
 def materialize_development_comparison(
@@ -46,6 +47,7 @@ def materialize_development_comparison(
     review_packet_path: Path,
     evidence_manifest_path: Path,
     job_result_paths: Mapping[str, Path] | None = None,
+    plod_span_path: Path | None = None,
     seed: int = DEFAULT_SEED,
     bootstrap_samples: int = 1000,
 ) -> dict[str, object]:
@@ -66,6 +68,15 @@ def materialize_development_comparison(
     if len(artifacts) < 2:
         raise ValueError("T060 requires predictions from at least two methods")
     result_paths = job_result_paths or {}
+    plod_span_artifact = (
+        read_prediction_artifact(
+            plod_span_path,
+            documents=documents,
+            expected_dataset_fingerprint=dataset_fingerprint,
+        )
+        if plod_span_path is not None
+        else None
+    )
 
     diagnostic = _read_object(diagnostic_view_path)
     source_packet = ReviewPacket.model_validate(_read_object(source_packet_path))
@@ -87,7 +98,10 @@ def materialize_development_comparison(
     )
     known, strict = _known_relations(diagnostic)
     queued, linked = _classify_predictions(artifacts, known, strict)
-    input_hashes = {
+    review_result_paths = {
+        name: path for name, path in result_paths.items() if name != "plodv2_spans"
+    }
+    review_input_hashes = {
         "corpus": _file_sha256(corpus_path),
         "corpus_manifest": _file_sha256(corpus_manifest_path),
         "diagnostic_view": _file_sha256(diagnostic_view_path),
@@ -98,21 +112,41 @@ def materialize_development_comparison(
         },
         **{
             f"job_result:{name}": _file_sha256(path)
-            for name, path in sorted(result_paths.items())
+            for name, path in sorted(review_result_paths.items())
         },
     }
+    input_hashes = dict(review_input_hashes)
+    if plod_span_path is not None:
+        input_hashes["predictions:plodv2_spans"] = _file_sha256(plod_span_path)
+    if (plod_span_result_path := result_paths.get("plodv2_spans")) is not None:
+        input_hashes["job_result:plodv2_spans"] = _file_sha256(plod_span_result_path)
     source_identity = fingerprint(input_hashes)
+    review_source_identity = fingerprint(review_input_hashes)
     packet = _build_packet(
         source_packet,
         diagnostic,
         queued,
         artifacts,
-        source_identity=source_identity,
+        source_identity=review_source_identity,
         seed=seed,
+    )
+    span_audit = (
+        _audit_plod_spans(
+            plod_span_artifact,
+            artifacts.get("plodv2_pairing"),
+            diagnostic,
+            result_path=result_paths.get("plodv2_spans"),
+            repository_root=repository_root,
+            prediction_path=plod_span_path,
+        )
+        if plod_span_artifact is not None and plod_span_path is not None
+        else None
     )
     output: dict[str, object] = {
         "schema_version": T060_SCHEMA_VERSION,
-        "status": "review_and_plod_span_audit_pending",
+        "status": "review_pending"
+        if span_audit is not None
+        else ("review_and_plod_span_audit_pending"),
         "dataset": {
             "id": corpus_manifest.dataset_id,
             "fingerprint": dataset_fingerprint,
@@ -128,6 +162,7 @@ def materialize_development_comparison(
         ),
         "comparison": comparison.to_dict(),
         "prior_decision_linkage": linked,
+        "independent_plod_span_audit": span_audit,
         "assisted_review": {
             "packet_id": packet.packet_id,
             "cases": len(packet.cases),
@@ -157,10 +192,14 @@ def materialize_development_comparison(
             "Gold-assisted union recall is an oracle diagnostic, not a deployable "
             "score.",
         ],
-        "pending": [
-            "T061 human review of the assisted output packet",
-            "Independent PLOD span output is required to audit unpaired detections",
-        ],
+        "pending": ["T061 human review of the assisted output packet"]
+        + (
+            []
+            if span_audit is not None
+            else [
+                "Independent PLOD span output is required to audit unpaired detections"
+            ]
+        ),
     }
     _write_json(comparison_path, output)
     _write_json(review_packet_path, packet.model_dump(mode="json"))
@@ -398,6 +437,134 @@ def _prediction_provenance(
             prediction.provenance.transformation_notes
         )
     return result
+
+
+def _audit_plod_spans(
+    detector: PredictionArtifact,
+    pairing: PredictionArtifact | None,
+    diagnostic: Mapping[str, object],
+    *,
+    result_path: Path | None,
+    repository_root: Path,
+    prediction_path: Path,
+) -> dict[str, object]:
+    """Reconcile independent PLOD endpoints without treating them as pairs."""
+
+    if pairing is None:
+        raise ValueError("a PLOD pairing artifact is required for the span audit")
+    detector_documents = {record.document_id for record in detector.records}
+    pairing_documents = {record.document_id for record in pairing.records}
+    if detector_documents != pairing_documents:
+        raise ValueError("PLOD detector and pairing document universes differ")
+
+    detected = _artifact_endpoints(detector)
+    paired = _artifact_endpoints(pairing)
+    missing = sorted(paired - detected)
+    if missing:
+        raise ValueError(
+            f"PLOD pairing uses {len(missing)} endpoints absent from span output"
+        )
+
+    accepted: set[EndpointKey] = set()
+    for case in _object_list(diagnostic, "cases"):
+        if case.get("search_status") != "searched":
+            raise ValueError("PLOD span audit requires searched T057 passages")
+        document_id = str(case["case_id"])
+        for relation in _object_list(case, "relations"):
+            if relation.get("status") != "correct":
+                continue
+            for field, kind in (
+                ("short_form", "short_form"),
+                ("long_form", "long_form"),
+            ):
+                span = relation.get(field)
+                if isinstance(span, dict):
+                    accepted.add(
+                        (
+                            document_id,
+                            kind,
+                            int(span["start"]),
+                            int(span["end"]),
+                        )
+                    )
+
+    counts_by_kind = Counter(endpoint[1] for endpoint in detected)
+    unpaired = detected - paired
+    per_document = []
+    for document_id in sorted(detector_documents):
+        document_detected = {item for item in detected if item[0] == document_id}
+        document_paired = {item for item in paired if item[0] == document_id}
+        per_document.append(
+            {
+                "document_id": document_id,
+                "detected_endpoints": len(document_detected),
+                "paired_endpoints": len(document_paired),
+                "detector_only_endpoints": len(document_detected - document_paired),
+                "accepted_endpoint_matches": len(document_detected & accepted),
+            }
+        )
+
+    execution: dict[str, object] | None = None
+    if result_path is not None:
+        result = _read_object(result_path)
+        execution = {
+            "result_path": _display_path(result_path, repository_root),
+            "result_sha256": _file_sha256(result_path),
+            "status": result.get("status"),
+            "elapsed_seconds": result.get("elapsed_seconds"),
+            "result_id": result.get("result_id"),
+            "bundle_id": result.get("bundle_id"),
+            "environment": result.get("environment"),
+        }
+    return {
+        "status": "complete",
+        "contract": "independent endpoints; no SF/LF relation is inferred",
+        "prediction_path": _display_path(prediction_path, repository_root),
+        "prediction_sha256": _file_sha256(prediction_path),
+        "prediction_fingerprint": fingerprint_prediction_artifact(detector),
+        "documents": len(detector_documents),
+        "detected_endpoints": len(detected),
+        "short_form_endpoints": counts_by_kind["short_form"],
+        "long_form_endpoints": counts_by_kind["long_form"],
+        "paired_endpoints": len(paired),
+        "paired_endpoints_missing_from_detector": 0,
+        "detector_only_endpoints": len(unpaired),
+        "frozen_accepted_endpoints": len(accepted),
+        "detected_accepted_endpoint_matches": len(detected & accepted),
+        "execution": execution,
+        "per_document": per_document,
+        "interpretation": (
+            "All endpoints used by PLOD pairing are present in the independent "
+            "detector output. Detector-only endpoints are retained as required, "
+            "but are not definition pairs and do not override the completed "
+            "T057 whole-passage searches."
+        ),
+    }
+
+
+def _artifact_endpoints(artifact: PredictionArtifact) -> set[EndpointKey]:
+    endpoints: set[EndpointKey] = set()
+    for record in artifact.records:
+        for prediction in record.predictions:
+            if prediction.short_form is not None:
+                endpoints.add(
+                    (
+                        record.document_id,
+                        "short_form",
+                        prediction.short_form.start,
+                        prediction.short_form.end,
+                    )
+                )
+            if prediction.long_form is not None:
+                endpoints.add(
+                    (
+                        record.document_id,
+                        "long_form",
+                        prediction.long_form.start,
+                        prediction.long_form.end,
+                    )
+                )
+    return endpoints
 
 
 def _method_evidence(

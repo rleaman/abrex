@@ -1,4 +1,4 @@
-"""Open or verify the corrected T061 assisted development-output review."""
+"""Open or verify the minimal T061 assisted development-output review."""
 
 from __future__ import annotations
 
@@ -13,11 +13,11 @@ from abrex.literature.review_packet import read_review_packet
 from abrex.literature.review_readiness import review_readiness
 
 ROOT = Path(__file__).parents[1]
-DEFAULT_PACKET = ROOT / "evidence/T060/review-packet-split-v2.json"
+DEFAULT_PACKET = ROOT / "evidence/T061/review-packet-minimal.json"
 
 
 def readiness_report(packet_path: Path, state_path: Path) -> tuple[bool, str]:
-    """Return completeness and a concise report for every T061 passage."""
+    """Return completeness and a concise report for required T061 passages."""
 
     packet = read_review_packet(packet_path)
     state = read_annotation_state(packet, state_path)
@@ -72,7 +72,7 @@ def main() -> int:
         port=args.port,
         state_path=state_path,
         required_case_ids=tuple(case.case_id for case in packet.cases),
-        workflow_name="T061 assisted development-output review",
+        workflow_name="T061 minimal assisted development-output review",
     )
     return 0
 

@@ -1,10 +1,11 @@
-# Run the T060 PLOD span follow-up and T061 review
+# T060 PLOD span follow-up and minimal T061 review
 
-These two activities are independent and may run in parallel. The October 4
-Jev correction did not change the PLOD bundle. It did replace the T061 input
-with `review-packet-split-v2.json`; do not use the unsuffixed historical packet.
+The PLOD span follow-up is complete and imported. It processed all 20 passages
+in 89.15 seconds with no execution errors. Do not rerun or recopy it unless the
+imported artifact is lost. The only remaining user action is one T061 support
+decision. The October 4 Jev correction did not affect the PLOD bundle.
 
-## Part A: PLOD span follow-up
+## Part A: PLOD span follow-up (complete; reference only)
 
 ### 1. Verify the bundle on Windows
 
@@ -115,7 +116,10 @@ if ($LASTEXITCODE -ne 0) { throw "PLOD span result import failed" }
 
 Keep the ZIP until ABREX has inspected the imported detector-span artifact.
 
-## Part B: T061 assisted review on Windows
+## Part B: one-question T061 assisted review on Windows (complete)
+
+The pair was accepted and the readiness check reports 1/1 complete. The
+instructions below are retained for audit and recovery only.
 
 ### 1. Start or resume
 
@@ -126,17 +130,18 @@ Set-Location C:\Users\leamanjr\projects\abrex
 .\scripts\Review-T061.ps1
 ```
 
-The command checks the environment and corrected packet, prints current
+The command checks the environment and minimal packet, prints current
 progress, opens `http://127.0.0.1:8765`, and keeps serving until you press
 Ctrl+C. If the browser does not open automatically, open that address manually.
 
-### 2. Review each of the 11 passages
+### 2. Make the one required decision
 
-For every proposal, choose **Supported**, **Unsupported**, or **Not sure**.
-For each supported relation, open **Review relation details** and set relation
-kind, evidence structure, and required context. Correct spans from the passage
-when necessary. Search the complete boxed passage for missing definitions and
-then choose **Searched**. Use **Save and next incomplete** after each passage.
+The page asks only whether the passage defines `SR-BI` as
+`scavenger receptor class B type 1`. Choose **Supported** or **Unsupported**,
+then click **Save and next incomplete**. Do not redo the whole-passage search
+or edit relation details: those fields are already carried forward or
+mechanically determined. Use **Not sure** only if the displayed passage truly
+does not permit a decision; it intentionally leaves T061 incomplete.
 
 `Not sure` and a whole-passage status other than `Searched` deliberately leave
 the passage incomplete. Method identities can remain hidden unless they are
@@ -145,7 +150,7 @@ needed diagnostically.
 The resumable working file is:
 
 ```text
-evidence/T060/review-packet-split-v2.annotations.json
+evidence/T061/review-packet-minimal.annotations.json
 ```
 
 ### 3. Pause, resume, and check completion
@@ -157,8 +162,8 @@ later to resume. To check completeness without starting the web server:
 .\scripts\Review-T061.ps1 -Check
 ```
 
-The check succeeds only when all 11 passages meet the same completeness rules
-as the page. At completion it prints:
+The check succeeds only after that one support decision is saved. At
+completion it prints:
 
 ```text
 READY: the T061 assisted review is complete.

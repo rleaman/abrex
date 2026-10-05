@@ -1,0 +1,150 @@
+{
+  "schema_version": "t052-annotations-v2",
+  "packet_id": "t052-967001de41ac05d5242e",
+  "packet_content_sha256": "967001de41ac05d5242e5cfff5dbaef926c11b325e4d9caccd7ad9e472e542a3",
+  "current_case_id": "case-a9bc2d5ecf86d8e58778",
+  "updated_at": "2026-10-05T00:40:08.550759+00:00",
+  "annotations": {
+    "case-a9bc2d5ecf86d8e58778": {
+      "revision": 3,
+      "updated_at": "2026-10-05T00:40:08.550759+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-t060-f2a15a432b13ea25f2b0",
+            "suggestion_id": "suggestion-t060-f2a15a432b13ea25f2b0",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1479,
+              "end": 1484,
+              "text": "SR-BI"
+            },
+            "long_form": {
+              "start": 1444,
+              "end": 1477,
+              "text": "scavenger receptor class B type 1"
+            },
+            "origin": "assisted",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": "Whole-passage search reused from frozen T057 revision 2; this minimal supplement asks only about the new exact pair. Completion reconciliation: the reviewer saved Supported and reported Done; the already-frozen T057 whole-passage search remains in force."
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-04T23:13:54.586926+00:00",
+          "source": "json_import",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-f2a15a432b13ea25f2b0",
+                "suggestion_id": "suggestion-t060-f2a15a432b13ea25f2b0",
+                "proposal_kind": "definition",
+                "status": "unreviewed",
+                "short_form": {
+                  "start": 1479,
+                  "end": 1484,
+                  "text": "SR-BI"
+                },
+                "long_form": {
+                  "start": 1444,
+                  "end": 1477,
+                  "text": "scavenger receptor class B type 1"
+                },
+                "origin": "assisted",
+                "notes": "Mechanical prefill only: exact spans and structural fields; support remains the reviewer's decision.",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": "Whole-passage search reused from frozen T057 revision 2; this minimal supplement asks only about the new exact pair."
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-05T00:38:44.760461+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-f2a15a432b13ea25f2b0",
+                "suggestion_id": "suggestion-t060-f2a15a432b13ea25f2b0",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1479,
+                  "end": 1484,
+                  "text": "SR-BI"
+                },
+                "long_form": {
+                  "start": 1444,
+                  "end": 1477,
+                  "text": "scavenger receptor class B type 1"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": "Whole-passage search reused from frozen T057 revision 2; this minimal supplement asks only about the new exact pair."
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-10-05T00:40:08.550759+00:00",
+          "source": "json_import",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-f2a15a432b13ea25f2b0",
+                "suggestion_id": "suggestion-t060-f2a15a432b13ea25f2b0",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1479,
+                  "end": 1484,
+                  "text": "SR-BI"
+                },
+                "long_form": {
+                  "start": 1444,
+                  "end": 1477,
+                  "text": "scavenger receptor class B type 1"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": "Whole-passage search reused from frozen T057 revision 2; this minimal supplement asks only about the new exact pair. Completion reconciliation: the reviewer saved Supported and reported Done; the already-frozen T057 whole-passage search remains in force."
+          }
+        }
+      ]
+    }
+  }
+}

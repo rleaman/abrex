@@ -1,7 +1,7 @@
 # T066 Annotate the fresh passages before seeing predictions
 
 Owner: **USER — scientific lead; not a Luna implementation assignment**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: **Ready for the scientific lead; the T065 packet is delivered.**
 Dependencies: T065 actual prediction-free packet and guide.
 
 ## Execution contract
@@ -9,6 +9,10 @@ Dependencies: T065 actual prediction-free packet and guide.
 Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECUTION_GUIDE.md), AGENTS.md and the specific dependency outputs. The plan's common acceptance and scientific safeguards are part of this task. Existing interfaces are starting points, not a requirement to duplicate them.
 
 ## Your steps
+
+Start the actual packet from the project root with
+`.\scripts\Review-T066.ps1`. The browser opens locally and saves the draft
+directly under `evidence/T065`; no file copying is needed in this checkout.
 
 1. Read the frozen guidelines and annotate all in-scope definitions in each passage from scratch. Search the whole annotatable passage, including passages with no obvious abbreviations.
 2. Select exact source evidence. Record shared/discontinuous evidence separately from a reconstructed interpretation; use uncertainty rather than forcing a match.

@@ -1,0 +1,480 @@
+{
+  "artifacts": {
+    "ledger": "evidence/T062/development-ledger-v1.json",
+    "prediction_dispositions": "evidence/T062/prediction-dispositions-v1.jsonl",
+    "recovery_table": "evidence/T062/recovery-table-v1.jsonl"
+  },
+  "comparisons_to_schwartz_hearst": {
+    "ab3p": {
+      "additional_false_positives": 12,
+      "baseline": "schwartz_hearst",
+      "method": "ab3p",
+      "unique_correct_additions": 3,
+      "unique_correct_pairs": [
+        {
+          "case_id": "case-912c109badf69739f017",
+          "long_form": {
+            "end": 52,
+            "start": 27,
+            "text": "alpha-dipropylnitrosamine"
+          },
+          "short_form": {
+            "end": 57,
+            "start": 54,
+            "text": "DPN"
+          }
+        },
+        {
+          "case_id": "case-912c109badf69739f017",
+          "long_form": {
+            "end": 105,
+            "start": 73,
+            "text": "1-methoxypropylpropylnitrosamine"
+          },
+          "short_form": {
+            "end": 113,
+            "start": 107,
+            "text": "1-MPPN"
+          }
+        },
+        {
+          "case_id": "case-912c109badf69739f017",
+          "long_form": {
+            "end": 245,
+            "start": 213,
+            "text": "1-acetoxypropylpropylnitrosamine"
+          },
+          "short_form": {
+            "end": 253,
+            "start": 247,
+            "text": "1-APPN"
+          }
+        }
+      ]
+    },
+    "jev_candidate_judge": {
+      "additional_false_positives": 11,
+      "baseline": "schwartz_hearst",
+      "method": "jev_candidate_judge",
+      "unique_correct_additions": 6,
+      "unique_correct_pairs": [
+        {
+          "case_id": "case-018860b0c1232ddf7807",
+          "long_form": {
+            "end": 77,
+            "start": 42,
+            "text": "high-resolution T2-weighted imaging"
+          },
+          "short_form": {
+            "end": 83,
+            "start": 79,
+            "text": "T2HR"
+          }
+        },
+        {
+          "case_id": "case-018860b0c1232ddf7807",
+          "long_form": {
+            "end": 635,
+            "start": 624,
+            "text": "standard T2"
+          },
+          "short_form": {
+            "end": 640,
+            "start": 637,
+            "text": "T2S"
+          }
+        },
+        {
+          "case_id": "case-0218e722f61ee55ef7dd",
+          "long_form": {
+            "end": 81,
+            "start": 55,
+            "text": "cisplatin/cyclophosphamide"
+          },
+          "short_form": {
+            "end": 85,
+            "start": 83,
+            "text": "CC"
+          }
+        },
+        {
+          "case_id": "case-862b4f1d66a83473d434",
+          "long_form": {
+            "end": 118,
+            "start": 102,
+            "text": "adjuvant therapy"
+          },
+          "short_form": {
+            "end": 123,
+            "start": 120,
+            "text": "ATX"
+          }
+        },
+        {
+          "case_id": "case-912c109badf69739f017",
+          "long_form": {
+            "end": 52,
+            "start": 27,
+            "text": "alpha-dipropylnitrosamine"
+          },
+          "short_form": {
+            "end": 57,
+            "start": 54,
+            "text": "DPN"
+          }
+        },
+        {
+          "case_id": "case-a9bc2d5ecf86d8e58778",
+          "long_form": {
+            "end": 1477,
+            "start": 1444,
+            "text": "scavenger receptor class B type 1"
+          },
+          "short_form": {
+            "end": 1484,
+            "start": 1479,
+            "text": "SR-BI"
+          }
+        }
+      ]
+    },
+    "plodv2_pairing": {
+      "additional_false_positives": 1,
+      "baseline": "schwartz_hearst",
+      "method": "plodv2_pairing",
+      "unique_correct_additions": 9,
+      "unique_correct_pairs": [
+        {
+          "case_id": "case-018860b0c1232ddf7807",
+          "long_form": {
+            "end": 77,
+            "start": 42,
+            "text": "high-resolution T2-weighted imaging"
+          },
+          "short_form": {
+            "end": 83,
+            "start": 79,
+            "text": "T2HR"
+          }
+        },
+        {
+          "case_id": "case-0218e722f61ee55ef7dd",
+          "long_form": {
+            "end": 81,
+            "start": 55,
+            "text": "cisplatin/cyclophosphamide"
+          },
+          "short_form": {
+            "end": 85,
+            "start": 83,
+            "text": "CC"
+          }
+        },
+        {
+          "case_id": "case-06c9ebb850190d98a90b",
+          "long_form": {
+            "end": 1140,
+            "start": 1124,
+            "text": "inspired gas PO2"
+          },
+          "short_form": {
+            "end": 1146,
+            "start": 1142,
+            "text": "PIO2"
+          }
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "long_form": {
+            "end": 1998,
+            "start": 1978,
+            "text": "dorsal raphe nucleus"
+          },
+          "short_form": {
+            "end": 2002,
+            "start": 2000,
+            "text": "RA"
+          }
+        },
+        {
+          "case_id": "case-831590c598e0d001beba",
+          "long_form": {
+            "end": 2031,
+            "start": 2005,
+            "text": "lateral geniculate nucleus"
+          },
+          "short_form": {
+            "end": 2035,
+            "start": 2033,
+            "text": "GE"
+          }
+        },
+        {
+          "case_id": "case-862b4f1d66a83473d434",
+          "long_form": {
+            "end": 118,
+            "start": 102,
+            "text": "adjuvant therapy"
+          },
+          "short_form": {
+            "end": 123,
+            "start": 120,
+            "text": "ATX"
+          }
+        },
+        {
+          "case_id": "case-912c109badf69739f017",
+          "long_form": {
+            "end": 52,
+            "start": 27,
+            "text": "alpha-dipropylnitrosamine"
+          },
+          "short_form": {
+            "end": 57,
+            "start": 54,
+            "text": "DPN"
+          }
+        },
+        {
+          "case_id": "case-912c109badf69739f017",
+          "long_form": {
+            "end": 245,
+            "start": 213,
+            "text": "1-acetoxypropylpropylnitrosamine"
+          },
+          "short_form": {
+            "end": 253,
+            "start": 247,
+            "text": "1-APPN"
+          }
+        },
+        {
+          "case_id": "case-a9bc2d5ecf86d8e58778",
+          "long_form": {
+            "end": 1477,
+            "start": 1444,
+            "text": "scavenger receptor class B type 1"
+          },
+          "short_form": {
+            "end": 1484,
+            "start": 1479,
+            "text": "SR-BI"
+          }
+        }
+      ]
+    }
+  },
+  "content_sha256": "1e97a66c66169bd6899af6dbde9ed94af8a1e106694dd20e4283cc6570242281",
+  "dataset": {
+    "article_groups": 15,
+    "diagnostic_relations": 12,
+    "documents": 20,
+    "new_t061_strict_relations": 8,
+    "strict_relations": 67
+  },
+  "evidence_class": "assisted development evidence; not blind, representative, or a population performance estimate",
+  "gold_assisted_all_method_oracle": {
+    "correct_available_pairs": 47,
+    "interpretation": "Upper bound that selects only known-correct predictions from all available methods; it is not deployable.",
+    "recall_ceiling": 0.7014925373134329,
+    "strict_relations": 67
+  },
+  "methods": {
+    "ab3p": {
+      "duplicate_predictions": 0,
+      "f1": 0.6140350877192982,
+      "false_negatives": 32,
+      "false_positives": 12,
+      "outside_strict_target": 1,
+      "precision": 0.7446808510638298,
+      "predictions": 48,
+      "recall": 0.5223880597014925,
+      "true_positives": 35,
+      "unique_prediction_occurrences": 48
+    },
+    "jev_candidate_judge": {
+      "duplicate_predictions": 0,
+      "f1": 0.48543689320388356,
+      "false_negatives": 42,
+      "false_positives": 11,
+      "outside_strict_target": 2,
+      "precision": 0.6944444444444444,
+      "predictions": 38,
+      "recall": 0.373134328358209,
+      "true_positives": 25,
+      "unique_prediction_occurrences": 38
+    },
+    "plodv2_pairing": {
+      "duplicate_predictions": 0,
+      "f1": 0.6666666666666667,
+      "false_negatives": 33,
+      "false_positives": 1,
+      "outside_strict_target": 1,
+      "precision": 0.9714285714285714,
+      "predictions": 36,
+      "recall": 0.5074626865671642,
+      "true_positives": 34,
+      "unique_prediction_occurrences": 36
+    },
+    "schwartz_hearst": {
+      "duplicate_predictions": 0,
+      "f1": 0.6605504587155964,
+      "false_negatives": 31,
+      "false_positives": 6,
+      "outside_strict_target": 1,
+      "precision": 0.8571428571428571,
+      "predictions": 43,
+      "recall": 0.5373134328358209,
+      "true_positives": 36,
+      "unique_prediction_occurrences": 43
+    }
+  },
+  "processing_cost": {
+    "ab3p": {
+      "elapsed_seconds": 1.8942237698938698,
+      "failures": 0,
+      "predictions": 48
+    },
+    "jev_candidate_judge": {
+      "elapsed_seconds": null,
+      "estimated_input_cost_usd": 0.014603064,
+      "failures": 0,
+      "input_tokens": 347692,
+      "predictions": 38,
+      "requests": 38,
+      "summed_request_latency_seconds": 8.990985499811359
+    },
+    "plodv2_pairing": {
+      "elapsed_seconds": 30.87347278301604,
+      "failures": 0,
+      "predictions": 36
+    },
+    "schwartz_hearst": {
+      "elapsed_seconds": null,
+      "failures": 0,
+      "predictions": 43
+    }
+  },
+  "protocol_proposal": {
+    "acquisition_limits": {
+      "maximum_download_bytes": 134217728,
+      "maximum_elapsed_hours": 2,
+      "replacement_rule": "replace only documented source-ineligible or failed-fetch groups using seeded order, never apparent abbreviation content"
+    },
+    "article_groups": 8,
+    "exclusions": [
+      "all ABREX development and previously reviewed documents",
+      "all CellLiteraturePipeline annotated documents and linked copies",
+      "all linked versions of excluded article groups"
+    ],
+    "items": 32,
+    "maximum_items_per_group": 4,
+    "primary_policy": "strict half-open exact SF/LF occurrence pairs; diagnostic, uncertain, and representation-limited evidence reported separately",
+    "prose_arm_mix": {
+      "pmc_text": 12,
+      "pubmed_abstract": 12
+    },
+    "prose_passages": 24,
+    "purpose": "small prediction-blind fresh check, not a powered benchmark",
+    "reviewer_plan": "single-reviewer, prediction-blind",
+    "sampling": "sample without detector/token enrichment; freeze sources and passage segmentation before predictions",
+    "seed": 20261002,
+    "success_tolerances": {
+      "maximum_additional_false_positives": 2,
+      "reporting": "prose and table/list arms separate; no pooled-only adoption",
+      "runtime_failures": 0,
+      "strict_pair_f1": "challenger must exceed Schwartz-Hearst",
+      "unique_correct_additions": 3
+    },
+    "table_or_list_sections": 8
+  },
+  "raw_relation_counts": {
+    "by_article_group": {
+      "146322": 4,
+      "22486652": 2,
+      "24609084": 1,
+      "28422239": 2,
+      "29416077": 1,
+      "35015796": 15,
+      "35504930": 1,
+      "38497964": 5,
+      "38539872": 25,
+      "39337794": 2,
+      "40963576": 3,
+      "41244649": 7,
+      "6696891": 4,
+      "9053487": 2,
+      "9883490": 5
+    },
+    "by_disposition": {
+      "diagnostic": 12,
+      "strict": 67
+    },
+    "by_evidence_structure": {
+      "contiguous_shared": 71,
+      "discontinuous": 8
+    },
+    "by_relation_kind": {
+      "abbreviation_expansion": 75,
+      "other_naming_or_code_relation": 4
+    }
+  },
+  "recommendation": {
+    "configuration_sha256": "cb6e0f368d2f72c360a7aefef823d60ea2507d41d0e81a418ff8e03a1615f9e7",
+    "fixed_baseline": "schwartz_hearst",
+    "jev_disposition": "Do not advance Jev to the fresh check: it adds six strict pairs but eleven additional false positives versus Schwartz-Hearst.",
+    "parameters": {
+      "child_failure_policy": "raise",
+      "children": [
+        "schwartz_hearst",
+        "plodv2_pairing"
+      ],
+      "conflict_policy": "retain_all",
+      "frozen_components": [
+        {
+          "config_path": "configs/experiments/T060-schwartz-hearst.yaml",
+          "config_sha256": "7c6970792f4b5a7fef0720487af5c83595d4d708afdfdfa130cd0dd5deb19f11",
+          "key": "schwartz_hearst"
+        },
+        {
+          "config_path": "configs/experiments/T060-plodv2-linux.yaml",
+          "config_sha256": "4f19ac431ebf15422e445652abd72c197463cfbe376e54cfe52f0f9cbe8afdf5",
+          "key": "plodv2_pairing"
+        }
+      ],
+      "strategy": "exact_union"
+    },
+    "rationale": "On the assisted development view, PLODv2 pairing adds nine strict pairs absent from Schwartz-Hearst with one additional false positive; their exact union improves F1 from 0.661 to 0.756. Freeze and test this transparent existing composition, without further tuning, against Schwartz-Hearst.",
+    "registry_key": "transparent_hybrid",
+    "single_challenger": "transparent_hybrid_exact_union_sh_plodv2"
+  },
+  "review_cost": {
+    "human_reviewed_passages": 8,
+    "human_saved_current_decisions": 36,
+    "interpretation": "Assisted development review burden; elapsed human time was not measured and is not estimated retrospectively.",
+    "machine_resolved_without_repeat_review": 17,
+    "source_suggestions_in_reviewed_passages": 16
+  },
+  "schema_version": "t062-development-readout-v1",
+  "simple_union_schwartz_hearst_plodv2": {
+    "children": [
+      "schwartz_hearst",
+      "plodv2_pairing"
+    ],
+    "configuration": "transparent_hybrid_exact_union_sh_plodv2",
+    "interpretation": "Existing transparent exact-union baseline; development evidence does not establish denoising or fresh-sample superiority.",
+    "metrics": {
+      "duplicate_predictions": 0,
+      "f1": 0.7563025210084034,
+      "false_negatives": 22,
+      "false_positives": 7,
+      "outside_strict_target": 2,
+      "precision": 0.8653846153846154,
+      "predictions": 54,
+      "recall": 0.6716417910447762,
+      "true_positives": 45,
+      "unique_prediction_occurrences": 54
+    }
+  },
+  "status": "complete"
+}

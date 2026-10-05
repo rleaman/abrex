@@ -3,25 +3,35 @@
 ## October 2 revival checkpoint
 
 T059 engineering and its corrected split-question bounded live development run
-are complete. The T060
-Linux results returned successfully on October 4: Ab3P and PLODv2 pairing each
-processed all 20 passages with zero execution errors. The revised four-way
-strict-pair comparison and 11-passage/33-proposal T061 review packet are now
-frozen. The earlier three-way Jev Choice is preserved only as historical v1
+are complete. The T060 Linux results returned successfully on October 4: Ab3P,
+PLODv2 pairing, and the independent PLOD span follow-up each processed all 20
+passages with zero execution errors. The span audit retained 275 independent
+endpoints, including 203 not used by the pairing resolver, and verified that
+all 72 paired endpoints occur in the detector output. The revised four-way
+strict-pair comparison and 11-passage/33-proposal T061 source packet are
+frozen. T061 is complete: eight passages were reviewed, and reconciliation
+against those answers, frozen T057 decisions/searches, and the exact-boundary
+policy avoided 17 repeated judgments. T062 now incorporates eight new strict
+relations and recommends the transparent exact union of Schwartz–Hearst and
+PLODv2 pairing as the sole fresh-check challenger. The earlier three-way Jev
+Choice is preserved only as historical v1
 evidence; the current policy independently judges definition validity and
-orientation. A
-one-job PLOD span follow-up is pending because the original pairing job did not
-serialize independent/unpaired detector spans. T064 prediction-blind
-review mode is complete and passed real Edge browser QA. See the
+orientation. T064 prediction-blind review mode is complete and passed real
+Edge browser QA. See the
 [revival handoff](revival-handoff-2026-10-02.md) for measured results, the
 single ZIP server handoff, and the exact T061–T068 dependency sequence.
 Fresh Linux execution uses the bundle's self-contained setup flow documented
 in [Linux server runtime provisioning](linux-server-runtimes.md); historical
 WSL paths are not server defaults.
 
-Do not acquire fresh T065 material yet. The PLOD span follow-up, T061
-adjudication, T062 analysis, and the explicit T063 protocol decision precede
-acquisition.
+T063 was approved without revision on October 4, 2026. Its complete prefilled
+recommendation is frozen in `docs/artifacts/T063-decision-prefill.json`; T065
+fresh acquisition and prediction-blind packet preparation are complete. The
+32-case packet contains 12 PMC prose passages, 12 PubMed abstract passages,
+and eight table/list sections from eight new linked article groups. Actual-
+packet Edge QA passed without creating annotation state. T066 is ready via
+`scripts/Review-T066.ps1`. No evaluated method may run on that material before
+the T066 annotation lock.
 
 ## September 13 runtime correction
 

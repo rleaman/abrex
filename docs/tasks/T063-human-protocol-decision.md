@@ -1,7 +1,7 @@
 # T063 Choose the fresh-check scope and success criteria
 
 Owner: **USER — scientific lead; not a Luna implementation assignment**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: **Complete - approved by the scientific lead on October 4, 2026.**
 Dependencies: T062 readout and concrete protocol proposal.
 
 ## Execution contract
@@ -9,6 +9,20 @@ Dependencies: T062 readout and concrete protocol proposal.
 Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECUTION_GUIDE.md), AGENTS.md and the specific dependency outputs. The plan's common acceptance and scientific safeguards are part of this task. Existing interfaces are starting points, not a requirement to duplicate them.
 
 ## Your steps
+
+T062 recommends the existing `transparent_hybrid` exact union of
+Schwartz–Hearst and PLODv2 pairing as the sole challenger against the fixed
+Schwartz–Hearst baseline. The complete sample, policy, tolerances, limits, and
+reviewer plan are prefilled in
+[`T063-decision-prefill.json`](../artifacts/T063-decision-prefill.json).
+
+The scientific lead replied **Approve T063** on October 4, 2026. The complete
+prefilled recommendation is approved and frozen without revision. T065 may
+therefore prepare the prediction-blind sample under that exact contract.
+
+If the prefill is acceptable, reply exactly **Approve T063**. Otherwise list
+only the fields to change. The detailed historical choice list below remains
+the authority for any requested revision.
 
 1. Choose whether to compare a promising existing configuration against the fixed baseline or perform a baseline-only quality check. A new method requiring development returns to a separate Luna task before this protocol freezes.
 2. Confirm or revise the proposed annotation budget, source mix, article/passage sampling rules and acquisition limits. The suggested 24 passages are a manageable exploratory check, not a statistical guarantee.

@@ -6,16 +6,18 @@
     "diagnostic_view": "2c33a9fce5dca50edd55cfd1fb59c2a068ea26a759174e1dcd6e8d26d266bb29",
     "job_result:ab3p": "34f723f5c2c81f71460722d4b7343a8f9b8a3414f31362bd473448657a79d72d",
     "job_result:plodv2_pairing": "06eb30365e076bf43990ef58810252c488668729e05a83664f19f711314d87c5",
+    "job_result:plodv2_spans": "f397b15355e5935baa3cccba51e69c338e2307ca4c67294ae0d084dfdfd39f6b",
     "predictions:ab3p": "5e6aa0ebfa385b271b9cf88fa647c51d4c44146c02fc09d4aca70614fbb17f2a",
     "predictions:jev_candidate_judge": "bad8574f31a78e264e7a73d4cb310c0f6c634663475c8851998b32d66d3b0cf9",
     "predictions:plodv2_pairing": "22dc136228d7475be4524a42969e544753c9be2a0ed2280aa01c483d9bc8d996",
+    "predictions:plodv2_spans": "49fb83ca8e09881d34956c29cc49039570d235caceeb6273dcbe939ba463ec70",
     "predictions:schwartz_hearst": "4c36f348ba3d6832e49b6531abeb8f8626435119fe756ccf6089ffbc9b560b63",
     "source_packet": "2eca2fbcc0039e122a45646e087053c6853e84b80bc74fea8c5ffb2b87592aa0"
   },
   "outputs": {
     "comparison": {
       "path": "docs/artifacts/T060-development-comparison-split-v2.json",
-      "sha256": "4edc209ab7a302800f26a0d132990d19be733d6d329e635112c36c097a79a04a"
+      "sha256": "eaef862f63946ef7db632bd5e27e088668d267d1d8c9428f5d375abcb28d0b93"
     },
     "review_packet": {
       "content_sha256": "db11585bb717aa54ba57636afb36930abf48fab8fd04e3959d563251e728e29f",
@@ -26,5 +28,5 @@
   },
   "schema_version": "t060-evidence-manifest-v1",
   "seed": 20261002,
-  "source_identity": "a0ac866631e0fb6516025759a282d3b2629a0de94efbec1f76d5f43af8f7a770"
+  "source_identity": "3499b0c1eb1aadb1a64f3b282e500c2cc9aab4bf1431aa9a95bc7fba3337eb33"
 }

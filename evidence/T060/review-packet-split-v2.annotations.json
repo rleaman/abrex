@@ -1,0 +1,2278 @@
+{
+  "schema_version": "t052-annotations-v2",
+  "packet_id": "t052-db11585bb717aa54ba57",
+  "packet_content_sha256": "db11585bb717aa54ba57636afb36930abf48fab8fd04e3959d563251e728e29f",
+  "current_case_id": "case-912c109badf69739f017",
+  "updated_at": "2026-10-04T22:58:56.834543+00:00",
+  "annotations": {
+    "case-018860b0c1232ddf7807": {
+      "revision": 2,
+      "updated_at": "2026-10-04T22:34:03.231540+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-t060-3c7c6ff82228998926f3",
+            "suggestion_id": "suggestion-t060-3c7c6ff82228998926f3",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 637,
+              "end": 640,
+              "text": "T2S"
+            },
+            "long_form": {
+              "start": 624,
+              "end": 635,
+              "text": "standard T2"
+            },
+            "origin": "corrected",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-c0b7dd2d-f909-4c59-be63-2d8d6662afc9",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 512,
+              "end": 519,
+              "text": "PI-RADS"
+            },
+            "long_form": {
+              "start": 468,
+              "end": 510,
+              "text": "Prostate Imaging Reporting and Data System"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-677e27b3-9387-4194-9044-4e1bba200931",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 79,
+              "end": 83,
+              "text": "T2HR"
+            },
+            "long_form": {
+              "start": 42,
+              "end": 77,
+              "text": "high-resolution T2-weighted imaging"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-6ad94896-8229-4b4d-99c6-027c803d2294",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 135,
+              "end": 138,
+              "text": "DLR"
+            },
+            "long_form": {
+              "start": 99,
+              "end": 133,
+              "text": "deep learning image reconstruction"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-0630e7ce-5e99-4d21-8c48-3e99ab0ab4b3",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 208,
+              "end": 211,
+              "text": "EPE"
+            },
+            "long_form": {
+              "start": 182,
+              "end": 206,
+              "text": "extraprostatic extension"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-01017f0a-08f0-4528-8317-e1f4d350413a",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 257,
+              "end": 262,
+              "text": "mpMRI"
+            },
+            "long_form": {
+              "start": 227,
+              "end": 255,
+              "text": "prostate multiparametric MRI"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-04T22:33:52.841041+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-3c7c6ff82228998926f3",
+                "suggestion_id": "suggestion-t060-3c7c6ff82228998926f3",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 637,
+                  "end": 640,
+                  "text": "T2S"
+                },
+                "long_form": {
+                  "start": 624,
+                  "end": 635,
+                  "text": "standard T2"
+                },
+                "origin": "corrected",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-c0b7dd2d-f909-4c59-be63-2d8d6662afc9",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 512,
+                  "end": 519,
+                  "text": "PI-RADS"
+                },
+                "long_form": {
+                  "start": 468,
+                  "end": 510,
+                  "text": "Prostate Imaging Reporting and Data System"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-677e27b3-9387-4194-9044-4e1bba200931",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 79,
+                  "end": 83,
+                  "text": "T2HR"
+                },
+                "long_form": {
+                  "start": 42,
+                  "end": 77,
+                  "text": "high-resolution T2-weighted imaging"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-6ad94896-8229-4b4d-99c6-027c803d2294",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 135,
+                  "end": 138,
+                  "text": "DLR"
+                },
+                "long_form": {
+                  "start": 99,
+                  "end": 133,
+                  "text": "deep learning image reconstruction"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-0630e7ce-5e99-4d21-8c48-3e99ab0ab4b3",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 208,
+                  "end": 211,
+                  "text": "EPE"
+                },
+                "long_form": {
+                  "start": 182,
+                  "end": 206,
+                  "text": "extraprostatic extension"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-01017f0a-08f0-4528-8317-e1f4d350413a",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 257,
+                  "end": 262,
+                  "text": "mpMRI"
+                },
+                "long_form": {
+                  "start": 227,
+                  "end": 255,
+                  "text": "prostate multiparametric MRI"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-04T22:34:03.231540+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-3c7c6ff82228998926f3",
+                "suggestion_id": "suggestion-t060-3c7c6ff82228998926f3",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 637,
+                  "end": 640,
+                  "text": "T2S"
+                },
+                "long_form": {
+                  "start": 624,
+                  "end": 635,
+                  "text": "standard T2"
+                },
+                "origin": "corrected",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-c0b7dd2d-f909-4c59-be63-2d8d6662afc9",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 512,
+                  "end": 519,
+                  "text": "PI-RADS"
+                },
+                "long_form": {
+                  "start": 468,
+                  "end": 510,
+                  "text": "Prostate Imaging Reporting and Data System"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-677e27b3-9387-4194-9044-4e1bba200931",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 79,
+                  "end": 83,
+                  "text": "T2HR"
+                },
+                "long_form": {
+                  "start": 42,
+                  "end": 77,
+                  "text": "high-resolution T2-weighted imaging"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-6ad94896-8229-4b4d-99c6-027c803d2294",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 135,
+                  "end": 138,
+                  "text": "DLR"
+                },
+                "long_form": {
+                  "start": 99,
+                  "end": 133,
+                  "text": "deep learning image reconstruction"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-0630e7ce-5e99-4d21-8c48-3e99ab0ab4b3",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 208,
+                  "end": 211,
+                  "text": "EPE"
+                },
+                "long_form": {
+                  "start": 182,
+                  "end": 206,
+                  "text": "extraprostatic extension"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-01017f0a-08f0-4528-8317-e1f4d350413a",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 257,
+                  "end": 262,
+                  "text": "mpMRI"
+                },
+                "long_form": {
+                  "start": 227,
+                  "end": 255,
+                  "text": "prostate multiparametric MRI"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-c940824221d306518316": {
+      "revision": 2,
+      "updated_at": "2026-10-04T22:36:16.416309+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-t060-5c36ce49fbad0781cc88",
+            "suggestion_id": "suggestion-t060-5c36ce49fbad0781cc88",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 830,
+              "end": 834,
+              "text": "TAPB"
+            },
+            "long_form": {
+              "start": 795,
+              "end": 828,
+              "text": "transversus abdominis plane block"
+            },
+            "origin": "corrected",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "decision-suggestion-t060-269c678d7a17fc3dc04b",
+            "suggestion_id": "suggestion-t060-269c678d7a17fc3dc04b",
+            "proposal_kind": "definition",
+            "status": "incorrect",
+            "short_form": {
+              "start": 830,
+              "end": 834,
+              "text": "TAPB"
+            },
+            "long_form": {
+              "start": 807,
+              "end": 828,
+              "text": "abdominis plane block"
+            },
+            "origin": "assisted",
+            "notes": "",
+            "relation_kind": "uncertain",
+            "evidence_structure": "uncertain",
+            "context_requirement": "uncertain",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-586173d0-c308-4495-b198-7d940504cb41",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 201,
+              "end": 205,
+              "text": "RCTs"
+            },
+            "long_form": {
+              "start": 171,
+              "end": 199,
+              "text": "randomized controlled trials"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-bb973624-d221-40ce-8df1-51928e8aabc1",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 866,
+              "end": 869,
+              "text": "QLB"
+            },
+            "long_form": {
+              "start": 840,
+              "end": 864,
+              "text": "quadratus lumborum block"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-04T22:35:56.117901+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-5c36ce49fbad0781cc88",
+                "suggestion_id": "suggestion-t060-5c36ce49fbad0781cc88",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 830,
+                  "end": 834,
+                  "text": "TAPB"
+                },
+                "long_form": {
+                  "start": 795,
+                  "end": 828,
+                  "text": "transversus abdominis plane block"
+                },
+                "origin": "corrected",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-269c678d7a17fc3dc04b",
+                "suggestion_id": "suggestion-t060-269c678d7a17fc3dc04b",
+                "proposal_kind": "definition",
+                "status": "incorrect",
+                "short_form": {
+                  "start": 830,
+                  "end": 834,
+                  "text": "TAPB"
+                },
+                "long_form": {
+                  "start": 807,
+                  "end": 828,
+                  "text": "abdominis plane block"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-586173d0-c308-4495-b198-7d940504cb41",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 201,
+                  "end": 205,
+                  "text": "RCTs"
+                },
+                "long_form": {
+                  "start": 171,
+                  "end": 199,
+                  "text": "randomized controlled trials"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-bb973624-d221-40ce-8df1-51928e8aabc1",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 866,
+                  "end": 869,
+                  "text": "QLB"
+                },
+                "long_form": {
+                  "start": 840,
+                  "end": 864,
+                  "text": "quadratus lumborum block"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-04T22:36:16.416309+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-5c36ce49fbad0781cc88",
+                "suggestion_id": "suggestion-t060-5c36ce49fbad0781cc88",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 830,
+                  "end": 834,
+                  "text": "TAPB"
+                },
+                "long_form": {
+                  "start": 795,
+                  "end": 828,
+                  "text": "transversus abdominis plane block"
+                },
+                "origin": "corrected",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-269c678d7a17fc3dc04b",
+                "suggestion_id": "suggestion-t060-269c678d7a17fc3dc04b",
+                "proposal_kind": "definition",
+                "status": "incorrect",
+                "short_form": {
+                  "start": 830,
+                  "end": 834,
+                  "text": "TAPB"
+                },
+                "long_form": {
+                  "start": 807,
+                  "end": 828,
+                  "text": "abdominis plane block"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-586173d0-c308-4495-b198-7d940504cb41",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 201,
+                  "end": 205,
+                  "text": "RCTs"
+                },
+                "long_form": {
+                  "start": 171,
+                  "end": 199,
+                  "text": "randomized controlled trials"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-bb973624-d221-40ce-8df1-51928e8aabc1",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 866,
+                  "end": 869,
+                  "text": "QLB"
+                },
+                "long_form": {
+                  "start": 840,
+                  "end": 864,
+                  "text": "quadratus lumborum block"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-0218e722f61ee55ef7dd": {
+      "revision": 1,
+      "updated_at": "2026-10-04T22:38:35.360186+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-t060-2f9dbd6b2cb9f0baa165",
+            "suggestion_id": "suggestion-t060-2f9dbd6b2cb9f0baa165",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 83,
+              "end": 85,
+              "text": "CC"
+            },
+            "long_form": {
+              "start": 55,
+              "end": 81,
+              "text": "cisplatin/cyclophosphamide"
+            },
+            "origin": "corrected",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "decision-suggestion-t060-267bd4b1c27424f96f4c",
+            "suggestion_id": "suggestion-t060-267bd4b1c27424f96f4c",
+            "proposal_kind": "definition",
+            "status": "incorrect",
+            "short_form": {
+              "start": 83,
+              "end": 85,
+              "text": "CC"
+            },
+            "long_form": {
+              "start": 65,
+              "end": 81,
+              "text": "cyclophosphamide"
+            },
+            "origin": "assisted",
+            "notes": "",
+            "relation_kind": "uncertain",
+            "evidence_structure": "uncertain",
+            "context_requirement": "uncertain",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-8307c80a-9216-48f0-afc8-49094920dd83",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 135,
+              "end": 137,
+              "text": "CT"
+            },
+            "long_form": {
+              "start": 113,
+              "end": 133,
+              "text": "cisplatin/paclitaxel"
+            },
+            "origin": "added",
+            "notes": "I did have to look up paclitaxel --> Taxol",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "cisplatin/Taxol",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-04T22:38:35.360186+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-2f9dbd6b2cb9f0baa165",
+                "suggestion_id": "suggestion-t060-2f9dbd6b2cb9f0baa165",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 83,
+                  "end": 85,
+                  "text": "CC"
+                },
+                "long_form": {
+                  "start": 55,
+                  "end": 81,
+                  "text": "cisplatin/cyclophosphamide"
+                },
+                "origin": "corrected",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-267bd4b1c27424f96f4c",
+                "suggestion_id": "suggestion-t060-267bd4b1c27424f96f4c",
+                "proposal_kind": "definition",
+                "status": "incorrect",
+                "short_form": {
+                  "start": 83,
+                  "end": 85,
+                  "text": "CC"
+                },
+                "long_form": {
+                  "start": 65,
+                  "end": 81,
+                  "text": "cyclophosphamide"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-8307c80a-9216-48f0-afc8-49094920dd83",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 135,
+                  "end": 137,
+                  "text": "CT"
+                },
+                "long_form": {
+                  "start": 113,
+                  "end": 133,
+                  "text": "cisplatin/paclitaxel"
+                },
+                "origin": "added",
+                "notes": "I did have to look up paclitaxel --> Taxol",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "cisplatin/Taxol",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-06c9ebb850190d98a90b": {
+      "revision": 2,
+      "updated_at": "2026-10-04T22:49:44.955987+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-t060-afa3e86af350800f890f",
+            "suggestion_id": "suggestion-t060-afa3e86af350800f890f",
+            "proposal_kind": "definition",
+            "status": "incorrect",
+            "short_form": {
+              "start": 1137,
+              "end": 1140,
+              "text": "PO2"
+            },
+            "long_form": {
+              "start": 1142,
+              "end": 1146,
+              "text": "PIO2"
+            },
+            "origin": "assisted",
+            "notes": "",
+            "relation_kind": "uncertain",
+            "evidence_structure": "uncertain",
+            "context_requirement": "uncertain",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "decision-suggestion-t060-dbb986088bdf2ec7ffe3",
+            "suggestion_id": "suggestion-t060-dbb986088bdf2ec7ffe3",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1142,
+              "end": 1146,
+              "text": "PIO2"
+            },
+            "long_form": {
+              "start": 1124,
+              "end": 1140,
+              "text": "inspired gas PO2"
+            },
+            "origin": "assisted",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-64950a61-f45b-480b-8a09-530d6e1dd0ff",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 52,
+              "end": 56,
+              "text": "HBO2"
+            },
+            "long_form": {
+              "start": 33,
+              "end": 50,
+              "text": "hyperbaric oxygen"
+            },
+            "origin": "added",
+            "notes": "Oxygen --> O2 is a molecular formula. But I do want to handle this kind of abbreviation.",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-96751e89-1b76-4d85-b6f7-8db7abd72611",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 235,
+              "end": 238,
+              "text": "LDF"
+            },
+            "long_form": {
+              "start": 210,
+              "end": 233,
+              "text": "laser-Doppler flowmetry"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-fd7f3e2b-f0d5-48b1-81d2-105f6a107f39",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 397,
+              "end": 402,
+              "text": "tcPO2"
+            },
+            "long_form": {
+              "start": 374,
+              "end": 395,
+              "text": "Transcutaneous oxygen"
+            },
+            "origin": "added",
+            "notes": "partial pressure is also called tension in the context of blood gas",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "discontinuous",
+            "context_requirement": "text_alone",
+            "evidence_spans": [
+              {
+                "start": 432,
+                "end": 440,
+                "text": "tensions"
+              }
+            ],
+            "interpretation": "transcutaneous partial pressure of oxygen",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-3bfc6f64-8456-48fe-8e2b-234ad979096b",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 424,
+              "end": 430,
+              "text": "tcPCO2"
+            },
+            "long_form": {
+              "start": 408,
+              "end": 422,
+              "text": "carbon dioxide"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "discontinuous",
+            "context_requirement": "text_alone",
+            "evidence_spans": [
+              {
+                "start": 432,
+                "end": 440,
+                "text": "tensions"
+              }
+            ],
+            "interpretation": "transcutaneous partial pressure of carbon dioxide",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-04T22:42:53.080938+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-afa3e86af350800f890f",
+                "suggestion_id": "suggestion-t060-afa3e86af350800f890f",
+                "proposal_kind": "definition",
+                "status": "unreviewed",
+                "short_form": {
+                  "start": 1137,
+                  "end": 1140,
+                  "text": "PO2"
+                },
+                "long_form": {
+                  "start": 1142,
+                  "end": 1146,
+                  "text": "PIO2"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-dbb986088bdf2ec7ffe3",
+                "suggestion_id": "suggestion-t060-dbb986088bdf2ec7ffe3",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1142,
+                  "end": 1146,
+                  "text": "PIO2"
+                },
+                "long_form": {
+                  "start": 1124,
+                  "end": 1140,
+                  "text": "inspired gas PO2"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "missed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-04T22:49:44.955987+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-afa3e86af350800f890f",
+                "suggestion_id": "suggestion-t060-afa3e86af350800f890f",
+                "proposal_kind": "definition",
+                "status": "incorrect",
+                "short_form": {
+                  "start": 1137,
+                  "end": 1140,
+                  "text": "PO2"
+                },
+                "long_form": {
+                  "start": 1142,
+                  "end": 1146,
+                  "text": "PIO2"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-dbb986088bdf2ec7ffe3",
+                "suggestion_id": "suggestion-t060-dbb986088bdf2ec7ffe3",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1142,
+                  "end": 1146,
+                  "text": "PIO2"
+                },
+                "long_form": {
+                  "start": 1124,
+                  "end": 1140,
+                  "text": "inspired gas PO2"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-64950a61-f45b-480b-8a09-530d6e1dd0ff",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 52,
+                  "end": 56,
+                  "text": "HBO2"
+                },
+                "long_form": {
+                  "start": 33,
+                  "end": 50,
+                  "text": "hyperbaric oxygen"
+                },
+                "origin": "added",
+                "notes": "Oxygen --> O2 is a molecular formula. But I do want to handle this kind of abbreviation.",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-96751e89-1b76-4d85-b6f7-8db7abd72611",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 235,
+                  "end": 238,
+                  "text": "LDF"
+                },
+                "long_form": {
+                  "start": 210,
+                  "end": 233,
+                  "text": "laser-Doppler flowmetry"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-fd7f3e2b-f0d5-48b1-81d2-105f6a107f39",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 397,
+                  "end": 402,
+                  "text": "tcPO2"
+                },
+                "long_form": {
+                  "start": 374,
+                  "end": 395,
+                  "text": "Transcutaneous oxygen"
+                },
+                "origin": "added",
+                "notes": "partial pressure is also called tension in the context of blood gas",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "discontinuous",
+                "context_requirement": "text_alone",
+                "evidence_spans": [
+                  {
+                    "start": 432,
+                    "end": 440,
+                    "text": "tensions"
+                  }
+                ],
+                "interpretation": "transcutaneous partial pressure of oxygen",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-3bfc6f64-8456-48fe-8e2b-234ad979096b",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 424,
+                  "end": 430,
+                  "text": "tcPCO2"
+                },
+                "long_form": {
+                  "start": 408,
+                  "end": 422,
+                  "text": "carbon dioxide"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "discontinuous",
+                "context_requirement": "text_alone",
+                "evidence_spans": [
+                  {
+                    "start": 432,
+                    "end": 440,
+                    "text": "tensions"
+                  }
+                ],
+                "interpretation": "transcutaneous partial pressure of carbon dioxide",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-070773a12d676907498f": {
+      "revision": 1,
+      "updated_at": "2026-10-04T22:43:37.329948+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-t060-0887acb196b5a9814fcf",
+            "suggestion_id": "suggestion-t060-0887acb196b5a9814fcf",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 694,
+              "end": 697,
+              "text": "CNS"
+            },
+            "long_form": {
+              "start": 670,
+              "end": 692,
+              "text": "central nervous system"
+            },
+            "origin": "corrected",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-04T22:43:37.329948+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-0887acb196b5a9814fcf",
+                "suggestion_id": "suggestion-t060-0887acb196b5a9814fcf",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 694,
+                  "end": 697,
+                  "text": "CNS"
+                },
+                "long_form": {
+                  "start": 670,
+                  "end": 692,
+                  "text": "central nervous system"
+                },
+                "origin": "corrected",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-831590c598e0d001beba": {
+      "revision": 1,
+      "updated_at": "2026-10-04T22:56:57.627655+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-t060-b559c36d7163995c9fe8",
+            "suggestion_id": "suggestion-t060-b559c36d7163995c9fe8",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1906,
+              "end": 1908,
+              "text": "RE"
+            },
+            "long_form": {
+              "start": 1893,
+              "end": 1904,
+              "text": "red nucleus"
+            },
+            "origin": "corrected",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "decision-suggestion-t060-e58a85ce300d27a72733",
+            "suggestion_id": "suggestion-t060-e58a85ce300d27a72733",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2000,
+              "end": 2002,
+              "text": "RA"
+            },
+            "long_form": {
+              "start": 1978,
+              "end": 1998,
+              "text": "dorsal raphe nucleus"
+            },
+            "origin": "assisted",
+            "notes": "\"RA\" probably directly refers to \"Raphe\", but is being used here for the full phrase. ",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "decision-suggestion-t060-77689638eb8c494ac0e0",
+            "suggestion_id": "suggestion-t060-77689638eb8c494ac0e0",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2033,
+              "end": 2035,
+              "text": "GE"
+            },
+            "long_form": {
+              "start": 2005,
+              "end": 2031,
+              "text": "lateral geniculate nucleus"
+            },
+            "origin": "assisted",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "decision-suggestion-t060-bd315e5d626e09215005",
+            "suggestion_id": "suggestion-t060-bd315e5d626e09215005",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2266,
+              "end": 2268,
+              "text": "KI"
+            },
+            "long_form": {
+              "start": 2247,
+              "end": 2264,
+              "text": "kidney Henle loop"
+            },
+            "origin": "corrected",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "decision-suggestion-t060-b440e6b44c032de546db",
+            "suggestion_id": "suggestion-t060-b440e6b44c032de546db",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2294,
+              "end": 2296,
+              "text": "TH"
+            },
+            "long_form": {
+              "start": 2275,
+              "end": 2292,
+              "text": "thyroid follicles"
+            },
+            "origin": "corrected",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "decision-suggestion-t060-1f862374a77a61fcaa4c",
+            "suggestion_id": "suggestion-t060-1f862374a77a61fcaa4c",
+            "proposal_kind": "definition",
+            "status": "incorrect",
+            "short_form": {
+              "start": 2294,
+              "end": 2296,
+              "text": "TH"
+            },
+            "long_form": {
+              "start": 2283,
+              "end": 2292,
+              "text": "follicles"
+            },
+            "origin": "assisted",
+            "notes": "",
+            "relation_kind": "uncertain",
+            "evidence_structure": "uncertain",
+            "context_requirement": "uncertain",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-b6dc69ea-ef94-4b5f-a83d-770d378b9ec8",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2060,
+              "end": 2062,
+              "text": "DV"
+            },
+            "long_form": {
+              "start": 2038,
+              "end": 2058,
+              "text": "dorsal vagal nucleus"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-c3e5e0e4-f07e-4216-9421-ecf5c8848823",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2091,
+              "end": 2093,
+              "text": "7n"
+            },
+            "long_form": {
+              "start": 2069,
+              "end": 2089,
+              "text": "facial motor nucleus"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "other_naming_or_code_relation",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-fb96e71a-c173-4801-823b-7972ed5a5bec",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2113,
+              "end": 2115,
+              "text": "AM"
+            },
+            "long_form": {
+              "start": 2103,
+              "end": 2112,
+              "text": "amygdala "
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-cb41d784-ede8-4efa-9653-400c412f3f19",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2154,
+              "end": 2155,
+              "text": "F"
+            },
+            "long_form": {
+              "start": 2118,
+              "end": 2151,
+              "text": "Autometallography/Luxol fast blue"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-cd63eb8e-d056-42d4-884e-9ce44378b82f",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2217,
+              "end": 2219,
+              "text": "AD"
+            },
+            "long_form": {
+              "start": 2200,
+              "end": 2215,
+              "text": "adrenal medulla"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-a8a22232-5b5b-4c36-866f-b12149116f6d",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2242,
+              "end": 2244,
+              "text": "AP"
+            },
+            "long_form": {
+              "start": 2222,
+              "end": 2240,
+              "text": "anterior pituitary"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-04T22:56:57.627655+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-b559c36d7163995c9fe8",
+                "suggestion_id": "suggestion-t060-b559c36d7163995c9fe8",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1906,
+                  "end": 1908,
+                  "text": "RE"
+                },
+                "long_form": {
+                  "start": 1893,
+                  "end": 1904,
+                  "text": "red nucleus"
+                },
+                "origin": "corrected",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-e58a85ce300d27a72733",
+                "suggestion_id": "suggestion-t060-e58a85ce300d27a72733",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2000,
+                  "end": 2002,
+                  "text": "RA"
+                },
+                "long_form": {
+                  "start": 1978,
+                  "end": 1998,
+                  "text": "dorsal raphe nucleus"
+                },
+                "origin": "assisted",
+                "notes": "\"RA\" probably directly refers to \"Raphe\", but is being used here for the full phrase. ",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-77689638eb8c494ac0e0",
+                "suggestion_id": "suggestion-t060-77689638eb8c494ac0e0",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2033,
+                  "end": 2035,
+                  "text": "GE"
+                },
+                "long_form": {
+                  "start": 2005,
+                  "end": 2031,
+                  "text": "lateral geniculate nucleus"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-bd315e5d626e09215005",
+                "suggestion_id": "suggestion-t060-bd315e5d626e09215005",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2266,
+                  "end": 2268,
+                  "text": "KI"
+                },
+                "long_form": {
+                  "start": 2247,
+                  "end": 2264,
+                  "text": "kidney Henle loop"
+                },
+                "origin": "corrected",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-b440e6b44c032de546db",
+                "suggestion_id": "suggestion-t060-b440e6b44c032de546db",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2294,
+                  "end": 2296,
+                  "text": "TH"
+                },
+                "long_form": {
+                  "start": 2275,
+                  "end": 2292,
+                  "text": "thyroid follicles"
+                },
+                "origin": "corrected",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "decision-suggestion-t060-1f862374a77a61fcaa4c",
+                "suggestion_id": "suggestion-t060-1f862374a77a61fcaa4c",
+                "proposal_kind": "definition",
+                "status": "incorrect",
+                "short_form": {
+                  "start": 2294,
+                  "end": 2296,
+                  "text": "TH"
+                },
+                "long_form": {
+                  "start": 2283,
+                  "end": 2292,
+                  "text": "follicles"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-b6dc69ea-ef94-4b5f-a83d-770d378b9ec8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2060,
+                  "end": 2062,
+                  "text": "DV"
+                },
+                "long_form": {
+                  "start": 2038,
+                  "end": 2058,
+                  "text": "dorsal vagal nucleus"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-c3e5e0e4-f07e-4216-9421-ecf5c8848823",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2091,
+                  "end": 2093,
+                  "text": "7n"
+                },
+                "long_form": {
+                  "start": 2069,
+                  "end": 2089,
+                  "text": "facial motor nucleus"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-fb96e71a-c173-4801-823b-7972ed5a5bec",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2113,
+                  "end": 2115,
+                  "text": "AM"
+                },
+                "long_form": {
+                  "start": 2103,
+                  "end": 2112,
+                  "text": "amygdala "
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-cb41d784-ede8-4efa-9653-400c412f3f19",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2154,
+                  "end": 2155,
+                  "text": "F"
+                },
+                "long_form": {
+                  "start": 2118,
+                  "end": 2151,
+                  "text": "Autometallography/Luxol fast blue"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-cd63eb8e-d056-42d4-884e-9ce44378b82f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2217,
+                  "end": 2219,
+                  "text": "AD"
+                },
+                "long_form": {
+                  "start": 2200,
+                  "end": 2215,
+                  "text": "adrenal medulla"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-a8a22232-5b5b-4c36-866f-b12149116f6d",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2242,
+                  "end": 2244,
+                  "text": "AP"
+                },
+                "long_form": {
+                  "start": 2222,
+                  "end": 2240,
+                  "text": "anterior pituitary"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "case-912c109badf69739f017": {
+      "revision": 2,
+      "updated_at": "2026-10-04T22:58:56.834543+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "decision-suggestion-t060-dca11da1dce0cdb5f7da",
+            "suggestion_id": "suggestion-t060-dca11da1dce0cdb5f7da",
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 54,
+              "end": 57,
+              "text": "DPN"
+            },
+            "long_form": {
+              "start": 27,
+              "end": 52,
+              "text": "alpha-dipropylnitrosamine"
+            },
+            "origin": "assisted",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-148115e2-3b4a-46b9-b47f-ece909dc984c",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 247,
+              "end": 253,
+              "text": "1-APPN"
+            },
+            "long_form": {
+              "start": 213,
+              "end": 245,
+              "text": "1-acetoxypropylpropylnitrosamine"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-63024b5f-d039-4e28-9966-bdde62d1a7ea",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 107,
+              "end": 113,
+              "text": "1-MPPN"
+            },
+            "long_form": {
+              "start": 73,
+              "end": 105,
+              "text": "1-methoxypropylpropylnitrosamine"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-04T22:58:42.209537+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-dca11da1dce0cdb5f7da",
+                "suggestion_id": "suggestion-t060-dca11da1dce0cdb5f7da",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 54,
+                  "end": 57,
+                  "text": "DPN"
+                },
+                "long_form": {
+                  "start": 27,
+                  "end": 52,
+                  "text": "alpha-dipropylnitrosamine"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-148115e2-3b4a-46b9-b47f-ece909dc984c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 247,
+                  "end": 253,
+                  "text": "1-APPN"
+                },
+                "long_form": {
+                  "start": 213,
+                  "end": 245,
+                  "text": "1-acetoxypropylpropylnitrosamine"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-63024b5f-d039-4e28-9966-bdde62d1a7ea",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 107,
+                  "end": 113,
+                  "text": "1-MPPN"
+                },
+                "long_form": {
+                  "start": 73,
+                  "end": 105,
+                  "text": "1-methoxypropylpropylnitrosamine"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-04T22:58:56.834543+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "decision-suggestion-t060-dca11da1dce0cdb5f7da",
+                "suggestion_id": "suggestion-t060-dca11da1dce0cdb5f7da",
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 54,
+                  "end": 57,
+                  "text": "DPN"
+                },
+                "long_form": {
+                  "start": 27,
+                  "end": 52,
+                  "text": "alpha-dipropylnitrosamine"
+                },
+                "origin": "assisted",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-148115e2-3b4a-46b9-b47f-ece909dc984c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 247,
+                  "end": 253,
+                  "text": "1-APPN"
+                },
+                "long_form": {
+                  "start": 213,
+                  "end": 245,
+                  "text": "1-acetoxypropylpropylnitrosamine"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-63024b5f-d039-4e28-9966-bdde62d1a7ea",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 107,
+                  "end": 113,
+                  "text": "1-MPPN"
+                },
+                "long_form": {
+                  "start": 73,
+                  "end": 105,
+                  "text": "1-methoxypropylpropylnitrosamine"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    }
+  }
+}

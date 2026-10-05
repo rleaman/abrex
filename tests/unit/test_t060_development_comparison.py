@@ -4,7 +4,8 @@ import hashlib
 import json
 from pathlib import Path
 
-from scripts.run_t060_reviewer import readiness_report
+from scripts.build_t061_minimal_review import _minimal_packet, _prefilled_state
+from scripts.run_t060_reviewer import DEFAULT_PACKET, readiness_report
 
 from abrex.corpora import (
     build_dataset_manifest,
@@ -31,6 +32,7 @@ from abrex.literature.review_models import (
     packet_identity_payload,
     validate_packet_identity,
 )
+from abrex.literature.review_readiness import review_readiness
 from abrex.resolvers import (
     PredictionArtifact,
     PredictionRecord,
@@ -115,7 +117,9 @@ def test_frozen_t060_packet_is_valid_and_exhaustive() -> None:
     assert comparison["assisted_review"]["packet_id"] == packet.packet_id
 
 
-def test_t061_readiness_check_starts_from_corrected_packet(tmp_path: Path) -> None:
+def test_exhaustive_t061_source_packet_starts_with_all_work_open(
+    tmp_path: Path,
+) -> None:
     root = Path(__file__).parents[2]
 
     complete, report = readiness_report(
@@ -126,6 +130,52 @@ def test_t061_readiness_check_starts_from_corrected_packet(tmp_path: Path) -> No
     assert complete is False
     assert "Progress: 0/11 passages complete" in report
     assert "44 required decisions remain" in report
+
+
+def test_minimal_t061_packet_requires_only_one_support_decision() -> None:
+    root = Path(__file__).parents[2]
+    source = ReviewPacket.model_validate_json(
+        (root / "evidence/T060/review-packet-split-v2.json").read_text(encoding="utf-8")
+    )
+
+    packet = _minimal_packet(source)
+    state = _prefilled_state(packet)
+    result = review_readiness(packet, state, (packet.cases[0].case_id,))
+    decision = state.annotations[packet.cases[0].case_id].current.pairs[0]
+
+    validate_packet_identity(packet)
+    assert root / "evidence/T061/review-packet-minimal.json" == DEFAULT_PACKET
+    assert len(packet.cases) == 1
+    assert len(packet.cases[0].suggestions) == 1
+    suggestion = packet.cases[0].suggestions[0]
+    assert suggestion.short_form is not None
+    assert suggestion.long_form is not None
+    assert suggestion.short_form.text == "SR-BI"
+    assert suggestion.long_form.text == "scavenger receptor class B type 1"
+    assert decision.status == "unreviewed"
+    assert decision.relation_kind == "abbreviation_expansion"
+    assert decision.evidence_structure == "contiguous_shared"
+    assert decision.context_requirement == "text_alone"
+    assert state.annotations[packet.cases[0].case_id].current.missed_definition == (
+        "none"
+    )
+    assert result.remaining_items == 1
+
+
+def test_frozen_t061_triage_accounts_for_every_source_proposal() -> None:
+    root = Path(__file__).parents[2]
+    triage = json.loads(
+        (root / "evidence/T061/triage.json").read_text(encoding="utf-8")
+    )
+
+    assert triage["counts"] == {
+        "already_reviewed_by_user": 15,
+        "resolved_by_frozen_evidence_or_policy": 17,
+        "requires_user_judgment": 1,
+        "total": 33,
+    }
+    assert len(triage["items"]) == 33
+    assert sum(item["requires_user"] for item in triage["items"]) == 1
 
 
 def test_materializes_comparison_packet_and_manifest(tmp_path: Path) -> None:
@@ -202,6 +252,7 @@ def test_materializes_comparison_packet_and_manifest(tmp_path: Path) -> None:
                     {
                         "case_id": "document-1",
                         "article_group_id": "group-1",
+                        "search_status": "searched",
                         "relations": [
                             {
                                 "status": "correct",
@@ -237,7 +288,7 @@ def test_materializes_comparison_packet_and_manifest(tmp_path: Path) -> None:
     dataset_fingerprint = fingerprint_records(records)
     for name, predictions in {
         "first": (gold, novel),
-        "second": (novel,),
+        "plodv2_pairing": (novel,),
     }.items():
         path = tmp_path / f"{name}.jsonl"
         artifact = PredictionArtifact(
@@ -260,6 +311,53 @@ def test_materializes_comparison_packet_and_manifest(tmp_path: Path) -> None:
         ),
         encoding="utf-8",
     )
+    span_path = tmp_path / "plod-spans.jsonl"
+    span_predictions = (
+        AbbreviationDefinition(
+            "document-1",
+            short_form=novel.short_form,
+            short_form_text=novel.short_form_text,
+            provenance=novel.provenance,
+            prediction=novel.prediction,
+        ),
+        AbbreviationDefinition(
+            "document-1",
+            long_form=novel.long_form,
+            long_form_text=novel.long_form_text,
+            provenance=novel.provenance,
+            prediction=novel.prediction,
+        ),
+        AbbreviationDefinition(
+            "document-1",
+            short_form=gold.short_form,
+            short_form_text=gold.short_form_text,
+            provenance=AnnotationProvenance(
+                adapter_identity="test-adapter", transformation_notes=("test",)
+            ),
+            prediction=PredictionMetadata(component="test", component_version="1"),
+        ),
+    )
+    write_prediction_artifact(
+        PredictionArtifact(
+            ResolverMetadata("plodv2", "plodv2-detector-v1"),
+            (PredictionRecord("document-1", span_predictions),),
+            dataset_fingerprint=dataset_fingerprint,
+        ),
+        span_path,
+    )
+    span_result_path = tmp_path / "span-result.json"
+    span_result_path.write_text(
+        json.dumps(
+            {
+                "status": "complete",
+                "elapsed_seconds": 2.5,
+                "result_id": "span-result-1",
+                "bundle_id": "bundle-1",
+                "environment": {"python": "test"},
+            }
+        ),
+        encoding="utf-8",
+    )
     comparison_path = tmp_path / "comparison.json"
     review_path = tmp_path / "review.json"
     output_manifest = tmp_path / "t060-manifest.json"
@@ -273,16 +371,29 @@ def test_materializes_comparison_packet_and_manifest(tmp_path: Path) -> None:
         comparison_path=comparison_path,
         review_packet_path=review_path,
         evidence_manifest_path=output_manifest,
-        job_result_paths={"first": result_path},
+        job_result_paths={
+            "first": result_path,
+            "plodv2_spans": span_result_path,
+        },
+        plod_span_path=span_path,
         seed=2,
         bootstrap_samples=2,
     )
 
     review = ReviewPacket.model_validate_json(review_path.read_text(encoding="utf-8"))
     validate_packet_identity(review)
-    assert result["status"] == "review_and_plod_span_audit_pending"
+    assert result["status"] == "review_pending"
+    audit = result["independent_plod_span_audit"]
+    assert isinstance(audit, dict)
+    assert audit["status"] == "complete"
+    assert audit["detected_endpoints"] == 3
+    assert audit["paired_endpoints"] == 2
+    assert audit["detector_only_endpoints"] == 1
     assert len(review.cases) == 1
     assert len(review.cases[0].suggestions) == 1
-    assert review.cases[0].suggestions[0].method_ids == ("first", "second")
+    assert review.cases[0].suggestions[0].method_ids == (
+        "first",
+        "plodv2_pairing",
+    )
     assert comparison_path.is_file()
     assert output_manifest.is_file()

@@ -1,0 +1,776 @@
+{
+  "schema_version": "t061-review-triage-v1",
+  "purpose": "Preserve completed T061 work and expose only scientific judgments not already settled by frozen development evidence or policy.",
+  "source_packet": {
+    "path": "evidence/T060/review-packet-split-v2.json",
+    "packet_id": "t052-db11585bb717aa54ba57",
+    "content_sha256": "db11585bb717aa54ba57636afb36930abf48fab8fd04e3959d563251e728e29f"
+  },
+  "source_annotations": {
+    "path": "evidence/T060/review-packet-split-v2.annotations.json",
+    "file_sha256": "a0ea4a281766d548fe78cbe002c2fefab4647deeebe5f886e41a163c3810c0ef",
+    "complete_cases": 7,
+    "required_cases": 11
+  },
+  "frozen_t057": {
+    "path": "evidence/T057/diagnostic-development.json",
+    "file_sha256": "2c33a9fce5dca50edd55cfd1fb59c2a068ea26a759174e1dcd6e8d26d266bb29",
+    "content_sha256": "7f134e6f3a391c41fb9e89f56f517f0d7fc06dbb6e7da4afbcc1395833720400",
+    "policy": "t057-strict-exact-pair-v1"
+  },
+  "minimal_packet": {
+    "path": "evidence/T061/review-packet-minimal.json",
+    "packet_id": "t052-967001de41ac05d5242e",
+    "content_sha256": "967001de41ac05d5242e5cfff5dbaef926c11b325e4d9caccd7ad9e472e542a3"
+  },
+  "counts": {
+    "already_reviewed_by_user": 15,
+    "resolved_by_frozen_evidence_or_policy": 17,
+    "requires_user_judgment": 1,
+    "total": 33
+  },
+  "items": [
+    {
+      "case_id": "case-018860b0c1232ddf7807",
+      "suggestion_id": "suggestion-t060-3c7c6ff82228998926f3",
+      "short_form": {
+        "start": 633,
+        "end": 635,
+        "text": "T2"
+      },
+      "long_form": {
+        "start": 637,
+        "end": 640,
+        "text": "T2S"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 2
+    },
+    {
+      "case_id": "case-0218e722f61ee55ef7dd",
+      "suggestion_id": "suggestion-t060-2f9dbd6b2cb9f0baa165",
+      "short_form": {
+        "start": 83,
+        "end": 85,
+        "text": "CC"
+      },
+      "long_form": {
+        "start": 47,
+        "end": 81,
+        "text": "compare cisplatin/cyclophosphamide"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 1
+    },
+    {
+      "case_id": "case-0218e722f61ee55ef7dd",
+      "suggestion_id": "suggestion-t060-267bd4b1c27424f96f4c",
+      "short_form": {
+        "start": 83,
+        "end": 85,
+        "text": "CC"
+      },
+      "long_form": {
+        "start": 65,
+        "end": 81,
+        "text": "cyclophosphamide"
+      },
+      "method_ids": [
+        "schwartz_hearst"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "incorrect",
+      "source_revision": 1
+    },
+    {
+      "case_id": "case-06c9ebb850190d98a90b",
+      "suggestion_id": "suggestion-t060-afa3e86af350800f890f",
+      "short_form": {
+        "start": 1137,
+        "end": 1140,
+        "text": "PO2"
+      },
+      "long_form": {
+        "start": 1142,
+        "end": 1146,
+        "text": "PIO2"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "incorrect",
+      "source_revision": 2
+    },
+    {
+      "case_id": "case-06c9ebb850190d98a90b",
+      "suggestion_id": "suggestion-t060-dbb986088bdf2ec7ffe3",
+      "short_form": {
+        "start": 1142,
+        "end": 1146,
+        "text": "PIO2"
+      },
+      "long_form": {
+        "start": 1124,
+        "end": 1140,
+        "text": "inspired gas PO2"
+      },
+      "method_ids": [
+        "plodv2_pairing"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 2
+    },
+    {
+      "case_id": "case-070773a12d676907498f",
+      "suggestion_id": "suggestion-t060-0887acb196b5a9814fcf",
+      "short_form": {
+        "start": 694,
+        "end": 697,
+        "text": "CNS"
+      },
+      "long_form": {
+        "start": 666,
+        "end": 692,
+        "text": "non-central nervous system"
+      },
+      "method_ids": [
+        "ab3p",
+        "plodv2_pairing"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 1
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "suggestion_id": "suggestion-t060-8537002bc6984603273e",
+      "short_form": {
+        "start": 688,
+        "end": 691,
+        "text": "LDL"
+      },
+      "long_form": {
+        "start": 693,
+        "end": 708,
+        "text": "LDL-PL/LDL-apoB"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "component_substring_not_accepted_short_form",
+      "explanation": "T057 accepted the complete short form LDL-PL/LDL-apoB, not LDL.",
+      "reference_decision_ids": [
+        "added-d9a97ba8-d461-4d29-aaa3-c4afafae08c0"
+      ]
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "suggestion_id": "suggestion-t060-93555c53ac11de5500be",
+      "short_form": {
+        "start": 1238,
+        "end": 1242,
+        "text": "VLDL"
+      },
+      "long_form": {
+        "start": 1244,
+        "end": 1251,
+        "text": "VLDL-PL"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "endpoint_role_conflict",
+      "explanation": "T057 accepted VLDL-PL as the short form in a different exact pair.",
+      "reference_decision_ids": [
+        "decision-suggestion-dca419a96f7d31ee"
+      ]
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "suggestion_id": "suggestion-t060-eb27857e8b4ac2846239",
+      "short_form": {
+        "start": 1244,
+        "end": 1251,
+        "text": "VLDL-PL"
+      },
+      "long_form": {
+        "start": 1182,
+        "end": 1242,
+        "text": "VLDL4-C) and the serum levels of phospholipids in total VLDL"
+      },
+      "method_ids": [
+        "schwartz_hearst"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "long_form_boundary_conflict",
+      "explanation": "T057 fixed the exact VLDL-PL long form as phospholipids in total VLDL.",
+      "reference_decision_ids": [
+        "decision-suggestion-dca419a96f7d31ee"
+      ]
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "suggestion_id": "suggestion-t060-e23145f4b8adcfb4a171",
+      "short_form": {
+        "start": 1244,
+        "end": 1251,
+        "text": "VLDL-PL"
+      },
+      "long_form": {
+        "start": 1191,
+        "end": 1242,
+        "text": "and the serum levels of phospholipids in total VLDL"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "long_form_boundary_conflict",
+      "explanation": "T057 fixed the exact VLDL-PL long form without the leading conjunction.",
+      "reference_decision_ids": [
+        "decision-suggestion-dca419a96f7d31ee"
+      ]
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "suggestion_id": "suggestion-t060-9a56370277bb614067d1",
+      "short_form": {
+        "start": 1274,
+        "end": 1282,
+        "text": "VLDL2-PL"
+      },
+      "long_form": {
+        "start": 1215,
+        "end": 1272,
+        "text": "phospholipids in total VLDL (VLDL-PL) and VLDL subclass 2"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "long_form_boundary_conflict",
+      "explanation": "T057 fixed the exact VLDL2-PL long form as VLDL subclass 2.",
+      "reference_decision_ids": [
+        "added-28b4484f-ef7e-4999-9f99-844bc96d14ac"
+      ]
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "suggestion_id": "suggestion-t060-4091883dd60c93694642",
+      "short_form": {
+        "start": 1413,
+        "end": 1417,
+        "text": "VLDL"
+      },
+      "long_form": {
+        "start": 1419,
+        "end": 1428,
+        "text": "VLDL-apoB"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "searched_passage_component_inference",
+      "explanation": "The searched T057 passage did not accept an inferred VLDL component mapping.",
+      "reference_decision_ids": []
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "suggestion_id": "suggestion-t060-cc97746e99e7ea645415",
+      "short_form": {
+        "start": 1587,
+        "end": 1590,
+        "text": "LDL"
+      },
+      "long_form": {
+        "start": 1592,
+        "end": 1607,
+        "text": "LDL-FC/LDL-apoB"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "component_substring_not_accepted_short_form",
+      "explanation": "T057 accepted the complete short form LDL-FC/LDL-apoB, not LDL.",
+      "reference_decision_ids": [
+        "added-39186c1d-ad2f-4df5-8022-4da0db6e14e2"
+      ]
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "suggestion_id": "suggestion-t060-33c9ec128709eeb495b4",
+      "short_form": {
+        "start": 1821,
+        "end": 1825,
+        "text": "VLDL"
+      },
+      "long_form": {
+        "start": 1827,
+        "end": 1835,
+        "text": "VLDL3-PL"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "searched_passage_component_inference",
+      "explanation": "The searched T057 passage did not accept an inferred VLDL component mapping.",
+      "reference_decision_ids": []
+    },
+    {
+      "case_id": "case-1a4f2e3443392fdca836",
+      "suggestion_id": "suggestion-t060-2c4c7dc6d5bcce010acc",
+      "short_form": {
+        "start": 2050,
+        "end": 2053,
+        "text": "IDL"
+      },
+      "long_form": {
+        "start": 2055,
+        "end": 2069,
+        "text": "IDL-C/IDL-apoB"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "component_substring_not_accepted_short_form",
+      "explanation": "T057 accepted the complete short form IDL-C/IDL-apoB, not IDL.",
+      "reference_decision_ids": [
+        "added-89628d10-50a1-40f6-9fc3-c25a8f028071"
+      ]
+    },
+    {
+      "case_id": "case-831590c598e0d001beba",
+      "suggestion_id": "suggestion-t060-b559c36d7163995c9fe8",
+      "short_form": {
+        "start": 1906,
+        "end": 1908,
+        "text": "RE"
+      },
+      "long_form": {
+        "start": 1889,
+        "end": 1904,
+        "text": "the red nucleus"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 1
+    },
+    {
+      "case_id": "case-831590c598e0d001beba",
+      "suggestion_id": "suggestion-t060-e58a85ce300d27a72733",
+      "short_form": {
+        "start": 2000,
+        "end": 2002,
+        "text": "RA"
+      },
+      "long_form": {
+        "start": 1978,
+        "end": 1998,
+        "text": "dorsal raphe nucleus"
+      },
+      "method_ids": [
+        "plodv2_pairing"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 1
+    },
+    {
+      "case_id": "case-831590c598e0d001beba",
+      "suggestion_id": "suggestion-t060-77689638eb8c494ac0e0",
+      "short_form": {
+        "start": 2033,
+        "end": 2035,
+        "text": "GE"
+      },
+      "long_form": {
+        "start": 2005,
+        "end": 2031,
+        "text": "lateral geniculate nucleus"
+      },
+      "method_ids": [
+        "plodv2_pairing"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 1
+    },
+    {
+      "case_id": "case-831590c598e0d001beba",
+      "suggestion_id": "suggestion-t060-bd315e5d626e09215005",
+      "short_form": {
+        "start": 2266,
+        "end": 2268,
+        "text": "KI"
+      },
+      "long_form": {
+        "start": 2222,
+        "end": 2264,
+        "text": "anterior pituitary (AP), kidney Henle loop"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 1
+    },
+    {
+      "case_id": "case-831590c598e0d001beba",
+      "suggestion_id": "suggestion-t060-b440e6b44c032de546db",
+      "short_form": {
+        "start": 2294,
+        "end": 2296,
+        "text": "TH"
+      },
+      "long_form": {
+        "start": 2247,
+        "end": 2292,
+        "text": "kidney Henle loop (KI), and thyroid follicles"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 1
+    },
+    {
+      "case_id": "case-831590c598e0d001beba",
+      "suggestion_id": "suggestion-t060-1f862374a77a61fcaa4c",
+      "short_form": {
+        "start": 2294,
+        "end": 2296,
+        "text": "TH"
+      },
+      "long_form": {
+        "start": 2283,
+        "end": 2292,
+        "text": "follicles"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "incorrect",
+      "source_revision": 1
+    },
+    {
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "suggestion_id": "suggestion-t060-59ff3f630a8e3aa5d351",
+      "short_form": {
+        "start": 132,
+        "end": 135,
+        "text": "HDL"
+      },
+      "long_form": {
+        "start": 137,
+        "end": 143,
+        "text": "HDL-PL"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "endpoint_role_conflict",
+      "explanation": "T057 accepted HDL-PL as the short form in a different exact pair.",
+      "reference_decision_ids": [
+        "added-b9f8650f-a2b3-4fba-ad31-88c09b33a7f3"
+      ]
+    },
+    {
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "suggestion_id": "suggestion-t060-16130f33ccbe92e68d22",
+      "short_form": {
+        "start": 284,
+        "end": 291,
+        "text": "HDL1-PL"
+      },
+      "long_form": {
+        "start": 268,
+        "end": 282,
+        "text": "HDL1-PL) and 2"
+      },
+      "method_ids": [
+        "schwartz_hearst"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "long_form_boundary_conflict",
+      "explanation": "T057 retained the printed second HDL1-PL occurrence as diagnostic evidence with long form 2, not the mixed boundary proposed here.",
+      "reference_decision_ids": [
+        "decision-suggestion-09e5ad7e87e8434a",
+        "added-11d0b66e-8b2a-44dc-9bd9-5792424c7954"
+      ]
+    },
+    {
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "suggestion_id": "suggestion-t060-abec72641ca80b64934c",
+      "short_form": {
+        "start": 639,
+        "end": 642,
+        "text": "HDL"
+      },
+      "long_form": {
+        "start": 644,
+        "end": 654,
+        "text": "HDL-apoA-I"
+      },
+      "method_ids": [
+        "ab3p"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "endpoint_role_conflict",
+      "explanation": "T057 accepted HDL-apoA-I as the short form in a different exact pair.",
+      "reference_decision_ids": [
+        "decision-suggestion-7d1d3fb29d59c32c"
+      ]
+    },
+    {
+      "case_id": "case-8deab3bbe026a86e6b5c",
+      "suggestion_id": "suggestion-t060-f00380295638e294a289",
+      "short_form": {
+        "start": 644,
+        "end": 654,
+        "text": "HDL-apoA-I"
+      },
+      "long_form": {
+        "start": 585,
+        "end": 642,
+        "text": "HVs, and with the serum levels of apoA-I in the total HDL"
+      },
+      "method_ids": [
+        "schwartz_hearst"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "long_form_boundary_conflict",
+      "explanation": "T057 fixed the exact HDL-apoA-I long form as apoA-I in the total HDL.",
+      "reference_decision_ids": [
+        "decision-suggestion-7d1d3fb29d59c32c"
+      ]
+    },
+    {
+      "case_id": "case-912c109badf69739f017",
+      "suggestion_id": "suggestion-t060-dca11da1dce0cdb5f7da",
+      "short_form": {
+        "start": 54,
+        "end": 57,
+        "text": "DPN"
+      },
+      "long_form": {
+        "start": 27,
+        "end": 52,
+        "text": "alpha-dipropylnitrosamine"
+      },
+      "method_ids": [
+        "ab3p",
+        "jev_candidate_judge",
+        "plodv2_pairing"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 2
+    },
+    {
+      "case_id": "case-a9bc2d5ecf86d8e58778",
+      "suggestion_id": "suggestion-t060-f2a15a432b13ea25f2b0",
+      "short_form": {
+        "start": 1479,
+        "end": 1484,
+        "text": "SR-BI"
+      },
+      "long_form": {
+        "start": 1444,
+        "end": 1477,
+        "text": "scavenger receptor class B type 1"
+      },
+      "method_ids": [
+        "jev_candidate_judge",
+        "plodv2_pairing"
+      ],
+      "disposition": "requires_user_judgment",
+      "requires_user": true,
+      "question": "Does this passage define SR-BI as scavenger receptor class B type 1?"
+    },
+    {
+      "case_id": "case-a9bc2d5ecf86d8e58778",
+      "suggestion_id": "suggestion-t060-1c9bdf5b506a3b745b3c",
+      "short_form": {
+        "start": 1479,
+        "end": 1484,
+        "text": "SR-BI"
+      },
+      "long_form": {
+        "start": 1463,
+        "end": 1477,
+        "text": "class B type 1"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "incomplete_long_form_boundary",
+      "explanation": "class B type 1 is a strict suffix of the adjacent complete phrase scavenger receptor class B type 1; the exact-boundary policy does not require a second scientific judgment.",
+      "reference_decision_ids": []
+    },
+    {
+      "case_id": "case-bb7cec40d4228dda23e5",
+      "suggestion_id": "suggestion-t060-5644d54f8aada4910ba8",
+      "short_form": {
+        "start": 156,
+        "end": 163,
+        "text": "D-group"
+      },
+      "long_form": {
+        "start": 78,
+        "end": 154,
+        "text": "different way. The animals of the first group were killed after decapitation"
+      },
+      "method_ids": [
+        "schwartz_hearst"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "long_form_boundary_conflict",
+      "explanation": "T057 retained D-group as a diagnostic relation with exact long-form evidence decapitation.",
+      "reference_decision_ids": [
+        "decision-suggestion-82605f4667733c5a"
+      ]
+    },
+    {
+      "case_id": "case-bb7cec40d4228dda23e5",
+      "suggestion_id": "suggestion-t060-bb2b51815a617c6c6f12",
+      "short_form": {
+        "start": 295,
+        "end": 302,
+        "text": "N-group"
+      },
+      "long_form": {
+        "start": 277,
+        "end": 293,
+        "text": "The second group"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "prior_relation_conflict",
+      "explanation": "T057 retained N-group as a diagnostic relation with long-form evidence nembutal.",
+      "reference_decision_ids": [
+        "added-1f44ab2e-7246-4eb4-aaf9-ac7b08ce1f0d"
+      ]
+    },
+    {
+      "case_id": "case-bb7cec40d4228dda23e5",
+      "suggestion_id": "suggestion-t060-e9a853fb1dcce5562db1",
+      "short_form": {
+        "start": 295,
+        "end": 302,
+        "text": "N-group"
+      },
+      "long_form": {
+        "start": 281,
+        "end": 293,
+        "text": "second group"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "resolved_by_frozen_evidence_or_policy",
+      "requires_user": false,
+      "reason_code": "prior_relation_conflict",
+      "explanation": "T057 retained N-group as a diagnostic relation with long-form evidence nembutal.",
+      "reference_decision_ids": [
+        "added-1f44ab2e-7246-4eb4-aaf9-ac7b08ce1f0d"
+      ]
+    },
+    {
+      "case_id": "case-c940824221d306518316",
+      "suggestion_id": "suggestion-t060-5c36ce49fbad0781cc88",
+      "short_form": {
+        "start": 830,
+        "end": 834,
+        "text": "TAPB"
+      },
+      "long_form": {
+        "start": 791,
+        "end": 828,
+        "text": "the transversus abdominis plane block"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "correct",
+      "source_revision": 2
+    },
+    {
+      "case_id": "case-c940824221d306518316",
+      "suggestion_id": "suggestion-t060-269c678d7a17fc3dc04b",
+      "short_form": {
+        "start": 830,
+        "end": 834,
+        "text": "TAPB"
+      },
+      "long_form": {
+        "start": 807,
+        "end": 828,
+        "text": "abdominis plane block"
+      },
+      "method_ids": [
+        "jev_candidate_judge"
+      ],
+      "disposition": "already_reviewed_by_user",
+      "requires_user": false,
+      "decision_status": "incorrect",
+      "source_revision": 2
+    }
+  ]
+}

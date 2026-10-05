@@ -1,0 +1,586 @@
+{
+  "schema_version": "t052-review-packet-v2",
+  "packet_id": "t052-967001de41ac05d5242e",
+  "content_sha256": "967001de41ac05d5242e5cfff5dbaef926c11b325e4d9caccd7ad9e472e542a3",
+  "source_manifest_sha256": "a0ac866631e0fb6516025759a282d3b2629a0de94efbec1f76d5f43af8f7a770",
+  "source_run_id": "t060-development-comparison:t061-minimal-v1",
+  "seed": 20261002,
+  "cases": [
+    {
+      "case_id": "case-a9bc2d5ecf86d8e58778",
+      "inventory_id": "inventory-4a5c1d0b7e96618fa224",
+      "article_id": "PMC10968302",
+      "article_group_id": "38539872",
+      "title": "Advanced Oxidation Protein Products Are Strongly Associated with the Serum Levels and Lipid Contents of Lipoprotein Subclasses in Healthy Volunteers and Patients with Metabolic Syndrome",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10968302/",
+      "source_kind": "paragraph",
+      "section_id": "article-body-sec-1-p-2",
+      "section_heading": "1. Introduction",
+      "category": "diagnostic",
+      "inventory_category": "t060_novel_prediction",
+      "canonical_text_sha256": "f000d84193c2ebbba60f5ec5a2ee1cab90ddd1b695485398bc5df2b0d9f7070f",
+      "passage_start": 0,
+      "passage_end": 1662,
+      "text": "Several studies have highlighted that advanced oxidation protein products (AOPPs) are appropriate parameters to determine oxidative stress in MS [7,8,9]. AOPPs are dityrosine-, pentosidine-, and carbonyl-containing cross-linked protein products formed primarily through the reaction of plasma proteins with chlorinated oxidants produced by myeloperoxidase in neutrophils [10,11]. It is generally accepted that the majority of plasma AOPPs originate from oxidized albumin, fibrinogen, and collagen [12,13,14]. AOPPs were first recognized as novel biomarkers for oxidative stress in the plasma of patients with uremia [15]. However, increased AOPP levels in plasma were also observed in various other pathophysiological states, including liver diseases, hypertriglyceridemia, and hypercholesterolemia, type 1 and type 2 diabetes (T2D), obesity, and MS, as well as atherosclerosis and coronary artery disease [11,12,13,16,17,18]. AOPPs are very stable compounds that are resistant to proteolytic degradation and reduction by antioxidants [11,19]. Through their interactions with the receptor of advanced glycation end-products and CD36, AOPPs induce the activities of various signaling molecules, such as protein kinase C, NADPH oxidase, and nuclear factor kB, which promote the generation of ROS, inflammation, and endothelial dysfunction [17,20,21]. Additionally, through its high affinity binding to the high-density lipoprotein (HDL) receptor scavenger receptor class B type 1 (SR-BI), AOPP-albumin strongly interferes with the plasma clearance of HDL cholesterol ester via SR-BI in mice [22], suggesting a link between AOPPs and the metabolism of lipoproteins.",
+      "context_before": "",
+      "context_after": "",
+      "suggestions": [
+        {
+          "suggestion_id": "suggestion-t060-f2a15a432b13ea25f2b0",
+          "proposal_kind": "definition",
+          "short_form": {
+            "start": 1479,
+            "end": 1484,
+            "text": "SR-BI"
+          },
+          "long_form": {
+            "start": 1444,
+            "end": 1477,
+            "text": "scavenger receptor class B type 1"
+          },
+          "source_pair_ids": [
+            "t060-jev_candidate_judge-f2a15a432b13ea25f2b0",
+            "t060-plodv2_pairing-f2a15a432b13ea25f2b0"
+          ],
+          "source_span_ids": [],
+          "method_ids": [
+            "jev_candidate_judge",
+            "plodv2_pairing"
+          ],
+          "provenance": [
+            {
+              "adapter_identity": "jev_candidate_judge",
+              "classification": "novel_pair",
+              "confidence": 0.78,
+              "identity": "jev_candidate_judge",
+              "method_id": "jev_candidate_judge",
+              "model_artifact_fingerprint": "jev-1.13.0",
+              "score": null,
+              "transformation_notes": [
+                "policy=abrex-candidate-split-v2",
+                "definition_probability=0.78",
+                "orientation_choice=first_is_short_form",
+                "orientation_probabilities={\"first_is_short_form\":1.0,\"second_is_short_form\":0.0,\"unclear\":0.0}",
+                "request_id=req_01a108d8ed087f2a98ca78d80c16af5a",
+                "latency_seconds=0.177464",
+                "network_attempts=0",
+                "cached=true"
+              ],
+              "version": "2"
+            },
+            {
+              "adapter_identity": "plodv2_pairing",
+              "classification": "novel_pair",
+              "confidence": null,
+              "identity": "plodv2_pairing",
+              "method_id": "plodv2_pairing",
+              "model_artifact_fingerprint": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277",
+              "score": 1.0,
+              "transformation_notes": [
+                "pairing_strategy:position_anchored",
+                "pair_cost:0",
+                "short_span_score:0.9698655009269714",
+                "long_span_score:0.7532491485277811",
+                "local_pattern:lf_parenthetical_sf"
+              ],
+              "version": "plodv2-pairing-v1"
+            }
+          ]
+        }
+      ],
+      "structures": [
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        },
+        {
+          "kind": "source-structure",
+          "text": "",
+          "source_path": null
+        }
+      ],
+      "source_comparisons": [
+        {
+          "article_id": "PMC10968302",
+          "bioc_passage_count": 146,
+          "bioc_sha256": "55447be1533411202538a8603bde429531614809f15860398c84030d826bff7b",
+          "exact_text_matches": 25,
+          "jats_section_count": 40,
+          "jats_sha256": "f42a65ac9b5ad304fd51abebca7d6f679e4f742572042813b9d1229dbd4d63ab",
+          "jats_structure_counts": {},
+          "normalized_text_matches": 25,
+          "observations": [
+            "BioC and JATS offsets are retained independently."
+          ],
+          "unmatched_bioc_passages": [
+            "PMC10968302/passage-3",
+            "PMC10968302/passage-4",
+            "PMC10968302/passage-5",
+            "PMC10968302/passage-6",
+            "PMC10968302/passage-7",
+            "PMC10968302/passage-8",
+            "PMC10968302/passage-9",
+            "PMC10968302/passage-10",
+            "PMC10968302/passage-11",
+            "PMC10968302/passage-12",
+            "PMC10968302/passage-14",
+            "PMC10968302/passage-15",
+            "PMC10968302/passage-16",
+            "PMC10968302/passage-18",
+            "PMC10968302/passage-20",
+            "PMC10968302/passage-21",
+            "PMC10968302/passage-22",
+            "PMC10968302/passage-23",
+            "PMC10968302/passage-27",
+            "PMC10968302/passage-31",
+            "PMC10968302/passage-34",
+            "PMC10968302/passage-37",
+            "PMC10968302/passage-42",
+            "PMC10968302/passage-46",
+            "PMC10968302/passage-49",
+            "PMC10968302/passage-50",
+            "PMC10968302/passage-51",
+            "PMC10968302/passage-52",
+            "PMC10968302/passage-53",
+            "PMC10968302/passage-54",
+            "PMC10968302/passage-55",
+            "PMC10968302/passage-56",
+            "PMC10968302/passage-57",
+            "PMC10968302/passage-59",
+            "PMC10968302/passage-60",
+            "PMC10968302/passage-61",
+            "PMC10968302/passage-62",
+            "PMC10968302/passage-63",
+            "PMC10968302/passage-64",
+            "PMC10968302/passage-65",
+            "PMC10968302/passage-66",
+            "PMC10968302/passage-67",
+            "PMC10968302/passage-68",
+            "PMC10968302/passage-69",
+            "PMC10968302/passage-70",
+            "PMC10968302/passage-71",
+            "PMC10968302/passage-72",
+            "PMC10968302/passage-73",
+            "PMC10968302/passage-74",
+            "PMC10968302/passage-75",
+            "PMC10968302/passage-76",
+            "PMC10968302/passage-77",
+            "PMC10968302/passage-78",
+            "PMC10968302/passage-79",
+            "PMC10968302/passage-80",
+            "PMC10968302/passage-81",
+            "PMC10968302/passage-82",
+            "PMC10968302/passage-83",
+            "PMC10968302/passage-84",
+            "PMC10968302/passage-85",
+            "PMC10968302/passage-86",
+            "PMC10968302/passage-87",
+            "PMC10968302/passage-88",
+            "PMC10968302/passage-89",
+            "PMC10968302/passage-90",
+            "PMC10968302/passage-91",
+            "PMC10968302/passage-92",
+            "PMC10968302/passage-93",
+            "PMC10968302/passage-94",
+            "PMC10968302/passage-95",
+            "PMC10968302/passage-96",
+            "PMC10968302/passage-97",
+            "PMC10968302/passage-98",
+            "PMC10968302/passage-99",
+            "PMC10968302/passage-100",
+            "PMC10968302/passage-101",
+            "PMC10968302/passage-102",
+            "PMC10968302/passage-103",
+            "PMC10968302/passage-104",
+            "PMC10968302/passage-105",
+            "PMC10968302/passage-106",
+            "PMC10968302/passage-107",
+            "PMC10968302/passage-108",
+            "PMC10968302/passage-109",
+            "PMC10968302/passage-110",
+            "PMC10968302/passage-111",
+            "PMC10968302/passage-112",
+            "PMC10968302/passage-113",
+            "PMC10968302/passage-114",
+            "PMC10968302/passage-115",
+            "PMC10968302/passage-116",
+            "PMC10968302/passage-117",
+            "PMC10968302/passage-118",
+            "PMC10968302/passage-119",
+            "PMC10968302/passage-120",
+            "PMC10968302/passage-121",
+            "PMC10968302/passage-122",
+            "PMC10968302/passage-123",
+            "PMC10968302/passage-124",
+            "PMC10968302/passage-125",
+            "PMC10968302/passage-126",
+            "PMC10968302/passage-127",
+            "PMC10968302/passage-128",
+            "PMC10968302/passage-129",
+            "PMC10968302/passage-130",
+            "PMC10968302/passage-131",
+            "PMC10968302/passage-132",
+            "PMC10968302/passage-133",
+            "PMC10968302/passage-134",
+            "PMC10968302/passage-135",
+            "PMC10968302/passage-136",
+            "PMC10968302/passage-137",
+            "PMC10968302/passage-138",
+            "PMC10968302/passage-139",
+            "PMC10968302/passage-140",
+            "PMC10968302/passage-141",
+            "PMC10968302/passage-142",
+            "PMC10968302/passage-143",
+            "PMC10968302/passage-144",
+            "PMC10968302/passage-145",
+            "PMC10968302/passage-146"
+          ],
+          "unmatched_jats_sections": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "8",
+            "10",
+            "12",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38"
+          ]
+        },
+        {
+          "relations": [
+            {
+              "case_id": "case-a9bc2d5ecf86d8e58778",
+              "context_requirement": "text_alone",
+              "decision_id": "decision-suggestion-d9bad32473cd3d6c",
+              "disposition": "strict",
+              "eligibility_reason": "eligible_strict_exact_pair",
+              "evidence_spans": [],
+              "evidence_structure": "contiguous_shared",
+              "long_form": {
+                "end": 73,
+                "start": 38,
+                "text": "advanced oxidation protein products"
+              },
+              "mechanical_corrections": [],
+              "notes": "",
+              "origin": "assisted",
+              "reconstructed_interpretation": null,
+              "relation_kind": "abbreviation_expansion",
+              "short_form": {
+                "end": 80,
+                "start": 75,
+                "text": "AOPPs"
+              },
+              "source_decision_sha256": "38b01a8c759546906a08c03c3fd576816dab1794794246d2e3677ce670c12d14",
+              "source_error": false,
+              "status": "correct",
+              "suggestion_id": "suggestion-d9bad32473cd3d6c"
+            },
+            {
+              "case_id": "case-a9bc2d5ecf86d8e58778",
+              "context_requirement": "text_alone",
+              "decision_id": "decision-suggestion-336c2969b95dd8d4",
+              "disposition": "strict",
+              "eligibility_reason": "eligible_strict_exact_pair",
+              "evidence_spans": [],
+              "evidence_structure": "contiguous_shared",
+              "long_form": {
+                "end": 826,
+                "start": 811,
+                "text": "type 2 diabetes"
+              },
+              "mechanical_corrections": [],
+              "notes": "",
+              "origin": "assisted",
+              "reconstructed_interpretation": null,
+              "relation_kind": "abbreviation_expansion",
+              "short_form": {
+                "end": 831,
+                "start": 828,
+                "text": "T2D"
+              },
+              "source_decision_sha256": "8d8ceb36c136e258295287815455bfc4798bb1f76a761c6dff13207ca9b0af73",
+              "source_error": false,
+              "status": "correct",
+              "suggestion_id": "suggestion-336c2969b95dd8d4"
+            },
+            {
+              "case_id": "case-a9bc2d5ecf86d8e58778",
+              "context_requirement": "text_alone",
+              "decision_id": "decision-suggestion-db19bb24ba48ff26",
+              "disposition": "strict",
+              "eligibility_reason": "eligible_strict_exact_pair",
+              "evidence_spans": [],
+              "evidence_structure": "contiguous_shared",
+              "long_form": {
+                "end": 1428,
+                "start": 1404,
+                "text": "high-density lipoprotein"
+              },
+              "mechanical_corrections": [],
+              "notes": "",
+              "origin": "assisted",
+              "reconstructed_interpretation": null,
+              "relation_kind": "abbreviation_expansion",
+              "short_form": {
+                "end": 1433,
+                "start": 1430,
+                "text": "HDL"
+              },
+              "source_decision_sha256": "a0e354cd92f5f970ee606ffa89f0bcad39bab192570e83ed6e8119b60ef1f25e",
+              "source_error": false,
+              "status": "correct",
+              "suggestion_id": "suggestion-db19bb24ba48ff26"
+            }
+          ],
+          "source": "T057 frozen development decisions"
+        }
+      ],
+      "method_diagnostics": [
+        {
+          "coverage": "complete",
+          "diagnostics": 0,
+          "method_id": "ab3p",
+          "predictions": 48,
+          "status": "complete"
+        },
+        {
+          "coverage": "complete",
+          "diagnostics": 0,
+          "method_id": "jev_candidate_judge",
+          "predictions": 38,
+          "status": "complete"
+        },
+        {
+          "coverage": "complete",
+          "diagnostics": 0,
+          "method_id": "plodv2_pairing",
+          "predictions": 36,
+          "status": "complete"
+        },
+        {
+          "coverage": "complete",
+          "diagnostics": 0,
+          "method_id": "schwartz_hearst",
+          "predictions": 43,
+          "status": "complete"
+        }
+      ],
+      "selection_reason": "Only exact-pair proposal not already resolved by completed T061 work, frozen T057 evidence, or the frozen exact-boundary policy."
+    }
+  ],
+  "selection": {
+    "targets": {
+      "user_judgment_required": 1
+    },
+    "denominators": {
+      "source_cases": 11,
+      "source_suggestions": 33,
+      "user_judgment_required": 1
+    },
+    "selected": {
+      "user_judgment_required": 1
+    },
+    "shortages": {
+      "user_judgment_required": 0
+    },
+    "arm_counts": {
+      "pmc_cc_by": 1
+    },
+    "per_article_cap": 1
+  }
+}

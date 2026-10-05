@@ -1,7 +1,7 @@
 # T065 Freeze the protocol and prepare the fresh annotation packet
 
 Owner: **Luna — engineering and preparation**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: **Complete - fresh packet delivered October 4, 2026 local time.**
 Dependencies: T063 user decisions; T064 user-ready blind mode.
 
 ## Execution contract
@@ -21,4 +21,15 @@ Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECU
 ## Acceptance, deliverables and stopping point
 
 Deliver frozen protocol, sample/source manifests, canonical packet, empty state and working launcher. Tests cover deterministic sampling, linked-group exclusion, shortages and prediction-free serialization. Acquisition stops at approved limits; incomplete sample status is explicit. Do not run evaluated methods until T066 annotation is locked.
+
+## Completion evidence
+
+The approved T063 artifact is frozen at SHA-256
+`08eba6fd0adae99c355a6a18e8c615a037171056cf135c8339f8f3092a732541`.
+The seeded acquisition selected eight eligible groups after 37 draws with zero
+fetch failures, 4,695,175 downloaded bytes, and no reached limit. The delivered
+packet has the approved 12/12/8 source mix and four cases per group. See
+[`evidence/T065/README.md`](../../evidence/T065/README.md), the source manifest,
+and [`T065-browser-qa.json`](../artifacts/T065-browser-qa.json). Evaluated
+methods remain unrun pending the T066 annotation lock.
 

@@ -196,6 +196,183 @@
     "The development set and prior assisted decisions are not blind evidence.",
     "Gold-assisted union recall is an oracle diagnostic, not a deployable score."
   ],
+  "independent_plod_span_audit": {
+    "contract": "independent endpoints; no SF/LF relation is inferred",
+    "detected_accepted_endpoint_matches": 88,
+    "detected_endpoints": 275,
+    "detector_only_endpoints": 203,
+    "documents": 20,
+    "execution": {
+      "bundle_id": "aa9203f6c86cd5cd6664ffba112d538cc5a4ee9b1d4fb74599413c07aba2d0bb",
+      "elapsed_seconds": 89.14833591296338,
+      "environment": {
+        "packages": {
+          "PyYAML": "6.0.3",
+          "abrex": "unavailable",
+          "pydantic": "2.13.5",
+          "typesafe-sdk": "unavailable"
+        },
+        "platform": "Linux-4.18.0-553.158.1.el8_10.x86_64-x86_64-with-glibc2.28",
+        "python": "3.13.14 (main, Jun 11 2026, 15:29:39) [GCC 8.5.0 20210514 (Red Hat 8.5.0-22)]"
+      },
+      "result_id": "5620f9c7d916bd1db784626cd6032d23ad3488576414d3b923478a29f6271748",
+      "result_path": ".artifacts/T060/imported-linux-results/t060-plodv2-spans-linux/result.json",
+      "result_sha256": "f397b15355e5935baa3cccba51e69c338e2307ca4c67294ae0d084dfdfd39f6b",
+      "status": "complete"
+    },
+    "frozen_accepted_endpoints": 142,
+    "interpretation": "All endpoints used by PLOD pairing are present in the independent detector output. Detector-only endpoints are retained as required, but are not definition pairs and do not override the completed T057 whole-passage searches.",
+    "long_form_endpoints": 36,
+    "paired_endpoints": 72,
+    "paired_endpoints_missing_from_detector": 0,
+    "per_document": [
+      {
+        "accepted_endpoint_matches": 8,
+        "detected_endpoints": 21,
+        "detector_only_endpoints": 17,
+        "document_id": "case-018860b0c1232ddf7807",
+        "paired_endpoints": 4
+      },
+      {
+        "accepted_endpoint_matches": 4,
+        "detected_endpoints": 4,
+        "detector_only_endpoints": 0,
+        "document_id": "case-0218e722f61ee55ef7dd",
+        "paired_endpoints": 4
+      },
+      {
+        "accepted_endpoint_matches": 4,
+        "detected_endpoints": 14,
+        "detector_only_endpoints": 10,
+        "document_id": "case-06c9ebb850190d98a90b",
+        "paired_endpoints": 4
+      },
+      {
+        "accepted_endpoint_matches": 1,
+        "detected_endpoints": 6,
+        "detector_only_endpoints": 4,
+        "document_id": "case-070773a12d676907498f",
+        "paired_endpoints": 2
+      },
+      {
+        "accepted_endpoint_matches": 2,
+        "detected_endpoints": 2,
+        "detector_only_endpoints": 0,
+        "document_id": "case-07cad09127f682525233",
+        "paired_endpoints": 2
+      },
+      {
+        "accepted_endpoint_matches": 0,
+        "detected_endpoints": 5,
+        "detector_only_endpoints": 5,
+        "document_id": "case-0f8bfd4e615558df24ef",
+        "paired_endpoints": 0
+      },
+      {
+        "accepted_endpoint_matches": 5,
+        "detected_endpoints": 65,
+        "detector_only_endpoints": 63,
+        "document_id": "case-1a4f2e3443392fdca836",
+        "paired_endpoints": 2
+      },
+      {
+        "accepted_endpoint_matches": 2,
+        "detected_endpoints": 22,
+        "detector_only_endpoints": 20,
+        "document_id": "case-3d2665693fb0be945023",
+        "paired_endpoints": 2
+      },
+      {
+        "accepted_endpoint_matches": 4,
+        "detected_endpoints": 7,
+        "detector_only_endpoints": 3,
+        "document_id": "case-474f458c08d3bd7a9bf8",
+        "paired_endpoints": 4
+      },
+      {
+        "accepted_endpoint_matches": 2,
+        "detected_endpoints": 5,
+        "detector_only_endpoints": 3,
+        "document_id": "case-5d7512d1d17f9f486465",
+        "paired_endpoints": 2
+      },
+      {
+        "accepted_endpoint_matches": 4,
+        "detected_endpoints": 7,
+        "detector_only_endpoints": 3,
+        "document_id": "case-7a11345f02095ae53ae2",
+        "paired_endpoints": 4
+      },
+      {
+        "accepted_endpoint_matches": 12,
+        "detected_endpoints": 18,
+        "detector_only_endpoints": 8,
+        "document_id": "case-831590c598e0d001beba",
+        "paired_endpoints": 10
+      },
+      {
+        "accepted_endpoint_matches": 4,
+        "detected_endpoints": 5,
+        "detector_only_endpoints": 1,
+        "document_id": "case-862b4f1d66a83473d434",
+        "paired_endpoints": 4
+      },
+      {
+        "accepted_endpoint_matches": 6,
+        "detected_endpoints": 9,
+        "detector_only_endpoints": 3,
+        "document_id": "case-88bfa500a152f2d3fd89",
+        "paired_endpoints": 6
+      },
+      {
+        "accepted_endpoint_matches": 9,
+        "detected_endpoints": 30,
+        "detector_only_endpoints": 30,
+        "document_id": "case-8deab3bbe026a86e6b5c",
+        "paired_endpoints": 0
+      },
+      {
+        "accepted_endpoint_matches": 4,
+        "detected_endpoints": 16,
+        "detector_only_endpoints": 12,
+        "document_id": "case-912c109badf69739f017",
+        "paired_endpoints": 4
+      },
+      {
+        "accepted_endpoint_matches": 4,
+        "detected_endpoints": 8,
+        "detector_only_endpoints": 4,
+        "document_id": "case-9a27b1aac754c541ca57",
+        "paired_endpoints": 4
+      },
+      {
+        "accepted_endpoint_matches": 6,
+        "detected_endpoints": 21,
+        "detector_only_endpoints": 13,
+        "document_id": "case-a9bc2d5ecf86d8e58778",
+        "paired_endpoints": 8
+      },
+      {
+        "accepted_endpoint_matches": 1,
+        "detected_endpoints": 1,
+        "detector_only_endpoints": 1,
+        "document_id": "case-bb7cec40d4228dda23e5",
+        "paired_endpoints": 0
+      },
+      {
+        "accepted_endpoint_matches": 6,
+        "detected_endpoints": 9,
+        "detector_only_endpoints": 3,
+        "document_id": "case-c940824221d306518316",
+        "paired_endpoints": 6
+      }
+    ],
+    "prediction_fingerprint": "49fb83ca8e09881d34956c29cc49039570d235caceeb6273dcbe939ba463ec70",
+    "prediction_path": ".artifacts/T060/imported-linux-results/t060-plodv2-spans-linux/predictions.jsonl",
+    "prediction_sha256": "49fb83ca8e09881d34956c29cc49039570d235caceeb6273dcbe939ba463ec70",
+    "short_form_endpoints": 239,
+    "status": "complete"
+  },
   "methods": {
     "ab3p": {
       "diagnostics": 0,
@@ -283,8 +460,7 @@
     }
   },
   "pending": [
-    "T061 human review of the assisted output packet",
-    "Independent PLOD span output is required to audit unpaired detections"
+    "T061 human review of the assisted output packet"
   ],
   "prior_decision_linkage": {
     "frozen_relation_count": 72,
@@ -314,5 +490,5 @@
     "strict_relation_count": 59
   },
   "schema_version": "t060-development-comparison-v1",
-  "status": "review_and_plod_span_audit_pending"
+  "status": "review_pending"
 }

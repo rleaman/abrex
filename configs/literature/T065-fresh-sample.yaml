@@ -1,0 +1,36 @@
+fresh_sample:
+  schema_version: abrex-fresh-sample-v1
+  protocol_path: docs/artifacts/T063-decision-prefill.json
+  protocol_sha256: 08eba6fd0adae99c355a6a18e8c615a037171056cf135c8339f8f3092a732541
+  output_dir: .artifacts/T065/fresh-sample-v1
+  delivery_dir: evidence/T065
+  seed: 20261002
+  article_groups: 8
+  pmc_prose_passages: 12
+  pubmed_abstract_passages: 12
+  table_or_list_sections: 8
+  maximum_items_per_group: 4
+  # T051's attempt/response/request boundaries are inherited, while T063's
+  # smaller two-hour and 128-MiB aggregate limits take precedence.
+  maximum_attempts: 1000
+  maximum_download_bytes: 134217728
+  maximum_elapsed_seconds: 7200
+  maximum_response_bytes: 8000000
+  maximum_metadata_requests: 80
+  request_timeout_seconds: 30
+  request_retries: 2
+  retry_backoff_seconds: 1
+  delay_seconds: 0.34
+  uid_search_ceiling: 100000000
+  # Source-only passage segmentation is frozen before retrieval. It uses no
+  # resolver, model, candidate generator, or abbreviation-token heuristic.
+  prose_target_chars: 700
+  prose_maximum_chars: 1800
+  prose_minimum_chars: 80
+  structured_maximum_chars: 8000
+  user_agent: abrex-t065-fresh-sample/1.0
+  exclusion_paths:
+    - docs/artifacts/T025-pubmed-pilot-report.json
+    - evidence/T052/T051-pilot-manifest.json
+    - evidence/T060/review-packet-split-v2.json
+    - resources/clp/abbr-v5-validation-v1.jsonl

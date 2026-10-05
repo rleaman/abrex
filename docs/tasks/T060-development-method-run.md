@@ -1,8 +1,8 @@
 # T060 Run the bounded development comparison and build an output review packet
 
 Owner: **Luna — engineering and preparation**  
-Status: In progress — split-question Jev revision and four-way pair comparison
-complete; PLOD independent-span follow-up and T061 review pending.
+Status: Complete — split-question Jev revision, four-way pair comparison, and
+PLOD independent-span audit complete; T061 is a separate user task.
 Dependencies: T057 challenge views; T058 readiness; T059 model baseline readiness or explicit unavailable status.
 
 ## Execution contract
@@ -33,6 +33,16 @@ their inputs and outputs were unchanged. The revised comparison is
 [`T060-development-comparison-split-v2.json`](../artifacts/T060-development-comparison-split-v2.json),
 and its 11-passage/33-proposal assisted packet is
 [`review-packet-split-v2.json`](../../evidence/T060/review-packet-split-v2.json).
+
+## October 4 PLOD span completion
+
+The independent detector follow-up completed all 20 passages in 89.15 seconds
+with no execution errors. The audit retains 275 exact endpoints: 239 short-form
+and 36 long-form. Every one of the 72 endpoints used by PLOD pairing occurs in
+the detector output; 203 detector-only endpoints remain separately recorded
+and are not converted into definition pairs. The audit is embedded in the
+corrected comparison artifact and does not reopen completed T057 passage
+searches or add user annotation work.
 
 ## Acceptance, deliverables and stopping point
 

@@ -5,19 +5,25 @@
 - [T059](T059-bounded-language-model-adapter.md) is complete; see its
   [completion note](completed/T059-bounded-language-model-adapter.md) and the
   corrected [split-question development artifact](../artifacts/T059-jev-split-development.json).
-- [T060](T060-development-method-run.md) is in progress. All four paired
-  methods are complete and the corrected
-  [comparison](../artifacts/T060-development-comparison-split-v2.json) plus
-  11-passage T061 packet are frozen. One PLOD independent-span follow-up remains
-  so unpaired detections are retained as required.
-- T061 is ready for human adjudication; T062–T063 wait for that result. A
-  [prefilled T063 decision](../artifacts/T063-decision-prefill.json) minimizes
-  the later scientific-lead step.
+- [T060](T060-development-method-run.md) is complete. All four paired methods
+  and the independent PLOD span follow-up processed all 20 passages. The
+  corrected [comparison](../artifacts/T060-development-comparison-split-v2.json)
+  retains the span audit separately from exact-pair metrics.
+- T061 and [T062](T062-development-readout-and-protocol.md) are complete; see
+  the [T062 completion note](completed/T062-development-readout-and-protocol.md).
+  The
+  revised assisted view contains 67 strict relations. The existing transparent
+  Schwartz–Hearst/PLODv2 exact union is the sole recommended challenger.
+- T063 is complete: the scientific lead approved the complete
+  [prefilled decision](../artifacts/T063-decision-prefill.json) without
+  revision on October 4, 2026.
 - [T064](T064-prediction-blind-review-mode.md) is complete; see its
   [completion note](completed/T064-prediction-blind-review-mode.md) and
   [browser QA](../artifacts/T064-browser-qa.json).
-- T065–T068 remain sequential and intentionally have not crossed the blind
-  annotation boundary. Use the [revival handoff](../revival-handoff-2026-10-02.md).
+- [T065](T065-fresh-sample-and-blind-packet.md) is complete with a 32-case
+  source-only packet and passing actual-packet Edge QA. T066 is ready for the
+  scientific lead; T067–T068 remain behind the annotation lock. Use the
+  [T065 handoff](../../evidence/T065/README.md).
 
 ## September 13 runtime correction
 

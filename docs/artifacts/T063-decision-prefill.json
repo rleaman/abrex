@@ -1,47 +1,93 @@
 {
-  "schema_version": "t063-protocol-decision-v1",
-  "status": "awaiting_scientific_lead",
-  "evidence_dependencies": {
-    "t060_complete": false,
-    "t061_complete": false,
-    "t062_complete": false,
-    "reason": "Ab3P and PLODv2 results still require the prepared Linux run, followed by assisted output adjudication."
+  "approval": {
+    "approved_at": "2026-10-04",
+    "approved_by": "scientific_lead",
+    "response": "Approve T063",
+    "scope": "prefilled_recommendation"
   },
+  "evidence_dependencies": {
+    "t060_complete": true,
+    "t061_complete": true,
+    "t062_complete": true,
+    "t062_ledger": "evidence/T062/development-ledger-v1.json",
+    "t062_ledger_sha256": "1e4ff9f3d562158f3098a38a64df78d5374d3489c4f51bb9844710a74c3bfeec",
+    "t062_recovery_table": "evidence/T062/recovery-table-v1.jsonl",
+    "t062_recovery_table_sha256": "0905d2dd95d11df2561265da8dfb4cafc3f79a073ad175fc1efd801ae930ec7c",
+    "t062_report": "docs/artifacts/T062-development-readout.json",
+    "t062_report_sha256": "d5ad3578d2c26ae94a1a854fecc8ad6552b5948f48e1a1ed652692723690e307"
+  },
+  "freeze_rule": "Do not acquire T065 material until the scientific lead approves or revises this record.",
   "prefilled_recommendation": {
-    "comparison": "Use Schwartz-Hearst as the fixed baseline. Advance at most one challenger only if the completed T060/T061 recovery analysis shows useful exact-pair additions; current Jev-only development evidence does not justify advancing Jev by itself.",
+    "comparison": {
+      "configuration_sha256": "cb6e0f368d2f72c360a7aefef823d60ea2507d41d0e81a418ff8e03a1615f9e7",
+      "fixed_baseline": "schwartz_hearst",
+      "jev_disposition": "Do not advance Jev to the fresh check: it adds six strict pairs but eleven additional false positives versus Schwartz-Hearst.",
+      "parameters": {
+        "child_failure_policy": "raise",
+        "children": [
+          "schwartz_hearst",
+          "plodv2_pairing"
+        ],
+        "conflict_policy": "retain_all",
+        "frozen_components": [
+          {
+            "config_path": "configs/experiments/T060-schwartz-hearst.yaml",
+            "config_sha256": "7c6970792f4b5a7fef0720487af5c83595d4d708afdfdfa130cd0dd5deb19f11",
+            "key": "schwartz_hearst"
+          },
+          {
+            "config_path": "configs/experiments/T060-plodv2-linux.yaml",
+            "config_sha256": "4f19ac431ebf15422e445652abd72c197463cfbe376e54cfe52f0f9cbe8afdf5",
+            "key": "plodv2_pairing"
+          }
+        ],
+        "strategy": "exact_union"
+      },
+      "rationale": "On the assisted development view, PLODv2 pairing adds nine strict pairs absent from Schwartz-Hearst with one additional false positive; their exact union improves F1 from 0.661 to 0.756. Freeze and test this transparent existing composition, without further tuning, against Schwartz-Hearst.",
+      "registry_key": "transparent_hybrid",
+      "single_challenger": "transparent_hybrid_exact_union_sh_plodv2"
+    },
     "sample": {
-      "total_items": 32,
-      "prose_items": 24,
-      "table_or_list_items": 8,
+      "acquisition_limits": {
+        "maximum_download_bytes": 134217728,
+        "maximum_elapsed_hours": 2,
+        "replacement_rule": "replace only documented source-ineligible or failed-fetch groups using seeded order, never apparent abbreviation content"
+      },
       "article_groups": 8,
-      "maximum_items_per_group": 4,
-      "seed": 20261002,
       "exclusions": [
-        "all development documents",
+        "all ABREX development and previously reviewed documents",
         "all CellLiteraturePipeline annotated documents and linked copies",
-        "all previously reviewed ABREX documents and linked copies"
-      ]
-    },
-    "reviewer_plan": "single-reviewer, prediction-blind unless an independent second reviewer is identified before acquisition",
-    "primary_policy": "strict half-open exact short-form/long-form pairs, with representation-limited and uncertain evidence reported separately",
-    "proposed_success_tolerances": {
-      "strict_pair_f1": "challenger must exceed Schwartz-Hearst",
-      "unique_correct_additions": "at least 3 exact pairs",
-      "additional_false_positives": "at most 2 exact pairs",
-      "runtime_failures": 0,
-      "reporting": "prose and table/list arms reported separately; no pooled-only adoption decision"
-    },
-    "acquisition_limits": {
-      "maximum_elapsed_hours": 2,
-      "maximum_download_bytes": 134217728,
-      "replacement_rule": "replace only documented source-ineligible or failed-fetch groups using the seeded order; never replace based on apparent abbreviation content"
+        "all linked versions of excluded article groups"
+      ],
+      "items": 32,
+      "maximum_items_per_group": 4,
+      "primary_policy": "strict half-open exact SF/LF occurrence pairs; diagnostic, uncertain, and representation-limited evidence reported separately",
+      "prose_arm_mix": {
+        "pmc_text": 12,
+        "pubmed_abstract": 12
+      },
+      "prose_passages": 24,
+      "purpose": "small prediction-blind fresh check, not a powered benchmark",
+      "reviewer_plan": "single-reviewer, prediction-blind",
+      "sampling": "sample without detector/token enrichment; freeze sources and passage segmentation before predictions",
+      "seed": 20261002,
+      "success_tolerances": {
+        "maximum_additional_false_positives": 2,
+        "reporting": "prose and table/list arms separate; no pooled-only adoption",
+        "runtime_failures": 0,
+        "strict_pair_f1": "challenger must exceed Schwartz-Hearst",
+        "unique_correct_additions": 3
+      },
+      "table_or_list_sections": 8
     }
   },
   "required_user_decisions": [
-    "confirm baseline-only versus the single challenger recommended after T062",
-    "confirm or revise the 32-item, eight-group design",
-    "confirm or revise the numerical success tolerances",
-    "confirm the reviewer plan"
+    {
+      "decision_id": "approve_recommended_protocol",
+      "prompt": "Approve the complete prefilled recommendation, or list only the fields to change.",
+      "recommended_response": "Approve T063"
+    }
   ],
-  "freeze_rule": "Do not acquire T065 material until this record is completed after T062."
+  "schema_version": "t063-protocol-decision-v2",
+  "status": "approved_and_frozen"
 }

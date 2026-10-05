@@ -6,12 +6,15 @@ It joins all 20 frozen T057 passages to complete Schwartz–Hearst, Ab3P,
 PLODv2-pairing and frozen-threshold split-question Jev prediction artifacts.
 The unsuffixed comparison and packet preserve the superseded v1 Jev result.
 
-The assisted T061 packet is
+The exhaustive T061 source packet is
 [`review-packet-split-v2.json`](review-packet-split-v2.json). It contains all
 33 distinct predictions that did not exactly match an existing frozen T057
-decision, deduplicated into 11 passages while retaining every
-method contribution. These proposals are unreviewed; the strict comparison
-does not treat them as new human judgments.
+decision, deduplicated into 11 passages while retaining every method
+contribution. Seven passages and 15 proposals have already been reviewed. A
+subsequent evidence-preserving triage removed repeated work: 17 further
+proposals are resolved by the frozen T057 decisions/search or exact-boundary
+policy, leaving one scientific judgment in the
+[`../T061` minimal packet](../T061/README.md).
 
 Launch the reviewer from the repository root:
 
@@ -19,15 +22,21 @@ Launch the reviewer from the repository root:
 .\scripts\Review-T061.ps1
 ```
 
-Open `http://127.0.0.1:8765`. Progress is saved beside the packet as
-`review-packet-split-v2.annotations.json`; that sidecar is the T061 deliverable.
+Open `http://127.0.0.1:8765`. Progress is saved in
+`../T061/review-packet-minimal.annotations.json`. The original
+`review-packet-split-v2.annotations.json` is preserved as part of the combined
+T061 evidence and must not be overwritten.
 
 The first returned Linux archive completed Ab3P and PLOD pairing for all 20
-documents with zero execution errors. It did not contain the independent PLOD
-detector output needed to audit unpaired spans. The one-job follow-up archive
-is `.artifacts/T060/abrex-t060-plod-spans-followup.zip`; it can reuse the
-already installed server runtime. T060 remains open only for that span audit
-and T061 human review. Follow the
+documents with zero execution errors. The returned one-job follow-up also
+completed independent PLOD detection for all 20 documents in 89.15 seconds
+with no execution errors. Its result is imported under
+`.artifacts/T060/imported-linux-results/t060-plodv2-spans-linux`. The completed
+audit records 275 independent endpoints (239 short-form and 36 long-form), all
+72 endpoints used by PLOD pairing, and 203 detector-only endpoints. Independent
+spans are not definition-pair judgments and do not create additional human
+annotation work. T060 and T061 are complete; the T062 readout is available in
+[`../T062`](../T062/README.md). Follow the
 [T060/T061 runbook](../../docs/t060-t061-runbook.md) for exact commands.
 
 The imported return archive is retained at
