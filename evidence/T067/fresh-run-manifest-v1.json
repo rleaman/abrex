@@ -1,0 +1,57 @@
+{
+  "content_sha256": "3afaab5a9d4ab117bc5b3cb390dfaa229400b7ad91474005fbde5faaae69dcb6",
+  "datasets": {
+    "local_strict_gold": {
+      "fingerprint": "30a0010a4a736fecd9b5ee20b137f66dede8568d5cfef9aba4a81853e9d78c06",
+      "gold_annotations": 32,
+      "manifest_path": "evidence/T067/fresh-strict-gold-v1.manifest.json",
+      "path": "evidence/T067/fresh-strict-gold-v1.jsonl",
+      "portable_bundle_allowed": false
+    },
+    "prediction_input": {
+      "fingerprint": "6e45aec545d1e848142d430bf749fd987755ea0cbbc9fc952ad68ab1cc2f6ab2",
+      "gold_annotations": 0,
+      "manifest_path": "evidence/T067/fresh-prediction-input-v1.manifest.json",
+      "path": "evidence/T067/fresh-prediction-input-v1.jsonl"
+    }
+  },
+  "eligibility_ledger": {
+    "content_sha256": "923151a700a30ef76c3c500bb25688be4239ce252ecc69c2b3a5a90a2feaaca2",
+    "path": "evidence/T067/fresh-eligibility-ledger-v1.json"
+  },
+  "policy_id": "t057-strict-exact-pair-v1",
+  "prediction_blind_boundary": {
+    "annotation_state_content_sha256": "08e12d7676b3ad35653f12757220b7c6d314c830f3ce0ea6e536a91a1761bd20",
+    "correction_manifest_sha256": "5a0cb8f68686e4e64b683ce1ba96a1da993f9974cf0dc3de69d73d1e1fe0bcd8",
+    "lock_file_sha256": "a27e08a62bcf33c420ff7a8f0675c244e65d0f05cf960ed621ec180efd51a3ca",
+    "packet_content_sha256": "45185b07c036a0efe5642de05ca33983a18b73dc57b5adbe493173a63bab9fdf",
+    "packet_id": "blind-45185b07c036a0efe564",
+    "predictions_exposed_before_lock": false
+  },
+  "protocol": {
+    "components": [
+      {
+        "key": "plodv2_pairing",
+        "path": "configs/experiments/T060-plodv2-linux.yaml",
+        "sha256": "4f19ac431ebf15422e445652abd72c197463cfbe376e54cfe52f0f9cbe8afdf5"
+      },
+      {
+        "key": "schwartz_hearst",
+        "path": "configs/experiments/T060-schwartz-hearst.yaml",
+        "sha256": "7c6970792f4b5a7fef0720487af5c83595d4d708afdfdfa130cd0dd5deb19f11"
+      }
+    ],
+    "path": "docs/artifacts/T063-decision-prefill.json",
+    "sha256": "08eba6fd0adae99c355a6a18e8c615a037171056cf135c8339f8f3092a732541",
+    "status": "approved_and_frozen"
+  },
+  "schema_version": "t067-fresh-run-manifest-v1",
+  "source_isolation": {
+    "article_groups": 8,
+    "candidate_generators_run_during_sampling": false,
+    "evaluated_methods_run_during_sampling": false,
+    "source_manifest": "evidence/T065/source-manifest-v1.json",
+    "source_manifest_sha256": "5e397d023fce4da93755b56dd1f4485c2b57ac1146659587f66f74d1b501813c"
+  },
+  "status": "inputs_frozen_predictions_pending"
+}

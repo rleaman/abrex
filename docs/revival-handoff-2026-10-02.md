@@ -4,12 +4,13 @@
 
 The engineering baseline, CLP snapshot integration, Jev candidate judge,
 portable Linux execution, and prediction-blind reviewer are implemented. The
-paired Linux runtime jobs returned successfully on October 4. T061–T065 are
-now complete: the development evidence is reconciled, the T063 scientific
-protocol is approved and frozen, and the 32-case fresh prediction-blind packet
-has been acquired and browser-verified. T066 is complete with an audited,
-corrected prediction-blind lock. The remaining work is deliberately sequential:
-run T067, then make the T068 scientific direction decision.
+paired Linux runtime jobs returned successfully on October 4. T061–T066 are
+complete: the development evidence is reconciled, the T063 scientific protocol
+is approved and frozen, and the 32-case fresh packet has an audited corrected
+prediction-blind lock. T067 inputs are now frozen and its prediction-only Linux
+bundle is ready. The remaining work is deliberately sequential: return the
+T067 Linux results, freeze its readout, then make the T068 scientific direction
+decision.
 
 The corrected development comparison currently favors Schwartz–Hearst. On the
 20-passage, 59-pair T057 development view it scored 36 TP, 7 FP and 23 FN
@@ -157,6 +158,18 @@ The completed state is in
 `evidence/T061/review-packet-minimal.annotations.json`; the original seven
 completed passages remain in
 `evidence/T060/review-packet-split-v2.annotations.json`.
+
+### T067 fresh-check run
+
+Use [the T067 Linux runbook](T067-linux-runbook.md). Copy
+`.artifacts/T067/abrex-t067-linux-bundle-v3.zip` to the same server. Its
+SHA-256 is
+`bde41f96a1007c09135bdc0add39b1587e3e88c70c084882574b0a278d07b874`
+and its bundle ID is
+`ab96b25c055f49832c3bfedc6c0e50cf87ddc59f8349b1decd38c7c1625c9966`.
+It runs only Schwartz–Hearst and PLODv2 pairing over the same 32 documents and
+can reuse the T060 runtime without reinstalling it. The bundle contains 64
+document rows (the same 32 inputs for each method) and zero gold fields.
 
 ## CLP reuse
 

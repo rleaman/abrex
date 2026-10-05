@@ -1,7 +1,7 @@
 # T067 Run the frozen comparison and report the fresh-check result
 
 Owner: **Luna — engineering and preparation**  
-Status: **Unblocked by the corrected T066 lock; not yet executed.**
+Status: **Execution bundle prepared; awaiting the Linux result ZIP.**
 Dependencies: T066 locked annotations; T065 frozen protocol and runnable methods.
 
 Use `evidence/T066/review-packet-blind-v1.annotations.corrected-v2.json` and
@@ -26,4 +26,13 @@ Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECU
 ## Acceptance, deliverables and stopping point
 
 Deliver runnable evaluation command, frozen predictions/results, coverage/cost table and decision readout. Test denominator handling, empty passages, duplicate matching and immutable input enforcement. Run focused tests and fast gate; run the full gate at this milestone and report any existing coverage shortfall without lowering thresholds. No production promotion, training campaign or corpus-scale processing.
+
+## Current execution checkpoint
+
+The corrected lock has been verified and projected into separate local gold
+and prediction-only datasets under `evidence/T067`. Bundle
+`ab96b25c055f49832c3bfedc6c0e50cf87ddc59f8349b1decd38c7c1625c9966`
+contains only the prediction input and the two frozen methods. Use
+[the T067 Linux runbook](../T067-linux-runbook.md). The primary readout remains
+unexecuted and unfrozen until the checksummed Linux results return.
 

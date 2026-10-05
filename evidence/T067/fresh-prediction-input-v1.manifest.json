@@ -1,0 +1,38 @@
+{
+  "adapter": {
+    "identity": null,
+    "version": null
+  },
+  "annotation_count": 0,
+  "config_fingerprint": "45185b07c036a0efe5642de05ca33983a18b73dc57b5adbe493173a63bab9fdf",
+  "dataset_id": "T067-fresh-prediction-input-v1",
+  "fingerprint": "6e45aec545d1e848142d430bf749fd987755ea0cbbc9fc952ad68ab1cc2f6ab2",
+  "manifest_version": "manifest-v1",
+  "normalizers": [],
+  "record_count": 32,
+  "schema_version": "canonical-v1",
+  "source": {
+    "fingerprint": null,
+    "format": null,
+    "identifier": null
+  },
+  "validation": {
+    "by_action": {
+      "ambiguous": 0,
+      "dropped": 0,
+      "observed": 0,
+      "repaired": 0,
+      "unscoreable": 0
+    },
+    "by_severity": {
+      "error": 0,
+      "info": 0,
+      "warning": 0
+    },
+    "diagnostics": [],
+    "records_dropped": 0,
+    "records_kept": 32,
+    "records_seen": 32,
+    "total": 0
+  }
+}

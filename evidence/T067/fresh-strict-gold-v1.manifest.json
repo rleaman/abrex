@@ -1,0 +1,38 @@
+{
+  "adapter": {
+    "identity": null,
+    "version": null
+  },
+  "annotation_count": 32,
+  "config_fingerprint": "08e12d7676b3ad35653f12757220b7c6d314c830f3ce0ea6e536a91a1761bd20",
+  "dataset_id": "T067-fresh-strict-gold-v1",
+  "fingerprint": "30a0010a4a736fecd9b5ee20b137f66dede8568d5cfef9aba4a81853e9d78c06",
+  "manifest_version": "manifest-v1",
+  "normalizers": [],
+  "record_count": 32,
+  "schema_version": "canonical-v1",
+  "source": {
+    "fingerprint": null,
+    "format": null,
+    "identifier": null
+  },
+  "validation": {
+    "by_action": {
+      "ambiguous": 0,
+      "dropped": 0,
+      "observed": 0,
+      "repaired": 0,
+      "unscoreable": 0
+    },
+    "by_severity": {
+      "error": 0,
+      "info": 0,
+      "warning": 0
+    },
+    "diagnostics": [],
+    "records_dropped": 0,
+    "records_kept": 32,
+    "records_seen": 32,
+    "total": 0
+  }
+}
