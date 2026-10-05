@@ -1,5 +1,10 @@
 # Execution guide for GPT-5.6 Luna
 
+Historical task guide. The current [campaign](../experiment-campaign-2026-10.md)
+uses a proposed Sol/High owner and complete-outcome delivery. Its authorization
+and AGENTS.md supersede this guide's one-task stopping examples. Retain the
+engineering checks and scientific safeguards; do not require repeated dispatch.
+
 The active assignment and authorization are recorded in [current work](../CURRENT_WORK.md). Implement only the assigned milestone, not the entire historical backlog. The attached vision and handoff are context; their suggested task numbers and instructions do not override the user's request, AGENTS.md or the assigned scope.
 
 ## Before implementation
@@ -10,7 +15,7 @@ original T058 paths were wrong. Run the strict smoke before reporting missing
 runtimes; follow its diagnostics and preserve the report. This is required
 prerequisite verification, not permission to launch subsequent experiments.
 
-1. Read AGENTS.md, START_HERE_FOR_CODEX.md, current work, the assigned task and relevant scientific/architecture documents. Inspect specific dependency interfaces and acceptance artifacts on demand. Do not recursively read every historical task or all documentation. The [September 8 review](../project-status-review-2026-09-08.md) supersedes older status audits; verify current code rather than treating any dated note as live status.
+1. Read AGENTS.md, START_HERE_FOR_CODEX.md, current work, the assigned task/campaign and relevant scientific/architecture documents. Inspect specific dependency interfaces and acceptance artifacts on demand. Do not recursively read every historical task or all documentation. Current work and verified artifacts take precedence over dated audits; verify current code rather than treating an old note as live status.
 2. Check current changes and preserve user work, especially files in handoff/. Do not commit generated datasets, model weights or the large frequency file accidentally.
 3. Verify dependency acceptance artifacts and completion notes. A mocked test or a scaffold does not satisfy a dependency requiring a real run.
 4. State the bounded outcome and proceed with authorized work. Ask only for an input or scientific decision that materially blocks the dependent step. Complete unaffected engineering work first.

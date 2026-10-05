@@ -1,5 +1,12 @@
 # Numbered Codex Assignments
 
+## October 5 campaign
+
+The active assignment is the [CLP and extraction campaign](../experiment-campaign-2026-10.md).
+Its owner carries work through complete experimental outcomes and prepared human
+reviews. Historical task boundaries below do not require separate dispatch for
+each step of this campaign. Consult [current work](../CURRENT_WORK.md) first.
+
 ## October 2 revival status
 
 - [T059](T059-bounded-language-model-adapter.md) is complete; see its

@@ -2,6 +2,33 @@
 
 These instructions apply to all work in this repository unless a task explicitly overrides them.
 
+## Deliver complete outcomes and minimize user work
+
+Own the user's authorized outcome through preparation, implementation, execution,
+validation, and usable delivery. A campaign assignment authorizes its necessary
+clerical work and routine prerequisite repairs across task boundaries; historical
+"one task at a time" prompts do not override the current assignment. Read
+[current work](docs/CURRENT_WORK.md) for the active scope.
+
+- Resolve routine choices from existing evidence and policy. Do not ask the user
+  to locate artifacts, reconcile prior answers, edit configuration, or run checks
+  the agent can perform. Continue independent work while a real dependency waits.
+- For assisted review, prefill source context, exact spans, proposals and suggested
+  dispositions; carry forward applicable human decisions with provenance and show
+  only unresolved judgments. Never record an agent suggestion as a human answer.
+- For prediction-blind evaluation, prepare context and controls but withhold model
+  answers until the annotation lock. Keep assisted and blind evidence distinct.
+- A human handoff must be ready to use: tested launcher or live page, remaining
+  workload, exact actions, save location, return instruction, and what the agent
+  will do next. Test the actual packet plus disposable save/resume state. A file
+  path or implementation note alone does not complete a review-interface task.
+- If only the user can execute on another host, deliver one self-contained bundle
+  with exact copy/run/return instructions and expected success output. On return,
+  import, validate and continue without another implementation assignment.
+- Ask only for a missing scientific judgment, essential access, or an unapproved
+  external action/budget. Prepare a concrete recommendation and all independent
+  deliverables first. Never leave ordinary bookkeeping as the user's next step.
+
 ## Settled resource decisions
 
 The BADREX-corrected `schwartz_hearst_badrex` and `medstract_badrex` corpora

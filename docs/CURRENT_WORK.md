@@ -1,4 +1,26 @@
-# Current work: random-literature plumbing and review pilot
+# Current work: CLP transfer and comparative extraction campaign
+
+## October 5 campaign authorization and working agreement
+
+The user selected the review's experiments 1, 2, 3 and 4: evaluate the full CLP
+system, include Ab3P in contemporary comparisons, analyze errors across methods,
+and compare source-grounded LLM extraction with candidate judging. See the
+[campaign work order](experiment-campaign-2026-10.md) for outcomes, evidence
+boundaries and the proposed Sol/High workflow. The user also explicitly requires
+agents to perform the clerical work and deliver maximally prepared review
+interfaces and clear operational handoffs.
+
+This supersedes T068's earlier analysis/design-only scope and the historical
+one-task-per-assignment workflow for these four experiments. It does not change
+frozen annotations, prior results, or authorize the downstream experiment (5).
+Use existing development evidence first. A new confirmatory protocol and any
+missing external model route/budget must be made concrete before their dependent
+runs; they do not block local preparation or implementation.
+
+Current delivery: working agreement and campaign instructions prepared. Campaign
+implementation and new model runs are not claimed by this documentation change.
+Recommended next owner: GPT-5.6 Sol / High for the complete campaign, starting
+with milestone A. No model switch, subagent dispatch, or scheduled job was made.
 
 ## October 2 revival checkpoint
 

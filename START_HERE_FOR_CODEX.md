@@ -1,5 +1,13 @@
 # Abbreviation Resolution Project - Codex Handoff
 
+## Current execution scope
+
+The October 5 campaign in [current work](docs/CURRENT_WORK.md) takes precedence
+over the historical bootstrap sequence below. Follow the
+[experiment campaign](docs/experiment-campaign-2026-10.md) as an outcome assignment;
+do not stop at old task-number boundaries or require the user to dispatch each
+clerical step. The initial substrate described below already exists.
+
 ## Purpose
 
 Build a research-grade, extensible abbreviation-definition extraction platform for biomedical and scientific literature. The immediate purpose is not to jump to a new model. The first goal is to create a trustworthy experimental substrate in which baselines, candidate generators, rule systems, learned scorers, and later production integrations can be swapped in and evaluated under the same contracts.
@@ -24,8 +32,8 @@ the installed environments, exact resource paths and the quality-gate fallback.
 1. Read `AGENTS.md` completely.
 2. Read [current work](docs/CURRENT_WORK.md), the assigned task, relevant public contracts and the specific dependency acceptance artifacts needed for that task. Do not read all of `docs/` or recursively reread historical task instructions. Consult historical plans/notes only for a concrete question; their dated status is not current authority.
 3. If this is a fresh repository and no task number was assigned, implement only `docs/tasks/T000-bootstrap-repository.md`.
-4. After T000, implement only task numbers explicitly assigned by the user. Never treat the existence of later task files as authorization to execute them.
-5. Before an assigned task, verify that its dependencies are already satisfied; if not, report the missing dependency rather than silently absorbing large prerequisite work into the task.
+4. After T000, implement the task or campaign explicitly assigned by the user, including its necessary routine prerequisites. The existence of unrelated backlog files does not authorize their execution.
+5. Verify dependency evidence and repair routine prerequisites within the assigned outcome. If a prerequisite would materially expand scope, prepare the concrete choice and continue unaffected work.
 6. Do not silently change scientific contracts, annotation semantics, or evaluation definitions. If a scientific choice is underspecified, expose it as configuration and document the unresolved decision rather than inventing a hidden default.
 7. Keep each task independently reviewable. Do not bundle unrelated refactors into an assigned task.
 
