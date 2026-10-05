@@ -7,8 +7,9 @@ portable Linux execution, and prediction-blind reviewer are implemented. The
 paired Linux runtime jobs returned successfully on October 4. T061–T065 are
 now complete: the development evidence is reconciled, the T063 scientific
 protocol is approved and frozen, and the 32-case fresh prediction-blind packet
-has been acquired and browser-verified. The remaining work is deliberately
-sequential: obtain the user's T066 annotation lock, then run T067/T068.
+has been acquired and browser-verified. T066 is complete with an audited,
+corrected prediction-blind lock. The remaining work is deliberately sequential:
+run T067, then make the T068 scientific direction decision.
 
 The corrected development comparison currently favors Schwartz–Hearst. On the
 20-passage, 59-pair T057 development view it scored 36 TP, 7 FP and 23 FN
@@ -174,11 +175,10 @@ the sister parser; it is excluded from fresh evaluation.
 
 1. T060–T065 are complete. The approved protocol and actual 32-case packet are
    frozen under `docs/artifacts/T063-decision-prefill.json` and `evidence/T065`.
-2. Start T066 with `.\scripts\Review-T066.ps1`, annotate all 32 passages from
-   scratch, and use **Lock completed annotation** only after the reviewer says
-   the entire packet is ready. The actual packet passed Edge/browser and
-   payload-isolation QA without creating annotation state.
-3. Once the annotation lock exists, prepare/run/import prediction-only T067
+2. T066 is complete. Use the corrected state and replacement lock under
+   `evidence/T066`; the original lock under `evidence/T065` remains preserved.
+   Both post-lock corrections were authorized before predictions were exposed.
+3. Prepare/run/import prediction-only T067
    jobs and evaluate prose and table/list arms separately. T068 remains the
    user's final scientific direction choice.
 

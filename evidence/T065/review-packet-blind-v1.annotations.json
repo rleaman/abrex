@@ -1,8 +1,3420 @@
 {
-  "annotations": {},
-  "current_case_id": null,
-  "packet_content_sha256": "45185b07c036a0efe5642de05ca33983a18b73dc57b5adbe493173a63bab9fdf",
-  "packet_id": "blind-45185b07c036a0efe564",
   "schema_version": "t052-annotations-v2",
-  "updated_at": null
+  "packet_id": "blind-45185b07c036a0efe564",
+  "packet_content_sha256": "45185b07c036a0efe5642de05ca33983a18b73dc57b5adbe493173a63bab9fdf",
+  "current_case_id": "fresh-84c175f848ec1493c7a3",
+  "updated_at": "2026-10-05T16:37:56.856884+00:00",
+  "annotations": {
+    "fresh-ecd5d9c9465aaa26d5c0": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:47:42.343117+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-2be6c31d-7652-49f7-8c6a-58307ea01f5c",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 401,
+              "end": 404,
+              "text": "MIH"
+            },
+            "long_form": {
+              "start": 367,
+              "end": 399,
+              "text": "molar-incisor hypomineralization"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:47:42.343117+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-2be6c31d-7652-49f7-8c6a-58307ea01f5c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 401,
+                  "end": 404,
+                  "text": "MIH"
+                },
+                "long_form": {
+                  "start": 367,
+                  "end": 399,
+                  "text": "molar-incisor hypomineralization"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-9e739bc5513816b98b80": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:48:00.513072+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:48:00.513072+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-6065e2f106bb293297b4": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:48:56.346840+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-23039b4b-3409-4d3f-b546-61b07ce3b49d",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 48,
+              "end": 50,
+              "text": "ΔE"
+            },
+            "long_form": {
+              "start": 12,
+              "end": 46,
+              "text": "differences in tooth discoloration"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "other_naming_or_code_relation",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:48:56.346840+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-23039b4b-3409-4d3f-b546-61b07ce3b49d",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 48,
+                  "end": 50,
+                  "text": "ΔE"
+                },
+                "long_form": {
+                  "start": 12,
+                  "end": 46,
+                  "text": "differences in tooth discoloration"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-39191f696d74c36ee358": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:49:11.812922+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:49:11.812922+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-1b90f51bcd01c9ae3232": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:49:23.408906+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:49:23.408906+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-0643adf6c77aa1e1596a": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:49:44.881506+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:49:44.881506+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-e2bd23e9923c4f6028e7": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:50:00.826063+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:50:00.826063+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-1acb6ecbfbf6a6034485": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:50:10.889403+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:50:10.889403+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-ce4bd26a6343e5e0392e": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:51:00.721493+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-06d6dc23-3927-4b2b-b4d7-c430090add43",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 74,
+              "end": 78,
+              "text": "α-HB"
+            },
+            "long_form": {
+              "start": 55,
+              "end": 72,
+              "text": "α-hydroxybutyrate"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-43dc087f-a5d3-490e-b8b8-a5a21ff10dfe",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 204,
+              "end": 208,
+              "text": "T2DM"
+            },
+            "long_form": {
+              "start": 187,
+              "end": 202,
+              "text": "Type 2 diabetes"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:51:00.721493+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-06d6dc23-3927-4b2b-b4d7-c430090add43",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 74,
+                  "end": 78,
+                  "text": "α-HB"
+                },
+                "long_form": {
+                  "start": 55,
+                  "end": 72,
+                  "text": "α-hydroxybutyrate"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-43dc087f-a5d3-490e-b8b8-a5a21ff10dfe",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 204,
+                  "end": 208,
+                  "text": "T2DM"
+                },
+                "long_form": {
+                  "start": 187,
+                  "end": 202,
+                  "text": "Type 2 diabetes"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-84c175f848ec1493c7a3": {
+      "revision": 4,
+      "updated_at": "2026-10-05T16:37:56.856884+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-00b602aa-2119-444b-90fa-7d4cffe34a77",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "unsure",
+            "short_form": {
+              "start": 4302,
+              "end": 4306,
+              "text": "α‐HB"
+            },
+            "long_form": {
+              "start": 4308,
+              "end": 4325,
+              "text": "α‐hydroxybutyrate"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "uncertain",
+            "evidence_structure": "uncertain",
+            "context_requirement": "uncertain",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-d4f93b2e-9aa8-4d08-b52c-52c3b01e02c8",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4327,
+              "end": 4330,
+              "text": "ACE"
+            },
+            "long_form": {
+              "start": 4332,
+              "end": 4361,
+              "text": "angiotensin‐converting enzyme"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-36c0a608-3ecd-4fba-b98e-6b5284ef6461",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4363,
+              "end": 4366,
+              "text": "ARB"
+            },
+            "long_form": {
+              "start": 4368,
+              "end": 4399,
+              "text": "angiotensin II receptor blocker"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-555a1a37-2dec-4f7e-8958-4afa6bece9d6",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4401,
+              "end": 4404,
+              "text": "ASA"
+            },
+            "long_form": {
+              "start": 4406,
+              "end": 4426,
+              "text": "acetylsalicylic acid"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-f5e5fad2-c2c6-4c15-9033-da2ade765325",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4428,
+              "end": 4431,
+              "text": "BMI"
+            },
+            "long_form": {
+              "start": 4433,
+              "end": 4448,
+              "text": "body mass index"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-f277fd4b-fd0c-48c7-abf9-eb6927853286",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4450,
+              "end": 4453,
+              "text": "CVD"
+            },
+            "long_form": {
+              "start": 4455,
+              "end": 4477,
+              "text": "cardiovascular disease"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-191b4755-016a-4e40-aff0-c58fc6b578a2",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4479,
+              "end": 4481,
+              "text": "Hb"
+            },
+            "long_form": {
+              "start": 4483,
+              "end": 4494,
+              "text": "haemoglobin"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-e2eca2a7-c7fd-4f89-8d60-a187c058873a",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4525,
+              "end": 4528,
+              "text": "HDL"
+            },
+            "long_form": {
+              "start": 4530,
+              "end": 4566,
+              "text": "high‐density lipoprotein cholesterol"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-cbbe61ce-4eb2-44cf-936e-a7cd9528246c",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4568,
+              "end": 4573,
+              "text": "hsCRP"
+            },
+            "long_form": {
+              "start": 4575,
+              "end": 4610,
+              "text": "high‐sensitivity C‐reactive protein"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-60592e6f-d3d6-4e7f-9d11-7ec1382ec6be",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4612,
+              "end": 4615,
+              "text": "IFG"
+            },
+            "long_form": {
+              "start": 4617,
+              "end": 4641,
+              "text": "impaired fasting glucose"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-7d74dc0c-e0b2-49b4-92b4-7beb0c758686",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4643,
+              "end": 4646,
+              "text": "IGT"
+            },
+            "long_form": {
+              "start": 4648,
+              "end": 4674,
+              "text": "impaired glucose tolerance"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-2d088df4-dc8d-404f-9683-c3b42f7e7948",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4676,
+              "end": 4679,
+              "text": "IQR"
+            },
+            "long_form": {
+              "start": 4681,
+              "end": 4700,
+              "text": "interquartile range"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-c93617c9-c61c-4532-94f5-b8bb44a65843",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4702,
+              "end": 4705,
+              "text": "LDL"
+            },
+            "long_form": {
+              "start": 4707,
+              "end": 4742,
+              "text": "low‐density lipoprotein cholesterol"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-d3dd0b16-82da-4c6c-b15c-02f2fb4674c4",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4766,
+              "end": 4770,
+              "text": "OGTT"
+            },
+            "long_form": {
+              "start": 4772,
+              "end": 4799,
+              "text": "oral glucose tolerance test"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-a4a0bb98-88f4-47df-9ac6-748955206c50",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4801,
+              "end": 4805,
+              "text": "T2DM"
+            },
+            "long_form": {
+              "start": 4807,
+              "end": 4831,
+              "text": "Type 2 diabetes mellitus"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-a5e460e6-832d-4010-a9c8-85b844d1ed1e",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4833,
+              "end": 4838,
+              "text": "U‐ACR"
+            },
+            "long_form": {
+              "start": 4840,
+              "end": 4864,
+              "text": "Urine Albumin/Creatinine"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-5d5725a7-67ef-436e-bfb6-f769478131bd",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4744,
+              "end": 4747,
+              "text": "LPK"
+            },
+            "long_form": {
+              "start": 4749,
+              "end": 4764,
+              "text": "leukocyte count"
+            },
+            "origin": "added",
+            "notes": "LPK --> leukocyte particle concentration (either substituting C for K, or through Germanic languages where the word for concentration starts with a K).",
+            "relation_kind": "other_naming_or_code_relation",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-976fc155-c405-4487-8825-47e49b84403f",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4496,
+              "end": 4501,
+              "text": "HbA1c"
+            },
+            "long_form": {
+              "start": 4503,
+              "end": 4523,
+              "text": "glycated haemoglobin"
+            },
+            "origin": "added",
+            "notes": "The SF has a long history and is the most common SF for the given LF, but isn't an abbreviation",
+            "relation_kind": "other_naming_or_code_relation",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:52:37.570045+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-00b602aa-2119-444b-90fa-7d4cffe34a77",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 4302,
+                  "end": 4306,
+                  "text": "α‐HB"
+                },
+                "long_form": {
+                  "start": 4308,
+                  "end": 4325,
+                  "text": "α‐hydroxybutyrate"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-05T16:03:54.520011+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-00b602aa-2119-444b-90fa-7d4cffe34a77",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 4302,
+                  "end": 4306,
+                  "text": "α‐HB"
+                },
+                "long_form": {
+                  "start": 4308,
+                  "end": 4325,
+                  "text": "α‐hydroxybutyrate"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-d4f93b2e-9aa8-4d08-b52c-52c3b01e02c8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4327,
+                  "end": 4330,
+                  "text": "ACE"
+                },
+                "long_form": {
+                  "start": 4332,
+                  "end": 4361,
+                  "text": "angiotensin‐converting enzyme"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-36c0a608-3ecd-4fba-b98e-6b5284ef6461",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4363,
+                  "end": 4366,
+                  "text": "ARB"
+                },
+                "long_form": {
+                  "start": 4368,
+                  "end": 4399,
+                  "text": "angiotensin II receptor blocker"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-555a1a37-2dec-4f7e-8958-4afa6bece9d6",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4401,
+                  "end": 4404,
+                  "text": "ASA"
+                },
+                "long_form": {
+                  "start": 4406,
+                  "end": 4426,
+                  "text": "acetylsalicylic acid"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-f5e5fad2-c2c6-4c15-9033-da2ade765325",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4428,
+                  "end": 4431,
+                  "text": "BMI"
+                },
+                "long_form": {
+                  "start": 4433,
+                  "end": 4448,
+                  "text": "body mass index"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-f277fd4b-fd0c-48c7-abf9-eb6927853286",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4450,
+                  "end": 4453,
+                  "text": "CVD"
+                },
+                "long_form": {
+                  "start": 4455,
+                  "end": 4477,
+                  "text": "cardiovascular disease"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-10-05T16:37:51.613079+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-00b602aa-2119-444b-90fa-7d4cffe34a77",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 4302,
+                  "end": 4306,
+                  "text": "α‐HB"
+                },
+                "long_form": {
+                  "start": 4308,
+                  "end": 4325,
+                  "text": "α‐hydroxybutyrate"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-d4f93b2e-9aa8-4d08-b52c-52c3b01e02c8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4327,
+                  "end": 4330,
+                  "text": "ACE"
+                },
+                "long_form": {
+                  "start": 4332,
+                  "end": 4361,
+                  "text": "angiotensin‐converting enzyme"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-36c0a608-3ecd-4fba-b98e-6b5284ef6461",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4363,
+                  "end": 4366,
+                  "text": "ARB"
+                },
+                "long_form": {
+                  "start": 4368,
+                  "end": 4399,
+                  "text": "angiotensin II receptor blocker"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-555a1a37-2dec-4f7e-8958-4afa6bece9d6",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4401,
+                  "end": 4404,
+                  "text": "ASA"
+                },
+                "long_form": {
+                  "start": 4406,
+                  "end": 4426,
+                  "text": "acetylsalicylic acid"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-f5e5fad2-c2c6-4c15-9033-da2ade765325",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4428,
+                  "end": 4431,
+                  "text": "BMI"
+                },
+                "long_form": {
+                  "start": 4433,
+                  "end": 4448,
+                  "text": "body mass index"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-f277fd4b-fd0c-48c7-abf9-eb6927853286",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4450,
+                  "end": 4453,
+                  "text": "CVD"
+                },
+                "long_form": {
+                  "start": 4455,
+                  "end": 4477,
+                  "text": "cardiovascular disease"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-191b4755-016a-4e40-aff0-c58fc6b578a2",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4479,
+                  "end": 4481,
+                  "text": "Hb"
+                },
+                "long_form": {
+                  "start": 4483,
+                  "end": 4494,
+                  "text": "haemoglobin"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-e2eca2a7-c7fd-4f89-8d60-a187c058873a",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4525,
+                  "end": 4528,
+                  "text": "HDL"
+                },
+                "long_form": {
+                  "start": 4530,
+                  "end": 4566,
+                  "text": "high‐density lipoprotein cholesterol"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-cbbe61ce-4eb2-44cf-936e-a7cd9528246c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4568,
+                  "end": 4573,
+                  "text": "hsCRP"
+                },
+                "long_form": {
+                  "start": 4575,
+                  "end": 4610,
+                  "text": "high‐sensitivity C‐reactive protein"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-60592e6f-d3d6-4e7f-9d11-7ec1382ec6be",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4612,
+                  "end": 4615,
+                  "text": "IFG"
+                },
+                "long_form": {
+                  "start": 4617,
+                  "end": 4641,
+                  "text": "impaired fasting glucose"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-7d74dc0c-e0b2-49b4-92b4-7beb0c758686",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4643,
+                  "end": 4646,
+                  "text": "IGT"
+                },
+                "long_form": {
+                  "start": 4648,
+                  "end": 4674,
+                  "text": "impaired glucose tolerance"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-2d088df4-dc8d-404f-9683-c3b42f7e7948",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4676,
+                  "end": 4679,
+                  "text": "IQR"
+                },
+                "long_form": {
+                  "start": 4681,
+                  "end": 4700,
+                  "text": "interquartile range"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-c93617c9-c61c-4532-94f5-b8bb44a65843",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4702,
+                  "end": 4705,
+                  "text": "LDL"
+                },
+                "long_form": {
+                  "start": 4707,
+                  "end": 4742,
+                  "text": "low‐density lipoprotein cholesterol"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-d3dd0b16-82da-4c6c-b15c-02f2fb4674c4",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4766,
+                  "end": 4770,
+                  "text": "OGTT"
+                },
+                "long_form": {
+                  "start": 4772,
+                  "end": 4799,
+                  "text": "oral glucose tolerance test"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-a4a0bb98-88f4-47df-9ac6-748955206c50",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4801,
+                  "end": 4805,
+                  "text": "T2DM"
+                },
+                "long_form": {
+                  "start": 4807,
+                  "end": 4831,
+                  "text": "Type 2 diabetes mellitus"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-a5e460e6-832d-4010-a9c8-85b844d1ed1e",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4833,
+                  "end": 4838,
+                  "text": "U‐ACR"
+                },
+                "long_form": {
+                  "start": 4840,
+                  "end": 4864,
+                  "text": "Urine Albumin/Creatinine"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-5d5725a7-67ef-436e-bfb6-f769478131bd",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4744,
+                  "end": 4747,
+                  "text": "LPK"
+                },
+                "long_form": {
+                  "start": 4749,
+                  "end": 4764,
+                  "text": "leukocyte count"
+                },
+                "origin": "added",
+                "notes": "LPK --> leukocyte particle concentration (either substituting C for K, or through Germanic languages where the word for concentration starts with a K).",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-976fc155-c405-4487-8825-47e49b84403f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4496,
+                  "end": 4501,
+                  "text": "HbA1c"
+                },
+                "long_form": {
+                  "start": 4503,
+                  "end": 4523,
+                  "text": "glycated haemoglobin"
+                },
+                "origin": "added",
+                "notes": "The SF has a long history and is the most common SF for the given LF, but isn't an abbreviation",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 4,
+          "saved_at": "2026-10-05T16:37:56.856884+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-00b602aa-2119-444b-90fa-7d4cffe34a77",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 4302,
+                  "end": 4306,
+                  "text": "α‐HB"
+                },
+                "long_form": {
+                  "start": 4308,
+                  "end": 4325,
+                  "text": "α‐hydroxybutyrate"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "uncertain",
+                "evidence_structure": "uncertain",
+                "context_requirement": "uncertain",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-d4f93b2e-9aa8-4d08-b52c-52c3b01e02c8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4327,
+                  "end": 4330,
+                  "text": "ACE"
+                },
+                "long_form": {
+                  "start": 4332,
+                  "end": 4361,
+                  "text": "angiotensin‐converting enzyme"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-36c0a608-3ecd-4fba-b98e-6b5284ef6461",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4363,
+                  "end": 4366,
+                  "text": "ARB"
+                },
+                "long_form": {
+                  "start": 4368,
+                  "end": 4399,
+                  "text": "angiotensin II receptor blocker"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-555a1a37-2dec-4f7e-8958-4afa6bece9d6",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4401,
+                  "end": 4404,
+                  "text": "ASA"
+                },
+                "long_form": {
+                  "start": 4406,
+                  "end": 4426,
+                  "text": "acetylsalicylic acid"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-f5e5fad2-c2c6-4c15-9033-da2ade765325",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4428,
+                  "end": 4431,
+                  "text": "BMI"
+                },
+                "long_form": {
+                  "start": 4433,
+                  "end": 4448,
+                  "text": "body mass index"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-f277fd4b-fd0c-48c7-abf9-eb6927853286",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4450,
+                  "end": 4453,
+                  "text": "CVD"
+                },
+                "long_form": {
+                  "start": 4455,
+                  "end": 4477,
+                  "text": "cardiovascular disease"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-191b4755-016a-4e40-aff0-c58fc6b578a2",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4479,
+                  "end": 4481,
+                  "text": "Hb"
+                },
+                "long_form": {
+                  "start": 4483,
+                  "end": 4494,
+                  "text": "haemoglobin"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-e2eca2a7-c7fd-4f89-8d60-a187c058873a",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4525,
+                  "end": 4528,
+                  "text": "HDL"
+                },
+                "long_form": {
+                  "start": 4530,
+                  "end": 4566,
+                  "text": "high‐density lipoprotein cholesterol"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-cbbe61ce-4eb2-44cf-936e-a7cd9528246c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4568,
+                  "end": 4573,
+                  "text": "hsCRP"
+                },
+                "long_form": {
+                  "start": 4575,
+                  "end": 4610,
+                  "text": "high‐sensitivity C‐reactive protein"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-60592e6f-d3d6-4e7f-9d11-7ec1382ec6be",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4612,
+                  "end": 4615,
+                  "text": "IFG"
+                },
+                "long_form": {
+                  "start": 4617,
+                  "end": 4641,
+                  "text": "impaired fasting glucose"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-7d74dc0c-e0b2-49b4-92b4-7beb0c758686",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4643,
+                  "end": 4646,
+                  "text": "IGT"
+                },
+                "long_form": {
+                  "start": 4648,
+                  "end": 4674,
+                  "text": "impaired glucose tolerance"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-2d088df4-dc8d-404f-9683-c3b42f7e7948",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4676,
+                  "end": 4679,
+                  "text": "IQR"
+                },
+                "long_form": {
+                  "start": 4681,
+                  "end": 4700,
+                  "text": "interquartile range"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-c93617c9-c61c-4532-94f5-b8bb44a65843",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4702,
+                  "end": 4705,
+                  "text": "LDL"
+                },
+                "long_form": {
+                  "start": 4707,
+                  "end": 4742,
+                  "text": "low‐density lipoprotein cholesterol"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-d3dd0b16-82da-4c6c-b15c-02f2fb4674c4",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4766,
+                  "end": 4770,
+                  "text": "OGTT"
+                },
+                "long_form": {
+                  "start": 4772,
+                  "end": 4799,
+                  "text": "oral glucose tolerance test"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-a4a0bb98-88f4-47df-9ac6-748955206c50",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4801,
+                  "end": 4805,
+                  "text": "T2DM"
+                },
+                "long_form": {
+                  "start": 4807,
+                  "end": 4831,
+                  "text": "Type 2 diabetes mellitus"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-a5e460e6-832d-4010-a9c8-85b844d1ed1e",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4833,
+                  "end": 4838,
+                  "text": "U‐ACR"
+                },
+                "long_form": {
+                  "start": 4840,
+                  "end": 4864,
+                  "text": "Urine Albumin/Creatinine"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-5d5725a7-67ef-436e-bfb6-f769478131bd",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4744,
+                  "end": 4747,
+                  "text": "LPK"
+                },
+                "long_form": {
+                  "start": 4749,
+                  "end": 4764,
+                  "text": "leukocyte count"
+                },
+                "origin": "added",
+                "notes": "LPK --> leukocyte particle concentration (either substituting C for K, or through Germanic languages where the word for concentration starts with a K).",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-976fc155-c405-4487-8825-47e49b84403f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4496,
+                  "end": 4501,
+                  "text": "HbA1c"
+                },
+                "long_form": {
+                  "start": 4503,
+                  "end": 4523,
+                  "text": "glycated haemoglobin"
+                },
+                "origin": "added",
+                "notes": "The SF has a long history and is the most common SF for the given LF, but isn't an abbreviation",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-899a40e065c8a7896a70": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:52:54.277455+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:52:54.277455+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-41abba31037125b1a5be": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:53:10.990980+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:53:10.990980+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-32cb8ef9d3b3a82e08a3": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:53:22.018070+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:53:22.018070+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-23ad76bf41d6e340f7a5": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:53:50.054719+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:53:50.054719+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-25809b3921e6efc9369e": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:54:07.753425+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:54:07.753425+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-9a4d35bdf4446e4c5708": {
+      "revision": 2,
+      "updated_at": "2026-10-05T02:56:26.897010+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-2c58386a-6fee-4a91-a9b9-b6c71c9eaf2f",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 381,
+              "end": 383,
+              "text": "SD"
+            },
+            "long_form": {
+              "start": 361,
+              "end": 379,
+              "text": "standard deviation"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-94c00b44-f334-431c-a94d-b84d593c86a0",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 421,
+              "end": 424,
+              "text": "IQR"
+            },
+            "long_form": {
+              "start": 400,
+              "end": 419,
+              "text": "interquartile range"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:55:05.704268+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-2c58386a-6fee-4a91-a9b9-b6c71c9eaf2f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 381,
+                  "end": 383,
+                  "text": "SD"
+                },
+                "long_form": {
+                  "start": 361,
+                  "end": 379,
+                  "text": "standard deviation"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-94c00b44-f334-431c-a94d-b84d593c86a0",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 421,
+                  "end": 424,
+                  "text": "IQR"
+                },
+                "long_form": {
+                  "start": 400,
+                  "end": 419,
+                  "text": "interquartile range"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-05T02:56:26.897010+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-2c58386a-6fee-4a91-a9b9-b6c71c9eaf2f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 381,
+                  "end": 383,
+                  "text": "SD"
+                },
+                "long_form": {
+                  "start": 361,
+                  "end": 379,
+                  "text": "standard deviation"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-94c00b44-f334-431c-a94d-b84d593c86a0",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 421,
+                  "end": 424,
+                  "text": "IQR"
+                },
+                "long_form": {
+                  "start": 400,
+                  "end": 419,
+                  "text": "interquartile range"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-8475b43644ca99766b8c": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:55:16.434846+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:55:16.434846+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-35f2ea4632e8a34ea2f3": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:55:32.235030+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:55:32.235030+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-1129914ee7a30d0e7a6b": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:55:43.066956+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:55:43.066956+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-113eb9a3d276155f0e2c": {
+      "revision": 1,
+      "updated_at": "2026-10-05T02:56:04.145562+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:56:04.145562+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-63ce2964b93fe14ae66a": {
+      "revision": 3,
+      "updated_at": "2026-10-05T16:06:19.056195+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-0466f34e-80a4-4bdf-af0e-acacf48e8d0e",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 255,
+              "end": 259,
+              "text": "CPET"
+            },
+            "long_form": {
+              "start": 221,
+              "end": 253,
+              "text": "cardiopulmonary exercise testing"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-04d540ff-129e-4b22-9aae-0886ed075215",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 473,
+              "end": 476,
+              "text": "PPC"
+            },
+            "long_form": {
+              "start": 447,
+              "end": 471,
+              "text": "Post-operative pulmonary"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-2b11f5a6-0055-4e16-9f92-84dde0936483",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 512,
+              "end": 515,
+              "text": "PCC"
+            },
+            "long_form": {
+              "start": 482,
+              "end": 510,
+              "text": "cardiovascular complications"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "discontinuous",
+            "context_requirement": "text_alone",
+            "evidence_spans": [
+              {
+                "start": 447,
+                "end": 461,
+                "text": "Post-operative"
+              }
+            ],
+            "interpretation": "Post-operative cardiovascular complications",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T02:56:50.587766+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-05T16:06:01.046853+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-0466f34e-80a4-4bdf-af0e-acacf48e8d0e",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 255,
+                  "end": 259,
+                  "text": "CPET"
+                },
+                "long_form": {
+                  "start": 221,
+                  "end": 253,
+                  "text": "cardiopulmonary exercise testing"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-04d540ff-129e-4b22-9aae-0886ed075215",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 473,
+                  "end": 476,
+                  "text": "PPC"
+                },
+                "long_form": {
+                  "start": 447,
+                  "end": 471,
+                  "text": "Post-operative pulmonary"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-2b11f5a6-0055-4e16-9f92-84dde0936483",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 512,
+                  "end": 515,
+                  "text": "PCC"
+                },
+                "long_form": {
+                  "start": 482,
+                  "end": 510,
+                  "text": "cardiovascular complications"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "discontinuous",
+                "context_requirement": "text_alone",
+                "evidence_spans": [
+                  {
+                    "start": 447,
+                    "end": 461,
+                    "text": "Post-operative"
+                  }
+                ],
+                "interpretation": "Post-operative cardiovascular complications",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-10-05T16:06:19.056195+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-0466f34e-80a4-4bdf-af0e-acacf48e8d0e",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 255,
+                  "end": 259,
+                  "text": "CPET"
+                },
+                "long_form": {
+                  "start": 221,
+                  "end": 253,
+                  "text": "cardiopulmonary exercise testing"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-04d540ff-129e-4b22-9aae-0886ed075215",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 473,
+                  "end": 476,
+                  "text": "PPC"
+                },
+                "long_form": {
+                  "start": 447,
+                  "end": 471,
+                  "text": "Post-operative pulmonary"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-2b11f5a6-0055-4e16-9f92-84dde0936483",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 512,
+                  "end": 515,
+                  "text": "PCC"
+                },
+                "long_form": {
+                  "start": 482,
+                  "end": 510,
+                  "text": "cardiovascular complications"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "discontinuous",
+                "context_requirement": "text_alone",
+                "evidence_spans": [
+                  {
+                    "start": 447,
+                    "end": 461,
+                    "text": "Post-operative"
+                  }
+                ],
+                "interpretation": "Post-operative cardiovascular complications",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-357fcdc073437356241a": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:02:20.316912+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:02:20.316912+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-f24653c63ef283c31d6c": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:02:37.310858+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:02:37.310858+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-bcd322325a2a5220a55e": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:04:38.031322+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:04:38.031322+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-61030c6047c4611a22cd": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:06:30.549415+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:06:30.549415+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-c6aac04800252d120c1a": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:06:41.656367+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:06:41.656367+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-443820ab136985e2523f": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:07:05.294264+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:07:05.294264+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-7b5c5e567b01f08dc2ce": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:07:20.645968+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:07:20.645968+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-5a4294e47425c9acf1c4": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:12:59.099826+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-8a74cda7-1a3d-428c-80eb-94766af5b364",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "unsure",
+            "short_form": {
+              "start": 134,
+              "end": 141,
+              "text": "31P-MRS"
+            },
+            "long_form": {
+              "start": 90,
+              "end": 132,
+              "text": "phosphorus magnetic resonance spectroscopy"
+            },
+            "origin": "added",
+            "notes": "Phosphorus 31 is the only stable isotope of phosphorus.",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "uncertain",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-e5095875-8991-4b46-8733-b2be1e14f773",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 187,
+              "end": 190,
+              "text": "PCr"
+            },
+            "long_form": {
+              "start": 170,
+              "end": 186,
+              "text": "phosphocreatine "
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:12:59.099826+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-8a74cda7-1a3d-428c-80eb-94766af5b364",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "unsure",
+                "short_form": {
+                  "start": 134,
+                  "end": 141,
+                  "text": "31P-MRS"
+                },
+                "long_form": {
+                  "start": 90,
+                  "end": 132,
+                  "text": "phosphorus magnetic resonance spectroscopy"
+                },
+                "origin": "added",
+                "notes": "Phosphorus 31 is the only stable isotope of phosphorus.",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "uncertain",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-e5095875-8991-4b46-8733-b2be1e14f773",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 187,
+                  "end": 190,
+                  "text": "PCr"
+                },
+                "long_form": {
+                  "start": 170,
+                  "end": 186,
+                  "text": "phosphocreatine "
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-70825b8040d62b6919e2": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:13:12.004991+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:13:12.004991+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-ca0df427332bfe8fdd61": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:13:25.895001+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:13:25.895001+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "fresh-88bdb5062e5e13aaeb7a": {
+      "revision": 1,
+      "updated_at": "2026-10-05T16:27:20.449846+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-1cc47a3d-438f-46e5-9013-f27ab1d256d5",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1193,
+              "end": 1196,
+              "text": "PTX"
+            },
+            "long_form": {
+              "start": 1181,
+              "end": 1192,
+              "text": "Paclitaxel "
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-f57c9f59-4f95-49e4-9392-21094b6cf5de",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1210,
+              "end": 1213,
+              "text": "DSF"
+            },
+            "long_form": {
+              "start": 1198,
+              "end": 1209,
+              "text": "disulfiram "
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-98ea6166-ed66-4f8e-9a1b-468ef0891052",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2826,
+              "end": 2829,
+              "text": "3TC"
+            },
+            "long_form": {
+              "start": 2814,
+              "end": 2825,
+              "text": "Lamivudine "
+            },
+            "origin": "added",
+            "notes": "3TC --> 3'-thia-2',3'-dideoxycytidine, IUPAC name for lamivudine.",
+            "relation_kind": "other_naming_or_code_relation",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-b98853be-eb99-44df-9783-ed76d7557598",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 2843,
+              "end": 2846,
+              "text": "AZT"
+            },
+            "long_form": {
+              "start": 2831,
+              "end": 2842,
+              "text": "zidovudine "
+            },
+            "origin": "added",
+            "notes": "AZT --> azidothymidine, a synonym of zidovudine.",
+            "relation_kind": "other_naming_or_code_relation",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-1a95b0e9-755a-4ba2-a25f-3da7f7302cde",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 3697,
+              "end": 3700,
+              "text": "SUL"
+            },
+            "long_form": {
+              "start": 3659,
+              "end": 3695,
+              "text": "4-Aminosalysilic acid–sulfamethazine"
+            },
+            "origin": "added",
+            "notes": "I called this an \"Abbreviation expansion\" but it's a chemical and not completely clear to me. Also, \"Aminosalysilic\" should be \"Aminosalicylic\". ",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": true
+          },
+          {
+            "decision_id": "added-8a25793c-c949-426f-94b6-45e34e6eff2e",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 3757,
+              "end": 3760,
+              "text": "HPH"
+            },
+            "long_form": {
+              "start": 3727,
+              "end": 3755,
+              "text": "high-pressure homogenization"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-5cf33b42-f00b-4a18-b5eb-65b7bfc28ae1",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 3789,
+              "end": 3792,
+              "text": "HPU"
+            },
+            "long_form": {
+              "start": 3766,
+              "end": 3787,
+              "text": "high-power ultrasound"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-1d54836d-fc89-4d1c-b71c-0ba7df185b24",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 4030,
+              "end": 4033,
+              "text": "CAR"
+            },
+            "long_form": {
+              "start": 4018,
+              "end": 4029,
+              "text": "Carvedilol "
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-f9252236-2ef7-4f3a-8836-5dad8c49d59c",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 5736,
+              "end": 5738,
+              "text": "UR"
+            },
+            "long_form": {
+              "start": 5728,
+              "end": 5735,
+              "text": "uracil "
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-9cf3dcd8-6f22-4714-9306-7949161010db",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 5723,
+              "end": 5726,
+              "text": "ARA"
+            },
+            "long_form": {
+              "start": 5711,
+              "end": 5722,
+              "text": "Cytarabine "
+            },
+            "origin": "added",
+            "notes": "ARA --> ara-C --> cytosine arabinoside, a synonym for cytarabine.",
+            "relation_kind": "other_naming_or_code_relation",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-b3ce8e0d-d9c0-45c8-94ee-965c990d6fc8",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 6072,
+              "end": 6074,
+              "text": "AG"
+            },
+            "long_form": {
+              "start": 6055,
+              "end": 6071,
+              "text": "Andrographolide "
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-05T16:27:20.449846+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-1cc47a3d-438f-46e5-9013-f27ab1d256d5",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1193,
+                  "end": 1196,
+                  "text": "PTX"
+                },
+                "long_form": {
+                  "start": 1181,
+                  "end": 1192,
+                  "text": "Paclitaxel "
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-f57c9f59-4f95-49e4-9392-21094b6cf5de",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1210,
+                  "end": 1213,
+                  "text": "DSF"
+                },
+                "long_form": {
+                  "start": 1198,
+                  "end": 1209,
+                  "text": "disulfiram "
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-98ea6166-ed66-4f8e-9a1b-468ef0891052",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2826,
+                  "end": 2829,
+                  "text": "3TC"
+                },
+                "long_form": {
+                  "start": 2814,
+                  "end": 2825,
+                  "text": "Lamivudine "
+                },
+                "origin": "added",
+                "notes": "3TC --> 3'-thia-2',3'-dideoxycytidine, IUPAC name for lamivudine.",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-b98853be-eb99-44df-9783-ed76d7557598",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 2843,
+                  "end": 2846,
+                  "text": "AZT"
+                },
+                "long_form": {
+                  "start": 2831,
+                  "end": 2842,
+                  "text": "zidovudine "
+                },
+                "origin": "added",
+                "notes": "AZT --> azidothymidine, a synonym of zidovudine.",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-1a95b0e9-755a-4ba2-a25f-3da7f7302cde",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 3697,
+                  "end": 3700,
+                  "text": "SUL"
+                },
+                "long_form": {
+                  "start": 3659,
+                  "end": 3695,
+                  "text": "4-Aminosalysilic acid–sulfamethazine"
+                },
+                "origin": "added",
+                "notes": "I called this an \"Abbreviation expansion\" but it's a chemical and not completely clear to me. Also, \"Aminosalysilic\" should be \"Aminosalicylic\". ",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": true
+              },
+              {
+                "decision_id": "added-8a25793c-c949-426f-94b6-45e34e6eff2e",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 3757,
+                  "end": 3760,
+                  "text": "HPH"
+                },
+                "long_form": {
+                  "start": 3727,
+                  "end": 3755,
+                  "text": "high-pressure homogenization"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-5cf33b42-f00b-4a18-b5eb-65b7bfc28ae1",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 3789,
+                  "end": 3792,
+                  "text": "HPU"
+                },
+                "long_form": {
+                  "start": 3766,
+                  "end": 3787,
+                  "text": "high-power ultrasound"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-1d54836d-fc89-4d1c-b71c-0ba7df185b24",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 4030,
+                  "end": 4033,
+                  "text": "CAR"
+                },
+                "long_form": {
+                  "start": 4018,
+                  "end": 4029,
+                  "text": "Carvedilol "
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-f9252236-2ef7-4f3a-8836-5dad8c49d59c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 5736,
+                  "end": 5738,
+                  "text": "UR"
+                },
+                "long_form": {
+                  "start": 5728,
+                  "end": 5735,
+                  "text": "uracil "
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-9cf3dcd8-6f22-4714-9306-7949161010db",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 5723,
+                  "end": 5726,
+                  "text": "ARA"
+                },
+                "long_form": {
+                  "start": 5711,
+                  "end": 5722,
+                  "text": "Cytarabine "
+                },
+                "origin": "added",
+                "notes": "ARA --> ara-C --> cytosine arabinoside, a synonym for cytarabine.",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-b3ce8e0d-d9c0-45c8-94ee-965c990d6fc8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 6072,
+                  "end": 6074,
+                  "text": "AG"
+                },
+                "long_form": {
+                  "start": 6055,
+                  "end": 6071,
+                  "text": "Andrographolide "
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    }
+  }
 }

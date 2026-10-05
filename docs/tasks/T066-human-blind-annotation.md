@@ -1,7 +1,7 @@
 # T066 Annotate the fresh passages before seeing predictions
 
 Owner: **USER — scientific lead; not a Luna implementation assignment**  
-Status: **Ready for the scientific lead; the T065 packet is delivered.**
+Status: **Complete - corrected prediction-blind lock accepted October 5, 2026.**
 Dependencies: T065 actual prediction-free packet and guide.
 
 ## Execution contract
@@ -13,6 +13,8 @@ Read [the milestone plan](../post-t052-next-steps.md), [Luna's guide](LUNA_EXECU
 Start the actual packet from the project root with
 `.\scripts\Review-T066.ps1`. The browser opens locally and saves the draft
 directly under `evidence/T065`; no file copying is needed in this checkout.
+The desktop layout gives the article passage and annotation controls separate
+scroll positions for long table/caption cases.
 
 1. Read the frozen guidelines and annotate all in-scope definitions in each passage from scratch. Search the whole annotatable passage, including passages with no obvious abbreviations.
 2. Select exact source evidence. Record shared/discontinuous evidence separately from a reconstructed interpretation; use uncertainty rather than forcing a match.
@@ -24,4 +26,16 @@ directly under `evidence/T065`; no file copying is needed in this checkout.
 ## Acceptance, deliverables and stopping point
 
 User deliverable: locked prediction-blind annotations with passage completeness and uncertainty recorded. Luna may fix tooling and validate data integrity without interpreting source relations. Independent gold is not automatically claimed; provenance must reflect the actual reviewer and exposure history.
+
+## Completion
+
+The original user lock remains unchanged under `evidence/T065`. A post-lock
+integrity audit identified two relations left `unsure`; before any evaluated
+prediction was run, the scientific lead explicitly set Cases 12 and 30 to
+`abbreviation_expansion`, `contiguous_shared`, and `text_alone`. Version 2 adds
+one `json_import` revision to each affected case and preserves every prior
+revision. The corrected state and replacement lock under `evidence/T066` are
+the authoritative T067 gold inputs. The corrected audit has 32/32 ready cases,
+40 `correct` relations, no uncertain or duplicate relations, and a matching
+prediction-blind lock digest.
 

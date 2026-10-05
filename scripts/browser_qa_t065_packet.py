@@ -89,6 +89,37 @@ def run(packet: Path, output: Path) -> dict[str, object]:
                 case_count = len(payload["cases"])
                 visible_passage = page.locator("#passage").is_visible()
                 add_control = page.get_by_text("Add relation", exact=True).is_visible()
+                article = page.locator("main.panel")
+                annotation = page.locator(".app > aside.panel").last
+                pane_styles = {
+                    "article": article.evaluate(
+                        "el => ({overflowY:getComputedStyle(el).overflowY, "
+                        "clientHeight:el.clientHeight,scrollHeight:el.scrollHeight})"
+                    ),
+                    "annotation": annotation.evaluate(
+                        "el => ({overflowY:getComputedStyle(el).overflowY, "
+                        "clientHeight:el.clientHeight,scrollHeight:el.scrollHeight})"
+                    ),
+                }
+                annotation_start = annotation.evaluate("el => el.scrollTop")
+                article.evaluate("el => {el.scrollTop = 240}")
+                article_position = article.evaluate("el => el.scrollTop")
+                annotation_after_article = annotation.evaluate("el => el.scrollTop")
+                annotation.evaluate("el => {el.scrollTop = 240}")
+                annotation_position = annotation.evaluate("el => el.scrollTop")
+                article_after_annotation = article.evaluate("el => el.scrollTop")
+                independent_scroll = bool(
+                    pane_styles["article"]["overflowY"] == "auto"
+                    and pane_styles["annotation"]["overflowY"] == "auto"
+                    and article_position > 0
+                    and annotation_position > annotation_start
+                    and annotation_after_article == annotation_start
+                    and article_after_annotation == article_position
+                )
+                if not independent_scroll:
+                    raise AssertionError(
+                        "article and annotation panes do not scroll independently"
+                    )
                 browser.close()
             if state.exists() or lock.exists():
                 raise AssertionError("read-only QA created annotation or lock state")
@@ -102,6 +133,7 @@ def run(packet: Path, output: Path) -> dict[str, object]:
                     "actual_packet_loaded": visible_passage,
                     "source_payload_isolated": not leaked,
                     "from_scratch_relation_control": add_control,
+                    "independent_article_and_annotation_scroll": independent_scroll,
                     "no_annotation_state_created": True,
                 },
             }

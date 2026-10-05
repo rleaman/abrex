@@ -31,10 +31,17 @@ Review only the bounded **Passage to review**. The article title and any
 surrounding context are non-annotatable. Add every in-scope abbreviation
 definition in the passage using exact short-form and long-form spans. Confirm
 the whole-passage search even when no relation is present. Save drafts as often
-as useful.
+as useful. On desktop, the passage list, article passage, and annotation
+controls scroll independently so long table/caption cases do not move the
+relation editor out of reach.
 
 After all 32 cases are complete, use **Lock completed annotation**. The lock is
 the prediction-blind boundary required before T067 may run the evaluated
 methods. The only files needed back are the annotation state and its generated
 `.lock.json` file; when reviewing in this checkout they are already saved in
 this directory.
+
+T066 is now complete. This directory preserves the original user state and
+lock. The authoritative downstream state is the audited prediction-blind v2
+correction documented in `evidence/T066`; the original files here were not
+overwritten.

@@ -1,0 +1,103 @@
+{
+  "artifacts": {
+    "lock_file_sha256": "5a3f17d23b4caa008fe1bc8bde1fa492ae77d856b9e042be24e907eeb2d52367",
+    "locked_at": "2026-10-05T16:38:46.827067+00:00",
+    "packet_file_sha256": "394fa95caba002af8f0a8825674cec0a8c1d245883b083af4b0ed24e6ef791e5",
+    "state_content_sha256": "ed7443366b22fc2c9a1167684ca9977b7f184f552c70973c15f1a1b2fbd54a95",
+    "state_file_sha256": "7ecb3f755441fb401175e7d65af71b117b0b2d6d57b49cac5fc41e294f2d5d97"
+  },
+  "counts": {
+    "annotated_cases": 32,
+    "cases": 32,
+    "relation_statuses": {
+      "correct": 38,
+      "unsure": 2
+    },
+    "relations": 40,
+    "relations_by_source_kind": {
+      "pmc_prose": 3,
+      "pubmed_abstract": 8,
+      "table_or_list": 29
+    },
+    "revisions": 38,
+    "zero_relation_cases": 24,
+    "zero_relation_cases_by_source_kind": {
+      "pmc_prose": 10,
+      "pubmed_abstract": 8,
+      "table_or_list": 6
+    }
+  },
+  "integrity_checks": {
+    "all_cases_annotated": true,
+    "all_cases_ready": true,
+    "lock_packet_identity_valid": true,
+    "lock_state_digest_valid": true,
+    "packet_identity_valid": true,
+    "prediction_blind": true,
+    "state_identity_valid": true
+  },
+  "review_flags": {
+    "duplicate_endpoint_relations": [],
+    "other_naming_or_code_relations": [
+      {
+        "case_id": "fresh-6065e2f106bb293297b4",
+        "case_number": 3,
+        "decision_id": "added-23039b4b-3409-4d3f-b546-61b07ce3b49d"
+      },
+      {
+        "case_id": "fresh-84c175f848ec1493c7a3",
+        "case_number": 12,
+        "decision_id": "added-5d5725a7-67ef-436e-bfb6-f769478131bd"
+      },
+      {
+        "case_id": "fresh-84c175f848ec1493c7a3",
+        "case_number": 12,
+        "decision_id": "added-976fc155-c405-4487-8825-47e49b84403f"
+      },
+      {
+        "case_id": "fresh-88bdb5062e5e13aaeb7a",
+        "case_number": 24,
+        "decision_id": "added-98ea6166-ed66-4f8e-9a1b-468ef0891052"
+      },
+      {
+        "case_id": "fresh-88bdb5062e5e13aaeb7a",
+        "case_number": 24,
+        "decision_id": "added-b98853be-eb99-44df-9783-ed76d7557598"
+      },
+      {
+        "case_id": "fresh-88bdb5062e5e13aaeb7a",
+        "case_number": 24,
+        "decision_id": "added-9cf3dcd8-6f22-4714-9306-7949161010db"
+      }
+    ],
+    "source_error_relations": [
+      {
+        "case_id": "fresh-88bdb5062e5e13aaeb7a",
+        "case_number": 24,
+        "decision_id": "added-1a95b0e9-755a-4ba2-a25f-3da7f7302cde"
+      }
+    ],
+    "uncertain_relations": [
+      {
+        "case_id": "fresh-84c175f848ec1493c7a3",
+        "case_number": 12,
+        "context_requirement": "uncertain",
+        "decision_id": "added-00b602aa-2119-444b-90fa-7d4cffe34a77",
+        "evidence_structure": "uncertain",
+        "relation_kind": "uncertain",
+        "status": "unsure"
+      },
+      {
+        "case_id": "fresh-5a4294e47425c9acf1c4",
+        "case_number": 30,
+        "context_requirement": "text_alone",
+        "decision_id": "added-8a74cda7-1a3d-428c-80eb-94766af5b364",
+        "evidence_structure": "uncertain",
+        "relation_kind": "abbreviation_expansion",
+        "status": "unsure"
+      }
+    ]
+  },
+  "schema_version": "t066-lock-audit-v1",
+  "status": "passed"
+}

@@ -93,6 +93,14 @@ def test_blind_packet_and_html_contain_no_assisted_output_fields(
         "Table/list structure",
     ):
         assert control in BLIND_REVIEWER_HTML
+    for independent_scroll_contract in (
+        'id="independent-panes"',
+        ".app>main.panel",
+        ".app>aside.panel:last-child",
+        "overflow-y:auto",
+        "overscroll-behavior:contain",
+    ):
+        assert independent_scroll_contract in BLIND_REVIEWER_HTML
 
 
 def test_blind_state_locks_only_after_search_and_rejects_later_edits(

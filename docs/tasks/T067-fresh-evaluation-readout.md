@@ -1,8 +1,13 @@
 # T067 Run the frozen comparison and report the fresh-check result
 
 Owner: **Luna — engineering and preparation**  
-Status: Planned; this file does not authorize automatic execution.  
+Status: **Unblocked by the corrected T066 lock; not yet executed.**
 Dependencies: T066 locked annotations; T065 frozen protocol and runnable methods.
+
+Use `evidence/T066/review-packet-blind-v1.annotations.corrected-v2.json` and
+its adjacent `.lock.json` file as the sole authoritative gold input. The
+original user lock remains preserved under `evidence/T065`; do not silently
+substitute it for the authorized corrected revision.
 
 ## Execution contract
 

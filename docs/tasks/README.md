@@ -20,10 +20,10 @@
 - [T064](T064-prediction-blind-review-mode.md) is complete; see its
   [completion note](completed/T064-prediction-blind-review-mode.md) and
   [browser QA](../artifacts/T064-browser-qa.json).
-- [T065](T065-fresh-sample-and-blind-packet.md) is complete with a 32-case
-  source-only packet and passing actual-packet Edge QA. T066 is ready for the
-  scientific lead; T067–T068 remain behind the annotation lock. Use the
-  [T065 handoff](../../evidence/T065/README.md).
+- [T065](T065-fresh-sample-and-blind-packet.md) and T066 are complete. The
+  original user lock is preserved and the authorized prediction-blind v2
+  correction is the authoritative input for T067. T067 is now unblocked;
+  T068 remains downstream. See the [T066 evidence](../../evidence/T066/README.md).
 
 ## September 13 runtime correction
 

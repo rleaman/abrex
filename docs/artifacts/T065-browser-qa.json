@@ -4,6 +4,7 @@
   "checks": {
     "actual_packet_loaded": true,
     "from_scratch_relation_control": true,
+    "independent_article_and_annotation_scroll": true,
     "no_annotation_state_created": true,
     "source_payload_isolated": true
   },

@@ -47,3 +47,13 @@ tags, note, guideline/article context and complete adjudication-event history.
 Reports separately count independent, assisted, adjudicated and unresolved
 labels. Without independent expert review, the packet is provisional/silver and
 cannot support contemporary accuracy claims.
+
+## Deferred context-label refinement
+
+T066 exposed a useful distinction that the current context taxonomy cannot
+represent: a relation may be fully supported by the source text while its
+interpretation also relies on ordinary scientific background knowledge. A
+future schema decision should consider a separate `background_knowledge`
+context label, or an orthogonal flag, rather than overloading `text_alone` or
+`document_structure`. Do not retroactively reinterpret the frozen T066 labels;
+the current correction retains the approved `text_alone` value.

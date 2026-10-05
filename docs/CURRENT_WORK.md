@@ -29,9 +29,11 @@ recommendation is frozen in `docs/artifacts/T063-decision-prefill.json`; T065
 fresh acquisition and prediction-blind packet preparation are complete. The
 32-case packet contains 12 PMC prose passages, 12 PubMed abstract passages,
 and eight table/list sections from eight new linked article groups. Actual-
-packet Edge QA passed without creating annotation state. T066 is ready via
-`scripts/Review-T066.ps1`. No evaluated method may run on that material before
-the T066 annotation lock.
+packet Edge QA passed without creating annotation state. T066 is complete.
+The original user lock is preserved, and the authorized prediction-blind v2
+correction under `evidence/T066` is authoritative: 32/32 cases ready and all 40
+relations marked correct. T067 is now unblocked; no evaluated method was run
+before the corrected replacement lock.
 
 ## September 13 runtime correction
 
