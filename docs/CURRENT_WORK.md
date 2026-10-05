@@ -32,8 +32,14 @@ and eight table/list sections from eight new linked article groups. Actual-
 packet Edge QA passed without creating annotation state. T066 is complete.
 The original user lock is preserved, and the authorized prediction-blind v2
 correction under `evidence/T066` is authoritative: 32/32 cases ready and all 40
-relations marked correct. T067 is now unblocked; no evaluated method was run
-before the corrected replacement lock.
+relations marked correct. T067 is complete. Both Linux jobs ran without
+failure, but the exact-union challenger failed the frozen adoption gate: it
+improved F1 from 0.250 to 0.556 while adding 10 false positives, above the
+predeclared maximum of two. Prose F1 declined slightly; the large table/list
+gain was concentrated principally in one article group. The primary report is
+[frozen](T067-fresh-evaluation-readout.md). T068 is now the user's scientific
+direction decision; no evaluated method was run before the corrected
+replacement lock.
 
 ## September 13 runtime correction
 

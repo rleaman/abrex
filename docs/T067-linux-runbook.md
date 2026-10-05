@@ -108,3 +108,13 @@ will checksum-import it and run the already prepared frozen readout command:
 
 Do not run the readout before import. Its input checks require both matching
 job-result manifests and reject changed datasets or prediction files.
+
+## 5. Completed run record
+
+This procedure completed successfully on October 5, 2026. The returned ZIP
+was preserved as `.artifacts/T067/returned-results-v3.zip` with SHA-256
+`d043da479f58346ea655c71e7d4707428cc2c9ada21b6fd7b343c84c9bb2165e`.
+The importer verified both result packages and the doctor report; both jobs
+processed 32/32 inputs with zero runtime failures. The immutable result is in
+the [T067 readout](T067-fresh-evaluation-readout.md). Do not rerun this bundle
+to tune against the revealed fresh annotations.

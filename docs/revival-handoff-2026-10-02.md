@@ -7,10 +7,11 @@ portable Linux execution, and prediction-blind reviewer are implemented. The
 paired Linux runtime jobs returned successfully on October 4. T061–T066 are
 complete: the development evidence is reconciled, the T063 scientific protocol
 is approved and frozen, and the 32-case fresh packet has an audited corrected
-prediction-blind lock. T067 inputs are now frozen and its prediction-only Linux
-bundle is ready. The remaining work is deliberately sequential: return the
-T067 Linux results, freeze its readout, then make the T068 scientific direction
-decision.
+prediction-blind lock. T067 is complete: the checksummed Linux results were
+imported and its primary readout was frozen without post-reveal tuning. The
+exact-union challenger failed the adoption gate because its 10 additional
+false positives exceeded the approved maximum of two. The remaining step is
+the T068 scientific direction decision.
 
 The corrected development comparison currently favors Schwartz–Hearst. On the
 20-passage, 59-pair T057 development view it scored 36 TP, 7 FP and 23 FN
@@ -171,6 +172,13 @@ It runs only Schwartz–Hearst and PLODv2 pairing over the same 32 documents and
 can reuse the T060 runtime without reinstalling it. The bundle contains 64
 document rows (the same 32 inputs for each method) and zero gold fields.
 
+The returned archive was imported successfully on October 5. Both jobs
+completed all 32 inputs with zero runtime failures. The frozen
+[T067 readout](T067-fresh-evaluation-readout.md) records 6 TP / 10 FP / 26 FN
+for Schwartz–Hearst and 20 TP / 20 FP / 12 FN for the exact union. Although
+union F1 rose from 0.250 to 0.556, its 10 added false positives failed the
+predeclared maximum of two. Do not rerun or tune this fresh sample.
+
 ## CLP reuse
 
 The exported snapshot is pinned to sister-project commit
@@ -191,9 +199,10 @@ the sister parser; it is excluded from fresh evaluation.
 2. T066 is complete. Use the corrected state and replacement lock under
    `evidence/T066`; the original lock under `evidence/T065` remains preserved.
    Both post-lock corrections were authorized before predictions were exposed.
-3. Prepare/run/import prediction-only T067
-   jobs and evaluate prose and table/list arms separately. T068 remains the
-   user's final scientific direction choice.
+3. T067 is complete. Retain Schwartz–Hearst as the supported global baseline;
+   the table/list result is promising but concentrated and does not justify
+   global union adoption. T068 is the user's final scientific direction
+   choice and requires no more annotation or server work.
 
 T042 remains deferred. The excluded BADREX-corrected corpora remain out of
 scope under the recorded decision.

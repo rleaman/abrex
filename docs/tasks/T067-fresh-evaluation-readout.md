@@ -1,7 +1,7 @@
 # T067 Run the frozen comparison and report the fresh-check result
 
 Owner: **Luna — engineering and preparation**  
-Status: **Execution bundle prepared; awaiting the Linux result ZIP.**
+Status: **Complete — the frozen fresh check failed the adoption gate.**
 Dependencies: T066 locked annotations; T065 frozen protocol and runnable methods.
 
 Use `evidence/T066/review-packet-blind-v1.annotations.corrected-v2.json` and
@@ -29,10 +29,22 @@ Deliver runnable evaluation command, frozen predictions/results, coverage/cost t
 
 ## Current execution checkpoint
 
-The corrected lock has been verified and projected into separate local gold
-and prediction-only datasets under `evidence/T067`. Bundle
+The corrected lock was verified and projected into separate local gold and
+prediction-only datasets under `evidence/T067`. The checksummed Linux result
+archive for bundle
 `ab96b25c055f49832c3bfedc6c0e50cf87ddc59f8349b1decd38c7c1625c9966`
-contains only the prediction input and the two frozen methods. Use
-[the T067 Linux runbook](../T067-linux-runbook.md). The primary readout remains
-unexecuted and unfrozen until the checksummed Linux results return.
+was imported on October 5, 2026. Both frozen methods completed all 32 inputs
+with zero runtime failures.
+
+The immutable [primary readout](../T067-fresh-evaluation-readout.md) records a
+failed adoption gate: the exact union improved strict-pair F1 from 0.250 to
+0.556 and added 14 unique true positives, but it also added 10 false positives
+against the predeclared maximum of two. The improvement was concentrated in
+the table/list arm and principally one article group; prose F1 declined from
+0.500 to 0.480. No threshold or method was changed after gold was revealed.
+
+See the [completion record](completed/T067-fresh-evaluation-readout.md) for
+artifact identities, arm-level results, and verification. T068 is now the
+scientific lead's next-direction decision; this result does not authorize a
+post-hoc challenger or production promotion.
 

@@ -20,10 +20,15 @@
 - [T064](T064-prediction-blind-review-mode.md) is complete; see its
   [completion note](completed/T064-prediction-blind-review-mode.md) and
   [browser QA](../artifacts/T064-browser-qa.json).
-- [T065](T065-fresh-sample-and-blind-packet.md) and T066 are complete. The
-  original user lock is preserved and the authorized prediction-blind v2
-  correction is the authoritative input for T067. T067 is now unblocked;
-  T068 remains downstream. See the [T066 evidence](../../evidence/T066/README.md).
+- [T065](T065-fresh-sample-and-blind-packet.md), T066, and
+  [T067](T067-fresh-evaluation-readout.md) are complete. The original user lock
+  is preserved and the authorized prediction-blind v2 correction was the
+  authoritative T067 input. The exact-union challenger failed the frozen
+  false-positive tolerance despite higher overall F1. See the
+  [T066 evidence](../../evidence/T066/README.md),
+  [T067 readout](../T067-fresh-evaluation-readout.md), and
+  [T067 completion note](completed/T067-fresh-evaluation-readout.md). T068 is
+  ready for the user's scientific direction choice.
 
 ## September 13 runtime correction
 

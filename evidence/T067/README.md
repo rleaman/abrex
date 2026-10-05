@@ -14,6 +14,9 @@ lock was verified.
   fingerprints.
 
 The execution bundle and exact copy/run/copy-back procedure are documented in
-[`docs/T067-linux-runbook.md`](../../docs/T067-linux-runbook.md). The primary
-readout is intentionally absent until both checksummed Linux job results have
-been returned and imported.
+[`docs/T067-linux-runbook.md`](../../docs/T067-linux-runbook.md). The
+checksummed Linux results were returned and imported on October 5, 2026. The
+frozen [primary readout](../../docs/T067-fresh-evaluation-readout.md) and its
+[machine-readable report](../../docs/artifacts/T067-fresh-evaluation-readout-v1.json)
+are now present. The exact-union challenger failed the predeclared
+false-positive tolerance; no post-reveal tuning was performed.
