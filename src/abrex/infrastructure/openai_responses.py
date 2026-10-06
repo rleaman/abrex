@@ -5,9 +5,10 @@ from __future__ import annotations
 import json
 import os
 import urllib.error
+import urllib.parse
 import urllib.request
 from collections.abc import Mapping
-from typing import cast
+from typing import Literal, cast
 
 
 class OpenAIResponsesHTTPError(RuntimeError):
@@ -21,9 +22,16 @@ class OpenAIResponsesHTTPError(RuntimeError):
 class OpenAIResponsesClient:
     """Send one JSON request and normalize its structured text response."""
 
-    def __init__(self, *, endpoint: str, api_key_env: str) -> None:
-        self.endpoint = endpoint
+    def __init__(
+        self,
+        *,
+        endpoint: str,
+        api_key_env: str,
+        provider: Literal["openai", "azure_openai"] = "openai",
+    ) -> None:
+        self.endpoint = _response_url(endpoint, provider)
         self.api_key_env = api_key_env
+        self.provider = provider
 
     def create_response(
         self, *, payload: Mapping[str, object], timeout_seconds: float
@@ -35,13 +43,15 @@ class OpenAIResponsesClient:
             raise OpenAIResponsesHTTPError(
                 401, f"Environment variable {self.api_key_env!r} is not set"
             )
+        headers = {"Content-Type": "application/json"}
+        if self.provider == "azure_openai":
+            headers["api-key"] = api_key
+        else:
+            headers["Authorization"] = f"Bearer {api_key}"
         request = urllib.request.Request(
             self.endpoint,
             data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json",
-            },
+            headers=headers,
             method="POST",
         )
         try:
@@ -67,6 +77,31 @@ class OpenAIResponsesClient:
                 "output_tokens": usage.get("output_tokens", 0),
             },
         }
+
+
+def _response_url(endpoint: str, provider: Literal["openai", "azure_openai"]) -> str:
+    if provider == "openai":
+        return endpoint
+    parsed = urllib.parse.urlsplit(endpoint.strip())
+    if (
+        parsed.scheme != "https"
+        or not parsed.netloc
+        or parsed.username is not None
+        or parsed.password is not None
+        or parsed.query
+        or parsed.fragment
+    ):
+        raise ValueError(
+            "Azure OpenAI endpoint must be an HTTPS URL without credentials or query"
+        )
+    path = parsed.path.rstrip("/")
+    if path not in ("", "/openai/v1", "/openai/v1/responses"):
+        raise ValueError(
+            "Azure OpenAI endpoint must be a resource URL or /openai/v1 URL"
+        )
+    return urllib.parse.urlunsplit(
+        ("https", parsed.netloc, "/openai/v1/responses", "", "")
+    )
 
 
 def _output_text(response: Mapping[str, object]) -> str:

@@ -15,3 +15,19 @@ Later Milestone C dependencies—not actions you need to take now—are:
 - running Ab3P/PLOD on a fresh Linux server because this machine lacks the required WSL runtime;
 - completing the tested prediction-blind review packet.
 I’ll prepare those as concrete, tested handoffs when they become current rather than asking you to do advance setup.
+
+The pending campaign run now targets the Azure OpenAI v1 Responses API. It sends the API key in Azure’s api-key header and uses your deployment name as the request’s model. I updated the run documentation and pre-freeze inventory to match. Microsoft’s Responses guide documents that route.
+Set exactly these five environment variables in the PowerShell session where you run Abrex:
+Variable	Set it to
+AZURE_OPENAI_ENDPOINT	Your resource URL, such as https://RESOURCE.openai.azure.com/
+AZURE_OPENAI_API_KEY	Your resource’s API key
+AZURE_OPENAI_DEPLOYMENT	Your deployment name
+AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS	Your applicable Azure input-token price
+AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS	Your applicable Azure output-token price
+
+Azure GPT-6 Luna pricing seems to be:
+  - Input: $0.10 per million tokens
+  - Output: $0.50 per million tokens
+
+The two price values are required because the run retains its $0.05 configured cost cap; the earlier OpenAI prices do not establish your Azure rates. Check the rates for your deployment and billing arrangement against Azure pricing. No API-version variable is needed for Azure’s v1 route. Microsoft’s endpoint guide confirms its implicit versioning.
+Before running, confirm that the deployment and region support the Responses API, strict JSON Schema Structured Outputs, and medium reasoning. The 20 biomedical passages also need authorization to be sent to this Azure resource. The exact setup and run command are in [direct-extraction-baseline.md (line 46)](C:/Users/leamanjr/projects/abrex/docs/direct-extraction-baseline.md:46).

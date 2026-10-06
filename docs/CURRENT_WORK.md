@@ -46,33 +46,43 @@ monetary limits. Aggregate actual usage is included in experiment manifests.
 The current T062 development ledger has been materialized as an immutable
 20-document, 67-relation canonical dataset at
 `evidence/campaign-2026-10/milestone-b/`. Five overlap warnings are preserved;
-no relation is dropped. The recommended complete development pilot is
-`gpt-6-luna`, medium reasoning, 20 requests, at most 2,048 output tokens each,
-no automatic retries, and a $0.05 hard cap. Conservative maximum-token cost is
-$0.0222.
+no relation is dropped. The prior recommended OpenAI pilot was `gpt-6-luna`,
+medium reasoning, 20 requests, at most 2,048 output tokens each, no automatic
+retries, and a $0.05 configured cap. Its $0.0222 conservative maximum-token
+estimate applies only to that prior OpenAI price route. The current campaign
+YAML instead targets the user's Azure OpenAI deployment and requires its actual
+input/output token rates.
 The current candidate generators produce 742 proposals, cover 53/67 strict
 relations (79.1%), and omit 14 before judging; the occurrence-level report is
 `evidence/campaign-2026-10/milestone-b/direct-extraction-preflight-v1.json`.
 See
 [`artifacts/campaign-2026-10-milestone-b-preflight.md`](artifacts/campaign-2026-10-milestone-b-preflight.md)
 and [`direct-extraction-baseline.md`](direct-extraction-baseline.md).
-The exact campaign YAML has passed a disposable 20-document end-to-end local
+The Azure campaign YAML has passed a disposable 20-document end-to-end local
 HTTP simulation, including manifest usage and a no-key/no-network direct-cache
 replay with the same prediction fingerprint. These synthetic outputs were kept
 out of campaign evidence and are not scientific results.
-The direct-response cache key also binds the provider endpoint, so changing the
+The direct-response cache key also binds the provider and endpoint, so changing the
 scientific-data destination cannot silently reuse an old response.
 Resolver version 2 serializes per-document request completion metadata even for
 abstentions and fully rejected output: response/model identity, request hash,
 latency, attempt count, and token usage. Aggregate run usage also distinguishes
 billable network attempts from direct-cache hits.
-The repository fast gate passes: format, lint, strict mypy, 447 tests passed,
-and one external-runtime test was intentionally skipped.
+The campaign command now prints `estimated_total_cost_usd` in its final JSON,
+using the same aggregate returned-token cost saved in
+`run-manifest.json` at `resolver.usage.actual_cost_usd`.
+The repository fast gate passes after this CLI change: format, lint, strict
+mypy, 454 tests passed, and one external-runtime test was skipped.
 
-No external request has been issued. `OPENAI_API_KEY` is absent, and sending the
-20 biomedical passages to the OpenAI Responses API is a new scientific-data
-destination requiring explicit user authorization. Once authorization and the
-key are available, run:
+No external request has been issued. The campaign YAML now selects the Azure
+OpenAI v1 Responses API and accepts a resource endpoint plus deployment name.
+Set `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`,
+`AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS`, and
+`AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS` as described in
+[`direct-extraction-baseline.md`](direct-extraction-baseline.md). Confirm the
+deployment supports strict Structured Outputs and medium reasoning, and confirm
+authorization to send the 20 biomedical passages to this Azure resource under
+the configured $0.05 cap. Once ready, run:
 
 ```powershell
 .\env313\Scripts\abrex.exe experiment run configs\experiments\campaign-2026-10-direct-extraction.yaml

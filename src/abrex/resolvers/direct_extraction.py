@@ -83,6 +83,7 @@ class DirectExtractionConfig(BaseModel):
     )
     cache_path: Path = Path(".cache/abrex/direct-extraction.jsonl")
     cache_only: bool = False
+    provider: Literal["openai", "azure_openai"] = "openai"
     endpoint: str = "https://api.openai.com/v1/responses"
     api_key_env: str = "OPENAI_API_KEY"
     maximum_document_characters: int = Field(default=48_000, ge=1)
@@ -137,6 +138,7 @@ class DirectExtractionResolver:
         return {
             "resolver": self.identity,
             "version": self.version,
+            "provider": self.config.provider,
             "endpoint": self.config.endpoint,
             "model": self.config.model,
             "policy_version": self.config.policy_version,
@@ -182,7 +184,11 @@ class DirectExtractionResolver:
             )
         request = self.request_payload(document)
         request_hash = _sha256_json(
-            {"endpoint": self.config.endpoint, "payload": request}
+            {
+                "provider": self.config.provider,
+                "endpoint": self.config.endpoint,
+                "payload": request,
+            }
         )
         response, _cached = self._response(request, request_hash)
         output = self._parse_output(response)
@@ -503,7 +509,9 @@ def create_openai_direct_extractor(**params: object) -> DirectExtractionResolver
 
     config = DirectExtractionConfig.model_validate(params)
     client = OpenAIResponsesClient(
-        endpoint=config.endpoint, api_key_env=config.api_key_env
+        endpoint=config.endpoint,
+        api_key_env=config.api_key_env,
+        provider=config.provider,
     )
     return DirectExtractionResolver(client=client, **config.model_dump(mode="python"))
 

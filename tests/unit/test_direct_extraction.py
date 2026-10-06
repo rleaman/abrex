@@ -11,9 +11,11 @@ from typing import Any
 
 import pytest
 
-from abrex.config import ComponentSpec
+from abrex.cli import main
+from abrex.config import ComponentSpec, ConfigError, load_resolved_config
 from abrex.domain import Document
 from abrex.experiments import run_experiment
+from abrex.infrastructure.openai_responses import OpenAIResponsesClient
 from abrex.resolvers import (
     RESOLVERS,
     DirectExtractionBudgetError,
@@ -221,24 +223,87 @@ def test_direct_extractor_is_registry_backed() -> None:
     assert ComponentSpec(type=entry.key, params={}).type == entry.key
 
 
+@pytest.mark.parametrize(
+    ("endpoint", "expected"),
+    [
+        (
+            "https://example.openai.azure.com/",
+            "https://example.openai.azure.com/openai/v1/responses",
+        ),
+        (
+            "https://example.openai.azure.com/openai/v1/",
+            "https://example.openai.azure.com/openai/v1/responses",
+        ),
+        (
+            "https://example.openai.azure.com/openai/v1/responses",
+            "https://example.openai.azure.com/openai/v1/responses",
+        ),
+    ],
+)
+def test_azure_response_url_accepts_resource_and_v1_endpoint(
+    endpoint: str, expected: str
+) -> None:
+    client = OpenAIResponsesClient(
+        endpoint=endpoint,
+        api_key_env="ABREX_TEST_AZURE_KEY",
+        provider="azure_openai",
+    )
+    assert client.endpoint == expected
+
+
+@pytest.mark.parametrize(
+    "endpoint",
+    [
+        "http://example.openai.azure.com",
+        "https://example.openai.azure.com/openai/deployments/test",
+        "https://example.openai.azure.com?api-version=2025-04-01-preview",
+    ],
+)
+def test_azure_response_url_rejects_non_v1_endpoint(endpoint: str) -> None:
+    with pytest.raises(ValueError, match="Azure OpenAI endpoint"):
+        OpenAIResponsesClient(
+            endpoint=endpoint,
+            api_key_env="ABREX_TEST_AZURE_KEY",
+            provider="azure_openai",
+        )
+
+
+def test_campaign_config_requires_azure_route_and_prices(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    config_path = Path("configs/experiments/campaign-2026-10-direct-extraction.yaml")
+    for name in (
+        "AZURE_OPENAI_ENDPOINT",
+        "AZURE_OPENAI_DEPLOYMENT",
+        "AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS",
+        "AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS",
+    ):
+        monkeypatch.delenv(name, raising=False)
+    with pytest.raises(ConfigError, match="AZURE_OPENAI_DEPLOYMENT"):
+        load_resolved_config((config_path,))
+
+
 def test_campaign_config_runs_end_to_end_through_http_and_direct_cache(
-    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
 ) -> None:
     cache_path = tmp_path / "direct-cache.jsonl"
     live_override = tmp_path / "live-override.yaml"
     live_override.write_text(
-        "resolver:\n"
-        "  params:\n"
-        f"    cache_path: {json.dumps(cache_path.as_posix())}\n"
-        "    endpoint: https://example.invalid/v1/responses\n"
-        "    api_key_env: ABREX_TEST_OPENAI_KEY\n",
+        f"resolver:\n  params:\n    cache_path: {json.dumps(cache_path.as_posix())}\n",
         encoding="utf-8",
         newline="\n",
     )
     requests: list[dict[str, object]] = []
 
     def fake_urlopen(request: urllib.request.Request, *, timeout: float) -> io.BytesIO:
-        assert request.get_header("Authorization") == "Bearer test-only"
+        headers = {key.lower(): value for key, value in request.header_items()}
+        assert headers["api-key"] == "test-only"
+        assert "authorization" not in headers
+        assert (
+            request.full_url == "https://example.openai.azure.com/openai/v1/responses"
+        )
         assert timeout == 60
         assert isinstance(request.data, bytes)
         payload = json.loads(request.data.decode("utf-8"))
@@ -262,19 +327,36 @@ def test_campaign_config_runs_end_to_end_through_http_and_direct_cache(
         }
         return io.BytesIO(json.dumps(response).encode("utf-8"))
 
-    monkeypatch.setenv("ABREX_TEST_OPENAI_KEY", "test-only")
+    monkeypatch.setenv("AZURE_OPENAI_ENDPOINT", "https://example.openai.azure.com/")
+    monkeypatch.setenv("AZURE_OPENAI_DEPLOYMENT", "test-deployment")
+    monkeypatch.setenv("AZURE_OPENAI_API_KEY", "test-only")
+    monkeypatch.setenv("AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS", "0.10")
+    monkeypatch.setenv("AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS", "0.50")
     monkeypatch.setattr(urllib.request, "urlopen", fake_urlopen)
     base_config = Path("configs/experiments/campaign-2026-10-direct-extraction.yaml")
 
-    live = run_experiment(
-        (base_config, live_override),
-        output_root=tmp_path / "live-output",
-        reuse_cached_predictions=False,
+    assert (
+        main(
+            [
+                "experiment",
+                "run",
+                str(base_config),
+                str(live_override),
+                "--output-root",
+                str(tmp_path / "live-output"),
+            ]
+        )
+        == 0
     )
+    live_summary = json.loads(capsys.readouterr().out)
 
     assert len(requests) == 20
-    assert all(request["model"] == "gpt-6-luna" for request in requests)
-    manifest = json.loads(live.manifest_path.read_text(encoding="utf-8"))
+    assert all(request["model"] == "test-deployment" for request in requests)
+    manifest = json.loads(Path(live_summary["manifest"]).read_text(encoding="utf-8"))
+    assert manifest["resolved_config"]["resolver"]["params"]["model"] == (
+        "test-deployment"
+    )
+    assert "test-only" not in json.dumps(manifest)
     usage = manifest["resolver"]["usage"]
     assert usage["network_attempts"] == 20
     assert usage["estimated_input_tokens"] > 0
@@ -282,7 +364,8 @@ def test_campaign_config_runs_end_to_end_through_http_and_direct_cache(
     assert usage["actual_output_tokens"] == 400
     assert usage["cache_hits"] == 0
     assert usage["actual_cost_usd"] == pytest.approx(0.0004)
-    assert len(live.report_paths) == 3
+    assert live_summary["estimated_total_cost_usd"] == pytest.approx(0.0004)
+    assert len(list(Path(live_summary["run_directory"]).glob("report-*"))) == 3
     assert len(cache_path.read_text(encoding="utf-8").splitlines()) == 20
 
     cache_only_override = tmp_path / "cache-only-override.yaml"
@@ -291,7 +374,7 @@ def test_campaign_config_runs_end_to_end_through_http_and_direct_cache(
         encoding="utf-8",
         newline="\n",
     )
-    monkeypatch.delenv("ABREX_TEST_OPENAI_KEY")
+    monkeypatch.delenv("AZURE_OPENAI_API_KEY")
 
     def fail_urlopen(*args: object, **kwargs: object) -> None:
         raise AssertionError("cache-only replay attempted a network request")
@@ -312,4 +395,4 @@ def test_campaign_config_runs_end_to_end_through_http_and_direct_cache(
         "cache_hits": 20,
         "actual_cost_usd": 0.0,
     }
-    assert replay.prediction_fingerprint == live.prediction_fingerprint
+    assert replay.prediction_fingerprint == live_summary["prediction_fingerprint"]

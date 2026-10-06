@@ -107,7 +107,7 @@ def build_preflight(
                 "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277"
             ),
             "jev_model": "jev-1.13.0",
-            "direct_model_route": "gpt-6-luna",
+            "direct_model_route": "azure_openai:${AZURE_OPENAI_DEPLOYMENT}",
             "direct_extraction_resolver_version": DIRECT_EXTRACTION_VERSION,
         },
         "proposed_sample": {
@@ -239,7 +239,7 @@ def build_preflight(
                 "classify its errors and decide whether its frozen prompt "
                 "advances unchanged"
             ),
-            "authorize bounded OpenAI and TypeSafe scientific-data requests",
+            "authorize bounded Azure OpenAI and TypeSafe scientific-data requests",
             (
                 "freeze a source-structure sidecar carrying ordered passages and "
                 "raw table XML"

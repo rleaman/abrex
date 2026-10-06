@@ -1,5 +1,11 @@
 # Milestone B direct-extraction preflight
 
+This readout preserves the original OpenAI route and cost estimate. The live
+campaign YAML now targets the supplied Azure OpenAI deployment; use
+[`CURRENT_WORK.md`](../CURRENT_WORK.md) and
+[`direct-extraction-baseline.md`](../direct-extraction-baseline.md) for the current
+environment variables, pricing inputs, and run instructions.
+
 No scientific-data API request has been sent.
 
 ## Ready inputs and comparator

@@ -34,18 +34,59 @@ attempt count, and input/output tokens. This remains present for abstentions and
 fully rejected output, while aggregate usage separately distinguishes billable
 network attempts from direct-cache hits.
 
-The campaign configuration uses the Responses API, `gpt-6-luna`, medium
-reasoning, 2,048 maximum output tokens per document, no automatic retries, at
-most 20 network attempts, 25,000 estimated input tokens, and a hard $0.05 run
-cap. The
-[API model page](https://developers.openai.com/api/docs/models/gpt-6-luna)
-exposes `gpt-6-luna` as the supported model ID rather than a dated snapshot; the
-exact model identity returned by each response is retained.
+The campaign configuration uses the Azure OpenAI v1 Responses API with the
+deployment supplied in `AZURE_OPENAI_DEPLOYMENT`, medium reasoning, 2,048
+maximum output tokens per document, no automatic retries, at most 20 network
+attempts, 25,000 estimated input tokens, and a $0.05 configured run cap. The
+previous OpenAI `gpt-6-luna` cost estimate is historical; the Azure deployment
+and its billing rates now determine whether the full 20-document run fits this
+cap. The exact model identity returned by each response is retained.
 
 ## Run
 
-After explicitly authorizing the data destination and budget and providing
-`OPENAI_API_KEY`, run:
+Set these five environment variables in the same PowerShell session as the run:
+
+| Variable | Value |
+| --- | --- |
+| `AZURE_OPENAI_ENDPOINT` | Azure resource URL, such as `https://RESOURCE.openai.azure.com/`, or its `/openai/v1/` base URL. A complete `/openai/v1/responses` URL also works. Do not include a deployment path, `api-version`, or key in the URL. |
+| `AZURE_OPENAI_API_KEY` | API key for that resource. Keep it out of YAML, logs, and version control. |
+| `AZURE_OPENAI_DEPLOYMENT` | The **deployment name** (which may differ from the underlying model name). |
+| `AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS` | Your Azure input-token price in USD per million tokens for this deployment and billing arrangement. |
+| `AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS` | The matching output-token price in USD per million tokens. |
+
+For example, set them from your Azure resource and pricing information (the
+values below are placeholders, not prices):
+
+```powershell
+$env:AZURE_OPENAI_ENDPOINT = 'https://RESOURCE.openai.azure.com/'
+$env:AZURE_OPENAI_API_KEY = '<your-key>'
+$env:AZURE_OPENAI_DEPLOYMENT = '<deployment-name>'
+$env:AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS = '<input-price>'
+$env:AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS = '<output-price>'
+```
+
+The key is read only when a live response is requested. The other four values
+are required to resolve this campaign YAML. The resolved deployment, endpoint,
+and price assumptions are recorded in the run manifest; the key is not.
+
+Before running, confirm that this deployment and region support the v1 Responses
+API, strict Structured Outputs (`text.format` with JSON Schema), developer
+messages, and `reasoning.effort=medium`. The account also needs working API-key
+access and network access to the Azure endpoint. Azure's [Responses guide](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses)
+and [structured-output guide](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/structured-outputs)
+describe these capabilities. The v1 path uses implicit versioning, so no
+`AZURE_OPENAI_API_VERSION` variable is needed. If the supplied URL is an older
+deployment-scoped API endpoint, obtain the resource base URL for v1.
+
+The $0.05 limit uses the configured per-token rates and returned token counts;
+it is an application estimate, not an Azure billing control. Check Azure's
+applicable [pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
+for your deployment type, region, and contract. A deployment with higher prices
+may hit the cap before all 20 documents finish; change the cap only with the
+appropriate budget authorization. Access to the API also needs authorization
+to send these 20 biomedical passages to this Azure resource.
+
+Once those conditions are met, run:
 
 ```powershell
 .\env313\Scripts\abrex.exe experiment run configs\experiments\campaign-2026-10-direct-extraction.yaml
@@ -55,6 +96,12 @@ The input is the reconciled 20-document, 67-relation T062 development artifact.
 The run produces immutable predictions, exact-pair evaluation, an error table,
 an HTML error report, and a manifest under
 `.artifacts/campaign-2026-10/direct-extraction`.
+The command's final JSON prints `estimated_total_cost_usd`. The same value is
+saved at `resolver.usage.actual_cost_usd` in `run-manifest.json`, alongside the
+total input/output tokens and network-attempt count. It is calculated from
+returned usage and the configured Azure token rates. A cache-only replay incurs
+no new model requests and reports zero for that replay; Azure billing remains
+the authority for the final charge.
 
 Before any external request, the exact campaign configuration is exercised by
 an end-to-end local HTTP simulation over all 20 documents. That test traverses

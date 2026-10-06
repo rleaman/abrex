@@ -9,21 +9,22 @@ corpus:
 resolver:
   type: openai_direct_extraction
   params:
-    model: gpt-6-luna
+    model: ${AZURE_OPENAI_DEPLOYMENT}
     policy_version: source-grounded-direct-v1
     prompt_version: abrex-direct-extraction-2026-10-05-v1
     reasoning_effort: medium
     cache_path: evidence/campaign-2026-10/milestone-b/direct-extraction-cache.jsonl
     cache_only: false
-    endpoint: https://api.openai.com/v1/responses
-    api_key_env: OPENAI_API_KEY
+    provider: azure_openai
+    endpoint: ${AZURE_OPENAI_ENDPOINT}
+    api_key_env: AZURE_OPENAI_API_KEY
     maximum_document_characters: 48000
     maximum_network_attempts: 20
     maximum_estimated_input_tokens: 25000
     maximum_output_tokens_per_request: 2048
     monetary_cap_usd: 0.05
-    input_usd_per_million_tokens: 0.10
-    output_usd_per_million_tokens: 0.50
+    input_usd_per_million_tokens: !env AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS
+    output_usd_per_million_tokens: !env AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS
     timeout_seconds: 60
     retries: 0
 matching:

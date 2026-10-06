@@ -101,7 +101,7 @@ is never redrawn to obtain a favorable result.
 
 The local identities, exclusions, workload, and runtime boundaries are ready.
 Freezing still requires the Milestone B direct-extraction result, explicit
-OpenAI and TypeSafe scientific-data request authorization, and approval of the
+Azure OpenAI and TypeSafe scientific-data request authorization, and approval of the
 final workload and success thresholds. No sampling or prediction request has
 been issued for Milestone C.
 

@@ -50,6 +50,9 @@ def test_milestone_c_preflight_excludes_exposed_groups_and_pins_methods(
     identities = report["fixed_resource_identities"]
     assert isinstance(identities, dict)
     assert identities["direct_extraction_resolver_version"] == "2"
+    assert identities["direct_model_route"] == (
+        "azure_openai:${AZURE_OPENAI_DEPLOYMENT}"
+    )
     sample = report["proposed_sample"]
     assert isinstance(sample, dict)
     assert sample["total_article_groups"] == 72

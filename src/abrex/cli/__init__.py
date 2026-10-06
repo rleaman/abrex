@@ -537,15 +537,20 @@ def main(argv: Sequence[str] | None = None) -> int:
                 output_root=args.output_root,
                 reuse_cached_predictions=True if args.reuse_cache else None,
             )
+            manifest = json.loads(result.manifest_path.read_text(encoding="utf-8"))
+            resolver_usage = manifest["resolver"]["usage"]
+            summary: dict[str, object] = {
+                "run_directory": str(result.run_directory),
+                "manifest": str(result.manifest_path),
+                "prediction_fingerprint": result.prediction_fingerprint,
+                "evaluation_fingerprint": result.evaluation_fingerprint,
+                "reused_predictions": result.reused_predictions,
+            }
+            if isinstance(resolver_usage, dict) and "actual_cost_usd" in resolver_usage:
+                summary["estimated_total_cost_usd"] = resolver_usage["actual_cost_usd"]
             sys.stdout.write(
                 json.dumps(
-                    {
-                        "run_directory": str(result.run_directory),
-                        "manifest": str(result.manifest_path),
-                        "prediction_fingerprint": result.prediction_fingerprint,
-                        "evaluation_fingerprint": result.evaluation_fingerprint,
-                        "reused_predictions": result.reused_predictions,
-                    },
+                    summary,
                     sort_keys=True,
                 )
                 + "\n"
