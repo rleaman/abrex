@@ -1,18 +1,38 @@
 # Abrex project status and findings before the October 2026 campaign
 
-Status cutoff: October 5, 2026, after the T068 scientific decision and before
-implementation of `experiment-campaign-2026-10`. Prepared October 6 for use in
-a separate research discussion. The Abrex reference commit is
-`5fcf3a7a467059a9d226a3e74ac721b6d022f8ac`. This is a historical evidence summary,
-not a current work assignment. Subsequent campaign results are excluded.
+Abrex is a research and engineering project for identifying abbreviation
+meanings in biomedical literature and turning those findings into reusable,
+traceable data. Its core unit is a relation between a short form and the long
+form that an article uses to define it, together with the exact supporting text.
+For example, an extractor should recognize the definition in "interleukin 2
+(IL-2)" and retain where both expressions occur in the source.
 
-Abrex has a functioning experimental platform, traceable human annotations,
-real baseline comparisons, and a useful negative result from a small blind
-evaluation. It has not demonstrated a generally superior contemporary biomedical
-abbreviation extractor. Ab3P remains the operational incumbent for continuity;
-its contemporary superiority has not been established. The sister project,
-CellLiteraturePipeline (CLP), has substantially stronger table/list extraction
-evidence than the narrow CLP-derived component then present in Abrex.
+The project combines an experimental platform with a longer-term method and
+resource development effort. The platform lets researchers ingest literature,
+run interchangeable extraction methods, inspect disagreements, collect human
+judgments, and compare results under shared evaluation rules. It provides the
+means to investigate which methods work, where they fail, and whether proposed
+improvements survive evaluation on new articles.
+
+## Project purpose
+
+The purpose is to make abbreviation handling a reliable, scalable component of
+biomedical text processing, supporting downstream systems that need to connect
+an author's shortened expressions with their intended concepts. The intended
+solution should be practical for large literature collections, with automation
+handling routine preparation and analysis and the scientist concentrating on
+substantive judgments.
+
+The central research hypothesis is that extraction tools, abbreviation
+lexicons and the literature itself provide complementary, noisy evidence that
+can help improve one another. Candidate definitions gathered from articles may
+support new contextual patterns, better training data and richer dictionaries;
+those resources may then improve subsequent extraction. Whether this iterative
+process improves accuracy is an empirical question. Agreement between related
+sources alone does not establish correctness. The intended contributions are
+better extraction methods and reusable literature and dictionary resources.
+[Original project concept](../handoff/idea.txt),
+[platform architecture](architecture.md).
 
 ## Research scope and implemented capabilities
 
@@ -31,6 +51,51 @@ annotation interfaces, and portable Linux execution. Ab3P and PLODv2 completed
 real Linux jobs; historical runtime-configuration failures do not establish that
 these tools are unavailable. Software and runtime readiness are separate from
 scientific accuracy.
+
+## What CellLiteraturePipeline contributes
+
+Abrex's sister project, CellLiteraturePipeline (CLP), also implements some
+abbreviation handling. CLP's full V5.1 table/list system handles substantially more 
+than two-column tables: it includes alternating passages, delimited and inline lists, recovery rules, orientation and section boundaries, and selective Jev decisions.
+
+Its October 2 saved evaluation contains 200 sections with 4,035 annotated pair
+occurrences: 143 positive sections, 50 negative sections and seven requiring
+parser extension. Document-unique normalized pair precision was 99.35%, recall
+98.44%, and F1 98.89%. These are development/calibration results on a risk-stratified
+sample. Normalization and document-level deduplication differ from Abrex's exact
+occurrence/offset metric; the figures cannot be directly compared with the Abrex
+results reported here.
+[CLP evaluation](../../CellLiteraturePipeline/experiments/abbreviations/evaluations/abbr-v5-validation-v1.0.0__v5.1-live-t052/summary.json).
+
+CLP's production summary records 105,233 article records, 105,134 unique articles,
+and 174,761 accepted pair outputs. This establishes processing scale and yield;
+those outputs are not 174,761 independently verified gold annotations.
+[CLP production summary](../../CellLiteraturePipeline/experiments/abbreviations/reports/abbr-full-table-annotations-v5.1/summary.json).
+
+At the Abrex cutoff, a pinned CLP annotation snapshot contained 3,696 pairs with
+unique exact mappings and 339 unscorable mappings. Abrex's CLP-derived generator
+was a narrow two-column implementation rather than the full CLP system. Abrex had
+not independently measured the complete parser's precision, recall or F1. The
+full transfer and compatible evaluation were therefore an important outstanding
+experiment. These cutoff counts refer to the snapshot in the reference commit;
+the current working snapshot may contain later campaign corrections.
+[Contemporaneous integration description](archive/planning/revival-handoff-2026-10-02.md).
+
+## Evidence cutoff and overall assessment
+
+Status cutoff: October 5, 2026, after the T068 scientific decision and before
+implementation of `experiment-campaign-2026-10`. Prepared October 6 for use in
+a separate research discussion. The Abrex reference commit is
+`5fcf3a7a467059a9d226a3e74ac721b6d022f8ac`. This is a historical evidence summary,
+not a current work assignment. Subsequent campaign results are excluded.
+
+Abrex has a functioning experimental platform, traceable human annotations,
+real baseline comparisons, and a useful negative result from a small blind
+evaluation. It has not demonstrated a generally superior contemporary biomedical
+abbreviation extractor. Ab3P remains the operational incumbent for continuity;
+its contemporary superiority has not been established. The sister project,
+CellLiteraturePipeline (CLP), has substantially stronger table/list extraction
+evidence than the narrow CLP-derived component then present in Abrex.
 
 ## Historical baseline comparison
 
@@ -118,35 +183,6 @@ Ab3P remained the pragmatic incumbent. The short T067 Markdown report's sentence
 recommending retention of Schwartz-Hearst is superseded as an operational
 recommendation by this later decision; the frozen numerical results stand.
 [T068 decision](tasks/T068-human-next-direction.md).
-
-## What CellLiteraturePipeline contributes
-
-CLP's full V5.1 table/list system handles substantially more than two-column
-tables: it includes alternating passages, delimited and inline lists, recovery
-rules, orientation and section boundaries, and selective Jev decisions.
-
-Its October 2 saved evaluation contains 200 sections with 4,035 annotated pair
-occurrences: 143 positive sections, 50 negative sections and seven requiring
-parser extension. Document-unique normalized pair precision was 99.35%, recall
-98.44%, and F1 98.89%. These are development/calibration results on a risk-stratified
-sample. Normalization and document-level deduplication differ from Abrex's exact
-occurrence/offset metric; the figures cannot be directly compared with the Abrex
-tables above.
-[CLP evaluation](../../CellLiteraturePipeline/experiments/abbreviations/evaluations/abbr-v5-validation-v1.0.0__v5.1-live-t052/summary.json).
-
-CLP's production summary records 105,233 article records, 105,134 unique articles,
-and 174,761 accepted pair outputs. This establishes processing scale and yield;
-those outputs are not 174,761 independently verified gold annotations.
-[CLP production summary](../../CellLiteraturePipeline/experiments/abbreviations/reports/abbr-full-table-annotations-v5.1/summary.json).
-
-At the Abrex cutoff, a pinned CLP annotation snapshot contained 3,696 pairs with
-unique exact mappings and 339 unscorable mappings. Abrex's CLP-derived generator
-was a narrow two-column implementation rather than the full CLP system. Abrex had
-not independently measured the complete parser's precision, recall or F1. The
-full transfer and compatible evaluation were therefore an important outstanding
-experiment. These cutoff counts refer to the snapshot in the reference commit;
-the current working snapshot may contain later campaign corrections.
-[Contemporaneous integration description](archive/planning/revival-handoff-2026-10-02.md).
 
 ## Scientific lessons and unresolved questions
 
