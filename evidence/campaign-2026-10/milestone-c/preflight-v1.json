@@ -1,5 +1,11 @@
 {
   "evidence_boundary": {
+    "milestone_b_direct_extraction": {
+      "decision": "do_not_advance_unchanged_prompt_to_milestone_c",
+      "path": "evidence/campaign-2026-10/milestone-b/direct-extraction-readout-v1.json",
+      "sha256": "412c563be75dbb913268451f898ad620324a12ce7393bef4b470358bf9b76268",
+      "status": "negative_result_do_not_advance_unchanged_prompt"
+    },
     "reason_new_sample_required": "T067 has eight exposed article groups and method gains concentrated by group; it cannot be reused for confirmation.",
     "t067_dataset": {
       "article_groups": 8,
@@ -368,6 +374,21 @@
     "jev_model": "jev-1.13.0",
     "plod_checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277"
   },
+  "method_dispositions": {
+    "confirmatory_methods": [
+      "ab3p_native_offsets",
+      "schwartz_hearst",
+      "plodv2_pairing",
+      "complete_clp_v5_1_worker",
+      "jev_candidate_judge"
+    ],
+    "direct_extraction": {
+      "advance_unchanged": false,
+      "rationale": "the predeclared gate failed for request reliability, literal grounding, and candidate-omission recovery; no new Azure requests enter the confirmatory protocol",
+      "result": "evidence/campaign-2026-10/milestone-b/direct-extraction-readout-v1.json",
+      "role": "development_result_only"
+    }
+  },
   "method_inventory": {
     "ab3p_native_offsets": {
       "path": "configs/experiments/T060-ab3p-linux.yaml",
@@ -379,7 +400,7 @@
     },
     "direct_extraction": {
       "path": "configs/experiments/campaign-2026-10-direct-extraction.yaml",
-      "sha256": "affaa9ad52711d2b4b3360cfa3d5ac9e8044844c944c3238fd9e42ddb6e1d028"
+      "sha256": "2f765ab0468dd569c569c2a6e6b9f6a3f5c0966aae7ba1d77fd98d63da78f23b"
     },
     "jev_candidate_judge": {
       "path": "configs/experiments/T060-jev-split-v2.yaml",
@@ -394,12 +415,12 @@
       "sha256": "8ecad2451524588686d9ffb9dc877330fc4156e0baf13799c53e3539bfeb8908"
     }
   },
+  "post_freeze_external_dependencies": [
+    "authorize bounded TypeSafe scientific-data requests only after the sample and rules-only dry run establish the exact request plan",
+    "execute Ab3P and PLODv2 on the documented fresh Linux server bundle after the prediction-blind annotation lock"
+  ],
   "pre_freeze_dependencies": [
-    "complete the 20-document direct-extraction development run",
-    "classify its errors and decide whether its frozen prompt advances unchanged",
-    "authorize bounded Azure OpenAI and TypeSafe scientific-data requests",
-    "freeze a source-structure sidecar carrying ordered passages and raw table XML",
-    "approve the final review burden and success thresholds"
+    "approve the five-method disposition, source-only sample and review burden, single primary contrast, and success thresholds"
   ],
   "proposed_sample": {
     "estimated_primary_review_hours": {
@@ -434,19 +455,40 @@
   },
   "proposed_success_criteria": {
     "confirmatory_primary_contrasts": [
-      "direct extraction versus Jev candidate judging",
       "complete CLP V5.1 versus Schwartz-Hearst"
     ],
     "confirmatory_primary_endpoint": "strict exact-pair F1 on the representative component",
     "milestone_b_unchanged_prompt_gate": {
-      "candidate_omitted_gold_relations": 14,
-      "interpretation": "advance the unchanged prompt only if every threshold passes; otherwise retain and report the negative development result",
-      "maximum_actual_cost_usd": 0.05,
-      "maximum_invalid_grounded_output_fraction": 0.1,
-      "maximum_request_failure_fraction": 0.05,
-      "minimum_candidate_omitted_relations_recovered": 7,
-      "minimum_exact_precision": 0.65,
-      "single_run_rule": "run the frozen prompt once; do not tune or rerun to cross the gate"
+      "criteria": {
+        "candidate_omitted_recovery": {
+          "observed": 1,
+          "passed": false,
+          "required": 7
+        },
+        "invalid_grounded_output_fraction": {
+          "maximum": 0.1,
+          "observed": 0.5172413793103449,
+          "passed": false
+        },
+        "request_failure_fraction": {
+          "maximum": 0.05,
+          "observed": 0.45,
+          "passed": false
+        },
+        "successful_subset_exact_precision": {
+          "observed": 0.9285714285714286,
+          "passed": true,
+          "required": 0.65
+        },
+        "total_cost_usd": {
+          "maximum": 0.05,
+          "observed_upper_bound": 0.0471974,
+          "passed": true
+        }
+      },
+      "decision": "do_not_advance_unchanged_prompt_to_milestone_c",
+      "result": "evidence/campaign-2026-10/milestone-b/direct-extraction-readout-v1.json",
+      "state": "evaluated_failed"
     },
     "negative_result_rule": "failure to satisfy a criterion is reported as not established; do not redraw, retune, or substitute an exploratory endpoint",
     "operational_guardrails": {
@@ -457,13 +499,13 @@
     "state": "proposal_not_frozen",
     "structural_challenge_rule": "descriptive capability evidence only; never used for the representative superiority decision",
     "superiority_rule": {
-      "inference": "paired seeded article-group bootstrap; two-sided primary contrast p-values controlled by Holm at familywise alpha 0.05",
+      "inference": "paired seeded article-group bootstrap; the two-sided 95% interval for the single primary contrast must exclude zero",
       "minimum_absolute_f1_gain": 0.05,
-      "required": "both the practical gain and multiplicity-controlled statistical criterion must pass"
+      "required": "both the practical gain and paired uncertainty criterion must pass"
     }
   },
   "reporting_contract": {
-    "negative_result_rule": "run and report every frozen method; never resample until a win",
+    "negative_result_rule": "run and report every frozen confirmatory method; retain excluded direct extraction as visible development evidence; never resample until a win",
     "no_pooling_rule": "structural challenge results must not be pooled into the representative population estimate",
     "primary_matching": "strict half-open exact SF/LF occurrence pair",
     "secondary_matching": [
@@ -509,5 +551,5 @@
     "gold_exclusion": "prediction bundles contain only source text/structure and frozen method configuration"
   },
   "schema_version": "campaign-2026-10-milestone-c-preflight-v1",
-  "status": "draft_pending_milestone_b_result_and_protocol_freeze"
+  "status": "draft_pending_protocol_approval_and_sample_freeze"
 }

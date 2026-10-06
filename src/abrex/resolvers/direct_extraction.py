@@ -340,6 +340,7 @@ class DirectExtractionResolver:
                 )
                 break
             except Exception as error:  # provider boundary
+                self._record_provider_error_usage(error)
                 if attempts > self.config.retries or not _retryable(error):
                     raise DirectExtractionError(
                         f"Direct extraction request {request_hash} failed after "
@@ -363,6 +364,29 @@ class DirectExtractionResolver:
         self._parse_output(response)
         self._cache_response(request_hash, response)
         return response, False
+
+    def _record_provider_error_usage(self, error: Exception) -> None:
+        input_tokens = getattr(error, "input_tokens", None)
+        output_tokens = getattr(error, "output_tokens", None)
+        if (
+            isinstance(input_tokens, bool)
+            or not isinstance(input_tokens, int)
+            or input_tokens < 0
+            or isinstance(output_tokens, bool)
+            or not isinstance(output_tokens, int)
+            or output_tokens < 0
+        ):
+            return
+        with self._lock:
+            self._actual_input_tokens += input_tokens
+            self._actual_output_tokens += output_tokens
+            if (
+                self._cost(self._actual_input_tokens, self._actual_output_tokens)
+                > self.config.monetary_cap_usd
+            ):
+                raise DirectExtractionBudgetError(
+                    "Provider error usage exceeded monetary_cap_usd"
+                ) from error
 
     def _prediction(
         self,
@@ -607,6 +631,9 @@ def _network_attempts(response: Mapping[str, object]) -> int:
 
 
 def _retryable(error: Exception) -> bool:
+    retryable = getattr(error, "retryable", None)
+    if isinstance(retryable, bool):
+        return retryable
     status = getattr(error, "status", None)
     if isinstance(status, int):
         return status in {408, 409, 429} or status >= 500

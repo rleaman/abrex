@@ -15,11 +15,15 @@ from abrex.cli import main
 from abrex.config import ComponentSpec, ConfigError, load_resolved_config
 from abrex.domain import Document
 from abrex.experiments import run_experiment
-from abrex.infrastructure.openai_responses import OpenAIResponsesClient
+from abrex.infrastructure.openai_responses import (
+    OpenAIResponsesClient,
+    OpenAIResponsesOutputError,
+)
 from abrex.resolvers import (
     RESOLVERS,
     DirectExtractionBudgetError,
     DirectExtractionConfig,
+    DirectExtractionError,
     DirectExtractionResolver,
     ResolverExecutor,
 )
@@ -268,6 +272,50 @@ def test_azure_response_url_rejects_non_v1_endpoint(endpoint: str) -> None:
         )
 
 
+def test_incomplete_azure_response_accounts_usage_without_retry(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    raw_response = {
+        "id": "resp-incomplete",
+        "model": "gpt-6-luna-test-snapshot",
+        "status": "incomplete",
+        "incomplete_details": {"reason": "max_output_tokens"},
+        "output": [{"type": "reasoning"}],
+        "usage": {"input_tokens": 747, "output_tokens": 2048},
+    }
+
+    def fake_urlopen(request: urllib.request.Request, *, timeout: float) -> io.BytesIO:
+        assert timeout == 60
+        return io.BytesIO(json.dumps(raw_response).encode("utf-8"))
+
+    monkeypatch.setenv("ABREX_TEST_AZURE_KEY", "test-only")
+    monkeypatch.setattr(urllib.request, "urlopen", fake_urlopen)
+    client = OpenAIResponsesClient(
+        endpoint="https://example.openai.azure.com/",
+        api_key_env="ABREX_TEST_AZURE_KEY",
+        provider="azure_openai",
+    )
+    with pytest.raises(OpenAIResponsesOutputError) as client_error:
+        client.create_response(payload={"model": "deployment"}, timeout_seconds=60)
+    assert client_error.value.input_tokens == 747
+    assert client_error.value.output_tokens == 2048
+    assert "max_output_tokens" in str(client_error.value)
+
+    resolver = DirectExtractionResolver(
+        client=client,
+        cache_path=tmp_path / "direct.jsonl",
+        provider="azure_openai",
+        endpoint="https://example.openai.azure.com/",
+        api_key_env="ABREX_TEST_AZURE_KEY",
+        retries=0,
+    )
+    with pytest.raises(DirectExtractionError, match="max_output_tokens"):
+        resolver.resolve(Document("d1", "No definitions here."))
+    assert resolver.usage["network_attempts"] == 1
+    assert resolver.usage["actual_input_tokens"] == 747
+    assert resolver.usage["actual_output_tokens"] == 2048
+
+
 def test_campaign_config_requires_azure_route_and_prices(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -357,6 +405,16 @@ def test_campaign_config_runs_end_to_end_through_http_and_direct_cache(
         "test-deployment"
     )
     assert "test-only" not in json.dumps(manifest)
+    assert manifest["resolved_config"]["resolver"]["error_policy"] == "collect"
+    assert (
+        manifest["resolver"]["config"]["resolver"]["params"][
+            "maximum_output_tokens_per_request"
+        ]
+        == 4096
+    )
+    assert manifest["resolver"]["config"]["resolver"]["params"]["monetary_cap_usd"] == (
+        0.045
+    )
     usage = manifest["resolver"]["usage"]
     assert usage["network_attempts"] == 20
     assert usage["estimated_input_tokens"] > 0

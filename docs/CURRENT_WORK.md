@@ -34,64 +34,39 @@ and gold-assisted PLOD ceilings are in
 [`artifacts/clp-milestone-a-readout.md`](artifacts/clp-milestone-a-readout.md)
 and `evidence/campaign-2026-10/milestone-a/`.
 
-## Milestone B status and exact dependency
+## Verified Milestone B negative result
 
-Local Milestone B preparation is complete. A registry-backed
-`openai_direct_extraction` resolver can propose pairs absent from generated
-candidates, uses strict Structured Outputs, validates literal Unicode half-open
-offsets, keeps discontinuous evidence separate, serializes abstention/rejection
-diagnostics, uses content-addressed caching, and enforces request/token/retry and
-monetary limits. Aggregate actual usage is included in experiment manifests.
+The authorized Azure OpenAI GPT-6 Luna development run was executed on October
+6, 2026. The unchanged frozen prompt first exhausted its 2,048-token output
+allowance before emitting structured text. A bounded operational repair retained
+the prompt, model, corpus, and scoring policy, raised the allowance to 4,096,
+collected failures instead of treating them as empty predictions, disabled
+retries, and lowered the remaining-run cap to $0.045 so cumulative spend stayed
+below the authorized $0.05.
 
-The current T062 development ledger has been materialized as an immutable
-20-document, 67-relation canonical dataset at
-`evidence/campaign-2026-10/milestone-b/`. Five overlap warnings are preserved;
-no relation is dropped. The prior recommended OpenAI pilot was `gpt-6-luna`,
-medium reasoning, 20 requests, at most 2,048 output tokens each, no automatic
-retries, and a $0.05 configured cap. Its $0.0222 conservative maximum-token
-estimate applies only to that prior OpenAI price route. The current campaign
-YAML instead targets the user's Azure OpenAI deployment and requires its actual
-input/output token rates.
-The current candidate generators produce 742 proposals, cover 53/67 strict
-relations (79.1%), and omit 14 before judging; the occurrence-level report is
-`evidence/campaign-2026-10/milestone-b/direct-extraction-preflight-v1.json`.
-See
-[`artifacts/campaign-2026-10-milestone-b-preflight.md`](artifacts/campaign-2026-10-milestone-b-preflight.md)
-and [`direct-extraction-baseline.md`](direct-extraction-baseline.md).
-The Azure campaign YAML has passed a disposable 20-document end-to-end local
-HTTP simulation, including manifest usage and a no-key/no-network direct-cache
-replay with the same prediction fingerprint. These synthetic outputs were kept
-out of campaign evidence and are not scientific results.
-The direct-response cache key also binds the provider and endpoint, so changing the
-scientific-data destination cannot silently reuse an old response.
-Resolver version 2 serializes per-document request completion metadata even for
-abstentions and fully rejected output: response/model identity, request hash,
-latency, attempt count, and token usage. Aggregate run usage also distinguishes
-billable network attempts from direct-cache hits.
-The campaign command now prints `estimated_total_cost_usd` in its final JSON,
-using the same aggregate returned-token cost saved in
-`run-manifest.json` at `resolver.usage.actual_cost_usd`.
-The repository fast gate passes after this CLI change: format, lint, strict
-mypy, 454 tests passed, and one external-runtime test was skipped.
+Eleven of 20 documents returned structured output; nine (45%) again exhausted
+all output tokens on reasoning. The 11 scorable documents yielded 14 grounded
+predictions: 13 TP, one FP, and 13 FN (precision 0.9286, recall 0.5000, F1
+0.6500). These are successful-subset metrics, not a full-run score. The
+availability-adjusted descriptive view is precision 0.9286, recall 0.1940, F1
+0.3210, while preserving failures as failures. Fifteen of 29 returned pair
+proposals (51.7%) were rejected because their literal short-form quotes did not
+match the model-supplied offsets. Only one of the 14 relations omitted by the
+candidate generators was recovered.
 
-No external request has been issued. The campaign YAML now selects the Azure
-OpenAI v1 Responses API and accepts a resource endpoint plus deployment name.
-Set `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`,
-`AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS`, and
-`AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS` as described in
-[`direct-extraction-baseline.md`](direct-extraction-baseline.md). Confirm the
-deployment supports strict Structured Outputs and medium reasoning, and confirm
-authorization to send the 20 biomedical passages to this Azure resource under
-the configured $0.05 cap. Once ready, run:
+The predeclared reliability, literal-grounding, and candidate-omission-recovery
+gates failed. The unchanged direct-extraction prompt therefore does not advance
+to Milestone C and must not be rerun merely to obtain a favorable result. Total
+provider spend is bounded between $0.0327660 and $0.0471974. The sole exact FP
+was a later non-defining occurrence of an already reviewed relation, so there
+is no unresolved human adjudication queue.
 
-```powershell
-.\env313\Scripts\abrex.exe experiment run configs\experiments\campaign-2026-10-direct-extraction.yaml
-```
-
-The owner must then validate actual usage and failure/abstention rates, compare
-candidate coverage and exact errors on all 67 relations, prepare only genuinely
-unresolved assisted review, and continue into the Milestone C protocol without
-another implementation assignment.
+Authoritative artifacts are
+[`artifacts/campaign-2026-10-milestone-b-result.md`](artifacts/campaign-2026-10-milestone-b-result.md),
+`evidence/campaign-2026-10/milestone-b/direct-extraction-readout-v1.json`, the
+immutable prediction JSONL, and the 11-row successful-response cache. Rebuild
+the readout with `scripts/build_direct_extraction_readout.py`. The adapter now
+accounts returned token usage even when a response has no structured output.
 
 ## Milestone C independent pre-freeze preparation
 
@@ -99,7 +74,8 @@ The exposed T067 sample is now treated as development evidence and will not be
 reused for confirmation. A machine-checked preflight at
 `evidence/campaign-2026-10/milestone-c/preflight-v1.json` inventories all six
 requested method identities, 238 excluded PMIDs, 83 excluded PMCIDs, known CLP
-overlap, and the unknown dictionary/training-overlap limitation. See
+overlap, the direct-extraction negative result, and the unknown
+dictionary/training-overlap limitation. See
 [`artifacts/campaign-2026-10-milestone-c-preflight.md`](artifacts/campaign-2026-10-milestone-c-preflight.md).
 
 The unfrozen workload proposal is 48 representative groups with one PMC prose
@@ -108,19 +84,28 @@ challenge groups: 72 groups and 120 passages total, estimated at 8–12 primary
 review hours. The representative group count gives an approximate worst-case
 Wilson 95% half-width of 0.136 for a group-level proportion. The challenge is
 reported separately and retains the ordered passages and raw table XML needed
-by complete CLP V5.1. Final freeze awaits Milestone B results, bounded external
-request authorization, and approval of review burden and success thresholds;
-no Milestone C sampling or predictions have been issued.
+by complete CLP V5.1. Final freeze now awaits approval of the narrower
+confirmatory method set, review burden, and success thresholds; no Milestone C
+sampling or predictions have been issued.
 
-The same machine preflight now carries explicit unfrozen success criteria rather
-than leaving them for post-result invention. The recommended Milestone B gate
-requires recovery of at least seven of the 14 candidate-omitted relations,
-exact precision of at least 0.65, at most 5% request failure, at most 10% invalid
-grounded output, and the $0.05 cap in one unchanged-prompt run. Confirmatory
-superiority requires an absolute representative exact-F1 gain of at least 0.05
-plus a paired group-bootstrap result passing Holm control across the two primary
-contrasts. Structural-challenge evidence cannot satisfy that claim. These values
-are proposals awaiting the eventual protocol decision, not frozen policy.
+The machine preflight retains the failed direct-extraction gate and all six
+requested method identities. It proposes five confirmatory methods: Ab3P,
+Schwartz–Hearst, PLODv2 pairing, complete CLP V5.1, and Jev candidate judging.
+Direct extraction remains visible as development evidence but makes no new
+confirmatory requests. The single primary contrast is complete CLP V5.1 versus
+Schwartz–Hearst; superiority requires an absolute representative exact-F1 gain
+of at least 0.05 and a paired article-group-bootstrap 95% interval excluding
+zero. Structural-challenge evidence cannot satisfy that claim. These choices
+remain proposals awaiting explicit protocol approval, not frozen policy.
+
+The prefilled approval record is
+[`artifacts/campaign-2026-10-protocol-decision.md`](artifacts/campaign-2026-10-protocol-decision.md).
+The recommended response is `Approve the Milestone C protocol as prepared.`
+That approval authorizes source-only sampling, acquisition, and construction of
+the tested blind-review packet; it does not authorize TypeSafe spend, prediction
+runs, annotation reveal, or further Azure requests. The owner will prepare an
+exact TypeSafe request count and hard cap for separate authorization after the
+sample and CLP rules-only dry run.
 
 The prediction-blind reviewer has also passed a fresh campaign-specific,
 disposable Microsoft Edge/Playwright exercise covering payload isolation,
@@ -137,6 +122,10 @@ resolver execution because the active host has no installed Ubuntu distribution;
 cannot install WSL here. The frozen comparison must use the documented fresh
 Linux server bundle and `setup-runtime.sh` flow. Exact evidence is in
 `evidence/campaign-2026-10/milestone-c/runtime-preflight-v1.json`.
+
+The repository fast gate passes for this checkpoint: source-import verification,
+Ruff formatting and lint, strict mypy over 211 files, and 456 passed tests with
+one external-runtime test skipped.
 
 ## Evidence to retain
 

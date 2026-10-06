@@ -2,7 +2,7 @@ The authoritative restart point is [docs/CURRENT_WORK.md (line 37)](C:/Users/lea
 When GPT-6 Luna API access is ready:
 1. Make OPENAI_API_KEY available to the Codex process. Do not paste it into chat. If you add it as a Windows environment variable, restart Codex so it inherits the variable. This follows the official OpenAI API quickstart.
 2. Send this exact restart prompt:
-Continue the experiment campaign. I authorize sending the 20 T062 biomedical passages to the OpenAI Responses API using GPT-6 Luna under the documented $0.05 hard cap. OPENAI_API_KEY is available in the Codex environment.
+Continue the experiment campaign. I authorize sending the 20 T062 biomedical passages to the Azure OpenAI Responses API using GPT-6 Luna under the documented $0.05 hard cap. All Azure OpenAI enviroment variables are available in the Codex environment: AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY, AZURE_OPENAI_DEPLOYMENT, AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS, and AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS.
 
 You do not need to create the cache or run directory. Their absence only proves that no scientific API run has occurred:
 - The response cache will be created automatically at evidence/campaign-2026-10/milestone-b/direct-extraction-cache.jsonl.

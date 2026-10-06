@@ -5,6 +5,11 @@ literal abbreviation relations without first supplying generated candidates.
 It therefore measures the direct-extraction alternative to candidate judging,
 not another candidate-ranking policy.
 
+Status: the authorized Azure development run completed on October 6, 2026 and
+failed its predeclared advancement gate. Do not rerun it to seek a favorable
+result. See
+[`artifacts/campaign-2026-10-milestone-b-result.md`](artifacts/campaign-2026-10-milestone-b-result.md).
+
 ## Scientific contract
 
 - Input is the unchanged canonical document text.
@@ -34,17 +39,18 @@ attempt count, and input/output tokens. This remains present for abstentions and
 fully rejected output, while aggregate usage separately distinguishes billable
 network attempts from direct-cache hits.
 
-The campaign configuration uses the Azure OpenAI v1 Responses API with the
-deployment supplied in `AZURE_OPENAI_DEPLOYMENT`, medium reasoning, 2,048
-maximum output tokens per document, no automatic retries, at most 20 network
-attempts, 25,000 estimated input tokens, and a $0.05 configured run cap. The
-previous OpenAI `gpt-6-luna` cost estimate is historical; the Azure deployment
-and its billing rates now determine whether the full 20-document run fits this
-cap. The exact model identity returned by each response is retained.
+The campaign used the Azure OpenAI v1 Responses API with the deployment supplied
+in `AZURE_OPENAI_DEPLOYMENT`, medium reasoning, no automatic retries, and at
+most one final-batch request per document. The initial 2,048-token allowance was
+exhausted on reasoning before output text. The recorded operational repair used
+4,096 output tokens and a reduced $0.045 remaining-run cap; it did not change
+the prompt, model, corpus, or scoring policy. Returned token usage from failed
+structured responses is now charged to the resolver cap. The exact model
+identity returned by successful responses is retained.
 
-## Run
+## Execution record — do not rerun
 
-Set these five environment variables in the same PowerShell session as the run:
+These five environment variables defined the executed route:
 
 | Variable | Value |
 | --- | --- |
@@ -69,46 +75,37 @@ The key is read only when a live response is requested. The other four values
 are required to resolve this campaign YAML. The resolved deployment, endpoint,
 and price assumptions are recorded in the run manifest; the key is not.
 
-Before running, confirm that this deployment and region support the v1 Responses
-API, strict Structured Outputs (`text.format` with JSON Schema), developer
-messages, and `reasoning.effort=medium`. The account also needs working API-key
-access and network access to the Azure endpoint. Azure's [Responses guide](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses)
+The deployment and region supported the v1 Responses API, strict Structured
+Outputs (`text.format` with JSON Schema), developer messages, and
+`reasoning.effort=medium`. Azure's [Responses guide](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses)
 and [structured-output guide](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/structured-outputs)
 describe these capabilities. The v1 path uses implicit versioning, so no
 `AZURE_OPENAI_API_VERSION` variable is needed. If the supplied URL is an older
 deployment-scoped API endpoint, obtain the resource base URL for v1.
 
-The $0.05 limit uses the configured per-token rates and returned token counts;
-it is an application estimate, not an Azure billing control. Check Azure's
-applicable [pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
-for your deployment type, region, and contract. A deployment with higher prices
-may hit the cap before all 20 documents finish; change the cap only with the
-appropriate budget authorization. Access to the API also needs authorization
-to send these 20 biomedical passages to this Azure resource.
+The $0.05 authorization used the supplied per-token rates and returned token
+counts; it was an application bound, not an Azure billing control. Total spend
+is bounded between $0.0327660 and $0.0471974.
 
-Once those conditions are met, run:
+The executed command was:
 
 ```powershell
 .\env313\Scripts\abrex.exe experiment run configs\experiments\campaign-2026-10-direct-extraction.yaml
 ```
 
-The input is the reconciled 20-document, 67-relation T062 development artifact.
-The run produces immutable predictions, exact-pair evaluation, an error table,
-an HTML error report, and a manifest under
-`.artifacts/campaign-2026-10/direct-extraction`.
-The command's final JSON prints `estimated_total_cost_usd`. The same value is
-saved at `resolver.usage.actual_cost_usd` in `run-manifest.json`, alongside the
-total input/output tokens and network-attempt count. It is calculated from
-returned usage and the configured Azure token rates. A cache-only replay incurs
-no new model requests and reports zero for that replay; Azure billing remains
-the authority for the final charge.
+The evaluator correctly refused to score nine runtime failures as empty
+predictions, so the generic runner did not publish a misleading final manifest.
+The failure-aware campaign readout instead binds the immutable prediction JSONL,
+the 11 successful cached responses, exact successful-subset metrics, the
+availability-adjusted descriptive view, and the cost bound. No further Azure
+request is needed for this development comparison.
 
-Before any external request, the exact campaign configuration is exercised by
-an end-to-end local HTTP simulation over all 20 documents. That test traverses
+Before live execution, the exact campaign configuration was exercised by an
+end-to-end local HTTP simulation over all 20 documents. That test traversed
 the registry, layered YAML configuration, HTTP request/response boundary,
 strict response parsing, direct cache, evaluation, all three reporters, and
-aggregate usage in the run manifest. It then removes the test API key, rejects
-any attempted network call, and confirms cache-only replay yields the identical
+aggregate usage in the run manifest. It then removed the test API key, rejected
+any attempted network call, and confirmed cache-only replay yielded the identical
 prediction fingerprint. Simulated outputs are confined to pytest temporary
 storage and are not scientific evidence.
 

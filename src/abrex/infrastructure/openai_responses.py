@@ -19,6 +19,23 @@ class OpenAIResponsesHTTPError(RuntimeError):
         super().__init__(message)
 
 
+class OpenAIResponsesOutputError(RuntimeError):
+    """A completed response had no usable structured output text."""
+
+    retryable = False
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        input_tokens: int,
+        output_tokens: int,
+    ) -> None:
+        self.input_tokens = input_tokens
+        self.output_tokens = output_tokens
+        super().__init__(message)
+
+
 class OpenAIResponsesClient:
     """Send one JSON request and normalize its structured text response."""
 
@@ -64,17 +81,23 @@ class OpenAIResponsesClient:
             raise RuntimeError(f"Responses API request failed: {error}") from error
         if not isinstance(raw, dict):
             raise TypeError("Responses API returned a non-object payload")
-        output_text = _output_text(cast(Mapping[str, object], raw))
-        usage = raw.get("usage", {})
-        if not isinstance(usage, dict):
-            raise TypeError("Responses API usage must be an object")
+        response_mapping = cast(Mapping[str, object], raw)
+        input_tokens, output_tokens = _token_usage(response_mapping)
+        try:
+            output_text = _output_text(response_mapping)
+        except (RuntimeError, TypeError) as error:
+            raise OpenAIResponsesOutputError(
+                _output_failure_message(response_mapping, error),
+                input_tokens=input_tokens,
+                output_tokens=output_tokens,
+            ) from error
         return {
             "model": raw.get("model"),
             "request_id": raw.get("id"),
             "output": output_text,
             "usage": {
-                "input_tokens": usage.get("input_tokens", 0),
-                "output_tokens": usage.get("output_tokens", 0),
+                "input_tokens": input_tokens,
+                "output_tokens": output_tokens,
             },
         }
 
@@ -127,4 +150,38 @@ def _output_text(response: Mapping[str, object]) -> str:
     return texts[0]
 
 
-__all__ = ["OpenAIResponsesClient", "OpenAIResponsesHTTPError"]
+def _token_usage(response: Mapping[str, object]) -> tuple[int, int]:
+    usage = response.get("usage")
+    if not isinstance(usage, Mapping):
+        raise TypeError("Responses API usage must be an object")
+    values: list[int] = []
+    for key in ("input_tokens", "output_tokens"):
+        value = usage.get(key)
+        if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+            raise TypeError(f"Responses API usage {key} must be a non-negative integer")
+        values.append(value)
+    return values[0], values[1]
+
+
+def _output_failure_message(response: Mapping[str, object], error: Exception) -> str:
+    status = response.get("status")
+    incomplete = response.get("incomplete_details")
+    reason = incomplete.get("reason") if isinstance(incomplete, Mapping) else None
+    output = response.get("output")
+    item_types = (
+        [item.get("type") for item in output if isinstance(item, Mapping)]
+        if isinstance(output, list)
+        else []
+    )
+    return (
+        "Responses API returned no usable structured output text "
+        f"(status={status!r}, incomplete_reason={reason!r}, "
+        f"output_item_types={item_types!r}, cause={type(error).__name__})"
+    )
+
+
+__all__ = [
+    "OpenAIResponsesClient",
+    "OpenAIResponsesHTTPError",
+    "OpenAIResponsesOutputError",
+]

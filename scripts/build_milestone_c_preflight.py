@@ -40,6 +40,9 @@ RUNTIME_PREFLIGHT_PATH = Path(
 BLIND_REVIEWER_QA_PATH = Path(
     "evidence/campaign-2026-10/milestone-c/blind-reviewer-qa-v1.json"
 )
+DIRECT_RESULT_PATH = Path(
+    "evidence/campaign-2026-10/milestone-b/direct-extraction-readout-v1.json"
+)
 
 
 def build_preflight(
@@ -55,6 +58,10 @@ def build_preflight(
     t067 = _object(t067_report_path)
     runtime_preflight = _object(RUNTIME_PREFLIGHT_PATH)
     blind_reviewer_qa = _object(BLIND_REVIEWER_QA_PATH)
+    direct_result = _object(DIRECT_RESULT_PATH)
+    direct_gate = _mapping(
+        direct_result.get("advancement_gate"), "direct extraction advancement gate"
+    )
     dataset = _mapping(t067.get("dataset"), "T067 dataset")
     group_analysis = _mapping(t067.get("article_group_analysis"), "T067 group analysis")
     proposed_representative_groups = 48
@@ -64,7 +71,7 @@ def build_preflight(
     total_passages = representative_passages + structure_passages
     report: dict[str, object] = {
         "schema_version": "campaign-2026-10-milestone-c-preflight-v1",
-        "status": "draft_pending_milestone_b_result_and_protocol_freeze",
+        "status": "draft_pending_protocol_approval_and_sample_freeze",
         "evidence_boundary": {
             "t067_is_development_after_reveal": True,
             "t067_status": t067.get("status"),
@@ -75,6 +82,12 @@ def build_preflight(
                 "T067 has eight exposed article groups and method gains concentrated "
                 "by group; it cannot be reused for confirmation."
             ),
+            "milestone_b_direct_extraction": {
+                "path": DIRECT_RESULT_PATH.as_posix(),
+                "sha256": _sha256(DIRECT_RESULT_PATH),
+                "status": direct_result.get("status"),
+                "decision": direct_gate.get("decision"),
+            },
         },
         "exclusions": {
             "pmids": list(ledger.pmids),
@@ -96,6 +109,25 @@ def build_preflight(
                 "sha256": _file_sha(path),
             }
             for name, path in METHOD_PATHS.items()
+        },
+        "method_dispositions": {
+            "confirmatory_methods": [
+                "ab3p_native_offsets",
+                "schwartz_hearst",
+                "plodv2_pairing",
+                "complete_clp_v5_1_worker",
+                "jev_candidate_judge",
+            ],
+            "direct_extraction": {
+                "role": "development_result_only",
+                "advance_unchanged": False,
+                "rationale": (
+                    "the predeclared gate failed for request reliability, literal "
+                    "grounding, and candidate-omission recovery; no new Azure "
+                    "requests enter the confirmatory protocol"
+                ),
+                "result": DIRECT_RESULT_PATH.as_posix(),
+            },
         },
         "fixed_resource_identities": {
             "clp_source_commit": ("323fd4f51aa3c5b54ed30f37dd297b00b49e277e"),
@@ -163,36 +195,25 @@ def build_preflight(
         "proposed_success_criteria": {
             "state": "proposal_not_frozen",
             "milestone_b_unchanged_prompt_gate": {
-                "candidate_omitted_gold_relations": 14,
-                "minimum_candidate_omitted_relations_recovered": 7,
-                "minimum_exact_precision": 0.65,
-                "maximum_request_failure_fraction": 0.05,
-                "maximum_invalid_grounded_output_fraction": 0.10,
-                "maximum_actual_cost_usd": 0.05,
-                "single_run_rule": (
-                    "run the frozen prompt once; do not tune or rerun to cross the gate"
-                ),
-                "interpretation": (
-                    "advance the unchanged prompt only if every threshold passes; "
-                    "otherwise retain and report the negative development result"
-                ),
+                "state": "evaluated_failed",
+                "result": DIRECT_RESULT_PATH.as_posix(),
+                "decision": direct_gate.get("decision"),
+                "criteria": direct_gate.get("criteria"),
             },
             "confirmatory_primary_endpoint": (
                 "strict exact-pair F1 on the representative component"
             ),
             "confirmatory_primary_contrasts": [
-                "direct extraction versus Jev candidate judging",
                 "complete CLP V5.1 versus Schwartz-Hearst",
             ],
             "superiority_rule": {
                 "minimum_absolute_f1_gain": 0.05,
                 "inference": (
-                    "paired seeded article-group bootstrap; two-sided primary "
-                    "contrast p-values controlled by Holm at familywise alpha 0.05"
+                    "paired seeded article-group bootstrap; the two-sided 95% "
+                    "interval for the single primary contrast must exclude zero"
                 ),
                 "required": (
-                    "both the practical gain and multiplicity-controlled statistical "
-                    "criterion must pass"
+                    "both the practical gain and paired uncertainty criterion must pass"
                 ),
             },
             "operational_guardrails": {
@@ -230,21 +251,26 @@ def build_preflight(
                 "representative population estimate"
             ),
             "negative_result_rule": (
-                "run and report every frozen method; never resample until a win"
+                "run and report every frozen confirmatory method; retain excluded "
+                "direct extraction as visible development evidence; never resample "
+                "until a win"
             ),
         },
         "pre_freeze_dependencies": [
-            "complete the 20-document direct-extraction development run",
             (
-                "classify its errors and decide whether its frozen prompt "
-                "advances unchanged"
+                "approve the five-method disposition, source-only sample and review "
+                "burden, single primary contrast, and success thresholds"
             ),
-            "authorize bounded Azure OpenAI and TypeSafe scientific-data requests",
+        ],
+        "post_freeze_external_dependencies": [
             (
-                "freeze a source-structure sidecar carrying ordered passages and "
-                "raw table XML"
+                "authorize bounded TypeSafe scientific-data requests only after the "
+                "sample and rules-only dry run establish the exact request plan"
             ),
-            "approve the final review burden and success thresholds",
+            (
+                "execute Ab3P and PLODv2 on the documented fresh Linux server bundle "
+                "after the prediction-blind annotation lock"
+            ),
         ],
         "review_interface_readiness": {
             "artifact": BLIND_REVIEWER_QA_PATH.as_posix(),
