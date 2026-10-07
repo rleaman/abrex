@@ -1,0 +1,3269 @@
+{
+  "schema_version": "abrex-blind-review-packet-v1",
+  "packet_id": "blind-8fac43caa930ca94a5b5",
+  "content_sha256": "8fac43caa930ca94a5b521381e07c2e88ad640b365ad01212c5397aeaec2b61d",
+  "protocol_id": "campaign-2026-10-milestone-c-0ee00c49fc9a8ff6f756-independent-second-review-v1",
+  "seed": 20261006,
+  "cases": [
+    {
+      "case_id": "milestone-c-c2c919d2768e405a0e6c",
+      "article_id": "35873165",
+      "article_group_id": "35873165",
+      "title": "Rapid Detection of Candida tropicalis in Clinical Samples From Different Sources Using RPA-LFS",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35873165/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-3",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "74bf9e2280a543a7c41690f6c61a06d67c101845653a93fe688ddff1e6aae9d7",
+      "passage_start": 0,
+      "passage_end": 829,
+      "text": "LFS assay for 37 common clinical pathogens was performed, sensitivity and specificity of the detection system was determined, reaction temperature and time were optimized, and 191 actual clinical samples collected from different sources were tested to evaluate the detection performance of the established RPA-LFS system to provide a reliable molecular diagnostic method for the detection of C. tropicalis, the results show that the RPA-LFS system can specifically detect C. tropicalis without cross-reacting with other fungi or bacterial, with a sensitivity of 9.94 CFU/µL, without interference from genomic DNA of other species, at an optimal reaction temperature of 39°C, and the whole reaction process can be controlled within 20 min, and to meet the clinical need for rapid, sensitive, real-time, and portable field testing.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-1782c0476ae56b256c06",
+      "article_id": "PMC8216644",
+      "article_group_id": "34178494",
+      "title": "“My Heart Said It’s Swollen”: A Rare Case of Clozapine-Induced Myocarditis in a Schizophrenic Patient",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8216644/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[1]/p[1]#segment-1",
+      "section_heading": "Introduction",
+      "canonical_text_sha256": "132b6af5ffd514915e9075806ac3c7bc7a66ead3cb04ac22125e6738dacaf604",
+      "passage_start": 0,
+      "passage_end": 670,
+      "text": "Clozapine is a second-generation antipsychotic used to treat psychiatric conditions, such as schizophrenia. It is known to block dopamine D2 receptors and bind to histamine H1, acetylcholine muscarinic M1, serotonin 5-HT2A, and alpha-1-adrenoreceptors. Clozapine is less likely to cause extrapyramidal symptoms than its first-generation counterparts. One of the most well-known side effects of clozapine is agranulocytosis. However, another lesser yet insidious side effect is myocarditis. We present the case of a man with an asymptomatic presentation of clozapine-induced myocarditis (CIM) and trace the development of cardiomyopathy after the initiation of clozapine.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-4dc6d551d46bd908cb1e",
+      "article_id": "39330152",
+      "article_group_id": "39330152",
+      "title": "A Novel Biomineralized Collagen Liquid Crystal Hydrogel Possessing Bone-like Nanostructures by Complete In Vitro Fabrication",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39330152/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "062d9ceabbb8be05c840bffcae1207dfca3cac99cc411db9c1250fa454dc7fe3",
+      "passage_start": 0,
+      "passage_end": 693,
+      "text": "The microstructure of bone consists of nano-hydroxyapatite (nano-HA) crystals aligned within the interspaces of collagen fibrils. To emulate this unique microstructure of bone, this work applied two biomimetic techniques to obtain bone-like microstructures in vitro, that is, combining the construction of collagen liquid crystal hydrogel (CLCH) with the application of a polymer-induced liquid precursor (PILP) mineralization process. Upon the elevation of pH, the collagen macromolecules within the collagen liquid crystal (CLC) were activated to self-assemble into CLCH, whose fibrils packed into a long and dense fiber bundle in high orientation, emulating the dense-packed matrix of bone.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-1b4e0491d01cb5b06783",
+      "article_id": "PMC10177568",
+      "article_group_id": "37174599",
+      "title": "Genomic Characterizations of Porcine Epidemic Diarrhea Viruses (PEDV) in Diarrheic Piglets and Clinically Healthy Adult Pigs from 2019 to 2022 in China",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10177568/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[1]/p[5]#segment-1",
+      "section_heading": "1. Introduction",
+      "canonical_text_sha256": "f07a0827a3a637fd00b744c788052b7cd284d5f7e79872c426db1ec66709d4b5",
+      "passage_start": 0,
+      "passage_end": 524,
+      "text": "PEDV infects all ages of pigs and may cause 100% mortality in neonatal piglets [26]. A majority of PEDV epidemiology studies have focused on PEDV infection in piglets. Very few studies have paid attention to PEDV infection in adult pigs. To investigate the up-to-date prevalence of PEDV in both piglets and adult pigs in China, an epidemiological investigation was performed using intestinal samples collected from both diarrheic piglets and adult pigs without enteric diseases from six provinces in 2019–2022 in this study.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-022e27a9d279bbea346f",
+      "article_id": "39260892",
+      "article_group_id": "39260892",
+      "title": "The Neural and Computational Architecture of Feedback Dynamics in Mouse Cortex during Stimulus Report",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39260892/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "a5e7d648763314ef06970d393a81152a1ee935fe5f89560cd66efd66d529ac62",
+      "passage_start": 0,
+      "passage_end": 626,
+      "text": "Conscious reportability of visual input is associated with a bimodal neural response in the primary visual cortex (V1): an early-latency response coupled to stimulus features and a late-latency response coupled to stimulus report or detection. This late wave of activity, central to major theories of consciousness, is thought to be driven by the prefrontal cortex (PFC), responsible for \"igniting\" it. Here we analyzed two electrophysiological studies in mice performing different stimulus detection tasks and characterized neural activity profiles in three key cortical regions: V1, posterior parietal cortex (PPC), and PFC.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-0a507d180d9abd49b47c",
+      "article_id": "PMC10380699",
+      "article_group_id": "37511509",
+      "title": "Atheroprotective Aspects of Heat Shock Proteins",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10380699/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[8]/p[3]#segment-1",
+      "section_heading": "8. HSP70′s Influence on Atherosclerosis and the Endothelium",
+      "canonical_text_sha256": "dc837cff10f7b8ad15456ab1b618c398d927f0e79860da3676308c8d76d864df",
+      "passage_start": 0,
+      "passage_end": 614,
+      "text": "NO derived from endothelial NO synthase (eNOS) is evaluated as a possible protective factor against atherosclerosis. Accordingly, an increase in the expression of eNOS or NO production by pharmacological intervention can inhibit atherosclerosis. Perhaps NO has a protective effect in low concentrations, inhibiting the activation/adhesion of leukocytes and platelets and the proliferation of smooth muscle cells. As one of the causes of endothelial dysfunction, a violation of the production of NO by the endothelium can occur in the early stages of atherosclerosis before macroscopic damage manifests itself [53].",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-60282f673febc655719c",
+      "article_id": "42042857",
+      "article_group_id": "42042857",
+      "title": "Paraspeckles Are Associated with the Activation and Nuclear Localization of Unphosphorylated miR-34a",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42042857/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-2",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "72832c7e3452415a57b305ae44ce1d61e44da775c4649f2a3929f5aacb6875cb",
+      "passage_start": 0,
+      "passage_end": 699,
+      "text": "CRISPR-mediated deletion of the paraspeckle NEAT1_2 triple helix motif was performed to create an A549 cell line lacking paraspeckles (dTH). Activity and expression of mir-34a post-irradiation were evaluated by qRT-PCR and luciferase assays comparing dTH and wild-type (WT) A549 cell lines. In situ hybridization (ISH) was performed to evaluate mir-34a localization before and after IR, comparing dTH and WT cell lines. Results: Mass spectrometry identified paraspeckle proteins as significantly enriched interacting partners of unphosphorylated mir-34 mimics. By qRT-PCR and luciferase assays, we found that paraspeckle loss prevented radiation-induced early activation of unphosphorylated mir-34a.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-306964ea5c834eb1bb32",
+      "article_id": "39206093",
+      "article_group_id": "39206093",
+      "title": "Research progress of migrasomes: from genesis to formation, physiology to pathology",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39206093/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "9e6a50a8c30511acf24fcaf84c8554e94f7b496eb0d24fe5496d46f67b6da22f",
+      "passage_start": 0,
+      "passage_end": 626,
+      "text": "Migrasomes are recently identified organelles that form at the ends or forks of retraction fibers (RFs) behind migrating cells and are expelled from the cell through cell migration. Migrasomes contain signaling molecules which are captured by surrounding cells along with migrasomes or released into the extracellular environment following the rupture of the migrasomes. Finally, through the action of these signaling molecules, migrasomes facilitate the entire process of information conveyance. In addition, migrasomes also serves as a \"scavenger\" by removing damaged mitochondria from the cell to ensure cellular viability.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-73e3315f6f06164033eb",
+      "article_id": "PMC8224925",
+      "article_group_id": "34166470",
+      "title": "Discontinuation of oral anticoagulation therapy after successful atrial fibrillation ablation: A systematic review and meta-analysis of prospective studies",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8224925/",
+      "source_kind": "table_or_list",
+      "section_id": "article/body/sec[3]/sec[2]/table-wrap[1]",
+      "section_heading": "3.2. Characteristics of included studies",
+      "canonical_text_sha256": "d0bfde229329cdcc9763cf1775e3e16151591391ffb51d6deb517e8c7affbb1d",
+      "passage_start": 0,
+      "passage_end": 1685,
+      "text": "Characteristics for studies included in the meta-analysis.\nAuthor and year\nRegion\nType of OAC\nType of ablation (energy)\nBlanking Period (months)\nSample size\nAge, years (range)\nMale N (%)\nFollow-up (years)\nTime of off-OAC (months)\nReinitialization of OAC after AF recurrence\nCHADS2 scoreoff-OAC\nCHADS2 scoreon-OAC\nOral et al., 2006 [12]\nUSA\nWarfarin\nCA (RF)\n2\n755\n55±11 (17–79)\n577 (76.4%)\n2.1±0.7\n3\nUnclear\n0 = 53% ≥1 = 47%\n0 = 37% ≥1 = 63%\nNademanee et al., 2008 [13]\nUSA\nWarfarin\nCA (RF)\n3\n635\n67±12\n423 (66.5%)\n2.3+1.7\n3\nRestarted\nNA\nNA\nHussein et al., 2011 [14]\nUSA\nWarfarin\nCA (RF)\n2\n831\n58.7±9.9\n644 (77.5%)\n4.6*\n12\nUnclear\nNA\nNA\nHunter et al., 2011 [21]\nUK/Australia\nWarfarin\nCA (RF+Cryo)\n3\n1273\n58±11\n942 (74%)\n3.1\n3\nunclear\n0.7±0.9\n0.9±0.9\nSaad et al., 2011 [15]\nBrasil\nWarfarin\nCA (RF)\n2\n327\n63±13 (17–87)\n259 (79.2%)\n3.8±1.4\n3\nRestarted\nNA\nNA\nWinkle et al., 2013 [16]\nUSA\nWarfarin or DOAC\nCA (RF)\n3\n108\n66.2±9.0\n68 (62.9%)\n2.8+1.6\n7\nUnclear\nNA\nNA\nGaita et al., 2014 [17]\nItaly\nWarfarin\nCA (RF)\n3\n766\n57±11\n612 (79.9%)\n5*\n3\nRestarted\n≤1 = 91.8% ≥2 = 8.2%\n≤1 = 70.4% ≥2 = 29.6%\nHermida et al., 2020 [18]\nFrance\nWarfarin or DOAC\nCA (Cyro)\n3\n450\n60±9\n351 (78%)\n2.2*\n3\nUnclear\n0.7±1.0#\n1.8±1.3#\nYang et al., 2020 [19]\nChina\nWarfarin or DOAC\nCA (RF)\nNA\n4512\nOn-OAC 64.1±9.8 Off-OAC 62.8±9.9\n2864 (63.5%)\nOff-OAC 2.0±1.2 On-OAC 1.9±1.1\n12\nRestarted\n2.3±1.3#\n2.7±1.4#\nYu et al., 2020 [20]\nChina\nWarfarin or DOAC\nCA (RF)\nNA\n1491\n59.6±12.1 (43–76)\n918 (61.6%)\n2.3±1.2\n3\nPhysician discretion\n1.5±1.4#\n2.4±1.7#\nCA, catheter ablation; Cryo, cryo-balloon; NA, data not available; DOAC, direct oral anticoagulation; OAC, oral anticoagulant; RF, radiofrequency#, CHADS2-VASc score*, median.",
+      "context_before": "",
+      "context_after": "",
+      "structures": [
+        {
+          "kind": "table",
+          "text": "Characteristics for studies included in the meta-analysis.",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]"
+        },
+        {
+          "kind": "caption",
+          "text": "Characteristics for studies included in the meta-analysis.",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/caption"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Author and year",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[1]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Region",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[2]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Type of OAC",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[3]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Type of ablation (energy)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[4]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Blanking Period (months)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[5]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Sample size",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[6]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Age, years (range)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[7]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Male N (%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[8]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Follow-up (years)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[9]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Time of off-OAC (months)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[10]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Reinitialization of OAC after AF recurrence",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[11]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "CHADS2 scoreoff-OAC",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[12]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "CHADS2 scoreon-OAC",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/th[13]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Oral et al., 2006 [12]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[14]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "USA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[15]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[16]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (RF)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[17]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[18]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "755",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[19]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "55±11 (17–79)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[20]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "577 (76.4%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[21]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2.1±0.7",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[22]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[23]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Unclear",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[24]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0 = 53% ≥1 = 47%",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[25]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0 = 37% ≥1 = 63%",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[26]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Nademanee et al., 2008 [13]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[27]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "USA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[28]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[29]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (RF)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[30]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[31]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "635",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[32]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "67±12",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[33]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "423 (66.5%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[34]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2.3+1.7",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[35]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[36]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Restarted",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[37]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[38]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[39]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Hussein et al., 2011 [14]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[40]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "USA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[41]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[42]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (RF)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[43]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[44]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "831",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[45]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "58.7±9.9",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[46]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "644 (77.5%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[47]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "4.6*",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[48]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "12",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[49]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Unclear",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[50]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[51]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[52]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Hunter et al., 2011 [21]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[53]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "UK/Australia",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[54]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[55]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (RF+Cryo)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[56]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[57]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1273",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[58]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "58±11",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[59]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "942 (74%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[60]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3.1",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[61]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[62]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "unclear",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[63]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.7±0.9",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[64]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.9±0.9",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[65]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Saad et al., 2011 [15]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[66]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Brasil",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[67]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[68]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (RF)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[69]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[70]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "327",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[71]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "63±13 (17–87)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[72]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "259 (79.2%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[73]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3.8±1.4",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[74]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[75]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Restarted",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[76]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[77]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[78]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Winkle et al., 2013 [16]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[79]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "USA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[80]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin or DOAC",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[81]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (RF)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[82]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[83]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "108",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[84]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "66.2±9.0",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[85]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "68 (62.9%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[86]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2.8+1.6",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[87]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "7",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[88]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Unclear",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[89]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[90]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[91]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Gaita et al., 2014 [17]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[92]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Italy",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[93]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[94]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (RF)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[95]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[96]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "766",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[97]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "57±11",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[98]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "612 (79.9%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[99]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "5*",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[100]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[101]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Restarted",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[102]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "≤1 = 91.8% ≥2 = 8.2%",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[103]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "≤1 = 70.4% ≥2 = 29.6%",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[104]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Hermida et al., 2020 [18]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[105]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "France",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[106]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin or DOAC",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[107]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (Cyro)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[108]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[109]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "450",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[110]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "60±9",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[111]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "351 (78%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[112]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2.2*",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[113]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[114]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Unclear",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[115]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.7±1.0#",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[116]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1.8±1.3#",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[117]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Yang et al., 2020 [19]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[118]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "China",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[119]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin or DOAC",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[120]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (RF)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[121]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[122]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "4512",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[123]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "On-OAC 64.1±9.8 Off-OAC 62.8±9.9",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[124]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2864 (63.5%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[125]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Off-OAC 2.0±1.2 On-OAC 1.9±1.1",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[126]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "12",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[127]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Restarted",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[128]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2.3±1.3#",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[129]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2.7±1.4#",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[130]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Yu et al., 2020 [20]",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[131]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "China",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[132]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Warfarin or DOAC",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[133]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CA (RF)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[134]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NA",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[135]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1491",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[136]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "59.6±12.1 (43–76)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[137]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "918 (61.6%)",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[138]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2.3±1.2",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[139]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[140]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Physician discretion",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[141]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1.5±1.4#",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[142]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2.4±1.7#",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table/td[143]"
+        },
+        {
+          "kind": "table-footnote",
+          "text": "CA, catheter ablation; Cryo, cryo-balloon; NA, data not available; DOAC, direct oral anticoagulation; OAC, oral anticoagulant; RF, radiofrequency#, CHADS2-VASc score*, median.",
+          "source_path": "article/body/sec[3]/sec[2]/table-wrap[1]/table-wrap-foot[1]"
+        }
+      ]
+    },
+    {
+      "case_id": "milestone-c-b0631b7c7c5c649ec428",
+      "article_id": "PMC6406372",
+      "article_group_id": "30764523",
+      "title": "Pediatric Epilepsy Mechanisms: Expanding the Paradigm of Excitation/Inhibition Imbalance",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6406372/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[2]/sec[2]/p[4]#segment-2",
+      "section_heading": "2.2. Neurotransmitters May Cause Paradoxical Physiological Actions",
+      "canonical_text_sha256": "f65c186b0e7014cf28b6e319efb1e3155357703af29e45edafdcbb083c509f9d",
+      "passage_start": 0,
+      "passage_end": 677,
+      "text": "Furthermore, even in the depolarizing time frame, GABA can mediate some inhibition by a shunting mechanism, whereby a large increase in membrane conductance occurs in response to GABA binding to its postsynaptic receptor. Despite a lack of chloride ion flow in this circumstance, shunting occurs that counters the excitation from activation of nearby α-amino-3-hydroxy-5-methyl-4-isoxazoleproprionic acid (AMPA) and N-methyl-D-aspartate (NMDA)-type receptors [41]. Therefore, dynamic changes in neurotransmitter actions across the lifespan contribute to seizure pathophysiology, and we must be mindful that subtle differences might exist between humans and experimental models.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-572057f59b77eabb1505",
+      "article_id": "40936291",
+      "article_group_id": "40936291",
+      "title": "The Psychosocial and Healthcare Utilisation Experiences of Women With Gestational Diabetes Mellitus From Diagnosis to 12 Months Postnatal: A Protocol for a Qualitative, Longitudinal Interview Study",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40936291/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "OBJECTIVES",
+      "canonical_text_sha256": "ca720750efc5f42724646cdbcdd78c4285800ac7f7846de98ab775930091937c",
+      "passage_start": 0,
+      "passage_end": 326,
+      "text": "Gestational diabetes mellitus (GDM) affects a significant and growing proportion of women each year. We know little about how their needs and experiences change over the perinatal period. This study aims to explore the psychosocial and healthcare experiences of women with a GDM diagnosis from pregnancy to 12-month postnatal.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-c863c9729d5359486fc1",
+      "article_id": "PMC13387277",
+      "article_group_id": "42446478",
+      "title": "Quantifying Lateral Pulsation in Retinal Vessels Within the Optic Disc",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13387277/",
+      "source_kind": "table_or_list",
+      "section_id": "article/body/sec[3]/table-wrap[2]",
+      "section_heading": "Results",
+      "canonical_text_sha256": "066cc6db621cfc2c2814e2e2a9a93617ee47a3793a6a5fc23aa80a46cf9341c7",
+      "passage_start": 0,
+      "passage_end": 722,
+      "text": "Summary of Phase Differences (Expressed as a Proportion of Cardiac Cycle Time) Between the Lateral Pulse Waves and Axial Pulse Wave Along the Selected Vein From the Optic Disc Center Toward the Boundary Where all Four Regression Models Fitted Well (Pseudo-R2 ≥ 75%)\nSubject\nRight Wall (RW)\nLeft Wall (LW)\nLateral Vessel Diameter (VD)\nA\n0.047 (0.00); P < 0.001\n0.047 (0.00); P < 0.001\n0.047 (0.00); P < 0.001\nB\n0.000 (0.00); P = 0.04\n0.092 (0.04); P = 0.002\n0.000 (0.00); P = NA (all paired differences = 0)\nC\n0.044 (0.04); P < 0.001\n0.044 (0.04); P < 0.001\n0.044 (0.04); P < 0.001\nValues are reported as median (IQR).P values are derived from Wilcoxon signed-rank tests and have not been adjusted for multiple comparisons.",
+      "context_before": "",
+      "context_after": "",
+      "structures": [
+        {
+          "kind": "table",
+          "text": "Summary of Phase Differences (Expressed as a Proportion of Cardiac Cycle Time) Between the Lateral Pulse Waves and Axial Pulse Wave Along the Selected Vein From the Optic Disc Center Toward the Boundary Where all Four Regression Models Fitted Well (Pseudo-R2 ≥ 75%)",
+          "source_path": "article/body/sec[3]/table-wrap[2]"
+        },
+        {
+          "kind": "caption",
+          "text": "Summary of Phase Differences (Expressed as a Proportion of Cardiac Cycle Time) Between the Lateral Pulse Waves and Axial Pulse Wave Along the Selected Vein From the Optic Disc Center Toward the Boundary Where all Four Regression Models Fitted Well (Pseudo-R2 ≥ 75%)",
+          "source_path": "article/body/sec[3]/table-wrap[2]/caption"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Subject",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/th[1]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Right Wall (RW)",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/th[2]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Left Wall (LW)",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/th[3]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Lateral Vessel Diameter (VD)",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/th[4]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "A",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[5]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.047 (0.00); P < 0.001",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[6]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.047 (0.00); P < 0.001",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[7]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.047 (0.00); P < 0.001",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[8]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "B",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[9]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.000 (0.00); P = 0.04",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[10]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.092 (0.04); P = 0.002",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[11]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.000 (0.00); P = NA (all paired differences = 0)",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[12]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "C",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[13]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.044 (0.04); P < 0.001",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[14]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.044 (0.04); P < 0.001",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[15]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.044 (0.04); P < 0.001",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table/td[16]"
+        },
+        {
+          "kind": "table-footnote",
+          "text": "Values are reported as median (IQR).P values are derived from Wilcoxon signed-rank tests and have not been adjusted for multiple comparisons.",
+          "source_path": "article/body/sec[3]/table-wrap[2]/table-wrap-foot[1]"
+        }
+      ]
+    },
+    {
+      "case_id": "milestone-c-408fbd54c9b109e87b80",
+      "article_id": "PMC10757874",
+      "article_group_id": "36448937",
+      "title": "National trends in the initial diagnosis and management of carpal tunnel syndrome: results from the ELECTS (ELEctrophysiology in Carpal Tunnel Syndrome) study",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10757874/",
+      "source_kind": "table_or_list",
+      "section_id": "article/body/sec[3]/sec[4]/table-wrap[2]",
+      "section_heading": "Severity stratification and case scenarios",
+      "canonical_text_sha256": "5bbf71b04252e085d388ecacfa07809620aecbd802f09fde925f8d40beefd175",
+      "passage_start": 0,
+      "passage_end": 1152,
+      "text": "Clinical scenarios: preferred management\nScenario 1 (clinical and NCS positive): clear clinical features, persistent motor/sensory loss and confirmatory positive electrophysiology\nManagement\nConservative (n)\nSteroid injection (n)\nSurgery (n)\nOther (n)\n1st choice\n4\n9\n120\n1\n2nd choice\n7\n23\n5\n0\n3rd choice\n11\n2\n4\n0\nScenario 2 (partial clinical and NCS positive): clear clinical features, no motor/sensory loss and confirmatory positive electrophysiology\nManagement\nConservative (n)\nSteroid injection (n)\nSurgery (n)\nOther (n)\n1st choice\n22\n38\n71\n2\n2nd choice\n11\n22\n21\n0\n3rd choice\n14\n5\n8\n0\nScenario 3 (only clinically positive): clear clinical features, but negative/ unsupportive/ lack of electrophysiology\nManagement\nConservative (n)\nSteroid injection (n)\nSurgery (n)\nOther (n)\n1st choice\n37\n70\n25\n1\n2nd choice\n20\n21\n17\n0\n3rd choice\n7\n5\n20\n0\nScenario 4 (only NCS positive): unclear/intermittent/mild clinical features, but positive electrophysiology confirming median nerve compression\nManagement\nConservative (n)\nSteroid injection (n)\nSurgery (n)\nOther (n)\n1st choice\n57\n51\n18\n6\n2nd choice\n13\n23\n15\n0\n3rd choice\n6\n3\n21\n0\nNCS = nerve conduction studies",
+      "context_before": "",
+      "context_after": "",
+      "structures": [
+        {
+          "kind": "table",
+          "text": "Clinical scenarios: preferred management",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]"
+        },
+        {
+          "kind": "caption",
+          "text": "Clinical scenarios: preferred management",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/caption"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Scenario 1 (clinical and NCS positive): clear clinical features, persistent motor/sensory loss and confirmatory positive electrophysiology",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[1]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nManagement\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[2]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nConservative (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[3]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nSteroid injection (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[4]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nSurgery (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[5]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nOther (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[6]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1st choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[7]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "4",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[8]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "9",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[9]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "120",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[10]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[11]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2nd choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[12]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "7",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[13]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "23",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[14]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "5",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[15]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[16]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3rd choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[17]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "11",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[18]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[19]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "4",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[20]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[21]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Scenario 2 (partial clinical and NCS positive): clear clinical features, no motor/sensory loss and confirmatory positive electrophysiology",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[22]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nManagement\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[23]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nConservative (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[24]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nSteroid injection (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[25]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nSurgery (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[26]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nOther (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[27]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1st choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[28]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "22",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[29]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "38",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[30]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "71",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[31]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[32]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2nd choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[33]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "11",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[34]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "22",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[35]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "21",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[36]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[37]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3rd choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[38]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "14",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[39]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "5",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[40]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "8",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[41]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[42]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Scenario 3 (only clinically positive): clear clinical features, but negative/ unsupportive/ lack of electrophysiology",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[43]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nManagement\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[44]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nConservative (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[45]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nSteroid injection (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[46]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nSurgery (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[47]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nOther (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[48]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1st choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[49]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "37",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[50]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "70",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[51]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "25",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[52]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[53]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2nd choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[54]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "20",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[55]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "21",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[56]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "17",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[57]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[58]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3rd choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[59]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "7",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[60]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "5",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[61]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "20",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[62]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[63]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Scenario 4 (only NCS positive): unclear/intermittent/mild clinical features, but positive electrophysiology confirming median nerve compression",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[64]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nManagement\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[65]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nConservative (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[66]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nSteroid injection (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[67]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nSurgery (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[68]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nOther (n)\n",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[69]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1st choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[70]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "57",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[71]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "51",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[72]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "18",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[73]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "6",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[74]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2nd choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[75]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "13",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[76]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "23",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[77]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "15",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[78]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[79]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3rd choice",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[80]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "6",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[81]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[82]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "21",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[83]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table/td[84]"
+        },
+        {
+          "kind": "table-footnote",
+          "text": "NCS = nerve conduction studies",
+          "source_path": "article/body/sec[3]/sec[4]/table-wrap[2]/table-wrap-foot[1]"
+        }
+      ]
+    },
+    {
+      "case_id": "milestone-c-dd72f65c6d24ac73fe43",
+      "article_id": "39795178",
+      "article_group_id": "39795178",
+      "title": "Evaluating Variational Quantum Eigensolver Approaches for Simplified Models of Molecular Systems: A Case Study on Protocatechuic Acid",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39795178/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "39d90e204afd483cbf612b4088dbbd959f59d0e29db0cf37c12072f312b253ec",
+      "passage_start": 0,
+      "passage_end": 616,
+      "text": "The Variational Quantum Eigensolver (VQE) is a hybrid algorithm that combines quantum and classical computing to determine the ground-state energy of molecular systems. In this context, this study applies VQE to investigate the ground state of protocatechuic acid, analyzing its performance with various Ansatzes and active spaces. Subsequently, all VQE results were compared to those obtained with the CISD and FCI methods. The results demonstrate that Ansatzes, like Unitary Coupled Cluster Singles and Doubles (UCCSD) and variations of Hardware-Efficient Ansatzes, generally achieve accuracy close to that of FCI.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-6af84d8a8183069994e4",
+      "article_id": "PMC7895822",
+      "article_group_id": "33608620",
+      "title": "Incidence and remission of aeroallergen sensitization in adults in Northern Finland: 15 years longitudinal study",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7895822/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[3]/p[5]#segment-2",
+      "section_heading": "Discussion",
+      "canonical_text_sha256": "78b60a110a103bbd89a5d95dd4f551685147f8505a8c6ecbdd5bb07e8d35f38c",
+      "passage_start": 0,
+      "passage_end": 144,
+      "text": "Surprisingly, in our longitudinal sub-population, females were slightly more prone to develop a new sensitization between the ages of 31 and 46.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-5c93ade6738682466cea",
+      "article_id": "35887960",
+      "article_group_id": "35887960",
+      "title": "Simultaneous Presbyopia and Astigmatism Correction with a Novel Trifocal Toric Intraocular Lens—A One-Year Follow-Up",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35887960/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "89f2aad362e76fc776019e181a4941cca7e980da3b9cd9bfe6cd4086eaa4aa45",
+      "passage_start": 0,
+      "passage_end": 619,
+      "text": "The current investigation evaluates the efficiency of the trifocal toric Liberty 677MTY intraocular lens (IOL) in correcting preoperative corneal astigmatism in cataract patients demanding spectacle independence. The retrospective evaluation included 28 eyes of 15 patients with preoperative corneal astigmatism of at least 1.0 Dioptre (D). All patients were followed up for one year postoperatively. Residual refractive errors and visual acuities at multiple distances were measured. Binocular visual acuity and contrast sensitivity defocus curves were plotted. Visual functions and patient satisfaction were assessed.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-f5d291be2a8f0b416c78",
+      "article_id": "PMC10968750",
+      "article_group_id": "38539614",
+      "title": "The Role of Lurasidone in Managing Depressive Symptoms in People with Schizophrenia: A Review",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10968750/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[4]/p[8]#segment-1",
+      "section_heading": "4. Discussion",
+      "canonical_text_sha256": "3dd133431aafae830ecd9b2c19fd4a7594f985ce3475fa982d62fd0944b14dd0",
+      "passage_start": 0,
+      "passage_end": 693,
+      "text": "In four studies, the efficacy of lurasidone in treating depressive symptoms has been compared with risperidone or quetiapine treatment, showing the superiority of lurasidone treatment. These data are very relevant since risperidone has been specifically evaluated in several studies for improving depressive symptoms in patients with schizophrenia [58,59]. In particular, patients receiving risperidone—compared with those treated with haloperidol—reported a significant reduction in depressive symptoms. Therefore, it is extremely important to have found that lurasidone—an innovative third-generation antipsychotic—is effective in treating depressive symptoms in patients with schizophrenia.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-ee776f6323ddefcaefc8",
+      "article_id": "38499570",
+      "article_group_id": "38499570",
+      "title": "Direct space–time manipulation mechanism for spatio-temporal coupling of ultrafast light field",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38499570/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "2a7ca04b987f150f1d7bb6dab247ce8028c1c85768755508a587c6664628895d",
+      "passage_start": 0,
+      "passage_end": 648,
+      "text": "Traditionally, manipulation of spatiotemporal coupling (STC) of the ultrafast light fields can be actualized in the space-spectrum domain with some 4-f pulse shapers, which suffers usually from some limitations, such as spectral/pixel resolution and information crosstalk associated with the 4-f pulse shapers. This work introduces a novel mechanism for direct space-time manipulation of ultrafast light fields to overcome the limitations. This mechanism combines a space-dependent time delay with some spatial geometrical transformations, which has been experimentally proved by generating a high-quality STC light field, called light spring (LS).",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-c9440756b2aae409cb97",
+      "article_id": "PMC3352943",
+      "article_group_id": "22615820",
+      "title": "Paraoxonase 1 Polymorphism and Prenatal Pesticide Exposure Associated with Adverse Cardiovascular Risk Profiles at School Age",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3352943/",
+      "source_kind": "table_or_list",
+      "section_id": "article/body/sec[3]/table-wrap[5]",
+      "section_heading": "Results",
+      "canonical_text_sha256": "038a6ff01cdf005bc16246fc04f9f4f50ca9d25d08eedd36651f35e5cfd6760d",
+      "passage_start": 0,
+      "passage_end": 1507,
+      "text": "Adjusted valuesa for systolic and diastolic blood pressure and coefficient of variation for heart rate (CVRR) at school age in relation to prenatal pesticide exposure and PON1 Q192R genotype.\nAdjusted mean/geometric mean (95% CI)\nAll children\nPON1\n 192QQ\nPON1\n 192QR/RR\nSystolic blood pressure (mmHg)\nNo exposure\n100.6 (98.7; 102.6)\n100.1 (97.4; 102.7)\n99.1 (95.6; 102.7)\nMedium exposure\n100.1 (98.2; 102.0)\n99.4 (96.6; 102.3)\n99.6 (96.6; 102.5)\nHigh exposure\n101.7 (99.4; 104.0)\n99.7 (96.4; 103.0)\n108.4 (104.1; 112.7) ## ***\nDiastolic blood pressure (mmHg)\nNo exposure\n58.9 (57.2; 60.6)\n58.2 (55.9; 60.4)\n57.4 (54.8; 60.0)\nMedium exposure\n59.2 (57.5; 60.8)\n58.1 (55.7; 60.5)\n61.1 (58.7; 63.4) #*\nHigh exposure\n57.8 (55.8; 59.7)\n55.5 (52.8; 58.3)\n62.0 (58.6; 65.5) #*\nCVRR\nb\nNo exposure\n7.4 (6.3; 8.7)\n8.2 (6.3; 10.7)\n7.4 (5.8; 9.5)\nMedium exposure\n7.4 (6.5; 8.4)\n8.8 (7.1; 10.8)\n6.1 (4.9; 7.5) ##\nHigh exposure\n7.5 (6.3; 8.8)\n8.7 (6.7; 11.2)\n6.1 (4.7; 8.0) #\naResults from linear regression models adjusted for gender, age at examination, maternal smoking in pregnancy, and for systolic and diastolic blood pressure also BMI. CVRR was ln-transformed.*p≤0.05,***p≤0.001 compared to unexposed.#p≤0.05,##p≤0.01 compared to PON1 192QQ in the same exposure group.bDue to technical problems with the Heart Rate Monitor, CVRR was only obtained for 98 (14 QQ and 14 QR/RR unexposed, 23 QQ and 19 QR/RR medium exposed, and 16 QQ and 12 QR/RR high exposed) of the 141 children for whom PON1 genotype was determined.",
+      "context_before": "",
+      "context_after": "",
+      "structures": [
+        {
+          "kind": "table",
+          "text": "Adjusted valuesa for systolic and diastolic blood pressure and coefficient of variation for heart rate (CVRR) at school age in relation to prenatal pesticide exposure and PON1 Q192R genotype.",
+          "source_path": "article/body/sec[3]/table-wrap[5]"
+        },
+        {
+          "kind": "caption",
+          "text": "Adjusted valuesa for systolic and diastolic blood pressure and coefficient of variation for heart rate (CVRR) at school age in relation to prenatal pesticide exposure and PON1 Q192R genotype.",
+          "source_path": "article/body/sec[3]/table-wrap[5]/caption"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[1]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Adjusted mean/geometric mean (95% CI)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[2]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[3]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nAll children\n",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[4]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nPON1\n 192QQ\n",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[5]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nPON1\n 192QR/RR\n",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[6]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nSystolic blood pressure (mmHg)\n",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[7]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[8]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[9]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[10]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "No exposure",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[11]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "100.6 (98.7; 102.6)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[12]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "100.1 (97.4; 102.7)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[13]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "99.1 (95.6; 102.7)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[14]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Medium exposure",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[15]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "100.1 (98.2; 102.0)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[16]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "99.4 (96.6; 102.3)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[17]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "99.6 (96.6; 102.5)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[18]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "High exposure",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[19]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "101.7 (99.4; 104.0)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[20]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "99.7 (96.4; 103.0)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[21]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "108.4 (104.1; 112.7) ## ***\n",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[22]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nDiastolic blood pressure (mmHg)\n",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[23]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[24]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[25]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[26]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "No exposure",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[27]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "58.9 (57.2; 60.6)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[28]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "58.2 (55.9; 60.4)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[29]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "57.4 (54.8; 60.0)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[30]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Medium exposure",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[31]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "59.2 (57.5; 60.8)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[32]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "58.1 (55.7; 60.5)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[33]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "61.1 (58.7; 63.4) #*\n",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[34]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "High exposure",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[35]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "57.8 (55.8; 59.7)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[36]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "55.5 (52.8; 58.3)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[37]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "62.0 (58.6; 65.5) #*\n",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[38]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\nCVRR\nb\n",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[39]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[40]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[41]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[42]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "No exposure",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[43]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "7.4 (6.3; 8.7)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[44]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "8.2 (6.3; 10.7)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[45]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "7.4 (5.8; 9.5)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[46]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Medium exposure",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[47]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "7.4 (6.5; 8.4)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[48]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "8.8 (7.1; 10.8)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[49]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "6.1 (4.9; 7.5) ##",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[50]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "High exposure",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[51]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "7.5 (6.3; 8.8)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[52]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "8.7 (6.7; 11.2)",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[53]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "6.1 (4.7; 8.0) #",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table/td[54]"
+        },
+        {
+          "kind": "table-footnote",
+          "text": "aResults from linear regression models adjusted for gender, age at examination, maternal smoking in pregnancy, and for systolic and diastolic blood pressure also BMI. CVRR was ln-transformed.*p≤0.05,***p≤0.001 compared to unexposed.#p≤0.05,##p≤0.01 compared to PON1 192QQ in the same exposure group.bDue to technical problems with the Heart Rate Monitor, CVRR was only obtained for 98 (14 QQ and 14 QR/RR unexposed, 23 QQ and 19 QR/RR medium exposed, and 16 QQ and 12 QR/RR high exposed) of the 141 children for whom PON1 genotype was determined.",
+          "source_path": "article/body/sec[3]/table-wrap[5]/table-wrap-foot[1]"
+        }
+      ]
+    },
+    {
+      "case_id": "milestone-c-37facafe41a111b955ab",
+      "article_id": "PMC11349668",
+      "article_group_id": "39206093",
+      "title": "Research progress of migrasomes: from genesis to formation, physiology to pathology",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11349668/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[6]/p[1]#segment-2",
+      "section_heading": "6 Perspective",
+      "canonical_text_sha256": "9afa8c690615be3ff741713053e37486d8520858ce9eb7207ca611c14ef2bc3b",
+      "passage_start": 0,
+      "passage_end": 194,
+      "text": "Is the material contained within them the material basis for the function of the migrasomes? Are migrasomes the ultimate functional executors or do they act by releasing their internal vesicles?",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-6f8855b0e8a710daf216",
+      "article_id": "26557709",
+      "article_group_id": "26557709",
+      "title": "Diagnostic Accuracy of Nonmydriatic Fundus Photography for the Detection of Glaucoma in Diabetic Patients",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/26557709/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "PURPOSE",
+      "canonical_text_sha256": "14825d0a59f3cf2b993bcb75d1c760babf53a1cc3d2cc53ea62fbbf20e4162bb",
+      "passage_start": 0,
+      "passage_end": 139,
+      "text": "To determine the diagnostic accuracy for glaucoma of a set of criteria with nonmydriatic monoscopic fundus photography (NMFP) in diabetics.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-7a34a877f1c31889ccb6",
+      "article_id": "39945871",
+      "article_group_id": "39945871",
+      "title": "A novel approach to metabolic profiling in case models of MECP2-related disorders",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39945871/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "2d9de711990c1c3521570d813e9cb476f5d895d40857a1484d42da0a83da4e80",
+      "passage_start": 0,
+      "passage_end": 631,
+      "text": "Genetic abnormalities of the MECP2 gene cause several conditions grouped under the umbrella term of MECP2-related disorders and characterized by a variety of phenotypes. We applied a functional approach to identify metabolic profiles in two patients with Rett syndrome (RTT) and one patient with MECP2 duplication syndrome (MRXSL). Such an approach is based on the Phenotype Mammalian Microarray (PM-M) technology, which is designed to assess the cellular production of energy in the presence of different compounds generating distinct metabolic environments. The findings in the three case models were compared versus 50 controls.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-6e73cb977d991ec1da08",
+      "article_id": "PMC5398695",
+      "article_group_id": "28426743",
+      "title": "Acute kidney injury can predict in-hospital and long-term mortality in elderly patients undergoing hip fracture surgery",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5398695/",
+      "source_kind": "table_or_list",
+      "section_id": "article/body/sec[3]/sec[1]/table-wrap[1]",
+      "section_heading": "Patients’ characteristics",
+      "canonical_text_sha256": "0cde06b9b2542bcfb363e98a23768f5ae87e80d2524ee43e2ade79b626877c05",
+      "passage_start": 0,
+      "passage_end": 1847,
+      "text": "Baseline characteristics by survival status.\nVariables\nTotal(n = 450)\nDeceased(n = 178)\nSurvived(n = 272)\nAge (years)*\n78.9 ± 7.0\n83.3 ± 6.2\n76.0 ± 6.0\nGender, male, n (%)\n100 (22.2)\n42 (23.6)\n58 (21.3)\nDiabetes, n (%)\n143(31.9)\n52 (29.4)\n91 (33.6)\nHypertension, n (%)\n301(67.0)\n111 (62.7)\n190 (69.9)\nCAD, n (%)*\n41(9.1)\n24 (13.6)\n17 (6.3)\nCVA, n (%)\n79(17.6)\n33 (18.6)\n46 (16.9)\nACEI or ARB, n (%)\n153(34.2)\n58 (33.1)\n95 (34.9)\nDiuretics, n (%)*\n159(35.6)\n82 (46.9)\n77 (28.3)\nNSAIDs, n (%)\n252(56.4)\n90 (51.4)\n162 (59.6)\nMBP (mmHg)\n89.9 ± 12.9\n90.5 ± 16.1\n89.5 ± 10.4\nHeart rate (bpm)*\n78.5 ± 8.8\n79.6 ± 10.5\n77.8 ± 7.4\nSurgery type, n (%)\nFixation\n204 (45.3)\n82 (46.1)\n122 (44.9)\nReplacement\n246 (54.7)\n96 (53.9)\n150 (55.1)\nHemoglobin (g/dL)*\n11.3 ± 1.6\n11.0 ± 1.6\n11.5 ± 1.5\nHematocrit (%)*\n34.1 ± 5.5\n33.2 ± 4.6\n34.7 ± 6.0\nBUN (mg/dL)\n20.5 ± 10.8\n21.8 ± 13.9\n19.7 ± 8.1\nCreatinine (mg/dL)\n0.9 ± 1.1\n1.0 ± 1.2\n0.9 ± 1.0\neGFR (ml/min/1.73m2)*\n74.8 ± 37.5\n64.2 ± 35.9\n81.6 ± 97.1\nProtein (g/dL)*\n6.5 ± 0.7\n6.4 ± 0.7\n6.6 ± 0.7\nAlbumin (g/dL)*\n3.7 ± 0.4\n3.5 ± 0.4\n3.8 ± 0.4\nBone mineral density score*\n-3.6 ± 1.1\n-3.8 ± 1.1\n-3.5 ± 1.1\nRBC transfusion volume (units)*\n3.2 ± 2.4\n3.6 ± 3.0\n2.9 ± 2.0\nDuration of surgery (min)\n174.5 ± 52.8\n171.8 ± 51.6\n176.1 ± 54.0\nUrine output during surgery (ml/hour)\n163.2 ± 218.5\n172.4 ± 215.7\n157.4 ± 220.5\nAbsolute change in Creatinine*\n0.2 ± 0.3\n0.2 ± 0.4\n0.1 ± 0.2\nAKI, n (%)*\n78 (17.3)\n42 (23.6)\n36 (13.2)\nContinuous variables are expressed as mean ± standard deviation.*P <0.05CAD, coronary artery disease; CVA, cerebrovascular accident; ACEIs, angiotensin converting enzyme inhibitors; ARBs, angiotensin-II receptor antagonists; NSAIDS, non-steroidal anti-inflammatory drugs; MBP, mean blood pressure; BUN, blood urea nitrogen; GFR, glomerular filtration rate; RBC, red blood cell; AKI, acute kidney injury.",
+      "context_before": "",
+      "context_after": "",
+      "structures": [
+        {
+          "kind": "table",
+          "text": "Baseline characteristics by survival status.",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]"
+        },
+        {
+          "kind": "caption",
+          "text": "Baseline characteristics by survival status.",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/caption"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Variables",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/th[1]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Total(n = 450)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/th[2]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Deceased(n = 178)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/th[3]"
+        },
+        {
+          "kind": "table-header-cell",
+          "text": "Survived(n = 272)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/th[4]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Age (years)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[5]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "78.9 ± 7.0",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[6]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "83.3 ± 6.2",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[7]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "76.0 ± 6.0",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[8]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Gender, male, n (%)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[9]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "100 (22.2)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[10]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "42 (23.6)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[11]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "58 (21.3)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[12]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Diabetes, n (%)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[13]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "143(31.9)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[14]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "52 (29.4)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[15]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "91 (33.6)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[16]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Hypertension, n (%)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[17]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "301(67.0)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[18]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "111 (62.7)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[19]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "190 (69.9)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[20]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CAD, n (%)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[21]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "41(9.1)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[22]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "24 (13.6)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[23]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "17 (6.3)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[24]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "CVA, n (%)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[25]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "79(17.6)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[26]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "33 (18.6)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[27]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "46 (16.9)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[28]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ACEI or ARB, n (%)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[29]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "153(34.2)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[30]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "58 (33.1)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[31]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "95 (34.9)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[32]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Diuretics, n (%)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[33]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "159(35.6)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[34]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "82 (46.9)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[35]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "77 (28.3)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[36]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NSAIDs, n (%)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[37]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "252(56.4)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[38]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "90 (51.4)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[39]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "162 (59.6)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[40]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "MBP (mmHg)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[41]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "89.9 ± 12.9",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[42]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "90.5 ± 16.1",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[43]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "89.5 ± 10.4",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[44]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Heart rate (bpm)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[45]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "78.5 ± 8.8",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[46]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "79.6 ± 10.5",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[47]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "77.8 ± 7.4",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[48]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Surgery type, n (%)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[49]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[50]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[51]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[52]"
+        },
+        {
+          "kind": "table-cell",
+          "text": " Fixation",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[53]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "204 (45.3)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[54]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "82 (46.1)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[55]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "122 (44.9)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[56]"
+        },
+        {
+          "kind": "table-cell",
+          "text": " Replacement",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[57]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "246 (54.7)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[58]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "96 (53.9)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[59]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "150 (55.1)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[60]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Hemoglobin (g/dL)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[61]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "11.3 ± 1.6",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[62]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "11.0 ± 1.6",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[63]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "11.5 ± 1.5",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[64]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Hematocrit (%)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[65]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "34.1 ± 5.5",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[66]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "33.2 ± 4.6",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[67]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "34.7 ± 6.0",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[68]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "BUN (mg/dL)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[69]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "20.5 ± 10.8",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[70]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "21.8 ± 13.9",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[71]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "19.7 ± 8.1",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[72]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Creatinine (mg/dL)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[73]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.9 ± 1.1",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[74]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "1.0 ± 1.2",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[75]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.9 ± 1.0",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[76]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "eGFR (ml/min/1.73m2)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[77]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "74.8 ± 37.5",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[78]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "64.2 ± 35.9",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[79]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "81.6 ± 97.1",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[80]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Protein (g/dL)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[81]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "6.5 ± 0.7",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[82]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "6.4 ± 0.7",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[83]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "6.6 ± 0.7",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[84]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Albumin (g/dL)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[85]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3.7 ± 0.4",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[86]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3.5 ± 0.4",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[87]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3.8 ± 0.4",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[88]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Bone mineral density score*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[89]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "-3.6 ± 1.1",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[90]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "-3.8 ± 1.1",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[91]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "-3.5 ± 1.1",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[92]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "RBC transfusion volume (units)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[93]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3.2 ± 2.4",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[94]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3.6 ± 3.0",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[95]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2.9 ± 2.0",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[96]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Duration of surgery (min)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[97]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "174.5 ± 52.8",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[98]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "171.8 ± 51.6",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[99]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "176.1 ± 54.0",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[100]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Urine output during surgery (ml/hour)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[101]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "163.2 ± 218.5",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[102]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "172.4 ± 215.7",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[103]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "157.4 ± 220.5",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[104]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Absolute change in Creatinine*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[105]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.2 ± 0.3",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[106]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.2 ± 0.4",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[107]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.1 ± 0.2",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[108]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "AKI, n (%)*",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[109]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "78 (17.3)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[110]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "42 (23.6)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[111]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "36 (13.2)",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table/td[112]"
+        },
+        {
+          "kind": "table-footnote",
+          "text": "Continuous variables are expressed as mean ± standard deviation.*P <0.05CAD, coronary artery disease; CVA, cerebrovascular accident; ACEIs, angiotensin converting enzyme inhibitors; ARBs, angiotensin-II receptor antagonists; NSAIDS, non-steroidal anti-inflammatory drugs; MBP, mean blood pressure; BUN, blood urea nitrogen; GFR, glomerular filtration rate; RBC, red blood cell; AKI, acute kidney injury.",
+          "source_path": "article/body/sec[3]/sec[1]/table-wrap[1]/table-wrap-foot[1]"
+        }
+      ]
+    },
+    {
+      "case_id": "milestone-c-a562ccdc1e61fefff28b",
+      "article_id": "31835377",
+      "article_group_id": "31835377",
+      "title": "Effect of Myclobutanil Pesticide on the Physiological Behavior of Two Newly Isolated Saccharomyces cerevisiae Strains during Very-High-Gravity Alcoholic Fermentation",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31835377/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-3",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "d655aa2b4d64dd5a43649cac393642071426dfbe856575383cf39236ac432a95",
+      "passage_start": 0,
+      "passage_end": 522,
+      "text": "Since the results obtained in the trials where the cultures were placed in 2.0 L flasks with grape musts as substrates were superior in terms of both DCW and ethanol production, these experimental conditions were selected for the subsequent studies. Both strains showed high fermentative efficiency, producing high amounts of DCW (9.5-10.5 g/L) in parallel with high ethanol production, which in some cases achieved values very close to the maximum theoretical ethanol production yield (≈0.49 g of ethanol per g of sugar).",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-6d28906a860db9a197f1",
+      "article_id": "28788030",
+      "article_group_id": "28788030",
+      "title": "Spherical V-Fe-MCM-48: The Synthesis, Characterization and Hydrothermal Stability",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28788030/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "3dfd9d723df3b1c95041efeb6e384a3cf1669df81ea10490d93a9ac6f200609f",
+      "passage_start": 0,
+      "passage_end": 594,
+      "text": "Spherical MCM-48 mesoporous sieve co-doped with vanadium and iron was successfully synthesized via one-step hydrothermal method. The material was characterized by X-ray diffraction (XRD), nitrogen adsorption-desorption isotherms, inductively coupled plasma (ICP), scanning electron microscopy (SEM), transmission electron microscopy (TEM), diffuse reflectance UV-vis spectra, and X-ray photoelectron spectra (XPS) techniques. Results indicated that the V-Fe-MCM-48 showed an ordered 3D cubic mesostructure with spherical morphology, narrow pore size distribution and high specific surface area.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-f403cd90e57f14c1a6ad",
+      "article_id": "33608620",
+      "article_group_id": "33608620",
+      "title": "Incidence and remission of aeroallergen sensitization in adults in Northern Finland: 15 years longitudinal study",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33608620/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "a68c6112e622df6ab657e67d575cf1c1b86e01fd15ef7b9914c69745b55df084",
+      "passage_start": 0,
+      "passage_end": 622,
+      "text": "Studies on the longitudinal changes in sensitization to aeroallergens in adult populations are sparse. The aim was to evaluate changes in sensitization to aeroallergens [birch, timothy, cat and house dust mite (HDM)] in an unselected adult population aged from 31 to 46 years. Data were gathered from a cohort of adults (Northern Finland Birth Cohort 1966) who had been skin prick tested (SPT) with birch, timothy, cat and HDM allergens at the age of 31 years and at age 46 (n = 5484 and 5373 respectively). Data from both time points were available for 3409 participants, who made up the cohort of the longitudinal study.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-43a32fdcf9d0d6860bf3",
+      "article_id": "PMC7179949",
+      "article_group_id": "32282806",
+      "title": "Localized semi-nonnegative matrix factorization (LocaNMF) of widefield calcium imaging data",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7179949/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[4]/sec[4]/sec[2]/p[43]#segment-1",
+      "section_heading": "Hyperparameter selection",
+      "canonical_text_sha256": "e87e45c298896ff43fb81919aeb3572af42f253899fca5c5bfe93e40a7a579e4",
+      "passage_start": 0,
+      "passage_end": 93,
+      "text": "Algorithm 3: Localized spatial update of hierarchical alternating least squares (HALSspatial)",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-9018ea36fd9900f0a345",
+      "article_id": "PMC10862576",
+      "article_group_id": "38357123",
+      "title": "Correlates of somatic symptom disorder among internally displaced persons in Ogoja displacement settlements, Nigeria: a cross-sectional study",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10862576/",
+      "source_kind": "table_or_list",
+      "section_id": "article/body/sec[3]/table-wrap[3]",
+      "section_heading": "Results",
+      "canonical_text_sha256": "788cd53c21cf84fb63a87be9a39d7524d13960ddedf9efee890f8fe5328196c1",
+      "passage_start": 0,
+      "passage_end": 836,
+      "text": "Bivariate analysis of displacement-related factors associated with SSD\nItems\nSSD\nYesN (%)\nNoN (%)\np-Value\nStress at work\n142 (71.7)\n56 (28.3)\n0.250\nDiscrimination\n50 (25.3)\n148 (74.7)\n<0.001**\nFinancial strain\n190 (96.0)\n8 (4.0)\n0.070\nLoss of loved ones in crises or natural disaster\n73 (46.6)\n125 (63.1)\n<0.001**\nOutbreak of diseases including COVID-19\n187 (94.4)\n11 (5.6)\n0.010*\nOvercrowded shelter\n76 (38.4)\n122 (61.6)\n0.002*\nFears over reprisal attacks\n67 (33.8)\n131 (66.2)\n<0.001**\nSeparated from family due to conflicts and/ or disasters\n85 (43.4)\n111 (56.6)\n0.060\nInsufficient amenities\n180 (91.8)\n16 (8.2)\n0.003*\nDomestic violence\n52 (26.3)\n146 (73.7)\n0.650\nConcerns about safety and general health\n190 (96.0)\n8 (4.0)\n0.010*\n*\nStatistical significance based on p-Value < 0.05\n**\nStatistical significance based on p-Value < 0.001",
+      "context_before": "",
+      "context_after": "",
+      "structures": [
+        {
+          "kind": "table",
+          "text": "Bivariate analysis of displacement-related factors associated with SSD",
+          "source_path": "article/body/sec[3]/table-wrap[3]"
+        },
+        {
+          "kind": "caption",
+          "text": "Bivariate analysis of displacement-related factors associated with SSD",
+          "source_path": "article/body/sec[3]/table-wrap[3]/caption"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Items",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[1]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "SSD",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[2]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[3]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[4]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "\n\n",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[5]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[6]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "YesN (%)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[7]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "NoN (%)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[8]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "p-Value",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[9]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Stress at work",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[10]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "142 (71.7)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[11]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "56 (28.3)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[12]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.250",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[13]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Discrimination",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[14]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "50 (25.3)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[15]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "148 (74.7)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[16]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "<0.001**",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[17]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Financial strain",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[18]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "190 (96.0)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[19]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "8 (4.0)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[20]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.070",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[21]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Loss of loved ones in crises or natural disaster",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[22]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "73 (46.6)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[23]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "125 (63.1)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[24]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "<0.001**",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[25]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Outbreak of diseases including COVID-19",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[26]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "187 (94.4)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[27]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "11 (5.6)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[28]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.010*",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[29]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Overcrowded shelter",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[30]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "76 (38.4)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[31]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "122 (61.6)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[32]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.002*",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[33]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Fears over reprisal attacks",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[34]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "67 (33.8)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[35]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "131 (66.2)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[36]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "<0.001**",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[37]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Separated from family due to conflicts and/ or disasters",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[38]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "85 (43.4)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[39]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "111 (56.6)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[40]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.060",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[41]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Insufficient amenities",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[42]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "180 (91.8)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[43]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "16 (8.2)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[44]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.003*",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[45]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Domestic violence",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[46]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "52 (26.3)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[47]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "146 (73.7)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[48]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.650",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[49]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Concerns about safety and general health",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[50]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "190 (96.0)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[51]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "8 (4.0)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[52]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.010*",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[53]"
+        },
+        {
+          "kind": "table-footnote",
+          "text": "*\nStatistical significance based on p-Value < 0.05\n**\nStatistical significance based on p-Value < 0.001\n",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table-wrap-foot[1]"
+        }
+      ]
+    },
+    {
+      "case_id": "milestone-c-b3e0ed3c7406384e462f",
+      "article_id": "37466813",
+      "article_group_id": "37466813",
+      "title": "eGFR slope as a surrogate endpoint for clinical study in early stage of chronic kidney disease: from The Japan Chronic Kidney Disease Database",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37466813/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[3]#segment-1",
+      "section_heading": "CONCLUSION",
+      "canonical_text_sha256": "799f009fe79670f712e94b53226c66598396dced2e38fe1b7b4ae0701b6709f4",
+      "passage_start": 0,
+      "passage_end": 156,
+      "text": "Even in Japanese patients with early stage CKD, a slower eGFR slope calculated from eGFR values over 2-3 years was associated with a decreased risk of ESKD.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-d68927fbf78694a31ebd",
+      "article_id": "PMC13314808",
+      "article_group_id": "42047916",
+      "title": "From Bench to Bedside: Neurofilament Light Chain as a Biomarker in Ischemic Stroke",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13314808/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[5]/p[4]#segment-1",
+      "section_heading": "NFL in IS: Clinical Evidence",
+      "canonical_text_sha256": "3801e14f94cdb38b3d309759c8f4056560008b708c0761492af15a35e383321b",
+      "passage_start": 0,
+      "passage_end": 644,
+      "text": "NFL also offers predictive insights into primary and secondary prevention. Elevated baseline sNFL levels have been associated with an increased risk of IS or transient ischemic attack (TIA), particularly in individuals with no previous history of cerebrovascular disease [50]. In diabetic populations, NFL levels were strongly predictive of stroke risk over a seven-year period, with individuals in the highest range presenting up to an 11-fold increased likelihood of IS [51]. While NFL is not specific for coronary artery disease (CAD), its levels predict future cerebrovascular events more accurately than traditional CAD biomarkers do [52].",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-4202fad0264e99f8b824",
+      "article_id": "37174599",
+      "article_group_id": "37174599",
+      "title": "Genomic Characterizations of Porcine Epidemic Diarrhea Viruses (PEDV) in Diarrheic Piglets and Clinically Healthy Adult Pigs from 2019 to 2022 in China",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37174599/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "4764f9d42014e4c00b1dd9c5b60c55a4784261a7013eb09e78d1f54cad095065",
+      "passage_start": 0,
+      "passage_end": 593,
+      "text": "Porcine epidemic diarrhea virus (PEDV) is a major causative pathogen of diarrheic disease. In this study, the prevalence and evolution of PEDV was evaluated using intestinal samples collected from six provinces of China in 2019-2022. PEDV could not only be detected in diarrheic piglets but also in adult pigs without enteric diseases. The complete genomes of five temporal and geographical representative PEDV strains were determined. Genome-based phylogenetic analysis indicated that XJ1904-700 belongs to the G2-a subgroup, while the other strains are clustered within the S-INDEL subgroup.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-91ef00f75d9e6aa7d819",
+      "article_id": "PMC9322991",
+      "article_group_id": "35887960",
+      "title": "Simultaneous Presbyopia and Astigmatism Correction with a Novel Trifocal Toric Intraocular Lens—A One-Year Follow-Up",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9322991/",
+      "source_kind": "pmc_prose",
+      "section_id": "article/body/sec[2]/sec[3]/p[1]#segment-1",
+      "section_heading": "2.3. The Bi-Flex Liberty 677MTY Intraocular Lens",
+      "canonical_text_sha256": "edada06aea95cd00c1fbb2bd25bc1e3f11ea85c7f1df40cbf548bed6a8a15f18",
+      "passage_start": 0,
+      "passage_end": 635,
+      "text": "The Liberty 677MTY trifocal toric IOL (Medicontur Medical Engineering Ltd., Zsámbék, Hungary) is a hydrophilic, acrylic, single-piece capsular bag lens designed for presbyopia correction. The optic uses the diffractive principles with seven diffractive rings in the centre of the optics while leaving the outer 75% of the lens surface purely refractive. The two toric marks indicate the flat axis on the edge of the optic. The optic is connected to two double-loop haptics without haptic angulation. The IOL has a 360° square edge (also in the optic-haptic junction) to prevent the development of posterior capsule opacification (PCO).",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-b63a7d4d96ec6b0e8ec4",
+      "article_id": "42040991",
+      "article_group_id": "42040991",
+      "title": "Antenatal Presentation of MRPS22‐Related Mitochondrial Disease Confirmed With Rapid Proteomics",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42040991/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-2",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "5d9a42472de429354adb5a87c0915cd6fab9e8952cdb3bb4b7f3ce150631ae6d",
+      "passage_start": 0,
+      "passage_end": 621,
+      "text": "A primigravida underwent termination of pregnancy following identification of multiple congenital anomalies (hydrops fetalis, microcephaly, corpus callosal agenesis, periventricular cysts and cardiac hypertrophy) on ultrasound at 20 + 2 weeks' gestation, confirmed on fetal magnetic resonance imaging. Trio genome sequencing revealed compound heterozygous variants in MRPS22 (NM_020191.4: c.509G>A; p.(Arg170His) and c.565C>G; p.(Arg189Gly)). Rapid proteomic analysis demonstrated destabilisation of the small mitoribosomal subunit and combined reduction of OXPHOS complexes, supporting the pathogenicity of the variants.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-d031234fb3c4352ab587",
+      "article_id": "PMC9816568",
+      "article_group_id": "36619630",
+      "title": "Arterial site selection for measurement of mean arterial pressure in septic shock patients on high-dose norepinephrine",
+      "arm": "pmc_cc_by",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9816568/",
+      "source_kind": "table_or_list",
+      "section_id": "article/body/sec[3]/table-wrap[3]",
+      "section_heading": "Results",
+      "canonical_text_sha256": "111441517c1a0f5794c0073c289a07bb2779fb19e3d8e8b52289c818f873a310",
+      "passage_start": 0,
+      "passage_end": 676,
+      "text": "Number of patients having systolic blood pressure (SBP) and mean arterial pressure (MAP) differences between femoral (F) and radial (R) sites, with cut-off values 5 and 10 mm of Hg.\nDifferences\nOverall (n = 80)\nHigh dose (n = 59)\nΔ (F-R)\nΔSBP ≥ 10\nΔSBP ≥ 5\nΔMAP ≥ 10\nΔMAP ≥ 5\nΔSBP ≥ 10\nΔSBP ≥ 5\nΔMAP ≥ 10\nΔMAP ≥ 5\nF > R\n12\n21\n3\n17\n8\n13\n2\n11\nF < R\n3\n5\n0\n0\n2\n3\n0\n0\nNorepinephrine dose, M (IQR)\n0.4 (0.28–0.7)\n0.5 (0.35–1)\nΔFR, M (IQR)\n2 (−1–5)\n3 (2–4)\n2 (−1–4)\n3 (2–4)\nΔSBP, systolic blood pressure (SBP) gradient between femoral and radial artery sites; ΔMAP, mean arterial pressure (MAP) gradient between femoral and radial artery sites; M (IQR), median (interquartile range).",
+      "context_before": "",
+      "context_after": "",
+      "structures": [
+        {
+          "kind": "table",
+          "text": "Number of patients having systolic blood pressure (SBP) and mean arterial pressure (MAP) differences between femoral (F) and radial (R) sites, with cut-off values 5 and 10 mm of Hg.",
+          "source_path": "article/body/sec[3]/table-wrap[3]"
+        },
+        {
+          "kind": "caption",
+          "text": "Number of patients having systolic blood pressure (SBP) and mean arterial pressure (MAP) differences between femoral (F) and radial (R) sites, with cut-off values 5 and 10 mm of Hg.",
+          "source_path": "article/body/sec[3]/table-wrap[3]/caption"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Differences",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[1]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Overall (n = 80)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[2]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "High dose (n = 59)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[3]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Δ (F-R)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[4]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ΔSBP ≥ 10",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[5]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ΔSBP ≥ 5",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[6]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ΔMAP ≥ 10",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[7]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ΔMAP ≥ 5",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[8]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ΔSBP ≥ 10",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[9]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ΔSBP ≥ 5",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[10]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ΔMAP ≥ 10",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[11]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ΔMAP ≥ 5",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[12]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "F > R",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[13]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "12",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[14]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "21",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[15]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[16]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "17",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[17]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "8",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[18]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "13",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[19]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[20]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "11",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[21]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "F < R",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[22]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[23]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "5",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[24]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[25]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[26]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[27]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[28]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[29]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[30]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "Norepinephrine dose, M (IQR)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[31]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.4 (0.28–0.7)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[32]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "0.5 (0.35–1)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[33]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "ΔFR, M (IQR)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[34]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2 (−1–5)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[35]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3 (2–4)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[36]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "2 (−1–4)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[37]"
+        },
+        {
+          "kind": "table-cell",
+          "text": "3 (2–4)",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table/td[38]"
+        },
+        {
+          "kind": "table-footnote",
+          "text": "ΔSBP, systolic blood pressure (SBP) gradient between femoral and radial artery sites; ΔMAP, mean arterial pressure (MAP) gradient between femoral and radial artery sites; M (IQR), median (interquartile range).",
+          "source_path": "article/body/sec[3]/table-wrap[3]/table-wrap-foot[1]"
+        }
+      ]
+    },
+    {
+      "case_id": "milestone-c-0ae6d3d9efd46105cd1f",
+      "article_id": "42047916",
+      "article_group_id": "42047916",
+      "title": "From Bench to Bedside: Neurofilament Light Chain as a Biomarker in Ischemic Stroke",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42047916/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[0]#segment-1",
+      "section_heading": "Abstract",
+      "canonical_text_sha256": "8693700f452d6969f317b138dc757a69d88671c2b45bc386663c6ccd6f0779df",
+      "passage_start": 0,
+      "passage_end": 675,
+      "text": "Neurofilaments (NFs) are protein structures that form part of the neuronal cytoskeleton, providing structural support and facilitating axonal transport. Neurofilament light chain (NFL) has emerged as a promising biomarker for various neurological conditions, as it is released into the bloodstream following neuronal damage. The ability of NFL to differentiate between types of injury and enhance the accuracy of clinical prediction models makes it an asset in both clinical practice and research. Studies suggest that NFL can be employed to diagnose and monitor disease progression and aid in the prognosis of various neurological conditions, including ischemic stroke (IS).",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    },
+    {
+      "case_id": "milestone-c-7a5a9ed9f22e9cbeebfd",
+      "article_id": "38539614",
+      "article_group_id": "38539614",
+      "title": "The Role of Lurasidone in Managing Depressive Symptoms in People with Schizophrenia: A Review",
+      "arm": "pubmed_abstract",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38539614/",
+      "source_kind": "pubmed_abstract",
+      "section_id": "AbstractText[2]#segment-1",
+      "section_heading": "RESULTS",
+      "canonical_text_sha256": "795014ee155196d29242d473b492a65bfc0c16cb119c4f0041cf772c3688a4e5",
+      "passage_start": 0,
+      "passage_end": 184,
+      "text": "Lurasidone appears to be particularly effective on the depressive symptomatology of schizophrenia while also alleviating the positive and negative symptoms associated with the illness.",
+      "context_before": "",
+      "context_after": "",
+      "structures": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "authoritative_state_sha256": "830f606c3286e3e49e4a454497a2b47757274c38490b39fe621da3f25ebf020f",
+  "browser": "Microsoft Edge via Playwright",
+  "cases": 36,
+  "checks": {
+    "actual_packet_loaded": true,
+    "add_relation_shortcut": true,
+    "all_expected_passages_listed": true,
+    "authoritative_state_unchanged": true,
+    "common_relation_defaults": {
+      "context_requirement": "text_alone",
+      "evidence_structure": "contiguous_shared",
+      "relation_kind": "abbreviation_expansion"
+    },
+    "disposable_save_reload": true,
+    "first_middle_last_navigation": [
+      "1 of 36",
+      "18 of 36",
+      "36 of 36"
+    ],
+    "incomplete_lock_rejected": true,
+    "json_export_import": true,
+    "mark_complete_shortcut": true,
+    "no_disposable_lock_created": true,
+    "save_and_next_shortcut": true,
+    "shortcut_help_dialog": true,
+    "strict_payload_allowlist": true
+  },
+  "packet_id": "blind-8fac43caa930ca94a5b5",
+  "schema_version": "campaign-2026-10-milestone-c-browser-qa-v1",
+  "status": "passed"
+}

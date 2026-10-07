@@ -1,0 +1,38 @@
+{
+  "adapter": {
+    "identity": null,
+    "version": null
+  },
+  "annotation_count": 66,
+  "config_fingerprint": "e50c34aab4362c9231d05892abff65c7961f89ce81ad360893ff1ad00d008fc3",
+  "dataset_id": "campaign-2026-10-milestone-c-strict-gold-v1",
+  "fingerprint": "2671398adf0ede9b4da1cc4419f90e0c84db050f5cae87381a07ba22d2f4d6b2",
+  "manifest_version": "manifest-v1",
+  "normalizers": [],
+  "record_count": 120,
+  "schema_version": "canonical-v1",
+  "source": {
+    "fingerprint": null,
+    "format": null,
+    "identifier": null
+  },
+  "validation": {
+    "by_action": {
+      "ambiguous": 0,
+      "dropped": 0,
+      "observed": 0,
+      "repaired": 0,
+      "unscoreable": 0
+    },
+    "by_severity": {
+      "error": 0,
+      "info": 0,
+      "warning": 0
+    },
+    "diagnostics": [],
+    "records_dropped": 0,
+    "records_kept": 120,
+    "records_seen": 120,
+    "total": 0
+  }
+}

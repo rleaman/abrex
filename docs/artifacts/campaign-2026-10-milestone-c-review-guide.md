@@ -1,6 +1,12 @@
 # Milestone C prediction-blind review
 
-Status: **ready for primary scientific annotation**
+Status: **primary annotation completed and locked on October 7, 2026**
+
+The immutable lock binds all 120 completed passages and records that predictions
+were not exposed. The separate independent-review handoff is
+[`campaign-2026-10-milestone-c-second-review-guide.md`](campaign-2026-10-milestone-c-second-review-guide.md).
+The instructions below are retained as the tested primary-review provenance;
+do not reopen or replace the locked state.
 
 The frozen packet contains 120 source passages from 72 disjoint article groups:
 

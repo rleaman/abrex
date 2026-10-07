@@ -1,0 +1,78 @@
+{
+  "content_sha256": "c748ae398984303a203f04e29bc07c5b34d4ecd7a103cf06fafd79475db9baf2",
+  "counts": {
+    "negative_cases": 94,
+    "positive_cases": 26,
+    "primary_cases": 120,
+    "sampled_negative_cases": 10,
+    "selected_cases": 36
+  },
+  "negative_fraction": 0.1,
+  "negative_ranking": "ascending sha256(canonical compact JSON [seed,'second-review-negative',case_id])",
+  "negative_rounding": "ceiling",
+  "owner_only_review_focus": [
+    {
+      "case_id": "milestone-c-60282f673febc655719c",
+      "decision_id": "added-60d66ddf-09a8-4d4c-b9f8-8370b1e1ea74",
+      "kind": "note_context_consistency",
+      "reason": "The primary note says outside knowledge or document support is required while context_requirement is text_alone. Preserve the locked primary answer and resolve only after independent review."
+    }
+  ],
+  "packet": {
+    "content_sha256": "8fac43caa930ca94a5b521381e07c2e88ad640b365ad01212c5397aeaec2b61d",
+    "packet_id": "blind-8fac43caa930ca94a5b5",
+    "path": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/second-review-packet-blind-v1.json",
+    "sha256": "3f45dd5d524b74fe68ad49cd4196308ad1db9338460a6fb88a373b6e51a2fb6b"
+  },
+  "primary_lock": {
+    "annotation_state_sha256": "e50c34aab4362c9231d05892abff65c7961f89ce81ad360893ff1ad00d008fc3",
+    "path": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/review-packet-blind-v1.annotations.lock.json",
+    "sha256": "329b89a63c350c219c0985fb1b1d253e5eceda52a61bf8cf76b618c915c4591f"
+  },
+  "schema_version": "campaign-2026-10-milestone-c-second-review-selection-v1",
+  "seed": 20261006,
+  "selected_case_ids": [
+    "milestone-c-c2c919d2768e405a0e6c",
+    "milestone-c-1782c0476ae56b256c06",
+    "milestone-c-4dc6d551d46bd908cb1e",
+    "milestone-c-1b4e0491d01cb5b06783",
+    "milestone-c-022e27a9d279bbea346f",
+    "milestone-c-0a507d180d9abd49b47c",
+    "milestone-c-60282f673febc655719c",
+    "milestone-c-306964ea5c834eb1bb32",
+    "milestone-c-73e3315f6f06164033eb",
+    "milestone-c-b0631b7c7c5c649ec428",
+    "milestone-c-572057f59b77eabb1505",
+    "milestone-c-c863c9729d5359486fc1",
+    "milestone-c-408fbd54c9b109e87b80",
+    "milestone-c-dd72f65c6d24ac73fe43",
+    "milestone-c-6af84d8a8183069994e4",
+    "milestone-c-5c93ade6738682466cea",
+    "milestone-c-f5d291be2a8f0b416c78",
+    "milestone-c-ee776f6323ddefcaefc8",
+    "milestone-c-c9440756b2aae409cb97",
+    "milestone-c-37facafe41a111b955ab",
+    "milestone-c-6f8855b0e8a710daf216",
+    "milestone-c-7a34a877f1c31889ccb6",
+    "milestone-c-6e73cb977d991ec1da08",
+    "milestone-c-a562ccdc1e61fefff28b",
+    "milestone-c-6d28906a860db9a197f1",
+    "milestone-c-f403cd90e57f14c1a6ad",
+    "milestone-c-43a32fdcf9d0d6860bf3",
+    "milestone-c-9018ea36fd9900f0a345",
+    "milestone-c-b3e0ed3c7406384e462f",
+    "milestone-c-d68927fbf78694a31ebd",
+    "milestone-c-4202fad0264e99f8b824",
+    "milestone-c-91ef00f75d9e6aa7d819",
+    "milestone-c-b63a7d4d96ec6b0e8ec4",
+    "milestone-c-d031234fb3c4352ab587",
+    "milestone-c-0ae6d3d9efd46105cd1f",
+    "milestone-c-7a5a9ed9f22e9cbeebfd"
+  ],
+  "state": {
+    "annotation_count": 0,
+    "path": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/second-review-packet-blind-v1.annotations.json",
+    "sha256": "830f606c3286e3e49e4a454497a2b47757274c38490b39fe621da3f25ebf020f"
+  },
+  "status": "prediction_blind_review_pending"
+}

@@ -117,31 +117,65 @@ ordered passages, structure, exact raw-source hashes, and serialized source XML.
 The frozen six methods are Ab3P, Schwartz–Hearst, PLODv2 pairing, complete CLP
 V5.1, Jev candidate judging, and quote-grounded Luna. The two primary contrasts
 and Holm-controlled superiority rule are unchanged. The actual blind packet is
-`evidence/campaign-2026-10/milestone-c/review-packet-blind-v1.json`, with primary
-annotation in progress in its adjacent draft state. New relations default to
-abbreviation expansion, contiguous/shared evidence, and text-alone context.
+`evidence/campaign-2026-10/milestone-c/review-packet-blind-v1.json`. Its primary
+annotation was completed and immutably locked on October 7, 2026 before any
+confirmatory prediction was exposed. New relations defaulted to abbreviation
+expansion, contiguous/shared evidence, and text-alone context.
 Microsoft Edge QA covered all 120 entries, first/middle/last navigation, the
 documented keyboard shortcuts, strict payload isolation, disposable save/reload,
 JSON export/import, and incomplete-lock rejection without changing the live
 annotation state. The tested human handoff is
 [`artifacts/campaign-2026-10-milestone-c-review-guide.md`](artifacts/campaign-2026-10-milestone-c-review-guide.md).
 
+The locked primary state contains 68 reviewed relations across 26 positive
+passages: 66 strict abbreviation-expansion relations and two separately retained
+diagnostic naming/code relations. All 136 endpoints are exact and no relation
+has leading/trailing whitespace, duplicate endpoints, unresolved fields, or
+uncertainty. A gold-free 120-document prediction dataset, separate local strict
+gold, three-stratum eligibility ledger, and reproducibility manifest are frozen
+under `evidence/campaign-2026-10/milestone-c/`. The source-only independent
+second-review packet contains all 26 primary-positive passages plus a seeded 10
+of 94 primary negatives (36 total); its empty state and tested launcher preserve
+prediction blindness. One primary context-label consistency question is retained
+for independent review/adjudication rather than silently changing locked gold.
+
+Schwartzâ€“Hearst has run locally on all 120 gold-free documents: 57 predictions,
+zero resolver failures, and prediction SHA-256
+`0d511f08fa10db8d8b3a5ad05a7259991a098e96a0233cdafbbbc6f5b5d6441c`.
+The fresh-server Ab3P/PLODv2 archive has bundle ID
+`1bad70d5276022c986d47dc32f4dd1dc1b0a9317b72ffb18291d40467ce42e4f`
+and SHA-256
+`9b3f4fa02c0029bbca03b2ed17cfb24e4a081791abeb6a322d1f0ae10c62f53d`;
+it contains prediction-only inputs and no gold or credentials.
+
 The CLP rules-only dry run applies to the one source-declared ABBR section and
 completed as unresolved with zero pairs. The other 23 structural cases are
 recorded as not applicable to CLP's ABBR-section contract. The no-call execution
+plan confirms that no representative passage enters that source-declared ABBR
+contract, so the frozen CLP-versus-Schwartzâ€“Hearst representative superiority
+contrast is not estimable and will be reported as not established rather than
+turning non-applicable passages into empty CLP predictions. The no-call execution
 plan contains 64 Jev candidate-judge batches over 42 candidate-bearing passages
 plus one CLP Jev request: 65 TypeSafe requests, no retries, no more than 724,000
 input tokens and $0.05. The frozen Luna route is 120 requests, no retries, no
 more than 201,000 estimated input tokens, 8,192 output tokens per request and
-$0.10. No TypeSafe, Luna, or other confirmatory prediction request has been sent;
-both remain separately gated until the prediction-blind annotation lock.
+$0.10. No TypeSafe or Luna confirmatory request has been sent. The
+prediction-blind lock prerequisite is satisfied, and tested derived configs now
+enforce the prepared request/token/retry/cost limits, but the approved protocol
+explicitly withheld paid post-lock execution authorization. The next external
+decision is whether to authorize those two bounded runs: TypeSafe at most 65
+requests, 724,000 input tokens, no retries and $0.05; Azure Luna at most 120
+attempts, 201,000 estimated input tokens, 8,192 output tokens per request, no
+retries and $0.10.
 
 The active Windows host still has no installed Ubuntu distribution. This is a
 host-prerequisite result, not an Ab3P or PLODv2 failure; post-lock execution must
-use the documented fresh Linux server bundle and `setup-runtime.sh` flow.
+use the documented fresh Linux server bundle and `setup-runtime.sh` flow. A
+second human reviewer and the Linux server execution are the other unavoidable
+external dependencies; both have tested, prefilled handoffs in `docs/artifacts/`.
 
 The repository-wide fast gate passes at this handoff: source-import verification,
-Ruff formatting and lint, strict mypy over 214 source files, and 466 passed tests
+Ruff formatting and lint, strict mypy over 216 source files, and 469 passed tests
 with one external-runtime test skipped.
 
 ## Evidence to retain

@@ -1,0 +1,100 @@
+{
+  "content_sha256": "c6154c2fa6c903ceb5fade6f6b4731b1d96dfb12b703da7af4d09c96e2f110f2",
+  "datasets": {
+    "local_strict_gold": {
+      "fingerprint": "2671398adf0ede9b4da1cc4419f90e0c84db050f5cae87381a07ba22d2f4d6b2",
+      "gold_annotations": 66,
+      "manifest_path": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/strict-gold-v1.manifest.json",
+      "path": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/strict-gold-v1.jsonl",
+      "portable_bundle_allowed": false
+    },
+    "prediction_input": {
+      "fingerprint": "e51d405d832c042d14b43ce5e7dfa02bf3ae23c0b0776d8ea0d4d70b67102018",
+      "gold_annotations": 0,
+      "manifest_path": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/prediction-input-v1.manifest.json",
+      "path": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/prediction-input-v1.jsonl"
+    }
+  },
+  "eligibility_ledger": {
+    "content_sha256": "bd19fe9e93c975de06c4a12276ce982d4ec0c27ea262214655c376bc98e64511",
+    "path": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/eligibility-ledger-v1.json"
+  },
+  "policy_id": "t057-strict-exact-pair-v1",
+  "prediction_blind_boundary": {
+    "annotation_state_content_sha256": "e50c34aab4362c9231d05892abff65c7961f89ce81ad360893ff1ad00d008fc3",
+    "lock_file_sha256": "329b89a63c350c219c0985fb1b1d253e5eceda52a61bf8cf76b618c915c4591f",
+    "locked_at": "2026-10-07T18:31:59.041294+00:00",
+    "packet_content_sha256": "d25c221acdb3a40f0e22a6ac29d494e604588b7f1a60fdb6e0a49d2e46d29aef",
+    "packet_id": "blind-d25c221acdb3a40f0e22",
+    "predictions_exposed_before_lock": false,
+    "state_file_sha256": "c8906ef7fb4f069e027cd95e48ddc4742e61525466b5f6a92276c8d4fe5a9bce"
+  },
+  "protocol": {
+    "methods": {
+      "confirmatory": [
+        "ab3p_native_offsets",
+        "schwartz_hearst",
+        "plodv2_pairing",
+        "complete_clp_v5_1_worker",
+        "jev_candidate_judge",
+        "direct_extraction"
+      ],
+      "fixed_resource_identities": {
+        "clp_source_archive": {
+          "path": "resources/clp/clp-v5.1-source.zip",
+          "sha256": "290a52ad53216de64fca78abff2682057cc77b0d3c3ee698580a8ca9f94df7d7"
+        },
+        "clp_source_commit": "323fd4f51aa3c5b54ed30f37dd297b00b49e277e",
+        "direct_extraction_resolver_version": "2",
+        "direct_model_route": "azure_openai:${AZURE_OPENAI_DEPLOYMENT}",
+        "jev_model": "jev-1.13.0",
+        "plod_checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277",
+        "quote_grounded_extraction_resolver_version": "3",
+        "quote_grounded_prompt_version": "abrex-quote-grounded-2026-10-06-i02"
+      },
+      "inventory": {
+        "ab3p_native_offsets": {
+          "path": "configs/experiments/T060-ab3p-linux.yaml",
+          "sha256": "5c2cf1b526ee006273361dbad4ab802cf6c6bafab6de179d8da20b1add26b341"
+        },
+        "complete_clp_v5_1_worker": {
+          "path": "scripts/run_clp_worker_v2.py",
+          "sha256": "24c1f888c389f94ef563f8df09841c56b8ad66d14482849003fe1e83b7f957df"
+        },
+        "direct_extraction": {
+          "path": "configs/experiments/campaign-2026-10-direct-extraction.yaml",
+          "sha256": "2f765ab0468dd569c569c2a6e6b9f6a3f5c0966aae7ba1d77fd98d63da78f23b"
+        },
+        "jev_candidate_judge": {
+          "path": "configs/experiments/T060-jev-split-v2.yaml",
+          "sha256": "13543bd00c215f177999f6f3f0f244b16c8dd3b47362023483c861a324e9b5bf"
+        },
+        "plodv2_pairing": {
+          "path": "configs/experiments/T067-plodv2-linux.yaml",
+          "sha256": "0a84e2725183cb354c5718fbd79dfe2ef53f67128ef339afb0107c47d412f572"
+        },
+        "schwartz_hearst": {
+          "path": "configs/experiments/T067-schwartz-hearst.yaml",
+          "sha256": "8ecad2451524588686d9ffb9dc877330fc4156e0baf13799c53e3539bfeb8908"
+        }
+      }
+    },
+    "path": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/protocol-v1.json",
+    "sha256": "0ee00c49fc9a8ff6f75674401784bf678af4fb8e98928017120701f0a8d88e1a",
+    "status": "approved_and_frozen"
+  },
+  "schema_version": "campaign-2026-10-milestone-c-run-manifest-v1",
+  "second_review": {
+    "selection_content_sha256": "c748ae398984303a203f04e29bc07c5b34d4ecd7a103cf06fafd79475db9baf2",
+    "selection_manifest": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/second-review-selection-v1.json",
+    "status": "prediction_blind_review_pending"
+  },
+  "source_isolation": {
+    "article_groups": 72,
+    "candidate_generators_run_during_sampling": false,
+    "evaluated_methods_run_during_sampling": false,
+    "source_manifest": "C:/Users/leamanjr/projects/abrex/evidence/campaign-2026-10/milestone-c/source-manifest-v1.json",
+    "source_manifest_sha256": "9598b163f8645d0e57ac9427326ea007fded02e31100b8b4b8a305a3c9608368"
+  },
+  "status": "inputs_frozen_predictions_pending"
+}

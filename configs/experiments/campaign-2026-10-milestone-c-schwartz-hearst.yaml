@@ -1,0 +1,25 @@
+project:
+  name: campaign-2026-10-milestone-c-schwartz-hearst
+  seed: 20261006
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/campaign-2026-10/milestone-c/prediction-input-v1.jsonl
+    manifest_path: evidence/campaign-2026-10/milestone-c/prediction-input-v1.manifest.json
+resolver:
+  type: schwartz_hearst
+  params: {}
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+output:
+  root: .artifacts/campaign-2026-10/milestone-c/schwartz-hearst
+  reuse_cached_predictions: true

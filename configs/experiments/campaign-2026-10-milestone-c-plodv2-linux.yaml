@@ -1,0 +1,40 @@
+project:
+  name: campaign-2026-10-milestone-c-plodv2-pairing-linux
+  seed: 20261006
+job:
+  python_executable: python3
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/campaign-2026-10/milestone-c/prediction-input-v1.jsonl
+    manifest_path: evidence/campaign-2026-10/milestone-c/prediction-input-v1.manifest.json
+resolver:
+  type: plodv2_pairing
+  params:
+    checkpoint_path: ${ABREX_PLODV2_CHECKPOINT}
+    checkpoint_sha256: 3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277
+    device: cpu
+    batch_size: 1
+    max_chars_per_window: 4096
+    window_overlap: 128
+    duplicate_policy: deduplicate
+    runtime_version: flair-0.15.1-torch-2.14.0+cpu
+    strategy: position_anchored
+    selection: one_to_one
+    allow_reverse_order: true
+    max_gap: 160
+    require_local_pattern: false
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+output:
+  root: .artifacts/campaign-2026-10/milestone-c/plodv2
+  reuse_cached_predictions: true

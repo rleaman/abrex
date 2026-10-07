@@ -94,7 +94,13 @@ def _assert_payload_schema(payload: Mapping[str, object]) -> None:
                 )
 
 
-def run(packet_path: Path, state_path: Path, output: Path) -> dict[str, object]:
+def run(
+    packet_path: Path,
+    state_path: Path,
+    output: Path,
+    *,
+    expected_cases: int = 120,
+) -> dict[str, object]:
     """Validate actual-packet loading, isolation, persistence, and lock rejection."""
 
     packet = read_blind_packet(packet_path)
@@ -132,14 +138,18 @@ def run(packet_path: Path, state_path: Path, output: Path) -> dict[str, object]:
                     raise AssertionError("blind packet API did not return an object")
                 _assert_payload_schema(payload)
                 cases = payload["cases"]
-                if not isinstance(cases, list) or len(cases) != 120:
-                    raise AssertionError("actual packet does not contain 120 cases")
-                if page.locator("#case-list .case").count() != 120:
-                    raise AssertionError("reviewer did not list all 120 passages")
+                if not isinstance(cases, list) or len(cases) != expected_cases:
+                    raise AssertionError(
+                        f"actual packet does not contain {expected_cases} cases"
+                    )
+                if page.locator("#case-list .case").count() != expected_cases:
+                    raise AssertionError(
+                        f"reviewer did not list all {expected_cases} passages"
+                    )
                 positions = []
-                for index in (0, 59, 119):
+                for index in (0, (expected_cases - 1) // 2, expected_cases - 1):
                     page.locator("#case-list .case").nth(index).click()
-                    expected = f"{index + 1} of 120"
+                    expected = f"{index + 1} of {expected_cases}"
                     page.locator("#position").filter(has_text=expected).wait_for()
                     positions.append(expected)
                 page.locator("#case-list .case").nth(0).click()
@@ -173,7 +183,9 @@ def run(packet_path: Path, state_path: Path, output: Path) -> dict[str, object]:
                     raise AssertionError("completion shortcut did not mark the passage")
                 page.keyboard.press("Control+Shift+Enter")
                 page.locator("#progress").filter(has_text="1 complete").wait_for()
-                page.locator("#position").filter(has_text="2 of 120").wait_for()
+                page.locator("#position").filter(
+                    has_text=f"2 of {expected_cases}"
+                ).wait_for()
                 page.reload()
                 page.locator("#progress").filter(has_text="1 complete").wait_for()
                 backup = root / "backup.json"
@@ -186,6 +198,12 @@ def run(packet_path: Path, state_path: Path, output: Path) -> dict[str, object]:
                 page.locator("#lock").click()
                 page.locator("#save-status").filter(has_text="Lock failed").wait_for()
                 readiness = page.request.get(url + "api/readiness").json()
+                lock_rejected = readiness["remaining_cases"] == expected_cases - 1
+                if not lock_rejected:
+                    raise AssertionError(
+                        "incomplete lock rejection returned an unexpected "
+                        "remaining-case count"
+                    )
                 browser.close()
             if lock.exists():
                 raise AssertionError("incomplete disposable review created a lock")
@@ -199,7 +217,7 @@ def run(packet_path: Path, state_path: Path, output: Path) -> dict[str, object]:
                 "cases": len(packet.cases),
                 "checks": {
                     "actual_packet_loaded": True,
-                    "all_120_passages_listed": True,
+                    "all_expected_passages_listed": True,
                     "first_middle_last_navigation": positions,
                     "strict_payload_allowlist": True,
                     "common_relation_defaults": defaults,
@@ -209,7 +227,7 @@ def run(packet_path: Path, state_path: Path, output: Path) -> dict[str, object]:
                     "save_and_next_shortcut": True,
                     "disposable_save_reload": True,
                     "json_export_import": True,
-                    "incomplete_lock_rejected": readiness["remaining_cases"] == 119,
+                    "incomplete_lock_rejected": lock_rejected,
                     "no_disposable_lock_created": True,
                     "authoritative_state_unchanged": _sha(state_path)
                     == authoritative_before,
@@ -252,8 +270,14 @@ def main() -> int:
             "evidence/campaign-2026-10/milestone-c/actual-packet-browser-qa-v1.json"
         ),
     )
+    parser.add_argument("--expected-cases", type=int, default=120)
     args = parser.parse_args()
-    result = run(args.packet, args.state, args.output)
+    result = run(
+        args.packet,
+        args.state,
+        args.output,
+        expected_cases=args.expected_cases,
+    )
     print(json.dumps(result, sort_keys=True))
     return 0
 

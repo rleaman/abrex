@@ -1,0 +1,38 @@
+{
+  "adapter": {
+    "identity": null,
+    "version": null
+  },
+  "annotation_count": 0,
+  "config_fingerprint": "d25c221acdb3a40f0e22a6ac29d494e604588b7f1a60fdb6e0a49d2e46d29aef",
+  "dataset_id": "campaign-2026-10-milestone-c-prediction-input-v1",
+  "fingerprint": "e51d405d832c042d14b43ce5e7dfa02bf3ae23c0b0776d8ea0d4d70b67102018",
+  "manifest_version": "manifest-v1",
+  "normalizers": [],
+  "record_count": 120,
+  "schema_version": "canonical-v1",
+  "source": {
+    "fingerprint": null,
+    "format": null,
+    "identifier": null
+  },
+  "validation": {
+    "by_action": {
+      "ambiguous": 0,
+      "dropped": 0,
+      "observed": 0,
+      "repaired": 0,
+      "unscoreable": 0
+    },
+    "by_severity": {
+      "error": 0,
+      "info": 0,
+      "warning": 0
+    },
+    "diagnostics": [],
+    "records_dropped": 0,
+    "records_kept": 120,
+    "records_seen": 120,
+    "total": 0
+  }
+}

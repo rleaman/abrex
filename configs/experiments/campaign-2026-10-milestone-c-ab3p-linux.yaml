@@ -1,0 +1,35 @@
+project:
+  name: campaign-2026-10-milestone-c-ab3p-linux
+  seed: 20261006
+job:
+  python_executable: python3
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/campaign-2026-10/milestone-c/prediction-input-v1.jsonl
+    manifest_path: evidence/campaign-2026-10/milestone-c/prediction-input-v1.manifest.json
+resolver:
+  type: ab3p
+  params:
+    backend: subprocess
+    output_format: offset_jsonl
+    timeout_seconds: 120
+    installation:
+      manifest: ${ABREX_AB3P_MANIFEST}
+      root: ${ABREX_AB3P_ROOT}
+      executable: identify_abbr_offsets
+      resource_directory: WordData
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+output:
+  root: .artifacts/campaign-2026-10/milestone-c/ab3p
+  reuse_cached_predictions: true

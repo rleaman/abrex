@@ -1,0 +1,40 @@
+project:
+  name: campaign-2026-10-milestone-c-jev-candidate-judge
+  seed: 20261006
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/campaign-2026-10/milestone-c/prediction-input-v1.jsonl
+    manifest_path: evidence/campaign-2026-10/milestone-c/prediction-input-v1.manifest.json
+resolver:
+  type: jev_candidate_judge
+  error_policy: collect
+  params:
+    model: jev-1.13.0
+    policy_version: abrex-candidate-split-v2
+    definition_threshold: 0.75
+    orientation_threshold: 0.95
+    cache_path: evidence/campaign-2026-10/milestone-c/jev-confirmatory-cache-v1.jsonl
+    cache_only: false
+    maximum_candidates_per_document: 512
+    maximum_candidates_per_request: 64
+    maximum_request_characters: 48000
+    maximum_network_requests: 64
+    maximum_input_tokens: 723000
+    timeout_seconds: 30
+    retries: 0
+    concurrency: 8
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+output:
+  root: .artifacts/campaign-2026-10/milestone-c/jev
+  reuse_cached_predictions: true

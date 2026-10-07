@@ -1,0 +1,15 @@
+{
+  "archive_bytes": 484932,
+  "archive_path": ".artifacts/campaign-2026-10/milestone-c/abrex-milestone-c-linux-bundle-v1.zip",
+  "archive_sha256": "9b3f4fa02c0029bbca03b2ed17cfb24e4a081791abeb6a322d1f0ae10c62f53d",
+  "bundle_id": "1bad70d5276022c986d47dc32f4dd1dc1b0a9317b72ffb18291d40467ce42e4f",
+  "files": 160,
+  "gold_annotations_included": false,
+  "jobs": [
+    "campaign-2026-10-milestone-c-ab3p-linux",
+    "campaign-2026-10-milestone-c-plodv2-pairing-linux"
+  ],
+  "prediction_documents": 120,
+  "schema_version": "campaign-2026-10-milestone-c-linux-bundle-release-v1",
+  "source_directory": ".artifacts/campaign-2026-10/milestone-c/linux-bundle-v1"
+}
