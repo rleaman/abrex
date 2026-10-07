@@ -159,14 +159,20 @@ plan contains 64 Jev candidate-judge batches over 42 candidate-bearing passages
 plus one CLP Jev request: 65 TypeSafe requests, no retries, no more than 724,000
 input tokens and $0.05. The frozen Luna route is 120 requests, no retries, no
 more than 201,000 estimated input tokens, 8,192 output tokens per request and
-$0.10. No TypeSafe or Luna confirmatory request has been sent. The
-prediction-blind lock prerequisite is satisfied, and tested derived configs now
-enforce the prepared request/token/retry/cost limits, but the approved protocol
-explicitly withheld paid post-lock execution authorization. The next external
-decision is whether to authorize those two bounded runs: TypeSafe at most 65
-requests, 724,000 input tokens, no retries and $0.05; Azure Luna at most 120
-attempts, 201,000 estimated input tokens, 8,192 output tokens per request, no
-retries and $0.10.
+$0.10. The user authorized both post-lock runs on October 7, 2026, and both
+completed within every limit. TypeSafe completed all 65 requests with no retries
+or failures, used 548,385 input tokens, and cost an estimated $0.02303217 at the
+current published $0.042/M input-token rate. The complete CLP decision was
+`NEEDS_PARSER_EXTENSION` with zero exact pairs; Jev candidate judging produced
+45 predictions across 120 records. Luna completed all 120 requests with no
+retries or request failures, used 115,653 input and 9,807 output tokens, cost
+$0.0164688, and emitted 68 exactly grounded predictions. Five further Luna
+proposals were rejected and retained as quote-grounding diagnostics rather than
+repaired. The immutable caches, attempt ledger, prediction artifacts, usage,
+costs, and hashes are bound by
+`evidence/campaign-2026-10/milestone-c/online-execution-receipt-v1.json`.
+Scoring remains intentionally withheld until independent second review and
+adjudication are locked.
 
 The active Windows host still has no installed Ubuntu distribution. This is a
 host-prerequisite result, not an Ab3P or PLODv2 failure; post-lock execution must

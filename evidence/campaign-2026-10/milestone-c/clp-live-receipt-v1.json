@@ -1,0 +1,16 @@
+{
+  "cache_path": "evidence/campaign-2026-10/milestone-c/clp-jev-cache-v1.jsonl",
+  "cache_sha256": "7afa9f0c73cb5ea5765ea008034f4f829c0aad6fd7edf3b28b6fd9406fa8bdc3",
+  "decision_source": "JEV",
+  "disposition": "NEEDS_PARSER_EXTENSION",
+  "document_id": "milestone-c-73a6745128f8193d33ce",
+  "input_tokens": 957,
+  "network_requests": 1,
+  "output_tokens": 36,
+  "provider_request_id": "req_01a117df686571d5a13bebb57442a5ce",
+  "request_id": "milestone-c-rules-d4d6521ccc02151cd036",
+  "requested_model_alias": "jev-latest",
+  "retries": 0,
+  "returned_model": "jev-1.13.0",
+  "schema_version": "campaign-2026-10-milestone-c-clp-live-receipt-v1"
+}

@@ -1,0 +1,16 @@
+{
+  "documents": [
+    {
+      "decision_source": "JEV",
+      "disposition": "NEEDS_PARSER_EXTENSION",
+      "document_id": "milestone-c-73a6745128f8193d33ce",
+      "pairs": []
+    }
+  ],
+  "model_version": "jev-1.13.0",
+  "policy_version": "abbr-section-choice-v5.1",
+  "request_id": "milestone-c-rules-d4d6521ccc02151cd036",
+  "schema_version": "clp-abbr-worker-response-v2",
+  "worker_identity": "CellLiteraturePipeline/full-clp",
+  "worker_version": "323fd4f51aa3c5b54ed30f37dd297b00b49e277e"
+}

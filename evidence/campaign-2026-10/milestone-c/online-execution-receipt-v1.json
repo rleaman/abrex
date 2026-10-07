@@ -1,0 +1,86 @@
+{
+  "luna": {
+    "actual_cost_usd": "0.0164688",
+    "attempt_events": {
+      "finished": 120,
+      "started": 120
+    },
+    "attempt_ledger_path": "evidence/campaign-2026-10/milestone-c/luna-confirmatory-attempts-v1.jsonl",
+    "attempt_ledger_sha256": "20b9450ff84af2d0e7c742cd8554db1fb6d34a3c17e411afcddeee9c0a1a0de8",
+    "authorized_caps": {
+      "estimated_input_tokens": 201000,
+      "maximum_output_tokens_per_request": 8192,
+      "monetary_usd": "0.10",
+      "network_attempts": 120,
+      "retries": 0
+    },
+    "cache_path": "evidence/campaign-2026-10/milestone-c/luna-confirmatory-cache-v1.jsonl",
+    "cache_sha256": "ac9f10b4b308dc598928607daa2b4116b3ec5c081cfb969efd84536e56939904",
+    "input_tokens": 115653,
+    "model": "gpt-6-luna",
+    "network_attempts": 120,
+    "output_tokens": 9807,
+    "predictions": {
+      "diagnostics": {
+        "DIRECT_ABSTAINED": 91,
+        "DIRECT_QUOTE_GROUNDING_FAILED": 5,
+        "DIRECT_REQUEST_COMPLETED": 120
+      },
+      "path": "evidence/campaign-2026-10/milestone-c/predictions-luna-v1.jsonl",
+      "predictions": 68,
+      "records": 120,
+      "sha256": "87589702c6d9282e1925a4b5463eb2b6db079d26d97c25c7594ee20b0c23420e"
+    },
+    "prompt_version": "abrex-quote-grounded-2026-10-06-i02",
+    "retries": 0
+  },
+  "prediction_scoring_status": "withheld_pending_second_review_and_adjudication",
+  "schema_version": "campaign-2026-10-milestone-c-online-execution-v1",
+  "status": "complete_within_authorized_caps",
+  "typesafe": {
+    "authorized_caps": {
+      "input_tokens": 724000,
+      "monetary_usd": "0.05",
+      "network_requests": 65,
+      "retries": 0
+    },
+    "candidate_judge": {
+      "cache_path": "evidence/campaign-2026-10/milestone-c/jev-confirmatory-cache-v1.jsonl",
+      "cache_sha256": "6f33becded8ffd99fa8d52322c62e85455063774768847d5e14f5d89d5797c13",
+      "input_tokens": 547428,
+      "model": "jev-1.13.0",
+      "network_requests": 64,
+      "predictions": {
+        "diagnostics": {},
+        "path": "evidence/campaign-2026-10/milestone-c/predictions-jev-v1.jsonl",
+        "predictions": 45,
+        "records": 120,
+        "sha256": "be867e1132426bd25772cd924b3afc5498613b37cd6a42ffc6bc010336bc3655"
+      }
+    },
+    "clp": {
+      "cache_path": "evidence/campaign-2026-10/milestone-c/clp-jev-cache-v1.jsonl",
+      "cache_sha256": "7afa9f0c73cb5ea5765ea008034f4f829c0aad6fd7edf3b28b6fd9406fa8bdc3",
+      "decision_source": "JEV",
+      "disposition": "NEEDS_PARSER_EXTENSION",
+      "document_id": "milestone-c-73a6745128f8193d33ce",
+      "input_tokens": 957,
+      "network_requests": 1,
+      "output_tokens": 36,
+      "provider_request_id": "req_01a117df686571d5a13bebb57442a5ce",
+      "receipt_sha256": "248b18647af9fe03fe9dedab9f49d802c3d23c9266e7560d71e711a8f022b593",
+      "request_id": "milestone-c-rules-d4d6521ccc02151cd036",
+      "requested_model_alias": "jev-latest",
+      "response_path": "evidence/campaign-2026-10/milestone-c/clp-full-response-v1.json",
+      "response_sha256": "cebf3391cb8a2fe896523a21c4f0353f70574756b149298e971ebe4745be24d6",
+      "retries": 0,
+      "returned_model": "jev-1.13.0",
+      "schema_version": "campaign-2026-10-milestone-c-clp-live-receipt-v1"
+    },
+    "estimated_cost_usd": "0.02303217",
+    "input_tokens": 548385,
+    "input_usd_per_million_tokens": "0.042",
+    "network_requests": 65,
+    "pricing_source": "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
+  }
+}
