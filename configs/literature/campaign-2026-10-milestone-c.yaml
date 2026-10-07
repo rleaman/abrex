@@ -1,0 +1,33 @@
+milestone_c_sample:
+  schema_version: campaign-2026-10-milestone-c-sample-v1
+  protocol_path: evidence/campaign-2026-10/milestone-c/protocol-v1.json
+  protocol_sha256: 0ee00c49fc9a8ff6f75674401784bf678af4fb8e98928017120701f0a8d88e1a
+  output_dir: .artifacts/campaign-2026-10/milestone-c/sample-v1
+  delivery_dir: evidence/campaign-2026-10/milestone-c
+  seed: 20261006
+  representative_groups: 48
+  structural_groups: 24
+  maximum_attempts_per_stratum: 1200
+  maximum_download_bytes: 536870912
+  maximum_elapsed_seconds: 7200
+  maximum_response_bytes: 8000000
+  maximum_metadata_requests: 80
+  maximum_http_attempts: 750
+  request_timeout_seconds: 30
+  request_retries: 2
+  retry_backoff_seconds: 1
+  delay_seconds: 0.34
+  uid_search_ceiling: 100000000
+  prose_target_chars: 700
+  prose_maximum_chars: 1800
+  prose_minimum_chars: 80
+  structured_maximum_chars: 8000
+  user_agent: abrex-campaign-2026-10-milestone-c/1.0
+  exclusion_paths:
+    - docs/artifacts/T025-pubmed-pilot-report.json
+    - evidence/T052/T051-pilot-manifest.json
+    - evidence/T060/review-packet-split-v2.json
+    - evidence/T062/development-ledger-v1.json
+    - resources/clp/abbr-v5-validation-v1.jsonl
+    - evidence/T065/source-manifest-v1.json
+    - evidence/T067/fresh-eligibility-ledger-v1.json

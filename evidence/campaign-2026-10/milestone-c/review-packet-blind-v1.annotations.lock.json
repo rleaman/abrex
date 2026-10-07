@@ -1,0 +1,9 @@
+{
+  "annotation_state_sha256": "e50c34aab4362c9231d05892abff65c7961f89ce81ad360893ff1ad00d008fc3",
+  "exposure_status": "prediction_blind",
+  "locked_at": "2026-10-07T18:31:59.041294+00:00",
+  "packet_content_sha256": "d25c221acdb3a40f0e22a6ac29d494e604588b7f1a60fdb6e0a49d2e46d29aef",
+  "packet_id": "blind-d25c221acdb3a40f0e22",
+  "predictions_exposed": false,
+  "schema_version": "abrex-blind-annotation-lock-v1"
+}

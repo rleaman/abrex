@@ -102,6 +102,20 @@ def test_blind_packet_and_html_contain_no_assisted_output_fields(
     ):
         assert independent_scroll_contract in BLIND_REVIEWER_HTML
 
+    for default_option in (
+        'value="abbreviation_expansion" selected',
+        'value="contiguous_shared" selected',
+        'value="text_alone" selected',
+    ):
+        assert default_option in BLIND_REVIEWER_HTML
+    for shortcut in (
+        "Ctrl+Shift+C",
+        "Ctrl+Enter",
+        "Ctrl+Shift+Enter",
+        "Keyboard shortcuts",
+    ):
+        assert shortcut in BLIND_REVIEWER_HTML
+
 
 def test_blind_state_locks_only_after_search_and_rejects_later_edits(
     tmp_path: Path,

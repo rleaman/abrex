@@ -1,7 +1,7 @@
 # Milestone C pre-freeze protocol inventory
 
-Status: prepared for protocol approval; no sample has been drawn and no
-Milestone C predictions have been requested. The original Luna prompt is
+Status: **approved and frozen; source sample and blind packet ready**. No
+Milestone C model predictions have been requested. The original Luna prompt is
 incorporated as a negative development result, and the separately versioned
 quote-grounded revision is incorporated as a gate-passing development result.
 
@@ -84,19 +84,29 @@ Results are stratified as representative PMC prose, representative PubMed
 abstracts, and structural challenge. Every frozen method is reported even when
 negative.
 
-## Decision needed before freeze
+## Recorded approval and completed source freeze
 
-The recommended decision is to approve the six-method, 72-group/120-passage
-protocol and the two primary contrasts above. Approval authorizes source-only
-sampling and acquisition plus construction and testing of the prediction-blind
-review packet. It does **not** authorize TypeSafe requests, resolver prediction
-runs, annotation reveal, or new Azure requests. TypeSafe receives a separate
-bounded request and budget authorization after the actual sample and rules-only
-dry run make the request count and cost concrete.
+The scientific lead approved the six-method, 72-group/120-passage protocol
+without revision on October 6, 2026. The immutable record is
+`evidence/campaign-2026-10/milestone-c/protocol-v1.json`.
 
-The prefilled decision record is
+The single seeded draw examined 348 PMC identifiers and selected 72 disjoint
+groups after 276 documented source-only exclusions and zero fetch failures. It
+contains exactly 48 PMC prose passages, 48 linked PubMed abstracts, and 24
+structural-challenge passages. The URL-addressed source cache contains 431
+responses and 26,643,571 bytes. This is an exact-CC-BY linked PMC/PubMed frame,
+not a sample of all PubMed.
+
+The actual packet passed Edge QA with its authoritative empty state unchanged.
+The CLP rules-only dry run found one source-declared ABBR section; it completed
+as unresolved with no pairs. The other 23 source-structural cases are explicit
+CLP non-applicability cases, not forced failures. The prepared no-call plan is
+65 TypeSafe requests under 724,000 input tokens and a $0.05 cap, plus 120 Luna
+requests under a $0.10 cap. Neither route is authorized or executed yet.
+
+The recorded decision is
 [`campaign-2026-10-protocol-decision.md`](campaign-2026-10-protocol-decision.md).
-The full machine record is
+The original machine preflight is
 `evidence/campaign-2026-10/milestone-c/preflight-v1.json` and is rebuilt with:
 
 ```powershell
@@ -109,3 +119,6 @@ installation help because the historical Ubuntu distribution and its
 Ab3P or PLODv2 failure. Execution therefore follows the documented fresh Linux
 server bundle and `setup-runtime.sh` flow. Evidence is retained in
 `evidence/campaign-2026-10/milestone-c/runtime-preflight-v1.json`.
+
+Primary annotation starts with the tested instructions in
+[`campaign-2026-10-milestone-c-review-guide.md`](campaign-2026-10-milestone-c-review-guide.md).

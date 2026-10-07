@@ -96,64 +96,53 @@ to avoid overfitting exposed development gold. The consolidated result is
 with machine evidence under
 `evidence/campaign-2026-10/milestone-b/luna-iterations/`.
 
-## Milestone C independent pre-freeze preparation
+## Milestone C frozen sample and review handoff
 
-The exposed T067 sample is now treated as development evidence and will not be
-reused for confirmation. A machine-checked preflight at
-`evidence/campaign-2026-10/milestone-c/preflight-v1.json` inventories all six
-requested method identities, 238 excluded PMIDs, 83 excluded PMCIDs, known CLP
-overlap, the direct-extraction negative result, and the unknown
-dictionary/training-overlap limitation. See
-[`artifacts/campaign-2026-10-milestone-c-preflight.md`](artifacts/campaign-2026-10-milestone-c-preflight.md).
+The scientific lead approved the prepared protocol without revision on October
+6, 2026. The immutable approval is
+`evidence/campaign-2026-10/milestone-c/protocol-v1.json`. Its preflight records
+all six method identities, 238 excluded PMIDs, 83 excluded PMCIDs, known CLP
+overlap, the direct-extraction negative result, and the unknown dictionary or
+training-overlap limitation. T062 and T067 remain exposed development evidence.
 
-The unfrozen workload proposal is 48 representative groups with one PMC prose
-and one linked PubMed abstract passage each, plus 24 disjoint source-structural
-challenge groups: 72 groups and 120 passages total, estimated at 8–12 primary
-review hours. The representative group count gives an approximate worst-case
-Wilson 95% half-width of 0.136 for a group-level proportion. The challenge is
-reported separately and retains the ordered passages and raw table XML needed
-by complete CLP V5.1. Final freeze now awaits approval of the narrower
-confirmatory method set, review burden, and success thresholds; no Milestone C
-sampling or predictions have been issued.
+The single frozen source-only draw examined 348 PMC identifiers and selected 72
+disjoint article groups after 276 documented exclusions and zero fetch failures.
+It contains 48 representative groups with one PMC prose and one linked PubMed
+abstract passage each, plus 24 source-structural challenge groups: exactly 120
+passages. The source cache preserves 431 URL-addressed responses and 26,643,571
+bytes. The representative population is the eligible exact-CC-BY linked
+PMC/PubMed frame, not all PubMed. The challenge remains separate and retains
+ordered passages, structure, exact raw-source hashes, and serialized source XML.
 
-The machine preflight retains the failed offset-producing prompt and the later
-quote-grounded success. It proposes all six confirmatory methods: Ab3P,
-Schwartz–Hearst, PLODv2 pairing, complete CLP V5.1, Jev candidate judging, and
-the frozen quote-grounded Luna extractor. The two primary contrasts are complete
-CLP V5.1 versus Schwartz–Hearst and quote-grounded Luna versus Jev candidate
-judging. Superiority requires an absolute representative exact-F1 gain of at
-least 0.05 and a paired article-group-bootstrap result passing Holm control
-across both contrasts. Structural-challenge evidence cannot satisfy either
-claim. These choices remain proposals awaiting explicit protocol approval.
+The frozen six methods are Ab3P, Schwartz–Hearst, PLODv2 pairing, complete CLP
+V5.1, Jev candidate judging, and quote-grounded Luna. The two primary contrasts
+and Holm-controlled superiority rule are unchanged. The actual blind packet is
+`evidence/campaign-2026-10/milestone-c/review-packet-blind-v1.json`, with primary
+annotation in progress in its adjacent draft state. New relations default to
+abbreviation expansion, contiguous/shared evidence, and text-alone context.
+Microsoft Edge QA covered all 120 entries, first/middle/last navigation, the
+documented keyboard shortcuts, strict payload isolation, disposable save/reload,
+JSON export/import, and incomplete-lock rejection without changing the live
+annotation state. The tested human handoff is
+[`artifacts/campaign-2026-10-milestone-c-review-guide.md`](artifacts/campaign-2026-10-milestone-c-review-guide.md).
 
-The prefilled approval record is
-[`artifacts/campaign-2026-10-protocol-decision.md`](artifacts/campaign-2026-10-protocol-decision.md).
-The recommended response is `Approve the Milestone C protocol as prepared.`
-That approval authorizes source-only sampling, acquisition, and construction of
-the tested blind-review packet; it does not authorize TypeSafe spend, prediction
-runs, annotation reveal, or further Azure requests. The owner will prepare an
-exact TypeSafe request count and hard cap for separate authorization after the
-sample and CLP rules-only dry run.
+The CLP rules-only dry run applies to the one source-declared ABBR section and
+completed as unresolved with zero pairs. The other 23 structural cases are
+recorded as not applicable to CLP's ABBR-section contract. The no-call execution
+plan contains 64 Jev candidate-judge batches over 42 candidate-bearing passages
+plus one CLP Jev request: 65 TypeSafe requests, no retries, no more than 724,000
+input tokens and $0.05. The frozen Luna route is 120 requests, no retries, no
+more than 201,000 estimated input tokens, 8,192 output tokens per request and
+$0.10. No TypeSafe, Luna, or other confirmatory prediction request has been sent;
+both remain separately gated until the prediction-blind annotation lock.
 
-The prediction-blind reviewer has also passed a fresh campaign-specific,
-disposable Microsoft Edge/Playwright exercise covering payload isolation,
-Unicode/repeated-text span entry, zero-relation completion, save/reload, JSON
-backup/import, server-enforced lock/export, and a 390-by-844 viewport. Evidence
-is in
-`evidence/campaign-2026-10/milestone-c/blind-reviewer-qa-v1.json`. The actual
-frozen packet will be browser-tested again before delivery; no human annotation
-has been fabricated by this QA.
+The active Windows host still has no installed Ubuntu distribution. This is a
+host-prerequisite result, not an Ab3P or PLODv2 failure; post-lock execution must
+use the documented fresh Linux server bundle and `setup-runtime.sh` flow.
 
-The baseline runtime guide's strict WSL smoke was attempted and failed before
-resolver execution because the active host has no installed Ubuntu distribution;
-`wsl.exe` returned installation help. This is not a method failure, and the user
-cannot install WSL here. The frozen comparison must use the documented fresh
-Linux server bundle and `setup-runtime.sh` flow. Exact evidence is in
-`evidence/campaign-2026-10/milestone-c/runtime-preflight-v1.json`.
-
-The repository fast gate passes for this checkpoint: source-import verification,
-Ruff formatting and lint, strict mypy over 211 files, and 461 passed tests with
-one external-runtime test skipped.
+The repository-wide fast gate passes at this handoff: source-import verification,
+Ruff formatting and lint, strict mypy over 214 source files, and 466 passed tests
+with one external-runtime test skipped.
 
 ## Evidence to retain
 

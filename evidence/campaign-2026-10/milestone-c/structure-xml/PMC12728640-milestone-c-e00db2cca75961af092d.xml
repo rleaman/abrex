@@ -1,0 +1,26 @@
+<table-wrap position="float" id="tbl1" orientation="portrait"><label>1</label><caption><title>Sum of Metal Ionic Radii in M<sub>3</sub>N,<xref rid="t1fn1" ref-type="table-fn" /> Ratio of the Yields for [6,6]
+and [5,6] Isomer of M<sub>3</sub>N@C<sub>80</sub>(Ad),<xref rid="t1fn2" ref-type="table-fn" /> and DFT-Computed Relative Energies<xref rid="t1fn3" ref-type="table-fn" />
+</title></caption><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1" /><col align="char" char="." span="1" /><col align="left" span="1" /><col align="left" span="1" /></colgroup><thead><tr><th align="center" colspan="1" rowspan="1">adduct</th><th align="center" char="." colspan="1" rowspan="1">Σ<italic toggle="yes">R</italic>
+<sub>
+<italic toggle="yes">i</italic>
+</sub>
+<sup>3+</sup>, Å</th><th align="center" colspan="1" rowspan="1">ratio I: II</th><th align="center" colspan="1" rowspan="1">Δ<italic toggle="yes">E</italic> ([5,6]), kJ mol<sup>–1</sup>
+</th></tr></thead><tbody><tr><td align="left" colspan="1" rowspan="1">Sc<sub>3</sub>N@C<sub>80</sub>
+</td><td align="char" char="." colspan="1" rowspan="1">2.24</td><td align="left" colspan="1" rowspan="1">1:5.3 (1:6.2)<xref rid="ref52" ref-type="bibr" />
+</td><td align="left" colspan="1" rowspan="1">4.5</td></tr><tr><td align="left" colspan="1" rowspan="1">DySc<sub>2</sub>N@C<sub>80</sub>
+</td><td align="char" char="." colspan="1" rowspan="1">2.40</td><td align="left" colspan="1" rowspan="1">1:2.8<xref rid="ref57" ref-type="bibr" />
+</td><td align="left" colspan="1" rowspan="1">14.5</td></tr><tr><td align="left" colspan="1" rowspan="1">NdSc<sub>2</sub>N@C<sub>80</sub>
+</td><td align="char" char="." colspan="1" rowspan="1">2.47</td><td align="left" colspan="1" rowspan="1">1:1.6<xref rid="ref57" ref-type="bibr" />
+</td><td align="left" colspan="1" rowspan="1">12.8</td></tr><tr><td align="left" colspan="1" rowspan="1">Dy<sub>2</sub>ScN@C<sub>80</sub>
+</td><td align="char" char="." colspan="1" rowspan="1">2.57</td><td align="left" colspan="1" rowspan="1">1:26</td><td align="left" colspan="1" rowspan="1">16.8</td></tr><tr><td align="left" colspan="1" rowspan="1">Lu<sub>3</sub>N@C<sub>80</sub>
+</td><td align="char" char="." colspan="1" rowspan="1">2.58</td><td align="left" colspan="1" rowspan="1">1:20 (1:22)<xref rid="ref52" ref-type="bibr" />
+</td><td align="left" colspan="1" rowspan="1">15.8</td></tr><tr><td align="left" colspan="1" rowspan="1">Y<sub>3</sub>N@C<sub>80</sub>
+</td><td align="char" char="." colspan="1" rowspan="1">2.70</td><td align="left" colspan="1" rowspan="1">1:50</td><td align="left" colspan="1" rowspan="1">20.7</td></tr><tr><td align="left" colspan="1" rowspan="1">Dy<sub>3</sub>N@C<sub>80</sub>
+</td><td align="char" char="." colspan="1" rowspan="1">2.74</td><td align="left" colspan="1" rowspan="1">1:80</td><td align="left" colspan="1" rowspan="1">21.6</td></tr></tbody></table><table-wrap-foot><fn id="t1fn1"><label>a</label><p>Sum of Shannon’s ionic radii
+for VI-coordinated metal ions.</p></fn><fn id="t1fn2"><label>b</label><p>The ratio of isomers is calculated
+from HPLC peak areas.</p></fn><fn id="t1fn3"><label>c</label><p>PBE-D/PAW
+level with 4f-in-core
+pseudopotential for lanthanides using VASP code.<named-content content-type="bibref-group">
+<xref rid="ref64" ref-type="bibr" />,<xref rid="ref65" ref-type="bibr" />
+</named-content>
+</p></fn></table-wrap-foot></table-wrap>

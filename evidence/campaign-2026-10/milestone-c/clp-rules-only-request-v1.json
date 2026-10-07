@@ -1,0 +1,152 @@
+{
+  "documents": [
+    {
+      "document_id": "milestone-c-73a6745128f8193d33ce",
+      "passages": [
+        {
+          "canonical_start": 0,
+          "passage_type": "title",
+          "position": 0,
+          "section_type": "ABBR",
+          "source_index": -1,
+          "source_offset": 0,
+          "text": "Abbreviations",
+          "xml": null
+        },
+        {
+          "canonical_start": 0,
+          "passage_type": "paragraph",
+          "position": 1,
+          "section_type": "ABBR",
+          "source_index": 0,
+          "source_offset": 0,
+          "text": "CM complete medium",
+          "xml": "<p>CM complete medium </p>"
+        }
+      ],
+      "source_filename": "PMC10201013.xml",
+      "start_position": 0
+    }
+  ],
+  "not_applicable": [
+    {
+      "document_id": "milestone-c-d987f92ae47cb86aad55",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "The CpxAR two-component system regulates the expression of multiple genes."
+    },
+    {
+      "document_id": "milestone-c-36672e4d1240f78009f6",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "5.1.3 Motivation analysis"
+    },
+    {
+      "document_id": "milestone-c-73e3315f6f06164033eb",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "3.2. Characteristics of included studies"
+    },
+    {
+      "document_id": "milestone-c-c863c9729d5359486fc1",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Results"
+    },
+    {
+      "document_id": "milestone-c-408fbd54c9b109e87b80",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Severity stratification and case scenarios"
+    },
+    {
+      "document_id": "milestone-c-d01f7023aaa280c0c7fc",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Links between PAS signatures and drug sensitivity for the experimental data and GDS results"
+    },
+    {
+      "document_id": "milestone-c-0f9452d26c23a35f5c04",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Correlations between fecal and plasma levels of individual SCFAs and clinical characteristics in patients with renal anemia"
+    },
+    {
+      "document_id": "milestone-c-e00db2cca75961af092d",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Synthesis of M3N@C80(Ad) Adducts"
+    },
+    {
+      "document_id": "milestone-c-4745c1ba354c16cf3a97",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Th Cytokine Responses and CNS Immune Cell Infiltration Did Not Differ Between TAM-Treated Cx3cr1CreERT2:Ppardfl/fl Mice in the Early Stages in EAE"
+    },
+    {
+      "document_id": "milestone-c-c9440756b2aae409cb97",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Results"
+    },
+    {
+      "document_id": "milestone-c-dd233f0f00bd5ca74f7a",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Factors affecting fetal fraction"
+    },
+    {
+      "document_id": "milestone-c-ce94b541245c63278401",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Distribution of MPMTs"
+    },
+    {
+      "document_id": "milestone-c-ac125c48ae8e4f4855ec",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "MSM behavior disclosure and HIV-positive status disclosure"
+    },
+    {
+      "document_id": "milestone-c-16ffb849974e1a40092c",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Theoretical considerations"
+    },
+    {
+      "document_id": "milestone-c-6e73cb977d991ec1da08",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Patients’ characteristics"
+    },
+    {
+      "document_id": "milestone-c-9f5d585da719653c6571",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "The Mathematical Model for VZV Transmission and HZ Incidence"
+    },
+    {
+      "document_id": "milestone-c-6cc7f39e88d5722c65c4",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Results"
+    },
+    {
+      "document_id": "milestone-c-2abd924eb4ddec610840",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Results and discussion"
+    },
+    {
+      "document_id": "milestone-c-bc9cc759f430fe7d62ba",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Results"
+    },
+    {
+      "document_id": "milestone-c-9018ea36fd9900f0a345",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Results"
+    },
+    {
+      "document_id": "milestone-c-c94f55c25c7c23ec0882",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Bioinformatic analysis of Tn4371-like ICEs"
+    },
+    {
+      "document_id": "milestone-c-d031234fb3c4352ab587",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Results"
+    },
+    {
+      "document_id": "milestone-c-a8cd576bbc528bf0297b",
+      "reason": "source section is not declared ABBR",
+      "section_heading": "Sample size calculation"
+    }
+  ],
+  "packet_content_sha256": "d25c221acdb3a40f0e22a6ac29d494e604588b7f1a60fdb6e0a49d2e46d29aef",
+  "protocol_sha256": "0ee00c49fc9a8ff6f75674401784bf678af4fb8e98928017120701f0a8d88e1a",
+  "request_id": "milestone-c-rules-d4d6521ccc02151cd036",
+  "schema_version": "clp-abbr-worker-request-v2"
+}

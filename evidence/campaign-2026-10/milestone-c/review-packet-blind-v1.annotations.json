@@ -1,0 +1,6153 @@
+{
+  "schema_version": "t052-annotations-v2",
+  "packet_id": "blind-d25c221acdb3a40f0e22",
+  "packet_content_sha256": "d25c221acdb3a40f0e22a6ac29d494e604588b7f1a60fdb6e0a49d2e46d29aef",
+  "current_case_id": "milestone-c-7a34a877f1c31889ccb6",
+  "updated_at": "2026-10-07T18:31:56.007508+00:00",
+  "annotations": {
+    "milestone-c-ef5b7053a9cceb2fb033": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:16:59.363196+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:16:59.363196+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-d987f92ae47cb86aad55": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:17:10.660052+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:17:10.660052+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-73a6745128f8193d33ce": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:17:29.680223+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:17:29.680223+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-c2c919d2768e405a0e6c": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:17:47.018646+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:17:47.018646+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-1782c0476ae56b256c06": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:18:17.915850+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-a45ea2be-997b-45f7-90e8-6dd7defc5016",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 587,
+              "end": 590,
+              "text": "CIM"
+            },
+            "long_form": {
+              "start": 556,
+              "end": 585,
+              "text": "clozapine-induced myocarditis"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:18:17.915850+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-a45ea2be-997b-45f7-90e8-6dd7defc5016",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 587,
+                  "end": 590,
+                  "text": "CIM"
+                },
+                "long_form": {
+                  "start": 556,
+                  "end": 585,
+                  "text": "clozapine-induced myocarditis"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-4dc6d551d46bd908cb1e": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:19:53.459322+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-55e013f3-bc9b-4f35-a6ff-6fa1064ca8d1",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 406,
+              "end": 410,
+              "text": "PILP"
+            },
+            "long_form": {
+              "start": 372,
+              "end": 404,
+              "text": "polymer-induced liquid precursor"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-d0f25748-4a7e-4e22-8614-8539cfd7e834",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 340,
+              "end": 344,
+              "text": "CLCH"
+            },
+            "long_form": {
+              "start": 306,
+              "end": 338,
+              "text": "collagen liquid crystal hydrogel"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-a436b289-fa73-465b-b680-3bf81495d207",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 526,
+              "end": 529,
+              "text": "CLC"
+            },
+            "long_form": {
+              "start": 501,
+              "end": 524,
+              "text": "collagen liquid crystal"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-415968a7-ea14-4a53-b762-211579768607",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 60,
+              "end": 67,
+              "text": "nano-HA"
+            },
+            "long_form": {
+              "start": 39,
+              "end": 58,
+              "text": "nano-hydroxyapatite"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:19:53.459322+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-55e013f3-bc9b-4f35-a6ff-6fa1064ca8d1",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 406,
+                  "end": 410,
+                  "text": "PILP"
+                },
+                "long_form": {
+                  "start": 372,
+                  "end": 404,
+                  "text": "polymer-induced liquid precursor"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-d0f25748-4a7e-4e22-8614-8539cfd7e834",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 340,
+                  "end": 344,
+                  "text": "CLCH"
+                },
+                "long_form": {
+                  "start": 306,
+                  "end": 338,
+                  "text": "collagen liquid crystal hydrogel"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-a436b289-fa73-465b-b680-3bf81495d207",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 526,
+                  "end": 529,
+                  "text": "CLC"
+                },
+                "long_form": {
+                  "start": 501,
+                  "end": 524,
+                  "text": "collagen liquid crystal"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-415968a7-ea14-4a53-b762-211579768607",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 60,
+                  "end": 67,
+                  "text": "nano-HA"
+                },
+                "long_form": {
+                  "start": 39,
+                  "end": 58,
+                  "text": "nano-hydroxyapatite"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-2ed9d89f1cb33bdd7c7c": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:20:02.966935+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:20:02.966935+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-1b4e0491d01cb5b06783": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:20:11.008524+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:20:11.008524+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-022e27a9d279bbea346f": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:21:38.671250+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-3c941b18-cfe4-4dbb-a300-5b5f131a1e84",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 366,
+              "end": 369,
+              "text": "PFC"
+            },
+            "long_form": {
+              "start": 347,
+              "end": 364,
+              "text": "prefrontal cortex"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-cf1ad4a8-4eb1-4848-980d-e2a544fbf2ef",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 612,
+              "end": 615,
+              "text": "PPC"
+            },
+            "long_form": {
+              "start": 585,
+              "end": 610,
+              "text": "posterior parietal cortex"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-04b51ef0-6153-40f5-b83c-96d52cf86a7e",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 115,
+              "end": 117,
+              "text": "V1"
+            },
+            "long_form": {
+              "start": 92,
+              "end": 113,
+              "text": "primary visual cortex"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:21:38.671250+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-3c941b18-cfe4-4dbb-a300-5b5f131a1e84",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 366,
+                  "end": 369,
+                  "text": "PFC"
+                },
+                "long_form": {
+                  "start": 347,
+                  "end": 364,
+                  "text": "prefrontal cortex"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-cf1ad4a8-4eb1-4848-980d-e2a544fbf2ef",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 612,
+                  "end": 615,
+                  "text": "PPC"
+                },
+                "long_form": {
+                  "start": 585,
+                  "end": 610,
+                  "text": "posterior parietal cortex"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-04b51ef0-6153-40f5-b83c-96d52cf86a7e",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 115,
+                  "end": 117,
+                  "text": "V1"
+                },
+                "long_form": {
+                  "start": 92,
+                  "end": 113,
+                  "text": "primary visual cortex"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-36672e4d1240f78009f6": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:21:46.542413+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:21:46.542413+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-4c78bcc5a08a45a2b02b": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:22:06.793451+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:22:06.793451+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-185c721632c4e3166ae2": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:22:28.919441+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:22:28.919441+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-7a5a9ed9f22e9cbeebfd": {
+      "revision": 1,
+      "updated_at": "2026-10-07T02:22:42.005366+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T02:22:42.005366+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0a507d180d9abd49b47c": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:08:06.055276+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-07ffa9cf-3091-434e-9fbe-400c39070783",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 41,
+              "end": 45,
+              "text": "eNOS"
+            },
+            "long_form": {
+              "start": 16,
+              "end": 39,
+              "text": "endothelial NO synthase"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:08:06.055276+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-07ffa9cf-3091-434e-9fbe-400c39070783",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 41,
+                  "end": 45,
+                  "text": "eNOS"
+                },
+                "long_form": {
+                  "start": 16,
+                  "end": 39,
+                  "text": "endothelial NO synthase"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-60282f673febc655719c": {
+      "revision": 2,
+      "updated_at": "2026-10-07T16:27:47.827388+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-29b846c1-6762-4ef6-be24-a4d26a749ba7",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 270,
+              "end": 272,
+              "text": "WT"
+            },
+            "long_form": {
+              "start": 259,
+              "end": 268,
+              "text": "wild-type"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-7e310935-4a7d-4515-8c03-3acefcac11dd",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 314,
+              "end": 317,
+              "text": "ISH"
+            },
+            "long_form": {
+              "start": 291,
+              "end": 312,
+              "text": "In situ hybridization"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-60d66ddf-09a8-4d4c-b9f8-8370b1e1ea74",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 135,
+              "end": 138,
+              "text": "dTH"
+            },
+            "long_form": {
+              "start": 98,
+              "end": 133,
+              "text": "A549 cell line lacking paraspeckles"
+            },
+            "origin": "added",
+            "notes": "This definition relation requires outside knowledge or document support. Don't require abbreviation models to find it. Note that the LF is a description, not a named entity.",
+            "relation_kind": "other_naming_or_code_relation",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:12:36.982440+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-29b846c1-6762-4ef6-be24-a4d26a749ba7",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 270,
+                  "end": 272,
+                  "text": "WT"
+                },
+                "long_form": {
+                  "start": 259,
+                  "end": 268,
+                  "text": "wild-type"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-7e310935-4a7d-4515-8c03-3acefcac11dd",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 314,
+                  "end": 317,
+                  "text": "ISH"
+                },
+                "long_form": {
+                  "start": 291,
+                  "end": 312,
+                  "text": "In situ hybridization"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-60d66ddf-09a8-4d4c-b9f8-8370b1e1ea74",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 135,
+                  "end": 138,
+                  "text": "dTH"
+                },
+                "long_form": {
+                  "start": 98,
+                  "end": 133,
+                  "text": "A549 cell line lacking paraspeckles"
+                },
+                "origin": "added",
+                "notes": "This definition relation requires outside knowledge or document support. Don't require abbreviation models to find it. Note that the LF is a description, not a named entity.",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-07T16:27:47.827388+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-29b846c1-6762-4ef6-be24-a4d26a749ba7",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 270,
+                  "end": 272,
+                  "text": "WT"
+                },
+                "long_form": {
+                  "start": 259,
+                  "end": 268,
+                  "text": "wild-type"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-7e310935-4a7d-4515-8c03-3acefcac11dd",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 314,
+                  "end": 317,
+                  "text": "ISH"
+                },
+                "long_form": {
+                  "start": 291,
+                  "end": 312,
+                  "text": "In situ hybridization"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-60d66ddf-09a8-4d4c-b9f8-8370b1e1ea74",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 135,
+                  "end": 138,
+                  "text": "dTH"
+                },
+                "long_form": {
+                  "start": 98,
+                  "end": 133,
+                  "text": "A549 cell line lacking paraspeckles"
+                },
+                "origin": "added",
+                "notes": "This definition relation requires outside knowledge or document support. Don't require abbreviation models to find it. Note that the LF is a description, not a named entity.",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-306964ea5c834eb1bb32": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:28:35.066009+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-e15c8c12-7757-4a0a-bc5a-42cd6e7d8dd4",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 99,
+              "end": 102,
+              "text": "RFs"
+            },
+            "long_form": {
+              "start": 80,
+              "end": 97,
+              "text": "retraction fibers"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:28:35.066009+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-e15c8c12-7757-4a0a-bc5a-42cd6e7d8dd4",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 99,
+                  "end": 102,
+                  "text": "RFs"
+                },
+                "long_form": {
+                  "start": 80,
+                  "end": 97,
+                  "text": "retraction fibers"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-73e3315f6f06164033eb": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:31:24.914892+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-28174ed0-5daf-408f-8fd7-2f5ef060febc",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1510,
+              "end": 1512,
+              "text": "CA"
+            },
+            "long_form": {
+              "start": 1514,
+              "end": 1531,
+              "text": "catheter ablation"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-e1c2299b-9e36-4842-9bcd-29375e924e37",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1533,
+              "end": 1537,
+              "text": "Cryo"
+            },
+            "long_form": {
+              "start": 1539,
+              "end": 1551,
+              "text": "cryo-balloon"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-d03ac8ac-80b2-4c66-8628-086a1f4ba8d0",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1553,
+              "end": 1555,
+              "text": "NA"
+            },
+            "long_form": {
+              "start": 1557,
+              "end": 1575,
+              "text": "data not available"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-0a6e7c21-0b00-4e1a-85b2-a67e3b6504f7",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1577,
+              "end": 1581,
+              "text": "DOAC"
+            },
+            "long_form": {
+              "start": 1583,
+              "end": 1610,
+              "text": "direct oral anticoagulation"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-c873fc32-f340-4a75-9837-0ab590fee3eb",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1612,
+              "end": 1615,
+              "text": "OAC"
+            },
+            "long_form": {
+              "start": 1617,
+              "end": 1635,
+              "text": "oral anticoagulant"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-c27732d4-8919-451b-8645-c7ffaa19debf",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1637,
+              "end": 1639,
+              "text": "RF"
+            },
+            "long_form": {
+              "start": 1641,
+              "end": 1655,
+              "text": "radiofrequency"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:31:24.914892+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-28174ed0-5daf-408f-8fd7-2f5ef060febc",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1510,
+                  "end": 1512,
+                  "text": "CA"
+                },
+                "long_form": {
+                  "start": 1514,
+                  "end": 1531,
+                  "text": "catheter ablation"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-e1c2299b-9e36-4842-9bcd-29375e924e37",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1533,
+                  "end": 1537,
+                  "text": "Cryo"
+                },
+                "long_form": {
+                  "start": 1539,
+                  "end": 1551,
+                  "text": "cryo-balloon"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-d03ac8ac-80b2-4c66-8628-086a1f4ba8d0",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1553,
+                  "end": 1555,
+                  "text": "NA"
+                },
+                "long_form": {
+                  "start": 1557,
+                  "end": 1575,
+                  "text": "data not available"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-0a6e7c21-0b00-4e1a-85b2-a67e3b6504f7",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1577,
+                  "end": 1581,
+                  "text": "DOAC"
+                },
+                "long_form": {
+                  "start": 1583,
+                  "end": 1610,
+                  "text": "direct oral anticoagulation"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-c873fc32-f340-4a75-9837-0ab590fee3eb",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1612,
+                  "end": 1615,
+                  "text": "OAC"
+                },
+                "long_form": {
+                  "start": 1617,
+                  "end": 1635,
+                  "text": "oral anticoagulant"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-c27732d4-8919-451b-8645-c7ffaa19debf",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1637,
+                  "end": 1639,
+                  "text": "RF"
+                },
+                "long_form": {
+                  "start": 1641,
+                  "end": 1655,
+                  "text": "radiofrequency"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-b0631b7c7c5c649ec428": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:32:20.082557+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-d2279f24-59ec-42dc-b33b-d892f3dea608",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 438,
+              "end": 442,
+              "text": "NMDA"
+            },
+            "long_form": {
+              "start": 416,
+              "end": 436,
+              "text": "N-methyl-D-aspartate"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-3d3a3142-cf7c-485e-af04-3d6128f950bf",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 406,
+              "end": 410,
+              "text": "AMPA"
+            },
+            "long_form": {
+              "start": 351,
+              "end": 404,
+              "text": "α-amino-3-hydroxy-5-methyl-4-isoxazoleproprionic acid"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:32:20.082557+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-d2279f24-59ec-42dc-b33b-d892f3dea608",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 438,
+                  "end": 442,
+                  "text": "NMDA"
+                },
+                "long_form": {
+                  "start": 416,
+                  "end": 436,
+                  "text": "N-methyl-D-aspartate"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-3d3a3142-cf7c-485e-af04-3d6128f950bf",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 406,
+                  "end": 410,
+                  "text": "AMPA"
+                },
+                "long_form": {
+                  "start": 351,
+                  "end": 404,
+                  "text": "α-amino-3-hydroxy-5-methyl-4-isoxazoleproprionic acid"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-572057f59b77eabb1505": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:32:37.642175+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-d601e649-113f-4f66-a4d0-f7a3148bbf42",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 31,
+              "end": 34,
+              "text": "GDM"
+            },
+            "long_form": {
+              "start": 0,
+              "end": 29,
+              "text": "Gestational diabetes mellitus"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:32:37.642175+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-d601e649-113f-4f66-a4d0-f7a3148bbf42",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 31,
+                  "end": 34,
+                  "text": "GDM"
+                },
+                "long_form": {
+                  "start": 0,
+                  "end": 29,
+                  "text": "Gestational diabetes mellitus"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-15f23a73b295afaeec7e": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:32:40.458926+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:32:40.458926+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-a90de8b5847b8a9659bc": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:32:44.882123+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:32:44.882123+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-3e56463e478bedb2c6bb": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:32:49.450207+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:32:49.450207+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-c863c9729d5359486fc1": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:33:21.778095+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-93900142-0a14-4c6f-ab37-639ce3b6538b",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 286,
+              "end": 288,
+              "text": "RW"
+            },
+            "long_form": {
+              "start": 274,
+              "end": 284,
+              "text": "Right Wall"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-0834942b-c318-4154-a739-4dee1ee59761",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 301,
+              "end": 303,
+              "text": "LW"
+            },
+            "long_form": {
+              "start": 290,
+              "end": 299,
+              "text": "Left Wall"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-51f0e912-26be-45c4-8c94-5e68559a887f",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 330,
+              "end": 332,
+              "text": "VD"
+            },
+            "long_form": {
+              "start": 305,
+              "end": 328,
+              "text": "Lateral Vessel Diameter"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:33:21.778095+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-93900142-0a14-4c6f-ab37-639ce3b6538b",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 286,
+                  "end": 288,
+                  "text": "RW"
+                },
+                "long_form": {
+                  "start": 274,
+                  "end": 284,
+                  "text": "Right Wall"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-0834942b-c318-4154-a739-4dee1ee59761",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 301,
+                  "end": 303,
+                  "text": "LW"
+                },
+                "long_form": {
+                  "start": 290,
+                  "end": 299,
+                  "text": "Left Wall"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-51f0e912-26be-45c4-8c94-5e68559a887f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 330,
+                  "end": 332,
+                  "text": "VD"
+                },
+                "long_form": {
+                  "start": 305,
+                  "end": 328,
+                  "text": "Lateral Vessel Diameter"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-408fbd54c9b109e87b80": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:33:56.690043+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-e753c22f-9bc6-4792-9e2e-6872c00d0e7b",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1122,
+              "end": 1125,
+              "text": "NCS"
+            },
+            "long_form": {
+              "start": 1128,
+              "end": 1152,
+              "text": "nerve conduction studies"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:33:56.690043+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-e753c22f-9bc6-4792-9e2e-6872c00d0e7b",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1122,
+                  "end": 1125,
+                  "text": "NCS"
+                },
+                "long_form": {
+                  "start": 1128,
+                  "end": 1152,
+                  "text": "nerve conduction studies"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-c4f418a616eec70ef7b4": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:34:03.529688+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:34:03.529688+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-dd72f65c6d24ac73fe43": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:34:36.642029+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-a7a0811e-31b0-4651-90fd-fddff63678b6",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 37,
+              "end": 40,
+              "text": "VQE"
+            },
+            "long_form": {
+              "start": 4,
+              "end": 35,
+              "text": "Variational Quantum Eigensolver"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-088977ef-5e81-4ea5-99da-4fc7b8c57fff",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 514,
+              "end": 519,
+              "text": "UCCSD"
+            },
+            "long_form": {
+              "start": 469,
+              "end": 512,
+              "text": "Unitary Coupled Cluster Singles and Doubles"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:34:36.642029+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-a7a0811e-31b0-4651-90fd-fddff63678b6",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 37,
+                  "end": 40,
+                  "text": "VQE"
+                },
+                "long_form": {
+                  "start": 4,
+                  "end": 35,
+                  "text": "Variational Quantum Eigensolver"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-088977ef-5e81-4ea5-99da-4fc7b8c57fff",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 514,
+                  "end": 519,
+                  "text": "UCCSD"
+                },
+                "long_form": {
+                  "start": 469,
+                  "end": 512,
+                  "text": "Unitary Coupled Cluster Singles and Doubles"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-d01f7023aaa280c0c7fc": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:34:52.625811+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:34:52.625811+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-6af84d8a8183069994e4": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:34:54.705779+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:34:54.705779+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0517ace78d852f075cd8": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:34:57.802635+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:34:57.802635+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0f9452d26c23a35f5c04": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:35:04.962172+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:35:04.962172+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-9854302c356f82fc6bea": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:35:10.097667+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:35:10.097667+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-fa3dbdc7092701abef95": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:35:13.890422+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:35:13.890422+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0ef726e005dadd521567": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:35:20.194352+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:35:20.194352+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-de377225108c1067884e": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:35:24.626147+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:35:24.626147+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-5c93ade6738682466cea": {
+      "revision": 2,
+      "updated_at": "2026-10-07T16:36:04.282646+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-2629acf9-60f9-4f61-a4cd-ea1c6161d9eb",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 337,
+              "end": 338,
+              "text": "D"
+            },
+            "long_form": {
+              "start": 328,
+              "end": 335,
+              "text": "Dioptre"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-a096b8df-b3bf-4bb3-a469-a500e266c622",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 106,
+              "end": 109,
+              "text": "IOL"
+            },
+            "long_form": {
+              "start": 88,
+              "end": 104,
+              "text": "intraocular lens"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:35:56.082959+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-2629acf9-60f9-4f61-a4cd-ea1c6161d9eb",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 337,
+                  "end": 338,
+                  "text": "D"
+                },
+                "long_form": {
+                  "start": 328,
+                  "end": 335,
+                  "text": "Dioptre"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-a096b8df-b3bf-4bb3-a469-a500e266c622",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 106,
+                  "end": 109,
+                  "text": "IOL"
+                },
+                "long_form": {
+                  "start": 88,
+                  "end": 104,
+                  "text": "intraocular lens"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-07T16:36:04.282646+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-2629acf9-60f9-4f61-a4cd-ea1c6161d9eb",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 337,
+                  "end": 338,
+                  "text": "D"
+                },
+                "long_form": {
+                  "start": 328,
+                  "end": 335,
+                  "text": "Dioptre"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-a096b8df-b3bf-4bb3-a469-a500e266c622",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 106,
+                  "end": 109,
+                  "text": "IOL"
+                },
+                "long_form": {
+                  "start": 88,
+                  "end": 104,
+                  "text": "intraocular lens"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-f5d291be2a8f0b416c78": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:36:08.500528+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:36:08.500528+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0df3ba1e37236772ffea": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:36:11.538221+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:36:11.538221+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-e00db2cca75961af092d": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:36:19.507204+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:36:19.507204+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-aba35b1b85b96d14444a": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:36:21.057639+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:36:21.057639+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-97b0b5a16b6302f41149": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:36:22.706541+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:36:22.706541+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-89cb348b5337a4b0934f": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:36:25.633705+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:36:25.633705+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-ee776f6323ddefcaefc8": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:36:49.633529+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-006bdb17-80e8-41fc-9d5c-fef995754343",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 56,
+              "end": 59,
+              "text": "STC"
+            },
+            "long_form": {
+              "start": 31,
+              "end": 54,
+              "text": "spatiotemporal coupling"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-01b0cec0-a7a8-4c92-a95d-c633c6c9f748",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 644,
+              "end": 646,
+              "text": "LS"
+            },
+            "long_form": {
+              "start": 630,
+              "end": 642,
+              "text": "light spring"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:36:49.633529+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-006bdb17-80e8-41fc-9d5c-fef995754343",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 56,
+                  "end": 59,
+                  "text": "STC"
+                },
+                "long_form": {
+                  "start": 31,
+                  "end": 54,
+                  "text": "spatiotemporal coupling"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-01b0cec0-a7a8-4c92-a95d-c633c6c9f748",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 644,
+                  "end": 646,
+                  "text": "LS"
+                },
+                "long_form": {
+                  "start": 630,
+                  "end": 642,
+                  "text": "light spring"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-caa7f98eba7916d0c836": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:36:54.298428+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:36:54.298428+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-328ac88e58bc4f670724": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:37:01.689445+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:37:01.689445+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-4745c1ba354c16cf3a97": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:39:16.536585+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:39:16.536585+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-38ba534147fb1f50d443": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:39:18.640911+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:39:18.640911+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-6e4d431f335ca728dc70": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:39:21.754681+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:39:21.754681+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-c9440756b2aae409cb97": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:40:05.490678+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-4510cc4b-8ddc-4ced-820f-35bbee09d143",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 104,
+              "end": 108,
+              "text": "CVRR"
+            },
+            "long_form": {
+              "start": 63,
+              "end": 102,
+              "text": "coefficient of variation for heart rate"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:40:05.490678+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-4510cc4b-8ddc-4ced-820f-35bbee09d143",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 104,
+                  "end": 108,
+                  "text": "CVRR"
+                },
+                "long_form": {
+                  "start": 63,
+                  "end": 102,
+                  "text": "coefficient of variation for heart rate"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-32defbe3b05ec13c69f9": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:40:14.393914+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:40:14.393914+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-5097d6b9b105e06ef213": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:40:22.723363+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:40:22.723363+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0459be6d610967083442": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:40:28.088818+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:40:28.088818+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-37facafe41a111b955ab": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:40:31.640814+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:40:31.640814+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-6f8855b0e8a710daf216": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:40:42.866203+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-d2502797-d2e4-4880-9234-f6daec6d60e6",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 120,
+              "end": 124,
+              "text": "NMFP"
+            },
+            "long_form": {
+              "start": 76,
+              "end": 118,
+              "text": "nonmydriatic monoscopic fundus photography"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:40:42.866203+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-d2502797-d2e4-4880-9234-f6daec6d60e6",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 120,
+                  "end": 124,
+                  "text": "NMFP"
+                },
+                "long_form": {
+                  "start": 76,
+                  "end": 118,
+                  "text": "nonmydriatic monoscopic fundus photography"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-6beccd044dd18e75157e": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:40:46.217310+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:40:46.217310+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-6f6647bb5679a64dcb04": {
+      "revision": 1,
+      "updated_at": "2026-10-07T16:40:49.930183+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T16:40:49.930183+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-7a34a877f1c31889ccb6": {
+      "revision": 3,
+      "updated_at": "2026-10-07T18:31:43.079855+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-954fa052-c810-426b-956b-155d000f8339",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 397,
+              "end": 401,
+              "text": "PM-M"
+            },
+            "long_form": {
+              "start": 365,
+              "end": 395,
+              "text": "Phenotype Mammalian Microarray"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-8a2f7923-a16e-483a-a84a-810e814e10ea",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 270,
+              "end": 273,
+              "text": "RTT"
+            },
+            "long_form": {
+              "start": 255,
+              "end": 268,
+              "text": "Rett syndrome"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-3a794a79-98d0-443f-b22e-f2ef50375e76",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 324,
+              "end": 329,
+              "text": "MRXSL"
+            },
+            "long_form": {
+              "start": 296,
+              "end": 322,
+              "text": "MECP2 duplication syndrome"
+            },
+            "origin": "added",
+            "notes": "MRXSL is an abbreviation for a synonym. So it is a definition relation, but not an abbreviation for the LF",
+            "relation_kind": "other_naming_or_code_relation",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:01:46.229364+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-954fa052-c810-426b-956b-155d000f8339",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 397,
+                  "end": 401,
+                  "text": "PM-M"
+                },
+                "long_form": {
+                  "start": 365,
+                  "end": 395,
+                  "text": "Phenotype Mammalian Microarray"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-8a2f7923-a16e-483a-a84a-810e814e10ea",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 270,
+                  "end": 273,
+                  "text": "RTT"
+                },
+                "long_form": {
+                  "start": 255,
+                  "end": 268,
+                  "text": "Rett syndrome"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-3a794a79-98d0-443f-b22e-f2ef50375e76",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 324,
+                  "end": 329,
+                  "text": "MRXSL"
+                },
+                "long_form": {
+                  "start": 296,
+                  "end": 322,
+                  "text": "MECP2 duplication syndrome"
+                },
+                "origin": "added",
+                "notes": "MRXSL is an abbreviation for a ",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "unreviewed",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 2,
+          "saved_at": "2026-10-07T17:01:59.840152+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-954fa052-c810-426b-956b-155d000f8339",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 397,
+                  "end": 401,
+                  "text": "PM-M"
+                },
+                "long_form": {
+                  "start": 365,
+                  "end": 395,
+                  "text": "Phenotype Mammalian Microarray"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-8a2f7923-a16e-483a-a84a-810e814e10ea",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 270,
+                  "end": 273,
+                  "text": "RTT"
+                },
+                "long_form": {
+                  "start": 255,
+                  "end": 268,
+                  "text": "Rett syndrome"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-3a794a79-98d0-443f-b22e-f2ef50375e76",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 324,
+                  "end": 329,
+                  "text": "MRXSL"
+                },
+                "long_form": {
+                  "start": 296,
+                  "end": 322,
+                  "text": "MECP2 duplication syndrome"
+                },
+                "origin": "added",
+                "notes": "MRXSL is an abbreviation for a ",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        },
+        {
+          "revision": 3,
+          "saved_at": "2026-10-07T18:31:43.079855+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-954fa052-c810-426b-956b-155d000f8339",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 397,
+                  "end": 401,
+                  "text": "PM-M"
+                },
+                "long_form": {
+                  "start": 365,
+                  "end": 395,
+                  "text": "Phenotype Mammalian Microarray"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-8a2f7923-a16e-483a-a84a-810e814e10ea",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 270,
+                  "end": 273,
+                  "text": "RTT"
+                },
+                "long_form": {
+                  "start": 255,
+                  "end": 268,
+                  "text": "Rett syndrome"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-3a794a79-98d0-443f-b22e-f2ef50375e76",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 324,
+                  "end": 329,
+                  "text": "MRXSL"
+                },
+                "long_form": {
+                  "start": 296,
+                  "end": 322,
+                  "text": "MECP2 duplication syndrome"
+                },
+                "origin": "added",
+                "notes": "MRXSL is an abbreviation for a synonym. So it is a definition relation, but not an abbreviation for the LF",
+                "relation_kind": "other_naming_or_code_relation",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-d1f987eb87d394abfa40": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:01:56.803927+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:01:56.803927+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-dd233f0f00bd5ca74f7a": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:02:06.013917+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:02:06.013917+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-1a0c329c5d3bc779e2d3": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:02:26.990183+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:02:26.990183+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-ce94b541245c63278401": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:02:28.551479+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:02:28.551479+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-ac125c48ae8e4f4855ec": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:02:36.773666+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:02:36.773666+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-4b2b4679f60de5bd6916": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:02:39.798269+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:02:39.798269+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-ddda6f335bcd2d610253": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:02:41.517824+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:02:41.517824+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-16ffb849974e1a40092c": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:02:49.406586+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:02:49.406586+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-6e73cb977d991ec1da08": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:04:54.318402+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-d2c05f8c-3f0f-4c90-8af4-18c554c8d35c",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1516,
+              "end": 1519,
+              "text": "CAD"
+            },
+            "long_form": {
+              "start": 1521,
+              "end": 1544,
+              "text": "coronary artery disease"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-9041fe54-4363-4f2a-ad2c-30bbe71bf469",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1546,
+              "end": 1549,
+              "text": "CVA"
+            },
+            "long_form": {
+              "start": 1551,
+              "end": 1575,
+              "text": "cerebrovascular accident"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-85151c10-abd2-4a84-be0c-f574b8a75b7f",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1577,
+              "end": 1582,
+              "text": "ACEIs"
+            },
+            "long_form": {
+              "start": 1584,
+              "end": 1624,
+              "text": "angiotensin converting enzyme inhibitors"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-6f2df045-1764-4c7a-acdb-02af82ab3415",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1626,
+              "end": 1630,
+              "text": "ARBs"
+            },
+            "long_form": {
+              "start": 1632,
+              "end": 1667,
+              "text": "angiotensin-II receptor antagonists"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-16a3dd69-5ac9-4225-a57f-5844becd1295",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1669,
+              "end": 1675,
+              "text": "NSAIDS"
+            },
+            "long_form": {
+              "start": 1677,
+              "end": 1714,
+              "text": "non-steroidal anti-inflammatory drugs"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-cf7ffba3-b44b-4d20-aa98-4707fdeb92e8",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1716,
+              "end": 1719,
+              "text": "MBP"
+            },
+            "long_form": {
+              "start": 1721,
+              "end": 1740,
+              "text": "mean blood pressure"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-2a2e5d9f-8dca-416d-8dbd-0955bcdeade6",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1742,
+              "end": 1745,
+              "text": "BUN"
+            },
+            "long_form": {
+              "start": 1747,
+              "end": 1766,
+              "text": "blood urea nitrogen"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-d40fd537-414a-4641-bc24-494724d9eaf0",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1768,
+              "end": 1771,
+              "text": "GFR"
+            },
+            "long_form": {
+              "start": 1773,
+              "end": 1799,
+              "text": "glomerular filtration rate"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-c2ae1e07-b499-455e-b56e-69e2c4acce0f",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1801,
+              "end": 1804,
+              "text": "RBC"
+            },
+            "long_form": {
+              "start": 1806,
+              "end": 1820,
+              "text": "red blood cell"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-7cff0bfc-3448-42c9-b7d1-8e551f0d37c0",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 1822,
+              "end": 1825,
+              "text": "AKI"
+            },
+            "long_form": {
+              "start": 1827,
+              "end": 1846,
+              "text": "acute kidney injury"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:04:54.318402+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-d2c05f8c-3f0f-4c90-8af4-18c554c8d35c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1516,
+                  "end": 1519,
+                  "text": "CAD"
+                },
+                "long_form": {
+                  "start": 1521,
+                  "end": 1544,
+                  "text": "coronary artery disease"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-9041fe54-4363-4f2a-ad2c-30bbe71bf469",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1546,
+                  "end": 1549,
+                  "text": "CVA"
+                },
+                "long_form": {
+                  "start": 1551,
+                  "end": 1575,
+                  "text": "cerebrovascular accident"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-85151c10-abd2-4a84-be0c-f574b8a75b7f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1577,
+                  "end": 1582,
+                  "text": "ACEIs"
+                },
+                "long_form": {
+                  "start": 1584,
+                  "end": 1624,
+                  "text": "angiotensin converting enzyme inhibitors"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-6f2df045-1764-4c7a-acdb-02af82ab3415",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1626,
+                  "end": 1630,
+                  "text": "ARBs"
+                },
+                "long_form": {
+                  "start": 1632,
+                  "end": 1667,
+                  "text": "angiotensin-II receptor antagonists"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-16a3dd69-5ac9-4225-a57f-5844becd1295",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1669,
+                  "end": 1675,
+                  "text": "NSAIDS"
+                },
+                "long_form": {
+                  "start": 1677,
+                  "end": 1714,
+                  "text": "non-steroidal anti-inflammatory drugs"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-cf7ffba3-b44b-4d20-aa98-4707fdeb92e8",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1716,
+                  "end": 1719,
+                  "text": "MBP"
+                },
+                "long_form": {
+                  "start": 1721,
+                  "end": 1740,
+                  "text": "mean blood pressure"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-2a2e5d9f-8dca-416d-8dbd-0955bcdeade6",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1742,
+                  "end": 1745,
+                  "text": "BUN"
+                },
+                "long_form": {
+                  "start": 1747,
+                  "end": 1766,
+                  "text": "blood urea nitrogen"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-d40fd537-414a-4641-bc24-494724d9eaf0",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1768,
+                  "end": 1771,
+                  "text": "GFR"
+                },
+                "long_form": {
+                  "start": 1773,
+                  "end": 1799,
+                  "text": "glomerular filtration rate"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-c2ae1e07-b499-455e-b56e-69e2c4acce0f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1801,
+                  "end": 1804,
+                  "text": "RBC"
+                },
+                "long_form": {
+                  "start": 1806,
+                  "end": 1820,
+                  "text": "red blood cell"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-7cff0bfc-3448-42c9-b7d1-8e551f0d37c0",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 1822,
+                  "end": 1825,
+                  "text": "AKI"
+                },
+                "long_form": {
+                  "start": 1827,
+                  "end": 1846,
+                  "text": "acute kidney injury"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-1e39aec68bc60fc2aa26": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:05:02.653226+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:05:02.653226+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-a562ccdc1e61fefff28b": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:07:39.437255+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:07:39.437255+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-1e6dd2c5869fdd0ebd05": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:07:45.404668+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:07:45.404668+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-e1b8565c0f38c24f6265": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:07:52.573335+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:07:52.573335+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-9f5d585da719653c6571": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:08:05.245671+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:08:05.245671+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-45665fcfbb9c0137e837": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:08:11.621204+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:08:11.621204+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-6d28906a860db9a197f1": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:10:58.827648+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-87e09e05-3e46-46fc-8708-3f31c9fa6b4a",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 182,
+              "end": 185,
+              "text": "XRD"
+            },
+            "long_form": {
+              "start": 163,
+              "end": 180,
+              "text": "X-ray diffraction"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-a26b43fa-f909-4360-8b17-3f880af352e0",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 258,
+              "end": 261,
+              "text": "ICP"
+            },
+            "long_form": {
+              "start": 230,
+              "end": 256,
+              "text": "inductively coupled plasma"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-0c9a1761-b818-43be-952d-770daabf7934",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 294,
+              "end": 297,
+              "text": "SEM"
+            },
+            "long_form": {
+              "start": 264,
+              "end": 292,
+              "text": "scanning electron microscopy"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-e88d6642-2f5e-4fe1-ad0f-aaf3e0ea493a",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 334,
+              "end": 337,
+              "text": "TEM"
+            },
+            "long_form": {
+              "start": 300,
+              "end": 332,
+              "text": "transmission electron microscopy"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-1afa0fe5-c754-4844-b8dd-3ef7655c09de",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 409,
+              "end": 412,
+              "text": "XPS"
+            },
+            "long_form": {
+              "start": 380,
+              "end": 407,
+              "text": "X-ray photoelectron spectra"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:10:58.827648+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-87e09e05-3e46-46fc-8708-3f31c9fa6b4a",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 182,
+                  "end": 185,
+                  "text": "XRD"
+                },
+                "long_form": {
+                  "start": 163,
+                  "end": 180,
+                  "text": "X-ray diffraction"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-a26b43fa-f909-4360-8b17-3f880af352e0",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 258,
+                  "end": 261,
+                  "text": "ICP"
+                },
+                "long_form": {
+                  "start": 230,
+                  "end": 256,
+                  "text": "inductively coupled plasma"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-0c9a1761-b818-43be-952d-770daabf7934",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 294,
+                  "end": 297,
+                  "text": "SEM"
+                },
+                "long_form": {
+                  "start": 264,
+                  "end": 292,
+                  "text": "scanning electron microscopy"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-e88d6642-2f5e-4fe1-ad0f-aaf3e0ea493a",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 334,
+                  "end": 337,
+                  "text": "TEM"
+                },
+                "long_form": {
+                  "start": 300,
+                  "end": 332,
+                  "text": "transmission electron microscopy"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-1afa0fe5-c754-4844-b8dd-3ef7655c09de",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 409,
+                  "end": 412,
+                  "text": "XPS"
+                },
+                "long_form": {
+                  "start": 380,
+                  "end": 407,
+                  "text": "X-ray photoelectron spectra"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-6cc7f39e88d5722c65c4": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:11:07.212649+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:11:07.212649+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-2abd924eb4ddec610840": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:11:16.773036+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:11:16.773036+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-11b678d7cd094f707fdb": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:11:19.894338+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:11:19.894338+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-f5bee019d1e0551a2ba1": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:11:25.852460+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:11:25.852460+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-cee37cca7489787795c3": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:11:30.804201+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:11:30.804201+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-fb6da9e96f0185bba6e2": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:11:33.612398+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:11:33.612398+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-cf6851436c0bc78673b2": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:11:36.780384+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:11:36.780384+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-5d2658d5c5cdd82d65ef": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:11:39.460247+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:11:39.460247+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-f403cd90e57f14c1a6ad": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:12:10.868787+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-f3405e9a-d040-447d-b91c-e82ef469eb4c",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 211,
+              "end": 214,
+              "text": "HDM"
+            },
+            "long_form": {
+              "start": 194,
+              "end": 209,
+              "text": "house dust mite"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-2228bac3-da25-415d-a714-b31956fd9b86",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 389,
+              "end": 392,
+              "text": "SPT"
+            },
+            "long_form": {
+              "start": 370,
+              "end": 387,
+              "text": "skin prick tested"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:12:10.868787+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-f3405e9a-d040-447d-b91c-e82ef469eb4c",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 211,
+                  "end": 214,
+                  "text": "HDM"
+                },
+                "long_form": {
+                  "start": 194,
+                  "end": 209,
+                  "text": "house dust mite"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-2228bac3-da25-415d-a714-b31956fd9b86",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 389,
+                  "end": 392,
+                  "text": "SPT"
+                },
+                "long_form": {
+                  "start": 370,
+                  "end": 387,
+                  "text": "skin prick tested"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0ff0e6f160f182a4ad9c": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:12:22.940238+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:12:22.940238+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-56b7b00a855f5e15b156": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:12:24.956496+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:12:24.956496+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0cad3dc38ea0888c9ab7": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:12:29.108101+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:12:29.108101+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-2f882f2df8bb67e3249c": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:12:35.468909+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:12:35.468909+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-43a32fdcf9d0d6860bf3": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:17:26.228793+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-a5e508c9-e0a4-4b52-b2c6-3e58d82fd89e",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 81,
+              "end": 92,
+              "text": "HALSspatial"
+            },
+            "long_form": {
+              "start": 13,
+              "end": 79,
+              "text": "Localized spatial update of hierarchical alternating least squares"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:17:26.228793+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-a5e508c9-e0a4-4b52-b2c6-3e58d82fd89e",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 81,
+                  "end": 92,
+                  "text": "HALSspatial"
+                },
+                "long_form": {
+                  "start": 13,
+                  "end": 79,
+                  "text": "Localized spatial update of hierarchical alternating least squares"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-892e422f7e51050bb06e": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:18:05.931859+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:18:05.931859+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-d4127a434cdec18714bf": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:18:08.187399+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:18:08.187399+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-3d7410cb2c9437076955": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:18:10.708004+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:18:10.708004+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-4772bb565838584399d7": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:18:13.667626+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:18:13.667626+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-32e5a151bb78a8ee5398": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:18:15.653903+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:18:15.653903+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-e30d0211fe5655b3e7fe": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:18:17.899442+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:18:17.899442+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-1a0341711a1409c71d98": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:18:20.403390+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:18:20.403390+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-bc9cc759f430fe7d62ba": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:18:36.891615+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:18:36.891615+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-9018ea36fd9900f0a345": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:20:56.100539+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:20:56.100539+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-b3e0ed3c7406384e462f": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:20:58.339063+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:20:58.339063+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-d68927fbf78694a31ebd": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:21:32.035010+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-d3ca46f3-ed3a-4d39-bd43-e5cfc5c07e1e",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 533,
+              "end": 536,
+              "text": "CAD"
+            },
+            "long_form": {
+              "start": 508,
+              "end": 531,
+              "text": "coronary artery disease"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-094d7214-2b5a-4755-af88-36fe12fc953e",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 185,
+              "end": 188,
+              "text": "TIA"
+            },
+            "long_form": {
+              "start": 158,
+              "end": 183,
+              "text": "transient ischemic attack"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:21:32.035010+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-d3ca46f3-ed3a-4d39-bd43-e5cfc5c07e1e",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 533,
+                  "end": 536,
+                  "text": "CAD"
+                },
+                "long_form": {
+                  "start": 508,
+                  "end": 531,
+                  "text": "coronary artery disease"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-094d7214-2b5a-4755-af88-36fe12fc953e",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 185,
+                  "end": 188,
+                  "text": "TIA"
+                },
+                "long_form": {
+                  "start": 158,
+                  "end": 183,
+                  "text": "transient ischemic attack"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-57d33ebffc5faafb6618": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:21:34.410304+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:21:34.410304+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-bf1a7a2eb5edbddf1b18": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:23:05.971158+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:23:05.971158+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-e14fa5ded4b493361f19": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:23:14.053886+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:23:14.053886+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-1dd8382bdb068ecbbeff": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:23:18.364863+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:23:18.364863+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-a4def0674b4d40bd0026": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:23:24.603880+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:23:24.603880+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-4202fad0264e99f8b824": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:23:40.626560+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-f3dc6e09-d9f4-4208-b862-711cbdf5fe22",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 33,
+              "end": 37,
+              "text": "PEDV"
+            },
+            "long_form": {
+              "start": 0,
+              "end": 31,
+              "text": "Porcine epidemic diarrhea virus"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:23:40.626560+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-f3dc6e09-d9f4-4208-b862-711cbdf5fe22",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 33,
+                  "end": 37,
+                  "text": "PEDV"
+                },
+                "long_form": {
+                  "start": 0,
+                  "end": 31,
+                  "text": "Porcine epidemic diarrhea virus"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-9aa6c1a1251a7db0fa22": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:23:45.131154+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:23:45.131154+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-d54f86087b8535572adc": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:23:47.602462+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:23:47.602462+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-a6e2fab4720e361109ee": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:23:49.986711+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:23:49.986711+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-91ef00f75d9e6aa7d819": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:24:53.458476+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-7b26ba9b-c0a2-4747-bfa9-67181e2d0fbe",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 630,
+              "end": 633,
+              "text": "PCO"
+            },
+            "long_form": {
+              "start": 597,
+              "end": 628,
+              "text": "posterior capsule opacification"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:24:53.458476+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-7b26ba9b-c0a2-4747-bfa9-67181e2d0fbe",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 630,
+                  "end": 633,
+                  "text": "PCO"
+                },
+                "long_form": {
+                  "start": 597,
+                  "end": 628,
+                  "text": "posterior capsule opacification"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-450f73957c08c6072a8b": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:27:12.722813+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:27:12.722813+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-d8a04f70c756a669968c": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:30:39.553901+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:30:39.553901+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-c94f55c25c7c23ec0882": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:30:52.842420+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:30:52.842420+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-4a1cfc9eca48d52f7219": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:30:59.193713+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:30:59.193713+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-b63a7d4d96ec6b0e8ec4": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:31:07.161638+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:31:07.161638+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-d031234fb3c4352ab587": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:32:10.912686+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-f9dc9ade-481e-448b-9c58-d0768952d987",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 51,
+              "end": 54,
+              "text": "SBP"
+            },
+            "long_form": {
+              "start": 26,
+              "end": 49,
+              "text": "systolic blood pressure"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-2518aa82-d681-43b6-ab63-83fd24e83097",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 84,
+              "end": 87,
+              "text": "MAP"
+            },
+            "long_form": {
+              "start": 60,
+              "end": 82,
+              "text": "mean arterial pressure"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-222fbbda-59cf-4161-a8c4-a087af625aee",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 118,
+              "end": 119,
+              "text": "F"
+            },
+            "long_form": {
+              "start": 109,
+              "end": 116,
+              "text": "femoral"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-2760399f-c36b-4135-9f29-0e1531ff56ca",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 133,
+              "end": 134,
+              "text": "R"
+            },
+            "long_form": {
+              "start": 125,
+              "end": 131,
+              "text": "radial"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-c036958a-b908-4ce4-b29a-a9fc3c0e9d79",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 498,
+              "end": 501,
+              "text": "SBP"
+            },
+            "long_form": {
+              "start": 473,
+              "end": 496,
+              "text": "systolic blood pressure"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-957fe32f-4a94-4917-bb05-6ca3b9b081de",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 583,
+              "end": 586,
+              "text": "MAP"
+            },
+            "long_form": {
+              "start": 559,
+              "end": 581,
+              "text": "mean arterial pressure"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:32:10.912686+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-f9dc9ade-481e-448b-9c58-d0768952d987",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 51,
+                  "end": 54,
+                  "text": "SBP"
+                },
+                "long_form": {
+                  "start": 26,
+                  "end": 49,
+                  "text": "systolic blood pressure"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-2518aa82-d681-43b6-ab63-83fd24e83097",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 84,
+                  "end": 87,
+                  "text": "MAP"
+                },
+                "long_form": {
+                  "start": 60,
+                  "end": 82,
+                  "text": "mean arterial pressure"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-222fbbda-59cf-4161-a8c4-a087af625aee",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 118,
+                  "end": 119,
+                  "text": "F"
+                },
+                "long_form": {
+                  "start": 109,
+                  "end": 116,
+                  "text": "femoral"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-2760399f-c36b-4135-9f29-0e1531ff56ca",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 133,
+                  "end": 134,
+                  "text": "R"
+                },
+                "long_form": {
+                  "start": 125,
+                  "end": 131,
+                  "text": "radial"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-c036958a-b908-4ce4-b29a-a9fc3c0e9d79",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 498,
+                  "end": 501,
+                  "text": "SBP"
+                },
+                "long_form": {
+                  "start": 473,
+                  "end": 496,
+                  "text": "systolic blood pressure"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-957fe32f-4a94-4917-bb05-6ca3b9b081de",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 583,
+                  "end": 586,
+                  "text": "MAP"
+                },
+                "long_form": {
+                  "start": 559,
+                  "end": 581,
+                  "text": "mean arterial pressure"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-3a5809709c6a82b35f43": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:32:21.106680+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:32:21.106680+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-9fa877227cb1d38ae3c6": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:32:26.897719+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:32:26.897719+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0ca4a5a62cbb9d989bbd": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:32:30.729515+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:32:30.729515+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-f9d4c1154d90254a6619": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:32:34.321401+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:32:34.321401+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-0ae6d3d9efd46105cd1f": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:33:14.051032+00:00",
+      "current": {
+        "pairs": [
+          {
+            "decision_id": "added-76a2fa17-0cf8-4249-826f-045a62f351f7",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 180,
+              "end": 183,
+              "text": "NFL"
+            },
+            "long_form": {
+              "start": 153,
+              "end": 178,
+              "text": "Neurofilament light chain"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-bef50590-66ed-49e4-8964-85511ea04d60",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 16,
+              "end": 19,
+              "text": "NFs"
+            },
+            "long_form": {
+              "start": 0,
+              "end": 14,
+              "text": "Neurofilaments"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          },
+          {
+            "decision_id": "added-8b2bc4fd-fd9c-47ef-9850-406e7729cd6f",
+            "suggestion_id": null,
+            "proposal_kind": "definition",
+            "status": "correct",
+            "short_form": {
+              "start": 671,
+              "end": 673,
+              "text": "IS"
+            },
+            "long_form": {
+              "start": 654,
+              "end": 669,
+              "text": "ischemic stroke"
+            },
+            "origin": "added",
+            "notes": "",
+            "relation_kind": "abbreviation_expansion",
+            "evidence_structure": "contiguous_shared",
+            "context_requirement": "text_alone",
+            "evidence_spans": [],
+            "interpretation": "",
+            "source_error": false
+          }
+        ],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:33:14.051032+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [
+              {
+                "decision_id": "added-76a2fa17-0cf8-4249-826f-045a62f351f7",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 180,
+                  "end": 183,
+                  "text": "NFL"
+                },
+                "long_form": {
+                  "start": 153,
+                  "end": 178,
+                  "text": "Neurofilament light chain"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-bef50590-66ed-49e4-8964-85511ea04d60",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 16,
+                  "end": 19,
+                  "text": "NFs"
+                },
+                "long_form": {
+                  "start": 0,
+                  "end": 14,
+                  "text": "Neurofilaments"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              },
+              {
+                "decision_id": "added-8b2bc4fd-fd9c-47ef-9850-406e7729cd6f",
+                "suggestion_id": null,
+                "proposal_kind": "definition",
+                "status": "correct",
+                "short_form": {
+                  "start": 671,
+                  "end": 673,
+                  "text": "IS"
+                },
+                "long_form": {
+                  "start": 654,
+                  "end": 669,
+                  "text": "ischemic stroke"
+                },
+                "origin": "added",
+                "notes": "",
+                "relation_kind": "abbreviation_expansion",
+                "evidence_structure": "contiguous_shared",
+                "context_requirement": "text_alone",
+                "evidence_spans": [],
+                "interpretation": "",
+                "source_error": false
+              }
+            ],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-e86519fa576c886c0e09": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:33:17.225253+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:33:17.225253+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    },
+    "milestone-c-a8cd576bbc528bf0297b": {
+      "revision": 1,
+      "updated_at": "2026-10-07T17:33:26.273715+00:00",
+      "current": {
+        "pairs": [],
+        "missed_definition": "none",
+        "notes": ""
+      },
+      "history": [
+        {
+          "revision": 1,
+          "saved_at": "2026-10-07T17:33:26.273715+00:00",
+          "source": "browser",
+          "snapshot": {
+            "pairs": [],
+            "missed_definition": "none",
+            "notes": ""
+          }
+        }
+      ]
+    }
+  }
+}

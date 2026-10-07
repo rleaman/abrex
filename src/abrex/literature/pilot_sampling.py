@@ -32,6 +32,7 @@ class RequestBudget:
     started_monotonic: float = field(default_factory=time.monotonic)
     total_bytes: int = 0
     metadata_requests: int = 0
+    http_attempts: int = 0
     reached: list[str] = field(default_factory=list)
 
     def elapsed(self) -> float:
@@ -75,6 +76,13 @@ class BoundedClient:
                 self._reach("max_metadata_requests")
             if metadata:
                 self.budget.metadata_requests += 1
+            maximum_http_attempts = getattr(self.config, "max_total_requests", None)
+            if (
+                maximum_http_attempts is not None
+                and self.budget.http_attempts >= maximum_http_attempts
+            ):
+                self._reach("max_total_requests")
+            self.budget.http_attempts += 1
             remaining_bytes = self.config.max_total_bytes - self.budget.total_bytes
             if remaining_bytes <= 0:
                 self._reach("max_total_bytes")

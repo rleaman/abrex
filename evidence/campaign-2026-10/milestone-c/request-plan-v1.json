@@ -1,0 +1,59 @@
+{
+  "boundary": {
+    "candidate_generation_was_offline": true,
+    "predictions_materialized": false,
+    "requests_sent": 0,
+    "review_packet_modified": false
+  },
+  "luna": {
+    "authorization_request": {
+      "input_usd_per_million_tokens": 0.1,
+      "maximum_estimated_input_tokens": 201000,
+      "maximum_network_attempts": 120,
+      "maximum_output_tokens_per_request": 8192,
+      "monetary_cap_usd": 0.1,
+      "output_usd_per_million_tokens": 0.5,
+      "retries": 0
+    },
+    "estimated_input_tokens": 160055,
+    "logical_requests": 120,
+    "model_route": "${AZURE_OPENAI_DEPLOYMENT}",
+    "passages": 120,
+    "prompt_version": "abrex-quote-grounded-2026-10-06-i02",
+    "provider": "azure_openai",
+    "serialized_request_characters": 640407
+  },
+  "packet": {
+    "content_sha256": "d25c221acdb3a40f0e22a6ac29d494e604588b7f1a60fdb6e0a49d2e46d29aef",
+    "packet_id": "blind-d25c221acdb3a40f0e22",
+    "passages": 120,
+    "path": "evidence/campaign-2026-10/milestone-c/review-packet-blind-v1.json"
+  },
+  "schema_version": "campaign-2026-10-milestone-c-request-plan-v1",
+  "status": "prepared_no_requests_sent",
+  "typesafe": {
+    "authorization_request": {
+      "cost_basis": "conservative token cap at the $0.042/M input-token rate recorded for the prior Jev development run; provider billing must be checked before execution because current live pricing could not be retrieved",
+      "maximum_input_tokens": 724000,
+      "maximum_network_requests": 65,
+      "monetary_cap_usd": 0.05,
+      "retries": 0
+    },
+    "candidate_judge": {
+      "candidates": 1166,
+      "estimated_input_tokens": 482417,
+      "logical_requests": 64,
+      "passages_examined_offline": 120,
+      "passages_with_candidates": 42,
+      "serialized_request_characters": 1929754
+    },
+    "complete_clp": {
+      "estimated_input_tokens": 122,
+      "logical_requests": 1,
+      "maximum_pair_review_followups": 0,
+      "rules_only_unresolved_sections": 1,
+      "source_declared_abbr_sections": 1
+    },
+    "model": "jev-1.13.0"
+  }
+}

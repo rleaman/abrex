@@ -1,0 +1,40 @@
+<table-wrap xmlns:ns0="http://www.w3.org/1999/xlink" id="pone-0060732-t001" orientation="portrait" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0060732.t001</object-id><label>Table 1</label><caption><title>Parameters employed.</title></caption><alternatives><graphic id="pone-0060732-t001-1" position="float" orientation="portrait" ns0:href="pone.0060732.t001.jpg" /><table frame="hsides" rules="groups"><colgroup span="1"><col align="left" span="1" /><col align="center" span="1" /><col align="center" span="1" /></colgroup><thead><tr><td align="left" rowspan="1" colspan="1">Parameter</td><td align="left" rowspan="1" colspan="1">Interpretation</td><td align="left" rowspan="1" colspan="1">Value</td></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e020.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Average duration of the maternal antibodies protection</td><td align="left" rowspan="1" colspan="1">6 months <xref rid="pone.0060732-vanHoek1" ref-type="bibr">[23]</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e021.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Average duration of the latency period</td><td align="left" rowspan="1" colspan="1">14 days <xref rid="pone.0060732-Brisson4" ref-type="bibr">[27]</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e022.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Average duration of the varicella infectivity period</td><td align="left" rowspan="1" colspan="1">7 days <xref rid="pone.0060732-Brisson4" ref-type="bibr">[27]</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e023.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Average duration of the HZ infectivity period</td><td align="left" rowspan="1" colspan="1">7 days <xref rid="pone.0060732-Brisson4" ref-type="bibr">[27]</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e024.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Age specific contact matrices (different for each countries)</td><td align="left" rowspan="1" colspan="1">based on census data <xref rid="pone.0060732-Statistical1" ref-type="bibr">[31]</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e025.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Relative VZV infectiousness of breakthrough varicella cases</td><td align="left" rowspan="1" colspan="1">0.5 <xref rid="pone.0060732-Seward3" ref-type="bibr">[43]</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e026.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Relative VZV infectiousness of HZ cases</td><td align="left" rowspan="1" colspan="1">0.05 <xref rid="pone.0060732-vanHoek1" ref-type="bibr">[23]</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e027.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Adjusting factor for contacts relevant for VZV transmission</td><td align="left" rowspan="1" colspan="1">fitted against the VZV seroprevalence</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e028.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Adjusting factor for contacts relevant for the boosting of CMI (boosting component) accounting for the uncertainty of FOI in adults and the elderly</td><td align="left" rowspan="1" colspan="1">fitted against HZ incidence</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e029.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Average duration of the CMI</td><td align="left" rowspan="1" colspan="1">fitted against HZ incidence</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e030.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Age dependent VZV reactivation rate <inline-formula><inline-graphic ns0:href="pone.0060732.e031.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">fitted against HZ incidence</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<italic toggle="yes">T</italic>
+</td><td align="left" rowspan="1" colspan="1">Vaccine take (probability)</td><td align="left" rowspan="1" colspan="1">unif. sampled from (0.8,1) <xref rid="pone.0060732-Marin1" ref-type="bibr">[15]</xref>, <xref rid="pone.0060732-Seward1" ref-type="bibr">[17]</xref>, <xref rid="pone.0060732-Michalik1" ref-type="bibr">[37]</xref>, <xref rid="pone.0060732-Black1" ref-type="bibr">[39]</xref>, <xref rid="pone.0060732-Vazquez1" ref-type="bibr">[42]</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e032.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Average duration of vaccine waning immunity</td><td align="left" rowspan="1" colspan="1">unif. sampled from (1,200) years <xref rid="pone.0060732-Amanna1" ref-type="bibr">[52]</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">
+<inline-formula><inline-graphic ns0:href="pone.0060732.e033.jpg" /></inline-formula>
+</td><td align="left" rowspan="1" colspan="1">Reduction factor of the risk of developing HZ for vaccinees</td><td align="left" rowspan="1" colspan="1">unif. sampled from (1/12,1/4) <xref rid="pone.0060732-Civen1" ref-type="bibr">[44]</xref>
+</td></tr></tbody></table></alternatives><table-wrap-foot><fn id="nt101"><label /><p>Model parameters, description and values considered for simulations.</p></fn></table-wrap-foot></table-wrap>

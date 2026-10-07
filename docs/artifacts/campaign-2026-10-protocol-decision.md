@@ -1,6 +1,14 @@
 # Milestone C protocol decision
 
-Decision status: **awaiting user approval**
+Decision status: **approved and frozen on October 6, 2026**
+
+The scientific lead approved the prepared protocol verbatim with:
+
+> Approve the Milestone C protocol as prepared.
+
+The machine-readable frozen record is
+`evidence/campaign-2026-10/milestone-c/protocol-v1.json`. Its approval boundary
+is unchanged from the prepared recommendation below.
 
 ## Recommended disposition
 
@@ -34,8 +42,8 @@ recall 0.8657, F1 0.8855, nine of 14 candidate omissions recovered, and two of
 66 returned proposals rejected during deterministic grounding. The two-iteration
 refinement cost $0.0104628. It is now frozen; no further T062 tuning is planned.
 
-The source-only reviewer and disposable save/resume/lock flow are already
-browser-tested. The actual frozen packet will be tested again before delivery.
+The source-only reviewer and disposable save/resume/lock flow are browser-tested.
+The actual 120-passage frozen packet has also passed its separate Edge exercise.
 
 ## What approval authorizes
 
@@ -49,19 +57,20 @@ deliver the tested prediction-blind review packet. It does not authorize:
 - additional Azure OpenAI requests before the annotation lock and a new bounded
   execution authorization.
 
-After the sample and rules-only CLP dry run are complete, the owner will present
-the exact TypeSafe and Luna request counts, passages, and hard cost caps for
-separate authorization. Ab3P and PLODv2 execution will use the documented
-portable Linux bundle because this Windows host has no installed WSL
-distribution.
+The sample and rules-only CLP dry run are now complete. The separately gated
+execution plan is 65 TypeSafe requests (64 Jev candidate-judge batches across
+42 candidate-bearing passages plus one unresolved CLP ABBR-section judgment),
+no retries, at most 724,000 input tokens and $0.05. The Luna plan is one frozen
+quote-grounded request for each of 120 passages, no retries, at most 201,000
+estimated input tokens, 8,192 output tokens per request, and $0.10. These are
+prepared limits, not execution authorization. Machine evidence is
+`evidence/campaign-2026-10/milestone-c/request-plan-v1.json`.
 
-## Minimal response
+Ab3P and PLODv2 execution will use the documented portable Linux bundle because
+this Windows host has no installed WSL distribution.
 
-To accept this recommendation, reply:
+## Recorded response
 
-> Approve the Milestone C protocol as prepared.
-
-If you want a scientific change, identify only the field to change: sample size,
-method set, review burden, primary contrasts, or success thresholds. All
-clerical freeze, acquisition, packet construction, and validation work remains
-with the campaign owner.
+The recommended response was received without revision on October 6, 2026.
+Any later scientific change requires a new versioned protocol rather than an
+in-place edit to the frozen record.
