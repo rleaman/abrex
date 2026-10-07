@@ -20,6 +20,7 @@ from abrex.infrastructure.openai_responses import (
     OpenAIResponsesOutputError,
 )
 from abrex.resolvers import (
+    QUOTE_GROUNDED_PROMPT_VERSION,
     RESOLVERS,
     DirectExtractionBudgetError,
     DirectExtractionConfig,
@@ -109,6 +110,94 @@ def test_direct_extractor_validates_literal_unicode_offsets_and_metadata(
     assert format_config["strict"] is True
     assert result.diagnostics[0].code == "DIRECT_REQUEST_COMPLETED"
     assert dict(result.diagnostics[0].details)["request_id"] == "resp-test"
+
+
+def test_quote_grounded_extractor_derives_offsets_from_unique_evidence(
+    tmp_path: Path,
+) -> None:
+    text = "β tumor necrosis factor (TNF) was measured. TNF increased."
+    output = {
+        "pairs": [
+            {
+                "short_form_quote": "TNF",
+                "long_form_quote": "tumor necrosis factor",
+                "evidence_quote": "tumor necrosis factor (TNF)",
+            }
+        ]
+    }
+    client = FakeClient(output)
+    resolver = _resolver(
+        tmp_path,
+        client,
+        prompt_version=QUOTE_GROUNDED_PROMPT_VERSION,
+        reasoning_effort="low",
+        maximum_output_tokens_per_request=8192,
+    )
+
+    result = resolver.resolve_detailed(Document("d1", text))
+
+    assert len(result.predictions) == 1
+    prediction = result.predictions[0]
+    assert prediction.short_form is not None
+    assert prediction.long_form is not None
+    assert prediction.short_form.start == text.index("TNF")
+    assert prediction.long_form.start == text.index("tumor necrosis factor")
+    payload = client.calls[0]["payload"]
+    assert isinstance(payload, dict)
+    assert payload["input"][1]["content"][0]["text"] == text
+    schema = payload["text"]["format"]["schema"]
+    assert "start" not in json.dumps(schema)
+    assert payload["reasoning"] == {"effort": "low"}
+    assert payload["max_output_tokens"] == 8192
+
+
+@pytest.mark.parametrize(
+    ("text", "evidence", "message"),
+    [
+        (
+            "tumor necrosis factor (TNF); tumor necrosis factor (TNF)",
+            "tumor necrosis factor (TNF)",
+            "more than one source occurrence",
+        ),
+        (
+            "tumor necrosis factor (TNF)",
+            "tumor-necrosis factor (TNF)",
+            "not an exact source substring",
+        ),
+        (
+            "TNF and tumor necrosis factor (TNF)",
+            "TNF and tumor necrosis factor (TNF)",
+            "exactly one occurrence of each form",
+        ),
+    ],
+)
+def test_quote_grounded_extractor_rejects_ambiguous_or_nonliteral_evidence(
+    tmp_path: Path, text: str, evidence: str, message: str
+) -> None:
+    resolver = _resolver(
+        tmp_path,
+        FakeClient(
+            {
+                "pairs": [
+                    {
+                        "short_form_quote": "TNF",
+                        "long_form_quote": "tumor necrosis factor",
+                        "evidence_quote": evidence,
+                    }
+                ]
+            }
+        ),
+        prompt_version=QUOTE_GROUNDED_PROMPT_VERSION,
+    )
+
+    result = resolver.resolve_detailed(Document("d1", text))
+
+    assert not result.predictions
+    assert [item.code for item in result.diagnostics] == [
+        "DIRECT_REQUEST_COMPLETED",
+        "DIRECT_QUOTE_GROUNDING_FAILED",
+    ]
+    assert message in result.diagnostics[1].message
 
 
 def test_direct_extractor_diagnoses_unsupported_discontinuous_and_duplicate(
@@ -284,8 +373,11 @@ def test_incomplete_azure_response_accounts_usage_without_retry(
         "usage": {"input_tokens": 747, "output_tokens": 2048},
     }
 
+    requests: list[urllib.request.Request] = []
+
     def fake_urlopen(request: urllib.request.Request, *, timeout: float) -> io.BytesIO:
         assert timeout == 60
+        requests.append(request)
         return io.BytesIO(json.dumps(raw_response).encode("utf-8"))
 
     monkeypatch.setenv("ABREX_TEST_AZURE_KEY", "test-only")
@@ -304,6 +396,7 @@ def test_incomplete_azure_response_accounts_usage_without_retry(
     resolver = DirectExtractionResolver(
         client=client,
         cache_path=tmp_path / "direct.jsonl",
+        attempt_ledger_path=tmp_path / "attempts.jsonl",
         provider="azure_openai",
         endpoint="https://example.openai.azure.com/",
         api_key_env="ABREX_TEST_AZURE_KEY",
@@ -314,6 +407,30 @@ def test_incomplete_azure_response_accounts_usage_without_retry(
     assert resolver.usage["network_attempts"] == 1
     assert resolver.usage["actual_input_tokens"] == 747
     assert resolver.usage["actual_output_tokens"] == 2048
+    ledger_rows = [
+        json.loads(line)
+        for line in (tmp_path / "attempts.jsonl")
+        .read_text(encoding="utf-8")
+        .splitlines()
+    ]
+    assert [row["event"] for row in ledger_rows] == ["started", "finished"]
+    assert ledger_rows[1]["status"] == "incomplete"
+    assert ledger_rows[1]["reason"] == "max_output_tokens"
+
+    resumed = DirectExtractionResolver(
+        client=client,
+        cache_path=tmp_path / "direct.jsonl",
+        attempt_ledger_path=tmp_path / "attempts.jsonl",
+        provider="azure_openai",
+        endpoint="https://example.openai.azure.com/",
+        api_key_env="ABREX_TEST_AZURE_KEY",
+        retries=0,
+    )
+    assert resumed.usage["network_attempts"] == 1
+    assert resumed.usage["actual_output_tokens"] == 2048
+    with pytest.raises(DirectExtractionBudgetError, match="already attempted"):
+        resumed.resolve(Document("d1", "No definitions here."))
+    assert len(requests) == 2
 
 
 def test_campaign_config_requires_azure_route_and_prices(

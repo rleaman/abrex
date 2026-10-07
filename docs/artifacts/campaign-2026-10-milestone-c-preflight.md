@@ -1,8 +1,9 @@
 # Milestone C pre-freeze protocol inventory
 
 Status: prepared for protocol approval; no sample has been drawn and no
-Milestone C predictions have been requested. Milestone B is incorporated as a
-negative development result.
+Milestone C predictions have been requested. The original Luna prompt is
+incorporated as a negative development result, and the separately versioned
+quote-grounded revision is incorporated as a gate-passing development result.
 
 ## Why T067 cannot be reused
 
@@ -46,31 +47,35 @@ frozen packet will receive the same browser and persistence test before delivery
 
 ## Proposed methods and endpoint
 
-Five methods enter the confirmatory comparison:
+Six methods enter the confirmatory comparison:
 
 - native-offset Ab3P;
 - Schwartz–Hearst;
 - PLODv2 pairing;
 - complete CLP V5.1, with its native normalized view kept separate;
 - Jev candidate judging at the existing split-policy thresholds.
+- quote-grounded Luna direct extraction, frozen at
+  `abrex-quote-grounded-2026-10-06-i02`.
 
-Source-grounded direct extraction remains visible as development evidence but
-does not make new confirmatory requests. Its unchanged prompt failed the
-predeclared request-reliability, literal-grounding, and candidate-omission
-recovery gates: nine of 20 requests failed to produce structured output, 15 of
-29 returned proposals failed literal offset grounding, and only one of 14 known
-candidate omissions was recovered. This is an evidence-based method disposition,
-not an omitted result.
+The original offset-producing prompt remains visible as negative development
+evidence: nine of 20 requests failed, 15 of 29 proposals failed offset
+grounding, and only one of 14 candidate omissions was recovered. The separately
+versioned quote-grounded extractor passed every development gate on iteration 2:
+20/20 requests completed, exact F1 was 0.8855, nine of 14 omissions were
+recovered, and two of 66 proposals failed deterministic grounding. It now
+advances in frozen form; the failed prompt does not.
 
 Strict half-open occurrence-pair F1 on the representative component is primary.
-The single primary contrast is complete CLP V5.1 versus Schwartz–Hearst. A
-superiority statement requires both an absolute F1 gain of at least 0.05 and a
-paired, seeded article-group-bootstrap 95% interval excluding zero. Request
-failures must remain at or below 5%, every dropped or repaired output must be
-diagnosed, and all frozen request, token, and cost limits must hold. The
-structural challenge remains descriptive and cannot satisfy the representative
-superiority criterion. A missed threshold is reported as “not established”; it
-does not trigger redrawing, retuning, or endpoint substitution.
+The two primary contrasts are complete CLP V5.1 versus Schwartz–Hearst and
+quote-grounded Luna versus Jev candidate judging. A superiority statement
+requires an absolute F1 gain of at least 0.05 and a paired, seeded
+article-group-bootstrap result passing Holm control across both contrasts at
+familywise alpha 0.05. Request failures must remain at or below 5%, every
+dropped or repaired output must be diagnosed, and all frozen request, token,
+and cost limits must hold. The structural challenge remains descriptive and
+cannot satisfy a representative superiority criterion. A missed threshold is
+reported as “not established”; it does not trigger redrawing, retuning, or
+endpoint substitution.
 
 Strict half-open occurrence-pair scoring remains primary for every method.
 Endpoint diagnostics, discontinuous evidence, CLP-native string scoring,
@@ -81,8 +86,8 @@ negative.
 
 ## Decision needed before freeze
 
-The recommended decision is to approve the five-method, 72-group/120-passage
-protocol and the single primary contrast above. Approval authorizes source-only
+The recommended decision is to approve the six-method, 72-group/120-passage
+protocol and the two primary contrasts above. Approval authorizes source-only
 sampling and acquisition plus construction and testing of the prediction-blind
 review packet. It does **not** authorize TypeSafe requests, resolver prediction
 runs, annotation reveal, or new Azure requests. TypeSafe receives a separate

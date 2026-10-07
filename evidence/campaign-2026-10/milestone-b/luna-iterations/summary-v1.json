@@ -1,0 +1,73 @@
+{
+  "authorization": {
+    "cumulative_actual_cost_usd": 0.0104628,
+    "iterations_executed": 2,
+    "maximum_iterations": 10,
+    "per_iteration_cap_usd": 0.1
+  },
+  "evidence_class": "assisted_t062_development",
+  "iterations": [
+    {
+      "actual_cost_usd": 0.0048709,
+      "all_gates_passed": false,
+      "candidate_omissions_recovered": 3,
+      "f1": 0.6557377049180327,
+      "false_negatives": 27,
+      "false_positives": 15,
+      "grounding_failure_fraction": 0.06779661016949153,
+      "iteration": 1,
+      "path": "evidence/campaign-2026-10/milestone-b/luna-iterations/i01/readout.json",
+      "precision": 0.7272727272727273,
+      "recall": 0.5970149253731343,
+      "sha256": "5293ea541c3aba731117cade301bd78366bcd48cd852809a6111809593c636d7",
+      "status": "development_gate_failed",
+      "successful_documents": 20,
+      "true_positives": 40
+    },
+    {
+      "actual_cost_usd": 0.0055918999999999995,
+      "all_gates_passed": true,
+      "candidate_omissions_recovered": 9,
+      "f1": 0.8854961832061069,
+      "false_negatives": 9,
+      "false_positives": 6,
+      "grounding_failure_fraction": 0.030303030303030304,
+      "iteration": 2,
+      "path": "evidence/campaign-2026-10/milestone-b/luna-iterations/i02/readout.json",
+      "precision": 0.90625,
+      "recall": 0.8656716417910447,
+      "sha256": "174a43642807c52a4bb00d4f8640d372ee52643361912361efa027c63ba9b459",
+      "status": "development_gate_passed",
+      "successful_documents": 20,
+      "true_positives": 58
+    }
+  ],
+  "remaining_error_accounting": {
+    "false_negatives": {
+      "long_form_boundary_mismatch": 1,
+      "missed_target_definitions": 5,
+      "overlapping_alternative_gold_boundaries": 3
+    },
+    "false_positives": {
+      "long_form_boundary_mismatch": 1,
+      "out_of_scope_diagnostic_relations": 5
+    },
+    "quote_grounding_failures": {
+      "count": 2,
+      "interpretation": "both were diagnostic representation-limited elliptical relations and remained outside strict target scoring",
+      "strict_target_relations_lost": 0
+    }
+  },
+  "schema_version": "campaign-2026-10-luna-iteration-summary-v1",
+  "scientific_boundary": "T062 is exposed assisted development evidence. The selected extractor requires a newly annotated prediction-blind sample before any generalization or confirmatory claim.",
+  "selection": {
+    "decision": "freeze_for_new_prediction_blind_evaluation",
+    "iteration": 2,
+    "maximum_output_tokens_per_request": 8192,
+    "new_azure_requests_required_before_blind_sample": false,
+    "prompt_version": "abrex-quote-grounded-2026-10-06-i02",
+    "reasoning_effort": "low",
+    "stop_reason": "the first failure-directed revision passed every predeclared development gate; further T062 tuning would increase overfitting"
+  },
+  "status": "quote_grounded_extractor_selected_for_blind_evaluation"
+}

@@ -39,3 +39,11 @@ The predeclared request-failure, invalid-grounding, and candidate-omission
 recovery gates failed. Decision: `do_not_advance_unchanged_prompt_to_milestone_c`. The one exact false
 positive is a later non-defining occurrence of an already reviewed short/long
 form, so no unresolved human adjudication remains.
+
+## Versioned follow-up
+
+This negative decision remains authoritative for the unchanged offset-producing
+prompt. A later user-authorized quote-grounded refinement removed offset
+generation from Luna's task and passed its development gate on iteration 2.
+That distinct prompt is documented in
+[`campaign-2026-10-luna-iteration-result.md`](campaign-2026-10-luna-iteration-result.md).

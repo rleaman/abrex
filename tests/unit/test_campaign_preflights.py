@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from scripts.build_direct_extraction_readout import build_readout
+from scripts.build_luna_iteration_summary import build_summary
 from scripts.build_milestone_c_preflight import build_preflight
 
 
@@ -51,6 +52,11 @@ def test_milestone_c_preflight_excludes_exposed_groups_and_pins_methods(
     identities = report["fixed_resource_identities"]
     assert isinstance(identities, dict)
     assert identities["direct_extraction_resolver_version"] == "2"
+    assert identities["quote_grounded_extraction_resolver_version"] == "3"
+    assert (
+        identities["quote_grounded_prompt_version"]
+        == "abrex-quote-grounded-2026-10-06-i02"
+    )
     assert identities["direct_model_route"] == (
         "azure_openai:${AZURE_OPENAI_DEPLOYMENT}"
     )
@@ -67,12 +73,19 @@ def test_milestone_c_preflight_excludes_exposed_groups_and_pins_methods(
     assert gate["decision"] == "do_not_advance_unchanged_prompt_to_milestone_c"
     contrasts = criteria["confirmatory_primary_contrasts"]
     assert isinstance(contrasts, list)
-    assert contrasts == ["complete CLP V5.1 versus Schwartz-Hearst"]
+    assert contrasts == [
+        "complete CLP V5.1 versus Schwartz-Hearst",
+        "quote-grounded Luna direct extraction versus Jev candidate judging",
+    ]
     dispositions = report["method_dispositions"]
     assert isinstance(dispositions, dict)
     direct = dispositions["direct_extraction"]
     assert isinstance(direct, dict)
     assert direct["advance_unchanged"] is False
+    assert direct["advance_quote_grounded_iteration_2"] is True
+    confirmatory = dispositions["confirmatory_methods"]
+    assert isinstance(confirmatory, list)
+    assert len(confirmatory) == 6
     pre_freeze_dependencies = report["pre_freeze_dependencies"]
     assert isinstance(pre_freeze_dependencies, list)
     assert len(pre_freeze_dependencies) == 1
@@ -144,3 +157,32 @@ def test_direct_extraction_readout_keeps_failures_out_of_primary_scoring(
     assert isinstance(usage, dict)
     assert usage["total_cost_upper_bound_usd"] == 0.0471974
     assert "failed documents" in markdown.read_text(encoding="utf-8")
+
+
+def test_luna_iteration_summary_selects_first_gate_passing_revision(
+    tmp_path: Path,
+) -> None:
+    output = tmp_path / "summary.json"
+    markdown = tmp_path / "summary.md"
+
+    summary = build_summary(output, markdown)
+
+    assert json.loads(output.read_text(encoding="utf-8")) == summary
+    assert summary["status"] == (
+        "quote_grounded_extractor_selected_for_blind_evaluation"
+    )
+    authorization = summary["authorization"]
+    assert isinstance(authorization, dict)
+    assert authorization["iterations_executed"] == 2
+    assert authorization["cumulative_actual_cost_usd"] == 0.0104628
+    selection = summary["selection"]
+    assert isinstance(selection, dict)
+    assert selection["iteration"] == 2
+    assert selection["prompt_version"] == "abrex-quote-grounded-2026-10-06-i02"
+    iterations = summary["iterations"]
+    assert isinstance(iterations, list)
+    assert iterations[1]["true_positives"] == 58
+    assert iterations[1]["false_positives"] == 6
+    assert iterations[1]["false_negatives"] == 9
+    assert iterations[1]["all_gates_passed"] is True
+    assert "F1 0.8855" in markdown.read_text(encoding="utf-8")

@@ -1,0 +1,514 @@
+{
+  "artifacts": {
+    "predictions": {
+      "fingerprint": "a805ebed9b3d8ac13b9e4246cb39b08030cd050902bad578f59d651ef9932b42",
+      "path": "evidence/campaign-2026-10/milestone-b/luna-iterations/i01/predictions.jsonl",
+      "sha256": "a805ebed9b3d8ac13b9e4246cb39b08030cd050902bad578f59d651ef9932b42"
+    }
+  },
+  "config": {
+    "path": "configs/experiments/campaign-2026-10-luna-i01.yaml",
+    "resolved": {
+      "corpus": {
+        "params": {
+          "manifest_path": "evidence/campaign-2026-10/milestone-b/t062-development.manifest.json",
+          "path": "evidence/campaign-2026-10/milestone-b/t062-development.jsonl"
+        },
+        "type": "canonical_jsonl"
+      },
+      "matching": {
+        "params": {},
+        "type": "exact_pair"
+      },
+      "metrics": [
+        {
+          "params": {
+            "averaging": "micro",
+            "zero_division": "zero"
+          },
+          "type": "pair_prf"
+        }
+      ],
+      "output": {
+        "reuse_cached_predictions": true,
+        "root": ".artifacts/campaign-2026-10/luna-iterations/i01"
+      },
+      "project": {
+        "name": "campaign-2026-10-luna-i01",
+        "seed": 20261006
+      },
+      "reporters": [
+        {
+          "params": {},
+          "type": "json"
+        },
+        {
+          "params": {},
+          "type": "error_table"
+        },
+        {
+          "params": {
+            "context_chars": 160
+          },
+          "type": "html_error_report"
+        }
+      ],
+      "resolver": {
+        "error_policy": "collect",
+        "params": {
+          "api_key_env": "AZURE_OPENAI_API_KEY",
+          "attempt_ledger_path": "evidence/campaign-2026-10/milestone-b/luna-iterations/i01/attempts.jsonl",
+          "cache_only": false,
+          "cache_path": "evidence/campaign-2026-10/milestone-b/luna-iterations/i01/cache.jsonl",
+          "endpoint": "https://bionlp-gpt4-robert.openai.azure.com/",
+          "input_usd_per_million_tokens": "0.10",
+          "maximum_document_characters": 48000,
+          "maximum_estimated_input_tokens": 30000,
+          "maximum_network_attempts": 20,
+          "maximum_output_tokens_per_request": 8192,
+          "model": "gpt-6-luna",
+          "monetary_cap_usd": 0.1,
+          "output_usd_per_million_tokens": "0.50",
+          "policy_version": "source-grounded-direct-v1",
+          "prompt_version": "abrex-quote-grounded-2026-10-06-i01",
+          "provider": "azure_openai",
+          "reasoning_effort": "low",
+          "retries": 0,
+          "timeout_seconds": 180
+        },
+        "type": "openai_direct_extraction"
+      }
+    },
+    "sha256": "338537cca6f9fbce321afb4ac10399a69cb759039a8ffbeebe25e7f08eadc3d3"
+  },
+  "corpus": {
+    "dataset_id": "t062-strict-development-v1",
+    "documents": 20,
+    "fingerprint": "9ef625231e910dbd330db24f9980d93a3661d89375dd9f40d8c95fabe4dc5f50",
+    "gold_relations": 67
+  },
+  "development_gate": {
+    "all_passed": false,
+    "criteria": {
+      "candidate_omission_recovery": {
+        "observed": 3,
+        "passed": false,
+        "required": 7
+      },
+      "cost": {
+        "maximum_usd": 0.1,
+        "observed_usd": 0.0048709,
+        "passed": true
+      },
+      "exact_f1": {
+        "observed": 0.6557377049180327,
+        "passed": false,
+        "required": 0.756
+      },
+      "exact_precision": {
+        "observed": 0.7272727272727273,
+        "passed": false,
+        "required": 0.85
+      },
+      "exact_recall": {
+        "observed": 0.5970149253731343,
+        "passed": false,
+        "required": 0.7
+      },
+      "request_completion": {
+        "observed": 20,
+        "passed": true,
+        "required": 19
+      },
+      "ungroundable_proposal_fraction": {
+        "maximum": 0.05,
+        "observed": 0.06779661016949153,
+        "passed": false
+      }
+    }
+  },
+  "evidence_class": "assisted_t062_development",
+  "execution": {
+    "failed_document_ids": [],
+    "failed_documents": 0,
+    "request_failure_fraction": 0.0,
+    "successful_documents": 20,
+    "usage": {
+      "actual_cost_usd": 0.0048709,
+      "actual_input_tokens": 18129,
+      "actual_output_tokens": 6116,
+      "cache_hits": 0,
+      "estimated_input_tokens": 25155,
+      "network_attempts": 20
+    }
+  },
+  "git": {
+    "commit": "af0665a70905c8c86db46bab01cc669997b7c2a0",
+    "dirty": true
+  },
+  "grounding": {
+    "accepted_predictions": 55,
+    "diagnostic_counts": {
+      "DIRECT_ABSTAINED": 3,
+      "DIRECT_QUOTE_GROUNDING_FAILED": 4,
+      "DIRECT_REQUEST_COMPLETED": 20
+    },
+    "failed_proposals": 4,
+    "failure_fraction": 0.06779661016949153,
+    "returned_proposals": 59
+  },
+  "preflight": {
+    "documents": 20,
+    "maximum_estimated_input_tokens": 30000,
+    "maximum_network_attempts": 20,
+    "maximum_output_tokens_per_request": 8192,
+    "monetary_cap_usd": 0.1,
+    "passed": true,
+    "retries": 0,
+    "worst_case_cost_usd": 0.08492
+  },
+  "schema_version": "campaign-2026-10-luna-iteration-v1",
+  "status": "development_gate_failed",
+  "strict_exact": {
+    "availability_adjusted": {
+      "f1": 0.6557377049180327,
+      "false_negatives": 27,
+      "false_positives": 15,
+      "precision": 0.7272727272727273,
+      "recall": 0.5970149253731343,
+      "true_positives": 40
+    },
+    "candidate_omitted_relations": 14,
+    "candidate_omitted_relations_recovered": 3,
+    "false_negative_keys": [
+      [
+        "case-018860b0c1232ddf7807",
+        79,
+        83,
+        42,
+        77
+      ],
+      [
+        "case-018860b0c1232ddf7807",
+        257,
+        262,
+        236,
+        255
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        693,
+        708,
+        658,
+        691
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        767,
+        774,
+        734,
+        765
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        973,
+        989,
+        933,
+        971
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1040,
+        1057,
+        996,
+        1038
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1173,
+        1189,
+        1132,
+        1171
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1244,
+        1251,
+        1215,
+        1242
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1274,
+        1282,
+        1257,
+        1272
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1592,
+        1607,
+        1553,
+        1590
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1678,
+        1695,
+        1638,
+        1676
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1979,
+        1996,
+        1935,
+        1977
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        2055,
+        2069,
+        2027,
+        2053
+      ],
+      [
+        "case-831590c598e0d001beba",
+        1906,
+        1908,
+        1893,
+        1904
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2000,
+        2002,
+        1978,
+        1998
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2000,
+        2002,
+        1985,
+        1998
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2033,
+        2035,
+        2005,
+        2031
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2033,
+        2035,
+        2013,
+        2031
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2113,
+        2115,
+        2103,
+        2111
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2113,
+        2115,
+        2103,
+        2112
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2154,
+        2155,
+        2118,
+        2151
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2217,
+        2219,
+        2200,
+        2215
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2242,
+        2244,
+        2222,
+        2240
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2266,
+        2268,
+        2247,
+        2264
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2294,
+        2296,
+        2275,
+        2292
+      ],
+      [
+        "case-8deab3bbe026a86e6b5c",
+        268,
+        275,
+        250,
+        266
+      ],
+      [
+        "case-912c109badf69739f017",
+        54,
+        57,
+        33,
+        52
+      ]
+    ],
+    "false_positive_keys": [
+      [
+        "case-018860b0c1232ddf7807",
+        79,
+        83,
+        58,
+        77
+      ],
+      [
+        "case-06c9ebb850190d98a90b",
+        52,
+        56,
+        33,
+        50
+      ],
+      [
+        "case-06c9ebb850190d98a90b",
+        397,
+        402,
+        374,
+        395
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        693,
+        708,
+        654,
+        691
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        767,
+        774,
+        714,
+        765
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        973,
+        989,
+        929,
+        971
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1040,
+        1057,
+        992,
+        1038
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1173,
+        1180,
+        1112,
+        1171
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1182,
+        1189,
+        1112,
+        1171
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1244,
+        1251,
+        1195,
+        1242
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1592,
+        1607,
+        1528,
+        1590
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1678,
+        1695,
+        1613,
+        1676
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1979,
+        1996,
+        1910,
+        1977
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        2055,
+        2069,
+        2002,
+        2053
+      ],
+      [
+        "case-8deab3bbe026a86e6b5c",
+        268,
+        275,
+        219,
+        266
+      ]
+    ],
+    "recovered_candidate_omission_keys": [
+      [
+        "case-070773a12d676907498f",
+        694,
+        697,
+        670,
+        692
+      ],
+      [
+        "case-912c109badf69739f017",
+        107,
+        113,
+        73,
+        105
+      ],
+      [
+        "case-912c109badf69739f017",
+        247,
+        253,
+        213,
+        245
+      ]
+    ],
+    "successful_subset": {
+      "f1": 0.6557377049180327,
+      "false_negatives": 27,
+      "false_positives": 15,
+      "precision": 0.7272727272727273,
+      "recall": 0.5970149253731343,
+      "true_positives": 40
+    }
+  },
+  "timestamp_utc": "2026-10-06T21:50:08.699108+00:00"
+}

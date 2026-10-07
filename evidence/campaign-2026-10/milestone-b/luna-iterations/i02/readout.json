@@ -1,0 +1,357 @@
+{
+  "artifacts": {
+    "predictions": {
+      "fingerprint": "b2be4d51cb587469000b794b8ef10a7ce9f7bbf213ecd2e6d1353b131895edf1",
+      "path": "evidence/campaign-2026-10/milestone-b/luna-iterations/i02/predictions.jsonl",
+      "sha256": "b2be4d51cb587469000b794b8ef10a7ce9f7bbf213ecd2e6d1353b131895edf1"
+    }
+  },
+  "config": {
+    "path": "configs/experiments/campaign-2026-10-luna-i02.yaml",
+    "resolved": {
+      "corpus": {
+        "params": {
+          "manifest_path": "evidence/campaign-2026-10/milestone-b/t062-development.manifest.json",
+          "path": "evidence/campaign-2026-10/milestone-b/t062-development.jsonl"
+        },
+        "type": "canonical_jsonl"
+      },
+      "matching": {
+        "params": {},
+        "type": "exact_pair"
+      },
+      "metrics": [
+        {
+          "params": {
+            "averaging": "micro",
+            "zero_division": "zero"
+          },
+          "type": "pair_prf"
+        }
+      ],
+      "output": {
+        "reuse_cached_predictions": true,
+        "root": ".artifacts/campaign-2026-10/luna-iterations/i02"
+      },
+      "project": {
+        "name": "campaign-2026-10-luna-i02",
+        "seed": 20261006
+      },
+      "reporters": [
+        {
+          "params": {},
+          "type": "json"
+        }
+      ],
+      "resolver": {
+        "error_policy": "collect",
+        "params": {
+          "api_key_env": "AZURE_OPENAI_API_KEY",
+          "attempt_ledger_path": "evidence/campaign-2026-10/milestone-b/luna-iterations/i02/attempts.jsonl",
+          "cache_only": false,
+          "cache_path": "evidence/campaign-2026-10/milestone-b/luna-iterations/i02/cache.jsonl",
+          "endpoint": "https://bionlp-gpt4-robert.openai.azure.com/",
+          "input_usd_per_million_tokens": "0.10",
+          "maximum_document_characters": 48000,
+          "maximum_estimated_input_tokens": 30000,
+          "maximum_network_attempts": 20,
+          "maximum_output_tokens_per_request": 8192,
+          "model": "gpt-6-luna",
+          "monetary_cap_usd": 0.1,
+          "output_usd_per_million_tokens": "0.50",
+          "policy_version": "source-grounded-direct-v1",
+          "prompt_version": "abrex-quote-grounded-2026-10-06-i02",
+          "provider": "azure_openai",
+          "reasoning_effort": "low",
+          "retries": 0,
+          "timeout_seconds": 180
+        },
+        "type": "openai_direct_extraction"
+      }
+    },
+    "sha256": "b8da46549374b2e684a1bcc19a394dbfe0f61010db56075c6e82da2b87981d3e"
+  },
+  "corpus": {
+    "dataset_id": "t062-strict-development-v1",
+    "documents": 20,
+    "fingerprint": "9ef625231e910dbd330db24f9980d93a3661d89375dd9f40d8c95fabe4dc5f50",
+    "gold_relations": 67
+  },
+  "development_gate": {
+    "all_passed": true,
+    "criteria": {
+      "candidate_omission_recovery": {
+        "observed": 9,
+        "passed": true,
+        "required": 7
+      },
+      "cost": {
+        "maximum_usd": 0.1,
+        "observed_usd": 0.0055918999999999995,
+        "passed": true
+      },
+      "exact_f1": {
+        "observed": 0.8854961832061069,
+        "passed": true,
+        "required": 0.756
+      },
+      "exact_precision": {
+        "observed": 0.90625,
+        "passed": true,
+        "required": 0.85
+      },
+      "exact_recall": {
+        "observed": 0.8656716417910447,
+        "passed": true,
+        "required": 0.7
+      },
+      "request_completion": {
+        "observed": 20,
+        "passed": true,
+        "required": 19
+      },
+      "ungroundable_proposal_fraction": {
+        "maximum": 0.05,
+        "observed": 0.030303030303030304,
+        "passed": true
+      }
+    }
+  },
+  "evidence_class": "assisted_t062_development",
+  "execution": {
+    "failed_document_ids": [],
+    "failed_documents": 0,
+    "request_failure_fraction": 0.0,
+    "successful_documents": 20,
+    "usage": {
+      "actual_cost_usd": 0.0055918999999999995,
+      "actual_input_tokens": 21869,
+      "actual_output_tokens": 6810,
+      "cache_hits": 0,
+      "estimated_input_tokens": 29829,
+      "network_attempts": 20
+    }
+  },
+  "git": {
+    "commit": "af0665a70905c8c86db46bab01cc669997b7c2a0",
+    "dirty": true
+  },
+  "grounding": {
+    "accepted_predictions": 64,
+    "diagnostic_counts": {
+      "DIRECT_ABSTAINED": 2,
+      "DIRECT_QUOTE_GROUNDING_FAILED": 2,
+      "DIRECT_REQUEST_COMPLETED": 20
+    },
+    "failed_proposals": 2,
+    "failure_fraction": 0.030303030303030304,
+    "returned_proposals": 66
+  },
+  "preflight": {
+    "documents": 20,
+    "maximum_estimated_input_tokens": 30000,
+    "maximum_network_attempts": 20,
+    "maximum_output_tokens_per_request": 8192,
+    "monetary_cap_usd": 0.1,
+    "passed": true,
+    "retries": 0,
+    "worst_case_cost_usd": 0.08492
+  },
+  "schema_version": "campaign-2026-10-luna-iteration-v1",
+  "status": "development_gate_passed",
+  "strict_exact": {
+    "availability_adjusted": {
+      "f1": 0.8854961832061069,
+      "false_negatives": 9,
+      "false_positives": 6,
+      "precision": 0.90625,
+      "recall": 0.8656716417910447,
+      "true_positives": 58
+    },
+    "candidate_omitted_relations": 14,
+    "candidate_omitted_relations_recovered": 9,
+    "false_negative_keys": [
+      [
+        "case-018860b0c1232ddf7807",
+        257,
+        262,
+        227,
+        255
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1979,
+        1996,
+        1935,
+        1977
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        2055,
+        2069,
+        2027,
+        2053
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2000,
+        2002,
+        1985,
+        1998
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2033,
+        2035,
+        2013,
+        2031
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2113,
+        2115,
+        2103,
+        2112
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2154,
+        2155,
+        2118,
+        2151
+      ],
+      [
+        "case-8deab3bbe026a86e6b5c",
+        268,
+        275,
+        250,
+        266
+      ],
+      [
+        "case-912c109badf69739f017",
+        54,
+        57,
+        33,
+        52
+      ]
+    ],
+    "false_positive_keys": [
+      [
+        "case-06c9ebb850190d98a90b",
+        52,
+        56,
+        33,
+        50
+      ],
+      [
+        "case-06c9ebb850190d98a90b",
+        397,
+        402,
+        374,
+        395
+      ],
+      [
+        "case-06c9ebb850190d98a90b",
+        424,
+        430,
+        408,
+        422
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2060,
+        2062,
+        2038,
+        2058
+      ],
+      [
+        "case-831590c598e0d001beba",
+        2091,
+        2093,
+        2069,
+        2089
+      ],
+      [
+        "case-8deab3bbe026a86e6b5c",
+        268,
+        275,
+        219,
+        266
+      ]
+    ],
+    "recovered_candidate_omission_keys": [
+      [
+        "case-070773a12d676907498f",
+        694,
+        697,
+        670,
+        692
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        693,
+        708,
+        658,
+        691
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        973,
+        989,
+        933,
+        971
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1040,
+        1057,
+        996,
+        1038
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1173,
+        1189,
+        1132,
+        1171
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1592,
+        1607,
+        1553,
+        1590
+      ],
+      [
+        "case-1a4f2e3443392fdca836",
+        1678,
+        1695,
+        1638,
+        1676
+      ],
+      [
+        "case-912c109badf69739f017",
+        107,
+        113,
+        73,
+        105
+      ],
+      [
+        "case-912c109badf69739f017",
+        247,
+        253,
+        213,
+        245
+      ]
+    ],
+    "successful_subset": {
+      "f1": 0.8854961832061069,
+      "false_negatives": 9,
+      "false_positives": 6,
+      "precision": 0.90625,
+      "recall": 0.8656716417910447,
+      "true_positives": 58
+    }
+  },
+  "timestamp_utc": "2026-10-06T21:53:23.708232+00:00"
+}

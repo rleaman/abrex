@@ -1,0 +1,50 @@
+project:
+  name: campaign-2026-10-luna-i01
+  seed: 20261006
+corpus:
+  type: canonical_jsonl
+  params:
+    path: evidence/campaign-2026-10/milestone-b/t062-development.jsonl
+    manifest_path: evidence/campaign-2026-10/milestone-b/t062-development.manifest.json
+resolver:
+  type: openai_direct_extraction
+  error_policy: collect
+  params:
+    model: ${AZURE_OPENAI_DEPLOYMENT}
+    policy_version: source-grounded-direct-v1
+    prompt_version: abrex-quote-grounded-2026-10-06-i01
+    reasoning_effort: low
+    cache_path: evidence/campaign-2026-10/milestone-b/luna-iterations/i01/cache.jsonl
+    attempt_ledger_path: evidence/campaign-2026-10/milestone-b/luna-iterations/i01/attempts.jsonl
+    cache_only: false
+    provider: azure_openai
+    endpoint: ${AZURE_OPENAI_ENDPOINT}
+    api_key_env: AZURE_OPENAI_API_KEY
+    maximum_document_characters: 48000
+    maximum_network_attempts: 20
+    maximum_estimated_input_tokens: 30000
+    maximum_output_tokens_per_request: 8192
+    monetary_cap_usd: 0.10
+    input_usd_per_million_tokens: !env AZURE_OPENAI_INPUT_USD_PER_MILLION_TOKENS
+    output_usd_per_million_tokens: !env AZURE_OPENAI_OUTPUT_USD_PER_MILLION_TOKENS
+    timeout_seconds: 180
+    retries: 0
+matching:
+  type: exact_pair
+  params: {}
+metrics:
+  - type: pair_prf
+    params:
+      averaging: micro
+      zero_division: zero
+reporters:
+  - type: json
+    params: {}
+  - type: error_table
+    params: {}
+  - type: html_error_report
+    params:
+      context_chars: 160
+output:
+  root: .artifacts/campaign-2026-10/luna-iterations/i01
+  reuse_cached_predictions: true

@@ -6,6 +6,13 @@
       "sha256": "412c563be75dbb913268451f898ad620324a12ce7393bef4b470358bf9b76268",
       "status": "negative_result_do_not_advance_unchanged_prompt"
     },
+    "quote_grounded_luna_development": {
+      "decision": "freeze_for_new_prediction_blind_evaluation",
+      "path": "evidence/campaign-2026-10/milestone-b/luna-iterations/summary-v1.json",
+      "selected_prompt_version": "abrex-quote-grounded-2026-10-06-i02",
+      "sha256": "64b0de0653246807aae2d40f74e87e3204047865f1f2ece793117060bd9ecdb3",
+      "status": "quote_grounded_extractor_selected_for_blind_evaluation"
+    },
     "reason_new_sample_required": "T067 has eight exposed article groups and method gains concentrated by group; it cannot be reused for confirmation.",
     "t067_dataset": {
       "article_groups": 8,
@@ -372,7 +379,9 @@
     "direct_extraction_resolver_version": "2",
     "direct_model_route": "azure_openai:${AZURE_OPENAI_DEPLOYMENT}",
     "jev_model": "jev-1.13.0",
-    "plod_checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277"
+    "plod_checkpoint_sha256": "3a72a4130fb589a4191efb5a87a4f3ac1479d48e37649711be6992b2d2b6e277",
+    "quote_grounded_extraction_resolver_version": "3",
+    "quote_grounded_prompt_version": "abrex-quote-grounded-2026-10-06-i02"
   },
   "method_dispositions": {
     "confirmatory_methods": [
@@ -380,13 +389,16 @@
       "schwartz_hearst",
       "plodv2_pairing",
       "complete_clp_v5_1_worker",
-      "jev_candidate_judge"
+      "jev_candidate_judge",
+      "direct_extraction"
     ],
     "direct_extraction": {
+      "advance_quote_grounded_iteration_2": true,
       "advance_unchanged": false,
-      "rationale": "the predeclared gate failed for request reliability, literal grounding, and candidate-omission recovery; no new Azure requests enter the confirmatory protocol",
-      "result": "evidence/campaign-2026-10/milestone-b/direct-extraction-readout-v1.json",
-      "role": "development_result_only"
+      "negative_result": "evidence/campaign-2026-10/milestone-b/direct-extraction-readout-v1.json",
+      "rationale": "the offset-producing prompt remains a negative result; the quote-grounded revision passed every frozen development gate and is now fixed for new prediction-blind evaluation",
+      "role": "confirmatory_method_after_quote_grounded_revision",
+      "selected_result": "evidence/campaign-2026-10/milestone-b/luna-iterations/summary-v1.json"
     }
   },
   "method_inventory": {
@@ -420,7 +432,7 @@
     "execute Ab3P and PLODv2 on the documented fresh Linux server bundle after the prediction-blind annotation lock"
   ],
   "pre_freeze_dependencies": [
-    "approve the five-method disposition, source-only sample and review burden, single primary contrast, and success thresholds"
+    "approve the six-method disposition, source-only sample and review burden, two primary contrasts, and success thresholds"
   ],
   "proposed_sample": {
     "estimated_primary_review_hours": {
@@ -455,7 +467,8 @@
   },
   "proposed_success_criteria": {
     "confirmatory_primary_contrasts": [
-      "complete CLP V5.1 versus Schwartz-Hearst"
+      "complete CLP V5.1 versus Schwartz-Hearst",
+      "quote-grounded Luna direct extraction versus Jev candidate judging"
     ],
     "confirmatory_primary_endpoint": "strict exact-pair F1 on the representative component",
     "milestone_b_unchanged_prompt_gate": {
@@ -496,16 +509,22 @@
       "all_frozen_request_token_and_cost_limits_respected": true,
       "maximum_representative_request_failure_fraction": 0.05
     },
+    "quote_grounded_luna_development_gate": {
+      "decision": "freeze_for_new_prediction_blind_evaluation",
+      "result": "evidence/campaign-2026-10/milestone-b/luna-iterations/summary-v1.json",
+      "selected_iteration": 2,
+      "state": "evaluated_passed"
+    },
     "state": "proposal_not_frozen",
     "structural_challenge_rule": "descriptive capability evidence only; never used for the representative superiority decision",
     "superiority_rule": {
-      "inference": "paired seeded article-group bootstrap; the two-sided 95% interval for the single primary contrast must exclude zero",
+      "inference": "paired seeded article-group bootstrap; the two-sided 95% interval must exclude zero with Holm control across the two primary contrasts",
       "minimum_absolute_f1_gain": 0.05,
       "required": "both the practical gain and paired uncertainty criterion must pass"
     }
   },
   "reporting_contract": {
-    "negative_result_rule": "run and report every frozen confirmatory method; retain excluded direct extraction as visible development evidence; never resample until a win",
+    "negative_result_rule": "run and report every frozen confirmatory method; retain the failed offset prompt as visible development evidence; never resample until a win",
     "no_pooling_rule": "structural challenge results must not be pooled into the representative population estimate",
     "primary_matching": "strict half-open exact SF/LF occurrence pair",
     "secondary_matching": [

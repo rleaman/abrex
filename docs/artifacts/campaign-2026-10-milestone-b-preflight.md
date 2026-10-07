@@ -58,6 +58,9 @@ $0.0327660 and $0.0471974, below authorization.
 Eleven documents returned structured output and nine exhausted 4,096 output
 tokens on reasoning. The predeclared request-reliability, literal-grounding,
 and candidate-omission-recovery gates failed. The direct extractor is retained
-as negative development evidence and is excluded from new Milestone C requests.
-No unresolved human adjudication remains. See the result readout for exact
-metrics, hashes, costs, and the advancement decision.
+as negative development evidence and that unchanged prompt is excluded from new
+Milestone C requests. No unresolved human adjudication remains. See the result
+readout for exact metrics, hashes, costs, and the advancement decision. A later
+user-authorized quote-grounded prompt is a separate method version; it passed
+its development gate and is documented in
+[`campaign-2026-10-luna-iteration-result.md`](campaign-2026-10-luna-iteration-result.md).

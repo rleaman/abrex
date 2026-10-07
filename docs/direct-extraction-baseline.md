@@ -5,10 +5,14 @@ literal abbreviation relations without first supplying generated candidates.
 It therefore measures the direct-extraction alternative to candidate judging,
 not another candidate-ranking policy.
 
-Status: the authorized Azure development run completed on October 6, 2026 and
-failed its predeclared advancement gate. Do not rerun it to seek a favorable
-result. See
-[`artifacts/campaign-2026-10-milestone-b-result.md`](artifacts/campaign-2026-10-milestone-b-result.md).
+Status: the original offset-producing Azure development run completed on
+October 6, 2026 and failed its predeclared advancement gate. Do not rerun it to
+seek a favorable result. A separately versioned quote-grounded refinement then
+passed every development gate on its second iteration and is frozen for new
+prediction-blind evaluation. See
+[`artifacts/campaign-2026-10-milestone-b-result.md`](artifacts/campaign-2026-10-milestone-b-result.md)
+and
+[`artifacts/campaign-2026-10-luna-iteration-result.md`](artifacts/campaign-2026-10-luna-iteration-result.md).
 
 ## Scientific contract
 
@@ -25,6 +29,14 @@ result. See
 The stable policy is `source-grounded-direct-v1`; the prompt identity is
 `abrex-direct-extraction-2026-10-05-v1`. Both are part of the content-addressed
 request identity. The complete JSON Schema is also included in that identity.
+
+The selected refinement is `abrex-quote-grounded-2026-10-06-i02`. Luna returns
+only exact short-form, long-form, and defining-evidence quotations. The resolver
+requires unique literal evidence, locates each form inside it, and derives the
+canonical offsets mechanically. Missing, repeated, reconstructed, or ambiguous
+evidence is diagnosed and dropped. Its append-only attempt ledger records starts
+and terminal usage so an interrupted iteration cannot silently repeat a charged
+request.
 
 ## Reproducibility and limits
 

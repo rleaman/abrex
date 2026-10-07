@@ -68,6 +68,34 @@ immutable prediction JSONL, and the 11-row successful-response cache. Rebuild
 the readout with `scripts/build_direct_extraction_readout.py`. The adapter now
 accounts returned token usage even when a response has no structured output.
 
+## Verified Luna quote-grounded refinement
+
+The user authorized up to ten further GPT-6 Luna development iterations with a
+separate $0.10 cap for each. The resolver was revised so Luna performs only the
+semantic task and copies exact short-form, long-form, and defining-evidence
+quotes. Abrex locates those quotes in the unchanged passage and derives Unicode
+half-open offsets deterministically. No fuzzy, normalized, candidate-assisted,
+or gold-assisted repair is permitted. Low reasoning and an 8,192-token output
+allowance replaced the failed medium-reasoning offset-generation contract.
+
+Iteration 1 completed all 20 requests for $0.0048709 and showed that remaining
+errors were concentrated in long-form boundary policy and coordinated/elliptical
+definitions. The single failure-directed prompt revision in iteration 2 also
+completed 20/20 and produced 58 TP, six FP, and nine FN: precision 0.9063,
+recall 0.8657, and F1 0.8855. It recovered nine of the 14 relations omitted by
+candidate generation. Two of 66 proposals failed exact quote grounding, both
+diagnostic representation-limited relations outside strict target scoring.
+Actual iteration-2 cost was $0.0055919; cumulative refinement cost was
+$0.0104628.
+
+Iteration 2 passed every predeclared development gate and is frozen as
+`abrex-quote-grounded-2026-10-06-i02` for new prediction-blind evaluation.
+Only two of the ten authorized iterations were used. Further T062 tuning stopped
+to avoid overfitting exposed development gold. The consolidated result is
+[`artifacts/campaign-2026-10-luna-iteration-result.md`](artifacts/campaign-2026-10-luna-iteration-result.md)
+with machine evidence under
+`evidence/campaign-2026-10/milestone-b/luna-iterations/`.
+
 ## Milestone C independent pre-freeze preparation
 
 The exposed T067 sample is now treated as development evidence and will not be
@@ -88,15 +116,15 @@ by complete CLP V5.1. Final freeze now awaits approval of the narrower
 confirmatory method set, review burden, and success thresholds; no Milestone C
 sampling or predictions have been issued.
 
-The machine preflight retains the failed direct-extraction gate and all six
-requested method identities. It proposes five confirmatory methods: Ab3P,
-Schwartz–Hearst, PLODv2 pairing, complete CLP V5.1, and Jev candidate judging.
-Direct extraction remains visible as development evidence but makes no new
-confirmatory requests. The single primary contrast is complete CLP V5.1 versus
-Schwartz–Hearst; superiority requires an absolute representative exact-F1 gain
-of at least 0.05 and a paired article-group-bootstrap 95% interval excluding
-zero. Structural-challenge evidence cannot satisfy that claim. These choices
-remain proposals awaiting explicit protocol approval, not frozen policy.
+The machine preflight retains the failed offset-producing prompt and the later
+quote-grounded success. It proposes all six confirmatory methods: Ab3P,
+Schwartz–Hearst, PLODv2 pairing, complete CLP V5.1, Jev candidate judging, and
+the frozen quote-grounded Luna extractor. The two primary contrasts are complete
+CLP V5.1 versus Schwartz–Hearst and quote-grounded Luna versus Jev candidate
+judging. Superiority requires an absolute representative exact-F1 gain of at
+least 0.05 and a paired article-group-bootstrap result passing Holm control
+across both contrasts. Structural-challenge evidence cannot satisfy either
+claim. These choices remain proposals awaiting explicit protocol approval.
 
 The prefilled approval record is
 [`artifacts/campaign-2026-10-protocol-decision.md`](artifacts/campaign-2026-10-protocol-decision.md).
@@ -124,7 +152,7 @@ Linux server bundle and `setup-runtime.sh` flow. Exact evidence is in
 `evidence/campaign-2026-10/milestone-c/runtime-preflight-v1.json`.
 
 The repository fast gate passes for this checkpoint: source-import verification,
-Ruff formatting and lint, strict mypy over 211 files, and 456 passed tests with
+Ruff formatting and lint, strict mypy over 211 files, and 461 passed tests with
 one external-runtime test skipped.
 
 ## Evidence to retain

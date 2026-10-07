@@ -30,9 +30,17 @@ class OpenAIResponsesOutputError(RuntimeError):
         *,
         input_tokens: int,
         output_tokens: int,
+        request_id: str | None = None,
+        model: str | None = None,
+        response_status: str | None = None,
+        incomplete_reason: str | None = None,
     ) -> None:
         self.input_tokens = input_tokens
         self.output_tokens = output_tokens
+        self.request_id = request_id
+        self.model = model
+        self.response_status = response_status
+        self.incomplete_reason = incomplete_reason
         super().__init__(message)
 
 
@@ -86,10 +94,22 @@ class OpenAIResponsesClient:
         try:
             output_text = _output_text(response_mapping)
         except (RuntimeError, TypeError) as error:
+            incomplete = response_mapping.get("incomplete_details")
             raise OpenAIResponsesOutputError(
                 _output_failure_message(response_mapping, error),
                 input_tokens=input_tokens,
                 output_tokens=output_tokens,
+                request_id=(raw.get("id") if isinstance(raw.get("id"), str) else None),
+                model=(raw.get("model") if isinstance(raw.get("model"), str) else None),
+                response_status=(
+                    raw.get("status") if isinstance(raw.get("status"), str) else None
+                ),
+                incomplete_reason=(
+                    incomplete.get("reason")
+                    if isinstance(incomplete, Mapping)
+                    and isinstance(incomplete.get("reason"), str)
+                    else None
+                ),
             ) from error
         return {
             "model": raw.get("model"),

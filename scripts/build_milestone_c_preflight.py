@@ -11,7 +11,6 @@ from pathlib import Path
 from typing import Any, cast
 
 from abrex.literature.fresh_sampling import load_exclusion_ledger
-from abrex.resolvers.direct_extraction import DIRECT_EXTRACTION_VERSION
 
 EXCLUSION_PATHS = (
     Path("docs/artifacts/T025-pubmed-pilot-report.json"),
@@ -43,6 +42,10 @@ BLIND_REVIEWER_QA_PATH = Path(
 DIRECT_RESULT_PATH = Path(
     "evidence/campaign-2026-10/milestone-b/direct-extraction-readout-v1.json"
 )
+LUNA_ITERATION_SUMMARY_PATH = Path(
+    "evidence/campaign-2026-10/milestone-b/luna-iterations/summary-v1.json"
+)
+MILESTONE_B_DIRECT_EXTRACTION_VERSION = "2"
 
 
 def build_preflight(
@@ -59,6 +62,8 @@ def build_preflight(
     runtime_preflight = _object(RUNTIME_PREFLIGHT_PATH)
     blind_reviewer_qa = _object(BLIND_REVIEWER_QA_PATH)
     direct_result = _object(DIRECT_RESULT_PATH)
+    luna_summary = _object(LUNA_ITERATION_SUMMARY_PATH)
+    luna_selection = _mapping(luna_summary.get("selection"), "Luna selection")
     direct_gate = _mapping(
         direct_result.get("advancement_gate"), "direct extraction advancement gate"
     )
@@ -87,6 +92,13 @@ def build_preflight(
                 "sha256": _sha256(DIRECT_RESULT_PATH),
                 "status": direct_result.get("status"),
                 "decision": direct_gate.get("decision"),
+            },
+            "quote_grounded_luna_development": {
+                "path": LUNA_ITERATION_SUMMARY_PATH.as_posix(),
+                "sha256": _sha256(LUNA_ITERATION_SUMMARY_PATH),
+                "status": luna_summary.get("status"),
+                "decision": luna_selection.get("decision"),
+                "selected_prompt_version": luna_selection.get("prompt_version"),
             },
         },
         "exclusions": {
@@ -117,16 +129,19 @@ def build_preflight(
                 "plodv2_pairing",
                 "complete_clp_v5_1_worker",
                 "jev_candidate_judge",
+                "direct_extraction",
             ],
             "direct_extraction": {
-                "role": "development_result_only",
+                "role": "confirmatory_method_after_quote_grounded_revision",
                 "advance_unchanged": False,
+                "advance_quote_grounded_iteration_2": True,
                 "rationale": (
-                    "the predeclared gate failed for request reliability, literal "
-                    "grounding, and candidate-omission recovery; no new Azure "
-                    "requests enter the confirmatory protocol"
+                    "the offset-producing prompt remains a negative result; the "
+                    "quote-grounded revision passed every frozen development gate "
+                    "and is now fixed for new prediction-blind evaluation"
                 ),
-                "result": DIRECT_RESULT_PATH.as_posix(),
+                "negative_result": DIRECT_RESULT_PATH.as_posix(),
+                "selected_result": LUNA_ITERATION_SUMMARY_PATH.as_posix(),
             },
         },
         "fixed_resource_identities": {
@@ -140,7 +155,11 @@ def build_preflight(
             ),
             "jev_model": "jev-1.13.0",
             "direct_model_route": "azure_openai:${AZURE_OPENAI_DEPLOYMENT}",
-            "direct_extraction_resolver_version": DIRECT_EXTRACTION_VERSION,
+            "direct_extraction_resolver_version": (
+                MILESTONE_B_DIRECT_EXTRACTION_VERSION
+            ),
+            "quote_grounded_extraction_resolver_version": "3",
+            "quote_grounded_prompt_version": luna_selection.get("prompt_version"),
         },
         "proposed_sample": {
             "state": "proposal_not_frozen",
@@ -200,17 +219,25 @@ def build_preflight(
                 "decision": direct_gate.get("decision"),
                 "criteria": direct_gate.get("criteria"),
             },
+            "quote_grounded_luna_development_gate": {
+                "state": "evaluated_passed",
+                "result": LUNA_ITERATION_SUMMARY_PATH.as_posix(),
+                "decision": luna_selection.get("decision"),
+                "selected_iteration": luna_selection.get("iteration"),
+            },
             "confirmatory_primary_endpoint": (
                 "strict exact-pair F1 on the representative component"
             ),
             "confirmatory_primary_contrasts": [
                 "complete CLP V5.1 versus Schwartz-Hearst",
+                "quote-grounded Luna direct extraction versus Jev candidate judging",
             ],
             "superiority_rule": {
                 "minimum_absolute_f1_gain": 0.05,
                 "inference": (
                     "paired seeded article-group bootstrap; the two-sided 95% "
-                    "interval for the single primary contrast must exclude zero"
+                    "interval must exclude zero with Holm control across the two "
+                    "primary contrasts"
                 ),
                 "required": (
                     "both the practical gain and paired uncertainty criterion must pass"
@@ -251,15 +278,15 @@ def build_preflight(
                 "representative population estimate"
             ),
             "negative_result_rule": (
-                "run and report every frozen confirmatory method; retain excluded "
-                "direct extraction as visible development evidence; never resample "
+                "run and report every frozen confirmatory method; retain the failed "
+                "offset prompt as visible development evidence; never resample "
                 "until a win"
             ),
         },
         "pre_freeze_dependencies": [
             (
-                "approve the five-method disposition, source-only sample and review "
-                "burden, single primary contrast, and success thresholds"
+                "approve the six-method disposition, source-only sample and review "
+                "burden, two primary contrasts, and success thresholds"
             ),
         ],
         "post_freeze_external_dependencies": [
