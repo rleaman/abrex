@@ -61,7 +61,8 @@ def prepare_bundle(
         resolved = load_resolved_config(
             (path,), environment=_portable_config_environment(path)
         )
-        resolver = resolved.component("resolver")
+        resolver_settings = resolver_config_from_resolved(resolved)
+        resolver = resolver_settings.resolver
         records = _records_from_config(resolved)
         job_id = _unique_job_id(
             _slug(
@@ -405,9 +406,13 @@ def _records_from_config(config: ResolvedConfig) -> tuple[Any, ...]:
 
 
 def _resolver_config_text(config: ResolvedConfig) -> str:
-    resolver = config.component("resolver")
+    settings = resolver_config_from_resolved(config)
     payload: dict[str, object] = {
-        "resolver": resolver.model_dump(mode="json"),
+        "resolver": {
+            **settings.resolver.model_dump(mode="json"),
+            "validation_mode": settings.validation_mode,
+            "error_policy": settings.error_policy,
+        },
     }
     if config.runtime is not None:
         payload["runtime"] = config.runtime.model_dump(mode="json", exclude_none=True)
@@ -491,8 +496,12 @@ def _write_launchers(
         root / "run-all.sh",
         "#!/usr/bin/env bash\nset -euo pipefail\n"
         'ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"\n'
-        f'for job in {ids}; do "$ROOT/run-job.sh" "$job"; done\n'
-        '"$ROOT/collect-results.sh"\n',
+        "status=0\n"
+        f"for job in {ids}; do\n"
+        '  if ! "$ROOT/run-job.sh" "$job"; then status=1; fi\n'
+        "done\n"
+        '"$ROOT/collect-results.sh"\n'
+        'exit "$status"\n',
     )
     _write_text(
         root / "collect-results.sh",
@@ -705,6 +714,11 @@ def _write_bundle_guide(root: Path, jobs: tuple[PortableJob, ...]) -> None:
             "bundle are not expected to exist here. Do not copy them or set "
             "`uv_tool`. This bundle includes its own setup inputs and uses "
             "standard-library `venv`; `uv` is not required.\n\n"
+            "If this server already passed `doctor.sh` for an earlier bundle "
+            "with the same pinned runtimes, copy that bundle's `runtime.env` "
+            "into this directory and run `./doctor.sh` first. A complete "
+            "doctor report means setup can be skipped. The file contains "
+            "paths, not credentials.\n\n"
             "Run these commands from this extracted bundle directory on an "
             "internet-connected login node:\n\n"
             "```bash\n"

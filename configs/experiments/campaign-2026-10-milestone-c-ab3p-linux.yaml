@@ -10,6 +10,7 @@ corpus:
     manifest_path: evidence/campaign-2026-10/milestone-c/prediction-input-v1.manifest.json
 resolver:
   type: ab3p
+  error_policy: collect
   params:
     backend: subprocess
     output_format: offset_jsonl

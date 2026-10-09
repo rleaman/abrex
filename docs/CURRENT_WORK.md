@@ -142,11 +142,17 @@ for independent review/adjudication rather than silently changing locked gold.
 Schwartzâ€“Hearst has run locally on all 120 gold-free documents: 57 predictions,
 zero resolver failures, and prediction SHA-256
 `0d511f08fa10db8d8b3a5ad05a7259991a098e96a0233cdafbbbc6f5b5d6441c`.
-The fresh-server Ab3P/PLODv2 archive has bundle ID
-`1bad70d5276022c986d47dc32f4dd1dc1b0a9317b72ffb18291d40467ce42e4f`
-and SHA-256
-`9b3f4fa02c0029bbca03b2ed17cfb24e4a081791abeb6a322d1f0ae10c62f53d`;
-it contains prediction-only inputs and no gold or credentials.
+The first fresh-server Ab3P/PLODv2 attempt verified every runtime prerequisite,
+then Ab3P strictly rejected an inconsistent upstream native offset for `WT` in
+one ASCII passage. The v1 launcher stopped before PLOD and collection. The
+diagnosis is preserved without guessing or repairing the offset. Replacement
+bundle v2 collects document failures, continues both jobs, and always packages
+the result; its bundle ID is
+`a1d57ed9ee18e1fc88ebe85e01ae33dddf3c3b853f32065b0ccf778dba1777be`
+and archive SHA-256 is
+`cc0f20b69b35997c67c6d53fe127963b3bb7aee79e1cf4123d4189296596f3c8`.
+It contains prediction-only inputs and no gold or credentials, and the already
+verified persistent server runtime can be reused by copying v1 `runtime.env`.
 
 The CLP rules-only dry run applies to the one source-declared ABBR section and
 completed as unresolved with zero pairs. The other 23 structural cases are
@@ -174,15 +180,25 @@ costs, and hashes are bound by
 Scoring remains intentionally withheld until independent second review and
 adjudication are locked.
 
-The active Windows host still has no installed Ubuntu distribution. This is a
-host-prerequisite result, not an Ab3P or PLODv2 failure; post-lock execution must
-use the documented fresh Linux server bundle and `setup-runtime.sh` flow. A
-second human reviewer and the Linux server execution are the other unavoidable
-external dependencies; both have tested, prefilled handoffs in `docs/artifacts/`.
+The replacement Linux bundle has now been returned, imported, and validated.
+Ab3P completed the 120-document job with 47 predictions in 23 documents and one
+preserved native-offset execution failure; PLODv2 completed with 93 predictions
+in 54 documents and no failure. The returned archive contains no gold or review
+state. Exact archive, environment, result, and prediction identities are bound
+in `evidence/campaign-2026-10/milestone-c/linux-execution-receipt-v1.json`; the
+human-readable result is
+[`artifacts/campaign-2026-10-milestone-c-linux-result.md`](artifacts/campaign-2026-10-milestone-c-linux-result.md).
+No further Linux action is required.
 
-The repository-wide fast gate passes at this handoff: source-import verification,
-Ruff formatting and lint, strict mypy over 216 source files, and 469 passed tests
-with one external-runtime test skipped.
+The sole unavoidable external dependency is an independent second human review
+of the already prepared 36-passage source-only packet, followed only if needed
+by disagreement adjudication. Scoring remains withheld until those decisions
+are locked. The tested handoff is
+[`artifacts/campaign-2026-10-milestone-c-second-review-guide.md`](artifacts/campaign-2026-10-milestone-c-second-review-guide.md).
+
+The repository-wide fast gate passes after Linux result import: source-import
+verification, Ruff formatting and lint, strict mypy over 218 source files, and
+472 passed tests with one external-runtime test skipped.
 
 ## Evidence to retain
 

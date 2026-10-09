@@ -48,9 +48,30 @@ def test_bundle_is_gold_free_content_addressed_and_has_launchers(
     assert b"PYTHONPATH" in (root / "doctor.sh").read_bytes()
     assert b"ABREX_JOB_DOCTOR_PYTHON" in (root / "doctor.sh").read_bytes()
     assert b"ABREX_JOB_DOCTOR_PYTHON" in (root / "collect-results.sh").read_bytes()
+    run_all = (root / "run-all.sh").read_text(encoding="utf-8")
+    assert 'if ! "$ROOT/run-job.sh" "$job"; then status=1; fi' in run_all
+    assert run_all.index('"$ROOT/collect-results.sh"') < run_all.index('exit "$status"')
     assert manifest.jobs[0].python_executable == "python"
     assert manifest.jobs[0].python_environment.startswith("ABREX_JOB_PYTHON_")
     assert not (root / "setup-runtime.sh").exists()
+
+
+def test_bundle_preserves_resolver_execution_policy(tmp_path: Path) -> None:
+    experiment = tmp_path / "collect.yaml"
+    experiment.write_text(
+        EXPERIMENT.read_text(encoding="utf-8").replace(
+            "resolver:\n  type: toy",
+            "resolver:\n  type: toy\n  error_policy: collect",
+        ),
+        encoding="utf-8",
+    )
+    root = tmp_path / "bundle"
+
+    bundle = prepare_bundle((experiment,), root)
+
+    config = json.loads((root / bundle.jobs[0].config_path).read_text("utf-8"))
+    assert config["resolver"]["error_policy"] == "collect"
+    assert config["resolver"]["validation_mode"] == "strict"
 
 
 def test_job_round_trip_is_resumable_and_import_is_idempotent(tmp_path: Path) -> None:
@@ -166,6 +187,7 @@ def test_external_runtime_bundle_contains_fresh_server_setup(tmp_path: Path) -> 
     assert (root / "runtime-setup/requirements-core.lock").is_file()
     assert (root / "runtime-setup/plod-runtime-requirements.txt").is_file()
     assert "./setup-runtime.sh --all" in guide
+    assert "copy that bundle's `runtime.env`" in guide
     assert "/home/rleaman" not in guide
     assert "setup-runtime.sh" in manifest.files
     assert b'source "$ROOT/runtime.env"' in (root / "doctor.sh").read_bytes()

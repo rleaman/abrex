@@ -199,10 +199,14 @@ def test_native_offset_mapping_rejects_bad_boundaries_and_surface_text() -> None
             document, parse_ab3p_offset_output(json.dumps(boundary))
         )
     mismatch = dict(base, long_form="wrong form")
-    with pytest.raises(Ab3PMappingError, match="does not slice"):
+    with pytest.raises(Ab3PMappingError) as mismatch_error:
         reconstruct_offset_predictions(
             document, parse_ab3p_offset_output(json.dumps(mismatch))
         )
+    message = str(mismatch_error.value)
+    assert "reports byte span [0, 10)" in message
+    assert "containing" in message
+    assert "not the reported form" in message
     with pytest.raises(Ab3PMappingError, match="offsets are missing"):
         reconstruct_offset_predictions(
             document, (ParsedAbbreviation("BB", "β blocker", 1.0),)

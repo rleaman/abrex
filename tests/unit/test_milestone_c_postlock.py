@@ -142,3 +142,21 @@ def test_confirmatory_online_configs_preserve_frozen_limits() -> None:
     assert luna_params["maximum_output_tokens_per_request"] == 8192
     assert luna_params["monetary_cap_usd"] == 0.10
     assert luna_params["retries"] == 0
+
+
+def test_confirmatory_linux_configs_collect_runtime_failures() -> None:
+    environment = {
+        "ABREX_AB3P_MANIFEST": "/runtime/ab3p/manifest.json",
+        "ABREX_AB3P_ROOT": "/runtime/ab3p",
+        "ABREX_PLODV2_CHECKPOINT": "/runtime/plod/best-model.pt",
+    }
+    for name, expected_type in (
+        ("campaign-2026-10-milestone-c-ab3p-linux.yaml", "ab3p"),
+        ("campaign-2026-10-milestone-c-plodv2-linux.yaml", "plodv2_pairing"),
+    ):
+        config = load_resolved_config(
+            (ROOT / "configs/experiments" / name,), environment=environment
+        )
+        resolver = cast(Mapping[str, object], config.model_dump()["resolver"])
+        assert resolver["type"] == expected_type
+        assert resolver["error_policy"] == "collect"

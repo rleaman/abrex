@@ -1,0 +1,41 @@
+{
+  "bundle_id": "1bad70d5276022c986d47dc32f4dd1dc1b0a9317b72ffb18291d40467ce42e4f",
+  "doctor": {
+    "checks": [
+      {
+        "detail": "3.13.14",
+        "name": "python",
+        "status": "available"
+      },
+      {
+        "detail": "embedded source snapshot (f5562b91b98ebcfb05ffa17781f7b983af46dcb6)",
+        "name": "source_commit",
+        "status": "available"
+      },
+      {
+        "detail": "1 configured job(s) initialized",
+        "name": "ab3p",
+        "status": "available"
+      },
+      {
+        "detail": "1 configured job(s) initialized",
+        "name": "plodv2",
+        "status": "available"
+      }
+    ],
+    "complete": true,
+    "schema_version": "job-doctor-v1"
+  },
+  "failure": {
+    "document_id": "milestone-c-60282f673febc655719c",
+    "error_type": "ResolverExecutionError",
+    "message": "Resolver 'ab3p' failed for document 'milestone-c-60282f673febc655719c': Native Ab3P short offset for 'WT' does not slice to the reported form in line 0"
+  },
+  "job_id": "campaign-2026-10-milestone-c-ab3p-linux",
+  "provenance": "User-reported doctor output and final run-all output in the campaign conversation on 2026-10-07; the result ZIP was not created or returned.",
+  "reported_completed_utc": "2026-10-07T19:44:53.238029+00:00",
+  "reported_elapsed_seconds": 17.164498824859038,
+  "schema_version": "campaign-2026-10-milestone-c-linux-failure-receipt-v1",
+  "status": "failed",
+  "superseded_by_bundle_id": "a1d57ed9ee18e1fc88ebe85e01ae33dddf3c3b853f32065b0ccf778dba1777be"
+}

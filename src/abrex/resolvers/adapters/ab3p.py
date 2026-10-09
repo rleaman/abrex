@@ -263,14 +263,24 @@ def reconstruct_offset_predictions(
             form="long",
         )
         if line[short_span.start : short_span.end] != pair.short_form:
+            observed = line[short_span.start : short_span.end]
             raise Ab3PMappingError(
-                f"Native Ab3P short offset for {pair.short_form!r} does not "
-                f"slice to the reported form in line {pair.line_index}"
+                f"Native Ab3P short offset for {pair.short_form!r} reports byte "
+                f"span [{pair.sf_offset}, "
+                f"{pair.sf_offset + len(pair.short_form.encode('utf-8'))}) and "
+                f"maps to character span [{short_span.start}, {short_span.end}) "
+                f"containing {observed!r}, not the reported form, in line "
+                f"{pair.line_index}"
             )
         if line[long_span.start : long_span.end] != pair.long_form:
+            observed = line[long_span.start : long_span.end]
             raise Ab3PMappingError(
-                f"Native Ab3P long offset for {pair.long_form!r} does not "
-                f"slice to the reported form in line {pair.line_index}"
+                f"Native Ab3P long offset for {pair.long_form!r} reports byte "
+                f"span [{pair.lf_offset}, "
+                f"{pair.lf_offset + len(pair.long_form.encode('utf-8'))}) and "
+                f"maps to character span [{long_span.start}, {long_span.end}) "
+                f"containing {observed!r}, not the reported form, in line "
+                f"{pair.line_index}"
             )
         notes = [
             f"native_ab3p_line_index={pair.line_index}",

@@ -1,0 +1,113 @@
+{
+  "bundle_id": "a1d57ed9ee18e1fc88ebe85e01ae33dddf3c3b853f32065b0ccf778dba1777be",
+  "bundle_release_path": "evidence/campaign-2026-10/milestone-c/linux-bundle-release-v2.json",
+  "bundle_release_sha256": "9f7585059cd70b0fa7014ee47988bdd90a5b06df28b93bad9a077e76554067f7",
+  "dataset_fingerprint": "e51d405d832c042d14b43ce5e7dfa02bf3ae23c0b0776d8ea0d4d70b67102018",
+  "doctor": {
+    "bundle_id": "a1d57ed9ee18e1fc88ebe85e01ae33dddf3c3b853f32065b0ccf778dba1777be",
+    "checks": [
+      {
+        "detail": "3.13.14",
+        "name": "python",
+        "status": "available"
+      },
+      {
+        "detail": "embedded source snapshot (7d8163a49c5a634a840a9ed93db558d3c0af6536)",
+        "name": "source_commit",
+        "status": "available"
+      },
+      {
+        "detail": "1 configured job(s) initialized",
+        "name": "ab3p",
+        "status": "available"
+      },
+      {
+        "detail": "1 configured job(s) initialized",
+        "name": "plodv2",
+        "status": "available"
+      }
+    ],
+    "complete": true,
+    "schema_version": "job-doctor-v1"
+  },
+  "documents": 120,
+  "jobs": {
+    "campaign-2026-10-milestone-c-ab3p-linux": {
+      "completed_utc": "2026-10-07T20:53:50.692817+00:00",
+      "elapsed_seconds": 33.133728163084015,
+      "environment": {
+        "packages": {
+          "PyYAML": "6.0.3",
+          "abrex": "unavailable",
+          "pydantic": "2.13.5",
+          "typesafe-sdk": "unavailable"
+        },
+        "platform": "Linux-4.18.0-553.158.1.el8_10.x86_64-x86_64-with-glibc2.28",
+        "python": "3.13.14 (main, Jun 11 2026, 15:29:39) [GCC 8.5.0 20210514 (Red Hat 8.5.0-22)]"
+      },
+      "predictions": {
+        "diagnostics": {
+          "RESOLVER_EXECUTION_FAILED": 1
+        },
+        "failed_documents": [
+          "milestone-c-60282f673febc655719c"
+        ],
+        "nonempty_records": 23,
+        "path": ".artifacts/campaign-2026-10/milestone-c/imported-linux-results-v2/campaign-2026-10-milestone-c-ab3p-linux/predictions.jsonl",
+        "predictions": 47,
+        "records": 120,
+        "sha256": "39beb4ec660f3d83ff63033927201592309733b782b12dacf8dd0019b6db665b"
+      },
+      "resolver": {
+        "key": "ab3p",
+        "version": "3"
+      },
+      "result_id": "08ec279be0a0a01135aa3f5f2604a9c653b7110168df6a218e5e4852a1b4b6a9",
+      "result_path": ".artifacts/campaign-2026-10/milestone-c/imported-linux-results-v2/campaign-2026-10-milestone-c-ab3p-linux/result.json",
+      "result_sha256": "da55a88d7bf46d0aeaea6b76800b1f79cae990805b69d8cc9b0e920c6d82432e",
+      "started_utc": "2026-10-07T20:53:17.562633+00:00",
+      "status": "complete"
+    },
+    "campaign-2026-10-milestone-c-plodv2-pairing-linux": {
+      "completed_utc": "2026-10-07T20:57:46.548457+00:00",
+      "elapsed_seconds": 234.9177837271709,
+      "environment": {
+        "packages": {
+          "PyYAML": "6.0.3",
+          "abrex": "unavailable",
+          "pydantic": "2.13.5",
+          "typesafe-sdk": "unavailable"
+        },
+        "platform": "Linux-4.18.0-553.158.1.el8_10.x86_64-x86_64-with-glibc2.28",
+        "python": "3.13.14 (main, Jun 11 2026, 15:29:39) [GCC 8.5.0 20210514 (Red Hat 8.5.0-22)]"
+      },
+      "predictions": {
+        "diagnostics": {},
+        "failed_documents": [],
+        "nonempty_records": 54,
+        "path": ".artifacts/campaign-2026-10/milestone-c/imported-linux-results-v2/campaign-2026-10-milestone-c-plodv2-pairing-linux/predictions.jsonl",
+        "predictions": 93,
+        "records": 120,
+        "sha256": "ccaadc122023fc1bd37ebbdd88ffcd6a80a26b38992c4f5c2ea101eb3b34daac"
+      },
+      "resolver": {
+        "key": "plodv2_pairing",
+        "version": "plodv2-pairing-v1"
+      },
+      "result_id": "a466a39e514306012341faee3e8df6b5e298f44a3736f79dbb7c8b0f542fb882",
+      "result_path": ".artifacts/campaign-2026-10/milestone-c/imported-linux-results-v2/campaign-2026-10-milestone-c-plodv2-pairing-linux/result.json",
+      "result_sha256": "3ddb6fcd01f3929346e4525b03d3d5f63b892edac670133527745312b7b66c30",
+      "started_utc": "2026-10-07T20:53:51.634155+00:00",
+      "status": "complete"
+    }
+  },
+  "prediction_scoring_status": "withheld_pending_second_review_and_adjudication",
+  "returned_archive": {
+    "gold_or_review_files": 0,
+    "members": 7,
+    "path": ".artifacts/campaign-2026-10/milestone-c/abrex-results-a1d57ed9ee18e1fc88ebe85e01ae33dddf3c3b853f32065b0ccf778dba1777be.zip",
+    "sha256": "740c02ac01f8a40165a636a0b011feafd36922a6230a5bfa3bf82539a560b565"
+  },
+  "schema_version": "campaign-2026-10-milestone-c-linux-execution-v1",
+  "status": "imported_and_validated"
+}
